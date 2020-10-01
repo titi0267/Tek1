@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2020
-** B-CPE-100-STG-1-1-cpoolday03-timothe.coniel
+** B-CPE-100-STG-1-1-cpoolday04-timothe.coniel
 ** File description:
 ** my_strlen
 */
