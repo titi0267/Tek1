@@ -4,7 +4,6 @@
 ** File description:
 ** my_putstr
 */
-#include <unitstd.h>
 
 int my_putstr(char const *str)
 {
