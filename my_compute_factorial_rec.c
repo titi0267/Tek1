@@ -8,8 +8,6 @@
 int  my_compute_factorial_rec(int nb)
 {
     int result;
-    int end_nb = 1;
-    int b = 1;
 
     if (nb == 0) {
         return (1);
