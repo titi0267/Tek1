@@ -12,7 +12,7 @@ int my_compute_factorial_it(int nb)
 
     if (nb == 1 || nb == 0) {
         b = 1;
-    } else if (nb > 2147483648 || nb < 0) {
+    } else if (nb < 0 || nb > 16) {
         b = 0;
     } else {
         while (end_nb != nb + 1) {
@@ -21,4 +21,12 @@ int my_compute_factorial_it(int nb)
         }
     }
     return (b);
+}
+
+int main(void)
+{
+    int res;
+
+    res = my_compute_factorial_it(16);
+    printf("%d\n", res);
 }

@@ -13,10 +13,18 @@ int  my_compute_factorial_rec(int nb)
 
     if (nb == 0) {
         return (1);
-    } else if (nb < 0 || nb > 2147483648) {
+    } else if (nb < 0 || nb > 16) {
         return (0);
     } else {
         result = nb * my_compute_factorial_rec(nb - 1);
     }
     return (result);
+}
+
+int main(void)
+{
+    int res;
+
+    res = my_compute_factorial_rec(16);
+    printf("%d\n", res);
 }
