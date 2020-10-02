@@ -22,10 +22,10 @@ char *my_evil_str(char *str)
 
     while (a < b) {
         c = str[a];
-        str[a] = b;
+        str[a] = str[b];
         str[b] = c;
-        a++;
-        b--;
+        a = a + 1;
+        b = b - 1;
     }
     return (str);
 }
