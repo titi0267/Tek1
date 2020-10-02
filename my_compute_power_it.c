@@ -18,7 +18,7 @@ int my_compute_power_it(int nb, int p)
         while (p != a) {
             result = result * nb;
             a ++;
-        }     
+        }
     }
     return (result);
 }
