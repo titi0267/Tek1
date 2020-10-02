@@ -7,14 +7,13 @@
 
 int get_strlen(char const *str)
 {
-        int carac = 0;
+    int carac = 0;
 
     while (str[carac] != '\0')
-    {
         carac++;
-    }
-    
+    return (carac);
 }
+
 char *my_evil_str(char *str)
 {
     int c;

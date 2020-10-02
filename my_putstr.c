@@ -5,11 +5,6 @@
 ** my_putstr
 */
 
-void my_putchar(char c)
-{
-    write(1, &c, 1);
-}
-
 int my_putstr(char const *str)
 {
     char carac;
@@ -20,5 +15,4 @@ int my_putstr(char const *str)
         my_putchar(str[carac]);
         carac++;
     }
-
 }
