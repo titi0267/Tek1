@@ -22,11 +22,3 @@ int my_compute_factorial_it(int nb)
     }
     return (b);
 }
-
-int main(void)
-{
-    int res;
-
-    res = my_compute_factorial_it(16);
-    printf("%d\n", res);
-}
