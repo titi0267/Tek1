@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** B-CPE-100-STG-1-1-cpoolday04-timothe.coniel
+** B-CPE-100-STG-1-1-cpoolday05-timothe.coniel
 ** File description:
-** my_swap
+** my_computer_factorial_it
 */
 
 int my_compute_factorial_it(int nb)
