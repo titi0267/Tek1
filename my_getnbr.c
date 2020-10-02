@@ -5,26 +5,52 @@
 ** my_getnbr
 */
 
-int my_getnbr(char *str)
+void check_neg(char prev_char, int *neg)
 {
-  int a;
-  int b;
+    if (prev_char == '-')
+        *neg = 1;
+}
 
-  a = 0;
-  b = 0;
-  if (str[0] && str[0] == '-')
-    a++;
-  while (str[a])
-    {
-      if ((str[a] < '0' || str[a] > '9'))
-    return (0);
-      b = b + str[a] - 48;
-      b = b * 10;
-      a++;
+void check_still_nb(int prev_char, int act_char, int *still_nb)
+{
+    if (prev_char >= '0' && prev_char <= '9') {
+        if (act_char < '0' || act_char > '9') {
+            *still_nb = 0;
+        }
     }
-  b = b / 10;
-  if (str[0] == '-')
-    return (-1 * b);
-  else
-    return (b);
+}
+
+void test_validity(long *nb, int *final_nb, int neg)
+{
+    if (nb > 2147483647 && *neg == 0) {
+        final_nb = 0;
+    } else if (nb > 2147483648 && *neg == 1) {
+        *final_nb = 0;
+    } else {
+        *final_nb = nb;
+    }
+    if (neg == 1 && *final_nb != 0) {
+        *final_nb *= -1;
+    }
+}
+
+int my_getnbr(char const *str)
+{
+    int neg = 0;
+    long int nb = 0;
+    int final_nb;
+    int i = 0;
+    int still_nb = 1;
+
+    while (str[i] != '\0') {
+        if (48 <= str[i] && str[i] <= 57 && still_nb == 1) {
+            nb *= 10;
+            nb += (str[i] - '0');
+            check_neg(str[i-1], &neg);
+        }
+        check_still_nb(str[i - 1], str[i], &still_nb);
+        i ++;
+    }
+    test_validity(&nb, &final_nb, &neg);
+    return (final_nb);
 }
