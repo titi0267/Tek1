@@ -20,11 +20,3 @@ int  my_compute_factorial_rec(int nb)
     }
     return (result);
 }
-
-int main(void)
-{
-    int res;
-
-    res = my_compute_factorial_rec(10);
-    printf("%d\n", res);
-}
