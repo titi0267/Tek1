@@ -11,14 +11,19 @@ int my_compute_factorial_it(int nb)
     int b = 1;
 
     if (nb == 1 || nb == 0) {
-        b = 1;
-    } else if (nb < 0 || nb > 13) {
-        b = 0;
+        return (1);
+    } else if (nb < 0 || nb >= 13) {
+        return (0);
     } else {
         while (end_nb != nb + 1) {
             b = b * end_nb;
             end_nb++;
         }
     }
-    return (b);
+    return (nb);
+}
+
+int main(void)
+{
+
 }
