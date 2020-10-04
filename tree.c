@@ -4,6 +4,7 @@
 ** File description:
 ** 
 */
+
 void print_leaves(int end_space, int end_stars)
 {
     for (int a = 0; a <= end_space; a = a + 1)
@@ -43,8 +44,6 @@ void trunc(int length, int width)
     int end_space;
     int end_trunk = width;
 
-    if (end_trunk % 2 == 0)
-        end_trunk = end_trunk + 1;
     end_space = length - end_trunk / 2;
     for (int a = 0; a != width; a = a + 1)
         print_trunc(end_space, end_trunk);
