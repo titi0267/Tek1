@@ -12,7 +12,7 @@ int my_compute_factorial_it(int nb)
 
     if (nb == 1 || nb == 0) {
         return (1);
-    } else if (nb < 0 || nb > 13) {
+    } else if (nb < 0 || nb >= 13) {
         return (0);
     } else {
         while (end_nb <= nb) {
