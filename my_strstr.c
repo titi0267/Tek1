@@ -19,7 +19,6 @@ int my_strncmp(char *str, char const *to_find, int a)
 {
     int b = 0;
     int nb = my_strlen(to_find);
-    int res;
 
     while (str[a] != '\0' && to_find[b] != '\0') {
         if (str[a] == to_find[b]) {
