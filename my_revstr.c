@@ -16,7 +16,7 @@ int get_strlen(char const *str)
 
 char *my_revstr(char *str)
 {
-    int c;
+    char c;
     int a = 0;
     int b = get_strlen(str) - 1;
 
