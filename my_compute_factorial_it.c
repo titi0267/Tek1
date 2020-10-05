@@ -15,9 +15,9 @@ int my_compute_factorial_it(int nb)
     } else if (nb < 0 || nb > 13) {
         return (0);
     } else {
-        while (end_nb != nb + 1) {
+        while (end_nb <= nb) {
             b = b * end_nb;
-            end_nb++;
+            end_nb += 1;
         }
     }
     return (b);
