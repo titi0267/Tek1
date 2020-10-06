@@ -5,7 +5,7 @@
 ** my_strncpy
 */
 
-int my_strlen2(char *src)
+int my_strlen3(char *src)
 {
     int carac = 0;
 
@@ -19,7 +19,7 @@ int my_strlen2(char *src)
 char *my_strncpy(char *dest, char const *src, int n)
 {
     int i = 0;
-    int carac = my_strlen2(src);
+    int carac = my_strlen3(src);
 
     if (n > carac) {
         for (i = 0; src[i] != '\0' && i < n; i += 1) {
