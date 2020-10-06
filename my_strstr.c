@@ -4,7 +4,6 @@
 ** File description:
 ** 
 */
-#include <string.h>
 
 int my_strlen3(char const *str)
 {
