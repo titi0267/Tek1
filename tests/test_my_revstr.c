@@ -4,12 +4,11 @@
 ** File description:
 ** test_my_revstr
 */
-
-#include  <criterion/criterion.h>
+#include <criterion/criterion.h>
 
 Test(my_revstr , copy_five_characters_in_empty_array)
 {
-    char  dest[] = "Hello";
+    char dest[] = "Hello";
     my_revstr(dest);
     cr_assert(dest != "Hello");
 }

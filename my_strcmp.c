@@ -7,14 +7,18 @@
 
 int my_strcmp(char *s1, char const *s2)
 {
-    int a;
+    int a = 0;
+    int b;
     int res;
 
-    for (a = 0; s1[a] == s2[a] && s1[a] != '\0' && s2[a] != '\0'; a += 1) {
-        if (s1[a] < s2[a] || s1[a] > s2[a])
-            res = 0;
+    for (; s1[a] == s2[b] && s1[a] != '\0' && s2[b] != '\0'; a += 1) {
+        b +=1;
     }
-    if (s1[a] == s2[a])
+    if (s1[a] < s2[b])
         res = 1;
+    if (s1[a] > s2[b])
+        res = -1;
+    if (s1[a] == s2[b])
+        res = 0;
     return(res);
 }
