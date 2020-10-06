@@ -38,6 +38,8 @@ char *my_strstr(char *str , char  const *to_find)
     int b = 0;
     int res = 0;
 
+        if (to_find[0] == '\0')
+            return (str);
     for (; str[a] != '\0'; a += 1) {
         if (str[a] == to_find[b]) {
             res = my_strncmp1(str, to_find, a);
