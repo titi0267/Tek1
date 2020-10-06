@@ -5,7 +5,7 @@
 ** 
 */
 
-int my_strlen(char const *str)
+/*int my_strlen(char const *str)
 {
     int carac = 0;
 
@@ -14,7 +14,7 @@ int my_strlen(char const *str)
     return (carac);
 }
 
-int strcmp(char const *s1, char const *s2)
+int my_strstr(char const *s1, char const *s2)
 {
     int a = 0;
     int b = 0;
@@ -26,13 +26,15 @@ int strcmp(char const *s1, char const *s2)
             b += 1;
         }
         if (b == nb)
-            return (1);
-        else if (s1[a] > s2[b])
             return (0);
-    }
+        else if (s1[a] > s2[b])
+            return (1);
+        else
+            return (-1);
+        }
 }
 
-char *my_strstr(char *s1 , char  const *s2)
+char *my_strcmp(char *s1 , char  const *s2)
 {
     int a = 0;
     int b = 0;
@@ -40,10 +42,27 @@ char *my_strstr(char *s1 , char  const *s2)
 
     for (; s1[a] != '\0'; a += 1) {
         if (s1[a] == s2[b]) {
-            res = strcmp(s1, s2);
+            res = my_strstr(s1, s2);
+        
         }
-        if (res == 1)
-            return (&s1[a]);
+        if (res == 1) {
+            return (1);
+        else if (res == 0) {
+        }
+            return (0);
+        }
+        else {
+            return (-1);
+            printf("IN");
+        }
     }
-    return (0);
+    return (res);
 }
+
+int main(void)
+{
+    char s1[] = "printf de la string interdit";
+    char s2[] = "lolo";
+
+    printf(my_strcmp(s1, s2));
+}*/
