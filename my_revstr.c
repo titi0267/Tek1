@@ -5,7 +5,7 @@
 ** 
 */
 
-int get_strlen(char const *str)
+int get_strlen2(char const *str)
 {
     int carac = 0;
 
@@ -18,7 +18,7 @@ char *my_revstr(char *str)
 {
     char c;
     int a = 0;
-    int b = get_strlen(str) - 1;
+    int b = get_strlen2(str) - 1;
 
     while (a < b) {
         c = str[a];

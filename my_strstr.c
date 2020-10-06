@@ -6,7 +6,7 @@
 */
 #include <string.h>
 
-int my_strlen2(char const *str)
+int my_strlen3(char const *str)
 {
     int carac = 0;
 
@@ -15,10 +15,10 @@ int my_strlen2(char const *str)
     return (carac);
 }
 
-int my_strncmp(char *str, char const *to_find, int a)
+int my_strncmp1(char *str, char const *to_find, int a)
 {
     int b = 0;
-    int nb = my_strlen2(to_find);
+    int nb = my_strlen3(to_find);
 
     while (str[a] != '\0' && to_find[b] != '\0') {
         if (str[a] == to_find[b]) {
@@ -40,7 +40,7 @@ char *my_strstr(char *str , char  const *to_find)
 
     for (; str[a] != '\0'; a += 1) {
         if (str[a] == to_find[b]) {
-            res = my_strncmp(str, to_find, a);
+            res = my_strncmp1(str, to_find, a);
         }
         if (res == 1)
             return (&str[a]);
