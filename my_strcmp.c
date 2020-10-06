@@ -16,9 +16,9 @@ int my_strcmp(char *s1, char const *s2)
     }
     if (s1[a] < s2[b])
         res = 1;
-    if (s1[a] > s2[b])
+    else if (s1[a] > s2[b])
         res = -1;
-    if (s1[a] == s2[b])
+    else (s1[a] == s2[b])
         res = 0;
     return(res);
 }
