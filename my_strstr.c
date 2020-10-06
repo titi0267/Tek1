@@ -6,7 +6,7 @@
 */
 #include <string.h>
 
-int my_strlen(char const *str)
+int my_strlen2(char const *str)
 {
     int carac = 0;
 
@@ -18,7 +18,7 @@ int my_strlen(char const *str)
 int my_strncmp(char *str, char const *to_find, int a)
 {
     int b = 0;
-    int nb = my_strlen(to_find);
+    int nb = my_strlen2(to_find);
 
     while (str[a] != '\0' && to_find[b] != '\0') {
         if (str[a] == to_find[b]) {
@@ -27,7 +27,7 @@ int my_strncmp(char *str, char const *to_find, int a)
         }
         if (b == nb)
             return (1);
-        else if (str[a] > to_find[b])
+        else if (str[a] < to_find[b])
             return (0);
     }
 }
@@ -45,5 +45,5 @@ char *my_strstr(char *str , char  const *to_find)
         if (res == 1)
             return (&str[a]);
     }
-    return (NULL);
+        return (0);
 }
