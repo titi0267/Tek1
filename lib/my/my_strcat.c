@@ -4,8 +4,26 @@
 ** File description:
 ** 
 */
+#include "libmy.h"
 
  char *my_strcat(char *dest, char const *src)
  {
-     return (0);
+    int i = 0;
+    int j;
+
+    j = my_strlen(dest);
+    for (i = 0; src[j] != '\0'; j += 1) {
+        dest[i] = src[j];
+        i += 1
+    }
+    dest[i] = '\0';
+    return (dest);
  }
+
+int main(void)
+{
+    char src[] = "Seront perdu";
+    char dest[] = "Seront non perdu pendu";
+
+    printf("%s\n", my_strcat(dest, src));
+}
