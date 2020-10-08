@@ -4,9 +4,7 @@
 ** File description:
 ** 
 */
-
 int my_putstr(char const *str);
-int my_strlen(char const *str);
 
 char *concat_params(int argc , char **argv)
 {
@@ -14,7 +12,6 @@ char *concat_params(int argc , char **argv)
     int x = 0;
     int j = 0;
     char *str;
-    //int c = my_strlen(str);
 
     str = malloc(sizeof(char) * (argc + 1));
     for (i = 0; i < argc; i+= 1) {
