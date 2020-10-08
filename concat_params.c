@@ -4,7 +4,6 @@
 ** File description:
 ** 
 */
-#include <stdlib.h>
 
 int my_putstr(char const *str);
 int my_strlen(char const *str);
@@ -24,15 +23,9 @@ char *concat_params(int argc , char **argv)
             x = x + 1;
         }
         str[x] = '\n';
-       
         j = 0;
+        x++;
     }
-    str[x] = '\0'; 
+    str[x - 1] = '\0';
     return (str);
-}
-
-int  main(int ac , char **av)
-{
-    my_putstr(concat_params(ac, av));
-    return (0);
 }
