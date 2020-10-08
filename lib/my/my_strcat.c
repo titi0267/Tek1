@@ -13,7 +13,7 @@
     j = my_strlen(dest);
     for (i = 0; src[j] != '\0'; j += 1) {
         dest[i] = src[j];
-        i += 1
+        i += 1;
     }
     dest[i] = '\0';
     return (dest);
