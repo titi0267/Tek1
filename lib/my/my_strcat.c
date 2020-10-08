@@ -4,7 +4,6 @@
 ** File description:
 ** 
 */
-#include "libmy.h"
 
  char *my_strcat(char *dest, char const *src)
  {
@@ -19,11 +18,3 @@
     dest[i] = '\0';
     return (dest);
  }
-
-int main(void)
-{
-    char src[] = "Seront perdu";
-    char dest[] = "Seront non perdu pendu";
-
-    printf("%s\n", my_strcat(dest, src));
-}
