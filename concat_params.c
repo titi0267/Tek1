@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** concat_params
 ** File description:
-** 
+** concat_params
 */
 
 int my_putstr(char const *str);
