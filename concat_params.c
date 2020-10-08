@@ -22,12 +22,12 @@ char *concat_params(int argc , char **argv)
         for (j = 0; argv[i][j] != '\0'; j += 1) {
             str[x] = argv[i][j];
             x = x + 1;
-            //str[x] = '\n';
         }
-        str[i] = '\n';
-        str[x] = '\0';
+        str[x] = '\n';
+       
         j = 0;
     }
+    str[x] = '\0'; 
     return (str);
 }
 
