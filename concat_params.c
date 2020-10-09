@@ -4,10 +4,11 @@
 ** File description:
 ** concat_params
 */
+#include <stdlib.h>
 
 int my_putstr(char const *str);
 
-char *concat_params(int argc , char **argv)
+char *concat_params(int argc, char **argv)
 {
     int i = 0;
     int x = 0;
