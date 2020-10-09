@@ -7,7 +7,7 @@
 
 int my_putstr(char const *str)
 {
-    char carac;
+    int carac;
 
     carac = 0;
     while (str[carac] != '\0' ) {
