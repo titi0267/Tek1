@@ -14,9 +14,8 @@ char *my_strcapitalize(char *str)
             str[i] -= 32;
             temp = 1;
         }
-        if (str[i] < 65 || 97 > str[i] > 90 || str[i] > 122) {
+        if (str[i] < 65 || 97 > str[i] > 90 || str[i] > 122)
             temp = 0;
-        }
     }
     return (str);
 }

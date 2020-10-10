@@ -4,7 +4,6 @@
 ** File description:
 ** concat_params
 */
-
 #include <stdlib.h>
 
 char *concat_params(int argc, char **argv)

@@ -11,8 +11,7 @@ int my_compute_square_root(int nb)
 
     if (nb <= 0)
         return (0);
-    for (int compt = 1; compt <= nb; compt++)
-    {
+    for (int compt = 1; compt <= nb; compt++) {
         square = compt * compt;
         if (square > nb)
             return (0);

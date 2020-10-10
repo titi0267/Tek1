@@ -4,7 +4,6 @@
 ** File description:
 ** my_str_to_word_array
 */
-
 #include <stdlib.h>
 
 int is_alphanum(char c)

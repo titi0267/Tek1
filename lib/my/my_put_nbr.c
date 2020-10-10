@@ -18,9 +18,7 @@ int neg(int nb)
 int break_number(int n, int m)
 {
     while (n > m)
-    {
         n = n / 10;
-    }
     return (n%10);
 }
 
@@ -29,8 +27,7 @@ int my_put_nbr(int nb)
     long m = 10;
 
     nb = neg(nb);
-    while (m < nb)
-    {
+    while (m < nb) {
         my_putchar(break_number(nb, m) + 48);
         m = m * 10;
     }
