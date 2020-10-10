@@ -30,7 +30,10 @@ int display_count(char *str, char c)
     my_putchar(':');
     my_put_nbr(find_char(str, c, c2));
     my_putchar(' ');
-    my_putstr(find_frequency(str, c));
+    my_putchar('(');
+    print_float("%.2f",find_frequency(str, c));
+    my_putchar('%');
+    my_putchar(')');
     my_putchar('\n');
     return (0);
 }
@@ -38,7 +41,6 @@ int display_count(char *str, char c)
 int main (int ac, char **av)
 {
     char *str = av[1];
-    char c = av[2][0];
 
     for(int i = 2; i < ac; i += 1) {
         if (display_count(str, av[i][0]) == 84) {

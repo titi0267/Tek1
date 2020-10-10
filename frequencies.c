@@ -14,26 +14,7 @@ int is_alpha (char c)
     return (0);
 }
 
-char *calc_frequency(int length, int count_c)
-{
-    int freq_int = count_c * 100 / length;
-    int freq_float = count_c * 100 % length;
-    freq_float = freq_float * 100 / length;
-    char *freq = malloc(sizeof(char) * 9);
-
-    freq[0] = '(';
-    freq[1] = (freq_int / 10) + 48;
-    freq[2] = (freq_int % 10) + 48;
-    freq[3] = '.';
-    freq[4] = (freq_float / 10) + 48;
-    freq[5] = (freq_float % 10) + 48;
-    freq[6] = '%';
-    freq[7] = ')';
-    freq[8] = '\0';
-    return (freq);
-}
-
-char *find_frequency(char *str, char c)
+float find_frequency(char *str, char c)
 {
     int count_c = 0;
     int length = 0;
@@ -49,5 +30,5 @@ char *find_frequency(char *str, char c)
         if (is_alpha(str[i]) == 1)
             length += 1;
     }
-    return (calc_frequency(length, count_c));
+    return ((float)count_c * 100 / (float)length);
 }
