@@ -29,6 +29,8 @@ int display_count(char *str, char c)
     my_putchar(c);
     my_putchar(':');
     my_put_nbr(find_char(str, c, c2));
+    my_putchar(' ');
+    my_putstr(find_frequency(str, c));
     my_putchar('\n');
     return (0);
 }
