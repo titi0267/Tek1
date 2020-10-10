@@ -24,9 +24,8 @@ int display_count(char *str, char c)
         c2 = c + 32;
     else if (c >= 'a' && c <= 'z')
         c2 = c - 32;
-    else {
+    else
         return (84);
-    }
     my_putchar(c);
     my_putchar(':');
     my_put_nbr(find_char(str, c, c2));
@@ -39,10 +38,12 @@ int main (int ac, char **av)
     char *str = av[1];
     char c = av[2][0];
 
-    if (display_count(str, c) == 84)
-        write(2, "Not a char", 10);
-        my_putchar('\n');
-        return (84);
+    for(int i = 2; i < ac; i += 1) {
+        if (display_count(str, av[i][0]) == 84) {
+            write(2, "Not a char", 10);
+            my_putchar('\n');
+            return (84);
+        }
+    }
     return (0);
-
 }
