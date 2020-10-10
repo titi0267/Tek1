@@ -19,6 +19,7 @@ float find_frequency(char *str, char c)
     int count_c = 0;
     int length = 0;
     char c2;
+    float result;
 
     if (c >= 'A' && c <= 'Z')
         c2 = c + 32;
@@ -30,5 +31,6 @@ float find_frequency(char *str, char c)
         if (is_alpha(str[i]) == 1)
             length += 1;
     }
-    return ((float)count_c * 100 / (float)length);
+    result = (float)count_c * 100 / (float)length;
+    return (result);
 }

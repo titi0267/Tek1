@@ -31,7 +31,7 @@ int display_count(char *str, char c)
     my_put_nbr(find_char(str, c, c2));
     my_putchar(' ');
     my_putchar('(');
-    print_float("%.2f",find_frequency(str, c));
+    print_float(find_frequency(str, c));
     my_putchar('%');
     my_putchar(')');
     my_putchar('\n');
@@ -52,5 +52,6 @@ int main (int ac, char **av)
     }
     my_putstr("=> ");
     my_putstr(detect_language(str));
+    my_putchar('\n');
     return (0);
 }
