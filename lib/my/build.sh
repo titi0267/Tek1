@@ -40,5 +40,6 @@ gcc -c my_strupcase.c
 gcc -c my_swap.c
 gcc -c my_strcat.c
 gcc -c my_strncat.c
+gcc -c print_float.c
 ar rc libmy.a *.o
 rm *.o
