@@ -31,7 +31,11 @@ int display_count(char *str, char c)
     my_put_nbr(find_char(str, c, c2));
     my_putchar(' ');
     my_putchar('(');
+<<<<<<< HEAD
     print_float(find_frequency(str, c));
+=======
+    print_float("%f.2f", find_frequency(str, c));
+>>>>>>> 124eba529080d72be449a990a2e47864be9617ed
     my_putchar('%');
     my_putchar(')');
     my_putchar('\n');
@@ -43,7 +47,7 @@ int main (int ac, char **av)
     char *str = av[1];
     int lang;
 
-    for(int i = 2; i < ac; i += 1) {
+    for (int i = 2; i < ac; i += 1) {
         if (display_count(str, av[i][0]) == 84) {
             write(2, "Not a char", 10);
             my_putchar('\n');
