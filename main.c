@@ -41,6 +41,7 @@ int display_count(char *str, char c)
 int main (int ac, char **av)
 {
     char *str = av[1];
+    int lang;
 
     for(int i = 2; i < ac; i += 1) {
         if (display_count(str, av[i][0]) == 84) {
@@ -49,5 +50,7 @@ int main (int ac, char **av)
             return (84);
         }
     }
+    my_putstr("=> ");
+    my_putstr(detect_language(str));
     return (0);
 }
