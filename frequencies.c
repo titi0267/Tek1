@@ -5,7 +5,7 @@
 ** frequencies
 */
 
-int is_alpha (char c)
+int is_alpha(char c)
 {
     if (c >= 'A' && c <= 'Z')
         return (1);
