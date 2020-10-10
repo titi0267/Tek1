@@ -55,7 +55,6 @@ char **my_str_to_word_array(char const *str)
     int i = 0;
 
     count = count_word(str);
-    printf("%d\n", count);
     dest = malloc(sizeof(char *) * (count + 1));
     malloc_words(str, dest, count);
     for (int j = 0; j < count; j++) {
