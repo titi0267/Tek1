@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** my_revstr
 ** File description:
-** 
+** my_revstr
 */
 
 int get_strlen2(char const *str)

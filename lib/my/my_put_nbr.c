@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** my_print_revalpha
 ** File description:
-** 
+** my_print_revalpha
 */
 
 int	my_putstr(char *str){

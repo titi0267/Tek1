@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** my_strlowcase
 ** File description:
-** 
+** my_strlowcase
 */
 
 

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** my_strstr
 ** File description:
-** 
+** my_strstr
 */
 
 int my_strlen3(char const *str)
