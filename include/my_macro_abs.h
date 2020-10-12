@@ -4,7 +4,7 @@
 ** File description:
 ** my_macro_abs
 */
-#ifndef
+#ifndef ABS
 #define ABS
 #define ABS(value) ((value < 0) ? (value * -1) : (value))
-#endif
+#endif /* !ABS */
