@@ -5,8 +5,8 @@
 ** my
 */
 
-#ifndef MY_H_
-#define MY_H_
+#ifndef MY_H
+#define MY_H
 
 void my_putchar(char);
 int my_isneg(int);
@@ -39,4 +39,4 @@ int my_showmem(char const *,int size);
 char *my_strcat(char *, char const *);
 char *my_strncat(char *, char const *, int);
 
-#endif /* !MY_H_ */
+#endif /* !MY_H */
