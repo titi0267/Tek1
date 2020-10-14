@@ -43,7 +43,7 @@ NAME	=	libmy.a
 
 all:	$(OBJ)
 		ar	rc	$(NAME)		$(OBJ)
-		cp	$(NAME).a	../
+		cp	$(NAME)	../../
 		mkdir	../../include
 		cp	my.h	../../include/my.h
 		cp	mylist.h	../../include/mylist.h
