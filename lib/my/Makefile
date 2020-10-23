@@ -35,7 +35,8 @@ SRC	=	my_compute_power_rec.c		\
 		my_strncpy.c			\
 		my_strstr.c			\
 		my_strupcase.c			\
-		my_swap.c
+		my_swap.c			\
+		my_number.c
 
 OBJ	=	$(SRC:.c=.o)
 
