@@ -6,13 +6,33 @@
 */
 #include "include/my.h"
 
+int find_plus(char **str_ptr)
+{
+    int i = 0;
+    int x = 0;
+
+    for (; str_ptr[1][i] != '\0'; i += 1) {
+        if (str_ptr[1][i] == '+')
+            x = 1;
+        else if (str_ptr[1][i] == '*')
+            x = 2;
+        else if (str_ptr[1][i] == '/')
+            x = 3;
+        else if  (str_ptr[1][i] == '-')
+            x = 4;
+        else if  (str_ptr[1][i] == '%')
+            x = 5;
+    }
+    return (x);
+}
+
 int summands(char **str_ptr)
 {
     int res = 0;
     int i = 0;
 
     for (; str_ptr[1][i] >= 48 && str_ptr[1][i] <= 57; i += 1);
-    if (str_ptr[1][i] == '+')
+    if (str_ptr[1][i] == '+' || str_ptr[1][i] == '*' || str_ptr[1][i] == '/' || str_ptr[1][i] == '-' || str_ptr[1][i] == '%')
         i += 1;
     for (; str_ptr[1][i] >= 48 && str_ptr[1][i] <= 57; i += 1) {
         res = res + str_ptr[1][i] - 48;
@@ -28,7 +48,16 @@ int sum(char **str_ptr)
     int res2 = summands(str_ptr);
     int result = 0;
 
-    result = res1 + res2;
+    if (find_plus(str_ptr) == 1)
+        result = res1 + res2;
+    else if (find_plus(str_ptr) == 2)
+        result = res1 * res2;
+    else if (find_plus(str_ptr) == 3)
+        result = res1 / res2;
+    else if (find_plus(str_ptr) == 4)
+        result = res1 - res2;
+    else if (find_plus(str_ptr) == 5)
+        result = res1 % res2;
     return (result);
 }
 
