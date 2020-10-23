@@ -38,5 +38,7 @@ int my_showstr(char const *);
 int my_showmem(char const *,int size);
 char *my_strcat(char *, char const *);
 char *my_strncat(char *, char const *, int);
+int number(char **str_ptr);
+
 
 #endif /* MY_H_ */
