@@ -99,6 +99,7 @@ int main(int ac, char **av)
     char *buff = malloc(sizeof(char) * buff_size);
     int offset = 0;
     int len;
+
     while ((len = read(0, buff + offset, buff_size - offset)) > 0) {
         offset = offset + len;
     }
