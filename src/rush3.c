@@ -76,7 +76,7 @@ void detectOthers(infin_number_t *info, char *buff)
     }
 }
 
-void rush3(char *buff)
+int rush3(char *buff)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
     info->temp = 0;
@@ -88,25 +88,32 @@ void rush3(char *buff)
     info->fourth = 0;
     info->fifth = 0;
 
+    if (buff == "Invalid size\n") {
+        return (84);
+    }
     detectFirstChar(buff[0], info);
     detectOthers(info, buff);
     display_result(info);
+    return (0);
 }
 
 int main(int ac, char **av)
 {
-    int buff_size = 2147483647;
+    int buff_size = 2147483646;
     char *buff = malloc(sizeof(char) * buff_size);
     int offset = 0;
     int len;
-
-    while ((len = read(0, buff + offset, buff_size - offset)) > 0) {
+    int error;
+    while ((len = read(0, buff + offset, buff_size - offset)) > 0)
         offset = offset + len;
-    }
     buff[offset] = '\0';
     if (len < 0)
          return (84);
-    rush3(buff);
-    my_putchar('\n');
-    return (0);
+    error = rush3(buff);
+    if (0 == error) {
+        my_putchar('\n');
+        return (0);
+    }
+    if (84 == error)
+        return (84);
 }

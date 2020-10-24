@@ -25,7 +25,7 @@ typedef struct infin_number
     int third;
     int fourth;
     int fifth;
-
+    int error;
 } infin_number_t;
 
 #endif /* !MY_STRUCT_H_ */
