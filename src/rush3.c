@@ -39,7 +39,6 @@ int display_special(infin_number_t *info)
 
 int display_result(infin_number_t *info)
 {
-    my_put_nbr(info->first);
     if (info->first == 3)
         info->str = "[rush1-1] ";
     if (info->second == 3)
@@ -96,8 +95,6 @@ void rush3(char *buff)
     detectFirstChar(buff[0], info);
     detectOthers(info, buff);
     display_result(info);
-    my_put_nbr(info->length);
-    my_put_nbr(info->height);
 }
 
 int main(int ac, char **av)
