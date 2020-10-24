@@ -70,8 +70,8 @@ void detectOthers(infin_number_t *info, char *buff)
         }
         if (buff[i] == '\n')
             info->height++;
-        if (buff[i] == '\0')
-            detectLastChar(buff[i - 2], info);
+        if (buff[i + 1] == '\0')
+            detectLastChar(buff[i], info);
     }
 }
 
@@ -86,11 +86,6 @@ void rush3(char *buff)
     info->third = 0;
     info->fourth = 0;
     info->fifth = 0;
-    info->str1 = "ooo";
-    info->str2 = "/\\/";
-    info->str3 = "AAC";
-    info->str4 = "ACC";
-    info->str5 = "ACA";
 
     detectFirstChar(buff[0], info);
     detectOthers(info, buff);
