@@ -49,7 +49,8 @@ int display_result(infin_number_t *info)
         info->str = "[rush1-4] ";
     if (info->fifth == 3)
         info->str = "[rush1-5] ";
-    if (info->third == info->fourth && info->fourth == info->fifth) {
+    if (info->third == info->fourth && info->fourth == info->fifth && 
+    info->third > 2) {
         display_special(info);
         return (0);
     }
@@ -71,7 +72,7 @@ void detectOthers(infin_number_t *info, char *buff)
         if (buff[i] == '\n')
             info->height++;
         if (buff[i + 1] == '\0')
-            detectLastChar(buff[i], info);
+            detectLastChar(buff[i - 1], info);
     }
 }
 
