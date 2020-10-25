@@ -12,16 +12,23 @@ int find_plus(char **str_ptr)
     int x = 0;
 
     for (; str_ptr[1][i] != '\0'; i += 1) {
-        if (str_ptr[1][i] == '+')
-            x = 1;
-        else if (str_ptr[1][i] == '*')
-            x = 2;
-        else if (str_ptr[1][i] == '/')
-            x = 3;
-        else if  (str_ptr[1][i] == '-')
-            x = 4;
-        else if  (str_ptr[1][i] == '%')
-            x = 5;
+        switch (str_ptr[1][i]) {
+            case '+':
+                x = 1;
+                break;
+            case '*':
+                x = 2;
+                break;
+            case '/':
+                x = 3;
+                break;
+            case '-':
+                x = 4;
+                break;
+            case '%':
+                x = 5;
+                break;
+        }
     }
     return (x);
 }
@@ -49,16 +56,24 @@ int sum(char **str_ptr)
     int res2 = summands(str_ptr);
     int result = 0;
 
-    if (find_plus(str_ptr) == 1)
+    switch (find_plus(str_ptr))
+    {
+    case 1:
         result = res1 + res2;
-    else if (find_plus(str_ptr) == 2)
+        break;
+    case 2:
         result = res1 * res2;
-    else if (find_plus(str_ptr) == 3)
+        break;
+    case 3:
         result = res1 / res2;
-    else if (find_plus(str_ptr) == 4)
+        break;
+    case 4:
         result = res1 - res2;
-    else if (find_plus(str_ptr) == 5)
+        break;
+    case 5:
         result = res1 % res2;
+        break;
+    }
     return (result);
 }
 
