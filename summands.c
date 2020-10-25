@@ -12,23 +12,16 @@ int find_plus(char **str_ptr)
     int x = 0;
 
     for (; str_ptr[1][i] != '\0'; i += 1) {
-        switch (str_ptr[1][i]) {
-            case '+':
-                x = 1;
-                break;
-            case '*':
-                x = 2;
-                break;
-            case '/':
-                x = 3;
-                break;
-            case '-':
-                x = 4;
-                break;
-            case '%':
-                x = 5;
-                break;
-        }
+        if (str_ptr[1][i] == '+')
+            x = 1;
+        if (str_ptr[1][i] == '*')
+            x = 2;
+        if (str_ptr[1][i] == '/')
+            x = 3;
+        if (str_ptr[1][i] == '-')
+            x = 4;
+        if (str_ptr[1][i] == '%')
+            x = 5;
     }
     return (x);
 }
