@@ -5,11 +5,11 @@
 ## Makefile
 ##
 
-SRC	=	number.c
+SRC	=	summands.c
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	number
+NAME	=	eval_expr
 
 all:	$(NAME)
 

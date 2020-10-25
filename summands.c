@@ -32,7 +32,8 @@ int summands(char **str_ptr)
     int i = 0;
 
     for (; str_ptr[1][i] >= 48 && str_ptr[1][i] <= 57; i += 1);
-    if (str_ptr[1][i] == '+' || str_ptr[1][i] == '*' || str_ptr[1][i] == '/' || str_ptr[1][i] == '-' || str_ptr[1][i] == '%')
+    if (str_ptr[1][i] == '+' || str_ptr[1][i] == '*' || str_ptr[1][i] == '/'
+    || str_ptr[1][i] == '-' || str_ptr[1][i] == '%')
         i += 1;
     for (; str_ptr[1][i] >= 48 && str_ptr[1][i] <= 57; i += 1) {
         res = res + str_ptr[1][i] - 48;
