@@ -11,8 +11,8 @@ NAME=	infin_add
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	make -C ./lib/my
-	gcc  -o $(NAME) $(OBJ) -I./include/ -L./lib/my -lmy  
+	make -C ../lib/my
+	gcc  -o $(NAME) $(OBJ) -I./include/ -L../lib/my -lmy  
 
 
 clean:
