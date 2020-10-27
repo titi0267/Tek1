@@ -38,9 +38,8 @@ SRC=	arr_to_num.c    \
 		my_strupcase.c  \
 		my_swap.c   \
 		my_strdup.c	\
-		my_eexpr.c	\
 		my_signw.c	\
-		my_ntchar.c
+		my_ntchar.c	\
 
 
 OBJ=	$(SRC:.c=.o)
