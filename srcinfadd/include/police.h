@@ -9,7 +9,7 @@
 void ex_numbers(number_t *num1,number_t *num2);
 void first_oc(char *num1,char *num2,int *first,int *second);
 int my_nblen(char *num);
-number_t *calc_t(number_t *one,number_t *two,opossom_t *ops);
+number_t *calc_f(number_t *one,number_t *two,opossom_t *ops);
 void det_operation(number_t *num1,number_t *num2,opossom_t *ops);
 void greater(number_t *num1,number_t *num2);
 void clear_o(char *witho);
