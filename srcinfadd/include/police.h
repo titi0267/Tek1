@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2020
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
+** File description:
+** police
+*/
+
 #pragma once
 void ex_numbers(number_t *num1,number_t *num2);
 void first_oc(char *num1,char *num2,int *first,int *second);

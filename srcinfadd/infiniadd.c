@@ -1,3 +1,9 @@
+/*
+** EPITECH PROJECT, 2020
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
+** File description:
+** infiniadd
+*/
 #include "include/my_structs.h"
 #include "include/my.h"
 #include "include/operations.h"
@@ -20,10 +26,11 @@ number_t *infin_add(char *n1, char *n2)
     char *t1 = my_strdup(n1);
     char *t2 = my_strdup(n2);
     
-    result=adapt_numbers(&t1,&t2,num1,num2);
+    result = adapt_numbers(&t1, &t2, num1, num2);
     print_iadd(result);
     return (result);
 }
+
 int main(int argc, char **argv)
 {
     infin_add(argv[1],argv[2]);

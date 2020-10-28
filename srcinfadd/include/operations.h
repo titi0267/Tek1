@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2020
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
+** File description:
+** operations
+*/
+
 #pragma once
 int my_nblen(char *num);
 void clear_o(char *witho);

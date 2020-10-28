@@ -1,3 +1,9 @@
+/*
+** EPITECH PROJECT, 2020
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
+** File description:
+** operations
+*/
 #include "include/my_structs.h"
 #include "include/operations.h"
 #include "include/my.h"
@@ -41,19 +47,18 @@ char subst(char a, char b, int *indi)
     return (substed + '0');
 }
 
-number_t *calc_t(number_t *one, number_t *two, opossom_t *ops)
+number_t *calc_f(number_t *one, number_t *two, opossom_t *ops)
 {
     number_t *result;
 
-    if (ops->op == 1) {
+    if (ops->op == 1)
         result = driver(one, two, ops, &sum);
-    } else if (ops->op == -1) {
+    else if (ops->op == -1)
         result = driver(one, two, ops, &subst);
-    }
     free(one);
     free(two);
     clear_o(result->numb);
-    return(result);
+    return (result);
 }
 
 number_t *driver(number_t *one, number_t *two, opossom_t *ops,
@@ -91,15 +96,13 @@ void clear_o(char *witho)
         return;
     }
     for (int i = 0; witho[i] != '\0'; i++) {
-        if (witho[i] != '0' && writes != 1) {
+        if (witho[i] != '0' && writes != 1)
             writes = 1;
-        }
         if (writes) {
             handler[index] = witho[i];
             index++;
         }
     }
-    
     handler[index] = '\0';
     my_strcpy(witho, handler);
 }

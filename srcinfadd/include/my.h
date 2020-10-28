@@ -1,3 +1,13 @@
+/*
+** EPITECH PROJECT, 2020
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
+** File description:
+** my
+*/
+
+#ifndef MY_H_
+#define MY_H_
+
 void my_putchar(char c);
 char *my_strstr(char *str, char const *to_find);
 int my_isneg(int nb); 
@@ -32,3 +42,5 @@ int num_len(int num);
 int arr_to_num(int *arr_to_num);
 int arr_sum(int *arr);
 char *my_strdup(char const *str);
+
+#endif /* !MY_H_ */
