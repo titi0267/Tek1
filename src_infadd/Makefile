@@ -7,13 +7,14 @@ OBJ=	$(SRC:.c=.o)
 
 CFLAGS=	-g
 
-NAME=	infin_add
+NAME=	libbistro.a
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	make	-C	../lib/my
-	gcc		-o	$(NAME)	$(OBJ)	-I./include/	-L../lib/my -lmy
+    
+	gcc	-c -o	$(NAME)	$(OBJ)	-I./include/	-L../lib/my -lmy
+	ar rc libbistro.a $(OBJ)
 
 
 clean:
