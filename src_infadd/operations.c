@@ -11,39 +11,36 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char sum(char a, char b, int *indi)
+char sum(char a, char b, int *indirect)
 {
     int a_num = a - '0';
     int b_num = b - '0';
     int sumed;
-    static int indirect = 0;
 
-    if ((a_num + b_num + indirect) < 10) {
-        sumed = a_num + b_num + indirect;
-        indirect = 0;
+    if ((a_num + b_num + *indirect) < 10) {
+        sumed = a_num + b_num + *indirect;
+        *indirect = 0;
     } else {
-        sumed = (a_num + b_num + indirect) % 10;
-        indirect = 1;
+        sumed = (a_num + b_num + *indirect) % 10;
+        *indirect = 1;
     }
-    *indi = indirect;
     return (sumed + '0');
 }
 
-char subst(char a, char b, int *indi)
+char subst(char a, char b,int *indirect)
 {
     int a_num = a - '0';
     int b_num = b - '0';
     int substed;
-    static int indirect = 0;
 
-    if ((a_num - b_num - indirect) >= 0) {
-        substed = a_num - b_num - indirect;
-        indirect = 0;
+    if ((a_num - b_num - *indirect) >= 0) {
+        substed = a_num - b_num - *indirect;
+        *indirect = 0;
     } else {
-        substed = ((a_num + 10) - b_num - indirect) % 10;
-        indirect = 1;
+        substed = ((a_num + 10) - b_num - *indirect) % 10;
+        *indirect = 1;
     }
-    *indi = indirect;
+
     return (substed + '0');
 }
 
@@ -67,7 +64,7 @@ number_t *driver(number_t *one, number_t *two, opossom_t *ops,
     number_t *to_return = malloc(sizeof(number_t));
     to_return->sign = ops->sign;
     int tot_len = my_strlen(one->numb);
-    int indirect;
+    int indirect=0;
 
     to_return->numb = malloc(tot_len + 2);
     for (int i = tot_len-1; i >= 0; i--) {

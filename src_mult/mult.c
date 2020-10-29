@@ -62,9 +62,9 @@ number_t *mult_all(char *left, char *right)
             past[j++] = carry + '0';
         past[j]='\0';
         mult_by_10(past, i);
-        printf("past at %d: %s\n", i, past);
+        printf("past at %d: %s\n", i, my_revstr(my_strdup(past)));
         result->numb = infin_add(past, result->numb)->numb;
-        printf("res at %d: %s\n", i, result->numb);
+        printf("res at %d: %s\n", i, my_revstr(my_strdup(result->numb)));
         carry = 0;
         my_strcpy(past, "");
     }
