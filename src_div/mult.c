@@ -44,6 +44,8 @@ void *mult_by_10(char *to_mult, long long p10)
 
 number_t *mult_all(char *left, char *right)
 {
+    left = my_strdup(left);
+    right = my_strdup(right);
     int carry = 0;
     int j;
     char *left_rev = my_revstr(left);
@@ -71,10 +73,4 @@ number_t *mult_all(char *left, char *right)
     return (result);
 }
 
-int main(int ac, char **av)
-{
-    //char *mam=my_strdup("222");
-   // mult_by_10(mam, 2);
-   // printf("%s\n", mam);
-  printf("hello %s\n", mult_all(my_strdup(av[1]), my_strdup(av[2]))->numb);
-}
+
