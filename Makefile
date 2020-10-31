@@ -5,6 +5,7 @@ SRC=	./evalexpr/evalexpr.c	\
 	./evalexpr/polish.c	\
 	./evalexpr/show.c	\
 	./src_div/div_help.c	\
+	./src_div/div.c	\
 	./src_infadd/infiniadd.c	\
 	./src_infadd/operations.c	\
 	./src_infadd/police.c	\
