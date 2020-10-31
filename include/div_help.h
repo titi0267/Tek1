@@ -1,6 +1,3 @@
-#include "my_structs.h"
-number_t *inf_div(char *left,char *right,char **rem);
-char *do_div(char *left,char *right,char **indirect);
-int bigger_num(char *left,char *right);
-char *my_tostr(char c);
-char get_lastch(char *to_getlast);
+void rm_isnotnum(char *left,char *right,char **new_left,char **new_right);
+int operant(char *left,char *right);
+int error(char *right);
