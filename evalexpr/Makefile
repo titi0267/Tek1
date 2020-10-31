@@ -13,7 +13,7 @@ NAME=	eval_expr
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	make -C ./lib/my
+	make -C ../lib/my
 	gcc -o $(NAME) $(OBJ) -L../lib/my -lmy
 	$(MAKE) clean
 

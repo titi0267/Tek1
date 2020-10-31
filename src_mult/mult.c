@@ -80,7 +80,7 @@ number_t *inf_mult(char *left, char *right)
     return (result);
 }
 
-int main(int ac, char **av)
-{
-    printf("RESULT %s\n",inf_mult(my_strdup(av[1]),my_strdup(av[2]))->numb);
-}
+// int main(int ac, char **av)
+// {
+//     printf("RESULT %s\n",inf_mult(my_strdup(av[1]),my_strdup(av[2]))->numb);
+// }

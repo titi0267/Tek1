@@ -119,11 +119,11 @@ char *divi(char *left, char *right,char **rem)
 }
 
 
-int main(int ac, char **av)
-{
-    char *remain;
-    char *result = divi(my_strdup(av[1]),my_strdup(av[2]),&remain);
-    printf("DIVISION %s\n",result);
-    printf("RESTE %s\n",remain);
-    // printf("res %s\n", subst(my_strdup(av[1]),my_strdup(av[2]))->numb);
-}
+// int main(int ac, char **av)
+// {
+//     char *remain;
+//     char *result = divi(my_strdup(av[1]),my_strdup(av[2]),&remain);
+//     printf("DIVISION %s\n",result);
+//     printf("RESTE %s\n",remain);
+//     // printf("res %s\n", subst(my_strdup(av[1]),my_strdup(av[2]))->numb);
+// }
