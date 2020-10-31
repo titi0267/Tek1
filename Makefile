@@ -1,5 +1,6 @@
 CC=	gcc
 
+CFLAGS=	-g
 SRC=	./evalexpr/evalexpr.c	\
 	./evalexpr/polish.c	\
 	./evalexpr/show.c	\

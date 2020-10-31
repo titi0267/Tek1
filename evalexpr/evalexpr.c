@@ -9,10 +9,10 @@
 #include "../include/my_l.h"
 #include "../include/polish.h"
 #include "../include/show.h"
+#include "../include/my_structs.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-//5*(-24+4)
 
 
 int run_expr(char *num)

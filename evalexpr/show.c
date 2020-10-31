@@ -7,41 +7,46 @@
 
 #include "../include/my.h"
 #include "../include/my_l.h"
+#include "../include/my_structs.h"
+#include "../include/infdiv.h"
+#include "../include/infadd.h"
+#include "../include/infsubst.h"
+#include "../include/mult.h"
 #include "../include/show.h"
 #include <stdlib.h>
 
-void op_doer(int sign ,int *store,int y,int x){
+number_t *op_doer(int sign ,char *y,char *x)
+{
+    number_t *store;
+
     switch (sign) {
     case 1:
-        *store = y + x;
+        store= infin_add(y,x);
         break;
     case 2:
-        *store = y - x;
+        store= inf_subst(y,x);
         break;
     case 3:
-        *store = y * x;
+        store= inf_mult(y,x);
         break;
     case 4:
-        *store = y / x;
+        store= inf_subst(y,x);
         break;
-    case 5:
-        *store = y % x;
+    case 5: 
         break;
     default:
         break;
     }
+    return(store);
 }
 
 void make_calc(dstar_t *numbs, int sign)
 {
-    int x = my_getnbr(pop_dstar(numbs));
-    int y = my_getnbr(pop_dstar(numbs));   //5 4 3 + *
-    int store;
-    char *op_r;
+    char *x = pop_dstar(numbs);
+    char *y = pop_dstar(numbs); 
+    number_t *store = op_doer(sign, y, x);
 
-    op_doer(sign,&store,y,x);
-    op_r = my_ntchar(store);
-    push_dstar(numbs, op_r);
+    push_dstar(numbs, store->numb);
 }
 
 dstar_t *calculate(dstar_t *ced)
