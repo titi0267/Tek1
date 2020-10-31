@@ -31,9 +31,10 @@ number_t *op_doer(int sign ,char *y,char *x)
         store= inf_mult(y,x);
         break;
     case 4:
-        store= inf_div(y,x,&remain);
+        store= inf_div(y, x, &remain);
         break;
-    case 5: 
+    case 5:
+        store = inf_modul(y, x, &remain);
         break;
     default:
         break;
@@ -44,7 +45,7 @@ number_t *op_doer(int sign ,char *y,char *x)
 void make_calc(dstar_t *numbs, int sign)
 {
     char *x = pop_dstar(numbs);
-    char *y = pop_dstar(numbs); 
+    char *y = pop_dstar(numbs);
     number_t *store = op_doer(sign, y, x);
 
     push_dstar(numbs, store->numb);
@@ -57,7 +58,7 @@ dstar_t *calculate(dstar_t *ced)
     char *read;
 
     for (int i = 0; i <my_nolen(ced); i++) {
-        read = ced->value[i];                 
+        read = ced->value[i];
         if (sign_w(ced->value[i][0]) != 0) {
             make_calc(numbs, sign_w(ced->value[i][0]));
         } else {
