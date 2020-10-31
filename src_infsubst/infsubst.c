@@ -10,7 +10,7 @@
 #include "../include/my_structs.h"
 #include "../include/my.h"
 #include "../include/infadd.h"
-#include "../infsubst.h"
+#include "../include/infsubst.h"
 
 
 char *insert_minus(char *right)

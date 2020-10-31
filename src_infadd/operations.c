@@ -4,10 +4,10 @@
 ** File description:
 ** operations
 */
-#include "include/my_structs.h"
-#include "include/operations.h"
-#include "include/my.h"
-#include "include/police.h"
+#include "../include/my_structs.h"
+#include "../include/operations.h"
+#include "../include/my.h"
+#include "../include/police.h"
 #include <stdlib.h>
 #include <stdio.h>
 

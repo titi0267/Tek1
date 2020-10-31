@@ -4,10 +4,10 @@
 ** File description:
 ** police.c
 */
-#include "include/my_structs.h"
-#include "include/police.h"
-#include "include/my.h"
-#include "include/operations.h"
+#include "../include/my_structs.h"
+#include "../include/police.h"
+#include "../include/my.h"
+#include "../include/operations.h"
 #include <stdlib.h>
 
 void destroy_minus(char *ar_one)

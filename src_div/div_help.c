@@ -5,9 +5,13 @@
 ** div_help
 */
 
-#include "./include/my_structs.h"
-#include "./include/my.h"
-#include "./include/mult.h"
+#include "../include/my_structs.h"
+#include "../include/my.h"
+#include "../include/mult.h"
+#include "../include/infadd.h"
+#include "../include/infsubst.h"
+#include "../include/infdiv.h"
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -35,14 +39,6 @@ char get_lastch(char *to_getlast)
     return (to_getlast[i - 1]);
 }
 
-char *my_tostr(char c)
-{
-    char *some = malloc(2);
-
-    some[0] = c;
-    some[1] = '\0';
-    return (some);
-}
 
 int bigger_num(char *left, char *right)
 {
@@ -81,7 +77,7 @@ char *do_div(char *left, char *right, char **indirect)
     return (i);
 }
 
-char *divi(char *left, char *right,char **rem)
+char *inf_div(char *left, char *right,char **rem)
 {
     char *new_left = malloc(10000);
     char *result = malloc(1000);
@@ -109,17 +105,16 @@ char *divi(char *left, char *right,char **rem)
     return (result);
 }
 
-int main(int ac, char **av)
-{
-    char *remain;
-    char *result;
+// int main(int ac, char **av)
+// {
+//     char *remain;
+//     char *result;
 
-    if (error(av[2]) == 1) {
-        my_putstr("syntax error");
-        return (84);
-    }
-    result = divi(my_strdup(av[1]),my_strdup(av[2]),&remain);
-    printf("DIVISION %s\n",result);
-    printf("RESTE %s\n",remain);
-    // printf("res %s\n", subst(my_strdup(av[1]),my_strdup(av[2]))->numb);
-}
+//     if (error(av[2]) == 1) {
+//         write(2,"syntax error\n",14);
+//         return (84);
+//     }
+//     result = inf_div(my_strdup(av[1]),my_strdup(av[2]),&remain);
+//     printf("DIVISION %s\n",result);
+//     printf("RESTE %s\n",remain);
+// }

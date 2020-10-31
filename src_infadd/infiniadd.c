@@ -4,10 +4,10 @@
 ** File description:
 ** infiniadd
 */
-#include "include/my_structs.h"
-#include "include/my.h"
-#include "include/operations.h"
-#include "include/police.h"
+#include "../include/my_structs.h"
+#include "../include/my.h"
+#include "../include/operations.h"
+#include "../include/police.h"
 #include <stdlib.h>
 
 void *print_iadd(number_t *num)

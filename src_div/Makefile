@@ -3,6 +3,7 @@ CC=	gcc
 
 
 SRC=	../src_mult/mult.c	\
+        ../src_infsubst/infsubst.c	\
 	    div_help.c
 
 OBJ=	$(SRC:.c=.o)

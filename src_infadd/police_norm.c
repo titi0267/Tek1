@@ -4,10 +4,10 @@
 ** File description:
 ** police_norm
 */
-#include "include/my_structs.h"
-#include "include/my.h"
-#include "include/police.h"
-#include "include/operations.h"
+#include "../include/my_structs.h"
+#include "../include/my.h"
+#include "../include/police.h"
+#include "../include/operations.h"
 
 void first_oc(char *num1, char *num2, int *first, int *second)
 {
