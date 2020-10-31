@@ -35,7 +35,7 @@ static void re_dlist(dlist_t *to_push)
     free(to_push->value);
     to_push->value = new_str;
 }
-dlist_t *push_dlist(dlist_t *to_push, char *str)
+void *push_dlist(dlist_t *to_push, char *str)
 {
     int tot_len = my_strlen(to_push->value) + my_strlen(str) +1;
     
@@ -43,6 +43,12 @@ dlist_t *push_dlist(dlist_t *to_push, char *str)
         re_dlist(to_push);
     }
     my_strcat(to_push->value,my_strdup(str));
+}
+void clear_dlist(dlist_t *to_clear)
+{
+    my_strcpy(to_clear,"");
+    free(to_clear->value);
+    to_clear->value=malloc(10);
 }
 
 
