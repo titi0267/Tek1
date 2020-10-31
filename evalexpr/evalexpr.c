@@ -5,10 +5,10 @@
 ** fhfhfh
 */
 
-#include "include/my.h"
-#include "include/my_l.h"
-#include "include/polish.h"
-#include "include/show.h"
+#include "../include/my.h"
+#include "../include/my_l.h"
+#include "../include/polish.h"
+#include "../include/show.h"
 #include <stdio.h>
 #include <stdlib.h>
 

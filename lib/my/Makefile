@@ -41,7 +41,8 @@ SRC=	arr_to_num.c    \
 		my_signw.c	\
 		my_ntchar.c	\
 		li_dstarhelp.c \
-		li_dstarlist.c
+		li_dstarlist.c	\
+		li_dlist.c
 
 
 

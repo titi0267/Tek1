@@ -5,9 +5,9 @@
 ** ffff
 */
 
-#include "include/my.h"
-#include "include/my_l.h"
-#include "include/show.h"
+#include "../include/my.h"
+#include "../include/my_l.h"
+#include "../include/show.h"
 #include <stdlib.h>
 
 void op_doer(int sign ,int *store,int y,int x){

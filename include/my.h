@@ -7,10 +7,15 @@
 
 #ifndef MY_H_
 #define MY_H_
-
+char *my_ntchar(int nb);
+int check_if_num(char num, int *store);
+char *my_tostr(char c);
+int sign_d(char *sign, int par);
+int sign_w(char s);
 void my_putchar(char c);
 char *my_strstr(char *str, char const *to_find);
-int my_isneg(int nb); 
+int my_isneg(int nb);
+int check_if_sign(char s, int *inf);
 int my_strcmp(char const *s1, char const *s2);
 int my_put_nbr(int nb);
 int my_strncmp(char const *s1, char const *s2, int n);

@@ -5,31 +5,47 @@
 ** ffff
 */
 
-#include "./include/my_l.h"
-#include "./include/my.h"
+#include "../include/my.h"
+#include "../include/my_l.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+struct s_hp
+{   int is_num;
+    int was_num;
+    int was_sign; 
+};
+
+
 
 dstar_t *separate_expr(char *expr)
 {
     dstar_t *stck = init_dstar();
+    dlist_t *numsl = init_dlist();
     int is_num = 0;
     int was_num = -1;
+    int was_sign = -1;
     int i;
-    char *handler=NULL;
 
     for (i = 0; expr[i] != '\0'; i++) {
         check_if_num(expr[i], &is_num);
-        if (i > 0)
+        if (i > 0) {
             check_if_num(expr[i - 1], &was_num);
+            check_if_sign(expr[i - 1], &was_sign);
+        }
         if (is_num == 1 && was_num == 1) {
-            my_strcat(stck->value[my_nolen(stck) - 1], my_tostr(expr[i]));
-        } else if (is_num) {
-            handler = malloc(1000); // malloc bourin
-            my_strcpy(handler, my_tostr(expr[i]));
-            push_dstar(stck, handler);
-        } else
-            push_dstar(stck, my_tostr(expr[i]));
+            push_dlist(numsl, my_tostr(expr[i]));
+        }
+        if (is_num) {
+            if(is_num)
+            push_dlist(numsl, my_tostr(expr[i]));
+        }
+        if(sign_w(expr[i])==0 && was_sign==1){
+            clear_dlist(numsl);
+            push_dlist(numsl,my_tostr(expr[i]));
+            push_dstar(stck,numsl->value);
+        }
+        
     }
     return (stck);
 }

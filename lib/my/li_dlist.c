@@ -16,6 +16,7 @@ dlist_t *init_dlist()
     inited->value = malloc(10);
     inited->value[0] = '\0';
     inited->mem_len = 10;
+    return(inited);
 }
 
 void sh_dlist(dlist_t *to_sh){
@@ -35,7 +36,7 @@ static void re_dlist(dlist_t *to_push)
     free(to_push->value);
     to_push->value = new_str;
 }
-void *push_dlist(dlist_t *to_push, char *str)
+void push_dlist(dlist_t *to_push, char *str)
 {
     int tot_len = my_strlen(to_push->value) + my_strlen(str) +1;
     
@@ -46,19 +47,20 @@ void *push_dlist(dlist_t *to_push, char *str)
 }
 void clear_dlist(dlist_t *to_clear)
 {
-    my_strcpy(to_clear,"");
     free(to_clear->value);
     to_clear->value=malloc(10);
+    my_strcpy(to_clear->value,"");
+    to_clear->mem_len=10;
 }
 
 
-
-
-
-int main(){
-    dlist_t *yo=init_dlist();
-    push_dlist(yo,"hello dar");
-
-
-    sh_dlist(yo);
-}
+// int main(){
+//     dlist_t *yo=init_dlist();
+//     push_dlist(yo,"hello darling my old");
+//     sh_dlist(yo);
+//     clear_dlist(yo);
+//     sh_dlist(yo);
+//     push_dlist(yo,"my momma doesn't like him");
+//     sh_dlist(yo);
+//     clear_dlist(yo);
+// }
