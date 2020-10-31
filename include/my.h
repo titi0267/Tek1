@@ -9,6 +9,7 @@
 #define MY_H_
 char *my_ntchar(int nb);
 int check_if_num(char num, int *store);
+int check_nums(char c);
 char *my_tostr(char c);
 int sign_d(char *sign, int par);
 int sign_w(char s);

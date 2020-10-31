@@ -35,7 +35,7 @@ void op_doer(int sign ,int *store,int y,int x){
 void make_calc(dstar_t *numbs, int sign)
 {
     int x = my_getnbr(pop_dstar(numbs));
-    int y = my_getnbr(pop_dstar(numbs));
+    int y = my_getnbr(pop_dstar(numbs));   //5 4 3 + *
     int store;
     char *op_r;
 
@@ -51,7 +51,7 @@ dstar_t *calculate(dstar_t *ced)
     char *read;
 
     for (int i = 0; i <my_nolen(ced); i++) {
-        read = ced->value[i];
+        read = ced->value[i];                 
         if (sign_w(ced->value[i][0]) != 0) {
             make_calc(numbs, sign_w(ced->value[i][0]));
         } else {
