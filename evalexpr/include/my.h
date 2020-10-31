@@ -1,13 +1,5 @@
-/*
-** EPITECH PROJECT, 2020
-** hh
-** File description:
-** hh
-*/
-
-#pragma once
 void my_putchar(char c);
-char *my_strstr(char *str, char *to_find);
+char *my_strstr(char *str, char const *to_find);
 int my_isneg(int nb); 
 int my_strcmp(char const *s1, char const *s2);
 int my_put_nbr(int nb);
@@ -41,10 +33,7 @@ int arr_to_num(int *arr_to_num);
 int arr_sum(int *arr);
 char *my_strdup(char const *str);
 int my_arrlen(char **my_arr);
-int check_if_num(char num,int *store);
-int check_if_p(int l);
-int lengthsp(int num);
-int pow_ten(int amout);
+void check_if_num(char num,int *store);
 char *my_ntchar(int nb);
 char *my_tostr(char c);
 int sign_d(char *sign,int par);

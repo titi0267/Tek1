@@ -1,0 +1,4 @@
+.vscode
+**.out
+_clang-format
+mkheaders
