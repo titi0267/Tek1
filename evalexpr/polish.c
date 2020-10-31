@@ -37,18 +37,49 @@ dstar_t *separate_expr(char *expr)
             push_dlist(numsl, my_tostr(expr[i]));
         }
         if (is_num) {
-            if(is_num)
-            push_dlist(numsl, my_tostr(expr[i]));
-        }
-        if(sign_w(expr[i])==0 && was_sign==1){
             clear_dlist(numsl);
             push_dlist(numsl,my_tostr(expr[i]));
             push_dstar(stck,numsl->value);
         }
-        
+        else
+        {
+            push_dstar(stck,my_tostr(expr[i]));
+        }
     }
     return (stck);
 }
+
+// dstar_t *separate_expr(char *expr)
+// {
+//     dstar_t *stck = init_dstar();
+//     dlist_t *numsl = init_dlist();
+//     int is_num = 0;
+//     int was_num = -1;
+//     int was_sign = -1;
+//     int i;
+
+//     for (i = 0; expr[i] != '\0'; i++) {
+//         check_if_num(expr[i], &is_num);
+//         if (i > 0) {
+//             check_if_num(expr[i - 1], &was_num);
+//             check_if_sign(expr[i - 1], &was_sign);
+//         }
+//         if (is_num == 1 && was_num == 1) {
+//             push_dlist(numsl, my_tostr(expr[i]));
+//         }
+//         if (is_num) {
+//             if(is_num)
+//             push_dlist(numsl, my_tostr(expr[i]));
+//         }
+//         if(sign_w(expr[i])==0 && was_sign==1){
+//             clear_dlist(numsl);
+//             push_dlist(numsl,my_tostr(expr[i]));
+//             push_dstar(stck,numsl->value);
+//         }
+        
+//     }
+//     return (stck);
+// }
 
 void pop_all(dstar_t *op, dstar_t *queu)
 {

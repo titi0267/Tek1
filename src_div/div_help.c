@@ -64,26 +64,6 @@ int bigger_num(char *left, char *right)
     return (0);
 }
 
-char *insert_minus(char *right)
-{
-    int i = my_strlen(right);
-
-    char *new_right = malloc(my_strlen(right) + 2);
-
-    my_strcpy(new_right, right);
-    for (; i >= 0; i--)
-        new_right[i + 1] = new_right[i];
-    new_right[0] = '-';
-}
-
-static number_t *subst(char *left, char *right)
-{
-    number_t *result = malloc(sizeof(number_t));
-
-    result = infin_add(left, insert_minus(right));
-    return (result);
-}
-
 char *do_div(char *left, char *right, char **indirect)
 {
     char *i = my_strdup("0");
@@ -92,12 +72,12 @@ char *do_div(char *left, char *right, char **indirect)
     
     result->sign = 0;
     for (; result->sign != -1; i = infin_add(i, "1")->numb) {
-        result = subst(new_left, right);
+        result = inf_subst(new_left, right);
         free(new_left);
         new_left = result->numb;
     }
-    i = subst(i, "1")->numb;
-    *indirect = my_strdup(subst(left, inf_mult(right, i)->numb)->numb);
+    i = inf_subst(i, "1")->numb;
+    *indirect = my_strdup(inf_subst(left, inf_mult(right, i)->numb)->numb);
     return (i);
 }
 

@@ -12,10 +12,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//5*(-24+4)
+
+
 int run_expr(char *num)
 {
     dstar_t *runner;
-    
     runner = separate_expr(num);
     runner = shunter(runner);
     runner = calculate(runner);
@@ -23,4 +25,6 @@ int run_expr(char *num)
     my_putstr("\n");
 }
 
-int main(int ac, char **av) { run_expr(my_strdup(av[1])); }
+int main(int ac, char **av) { 
+run_expr(my_strdup(av[1])); 
+}
