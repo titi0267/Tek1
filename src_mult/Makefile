@@ -9,7 +9,7 @@ NAME=	mult
 all: $(NAME)
 
 $(NAME):	$(OBJ) 
-		gcc -o $(NAME) $(OBJ) -L./include -lbistro  -L../lib/my -lmy
+		gcc -o $(NAME) $(OBJ) -L../include -lbistro  -L../lib/my -lmy
 
 clean:
 	rm -f $(OBJ)

@@ -1,6 +1,7 @@
-#include "./include/my_structs.h"
-#include "./include/my.h"
-#include "./include/mult.h"
+#include "../include/my_structs.h"
+#include "../include/my.h"
+#include "../include/infadd.h"
+#include "../include/mult.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -78,7 +79,7 @@ char *do_div(char *left, char *right, char **indirect)
         new_left = result->numb;
     }
     i = subst(i, "1")->numb;
-    *indirect = my_strdup(subst(left, mult_all(right, i)->numb)->numb);
+    *indirect = my_strdup(subst(left, inf_mult(right, i)->numb)->numb);
     return (i);
 }
 

@@ -40,6 +40,9 @@ SRC=	arr_to_num.c    \
 		my_strdup.c	\
 		my_signw.c	\
 		my_ntchar.c	\
+		li_dstarhelp.c \
+		li_dstarlist.c
+
 
 
 OBJ=	$(SRC:.c=.o)
@@ -50,7 +53,6 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
-	$(MAKE) clean
 
 clean:
 	rm -f $(OBJ)
