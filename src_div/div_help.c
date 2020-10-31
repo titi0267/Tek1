@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 ** EPITECH PROJECT, 2020
 ** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
@@ -9,12 +8,6 @@
 #include "./include/my_structs.h"
 #include "./include/my.h"
 #include "./include/mult.h"
-=======
-#include "../include/my_structs.h"
-#include "../include/my.h"
-#include "../include/infadd.h"
-#include "../include/mult.h"
->>>>>>> 975c00a18b73f8dcf1b6587e7e50fe5965e4769d
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -74,6 +67,7 @@ int bigger_num(char *left, char *right)
 char *insert_minus(char *right)
 {
     int i = my_strlen(right);
+
     char *new_right = malloc(my_strlen(right) + 2);
 
     my_strcpy(new_right, right);
@@ -135,7 +129,6 @@ char *divi(char *left, char *right,char **rem)
     return (result);
 }
 
-<<<<<<< HEAD
 int main(int ac, char **av)
 {
     char *remain;
@@ -150,14 +143,3 @@ int main(int ac, char **av)
     printf("RESTE %s\n",remain);
     // printf("res %s\n", subst(my_strdup(av[1]),my_strdup(av[2]))->numb);
 }
-=======
-
-// int main(int ac, char **av)
-// {
-//     char *remain;
-//     char *result = divi(my_strdup(av[1]),my_strdup(av[2]),&remain);
-//     printf("DIVISION %s\n",result);
-//     printf("RESTE %s\n",remain);
-//     // printf("res %s\n", subst(my_strdup(av[1]),my_strdup(av[2]))->numb);
-// }
->>>>>>> 975c00a18b73f8dcf1b6587e7e50fe5965e4769d
