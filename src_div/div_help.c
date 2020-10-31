@@ -77,10 +77,11 @@ char *do_div(char *left, char *right, char **indirect)
     return (i);
 }
 
-char *inf_div(char *left, char *right,char **rem)
+number_t *inf_div(char *left, char *right,char **rem)
 {
-    char *new_left = malloc(10000);
-    char *result = malloc(1000);
+    char *new_left = malloc(my_strlen(left)+10);
+    char *result = malloc(my_strlen(left)+10);
+    number_t *the_result = malloc(sizeof(number_t));
     char *remain;
     int i = 0;
 
@@ -102,7 +103,8 @@ char *inf_div(char *left, char *right,char **rem)
             my_strcpy(new_left,"");
     }
     *rem = remain;
-    return (result);
+    the_result->numb=result;
+    return (the_result);
 }
 
 // int main(int ac, char **av)

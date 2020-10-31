@@ -34,27 +34,27 @@ dstar_t *separate_expr(char *expr)
             check_if_sign(expr[i - 1], &was_sign);
         }
         if (is_num == 1 && was_num == 1) {
-            printf("is_num == 1 && was_num == 1\n");
+           // printf("is_num == 1 && was_num == 1\n");
             push_dlist(numsl, my_tostr(expr[i]));
         }
         if (is_num && was_num==0) {
-           printf("is_num && was_num==0\n");
+           //printf("is_num && was_num==0\n");
             clear_dlist(numsl);
             push_dlist(numsl,my_tostr(expr[i]));
         }
-        if(check_nums(expr[i+1])==0 && was_num == 1){
-            printf("check_nums(expr[i+1])==0 && was_num == 1\n");
+        if(check_nums(expr[i+1])==0 && is_num == 1){
+            //printf("check_nums(expr[i+1])==0 && was_num == 1\n");
             push_dstar(stck,numsl->value);
             clear_dlist(numsl);
         }
         if(is_num == 0)
         {
-           printf("is_num == 0\n");
+          // printf("is_num == 0\n");
             push_dstar(stck, my_tostr(expr[i]));
         }
-        printf("i est %d\n",i);
-        sh_dstar(stck);
-         printf("----------------------\n");
+       // printf("i est %d\n",i);
+       // sh_dstar(stck);
+        // printf("----------------------\n");
 
     }
     sh_dstar(stck);

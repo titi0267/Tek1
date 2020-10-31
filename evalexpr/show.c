@@ -18,6 +18,7 @@
 number_t *op_doer(int sign ,char *y,char *x)
 {
     number_t *store;
+    char *remain;
 
     switch (sign) {
     case 1:
@@ -30,7 +31,7 @@ number_t *op_doer(int sign ,char *y,char *x)
         store= inf_mult(y,x);
         break;
     case 4:
-        store= inf_subst(y,x);
+        store= inf_div(y,x,&remain);
         break;
     case 5: 
         break;

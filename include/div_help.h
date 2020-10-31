@@ -1,4 +1,5 @@
-char *inf_div(char *left,char *right,char **rem);
+#include "my_structs.h"
+number_t *inf_div(char *left,char *right,char **rem);
 char *do_div(char *left,char *right,char **indirect);
 int bigger_num(char *left,char *right);
 char *my_tostr(char c);
