@@ -1,0 +1,11 @@
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+IndentWidth: 4
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None 
+AllowShortIfStatementsOnASingleLine: false 
+AllowShortLoopsOnASingleLine: false
+IndentPPDirectives: BeforeHash
+SortIncludes: false
