@@ -26,11 +26,19 @@ int my_nolen(dstar_t *dt)
     return (i);
 }
 
-void fill_no(char **strr)
+void fill_no(dstar_t *strr)
 {
-    for (int i = my_nolen(strr); strr[i] != NULL; i++) {
-        my_strcpy(strr[i], "NO");
+    for (int i = my_nolen(strr); strr->value[i] != NULL; i++) {
+        my_strcpy(strr->value[i], "NO");
     }
+}
+
+char *my_tostr(char c)
+{
+    char *some = malloc(2);
+    some[0] = c;
+    some[1] = '\0';
+    return (some);
 }
 
 int check_if_num(char num, int *store)
@@ -42,12 +50,4 @@ int check_if_num(char num, int *store)
         *store = 0;
         return (2);
     }
-}
-
-char *my_tostr(char c)
-{
-    char *some = malloc(2);
-    some[0] = c;
-    some[1] = '\0';
-    return (some);
 }

@@ -7,7 +7,10 @@
 #include "./include/my.h"
 #include "./include/my_l.h"
 #include <stdlib.h>
-const char *MY_NULL = "NO";
+
+
+const char *MY_NULL="NO";
+
 
 dstar_t *init_dstar()
 {
@@ -24,7 +27,7 @@ dstar_t *init_dstar()
 char *pop_dstar(dstar_t *to_pop)
 {
     char *popped;
-    int i = (my_nolen(to_pop->) > 0) ? my_nolen(to_pop) : 1;
+    int i = (my_nolen(to_pop) > 0) ? my_nolen(to_pop) : 1;
 
     popped = my_strdup(to_pop->value[i - 1]);
     free(to_pop->value[i - 1]);
@@ -43,7 +46,7 @@ void push_dstar(dstar_t *to_push, char const *value)
 
     if (i >= (my_arrlen(to_push->value)))
         re_dstar(to_push);
-    to_push->value[i] = malloc(5);
+    to_push->value[i] = malloc(1000);
     my_strcpy(to_push->value[i], value);
 }
 
@@ -78,14 +81,3 @@ void sh_dstar(dstar_t *dt)
     my_putchar('\n');
 }
 
-int main()
-{
-    dstar_t *s = init_dstar();
-    sh_dstar(s);
-    push_dstar(s,"hello");
-    push_dstar(s,"vodka");
-    sh_dstar(s);
-    pop_dstar(s);
-    pop_dstar(s);
-    sh_dstar(s);
-}

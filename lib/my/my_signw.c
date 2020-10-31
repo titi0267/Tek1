@@ -5,6 +5,7 @@
 ** dddd
 */
 
+
 int sign_d(char *sign, int par)
 {
     char c = sign[0];
@@ -42,3 +43,14 @@ int sign_w(char s)
     }
     return (0);
 }
+
+int check_if_sign(char s, int *inf)
+{
+    if (sign_w(s) != 0) {
+        *inf = 1;
+        return (1);
+    }
+    *inf = 0;
+    return (0);
+}
+

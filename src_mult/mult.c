@@ -5,8 +5,9 @@
 ** mult
 */
 
-#include "./include/my_structs.h"
-#include "./include/my.h"
+#include "../include/my_structs.h"
+#include "../include/my.h"
+#include "../include/mult.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -42,16 +43,24 @@ void *mult_by_10(char *to_mult, long long p10)
 
 }
 
-number_t *mult_all(char *left, char *right)
+void free_mult(char *left, char *right,char *past){
+    free(left);
+    free(right);
+    free(past);
+}
+
+number_t *inf_mult(char *left, char *right)
 {
+    left = my_strdup(left);
+    right = my_strdup(right);
     int carry = 0;
     int j;
     char *left_rev = my_revstr(left);
     char *right_rev = my_revstr(right);
     number_t *result = malloc(sizeof(number_t));
     int mem_len = my_strlen(left) + my_strlen(right);
-    result->numb = malloc(10000000000);
-    char *past = malloc(1000000000);
+    result->numb = malloc(mem_len+3);
+    char *past = malloc(mem_len+3);
 
     my_strcpy(result->numb, "0");
     for (int i = 0; i < my_strlen(right_rev); i++) {
@@ -66,15 +75,12 @@ number_t *mult_all(char *left, char *right)
         carry = 0;
         my_strcpy(past, "");
     }
-
+    free_mult(left,right,past);
     my_revstr(result->numb);
     return (result);
 }
 
-int main(int ac, char **av)
-{
-    //char *mam=my_strdup("222");
-   // mult_by_10(mam, 2);
-   // printf("%s\n", mam);
-  printf("hello %s\n", mult_all(my_strdup(av[1]), my_strdup(av[2]))->numb);
-}
+// int main(int ac, char **av)
+// {
+//     printf("RESULT %s\n",inf_mult(my_strdup(av[1]),my_strdup(av[2]))->numb);
+// }
