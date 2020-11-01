@@ -40,12 +40,11 @@ int main(int ac, char **av)
         return(0);
     }
     if(ac != 4) {
-        write(2,"syntax error\n",14);
+        write(2,"syntax error",14);
         return(84);
     }
     int amount = my_getnbr(av[3]);
     char *reads = read_all(amount);
     replace_signs(av[2], reads);
     run_expr(reads);
-    
 }
