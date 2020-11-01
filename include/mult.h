@@ -5,6 +5,9 @@
 ** mult
 */
 
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef MULT_H_
 #define MULT_H_
 number_t *inf_mult(char *left,char *right);

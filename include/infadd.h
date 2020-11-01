@@ -6,6 +6,9 @@
 */
 
 #include "my_structs.h"
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef INFADD_H_
 #define INFADD_H_
 number_t *infin_add(char *n1, char *n2);

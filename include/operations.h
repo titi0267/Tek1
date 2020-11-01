@@ -5,6 +5,9 @@
 ** operations
 */
 
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #pragma once
 int my_nblen(char *num);
 void clear_o(char *witho);

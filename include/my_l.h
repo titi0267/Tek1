@@ -5,6 +5,9 @@
 ** gg
 */
 
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef MY_L_H_
 #define MY_L_H_
 typedef struct dstar {

@@ -6,6 +6,9 @@
 */
 
 #include "my_l.h"
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef POLISH_H_SURE
 #define POLISH_H_SURE
 dstar_t *shunter(dstar_t *ced);

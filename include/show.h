@@ -6,6 +6,9 @@
 */
 
 #include "my_structs.h"
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef SHOW_H_
 #define SHOW_H_
 dstar_t *calculate(dstar_t *ced);

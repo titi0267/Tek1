@@ -5,6 +5,9 @@
 ** my
 */
 
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef MY_H_
 #define MY_H_
 char *my_ntchar(int nb);
