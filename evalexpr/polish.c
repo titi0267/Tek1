@@ -56,7 +56,6 @@ dstar_t *separate_expr(char *expr)
             push_dlist(numsl,my_tostr(expr[i]));
         }
         else if (is_num) {
-            printf("is_num");
             push_dlist(numsl,my_tostr(expr[i]));
         }
         if(check_nums(expr[i+1])==0 && is_num == 1){
@@ -67,7 +66,6 @@ dstar_t *separate_expr(char *expr)
         {
             push_dstar(stck, my_tostr(expr[i]));
         }
-        printf("\n");
     }
     return (stck);
 }
