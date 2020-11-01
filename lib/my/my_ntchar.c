@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** fff
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** ff
+** my_ntchar.c
 */
 
 #include "./include/my.h"

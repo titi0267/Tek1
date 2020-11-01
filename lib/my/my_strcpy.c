@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** SMTH
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** SMT
+** my_strcpy.c
 */
 
 char *my_strcpy(char *dest, char const *src)

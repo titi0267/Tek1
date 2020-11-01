@@ -1,24 +1,20 @@
 /*
 ** EPITECH PROJECT, 2020
-** ddd
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** dddd
+** my_signw.c
 */
-
 
 int sign_d(char *sign, int par)
 {
     char c = sign[0];
 
-    if (c == '+' || c == '-') {
+    if (c == '+' || c == '-')
         return (1);
-    } else if (c == '*' || c == '/' || c == '%') {
+    else if (c == '*' || c == '/' || c == '%')
         return (2);
-    }
-
     if (par == 1) {
         if (c == '(' || c == ')')
-
             return (0);
     }
 

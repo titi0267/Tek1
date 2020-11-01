@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** Cpool day 4
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** gfs
+** my_strlen.c
 */
 
 int my_strlen(char const *str)

@@ -1,16 +1,16 @@
 /*
 ** EPITECH PROJECT, 2020
-** Day5
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** day
+** my_pow.c
 */
 
 int my_pow(int nb, int p)
 {
     if (p < 0)
         return (0);
-    else if (p > 0) {
+    else if (p > 0)
         return (nb * my_pow(nb, p - 1));
-    } else
+    else
         return (1);
 }

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** fff
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** ff
+** my_strcmp.c
 */
 
 int my_strcmp(const char *sen1, const char *sen2)

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** Cpool day 4
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** gfs
+** my_sort_int_array.c
 */
 
 void swirch(int *f, int *l)
@@ -17,16 +17,14 @@ int check_if_ordered(int *array, int size)
     int police = 0;
 
     for (int i = 0; i < size - 1; i++) {
-        if (*(array + i) <= *(array + i + 1)) {
+        if (*(array + i) <= *(array + i + 1))
             police++;
-        }
     }
     police++;
-    if (police == size) {
+    if (police == size)
         return (1);
-    } else {
+    else
         return (0);
-    }
 }
 
 void my_sort_int_array(int *array, int size)

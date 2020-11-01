@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** ggg
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** ggg
+** my_str_isalpha.c
 */
 
 int chackal(char c)
