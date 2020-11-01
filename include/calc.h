@@ -5,6 +5,10 @@
 ** calc
 */
 
+#ifndef ERROR_MSG
+#define ERROR_MSG "too few arguments"
+#endif
+
 #ifndef CACL_H_
 #define CALC_H_
 int run_expr(char *num);
