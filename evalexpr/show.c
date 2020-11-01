@@ -49,8 +49,8 @@ void make_calc(dstar_t *numbs, int op_sign)
     char *y = pop_dstar(numbs);
 
     number_t *store = op_doer(op_sign, y, x);
-    if(store->sign == -1)
-        insert_minus(store->numb);
+    if(store->sign == -1) 
+        store->numb = insert_minus(store->numb);
     push_dstar(numbs, store->numb);
 }
 
@@ -64,6 +64,8 @@ dstar_t *calculate(dstar_t *ced)
         } else {
             push_dstar(numbs, ced->value[i]);
         }
+        
     }
+   // sh_dstar(numbs);
     return(numbs);
 }
