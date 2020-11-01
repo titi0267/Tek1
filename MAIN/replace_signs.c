@@ -28,7 +28,7 @@ static char get_sign(int sign_num)
     return (c);
 }
 
-static void replace_sign(char cur, char *to_convert, int sign_num) 
+static void replace_sign(char cur, char *to_convert, int sign_num)
 {
     for (int i = 0; to_convert[i] != '\0'; i++) {
         if (to_convert[i] == cur)
@@ -40,5 +40,4 @@ void replace_signs(char *av2, char *to_convert)
 {
     for (int i = 0; av2[i] != '\0'; i++)
         replace_sign(av2[i], to_convert, i);
-
 }

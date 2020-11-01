@@ -18,7 +18,7 @@ char *read_all(int amount)
     return (store);
 }
 
-int main(int ac, char **av) 
+int main(int ac, char **av)
 {
     int amount = my_getnbr(av[3]);
     char *reads = read_all(amount);
