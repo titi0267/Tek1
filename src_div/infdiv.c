@@ -102,7 +102,7 @@ number_t *inf_div(char *left, char *right, char **remain)
     if (error(right) == 1) {
         result->numb = my_strdup(SYNTAX_ERROR_MSG);
         result->sign = 0;
-        *remain = my_strdup("error");
+        *remain = my_strdup(SYNTAX_ERROR_MSG);
     } else if (bigger_num(left, right) == 0) {
         result->numb = my_strdup("0");
         result->sign = 1;
