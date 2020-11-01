@@ -14,7 +14,9 @@ char *read_all(int amount)
     char *store = malloc(amount+1);
     int i = 0;
 
-    while(read(0,store+i,1) != 0 && i < amount){
+    while(read(0 ,store+i, 1) != 0 && i < amount){
+        if(store[i] == '\n')
+            break;
         i++;
     }
     store[i] = '\0';
