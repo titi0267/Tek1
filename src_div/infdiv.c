@@ -102,13 +102,13 @@ number_t *inf_div(char *left,char *right,char **remain) {
     return(result);
 }
 
-int main(int ac, char **av){
-    char *remain;
-    number_t *result=inf_div(av[1],av[2],&remain);
-    if(result->sign==-1){
-        printf("-");
-    }
-    printf("%s\n",result->numb);
-    printf("RESTE %s\n",remain);
-}
+// int main(int ac, char **av){
+//     char *remain;
+//     number_t *result=inf_div(av[1],av[2],&remain);
+//     if(result->sign==-1){
+//         printf("-");
+//     }
+//     printf("%s\n",result->numb);
+//     printf("RESTE %s\n",remain);
+// }
 
