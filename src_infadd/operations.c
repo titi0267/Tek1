@@ -40,7 +40,6 @@ char subst(char a, char b,int *indirect)
         substed = ((a_num + 10) - b_num - *indirect) % 10;
         *indirect = 1;
     }
-
     return (substed + '0');
 }
 
@@ -64,17 +63,16 @@ number_t *driver(number_t *one, number_t *two, opossom_t *ops,
     number_t *to_return = malloc(sizeof(number_t));
     to_return->sign = ops->sign;
     int tot_len = my_strlen(one->numb);
-    int indirect=0;
+    int indirect = 0;
 
     to_return->numb = malloc(tot_len + 2);
     for (int i = tot_len-1; i >= 0; i--) {
-        to_return->numb[i+1] =
+        to_return->numb[i + 1] =
             (*sum_f)(one->numb[i], two->numb[i], &indirect);
-        if (i == 0 && indirect == 1) {
+        if (i == 0 && indirect == 1)
             to_return->numb[0] = '1';
-        } else if (i == 0 && indirect == 0) {
+        if (i == 0 && indirect == 0)
             to_return->numb[0] = '0';
-        }
     }
     to_return->numb[tot_len + 1] = '\0';
     return (to_return);

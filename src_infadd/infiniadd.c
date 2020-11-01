@@ -12,7 +12,6 @@
 
 void *print_iadd(number_t *num)
 {
-    my_putstr("add: ");
     if (num->sign == -1 && (my_strcmp(num->numb, "0") != 0))
         my_putstr("-");
     my_putstr(num->numb);
@@ -29,6 +28,5 @@ number_t *infin_add(char *n1, char *n2)
     char *t2 = my_strdup(n2);
 
     result = adapt_numbers(&t1, &t2, num1, num2);
-   // print_iadd(result);
     return (result);
 }

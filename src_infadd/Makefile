@@ -12,14 +12,9 @@ NAME=	libbistro.a
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-    
 	gcc	-c -o	$(NAME)	$(OBJ)	-I./include/	-L../lib/my -lmy
 	ar rc libbistro.a $(OBJ)
 	mv -f libbistro.a ../src_div/include
-
-# cl: $(OBJ)
-# 	gcc -o	$(NAME)	$(OBJ)	-I./include/	-L../lib/my -lmy
-
 
 clean:
 	rm	-f	$(OBJ)

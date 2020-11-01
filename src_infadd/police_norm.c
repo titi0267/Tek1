@@ -11,7 +11,6 @@
 
 void first_oc(char *num1, char *num2, int *first, int *second)
 {
-
     for (int i = 0; num1[i] != '\0'; i++) {
         if (num1[i] != num2[i]) {
             *first = num1[i] - '0';
@@ -34,14 +33,13 @@ void greater(number_t *num1, number_t *num2)
         first_oc(num1->numb, num2->numb, &first, &second);
         if (first < second)
             ex_numbers(num1, num2);
-    } else if (num1_len < num2_len)
+    }
+    if (num1_len < num2_len)
         ex_numbers(num1, num2);
 }
 
 void det_signs(char *ar1, char *ar2, int *one, int *two)
 {
-    /*char *ar1_one = *ar1;
-    char *ar2_one = *ar2;*/
     if (ar1[0] == '-') {
         *one = -1;
         destroy_minus(ar1);
