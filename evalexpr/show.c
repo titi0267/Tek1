@@ -16,12 +16,12 @@
 #include "../include/show.h"
 #include <stdlib.h>
 
-number_t *op_doer(int sign ,char *y,char *x)
+number_t *op_doer(int op_sign , char *y, char *x)
 {
     number_t *store;
     char *remain;
 
-    switch (sign) {
+    switch (op_sign) {
     case 1:
         store= infin_add(y,x);
         break;
@@ -43,20 +43,20 @@ number_t *op_doer(int sign ,char *y,char *x)
     return(store);
 }
 
-void make_calc(dstar_t *numbs, int sign)
+void make_calc(dstar_t *numbs, int op_sign)
 {
     char *x = pop_dstar(numbs);
     char *y = pop_dstar(numbs);
-    number_t *store = op_doer(sign, y, x);
 
+    number_t *store = op_doer(op_sign, y, x);
+    if(store->sign == -1)
+        insert_minus(store->numb);
     push_dstar(numbs, store->numb);
 }
 
 dstar_t *calculate(dstar_t *ced)
 {
-    int *numbers = malloc(100 * sizeof(int));
     dstar_t *numbs = init_dstar();
-
 
     for (int i = 0; i <my_nolen(ced); i++) {
         if (sign_w(ced->value[i][0]) != 0) {

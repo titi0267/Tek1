@@ -52,9 +52,6 @@ dstar_t *separate_expr(char *expr)
           // printf("is_num == 0\n");
             push_dstar(stck, my_tostr(expr[i]));
         }
-       // printf("i est %d\n",i);
-       // sh_dstar(stck);
-        // printf("----------------------\n");
 
     }
     return (stck);
