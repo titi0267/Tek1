@@ -5,6 +5,9 @@
 ** police
 */
 
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #pragma once
 void ex_numbers(number_t *num1,number_t *num2);
 void first_oc(char *num1,char *num2,int *first,int *second);

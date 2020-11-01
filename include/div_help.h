@@ -5,6 +5,9 @@
 ** div_help
 */
 
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef DIV_HELP_H_
 #define DIV_HELP_H_
 void rm_isnotnum(char *left,char *right,char **new_left,char **new_right);

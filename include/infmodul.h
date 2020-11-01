@@ -6,6 +6,9 @@
 */
 
 #include "../include/my_structs.h"
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef INFMODUL_H_
 #define INFMODUL_H_
 number_t *inf_modul(char *left,char *right);

@@ -5,6 +5,9 @@
 ** infdiv
 */
 
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef INFDIV_H_
 #define INFDIV_H_
 number_t *inf_div(char *left, char *right,char **rem);

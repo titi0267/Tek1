@@ -6,6 +6,9 @@
 */
 
 #include "my_structs.h"
+#ifndef SYNTAX_ERROR_MSG
+#define SYNTAX_ERROR_MSG "syntax error"
+#endif
 #ifndef INFSUBST_H_
 #define INFSUBST_H_
 number_t *inf_subst(char *left,char *right);
