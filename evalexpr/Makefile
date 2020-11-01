@@ -17,7 +17,7 @@ $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) -L../lib/my -lmy
 	$(MAKE) clean
 
-clean:	
+clean:
 	rm $(OBJ)
 fclean:	clean
 	rm $(NAME)
