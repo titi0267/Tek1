@@ -1,12 +1,11 @@
 /*
 ** EPITECH PROJECT, 2020
-** gg
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** ggg
+** my_revstr.c
 */
 
 #include "include/my.h"
-
 
 char *my_revstr(char *str)
 {
@@ -16,7 +15,6 @@ char *my_revstr(char *str)
     for (int i = 0; i < my_strlen(str); i++) {
         origin[i] = str[i];
     }
-
     for (int i = (my_strlen(str) - 1); i >= 0; i--) {
         str[j++] = origin[i];
     }

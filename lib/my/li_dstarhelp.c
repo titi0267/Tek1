@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** HEADER
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** some
+** li_dstarhelp.c
 */
 
 #include "./include/my.h"
@@ -12,6 +12,7 @@
 int my_arrlen(char **my_arr)
 {
     int i = 0;
+
     while (my_arr[i] != NULL) {
         i++;
     }
@@ -21,6 +22,7 @@ int my_arrlen(char **my_arr)
 int my_nolen(dstar_t *dt)
 {
     int i = 0;
+
     while ((dt->value[i] != NULL) && (my_strcmp(dt->value[i], "NO") != 0))
         i++;
     return (i);
@@ -36,6 +38,7 @@ void fill_no(dstar_t *strr)
 char *my_tostr(char c)
 {
     char *some = malloc(2);
+
     some[0] = c;
     some[1] = '\0';
     return (some);

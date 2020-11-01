@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** gfggg
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** ggg
+** my_str_islower.c
 */
 
 int my_str_islower(char const *str)

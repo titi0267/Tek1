@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** hhhh
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** hhh
+** my_strcapitalize.c
 */
 
 #include "./include/my.h"
@@ -31,6 +31,7 @@ static int after_smth(char c)
 int cap(char *str)
 {
     char *mem = str;
+
     if (chkl(*str) == 1) {
         *str = *str - 32;
     }

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** Get Number
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** number
+** my_getnbr.c
 */
 
 int is_num(char const str)
@@ -35,6 +35,7 @@ int calc_pos_andlim(int am_min, long num)
 {
     long max_p = 2147483647;
     long min_p = -2147483648;
+
     if ((am_min % 2 == 0 || am_min == 0) && num <= max_p)
         return (1);
     else if ((am_min % 2 == 1) && (num * -1 >= min_p))
@@ -52,9 +53,9 @@ int my_getnbr(char const *str)
 
     for (i = 0; is_nothing(str[i]) && str[i] != '\0'; i++) {
         c = *(str + i);
-        if ((is_symb(c) == -1)) {
+        if ((is_symb(c) == -1))
             am_min++;
-        } else if (is_num(c)) {
+        else if (is_num(c)) {
             num = num * 10;
             num = num + (c - 48);
         }

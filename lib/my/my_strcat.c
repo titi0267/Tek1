@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** gg
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** gg
+** my_strcat.c
 */
 
 #include "include/my.h"

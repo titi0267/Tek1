@@ -1,16 +1,15 @@
 /*
 ** EPITECH PROJECT, 2020
-** ff
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** ff
+** li_dstarlist.c
 */
+
 #include "./include/my.h"
 #include "./include/my_l.h"
 #include <stdlib.h>
 
-
 const char *MY_NULL="NO";
-
 
 dstar_t *init_dstar()
 {
@@ -38,6 +37,7 @@ char *pop_dstar(dstar_t *to_pop)
 void push_dstar(dstar_t *to_push, char const *value)
 {
     int i = 0;
+
     while (to_push->value[i] != NULL) {
         if (my_strcmp(to_push->value[i], MY_NULL) == 0)
             break;

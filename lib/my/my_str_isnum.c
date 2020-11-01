@@ -1,10 +1,12 @@
 /*
 ** EPITECH PROJECT, 2020
-** hh
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** hh
+** my_str_isnum.c
 */
+
 #include "./include/my.h"
+
 int check_nums(char c)
 {
     if ((c >= '0') && (c <= '9')) {

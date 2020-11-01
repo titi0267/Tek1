@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** Day5
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** day
+** my_compute_square_root.c
 */
 
 int b_guess(int guess, int obj)
@@ -18,8 +18,8 @@ int b_guess(int guess, int obj)
 
 int my_compute_square_root(int nb)
 {
-    if (nb < 0) {
+    if (nb < 0)
         return (0);
-    } else
+    else
         return (b_guess(nb, nb));
 }

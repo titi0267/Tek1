@@ -1,19 +1,18 @@
 /*
 ** EPITECH PROJECT, 2020
-** gg
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** gg
+** my_put_nbr.c
 */
 
 #include "./include/my.h"
 
 int check_if_p(int l)
 {
-    if (l >= 0) {
+    if (l >= 0)
         return (1);
-    } else {
+    else
         return (0);
-    }
 }
 
 int lengthsp(int num)
@@ -21,12 +20,10 @@ int lengthsp(int num)
     int numt = num;
     int i;
 
-    if (numt == 0) {
+    if (numt == 0)
         return (1);
-    }
-    for (i = 1; numt != 0; i++) {
+    for (i = 1; numt != 0; i++)
         numt = numt / 10;
-    }
     return (i - 1);
 }
 
@@ -34,9 +31,8 @@ int pow_ten(int amout)
 {
     int tenden = 1;
 
-    for (int h = 0; h < amout; ++h) {
+    for (int h = 0; h < amout; ++h)
         tenden = tenden * 10;
-    }
     return (tenden);
 }
 

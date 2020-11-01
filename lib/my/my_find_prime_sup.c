@@ -1,17 +1,16 @@
 /*
 ** EPITECH PROJECT, 2020
-** Day5
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** day
+** my_find_prime_sup.c
 */
 
 int treat2(int treat)
 {
-    if (treat == 2) {
+    if (treat == 2)
         return (1);
-    } else {
+    else
         return (0);
-    }
 }
 
 int guess_prime23(int nb, int it)
@@ -27,9 +26,8 @@ int guess_prime23(int nb, int it)
 
 int my_find_prime_sup(int nb)
 {
-    if (guess_prime23(nb, 2)) {
+    if (guess_prime23(nb, 2))
         return (nb);
-    } else {
+    else
         return (my_find_prime_sup(nb + 1));
-    }
 }

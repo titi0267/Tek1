@@ -1,15 +1,15 @@
 /*
 ** EPITECH PROJECT, 2020
-** evalexpr [WSL: Ubuntu]
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** li_dlist
+** li_dlist.c
 */
 
 #include "include/my.h"
 #include "include/my_l.h"
 #include <stdlib.h>
 
-dlist_t *init_dlist()
+dlist_t *init_dlist(void)
 {
     dlist_t *inited = malloc(sizeof(dlist_t));
 
@@ -36,15 +36,17 @@ static void re_dlist(dlist_t *to_push)
     free(to_push->value);
     to_push->value = new_str;
 }
+
 void push_dlist(dlist_t *to_push, char *str)
 {
     int tot_len = my_strlen(to_push->value) + my_strlen(str) +1;
-    
+
     while ((tot_len) >= to_push->mem_len) {
         re_dlist(to_push);
     }
     my_strcat(to_push->value,my_strdup(str));
 }
+
 void clear_dlist(dlist_t *to_clear)
 {
     free(to_clear->value);
@@ -52,15 +54,3 @@ void clear_dlist(dlist_t *to_clear)
     my_strcpy(to_clear->value,"");
     to_clear->mem_len=10;
 }
-
-
-// int main(){
-//     dlist_t *yo=init_dlist();
-//     push_dlist(yo,"hello darling my old");
-//     sh_dlist(yo);
-//     clear_dlist(yo);
-//     sh_dlist(yo);
-//     push_dlist(yo,"my momma doesn't like him");
-//     sh_dlist(yo);
-//     clear_dlist(yo);
-// }

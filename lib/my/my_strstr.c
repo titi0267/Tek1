@@ -10,14 +10,14 @@
 int check_str(char *str, char *pattern, int position)
 {
     int j = position;
+
     for (int i = 0; i < my_strlen(pattern) && str[i] != '\0'; i++) {
-        if (str[j++] == pattern[i]) {
+        if (str[j++] == pattern[i])
             continue;
-        } else {
+        else
             return (0);
-        }
-    }
     return (1);
+    }
 }
 
 char *my_strstr(char *str, char *to_find)

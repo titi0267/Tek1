@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** Header
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
 ** File description:
-** header
+** arr_to_num.c
 */
 
 #include "include/my.h"
