@@ -12,15 +12,13 @@
 #include "../include/infadd.h"
 #include "../include/infsubst.h"
 
-
 char *insert_minus(char *right)
 {
     int i = my_strlen(right);
     char *new_right = malloc(my_strlen(right) + 2);
     my_strcpy(new_right, right);
-    for (; i >= 0; i--) {
+    for (; i >= 0; i--)
         new_right[i + 1] = new_right[i];
-    }
     new_right[0] = '-';
 }
 
@@ -31,8 +29,3 @@ number_t *inf_subst(char *left, char *right)
     result = infin_add(left, insert_minus(right));
     return (result);
 }
-
-// int main(int ac, char **av){
-
-//     printf("%s\n",inf_subst(av[1],av[2])->numb);
-// }
