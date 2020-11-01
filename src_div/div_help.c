@@ -29,14 +29,14 @@ int operant(char *left, char *right)
     int first_num = 1;
     int second_num = 1;
 
-    for (int i = 0; check_nums(left[i]) != 1; i ++) {
+    for (int i = 0; check_nums(left[i]) != 1 && left[i] != '\0'; i++) {
         if (left[i] == '-')
             count ++;
     }
     if ((count % 2) == 1)
         first_num = -1;
     count = 0;
-    for (int i = 0; check_nums(right[i]) != 1; i ++) {
+    for (int i = 0; check_nums(right[i]) != 1 && left[i] != '\0'; i++) {
         if (right[i] == '-')
             count ++;
     }

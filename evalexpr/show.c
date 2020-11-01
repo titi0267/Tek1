@@ -34,7 +34,7 @@ number_t *op_doer(int sign ,char *y,char *x)
         store= inf_div(y, x, &remain);
         break;
     case 5:
-        store = inf_modul(y, x, &remain);
+        //store = inf_modul(y, x, &remain);
         break;
     default:
         break;

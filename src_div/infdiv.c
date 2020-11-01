@@ -89,6 +89,7 @@ number_t *div_all(char *left, char *right,char **rem)
         if(get_lastch(result)!='0')
             my_strcpy(new_left,"");
     }
+
     *rem = remain;
     the_result->numb=result;
     return (the_result);
@@ -98,18 +99,17 @@ number_t *inf_div(char *left,char *right,char **remain) {
     int sign = operant(left,right);
     rm_isnotnum(left,right,&left,&right);
     number_t *result=div_all(left,right,remain);
-    *remain = insert_minus(*remain);
     result->sign=sign;
     return(result);
 }
 
-int main(int ac, char **av) {
-    char *remain;
-    number_t *result=inf_div(av[1],av[2],&remain);
-    if(result->sign==-1){
-        printf("-");
-    }
-    printf("%s\n",result->numb);
-    printf("RESTE %s\n",remain);
-}
+// int main(int ac, char **av) {
+//     char *remain;
+//     number_t *result=inf_div(av[1],av[2],&remain);
+//     if(result->sign==-1){
+//         printf("-");
+//     }
+//     printf("%s\n",result->numb);
+//     printf("RESTE %s\n",remain);
+// }
 
