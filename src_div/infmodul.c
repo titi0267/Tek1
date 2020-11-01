@@ -14,14 +14,17 @@ void print_numbert(number_t *toprint){
 number_t *inf_modul(char *left, char *right)
 {
     char *remain;
-    number_t *result = inf_div(left, right, &remain);
+    number_t *result = malloc(sizeof(number_t));
+
+    inf_div(left, right, &remain);
+    result->sign = (left[0] == '-') ? -1 : 1;
     free(result->numb);
     result->numb = remain;
     return (result);
 }
 
-int main(int ac, char **av) 
-{
-    print_numbert(inf_modul(av[1],av[2]));
+// int main(int ac, char **av) 
+// {
+//     print_numbert(inf_modul(av[1],av[2]));
 
-}
+// }

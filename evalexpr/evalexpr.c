@@ -22,9 +22,5 @@ int run_expr(char *num)
     runner = shunter(runner);
     runner = calculate(runner);
     my_putstr(runner->value[0]);
-    my_putstr("\n");
 }
 
-int main(int ac, char **av) { 
-run_expr(my_strdup(av[1])); 
-}

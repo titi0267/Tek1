@@ -2,11 +2,14 @@ CC=	gcc
 
 CFLAGS=	-g
 
-SRC=	./evalexpr/evalexpr.c	\
+SRC=	./MAIN/calc.c	\
+	./MAIN/replace_signs.c	\
+	./evalexpr/evalexpr.c	\
 	./evalexpr/polish.c	\
 	./evalexpr/show.c	\
 	./src_div/div_help.c	\
 	./src_div/infdiv.c	\
+	./src_div/infmodul.c 	\
 	./src_infadd/infiniadd.c	\
 	./src_infadd/operations.c	\
 	./src_infadd/police.c	\

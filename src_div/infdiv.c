@@ -16,7 +16,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 char get_lastch(char *to_getlast)
 {
     int i = 0;
@@ -25,7 +24,6 @@ char get_lastch(char *to_getlast)
         i++;
     return (to_getlast[i - 1]);
 }
-
 
 int bigger_num(char *left, char *right)
 {
@@ -36,11 +34,11 @@ int bigger_num(char *left, char *right)
         return (1);
     if (my_strlen(left) == my_strlen(right)) {
         for (i = 0; left[i] != '\0'; i++) {
-            if(left[i] > right[i] && count == i)
-                return(1);
-             if(left[i] >= right[i] && count == i && left[i+1] == '\0')
-                return(1);
-             if(left[i] >= right[i])
+            if (left[i] > right[i] && count == i)
+                return (1);
+            if (left[i] >= right[i] && count == i && left[i + 1] == '\0')
+                return (1);
+            if (left[i] >= right[i])
                 count++;
         }
     }
@@ -52,7 +50,7 @@ char *do_div(char *left, char *right, char **indirect)
     char *i = my_strdup("0");
     char *new_left = my_strdup(left);
     number_t *result = malloc(sizeof(number_t));
-    
+
     result->sign = 0;
     for (; result->sign != -1; i = infin_add(i, "1")->numb) {
         result = inf_subst(new_left, right);
@@ -64,10 +62,10 @@ char *do_div(char *left, char *right, char **indirect)
     return (i);
 }
 
-number_t *div_all(char *left, char *right,char **rem)
+number_t *div_all(char *left, char *right, char **rem)
 {
-    char *new_left = malloc(my_strlen(left)+10);
-    char *result = malloc(my_strlen(left)+10);
+    char *new_left = malloc(my_strlen(left) + 10);
+    char *result = malloc(my_strlen(left) + 10);
     number_t *the_result = malloc(sizeof(number_t));
     char *remain;
     int i = 0;
@@ -86,30 +84,43 @@ number_t *div_all(char *left, char *right,char **rem)
             my_strcpy(new_left, remain);
         my_strcat(new_left, my_tostr(left[k]));
         my_strcat(result, do_div(new_left, right, &remain));
-        if(get_lastch(result)!='0')
-            my_strcpy(new_left,"");
+        if (get_lastch(result) != '0')
+            my_strcpy(new_left, "");
     }
 
     *rem = remain;
-    the_result->numb=result;
+    the_result->numb = result;
     return (the_result);
 }
 
-number_t *inf_div(char *left,char *right,char **remain) {
-    int sign = operant(left,right);
-    rm_isnotnum(left,right,&left,&right);
-    number_t *result=div_all(left,right,remain);
-    result->sign=sign;
-    return(result);
+number_t *inf_div(char *left, char *right, char **remain)
+{
+    number_t *result = malloc(sizeof(number_t));
+    int signs = operant(left,right);
+    rm_isnotnum(left, right, &left, &right);
+
+    if (error(right) == 1) {
+        result->numb = my_strdup("error");
+        result->sign = 0;
+        *remain = my_strdup("error");
+    } 
+    else if (bigger_num(left, right) == 0) {
+        result->numb = my_strdup("0");
+        result->sign = 1;
+        *remain = left;
+    } else {
+        result = div_all(my_strdup(left), my_strdup(right), remain);
+        result->sign = signs;
+    }
+    return (result);
 }
 
 // int main(int ac, char **av) {
 //     char *remain;
-//     number_t *result=inf_div(av[1],av[2],&remain);
-//     if(result->sign==-1){
+//     number_t *result = inf_div(av[1], av[2], &remain);
+//     if(result->sign == -1){
 //         printf("-");
 //     }
 //     printf("%s\n",result->numb);
 //     printf("RESTE %s\n",remain);
 // }
-

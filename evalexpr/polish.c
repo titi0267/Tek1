@@ -57,7 +57,6 @@ dstar_t *separate_expr(char *expr)
         // printf("----------------------\n");
 
     }
-    sh_dstar(stck);
     return (stck);
 }
 
