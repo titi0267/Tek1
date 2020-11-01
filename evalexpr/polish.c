@@ -11,7 +11,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int check_newnum(char *num, int pos, int *numcheck)
 {
 
