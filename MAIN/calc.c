@@ -14,7 +14,7 @@ char *read_all(int amount)
     char *store = malloc(amount + 1);
     int i = 0;
 
-    while (read(0 ,store + i, 1) != 0 && i < amount){
+    while (read(0, store + i, 1) != 0 && i < amount) {
         if (store[i] == '\n')
             break;
         i++;
@@ -25,12 +25,13 @@ char *read_all(int amount)
 
 void *tell_dumy_user(void)
 {
-        my_putstr("USAGE\n");
-        my_putstr("./calc base operators size_read\n\n");
-        my_putstr("DESCRIPTION\n");
-        my_putstr("- base: all the symbols of the base\n");
-        my_putstr("- operators: the symbols for the parentheses and the 5 operators\n");
-        my_putstr("- size_read: number of charachters to be read\n");
+    my_putstr("USAGE\n");
+    my_putstr("./calc base operators size_read\n\n");
+    my_putstr("DESCRIPTION\n");
+    my_putstr("- base: all the symbols of the base\n");
+    my_putstr(
+        "- operators: the symbols for the parentheses and the 5 operators\n");
+    my_putstr("- size_read: number of charachters to be read\n");
 }
 
 int main(int ac, char **av)

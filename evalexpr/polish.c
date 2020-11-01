@@ -39,9 +39,9 @@ dstar_t *separate_expr(char *expr)
 
     for (int i = 0; expr[i] != '\0'; i++) {
         check_if_num(expr[i], &is_num);
-        if (check_newnum(expr, i, &numcheck)) 
+        if (check_newnum(expr, i, &numcheck))
             push_dlist(numsl, my_tostr(expr[i]));
-        else if (is_num) 
+        else if (is_num)
             push_dlist(numsl, my_tostr(expr[i]));
         if (check_nums(expr[i + 1]) == 0 && is_num == 1) {
             push_dstar(stck, numsl->value);

@@ -96,15 +96,14 @@ number_t *div_all(char *left, char *right, char **rem)
 number_t *inf_div(char *left, char *right, char **remain)
 {
     number_t *result = malloc(sizeof(number_t));
-    int signs = operant(left,right);
+    int signs = operant(left, right);
     rm_isnotnum(left, right, &left, &right);
 
     if (error(right) == 1) {
         result->numb = my_strdup("error");
         result->sign = 0;
         *remain = my_strdup("error");
-    } 
-    else if (bigger_num(left, right) == 0) {
+    } else if (bigger_num(left, right) == 0) {
         result->numb = my_strdup("0");
         result->sign = 1;
         *remain = left;

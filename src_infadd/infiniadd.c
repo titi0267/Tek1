@@ -24,7 +24,7 @@ number_t *infin_add(char *n1, char *n2)
     number_t *num2 = malloc(sizeof(number_t));
     number_t *result = malloc(sizeof(number_t));
 
-    char *t1 =my_strdup(n1);
+    char *t1 = my_strdup(n1);
     char *t2 = my_strdup(n2);
 
     result = adapt_numbers(&t1, &t2, num1, num2);
