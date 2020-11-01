@@ -14,7 +14,7 @@ char *read_all(int amount)
     char *store = malloc(amount+1);
     int i = 0;
 
-    while(read(0,store+i,1) != 0){
+    while(read(0,store+i,1) != 0 && i < amount){
         i++;
     }
     store[i] = '\0';
@@ -31,20 +31,19 @@ void *tell_dumy_user(void)
         my_putstr("- size_read: number of charachters to be read\n");
 }
 
-// int main(int ac, char **av)
-// {
-//     if(av[1] != NULL && my_strcmp(av[1],"-h") == 0) {
-//         tell_dumy_user();
-//         return(0);
-//     }
-//     if(ac != 4) {
-//         write(2,"syntax error\n",14);
-//         return(84);
-//     }
-//     int amount = my_getnbr(av[3]);
-//     char *reads = read_all(amount);
-//     pri
-//     replace_signs(av[2], reads);
-//     run_expr(reads);
+int main(int ac, char **av)
+{
+    if(av[1] != NULL && my_strcmp(av[1],"-h") == 0) {
+        tell_dumy_user();
+        return(0);
+    }
+    if(ac != 4) {
+        write(2,"syntax error\n",14);
+        return(84);
+    }
+    int amount = my_getnbr(av[3]);
+    char *reads = read_all(amount);
+    replace_signs(av[2], reads);
+    run_expr(reads);
     
-// }
+}

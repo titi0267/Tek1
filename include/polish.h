@@ -11,3 +11,4 @@ void pop_ops(char *about,dstar_t *op,dstar_t *queu);
 void close_par(dstar_t *op,dstar_t *queu);
 void pop_all(dstar_t *op,dstar_t *queu);
 dstar_t *separate_expr(char *expr);
+int is_all_num(char *to_check);

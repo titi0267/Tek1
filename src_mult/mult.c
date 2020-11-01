@@ -105,7 +105,7 @@ number_t *inf_mult(char *left, char *right)
     return (result);
 }
 
-int main(int ac, char **av)
-{
-    print_numbert(inf_mult(av[1],av[2]));
-}
+// int main(int ac, char **av)
+// {
+//     print_numbert(inf_mult(av[1],av[2]));
+// }

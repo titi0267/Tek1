@@ -11,6 +11,7 @@
 #include "../include/infdiv.h"
 #include "../include/infadd.h"
 #include "../include/infmodul.h"
+#include "../include/polish.h"
 #include "../include/infsubst.h"
 #include "../include/mult.h"
 #include "../include/show.h"
@@ -59,7 +60,7 @@ dstar_t *calculate(dstar_t *ced)
     dstar_t *numbs = init_dstar();
 
     for (int i = 0; i <my_nolen(ced); i++) {
-        if (sign_w(ced->value[i][0]) != 0) {
+        if (sign_w(ced->value[i][0]) != 0 && is_all_num(ced->value[i]) == 0) {
             make_calc(numbs, sign_w(ced->value[i][0]));
         } else {
             push_dstar(numbs, ced->value[i]);

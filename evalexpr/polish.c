@@ -7,6 +7,7 @@
 
 #include "../include/my.h"
 #include "../include/my_l.h"
+#include "../include/polish.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -60,27 +61,27 @@ dstar_t *separate_expr(char *expr)
             check_if_sign(expr[i - 1], &was_sign);
         }
         if(check_newnum(expr, i, &numcheck)) {
-            printf("check_newnum(expr, i, &numcheck");
+            //printf("check_newnum(expr, i, &numcheck");
             push_dlist(numsl,my_tostr(expr[i]));
         }
         else if (is_num) {
-            printf("is_num");
+            //printf("is_num");
             push_dlist(numsl,my_tostr(expr[i]));
         }
         if(check_nums(expr[i+1])==0 && is_num == 1){
-            printf("check_nums(expr[i+1])==0 && was_num == 1\n");
+            //printf("check_nums(expr[i+1])==0 && was_num == 1\n");
             push_dstar(stck,numsl->value);
             clear_dlist(numsl);
         }
         if(is_num == 0 && numcheck == 0)
         {
-            printf("is_num == 0\n");
+           // printf("is_num == 0\n");
             push_dstar(stck, my_tostr(expr[i]));
         }
-        printf("i est %d\n",i);
+        /*printf("i est %d\n",i);
         sh_dstar(stck);
         printf("_______________________________");
-        printf("\n");
+        printf("\n");*/
     }
     return (stck);
 }
@@ -118,13 +119,11 @@ dstar_t *shunter(dstar_t *ced)
 {
     dstar_t *queu = init_dstar();
     dstar_t *op = init_dstar();
-    int is_num;
 
     for (int i = 0; i < my_nolen(ced); i++) {
-        check_if_num(ced->value[i][0], &is_num);
-        if (is_num)
+        if (is_all_num(ced->value[i]))
             push_dstar(queu, ced->value[i]);
-        if (sign_d(ced->value[i], 0) != 0) {
+        else if(sign_d(ced->value[i], 0) != 0) {
             pop_ops(ced->value[i], op, queu);
         }
         if (ced->value[i][0] == '(') {
@@ -134,5 +133,6 @@ dstar_t *shunter(dstar_t *ced)
             close_par(op, queu);
     }
     pop_all(op, queu);
+    //sh_dstar(queu);
     return (queu);
 }

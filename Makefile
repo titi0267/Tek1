@@ -7,6 +7,7 @@ SRC=	./MAIN/calc.c	\
 	./evalexpr/evalexpr.c	\
 	./evalexpr/polish.c	\
 	./evalexpr/show.c	\
+	./evalexpr/advanced.c 	\
 	./src_div/div_help.c	\
 	./src_div/infdiv.c	\
 	./src_div/infmodul.c 	\
