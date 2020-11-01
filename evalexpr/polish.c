@@ -117,6 +117,5 @@ dstar_t *shunter(dstar_t *ced)
             close_par(op, queu);
     }
     pop_all(op, queu);
-    sh_dstar(queu);
     return (queu);
 }
