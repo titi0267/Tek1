@@ -57,10 +57,3 @@ void rm_isnotnum(char *left, char *right, char **new_left, char **new_right)
     *new_right = my_strdup(right + i);
 }
 
-// int main(int ac, char **av)
-// {
-//     char *new_left ;
-//     char *new_right ;
-
-//     printf("le signe est %d\n",operant(av[1],av[2]));
-// }

@@ -1,4 +1,5 @@
 .vscode
 **.out
+**.o
 _clang-format
 mkheaders
