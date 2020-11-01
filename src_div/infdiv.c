@@ -100,7 +100,7 @@ number_t *inf_div(char *left, char *right, char **remain)
     rm_isnotnum(left, right, &left, &right);
 
     if (error(right) == 1) {
-        result->numb = my_strdup("error");
+        result->numb = my_strdup(SYNTAX_ERROR_MSG);
         result->sign = 0;
         *remain = my_strdup("error");
     } else if (bigger_num(left, right) == 0) {
