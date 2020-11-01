@@ -40,7 +40,7 @@ int main(int ac, char **av)
         return (0);
     }
     if (ac != 4) {
-        write(2,"syntax error",14);
+        write(2, ERROR_MSG, 18);
         return (84);
     }
     int amount = my_getnbr(av[3]);
