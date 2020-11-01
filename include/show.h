@@ -1,7 +1,15 @@
+/*
+** EPITECH PROJECT, 2020
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
+** File description:
+** show
+*/
+
 #include "my_structs.h"
-#ifndef SHOW_HH
-#define SHOW_HH
+#ifndef SHOW_H_
+#define SHOW_H_
 dstar_t *calculate(dstar_t *ced);
 void make_calc(dstar_t *numbs,int sign);
 number_t *op_doer(int sign ,char *y,char *x);
-#endif
+
+#endif /* !SHOW_H_ */

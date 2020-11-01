@@ -5,8 +5,8 @@
 ** my_structs
 */
 
-#ifndef YO_H
-#define YO_H
+#ifndef YO_H_
+#define YO_H_
 typedef struct number {
     char *numb;
     int sign;
@@ -17,4 +17,5 @@ typedef struct opossom
     int op;
     int sign;
 } opossom_t;
+
 #endif /* !YO_H_ */

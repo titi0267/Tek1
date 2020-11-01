@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2020
+** B-CPE-101-STG-1-1-bistromatic-timothe.coniel
+** File description:
+** polish
+*/
+
 #pragma once
 dstar_t *shunter(dstar_t *ced);
 void pop_ops(char *about,dstar_t *op,dstar_t *queu);
