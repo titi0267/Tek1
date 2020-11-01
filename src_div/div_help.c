@@ -49,10 +49,8 @@ void rm_isnotnum(char *left, char *right, char **new_left, char **new_right)
 {
     int i;
 
-    for (i=0;check_nums(left[i])!=1; i++)
-    ;
+    for (i=0;check_nums(left[i])!=1; i++);
     *new_left = my_strdup(left + i);
-    for (i=0; check_nums(right[i]) != 1; i++)
-    ;
+    for (i=0; check_nums(right[i]) != 1; i++);
     *new_right = my_strdup(right + i);
 }
