@@ -36,4 +36,5 @@ int main(int ac, char **av)
     }
     if (ac != 8 && my_strcmp(av[1], "-h") != 0)
         check_error();
+        return (84);
 }
