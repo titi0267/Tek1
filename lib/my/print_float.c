@@ -5,6 +5,8 @@
 ** print_float
 */
 
+#include "../../include/my.h"
+
 int print_float(float a)
 {
     int b = (int)a;
