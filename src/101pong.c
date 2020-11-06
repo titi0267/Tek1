@@ -50,14 +50,7 @@ int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
-    /*if (av[1] != NULL && my_strcmp(av[1], "-h") == 0) {
-        check_h();
-        return (0);
-    }
-    if (ac != 8 || my_strcmp(av[1], "-h") != 0) {
-        my_putstr("Invalid Syntax\n");
-        return (84);
-    }*/
+    int c_error = 0;
     if (av[1][0] == '-' && av[1][1] == 'h') {
         check_h();
         return (0);
@@ -66,9 +59,9 @@ int main(int ac, char **av)
         my_putstr("Invalid Syntax\n");
         return (84);
     }
-    to_float(av, info);
-    for (int i = 0; i <= 6; ++i)
-        printf("%.2f\n", info->given[i]);
+    c_error = to_float(av, info);
+    if (c_error == 84)
+        return (84);
     core101(info);
     return (0);
 }

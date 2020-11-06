@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-int core101(void)
+void core101(infin_number_t *info)
 {
     int a = 0;
 }
