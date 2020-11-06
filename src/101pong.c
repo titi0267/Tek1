@@ -10,10 +10,10 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int to_float(char **av, infin_number_t *info)
 {
-    int a = 0;
     int tab_pos = 0;
     float f = 0;
 
@@ -21,8 +21,7 @@ int to_float(char **av, infin_number_t *info)
         if (my_str_isnum(av[i]) == 0)
             return (84);
         if (my_str_isnum(av[i]) == 1) {
-            a = my_getnbr(av[i]);
-            f = (float) a;
+            f = atof(av[i]);
             info->given[tab_pos] = f;
             tab_pos++;
         }
@@ -51,6 +50,14 @@ int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
+    /*if (av[1] != NULL && my_strcmp(av[1], "-h") == 0) {
+        check_h();
+        return (0);
+    }
+    if (ac != 8 || my_strcmp(av[1], "-h") != 0) {
+        my_putstr("Invalid Syntax\n");
+        return (84);
+    }*/
     if (av[1][0] == '-' && av[1][1] == 'h') {
         check_h();
         return (0);
@@ -60,6 +67,8 @@ int main(int ac, char **av)
         return (84);
     }
     to_float(av, info);
+    for (int i = 0; i <= 6; ++i)
+        printf("%.2f\n", info->given[i]);
     core101(info);
     return (0);
 }
