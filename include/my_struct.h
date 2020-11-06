@@ -11,8 +11,9 @@
 typedef struct infin_number
 {
     float given[8];
-    float *vels;
-    float *tpos;
+    float vels[4];
+    float tpos[4];
+    int bounced;
 } infin_number_t;
 
 #endif /* !MY_STRUCT_H_ */
