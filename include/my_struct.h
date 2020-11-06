@@ -14,6 +14,7 @@ typedef struct infin_number
     float vels[4];
     float tpos[4];
     int bounced;
+    float angle;
 } infin_number_t;
 
 #endif /* !MY_STRUCT_H_ */
