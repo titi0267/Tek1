@@ -10,22 +10,9 @@
 
 typedef struct infin_number
 {
-    char *str;
-    char *str1;
-    char *str2;
-    char *str3;
-    char *str4;
-    char *str5;
-    int length;
-    int height;
-    int taskNb;
-    int temp;
-    int first;
-    int second;
-    int third;
-    int fourth;
-    int fifth;
-    int error;
+    float given[8];
+    float *vels;
+    float *tpos;
 } infin_number_t;
 
 #endif /* !MY_STRUCT_H_ */

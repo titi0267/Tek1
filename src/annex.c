@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-int annex(void)
+int core101(void)
 {
     int a = 0;
 }
