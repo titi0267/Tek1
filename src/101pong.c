@@ -8,12 +8,6 @@
 #include "../include/my.h"
 #include <stddef.h>
 
-int check_error(void)
-{
-    my_putstr("Invalid Syntax");
-    return (84);
-}
-
 void check_h(void)
 {
     my_putstr("USAGE\n");
@@ -34,7 +28,8 @@ int main(int ac, char **av)
         check_h();
         return (0);
     }
-    if (ac != 8 && my_strcmp(av[1], "-h") != 0)
-        check_error();
+    if (ac != 8 && my_strcmp(av[1], "-h") != 0) {
+        my_putstr("Invalid Syntax");
         return (84);
+    }
 }
