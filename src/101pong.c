@@ -54,8 +54,8 @@ int main(int ac, char **av)
         check_h();
         return (0);
     }
-    if (ac != 8 && my_strcmp(av[1], "-h") != 0) {
-        my_putstr("Invalid Syntax");
+    if (ac != 8 || my_strcmp(av[1], "-h") != 0) {
+        my_putstr("Invalid Syntax\n");
         return (84);
     }
     to_float(av, info);
