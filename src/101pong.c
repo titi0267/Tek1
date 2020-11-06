@@ -43,7 +43,8 @@ void check_h(void)
     my_putstr("     x1  ball abscissa at time t\n");
     my_putstr("     y1  ball ordinate at time t\n");
     my_putstr("     z1  ball altitude at time t\n");
-    my_putstr("     n   time shift (greater than or equal to zero, integer)\n");
+    my_putstr("     n   time shift (greater than or equal to zero, integer)\n"
+    );
 }
 
 int main(int ac, char **av)
