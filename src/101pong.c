@@ -51,11 +51,11 @@ int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
-    if (av[1] != NULL && my_strcmp(av[1], "-h") == 0) {
+    if (av[1][0] == '-' && av[1][1] == 'h') {
         check_h();
         return (0);
     }
-    if (ac != 8 || my_strcmp(av[1], "-h") != 0) {
+    if (ac != 8 && (av[1][0] != '-' && av[1][1] != 'h')) {
         my_putstr("Invalid Syntax\n");
         return (84);
     }
