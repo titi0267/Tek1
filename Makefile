@@ -8,7 +8,7 @@
 SRC = 	src/101pong.c	\
 		src/annex.c		\
 
-CC		=	gcc
+CC		=	gcc -lm
 
 CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude -g
 

@@ -62,12 +62,12 @@ void nextpos(infin_number_t *info)
 
 int bouncing(infin_number_t *info)
 {
-
+    int a = 0;
 }
 
 void angle(infin_number_t *info)
 {
-    //info->angle = asinf(info->given[5]/info->vels[2]);
+    info->angle = asinf(info->given[5]/info->vels[2]);
 }
 
 void core101(infin_number_t *info)
