@@ -39,10 +39,13 @@ void display(infin_number_t *info)
     my_putstr("At time t + 4, ball coordinates will be :\n(");
     printf("%.2f, %.2f, %.2f)\n", info->tpos[0], info->tpos[1], 
     info->tpos[2]);
-    my_putstr("The incidence angle is:\n");
-    my_putstr("The ball won’t reach the paddle.");
+    if (info->bounced == 1) {
+        my_putstr("The incidence angle is:\n");
+        printf("%.2f degrees\n", info->angle);
+    }
+    if (info->bounced == 0)
+        my_putstr("The ball won’t reach the paddle.\n");
 }
-
 
 void check_h(void)
 {

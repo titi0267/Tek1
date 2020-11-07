@@ -45,17 +45,14 @@ void nextpos(infin_number_t *info)
         if (c == 3 && a == 0) {
             f = (info->given[6] * info->vels[a]) + info->given[c];
             info->tpos[a] = f;
-            printf("%.2f\n", f);
         }
         if (c == 4 && a == 1) {
             f = (info->given[6] * info->vels[a]) + info->given[c];
             info->tpos[a] = f;
-            printf("%.2f\n", f);
         }
         if (c == 5 && a == 2) {
             f = (info->given[6] * info->vels[a]) + info->given[c];
             info->tpos[a] = f;
-            printf("%.2f\n", f);
         }
     }
 }
