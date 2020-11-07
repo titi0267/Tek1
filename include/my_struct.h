@@ -10,6 +10,7 @@
 
 typedef struct infin_number
 {
+    int c_error;
     float given[8];
     float vels[4];
     float tpos[4];

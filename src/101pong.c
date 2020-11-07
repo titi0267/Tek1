@@ -30,7 +30,7 @@ int to_float(char **av, infin_number_t *info)
     return (0);
 }
 
-void disp_vel(infin_number_t *info)
+void display(infin_number_t *info)
 {
     my_putstr("The Velocity vector of this ball is :\n");
     for (int a = 0; a <= 2; a ++)
@@ -56,7 +56,6 @@ int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
-    int c_error = 0;
     if (av[1][0] == '-' && av[1][1] == 'h') {
         check_h();
         return (0);
@@ -65,10 +64,12 @@ int main(int ac, char **av)
         my_putstr("Invalid Syntax\n");
         return (84);
     }
-    c_error = to_float(av, info);
-    if (c_error == 84)
+    info->c_error = to_float(av, info);
+    if (info->c_error == 84) {
+        my_putstr("Invalid Syntax\n");
         return (84);
+    }
     core101(info);
-    disp_vel(info);
+    display(info);
     return (0);
 }
