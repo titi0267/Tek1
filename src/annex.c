@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 void velocity(infin_number_t *info)
 {
@@ -34,8 +35,23 @@ void velocity(infin_number_t *info)
     }
 }
 
+void nextpos(infin_number_t *info)
+{
+
+}
+
+int bouncing(infin_number_t *info)
+{
+
+}
+
+void angle(infin_number_t *info)
+{
+    info->angle = asin(info->given[5]/info->vels[2]);
+}
+
 void core101(infin_number_t *info)
 {
     velocity(info);
-    //nextpos(info);
+    nextpos(info);
 }
