@@ -30,6 +30,12 @@ int to_float(char **av, infin_number_t *info)
     return (0);
 }
 
+void disp_vel(infin_number_t *info)
+{
+    my_putstr("The Velocity vector of this ball is :\n");
+    for (int a = 0; a <= 2; a ++)
+        printf("%.2f\n", info->vels[a]);
+}
 
 void check_h(void)
 {
@@ -63,5 +69,6 @@ int main(int ac, char **av)
     if (c_error == 84)
         return (84);
     core101(info);
+    disp_vel(info);
     return (0);
 }

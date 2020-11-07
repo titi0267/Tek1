@@ -18,16 +18,18 @@ void velocity(infin_number_t *info)
     int a = 0;
     float f = 0;
 
-    my_putstr("The Velocity vector of this ball is :\n");
     for (;c < 8 && a < 3; a ++, c ++) {
         if (c == 3 && a == 0) {
-            printf("(%.2f, ", info->given[c] - info->given[a]);
+            f = info->given[c] - info->given[a];
+            info->vels[a] = f;
         }
         if (c == 4 && a == 1) {
-            printf("%.2f, ", info->given[c] - info->given[a]);
+            f = info->given[c] - info->given[a];
+            info->vels[a] = f;
         }
         if (c == 5 && a == 2) {
-            printf("%.2f)\n", info->given[c] - info->given[a]);
+            f = info->given[c] - info->given[a];
+            info->vels[a] = f;
         }
     }
 }
