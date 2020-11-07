@@ -33,10 +33,16 @@ int to_float(char **av, infin_number_t *info)
 
 void display(infin_number_t *info)
 {
-    my_putstr("The Velocity vector of this ball is :\n");
-    for (int a = 0; a <= 2; a ++)
-        printf("%.2f\n", info->vels[a]);
+    my_putstr("The Velocity vector of this ball is :\n(");
+    printf("%.2f, %.2f, %.2f)\n", info->vels[0], info->vels[1], 
+    info->vels[2]);
+    my_putstr("At time t + 4, ball coordinates will be :\n(");
+    printf("%.2f, %.2f, %.2f)\n", info->tpos[0], info->tpos[1], 
+    info->tpos[2]);
+    my_putstr("The incidence angle is:\n");
+    my_putstr("The ball won’t reach the paddle.");
 }
+
 
 void check_h(void)
 {
