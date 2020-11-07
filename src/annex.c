@@ -21,16 +21,13 @@ void velocity(infin_number_t *info)
     my_putstr("The Velocity vector of this ball is :\n");
     for (;c < 8 && a < 3; a ++, c ++) {
         if (c == 3 && a == 0) {
-            f = info->given[c] - info->given[a];
-            printf("(%.2f, ", f);
+            printf("(%.2f, ", info->given[c] - info->given[a]);
         }
         if (c == 4 && a == 1) {
-            f = info->given[c] - info->given[a];
-            printf("%.2f, ", f);
+            printf("%.2f, ", info->given[c] - info->given[a]);
         }
         if (c == 5 && a == 2) {
-            f = info->given[c] - info->given[a];
-            printf("%.2f)\n", f);
+            printf("%.2f)\n", info->given[c] - info->given[a]);
         }
     }
 }
@@ -38,5 +35,5 @@ void velocity(infin_number_t *info)
 void core101(infin_number_t *info)
 {
     velocity(info);
-    nextpos(info);
+    //nextpos(info);
 }
