@@ -62,7 +62,13 @@ void nextpos(infin_number_t *info)
 
 int bouncing(infin_number_t *info)
 {
-    int a = 0;
+    if ((info->given[2] > info->given[5] && info->given[5] > 0 && info->vels[2] 
+    != 0) || (info->given[2] < info->given[5] && info->tpos[2] < 0 && 
+    info->vels[2] != 0)) {
+        return (1);
+    }
+    else
+        return (0);
 }
 
 void angle(infin_number_t *info)
