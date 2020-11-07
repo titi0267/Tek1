@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void core101(infin_number_t *info)
+void velocity(infin_number_t *info)
 {
     int c = 3;
     int a = 0;
@@ -33,4 +33,10 @@ void core101(infin_number_t *info)
             printf("%.2f)\n", f);
         }
     }
+}
+
+void core101(infin_number_t *info)
+{
+    velocity(info);
+    nextpos(info);
 }
