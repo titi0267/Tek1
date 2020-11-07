@@ -54,4 +54,7 @@ void core101(infin_number_t *info)
 {
     velocity(info);
     nextpos(info);
+    info->bounced = bouncing(info);
+    if (info->bounced == 1)
+        angle(info);
 }
