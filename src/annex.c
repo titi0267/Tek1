@@ -70,9 +70,8 @@ int bouncing(infin_number_t *info)
 
 void angle(infin_number_t *info)
 {
-    float f = info->vels[0] - info->vels[1];
-    float i = info->given[4] - info->given[2];
-    float radian = asinf(i/f);
+    float f = sqrtf(powf(info->vels[0], 2) + powf(info->vels[1], 2) + powf(info->vels[2], 2));
+    float radian = asinf(info->vels[2]/f);
     float degree = radian * (180/3.14159);
 
     if (degree < 0)
