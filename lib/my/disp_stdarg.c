@@ -10,8 +10,8 @@
 
 void  my_printf(char *str, ...)
 {
-    void (*functionName[4]) (va_list *) = {print_str, print_char, print_nbr, print_nbr};
-    char flag_board[5] = {'s', 'c', 'd', 'i', 0};
+    void (*functionName[5]) (va_list *) = {print_str, print_char, print_nbr, print_nbr, print_percent};
+    char flag_board[6] = {'s', 'c', 'd', 'i', '%', 0};
     va_list argu_list;
     int flag_nbr = 0;
 

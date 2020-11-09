@@ -15,6 +15,7 @@ SRC=		my_getnbr.c		\
 			flag_array.c	\
 			disp_stdarg.c	\
 			disp_nbr.c		\
+			disp_percent.c	\
 			disp_char.c
 
 OBJ		=	$(SRC:.c=.o)

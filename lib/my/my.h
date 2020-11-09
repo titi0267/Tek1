@@ -18,8 +18,9 @@ int my_getnbr(char const *);
 int print_float(float );
 void print_char(va_list *);
 void print_str(va_list *);
-int find_flag(char *flag_board, char flag_char);
-void my_printf(char *str, ...);
+int find_flag(char *, char);
+void my_printf(char *, ...);
 void print_nbr(va_list *);
+void print_percent(va_list *);
 
 #endif /* !MY_H_ */
