@@ -1,26 +1,17 @@
 /*
 ** EPITECH PROJECT, 2020
-** my_print_revalpha
+** B-PSU-100-STG-1-1-myprintf-timothe.coniel
 ** File description:
-** 
+** my_put_nbr
 */
-
-int	my_putstr1(char *str){
-    int carac;
-
-    carac = 0;
-    while (str[carac] != '\0') {
-        my_putchar(str[carac]);
-        carac = carac + 1;
-    }
-}
+#include "my.h"
 
 int my_put_nbr(int nb){
     int d;
 
     d = 1;
     if (nb == -2147483648)
-    my_putstr1("-2147483648");
+    my_putstr("-2147483648");
         else
         {
             if (nb < 0) {

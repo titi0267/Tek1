@@ -12,6 +12,9 @@ SRC=		my_getnbr.c		\
 			my_strlen.c		\
 			print_float.c	\
 			disp_str.c		\
+			flag_array.c	\
+			disp_stdarg.c	\
+			disp_nbr.c		\
 			disp_char.c
 
 OBJ		=	$(SRC:.c=.o)
@@ -20,6 +23,7 @@ NAME	=	libmy.a
 
 all:	$(OBJ)
 		ar	rc	$(NAME)		$(OBJ)
+		cp	$(NAME)	../
 		cp	my.h	../../include/my.h
 
 clean:
@@ -29,3 +33,5 @@ fclean:	clean
 		rm	$(NAME)
 
 re:		fclean	all
+
+.PHONY:	all	clean	fclean	re

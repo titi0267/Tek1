@@ -4,24 +4,14 @@
 ** File description:
 ** disp_stdarg
 */
-#include "../include/my.h"
+#include "my.h"
 #include <stdarg.h>
-
-int find_flag(char *flag_board, char flag_char)
-{
-    int flag_nbr = 0;
-
-    for (; flag_board[flag_nbr] != 0; flag_nbr ++) {
-        if (flag_board[flag_nbr] == flag_char)
-            return (flag_nbr);
-    }
-    return (-1);
-}
+#include <unistd.h>
 
 void  my_printf(char *str, ...)
 {
-    void (*functionName[2]) (va_list *) = {print_str, print_char};
-    char flag_board[3] = {'s', 'c', 0};
+    void (*functionName[4]) (va_list *) = {print_str, print_char, print_nbr, print_nbr};
+    char flag_board[5] = {'s', 'c', 'd', 'i', 0};
     va_list argu_list;
     int flag_nbr = 0;
 
@@ -30,7 +20,7 @@ void  my_printf(char *str, ...)
         if (arr != 0 && str[arr - 1] == '%') {
             flag_nbr = find_flag(flag_board, str[arr]);
             if (flag_nbr != -1)
-                (*functionName[flag_nbr]) (argu_list);
+                (*functionName[flag_nbr]) (&argu_list);
         } else if (str[arr] != '%') {
             write(1, &str[arr], 1);
         }

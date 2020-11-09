@@ -7,9 +7,8 @@
 
 #include "../include/my.h"
 #include <stdarg.h>
-void my_printf(char *str, ...);
 
 int main(void)
 {
-    my_printf("%c would %s an ice-cream %s %c banana !\n", 'I', "like", "and", 'a');
+    my_printf("%c would %s %d ice-cream %s %i bananas !\n", 'I', "like", 123456, "and", 2);
 }
