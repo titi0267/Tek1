@@ -5,9 +5,8 @@
 ## Makefile
 ##
 
-SRC =		src/main.c		\
-			src/disp_str.c	\
-			src/disp_char.c
+SRC =	src/main.c	\
+		src/disp_stdarg.c
 
 CC		=	gcc
 
@@ -28,7 +27,8 @@ clean:
 	make -C lib/my/ clean
 
 fclean: clean
-	rm -f ${EXEC}
-	make -C lib/my fclean
+	rm -f	${EXEC}
+	rm	-f	$(NAME)
+	make -C	lib/my	fclean
 
 re:	fclean

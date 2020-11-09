@@ -4,7 +4,7 @@
 ** File description:
 ** disp_char
 */
-#include "../include/my.h"
+#include "my.h"
 #include <stdarg.h>
 
 void print_char(va_list *argu_list)
