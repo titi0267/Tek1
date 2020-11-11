@@ -24,11 +24,14 @@ ${EXEC}:	${OBJS}
 clean:
 	rm	-f	${OBJS}
 	make	-C	lib/my/	clean
+		make	-C	clean
+
 
 fclean: clean
 	rm	-f	${EXEC}
 	rm	-f	$(NAME)
 	make	-C	lib/my	fclean
+	make	-C	fclean
 
 re:	fclean
 

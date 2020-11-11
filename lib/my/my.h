@@ -22,5 +22,10 @@ int find_flag(char *, char);
 void my_printf(char *, ...);
 void print_nbr(va_list *);
 void print_percent(va_list *);
+void print_unsigned(va_list *);
+void print_bin(va_list *);
+//unsigned int print_bin(unsigned int);
+unsigned int my_put_uint(unsigned int);
+int convert_base(unsigned int, int);
 
 #endif /* !MY_H_ */
