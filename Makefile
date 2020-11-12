@@ -20,6 +20,8 @@ SRC=		my_getnbr.c			\
 			disp_bin.c			\
 			my_put_uint.c		\
 			my_putnbr_base.c	\
+			disp_oct.c			\
+			disp_hex.c			\
 			disp_char.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-Llib/my	-lmy	-Iinclude	-g

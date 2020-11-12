@@ -25,6 +25,8 @@ void print_percent(va_list *);
 void print_unsigned(va_list *);
 void print_bin(va_list *);
 unsigned int my_put_uint(unsigned int);
-int convert_base(unsigned int, int);
+int convert_base(int, int);
+void disp_oct(va_list *);
+void disp_hex(va_list *);
 
 #endif /* !MY_H_ */

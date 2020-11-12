@@ -11,5 +11,7 @@ void print_bin(va_list *argu_list)
 {
     unsigned int i = va_arg(*argu_list, unsigned int);
 
-    convert_base(i, 2);
+    if (i <= 0)
+        i = my_put_uint(i);
+    convert_bin(i, 2);
 }
