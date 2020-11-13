@@ -63,21 +63,23 @@ int convert_hex(int nb, str_len_t *info)
     int f = 0;
     int i = 1;
     //int *a;
-    char hex[100];
+    char *hex = malloc(sizeof(char *));;
 
     //a = malloc(sizeof(int *) * x);
-    hex[i] = malloc(sizeof(char *) * i);
+    //hex[i] = malloc(sizeof(char *) * i);
     nb = convert_minus(nb, info);
     while (nb != 0) {
         temp = nb % 16;
-        if (temp < 10)
-            temp += 48;
-        else
-            temp += 55;
-        hex[i++] = temp;
+        if (temp < 10) {
+            hex[i] = temp + 48;
+            i++;
+        } else {
+            hex[i] = temp + 55;
+            i++;
+        }
         nb = nb / 16;
     }
-    for (f = i - 1; f >= 0; f--) {
+    for (f = i - 1; f > 0; f--) {
         my_putchar(hex[f], info);
     }
     return (0);

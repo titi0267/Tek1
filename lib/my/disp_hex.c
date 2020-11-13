@@ -14,4 +14,5 @@ void disp_hex(va_list *argu_list, str_len_t *info)
     int e = va_arg(*argu_list, int);
 
     convert_hex(e, info);
+    //my_putstr(f, info);
 }
