@@ -19,6 +19,7 @@ SRC=		my_putchar.c		\
 			my_putnbr_base.c	\
 			disp_oct.c			\
 			disp_hex.c			\
+			disp_strlen.c		\
 			disp_char.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-Llib/my	-lmy	-Iinclude	-g
