@@ -18,6 +18,8 @@ int to_float(char **av, infin_number_t *info)
     int tab_pos = 0;
     float f = 0;
 
+    if (av[7][0] == '-')
+        return (84);
     for (int i = 1; i <= 7; ++i) {
         if (my_str_isnum(av[i]) == 0)
             return (84);
