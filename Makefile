@@ -5,12 +5,9 @@
 ## Makefile
 ##
 
-SRC=		my_getnbr.c			\
-			my_putchar.c		\
+SRC=		my_putchar.c		\
 			my_put_nbr.c		\
 			my_putstr.c			\
-			my_strlen.c			\
-			print_float.c		\
 			disp_str.c			\
 			flag_array.c		\
 			disp_stdarg.c		\
@@ -22,6 +19,7 @@ SRC=		my_getnbr.c			\
 			my_putnbr_base.c	\
 			disp_oct.c			\
 			disp_hex.c			\
+			store_strlen.c		\
 			disp_char.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-Llib/my	-lmy	-Iinclude	-g

@@ -5,14 +5,15 @@
 ** my_putstr
 */
 #include "my.h"
+#include "my_struct.h"
 
-int my_putstr(char const *str)
+int my_putstr(char const *str, str_len_t *info)
 {
     int carac;
 
     carac = 0;
     while (str[carac] != '\0' ) {
-        my_putchar(str[carac]);
+        my_putchar(str[carac], info);
         carac++;
     }
     return (0);

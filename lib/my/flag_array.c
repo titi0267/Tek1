@@ -5,6 +5,8 @@
 ** flag_array
 */
 
+#include "my.h"
+
 int find_flag(char *flag_board, char flag_char)
 {
     int flag_nbr = 0;

@@ -5,74 +5,71 @@
 ** my_putnbr_base
 */
 #include "my.h"
+#include "my_struct.h"
+#include <stdlib.h>
 
-int convert_bin(unsigned int nb, int base)
+int convert_bin(unsigned int nb, int base, str_len_t *info)
 {
-    int x = 100;
     int r = 0;
-    int a[x];
+    int a[r];
 
-    a[x] = malloc(sizeof(int) * 100);
     while (nb > 0 && base != 16) {
         a[r] = (nb % base);
         nb /= base;
         r ++;
     }
     for (int j = r - 1; j >= 0 && base != 16; j --)
-        my_put_nbr(a[j]);
+        my_put_nbr(a[j], info);
+    return (0);
 }
 
-int convert_minus(int nb)
+int convert_minus(int nb, str_len_t *info)
 {
     if (nb <= 0) {
         if (nb == 0)
-            my_putchar('0');
+            my_putchar('0', info);
         if (nb < 0) {
-            nb = nb *= -1;
-            my_putchar('-');
+            nb *= -1;
+            my_putchar('-', info);
         }
     }
     return (nb);
 }
 
-int convert_oct(int nb, int base)
+int convert_oct(int nb, int base, str_len_t *info)
 {
-    int x = 100;
     int r = 0;
-    int a[x];
+    int a[r];
 
-    a[x] = malloc(sizeof(int) * 100);
-    nb = convert_minus(nb);
+    nb = convert_minus(nb, info);
     while (nb > 0 && base != 16) {
         a[r] = (nb % base);
         nb /= base;
         r ++;
     }
     for (int j = r - 1; j >= 0 && base != 16; j --)
-        my_put_nbr(a[j]);
+        my_put_nbr(a[j], info);
+    return (0);
 }
 
-int convert_hex(int nb)
+int convert_hex(int nb, str_len_t *info)
 {
-    int x = 100;
-    int r = 0;
+    int temp = 0;
     int f = 0;
-    int a[x];
-    char hex[x];
-    int i = 0;
+    int i = 1;
+    char hex[1000];
 
-    a[x] = malloc(sizeof(int) * 100);
-    hex[x] = malloc(sizeof(char) * 100);
-    nb = convert_minus(nb);
+    nb = convert_minus(nb, info);
     while (nb != 0) {
-        a[r] = nb % 16;
-        if (a[r] < 10)
-            hex[f++] = 48 + a[r];
+        temp = nb % 16;
+        if (temp < 10)
+            temp += 48;
         else
-            hex[f++] = 55 + a[r];
+            temp += 55;
+        hex[i++] = temp;
         nb = nb / 16;
     }
-    for (i = f; i >= 0; i--)
-            my_putchar(hex[i]);
-    return 0;
+    for (f = i - 1; f >= 0; f--)
+            my_putchar(hex[f], info);
+    return (0);
 }

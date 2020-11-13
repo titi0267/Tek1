@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-unsigned int my_put_uint(unsigned int nb)
+unsigned int my_put_uint(int nb, str_len_t *info)
 {
     unsigned int d = 1;
     unsigned int i = 4294967295;
@@ -19,7 +19,8 @@ unsigned int my_put_uint(unsigned int nb)
     while ((nb / d) >= 10)
         d *= 10;
     while (d > 0) {
-        my_putchar((nb / d) % 10 + 48);
+        my_putchar((nb / d) % 10 + 48, info);
         d /= 10;
     }
+    return (0);
 }

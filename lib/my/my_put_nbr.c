@@ -5,22 +5,25 @@
 ** my_put_nbr
 */
 #include "my.h"
+#include "my_struct.h"
 
-int my_put_nbr(int nb){
+int my_put_nbr(int nb, str_len_t *info)
+{
     int d = 1;
 
     if (nb == -2147483648)
-        my_putstr("-2147483648");
+        my_putstr("-2147483648", info);
     else {
         if (nb < 0) {
-        my_putchar('-');
+        my_putchar('-', info);
             nb *= -1;
         }
         while ((nb / d) >= 10)
             d *= 10;
         while (d > 0) {
-	        my_putchar((nb / d) % 10 + '0');
+	        my_putchar((nb / d) % 10 + '0', info);
 	        d /= 10;
 	    }
         }
+        return (0);
 }

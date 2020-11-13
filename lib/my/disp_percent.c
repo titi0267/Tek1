@@ -7,6 +7,7 @@
 
 #include <stdarg.h>
 #include "my.h"
+#include "my_struct.h"
 #include <unistd.h>
 
 /*int is_space_percent(char *str, int space)
@@ -17,8 +18,8 @@
             my_putchar(' ');
         } else if (str[space] != '%' && str[space + 1] == '%' && str[space + 2] != ' ') {
             my_putchar('%');
-            //my_putchar(' ');
-            /*for (; str[space] != ' '; space ++) {
+            my_putchar(' ');
+            for (; str[space] != ' '; space ++) {
                 write(1, str[space], space);
             }
             return (0);
@@ -26,9 +27,10 @@
     }
 }
 */
-void print_percent(va_list *argu_list)
+void print_percent(va_list *argu_list, str_len_t *info)
 {
     char s = va_arg(*argu_list, int);
 
-    my_putchar('%');
+    s = '%';
+    my_putchar(s, info);
 }

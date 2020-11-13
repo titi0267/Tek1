@@ -5,11 +5,12 @@
 ** disp_unsigned
 */
 #include "my.h"
+#include "my_struct.h"
 #include <stdarg.h>
 
-void print_unsigned(va_list *argu_list)
+void print_unsigned(va_list *argu_list, str_len_t *info)
 {
     unsigned int u = va_arg(*argu_list, unsigned int);
 
-    my_put_uint(u);
+    my_put_uint(u, info);
 }
