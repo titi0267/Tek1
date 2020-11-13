@@ -77,13 +77,13 @@ int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
+    if (ac == 1 || ac != 8 && (av[1][0] != '-' && av[1][1] != 'h')) {
+        my_putstr("Invalid Syntax\n");
+        return (84);
+    }
     if (av[1][0] == '-' && av[1][1] == 'h') {
         check_h();
         return (0);
-    }
-    if (ac != 8 && (av[1][0] != '-' && av[1][1] != 'h')) {
-        my_putstr("Invalid Syntax\n");
-        return (84);
     }
     info->c_error = to_float(av, info);
     if (info->c_error == 84) {
