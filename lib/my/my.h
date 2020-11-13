@@ -31,7 +31,6 @@ int convert_oct(int, int, str_len_t *);
 int convert_minus(int, str_len_t *);
 int convert_bin(unsigned int, int, str_len_t *);
 int convert_hex(int, str_len_t *);
-void store_len(va_list *, str_len_t *);
-int nbr_len(int);
+//void store_len(va_list *, str_len_t *);
 
 #endif /* !MY_H_ */

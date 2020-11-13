@@ -10,9 +10,11 @@
 
 int convert_bin(unsigned int nb, int base, str_len_t *info)
 {
+    int x = 100;
     int r = 0;
-    int a[r];
+    int a[x];
 
+    //a[x] = malloc(sizeof(int) * 100);
     while (nb > 0 && base != 16) {
         a[r] = (nb % base);
         nb /= base;
@@ -38,9 +40,11 @@ int convert_minus(int nb, str_len_t *info)
 
 int convert_oct(int nb, int base, str_len_t *info)
 {
+    int x = 100;
     int r = 0;
-    int a[r];
+    int a[x];
 
+    //a[x] = malloc(sizeof(int) * 100);
     nb = convert_minus(nb, info);
     while (nb > 0 && base != 16) {
         a[r] = (nb % base);
@@ -54,11 +58,15 @@ int convert_oct(int nb, int base, str_len_t *info)
 
 int convert_hex(int nb, str_len_t *info)
 {
+    //int x = 100;
     int temp = 0;
     int f = 0;
     int i = 1;
-    char hex[1000];
+    //int *a;
+    char hex[100];
 
+    //a = malloc(sizeof(int *) * x);
+    hex[i] = malloc(sizeof(char *) * i);
     nb = convert_minus(nb, info);
     while (nb != 0) {
         temp = nb % 16;
@@ -69,7 +77,8 @@ int convert_hex(int nb, str_len_t *info)
         hex[i++] = temp;
         nb = nb / 16;
     }
-    for (f = i - 1; f >= 0; f--)
-            my_putchar(hex[f], info);
+    for (f = i - 1; f >= 0; f--) {
+        my_putchar(hex[f], info);
+    }
     return (0);
 }

@@ -12,8 +12,8 @@
 
 void my_vprintf(char *str, str_len_t *info, va_list *argu_list)
 {
-    void (*functionName[11]) (va_list *, str_len_t *) = {print_bin, print_char, print_nbr, print_nbr, print_percent, print_unsigned, print_str, disp_oct, disp_hex, disp_hex, store_len};
-    char flag_board[12] = {'b', 'c', 'd', 'i', '%', 'u', 's', 'o', 'x', 'X', 'n', 0};
+    void (*functionName[10]) (va_list *, str_len_t *) = {print_bin, print_char, print_nbr, print_nbr, print_percent, print_unsigned, print_str, disp_oct, disp_hex, disp_hex};
+    char flag_board[11] = {'b', 'c', 'd', 'i', '%', 'u', 's', 'o', 'x', 'X', 0};
     int flag_nbr = 0;
 
     for (int arr = 0; str[arr] != 0; arr ++) {
@@ -25,12 +25,6 @@ void my_vprintf(char *str, str_len_t *info, va_list *argu_list)
         } else if (str[arr] != '%') {
             my_putchar(str[arr], info);
         }
-        if (flag_nbr == 11) {
-            int x;
-            int *re = &x;
-            
-        }
-
     }
 }
 

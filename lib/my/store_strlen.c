@@ -25,5 +25,4 @@ void store_len(va_list *argu_list, str_len_t *info)
         int v = va_arg(*argu_list, int);
 
         int x = info->buf_size;
-        printf("%d\n", v);
 }
