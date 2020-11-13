@@ -13,12 +13,21 @@
 #include <string.h>
 #include <math.h>
 
+int t_is_float(char **av)
+{
+    for (int i = 0; av[7][i] != '\0'; i++) {
+        if (av[7][i] == '.')
+            return (1);
+    }
+    return (0);
+}
+
 int to_float(char **av, infin_number_t *info)
 {
     int tab_pos = 0;
     float f = 0;
 
-    if (av[7][0] == '-')
+    if (av[7][0] == '-' || t_is_float(av) == 1)
         return (84);
     for (int i = 1; i <= 7; ++i) {
         if (my_str_isnum(av[i]) == 0)
