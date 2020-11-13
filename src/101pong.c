@@ -33,7 +33,7 @@ int to_float(char **av, infin_number_t *info)
 
 void display(infin_number_t *info)
 {
-    my_putstr("The velocity vector of this ball is:\n(");
+    my_putstr("The velocity vector of the ball is:\n(");
     printf("%.2f, %.2f, %.2f)\n", info->vels[0], info->vels[1], 
     info->vels[2]);
     printf("At time t + %.0f, ball coordinates will be:\n(", info->given[6]);
