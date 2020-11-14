@@ -44,32 +44,30 @@ int to_float(char **av, infin_number_t *info)
 
 void display(infin_number_t *info)
 {
-    my_putstr("The velocity vector of the ball is:\n(");
-    printf("%.2f, %.2f, %.2f)\n", info->vels[0], info->vels[1], 
-    info->vels[2]);
+    printf("The velocity vector of the ball is:\n(");
+    printf("%.2f, %.2f, %.2f)\n", info->vels[0], info->vels[1], info->vels[2]);
     printf("At time t + %.0f, ball coordinates will be:\n(", info->given[6]);
-    printf("%.2f, %.2f, %.2f)\n", info->tpos[0], info->tpos[1], 
-    info->tpos[2]);
+    printf("%.2f, %.2f, %.2f)\n", info->tpos[0], info->tpos[1], info->tpos[2]);
     if (info->bounced == 1) {
-        my_putstr("The incidence angle is:\n");
+        printf("The incidence angle is:\n");
         printf("%.2f degrees\n", info->angle);
     }
     if (info->bounced == 0)
-        my_putstr("The ball won’t reach the paddle.\n");
+        printf("The ball won't reach the paddle.\n");
 }
 
 void check_h(void)
 {
-    my_putstr("USAGE\n");
-    my_putstr("     ./101pong x0 y0 z0 x1 y1 z1 n\n\n");
-    my_putstr("DESCRIPTION\n");
-    my_putstr("     x0  ball abscissa at time t -1\n");
-    my_putstr("     y0  ball ordinate at time t -1\n");
-    my_putstr("     z0  ball altitude at time t -1\n");
-    my_putstr("     x1  ball abscissa at time t\n");
-    my_putstr("     y1  ball ordinate at time t\n");
-    my_putstr("     z1  ball altitude at time t\n");
-    my_putstr("     n   time shift (greater than or equal to zero, integer)\n"
+    printf("USAGE\n");
+    printf("     ./101pong x0 y0 z0 x1 y1 z1 n\n\n");
+    printf("DESCRIPTION\n");
+    printf("\tx0  ball abscissa at time t -1\n");
+    printf("\ty0  ball ordinate at time t -1\n");
+    printf("\tz0  ball altitude at time t -1\n");
+    printf("\tx1  ball abscissa at time t\n");
+    printf("\ty1  ball ordinate at time t\n");
+    printf("\tz1  ball altitude at time t\n");
+    printf("\tn   time shift (greater than or equal to zero, integer)\n"
     );
 }
 
@@ -78,7 +76,7 @@ int main(int ac, char **av)
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
     if (ac == 1 || ac != 8 && (av[1][0] != '-' && av[1][1] != 'h')) {
-        my_putstr("Invalid Syntax\n");
+        printf("Invalid Syntax\n");
         return (84);
     }
     if (av[1][0] == '-' && av[1][1] == 'h') {
@@ -87,7 +85,7 @@ int main(int ac, char **av)
     }
     info->c_error = to_float(av, info);
     if (info->c_error == 84) {
-        my_putstr("Invalid Syntax\n");
+        printf("Invalid Syntax\n");
         return (84);
     }
     core101(info);
