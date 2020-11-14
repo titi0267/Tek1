@@ -81,7 +81,7 @@ int main(int ac, char **av)
     }
     if (av[1][0] == '-' && av[1][1] == 'h') {
         check_h();
-        return (0);
+        return (84);
     }
     info->c_error = to_float(av, info);
     if (info->c_error == 84) {
