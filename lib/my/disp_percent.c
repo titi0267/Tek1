@@ -29,8 +29,8 @@
 */
 void print_percent(va_list *argu_list, str_len_t *info)
 {
-    char s = va_arg(*argu_list, int);
+    //char s = va_arg(*argu_list, int);
 
-    s = '%';
+    char s = '%';
     my_putchar(s, info);
 }
