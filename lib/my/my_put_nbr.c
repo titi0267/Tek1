@@ -25,5 +25,5 @@ int my_put_nbr(int nb, str_len_t *info)
 	        d /= 10;
 	    }
         }
-        return (0);
+    return (0);
 }
