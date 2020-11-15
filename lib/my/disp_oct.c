@@ -4,14 +4,13 @@
 ** File description:
 ** dip_oct
 */
-
 #include "my_struct.h"
 #include "my.h"
 #include <stdarg.h>
 
 void disp_oct(va_list *argu_list, str_len_t *info)
 {
-    int i = va_arg(*argu_list, int);
+    unsigned int i = va_arg(*argu_list, unsigned int);
 
-    convert_oct(i, 8, info);
+    convert_base(i, 8, info);
 }

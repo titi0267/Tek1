@@ -6,11 +6,11 @@
 */
 #include "my.h"
 #include "my_struct.h"
+#include <stdarg.h>
 
 void store_len(va_list *argu_list, str_len_t *info)
 {
-        int x = 0;
+    int v = info->buf_size;
 
-        x = info->buf_size;
-        my_put_nbr(x, info);
+    my_put_nbr(v, info);
 }

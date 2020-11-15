@@ -4,7 +4,6 @@
 ** File description:
 ** disp_nbr
 */
-
 #include "my.h"
 #include "my_struct.h"
 #include <stdarg.h>
