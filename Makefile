@@ -12,7 +12,6 @@ SRC=		my_putchar.c		\
 			flag_array.c		\
 			disp_stdarg.c		\
 			disp_nbr.c			\
-			disp_percent.c		\
 			disp_unsigned.c		\
 			disp_bin.c			\
 			my_put_uint.c		\
@@ -20,6 +19,9 @@ SRC=		my_putchar.c		\
 			disp_oct.c			\
 			disp_hex.c			\
 			disp_strlen.c		\
+			disp_adress.c		\
+			disp_Na.c			\
+			my_strcpy.c			\
 			disp_char.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-Llib/my	-lmy	-Iinclude	-g
