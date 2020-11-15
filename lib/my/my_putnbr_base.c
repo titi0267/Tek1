@@ -8,13 +8,12 @@
 #include "my_struct.h"
 #include <stdlib.h>
 
-int convert_bin(unsigned int nb, int base, str_len_t *info)
+void convert_base(unsigned int nb, int base, str_len_t *info)
 {
     int x = 100;
     int r = 0;
     int a[x];
 
-    //a[x] = malloc(sizeof(int) * 100);
     while (nb > 0 && base != 16) {
         a[r] = (nb % base);
         nb /= base;
@@ -22,7 +21,6 @@ int convert_bin(unsigned int nb, int base, str_len_t *info)
     }
     for (int j = r - 1; j >= 0 && base != 16; j --)
         my_put_nbr(a[j], info);
-    return (0);
 }
 
 int convert_minus(int nb, str_len_t *info)
@@ -38,36 +36,13 @@ int convert_minus(int nb, str_len_t *info)
     return (nb);
 }
 
-int convert_oct(int nb, int base, str_len_t *info)
+void convert_heX(unsigned int nb, str_len_t *info)
 {
-    int x = 100;
-    int r = 0;
-    int a[x];
-
-    //a[x] = malloc(sizeof(int) * 100);
-    nb = convert_minus(nb, info);
-    while (nb > 0 && base != 16) {
-        a[r] = (nb % base);
-        nb /= base;
-        r ++;
-    }
-    for (int j = r - 1; j >= 0 && base != 16; j --)
-        my_put_nbr(a[j], info);
-    return (0);
-}
-
-int convert_hex(int nb, str_len_t *info)
-{
-    //int x = 100;
     int temp = 0;
     int f = 0;
     int i = 1;
-    //int *a;
-    char *hex = malloc(sizeof(char *));;
+    char *hex = malloc(sizeof(char *));
 
-    //a = malloc(sizeof(int *) * x);
-    //hex[i] = malloc(sizeof(char *) * i);
-    nb = convert_minus(nb, info);
     while (nb != 0) {
         temp = nb % 16;
         if (temp < 10) {
@@ -82,5 +57,50 @@ int convert_hex(int nb, str_len_t *info)
     for (f = i - 1; f > 0; f--) {
         my_putchar(hex[f], info);
     }
-    return (0);
+}
+
+void convert_hex(unsigned int nb, str_len_t *info)
+{
+    int temp = 0;
+    int f = 0;
+    int i = 1;
+    char *hex = malloc(sizeof(char *));
+
+    while (nb != 0) {
+        temp = nb % 16;
+        if (temp < 10) {
+            hex[i] = temp + 48;
+            i++;
+        } else {
+            hex[i] = temp + 87;
+            i++;
+        }
+        nb = nb / 16;
+    }
+    for (f = i - 1; f > 0; f--) {
+        my_putchar(hex[f], info);
+    }
+}
+
+void convert_ad(uintmax_t nb, str_len_t *info)
+{
+    int temp = 0;
+    int f = 0;
+    int i = 1;
+    char *hex = malloc(sizeof(char *));
+
+    while (nb != 0) {
+        temp = nb % 16;
+        if (temp < 10) {
+            hex[i] = temp + 48;
+            i++;
+        } else {
+            hex[i] = temp + 87;
+            i++;
+        }
+        nb = nb / 16;
+    }
+    for (f = i - 1; f > 0; f--) {
+        my_putchar(hex[f], info);
+    }
 }
