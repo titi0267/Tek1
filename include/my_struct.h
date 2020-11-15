@@ -12,8 +12,4 @@ typedef struct str_len {
     int buf_size;
 } str_len_t;
 
-typedef struct hex_len  {
-    int i;
-    char *hex;
-} hex_len_t;
 #endif /* !MY_STRUCT_H_ */
