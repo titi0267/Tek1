@@ -58,5 +58,6 @@ void analyze_op_bis(infin_number_t *, char *, char *);
 void analyze_op_tris(infin_number_t *, char *, char *);
 int my_printf(char *, ...);
 void core101(infin_number_t *);
+int angle(infin_number_t *);
 
 #endif /* !MY_H_ */

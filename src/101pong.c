@@ -48,11 +48,12 @@ void display(infin_number_t *info)
     printf("%.2f, %.2f, %.2f)\n", info->vels[0], info->vels[1], info->vels[2]);
     printf("At time t + %.0f, ball coordinates will be:\n(", info->given[6]);
     printf("%.2f, %.2f, %.2f)\n", info->tpos[0], info->tpos[1], info->tpos[2]);
-    if (info->bounced == 1) {
+    info->c_error = angle(info);
+    if (info->bounced == 1 && info->c_error != 84 && info->vels[2] != 0) {
         printf("The incidence angle is:\n");
         printf("%.2f degrees\n", info->angle);
     }
-    if (info->bounced == 0)
+    if (info->bounced == 0 || info->c_error == 84 || info->vels[2] == 0)
         printf("The ball won't reach the paddle.\n");
 }
 
@@ -75,7 +76,7 @@ int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
-    if (ac == 1 || ac != 8 && (av[1][0] != '-' && av[1][1] != 'h')) {
+    if (ac == 1 || (ac != 8 && (av[1][0] != '-' && av[1][1] != 'h'))) {
         printf("Invalid Syntax\n");
         return (84);
     }
