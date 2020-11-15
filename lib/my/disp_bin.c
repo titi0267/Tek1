@@ -14,5 +14,5 @@ void print_bin(va_list *argu_list, str_len_t *info)
 
     if (i <= 0)
         i = my_put_uint(i, info);
-    convert_bin(i, 2, info);
+    convert_base(i, 2, info);
 }
