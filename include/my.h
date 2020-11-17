@@ -7,6 +7,7 @@
 
 #ifndef MY_H_
 #define MY_H_
+#include "steps.h"
 
 void my_putchar(char);
 int my_isneg(int);
@@ -39,7 +40,8 @@ int my_showmem(char const *,int);
 char *my_strcat(char *, char const *);
 char *my_strncat(char *, char const *, int);
 int fs_open_file(char const *);
-void  fs_cat_x_bytes(int, char *, int);
+int fs_cat_x_bytes(int, int);
 void fs_understand_return_of_read(int, char *, int);
+void max_dot_line(char *, buffer_size_t *);
 
 #endif /* !MY_H_ */

@@ -8,6 +8,7 @@
 SRC = 	src/fs_open_file.c				\
 		src/fs_disp_x_bytes.c			\
 		src/fs_understand_return_of_read.c	\
+		src/store_car.c						\
 		main.c
 
 CC		=	gcc -lm

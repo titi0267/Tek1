@@ -8,11 +8,13 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include "../include/my.h"
 
-void  fs_cat_x_bytes(int fd, char *buffer, int size)
+int  fs_cat_x_bytes(int fd, int size)
 {
     struct stat buff;
 
     fstat(fd, &buff);
     size = buff.st_size;
+    return (size);
 }
