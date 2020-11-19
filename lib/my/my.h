@@ -40,8 +40,12 @@ int my_showmem(char const *,int);
 char *my_strcat(char *, char const *);
 char *my_strncat(char *, char const *, int);
 int fs_open_file(char const *);
-int fs_cat_x_bytes(int, int);
 void fs_understand_return_of_read(int, char *, int);
-void max_dot_line(char *, buffer_size_t *);
+//void first_dot(char *, buffer_size_t *);
+//void carac_on_line(char *, buffer_size_t *);
+//void dot_under(char *, buffer_size_t *);
+//void loop(char *, buffer_size_t *);
+void square(char *, buffer_size_t *);
+void calc(char *, buffer_size_t *);
 
 #endif /* !MY_H_ */
