@@ -44,8 +44,6 @@ NAME	=	libmy.a
 all:	$(OBJ)
 		ar	rc	$(NAME)		$(OBJ)
 		cp	$(NAME)	../../
-		cp	my.h	../../include/my.h
-		cp	steps.h	../../include/steps.h
 
 clean:
 		rm	-f	$(OBJ)

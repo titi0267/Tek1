@@ -45,7 +45,8 @@ void fs_understand_return_of_read(int, char *, int);
 //void carac_on_line(char *, buffer_size_t *);
 //void dot_under(char *, buffer_size_t *);
 //void loop(char *, buffer_size_t *);
+void find_square(char *, buffer_size_t *);
 void square(char *, buffer_size_t *);
-void calc(char *, buffer_size_t *);
+void calc(char *, int, buffer_size_t *);
 
 #endif /* !MY_H_ */
