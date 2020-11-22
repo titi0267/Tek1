@@ -16,19 +16,7 @@
 void fs_understand_return_of_read(int fd, char *buffer, int size)
 {
     int len;
-    //int offset = 0;
 
-    //while ((len = read(fd, buffer + offset, size - offset)) > 0) {
-    //    offset = offset + len;
-    //}
     len = read(fd, buffer, size);
     buffer[size] = '\0';
-    if (len == -1)
-        my_putstr("read failed\n");
-    if (len == 0)
-        my_putstr("read has nothing more to read\n");
-    if (len < size && len != 0 && len != -1)
-        my_putstr("read didn't complete the entire buffer\n");
-    if (len == size)
-        my_putstr("read completed the entire buffer\n");
 }
