@@ -16,11 +16,13 @@
 void fs_understand_return_of_read(int fd, char *buffer, int size)
 {
     int len;
-    int offset = 0;
+    //int offset = 0;
 
-    while ((len = read(fd, buffer + offset, size - offset)) > 0) {
-        offset = offset + len;
-    }
+    //while ((len = read(fd, buffer + offset, size - offset)) > 0) {
+    //    offset = offset + len;
+    //}
+    len = read(fd, buffer, size);
+    buffer[size] = '\0';
     if (len == -1)
         my_putstr("read failed\n");
     if (len == 0)

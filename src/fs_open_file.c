@@ -15,11 +15,7 @@ int fs_open_file(char const *filepath)
 {
     int file = open(filepath, O_RDONLY);
 
-    if (file < 0) {
-        my_putstr("FAILURE\n");
+    if (file < 0)
         return (84);
-    }
-    if (file >= 0)
-        my_putstr("SUCCESS\n");
     return (file);
 }
