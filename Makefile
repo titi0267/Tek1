@@ -5,8 +5,7 @@
 ## Makefile
 ##
 
-SRC = 	src/fs_open_file.c					\
-		src/fs_understand_return_of_read.c	\
+SRC =	src/fs_understand_return_of_read.c	\
 		src/store_car.c						\
 		src/error.c							\
 		src/lines.c							\
@@ -14,7 +13,7 @@ SRC = 	src/fs_open_file.c					\
 
 CC		=	gcc -lm
 
-CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude -g
+CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude -g -fsanitize=address,undefined
 
 OBJS	=	$(SRC:.c=.o)
 

@@ -13,10 +13,23 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void fs_understand_return_of_read(int fd, char *buffer, int size)
+char *fs_understand_return_of_read(char *filepath, buffer_size_t *info)
 {
-    int len;
+    struct stat buff;
+    char *str = NULL;
+    int fd = open(filepath, O_RDONLY);
+    ssize_t read_ret = 0 ;
 
-    len = read(fd, buffer, size);
-    buffer[size] = '\0';
+    if (fd == -1 || stat(filepath, &buff) == -1)
+        return (NULL);
+    str = malloc(sizeof(char) * (buff.st_size + 1));
+    if (str == NULL)
+        return (NULL);
+    read_ret = read(fd, str, buff.st_size);
+    if (read_ret == - 1)
+        return (NULL);
+    str[buff.st_size] = '\0' ;
+    info->j = malloc(sizeof(int) * (buff.st_size + 1));
+    close(fd);
+    return (str);
 }

@@ -9,9 +9,10 @@
 
 typedef struct buffer_size {
     int nbr;
-    int carac_l; //number of caracters on a line
+    int carac_l;
     int big;
     int where;
+    int *j;
 } buffer_size_t;
 
 #endif /* !STEPS_H_ */

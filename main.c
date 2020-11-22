@@ -20,41 +20,31 @@ int where_is(char *buffer, buffer_size_t *info)
     if (x != 1)
         return (84);
     else {
-        find_square(buffer, info);
         initial_square(buffer, info);
     }
     return (0);
 }
 
-int core(int ac, char **av)
+int bsq(char *filepath)
 {
-    int fd = fs_open_file(av[1]);
-    buffer_size_t *info = malloc(sizeof(buffer_size_t));
-    int x;
-    struct stat buff;
-    stat(av[1], &buff);
-    int size = buff.st_size;
-    char *buffer;
+    int x = 1;
 
-    if (fd == 84)
+    buffer_size_t *info = malloc(sizeof(buffer_size_t));
+    char *buffer = fs_understand_return_of_read(filepath, info);
+    if (buffer == NULL)
         return (84);
-    buffer = malloc(sizeof(char) * size + 1);
-    fs_understand_return_of_read(fd, buffer, size);
-    buffer[size] = '\0';
     x = where_is(buffer, info);
     if (x == 0)
-        write(1, buffer, size);
-    close(fd);
+        for (int i = info->nbr; buffer[i] != '\0'; i++)
+        my_putchar(buffer[i]);
     free(buffer);
     return (0);
 }
 
 int main(int ac, char **av)
 {
-    int error = core(ac, av);
+
     if (ac != 2)
         return (84);
-    if (error != 0)
-        return (84);
-    return (0);
+    return (bsq(av[1]));
 }

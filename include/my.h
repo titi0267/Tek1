@@ -40,16 +40,15 @@ int my_showmem(char const *,int);
 char *my_strcat(char *, char const *);
 char *my_strncat(char *, char const *, int);
 int fs_open_file(char const *);
-void fs_understand_return_of_read(int, char *, int);
-void find_square(char *, buffer_size_t *);
-void calc(char *, int, buffer_size_t *);
+char *fs_understand_return_of_read(char *, buffer_size_t *);
 int no_nbr(char *, buffer_size_t *);
-void initial_square(char *, buffer_size_t *);
-void square(char *);
+void square(char *, buffer_size_t *);
 void carac_on_line(char *, buffer_size_t *);
 void replace(char *, int, buffer_size_t *);
-void size_square(char *, int, int, buffer_size_t *);
-int biggest(char *, int, buffer_size_t *);
-
+int biggest(int,  buffer_size_t *);
+void calc(char *, buffer_size_t *);
+void find_square(char *, buffer_size_t *);
+void initial_square(char *, buffer_size_t *);
+void size_square(int, buffer_size_t *);
 
 #endif /* !MY_H_ */

@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2020
+** EPITECH PROinfo->jECT, 2020
 ** B-CPE-110-STG-1-1-BSQ-timothe.coniel
 ** File description:
 ** lines
@@ -22,17 +22,21 @@ void carac_on_line(char *buff, buffer_size_t *info)
     info->carac_l = carac;
 }
 
-void square(char *buff)
+void square(char *buff, buffer_size_t *info)
 {
-    int i = 0;
+    carac_on_line(buff, info);
+    int i = info->nbr;
 
     for (; buff[i] != '\0'; i++) {
-        if (buff[i] == '.')
-            buff[i] = '1';
-        if (buff[i] == 'o')
-            buff[i] = '0';
-        if (buff[i] == '\n')
-            buff[i] = '\n';
+        if (buff[i] == '.') {
+            info->j[i] = 1;
+        }
+        if (buff[i] == 'o') {
+            info->j[i] = 0;
+        }
+        if (buff[i] == '\n') {
+            info->j[i] = -1;
+       }
     }
 }
 
@@ -52,25 +56,21 @@ void replace(char *buff, int i, buffer_size_t *info)
     }
 }
 
-void size_square(char *buff, int i, int f, buffer_size_t *info)
+void size_square(int i, buffer_size_t *info)
 {
     int x = 0;
 
-    if (buff[i - 1] - '0' >= buff[i] - '0' &&
-        buff[i - info->carac_l] - '0' >= buff[i] - '0'
-        && buff[i - info->carac_l - 1] - '0' >= buff[i] - '0') {
-        x = biggest(buff, i, info);
-        if (x == 1) {
-            f = buff[i - info->carac_l] - 48 + buff[i] - 48;
-            buff[i] = f + 48;
-        } if (x == 2) {
-            f = buff[i - 1] - 48 + buff[i] - 48;
-            buff[i] = f + 48;
-        } if (x == 3) {
-            f = buff[i - info->carac_l - 1] - 48 + buff[i] - 48;
-            buff[i] = f + 48;
-        } else if (x == 0) {
-            buff[i] = buff[i];
-        }
+    if (i > info->carac_l && info->j[i - 1] >= info->j[i] &&
+        info->j[i - info->carac_l] >= info->j[i]
+        && info->j[i - info->carac_l - 1] >= info->j[i]) {
+        x = biggest(i, info);
+        if (x == 1)
+            info->j[i] = info->j[i - info->carac_l] + info->j[i];
+        if (x == 2)
+            info->j[i] = info->j[i - 1] + info->j[i];
+        if (x == 3)
+            info->j[i] = info->j[i - info->carac_l - 1] + info->j[i];
+        else if (x == 0)
+            info->j[i] = info->j[i];
     }
 }
