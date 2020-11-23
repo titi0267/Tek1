@@ -34,9 +34,10 @@ int bsq(char *filepath)
     if (buffer == NULL)
         return (84);
     x = where_is(buffer, info);
-    if (x == 0)
+    if (x == 0) {
         for (int i = info->nbr; buffer[i] != '\0'; i++)
-        my_putchar(buffer[i]);
+            my_putchar(buffer[i]);
+    }
     free(buffer);
     return (0);
 }

@@ -4,8 +4,6 @@
 ** File description:
 ** step_1
 */
-
-//#include "steps.h"
 #include "../include/my.h"
 #include <fcntl.h>
 #include <sys/types.h>

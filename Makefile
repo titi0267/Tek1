@@ -13,7 +13,7 @@ SRC =	src/fs_understand_return_of_read.c	\
 
 CC		=	gcc -lm
 
-CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude -g -fsanitize=address,undefined
+CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude
 
 OBJS	=	$(SRC:.c=.o)
 
