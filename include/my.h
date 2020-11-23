@@ -39,7 +39,6 @@ int my_showstr(char const *);
 int my_showmem(char const *,int);
 char *my_strcat(char *, char const *);
 char *my_strncat(char *, char const *, int);
-int fs_open_file(char const *);
 char *fs_understand_return_of_read(char *, buffer_size_t *);
 int no_nbr(char *, buffer_size_t *);
 void square(char *, buffer_size_t *);
