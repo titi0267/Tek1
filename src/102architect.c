@@ -22,6 +22,6 @@ int main(int ac, char **av)
 
     to_return = architect_core(av, info);
     if (to_return == 0) {
-        return (info->amount);
+        return (0);
     }
 }
