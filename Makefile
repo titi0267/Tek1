@@ -5,19 +5,19 @@
 ## Makefile
 ##
 
-SRC=	windo_disp.c
+SRC=	windo_disp.c	\
+		event.c			\
+		duck.c			\
+		reset_duck.c
 
 NAME=	hunter
 
-OBJ=	$(SRC:.c=.o)
-
 all:	$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):
 	gcc		$(SRC)	-o	$(NAME)	-l csfml-window -l csfml-graphics -l csfml-system
 
 clean:
-		rm -f $(OBJ)
 
 fclean: clean
 		rm -f $(NAME)

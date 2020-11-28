@@ -4,51 +4,52 @@
 ** File description:
 ** windo_disp
 */
-
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "include/my_struct.h"
+#include "include/my.h"
 
-int sprite(sfRenderWindow *window)
+void sprite(sfRenderWindow *window)
 {
-    sfTexture *background = sfTexture_createFromFile("all_sprites/map/map_og.png", NULL);
+    sfTexture *background = sfTexture_createFromFile("all_sprites/map/background.png", NULL);
     sfSprite *my_background = sfSprite_create();
+    sfVector2f scale = {2, 2};
 
     sfSprite_setTexture(my_background, background, sfFalse);
+    sfSprite_setScale(my_background, scale);
     sfRenderWindow_drawSprite(window, my_background, NULL);
     sfSprite_destroy(my_background);
     sfTexture_destroy(background);
-    return (0);
 }
 
-int keep_window_open(void)
+void keep_window_open(void)
 {
     sfRenderWindow *window;
-    sfVideoMode video_mode = {254, 236, 64};
-    sfEvent event;
+    duck_t pos;
+    sfVideoMode video_mode = {902, 744, 32};
+    sfClock *clock = sfClock_create();
+    float elapsed_time = 0;
+    float delta_time = 0;
 
+    init_duck(&pos);
     window = sfRenderWindow_create(video_mode, "MyWindow", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
     while (sfRenderWindow_isOpen(window)) {
-        while (sfRenderWindow_pollEvent(window, &event)) {
-            if (event.type == sfEvtClosed)
-                sfRenderWindow_close(window);
-        }
-        sfRenderWindow_clear(window, sfBlack);
-        sprite(window);
         sfRenderWindow_display(window);
+        poll_event(window, &pos);
+        sprite(window);
+        move_straight(window, &pos);
+        if (pos.offset >= 3)
+            pos.offset = 0;
+        delta_time = sfClock_restart(clock).microseconds / 1000000.0;
+        elapsed_time += delta_time;
+        birdrect_speed(&pos, delta_time);
     }
     sfRenderWindow_destroy(window);
-    return (0);
 }
 
 int main(void)
 {
-    int height;
-    int width;
-
-    sfRenderWindow *window;
-    width = 500;
-    height = 500;
     keep_window_open();
 }
