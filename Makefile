@@ -5,10 +5,10 @@
 ## Makefile
 ##
 
-SRC=	windo_disp.c	\
-		event.c			\
-		duck.c			\
-		reset_duck.c
+SRC=	src/display.c	\
+		src/event.c			\
+		src/duck.c			\
+		src/reset_duck.c
 
 NAME=	hunter
 
@@ -23,3 +23,5 @@ fclean: clean
 		rm -f $(NAME)
 
 re:	fclean all
+
+.PHONY:	all	clean	fclean	re
