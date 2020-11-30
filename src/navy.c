@@ -13,4 +13,6 @@
 int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
+
+    return (0);
 }
