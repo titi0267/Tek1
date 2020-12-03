@@ -17,5 +17,14 @@ int my_putnbr(int nb);
 void print_list(struct list_t *list);
 void delete(struct list_t *list);
 int insert(struct list_t **list, int new_nbr);
+int rra(struct list_t **list);
+int sa(struct list_t **list);
+int ra(struct list_t **list);
+int pb(struct seclist_t **list_b, struct list_t **list);
+void delete_b(struct seclist_t *list_b);
+int rrb(struct seclist_t **list_b);
+int rb(struct seclist_t **list_b);
+int sb(struct seclist_t **list_b);
+int print_blist(struct seclist_t *list_b, struct list_t *list);
 
 #endif /* !MY_H_ */

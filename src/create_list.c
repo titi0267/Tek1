@@ -32,7 +32,7 @@ void delete(struct list_t *list)
 
 void print_list(struct list_t *list)
 {
-struct list_t *tmp;
+    struct list_t *tmp;
 
     tmp = list;
     while (tmp != NULL) {

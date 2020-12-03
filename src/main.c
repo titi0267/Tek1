@@ -25,19 +25,45 @@ int error(int ac, char **av)
     return (0);
 }
 
+/*int error_seclist(struct seclist_t *list_b, in_b_t *help)
+{
+    printf("Is was called : %i", help->call);
+    while (help->call > 0) {
+        help->call--;
+    }
+    print_blist(list_b);
+    delete_b(list_b);
+    return (0);
+}*/
+
 int main(int ac, char **av)
 {
     struct list_t *my_list;
+    struct seclist_t *my_seclist;
+    in_b_t *help = malloc(sizeof(in_b_t));
     int x = error(ac, av);
+    help->call = 0;
 
     my_list = NULL;
+    my_seclist = NULL;
+    int i = 1;
     if (x != 0)
         return (84);
-    for (int i = 1; av[i] != 0; i++) {
+    for (; av[i] != 0; i++) {
+    //for (i = i - 1; i >= 1; i--) {
         insert(&my_list, my_getnbr(av[i]));
     }
-
+    //rra(&my_list);
+    //sa(&my_list);
+    //ra(&my_list);
+    pb(&my_seclist, &my_list);
+    pb(&my_seclist, &my_list);
+    pb(&my_seclist, &my_list);
+    pb(&my_seclist, &my_list);
+    sb(&my_seclist);
     print_list(my_list);
+    print_blist(my_seclist, my_list);
+    delete_b(my_seclist);
     delete(my_list);
-    return 0;
+    return (0);
 }

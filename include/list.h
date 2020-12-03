@@ -14,4 +14,16 @@ struct list_t
     struct list_t *next;
 };
 
+struct seclist_t
+{
+    int num;
+    struct seclist_t *next;
+};
+
+typedef struct in_b
+{
+    int call;
+} in_b_t;
+
+
 #endif /* !LIST_H_ */
