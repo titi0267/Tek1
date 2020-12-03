@@ -22,7 +22,7 @@ struct seclist_t
 
 typedef struct in_b
 {
-    int call;
+    int max;
 } in_b_t;
 
 
