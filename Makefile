@@ -10,7 +10,6 @@ CC=	gcc
 SRC=	src/which_op.c		\
 		src/my_lib.c		\
 		src/create_list.c	\
-		src/create_seclist.c	\
 		src/op_seclist.c		\
 		src/main.c
 

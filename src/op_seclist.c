@@ -13,9 +13,9 @@ int rrb(struct seclist_t **list_b)
     struct seclist_t *last = *list_b;
     struct seclist_t *before_last = NULL;
 
-    if (*list_b == NULL || (*list_b)->next == NULL) {
+    if (*list_b == NULL) {
         my_putstr("You can't put the last element in 1st position because ");
-        my_putstr("there are less than 2 elements\n");
+        my_putstr("there are less than 1 elements\n");
         return (-1);
     }
     while (last->next != NULL) {
@@ -34,9 +34,9 @@ int rb(struct seclist_t **list_b)
     struct seclist_t *first = *list_b;
     struct seclist_t *last = *list_b;
 
-    if (*list_b == NULL ||(*list_b)->next == NULL) {
-    my_putstr("You can't swap the first element with the second because ");
-    my_putstr("there are less than 2 elements\n");
+    if (*list_b == NULL) {
+    my_putstr("You can't rotate the first to the end because ");
+    my_putstr("there are less than 1 elements\n");
     return (-1);
     }
     while (last->next != NULL) {

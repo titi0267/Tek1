@@ -14,7 +14,7 @@ int my_getnbr(char *str);
 int my_putstr(char const *str);
 void my_putchar(char c);
 int my_putnbr(int nb);
-void print_list(struct list_t *list);
+void print_alist(struct list_t *list);
 void delete(struct list_t *list);
 int insert(struct list_t **list, int new_nbr);
 int rra(struct list_t **list);

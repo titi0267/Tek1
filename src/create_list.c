@@ -30,15 +30,14 @@ void delete(struct list_t *list)
     }
 }
 
-void print_list(struct list_t *list)
+void delete_b(struct seclist_t *list_b)
 {
-    struct list_t *tmp;
+    struct seclist_t *delete;
 
-    tmp = list;
-    while (tmp != NULL) {
-        my_putnbr(tmp->nbr);
-        my_putchar('\n');
-        tmp = tmp->next;
+    while (list_b != NULL) {
+        delete = list_b;
+        list_b = list_b->next;
+        free(delete);
     }
 }
 
