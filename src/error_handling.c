@@ -12,7 +12,7 @@
 
 int str_handling(char c)
 {
-    if (c >= 65 || c <= 90 || c >= 97 || c <= 122 || c == 32)
+    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || c == 32)
         return (0);
     else {
         my_puterr("Error: The string can only be composed of alphabetical characters\n");
@@ -35,12 +35,12 @@ int error_handling(int ac, char **av)
     if (ac == 4) {
         for (int i = 1; i <= 2; i++) {
             for (int j = 0; av[i][j] != '\0'; j++) {
-                if (str_handling == 84)
+                if (str_handling(j) == 84)
                     return (84);
             }
         }
     }
-    if (av[3][0] != '0' || av[3][0] != '1') {
+    if (av[3][0] != '0' && av[3][0] != '1') {
         my_puterr("Invalid encrypting/decrypting key flag (See Usage for more info)\n");
         return (84);
     }
