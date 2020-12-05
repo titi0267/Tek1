@@ -6,6 +6,7 @@
 ##
 
 SRC = 	src/cipher.c		\
+		src/error_handling.c	\
 
 CC		=	gcc -o -lm
 
