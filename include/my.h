@@ -48,5 +48,4 @@ void usage(int ac, char **av);
 int error_handling(int, char **);
 int str_handling(char);
 
-
 #endif /* !MY_H_ */

@@ -37,6 +37,7 @@ int error_handling(int ac, char **av)
             for (int j = 0; av[i][j] != '\0'; j++) {
                 if (str_handling == 84)
                     return (84);
+            }
         }
     }
     if (av[3][0] != '0' || av[3][0] != '1') {
