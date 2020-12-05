@@ -29,7 +29,6 @@ int main(int ac, char **av)
 {
     struct list_t *my_list;
     struct seclist_t *my_seclist;
-    in_b_t *value = malloc(sizeof(in_b_t));
     int x = error(ac, av);
 
     my_list = NULL;
@@ -39,9 +38,8 @@ int main(int ac, char **av)
         return (84);
     for (; av[i] != 0; i++)
         insert(&my_list, my_getnbr(av[i]));
-    sort_all(&my_list, &my_seclist, value);
+    loop(&my_list, &my_seclist);
     delete_b(my_seclist);
     delete(my_list);
-    free(value);
     return (0);
 }

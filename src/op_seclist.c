@@ -87,24 +87,3 @@ int pb(struct seclist_t **list_b, struct list_t **list)
         write(1, "pb\n", 3);
     return (0);
 }
-
-int max_val(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
-{
-    struct list_t *element = *list;
-
-    find_max(list, value);
-    while (*list != NULL) {
-        if (element->nbr == value->max) {
-            element = *list;
-            pb(list_b, list);
-            return (0);
-        }
-        else {
-            element = element->next;
-            (*list)->next = element->next;
-            ra(list);
-            element->next = *list;
-            *list = element;
-        }
-    }
-}

@@ -23,6 +23,8 @@ struct seclist_t
 typedef struct in_b
 {
     int max;
+    int size;
+    int store_size;
 } in_b_t;
 
 

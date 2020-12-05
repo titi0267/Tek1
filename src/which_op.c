@@ -7,7 +7,6 @@
 #include "../include/my.h"
 #include "../include/list.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
 
 int rra(struct list_t **list) //last element become first
@@ -85,17 +84,4 @@ int pa(struct seclist_t **list_b, struct list_t **list)
     *list_b = first->next;
     write(1, "pa ", 3);
     return (0);
-}
-
-void find_max(struct list_t **list, in_b_t *value)
-{
-    struct list_t *element = *list;
-
-    value->max = element->nbr;
-    while (element != NULL) {
-        if (element->nbr >= value->max) {
-            value->max = element->nbr;
-        }
-        element = element->next;
-    }
 }

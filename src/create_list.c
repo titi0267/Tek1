@@ -40,12 +40,3 @@ void delete_b(struct seclist_t *list_b)
         free(delete);
     }
 }
-
-int sort_all(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
-{
-    struct list_t *element = *list;
-
-    while (*list != NULL) {
-        max_val(list, list_b, value);
-    }
-}
