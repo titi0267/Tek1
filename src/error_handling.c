@@ -39,7 +39,7 @@ int error_handling(int ac, char **av)
                     return (84);
         }
     }
-    if (av[3][0] != '0' || av[3][0] != 1) {
+    if (av[3][0] != '0' || av[3][0] != '1') {
         my_puterr("Invalid encrypting/decrypting key flag (See Usage for more info)\n");
         return (84);
     }
