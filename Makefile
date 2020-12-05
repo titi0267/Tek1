@@ -13,7 +13,7 @@ CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude -g
 
 OBJS	=	$(SRC:.c=.o)
 
-EXEC	=	my_ls
+EXEC	=	103cipher
 
 all:	${EXEC}
 
