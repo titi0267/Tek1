@@ -23,6 +23,8 @@ int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
-    error_handling(ac, av);
+    if (error_handling(ac, av) != 0)
+        return (84);
+    print_matrix(av, info);
     return (0);
 }

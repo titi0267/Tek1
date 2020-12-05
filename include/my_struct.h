@@ -12,7 +12,9 @@
 
 typedef struct infin_number
 {
+    int i;
     int amount;
+    int *store_key;
 } infin_number_t;
 
 #endif /* !MY_STRUCT_H_ */

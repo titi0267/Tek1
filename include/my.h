@@ -45,7 +45,9 @@ void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
 void usage(int ac, char **av);
-int error_handling(int, char **);
-int str_handling(char);
+int error_handling(int ac, char **av);
+int str_handling(char c);
+void ascii(char **av, infin_number_t *info);
+int print_matrix(char **av, infin_number_t *info);
 
 #endif /* !MY_H_ */
