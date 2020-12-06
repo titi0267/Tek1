@@ -41,7 +41,7 @@ void print_2matrix(infin_number_t *info)
         }
     }
     if (y < 4) {
-        for (;y < 4; x++, y++) {
+        for (;y < 3; x++, y++) {
             printf("0");
             if (x < 1)
                 printf("    ");
