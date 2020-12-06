@@ -19,40 +19,79 @@ void ascii(char **av, infin_number_t *info)
     info->store_key[i] = 0;
 }
 
+void print_2x0(int y, int x)
+{
+    for (; y < 4; y++, x++) {
+        printf("0");
+        if (x == 0)
+            printf("       ");
+        if (x == 1) {
+            printf("\n");
+            x = 0;
+        }
+    }
+}
+
 void print_2matrix(infin_number_t *info)
 {
     int i = 1;
     int x = 0;
     int y = 0;
 
-    for (; info->store_key[y] != 0; i--, y++) {
+    for (; info->store_key[y] != 0; i++, y++) {
         printf("%i", info->store_key[y]);
         if (my_intlen(info->store_key[y]) == 2 && i == 1) {
             printf("      ");
-            i = 1;
-        }
-        else if (my_intlen(info->store_key[y]) == 3 && i == 1) {
+            x = 1;
+        } else if (my_intlen(info->store_key[y]) == 3 && i == 1) {
             printf("     ");
-            i = 1;
+            x = 1;
         }
-        if (i == 0) {
+        if (i == 2) {
             printf("\n");
             i = 0;
+            x = 0;
         }
     }
-    if (y < 4) {
-        for (;y < 3; x++, y++) {
-            printf("0");
-            if (x < 1)
-                printf("    ");
-            if (x == 1) {
-                printf("\n");
-                x = 0;
-            }
+    print_2x0(y, x);
+}
+
+void print_3matrix(infin_number_t *info)
+{
+    int i = 1;
+    int y = 0;
+    int x = 0;
+
+    for (; info->store_key[y] != 0; y++, i++) {
+        printf("%i", info->store_key[y]);
+        if (my_intlen(info->store_key[y]) == 2 && (i == 1 || i == 2)) {
+            printf("      ");
+            x = 1;
+        } else if (my_intlen(info->store_key[y]) == 3 && (i == 1 || i == 2)) {
+            printf("     ");
+            x = 1;
+        }
+        if (i == 3) {
+            printf("\n");
+            i = 0;
+            x = 0;
+        }
+    }
+    print_3x0(y, x);
+}
+
+void print_3x0(int y, int x)
+{
+    for (; y < 9; y++, x++) {
+        printf("0");
+        if (x == 0 || x == 1)
+            printf("       ");
+        if (x == 2) {
+            printf("\n");
+            x = 0;
         }
     }
 }
-
 int print_matrix(char **av, infin_number_t *info)
 {
     ascii(av, info);
@@ -67,7 +106,7 @@ int print_matrix(char **av, infin_number_t *info)
         printf("Print a 2 by 2 matrix");
     }
     else if (info->i >= 5 && info->i <= 9) {
-        //print_3matrix();
+        print_3matrix(info);
         printf("Print a 3 by 3 matrix");
     }
     else {

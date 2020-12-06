@@ -31,7 +31,7 @@ int my_intlen(int i)
 {
     int result = 0;
 
-    if (i >= 5 || i <= -10) {
+    if (i >= 10 || i <= -10) {
         if (i >= 10)
             result = my_supint(i);
         if (i <= 10)

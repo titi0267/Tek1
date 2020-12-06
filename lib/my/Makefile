@@ -22,6 +22,7 @@ SRC	=	my_putchar.c	\
 		my_strlen.c		\
 		my_putstr.c		\
 		annex1.c		\
+		my_intlen.c		\
 		annex2.c		\
 		annex3.c		\
 
