@@ -49,5 +49,8 @@ int error_handling(int ac, char **av);
 int str_handling(char c);
 void ascii(char **av, infin_number_t *info);
 int print_matrix(char **av, infin_number_t *info);
+int my_intlen(int);
+int my_infint(int);
+int my_supint(int);
 
 #endif /* !MY_H_ */

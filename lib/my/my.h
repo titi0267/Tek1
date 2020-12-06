@@ -47,5 +47,8 @@ void pbs(va_list *my_list, infin_number_t *info);
 void usage(void);
 int error_handling(int, char **);
 int str_handling(char);
+int my_intlen(int);
+int my_infint(int);
+int my_supint(int);
 
 #endif /* !MY_H_ */
