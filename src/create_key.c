@@ -21,21 +21,24 @@ void ascii(char **av, infin_number_t *info)
 
 void print_2matrix(infin_number_t *info)
 {
-    int i = 0;
+    int i = 1;
     int x = 0;
     int y = 0;
-    for (; info->store_key[y] != 0; i++, y++) {
+
+    for (; info->store_key[y] != 0; i--, y++) {
         printf("%i", info->store_key[y]);
-        if (i < 1)
-        if (my_strlen(info->store_key[y]) == 2)
+        if (my_intlen(info->store_key[y]) == 2 && i == 1) {
             printf("      ");
-        else if (my_strlen(info->store_key[y]) == 3)
-            printf("     ");
-        if (i == 1) {
-        printf("\n");
-        i = 0;
+            i = 1;
         }
-        x = i;
+        else if (my_intlen(info->store_key[y]) == 3 && i == 1) {
+            printf("     ");
+            i = 1;
+        }
+        if (i == 0) {
+            printf("\n");
+            i = 0;
+        }
     }
     if (y < 4) {
         for (;y < 4; x++, y++) {
