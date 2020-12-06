@@ -31,7 +31,7 @@ int pa(struct seclist_t **list_b, struct list_t **list);
 int print_blist(struct seclist_t *list_b, struct list_t *list);
 void size_a(struct list_t **list, in_b_t *value);
 void print_alist(struct list_t *list);
-int loop(struct list_t **list, struct seclist_t **list_b);
-int compare_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value);
+void loop(struct list_t **list, struct seclist_t **list_b);
+void compare_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value);
 
 #endif /* !MY_H_ */

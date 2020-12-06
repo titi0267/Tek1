@@ -19,7 +19,7 @@ void size_a(struct list_t **list, in_b_t *value)
     }
 }
 
-int compare_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
+void compare_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
 {
     struct list_t *element;
 
@@ -32,7 +32,8 @@ int compare_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
         }
 }
 
-int loop(struct list_t **list, struct seclist_t **list_b)
+
+void loop(struct list_t **list, struct seclist_t **list_b)
 {
     in_b_t *value = malloc(sizeof(in_b_t));
     int i = 0;
