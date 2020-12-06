@@ -50,7 +50,7 @@ void print_2matrix(infin_number_t *info)
     for (; info->store_key[y] != 0; i++, y++) {
         printf("%i", info->store_key[y]);
         if (i < 1)
-        if (my(strlen(info->store_key[y]) == 2))
+        if (my_strlen(info->store_key[y]) == 2)
             printf("      ");
         else if (my_strlen(info->store_key[y]) == 3)
             printf("     ");
