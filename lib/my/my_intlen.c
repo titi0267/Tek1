@@ -7,7 +7,7 @@
 
 int my_supint(int i)
 {
-    int temp = 1;
+    int temp = 0;
 
     for (int j = 0; i >= 10; j++) {
         temp++;
