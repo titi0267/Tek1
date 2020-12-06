@@ -44,7 +44,7 @@ void pn(va_list *my_list, infin_number_t *info);
 void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
-void usage(int ac, char **av);
+void usage(void);
 int error_handling(int ac, char **av);
 int str_handling(char c);
 void ascii(char **av, infin_number_t *info);

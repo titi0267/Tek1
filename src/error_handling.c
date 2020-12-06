@@ -24,7 +24,7 @@ int error_handling(int ac, char **av)
 {
     if (ac != 4) {
         if (av[1][0] == '-' && av[1][1] == 'h') {
-            usage(ac, av);
+            usage();
             return (84);
         }
         else {
