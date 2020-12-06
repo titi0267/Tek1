@@ -11,7 +11,8 @@
 void ascii(char **av, infin_number_t *info)
 {
     int i = 0;
-    info->store_key = (int *)malloc(sizeof(int *) * 1000);
+    for (info->i = 0; av[2][info->i] != '\0'; info->i++);
+    info->store_key = (int *)malloc(sizeof(int *) * info->i);
     for (; av[2][i] != '\0'; i++) {
         info->store_key[i] = av[2][i];
     }
@@ -22,7 +23,6 @@ int print_matrix(char **av, infin_number_t *info)
 {
     ascii(av, info);
     printf("Key matrix:\n");
-    for (info->i = 0; av[2][info->i] != '\0'; info->i++);
     if (info->i == 1) {
         printf("%i\n", info->store_key[0]);
         printf("Print a 1 by 1 matrix");
@@ -50,15 +50,16 @@ void print_2matrix(infin_number_t *info)
     for (; info->store_key[y] != 0; i++, y++) {
         printf("%i", info->store_key[y]);
         if (i < 1)
-            printf("    ");
+        if (my(strlen(info->store_key[y]) == 2))
+            printf("      ");
+        else if (my_strlen(info->store_key[y]) == 3)
+            printf("     ");
         if (i == 1) {
         printf("\n");
         i = 0;
         }
-        //printf("x in loop %i", x);
         x = i;
     }
-    //printf("x value %i\n", x);
     if (y < 4) {
         for (;y < 4; x++, y++) {
             printf("0");
@@ -70,5 +71,4 @@ void print_2matrix(infin_number_t *info)
             }
         }
     }
-    //printf("after loop %i\n", y);
 }
