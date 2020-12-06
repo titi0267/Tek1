@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void usage(int ac, char **av)
+void usage(void)
 {
         printf("USAGE\n    ./103cipher message key flag\n\nDESCRIPTION\n");
         printf("    message    a message, made of ASCII characters\n");

@@ -19,29 +19,6 @@ void ascii(char **av, infin_number_t *info)
     info->store_key[i] = 0;
 }
 
-int print_matrix(char **av, infin_number_t *info)
-{
-    ascii(av, info);
-    printf("Key matrix:\n");
-    if (info->i == 1) {
-        printf("%i\n", info->store_key[0]);
-        printf("Print a 1 by 1 matrix");
-    }
-    else if (info->i >= 2 && info->i <= 4) {
-        print_2matrix(info);
-        printf("Print a 2 by 2 matrix");
-    }
-    else if (info->i >= 5 && info->i <= 9) {
-        //print_3matrix();
-        printf("Print a 3 by 3 matrix");
-    }
-    else {
-        printf("The encryption key is longer than 9 characters, it isn't supported yet\n");
-        return (84);
-    }
-    return (0);
-}
-
 void print_2matrix(infin_number_t *info)
 {
     int i = 0;
@@ -71,4 +48,28 @@ void print_2matrix(infin_number_t *info)
             }
         }
     }
+}
+
+int print_matrix(char **av, infin_number_t *info)
+{
+    ascii(av, info);
+    printf("Key matrix:\n");
+    for (info->i = 0; av[2][info->i] != '\0'; info->i++);
+    if (info->i == 1) {
+        printf("%i\n", info->store_key[0]);
+        printf("Print a 1 by 1 matrix");
+    }
+    else if (info->i >= 2 && info->i <= 4) {
+        print_2matrix(info);
+        printf("Print a 2 by 2 matrix");
+    }
+    else if (info->i >= 5 && info->i <= 9) {
+        //print_3matrix();
+        printf("Print a 3 by 3 matrix");
+    }
+    else {
+        printf("The encryption key is longer than 9 characters, it isn't supported yet\n");
+        return (84);
+    }
+    return (0);
 }
