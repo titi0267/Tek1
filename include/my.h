@@ -52,5 +52,7 @@ int print_matrix(char **av, infin_number_t *info);
 int my_intlen(int i);
 int my_infint(int i);
 int my_supint(int i);
+void store_sentence(char **av, infin_number_t *info);
+int encrypt_3(char **av, infin_number_t *info);
 
 #endif /* !MY_H_ */

@@ -35,5 +35,6 @@ int main(int ac, char **av)
         return (84);
     print_matrix(av, info);
     de_en_crypt(av);
+    encrypt_3(av, info);
     return (0);
 }

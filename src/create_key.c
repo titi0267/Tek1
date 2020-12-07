@@ -56,9 +56,11 @@ void print_2matrix(infin_number_t *info)
     print_2x0(y, x);
 }
 
-void print_3x0(int y)
+void print_3x0(int y, infin_number_t *info)
 {
+    info->fill_matrix = 0;
     for (; y < 9; y++) {
+        info->fill_matrix++;
         printf("0");
         if (y != 5 && y != 8 && y != 2)
             printf("       ");
@@ -84,7 +86,7 @@ void print_3matrix(infin_number_t *info)
             i = 0;
         }
     }
-    print_3x0(y);
+    print_3x0(y, info);
 }
 
 int print_matrix(char **av, infin_number_t *info)

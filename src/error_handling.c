@@ -12,7 +12,7 @@
 
 int str_handling(char c)
 {
-    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || c == 32)
+    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || c == 32 || c == 39 || c == 46)
         return (0);
     else {
         my_puterr("Error: The string can only be composed of alphabetical characters\n");
