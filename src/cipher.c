@@ -22,9 +22,9 @@ void usage(void)
 void de_encrypt(char **av)
 {
     if (av[3][0] == '1')
-        printf("Decrypted message:\n");
+        printf("\nDecrypted message:\n");
     if (av[3][0] == '0')
-        printf("Encrypted message:\n");
+        printf("\nEncrypted message:\n");
 }
 
 int main(int ac, char **av)

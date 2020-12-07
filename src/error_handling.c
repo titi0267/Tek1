@@ -22,15 +22,18 @@ int str_handling(char c)
 
 int error_handling(int ac, char **av)
 {
-    if (ac != 4) {
-        if (av[1][0] == '-' && av[1][1] == 'h') {
+    if (ac != 4 &&  ac != 1) {
+        if (av[1][0] == '-' && av[1][1] == 'h' && ac == 2) {
             usage();
             return (84);
-        }
-        else {
+        } else {
             my_puterr("Invalid argument input\n");
             return (84);
         }
+    }
+    if (ac == 1) {
+        printf("Too few arguments, See Usage for more info\n");
+        return (84);
     }
     if (ac == 4) {
         for (int i = 1; i <= 2; i++) {
@@ -40,7 +43,7 @@ int error_handling(int ac, char **av)
             }
         }
     }
-    if (av[3][0] != '0' && av[3][0] != '1') {
+    if (av[3][0] != '0' && av[3][0] != '1' && ac == 4) {
         my_puterr("Invalid encrypting/decrypting key flag (See Usage for more info)\n");
         return (84);
     }
