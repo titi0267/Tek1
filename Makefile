@@ -14,7 +14,7 @@ SRC=	src/which_op.c		\
 		src/pushswap.c		\
 		src/main.c
 
-NAME=	pushswap
+NAME=	push_swap
 
 all:
 	$(CC)	$(SRC)	-o	$(NAME)
