@@ -36,7 +36,8 @@ int main(int ac, char **av)
     int i = 1;
     if (x != 0)
         return (84);
-    for (; av[i] != 0; i++)
+    for (; av[i] != 0; i++);
+    for (i = i - 1; i > 0; i--)
         insert(&my_list, my_getnbr(av[i]));
     loop(&my_list, &my_seclist);
     delete_b(my_seclist);

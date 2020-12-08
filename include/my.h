@@ -18,7 +18,7 @@ void delete(struct list_t *list);
 int insert(struct list_t **list, int new_nbr);
 int rra(struct list_t **list);
 int sa(struct list_t **list);
-int ra(struct list_t **list);
+int ra(struct list_t **list, struct seclist_t **list_b, in_b_t *value);
 int pb(struct seclist_t **list_b, struct list_t **list);
 void delete_b(struct seclist_t *list_b);
 int rrb(struct seclist_t **list_b);
@@ -32,6 +32,7 @@ int print_blist(struct seclist_t *list_b, struct list_t *list);
 void size_a(struct list_t **list, in_b_t *value);
 void print_alist(struct list_t *list);
 void loop(struct list_t **list, struct seclist_t **list_b);
-void compare_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value);
+int compare_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value);
+int sorted(struct list_t **list, struct seclist_t **list_b, in_b_t *value);
 
 #endif /* !MY_H_ */

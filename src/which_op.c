@@ -30,7 +30,7 @@ int rra(struct list_t **list) //last element become first
     return (0);
 }
 
-int ra(struct list_t **list)
+int ra(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
 {
     struct list_t *first = *list;
     struct list_t *last = *list;
@@ -46,7 +46,10 @@ int ra(struct list_t **list)
     *list = first->next;
     first->next = NULL;
     last->next = first;
-    write(1, "ra ", 3);
+    if (sorted(list, list_b, value) == -1)
+        write(1, "ra ", 3);
+    else
+        write(1, "ra\n", 3);
     return (0);
 }
 
