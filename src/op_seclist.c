@@ -81,9 +81,6 @@ int pb(struct seclist_t **list_b, struct list_t **list)
     element->next = *list_b;
     *list_b = element;
     *list = first->next;
-    if (*list != NULL)
-        write(1, "pb ", 3);
-    else
-        write(1, "pb\n", 3);
+    write(1, "pb ", 3);
     return (0);
 }

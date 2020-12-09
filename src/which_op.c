@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int rra(struct list_t **list) //last element become first
+int rra(struct list_t **list)
 {
     struct list_t *last = *list;
     struct list_t *before_last = NULL;
@@ -46,10 +46,7 @@ int ra(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
     *list = first->next;
     first->next = NULL;
     last->next = first;
-    if (sorted(list, list_b, value) == -1)
-        write(1, "ra ", 3);
-    else
-        write(1, "ra\n", 3);
+    write(1, "ra ", 3);
     return (0);
 }
 
