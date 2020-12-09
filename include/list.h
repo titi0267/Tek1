@@ -25,6 +25,7 @@ typedef struct in_b
     int max;
     int size;
     int store_size;
+    int low;
 } in_b_t;
 
 
