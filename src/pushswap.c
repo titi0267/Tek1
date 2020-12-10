@@ -54,10 +54,6 @@ void push_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
             write(1, "pa ", 3);
         }
     }
-    if ((*list_b)->next == NULL) {
-        pa(list_b, list);
-        write(1, "pa ", 3);
-    }
 }
 
 int sorted(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
