@@ -25,7 +25,6 @@ int rrb(struct seclist_t **list_b)
     before_last->next = NULL;
     last->next = *list_b;
     *list_b = last;
-    write(1, "rrb ", 4);
     return (0);
 }
 
@@ -45,7 +44,6 @@ int rb(struct seclist_t **list_b)
     *list_b = first->next;
     first->next = NULL;
     last->next = first;
-    write(1, "rb ", 3);
     return (0);
 }
 
@@ -62,7 +60,6 @@ int sb(struct seclist_t **list_b)
     (*list_b)->next = first->next;
     first->next = *list_b;
     *list_b = first;
-    write(1, "sb ", 3);
     return (0);
 }
 
@@ -81,6 +78,6 @@ int pb(struct seclist_t **list_b, struct list_t **list)
     element->next = *list_b;
     *list_b = element;
     *list = first->next;
-    write(1, "pb ", 3);
+    free(first);
     return (0);
 }

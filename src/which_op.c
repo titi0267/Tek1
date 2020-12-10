@@ -26,7 +26,6 @@ int rra(struct list_t **list)
     before_last->next = NULL;
     last->next = *list;
     *list = last;
-    write(1, "rra ", 4);
     return (0);
 }
 
@@ -46,7 +45,6 @@ int ra(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
     *list = first->next;
     first->next = NULL;
     last->next = first;
-    write(1, "ra ", 3);
     return (0);
 }
 
@@ -63,7 +61,6 @@ int sa(struct list_t **list)
     (*list)->next = first->next;
     first->next = *list;
     *list = first;
-    write(1, "sa ", 3);
     return (0);
 }
 
@@ -82,6 +79,6 @@ int pa(struct seclist_t **list_b, struct list_t **list)
     element->next = *list;
     *list = element;
     *list_b = first->next;
-    write(1, "pa ", 3);
+   free(first);
     return (0);
 }
