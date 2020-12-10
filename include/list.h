@@ -28,5 +28,4 @@ typedef struct in_b
     int low;
 } in_b_t;
 
-
 #endif /* !LIST_H_ */
