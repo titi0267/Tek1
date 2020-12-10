@@ -37,19 +37,6 @@ void push_low_front(struct list_t **list, struct seclist_t **list_b, in_b_t *val
     pb(list_b, list);
 }
 
-void push_b(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
-{
-    struct list_t *element = *list;
-
-    while ((*list)->next != NULL) {
-        if ((*list)->nbr > (*list)->next->nbr) {
-            sa(list);
-            pb(list_b, list);
-        } else if ((*list)->nbr <= (*list)->next->nbr)
-            pb(list_b, list);
-    }
-}
-
 void push_a(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
 {
     struct seclist_t *element = *list_b;
@@ -77,15 +64,32 @@ int sorted(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
     return (0);
 }
 
+void push_b(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
+{
+    struct list_t *element = *list;
+
+    while ((*list)->next != NULL) {
+        if ((*list)->nbr > (*list)->next->nbr) {
+            sa(list);
+            pb(list_b, list);
+        } else if ((*list)->nbr <= (*list)->next->nbr)
+            pb(list_b, list);
+    }
+}
+
 void loop(struct list_t **list, struct seclist_t **list_b)
 {
     in_b_t *value = malloc(sizeof(in_b_t));
 
     size_a(list, value);
     push_low_front(list, list_b, value);
+    /*if (sorted(list, list_b, value) == 0)
+        printf("OK");*/
     while (sorted(list, list_b, value) == -1) {
         push_b(list, list_b, value);
         push_a(list, list_b, value);
     }
+    if ((*list_b) != NULL)
+        pa(list_b, list);
     free(value);
 }
