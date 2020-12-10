@@ -18,10 +18,11 @@ void store_sentence(char **av, infin_number_t *info)
 
 int encrypt_3(char **av, infin_number_t *info)
 {
-    store_sentence(av, info);
     int x = 0;
+
+    store_sentence(av, info);
     info->encrypt = (int *)malloc(sizeof(int *) * info->strlen);
-    for (int i = 0; i < (info->strlen + info->fill_matrix); i++, x++) {
+    for (int i = 0; (i + info->fill_matrix - 1) <= (info->strlen + info->fill_matrix); i++, x++) {
         if (x == 0) {
             info->encrypt[i] = (info->sentence[i] * info->store_key[0]) + (info->sentence[i + 1] * info->store_key[3]) + (info->sentence[i + 2] * info->store_key[6]);
         }
@@ -32,7 +33,7 @@ int encrypt_3(char **av, infin_number_t *info)
             info->encrypt[i] = (info->sentence[i - 2] * info->store_key[2]) + (info->sentence[i - 1] * info->store_key[5]) + (info->sentence[i] * info->store_key[8]);
             x = -1;
         }
-        if ((i + 1) < (info->strlen + info->fill_matrix))
+        if ((i + info->fill_matrix - 1) < (info->strlen + info->fill_matrix))
             printf("%i ", info->encrypt[i]);
         else
             printf("%i\n", info->encrypt[i]);
