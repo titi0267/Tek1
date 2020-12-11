@@ -96,14 +96,17 @@ int print_matrix(char **av, infin_number_t *info)
         return (84);
     printf("Key matrix:\n");
     for (info->i = 0; av[2][info->i] != '\0'; info->i++);
-    if (info->i == 1)
+    if (info->i == 1) {
         printf("%i\n", info->store_key[0]);
-    else if (info->i >= 2 && info->i <= 4)
+        info->divide = 1;
+    } else if (info->i >= 2 && info->i <= 4) {
         print_2matrix(info);
-    else if (info->i >= 5 && info->i <= 9)
+        info->divide = 2;
+    } else if (info->i >= 5 && info->i <= 9) {
         print_3matrix(info);
-    else {
-        printf("The encryption key is longer than 9 characters, it isn't supported yet\n");
+        info->divide = 3;
+    } else {
+        printf("The encryption key is longer than 9 or less than 1 characters, it isn't supported yet\n");
         return (84);
     }
     return (0);

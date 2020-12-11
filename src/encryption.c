@@ -19,10 +19,10 @@ int store_sentence(char **av, infin_number_t *info)
     for (; i < info->strlen; i++) {
         info->sentence[i] = av[1][i];
     }
-    while (i > 3) {
-        i = i - 3;
+    while (i > info->divide) {
+        i = i - info->divide;
     }
-    for (; i < 3; i++)
+    for (; i < info->divide; i++)
         x++;
     info->fill_sentence = x;
     while (x > 0) {
@@ -52,6 +52,46 @@ int encrypt_3(char **av, infin_number_t *info)
             x = -1;
         }
         if (i < (info->strlen + info->fill_sentence - 1))
+            printf("%i ", info->encrypt[i]);
+        else
+            printf("%i\n", info->encrypt[i]);
+    }
+    return (0);
+}
+
+int encrypt_2(char **av, infin_number_t *info)
+{
+    int x = 0;
+
+    store_sentence(av, info);
+    info->encrypt = (int *)malloc(sizeof(int *) * info->strlen);
+    if (info->encrypt == NULL || store_sentence(av, info) == 84)
+        return (84);
+    for (int i = 0; i < (info->strlen + info->fill_sentence); i++, x++) {
+        if (x == 0) {
+            info->encrypt[i] = (info->sentence[i] * info->store_key[0]) + (info->sentence[i + 1] * info->store_key[2]);
+        }
+        if (x == 1) {
+            info->encrypt[i] = (info->sentence[i - 1] * info->store_key[1]) + (info->sentence[i] * info->store_key[3]);
+            x = -1;
+        } if (i < (info->strlen + info->fill_sentence - 1))
+            printf("%i ", info->encrypt[i]);
+        else
+            printf("%i\n", info->encrypt[i]);
+    }
+    return (0);
+}
+
+
+int encrypt_1(char **av, infin_number_t *info)
+{
+    store_sentence(av, info);
+    info->encrypt = (int *)malloc(sizeof(int *) * info->strlen);
+    if (info->encrypt == NULL || store_sentence(av, info) == 84)
+        return (84);
+    for (int i = 0; i < info->strlen; i++) {
+            info->encrypt[i] = (info->sentence[i] * info->store_key[0]);
+        if (i < (info->strlen - 1))
             printf("%i ", info->encrypt[i]);
         else
             printf("%i\n", info->encrypt[i]);

@@ -27,13 +27,21 @@ void print_crypt(char **av)
         printf("\nEncrypted message:\n");
 }
 
-int decrypt(char **av, infin_number_t *info)
+int encrypt(char **av, infin_number_t *info)
 {
     if (print_matrix(av, info) == 84)
         return (84);
     print_crypt(av);
-    if (encrypt_3(av, info) == 84)
-        return (84);
+    if (info->i == 1) {
+        if (encrypt_1(av, info) == 84)
+            return (84);
+    } else if (info->i >= 2 && info->i <= 4) {
+        if (encrypt_2(av, info) == 84)
+            return(84);
+    } else if (info->i > 4 && info->i <= 9) {
+        if (encrypt_3(av, info) == 84)
+            return (84);
+    }
     return (0);
 }
 int main(int ac, char **av)
@@ -42,7 +50,7 @@ int main(int ac, char **av)
 
     if (error_handling(ac, av) != 0)
         return (84);
-    if (decrypt(av, info) == 84)
+    if (encrypt(av, info) == 84)
         return (84);
     return (0);
 }

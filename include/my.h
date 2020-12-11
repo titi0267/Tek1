@@ -54,5 +54,7 @@ int my_infint(int i);
 int my_supint(int i);
 int store_sentence(char **av, infin_number_t *info);
 int encrypt_3(char **av, infin_number_t *info);
+int encrypt_2(char **av, infin_number_t *info);
+int encrypt_1(char **av, infin_number_t *info);
 
 #endif /* !MY_H_ */
