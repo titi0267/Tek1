@@ -19,6 +19,7 @@ typedef struct infin_number
     int strlen;
     int *encrypt;
     int fill_matrix;
+    int fill_sentence;
 } infin_number_t;
 
 #endif /* !MY_STRUCT_H_ */

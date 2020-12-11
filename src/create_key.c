@@ -8,26 +8,30 @@
 #include "../include/my.h"
 #include <stdlib.h>
 
-void ascii(char **av, infin_number_t *info)
+int ascii(char **av, infin_number_t *info)
 {
     int i = 0;
     for (info->i = 0; av[2][info->i] != '\0'; info->i++);
     info->store_key = (int *)malloc(sizeof(int *) * info->i);
+    if (info->store_key == NULL)
+        return (84);
     for (; av[2][i] != '\0'; i++) {
         info->store_key[i] = av[2][i];
     }
     info->store_key[i] = 0;
+    return (0);
 }
 
-void print_2x0(int y, int x)
+void print_2x0(int y, infin_number_t *info)
 {
-    for (; y < 4; y++, x++) {
+    info->fill_matrix = 0;
+    for (; y < 4; y++) {
+        info->fill_matrix++;
         printf("0");
-        if (x == 0)
+        if (y == 0 || y == 2)
             printf("       ");
-        if (x == 1) {
+        if (y == 1 || y == 3) {
             printf("\n");
-            x = 0;
         }
     }
 }
@@ -35,25 +39,21 @@ void print_2x0(int y, int x)
 void print_2matrix(infin_number_t *info)
 {
     int i = 1;
-    int x = 0;
     int y = 0;
 
     for (; info->store_key[y] != 0; i++, y++) {
         printf("%i", info->store_key[y]);
         if (my_intlen(info->store_key[y]) == 2 && i == 1) {
             printf("      ");
-            x = 1;
         } else if (my_intlen(info->store_key[y]) == 3 && i == 1) {
             printf("     ");
-            x = 1;
         }
         if (i == 2) {
             printf("\n");
             i = 0;
-            x = 0;
         }
     }
-    print_2x0(y, x);
+    print_2x0(y, info);
 }
 
 void print_3x0(int y, infin_number_t *info)
@@ -92,6 +92,8 @@ void print_3matrix(infin_number_t *info)
 int print_matrix(char **av, infin_number_t *info)
 {
     ascii(av, info);
+    if (ascii(av, info) == 84)
+        return (84);
     printf("Key matrix:\n");
     for (info->i = 0; av[2][info->i] != '\0'; info->i++);
     if (info->i == 1)

@@ -19,7 +19,7 @@ void usage(void)
         printf("    flag       0 for the message to be encrypted, 1 to be decrypted\n");
 }
 
-void de_encrypt(char **av)
+void print_crypt(char **av)
 {
     if (av[3][0] == '1')
         printf("\nDecrypted message:\n");
@@ -27,14 +27,22 @@ void de_encrypt(char **av)
         printf("\nEncrypted message:\n");
 }
 
+int decrypt(char **av, infin_number_t *info)
+{
+    if (print_matrix(av, info) == 84)
+        return (84);
+    print_crypt(av);
+    if (encrypt_3(av, info) == 84)
+        return (84);
+    return (0);
+}
 int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
     if (error_handling(ac, av) != 0)
         return (84);
-    print_matrix(av, info);
-    de_encrypt(av);
-    encrypt_3(av, info);
+    if (decrypt(av, info) == 84)
+        return (84);
     return (0);
 }

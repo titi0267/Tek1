@@ -47,12 +47,12 @@ void pbs(va_list *my_list, infin_number_t *info);
 void usage(void);
 int error_handling(int ac, char **av);
 int str_handling(char c);
-void ascii(char **av, infin_number_t *info);
+int ascii(char **av, infin_number_t *info);
 int print_matrix(char **av, infin_number_t *info);
 int my_intlen(int i);
 int my_infint(int i);
 int my_supint(int i);
-void store_sentence(char **av, infin_number_t *info);
+int store_sentence(char **av, infin_number_t *info);
 int encrypt_3(char **av, infin_number_t *info);
 
 #endif /* !MY_H_ */
