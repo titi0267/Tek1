@@ -89,7 +89,10 @@ void loop(struct list_t **list, struct seclist_t **list_b)
     in_b_t *value = malloc(sizeof(in_b_t));
 
     size_a(list, value);
-    push_low_front(list, list_b, value);
+    if (sorted(list, list_b, value) == 0)
+        write(1, "\n", 1);
+    else
+        push_low_front(list, list_b, value);
     while (sorted(list, list_b, value) == -1) {
         push_b(list, list_b, value);
         push_a(list, list_b, value);
