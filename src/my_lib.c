@@ -38,7 +38,7 @@ int my_putnbr(int nb)
 int my_getnbr(char *str)
 {
     int i = 0;
-    int j = 0;
+    long long int j = 0;
     int n = 1;
 
     for (; str[i] != '\0' && (str[i] == '+' || str[i] == '-'); i++) {
