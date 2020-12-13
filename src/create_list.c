@@ -19,6 +19,25 @@ int insert(struct list_t **list, int new_nbr)
     return (0);
 }
 
+void size_a(struct list_t **list, in_b_t *value)
+{
+    struct list_t *element = *list;
+    int i = 0;
+    value->low = element->nbr;
+
+    value->size = 0;
+    while (element->next != NULL) {
+        if (value->low > element->next->nbr)
+            value->low = element->next->nbr;
+        element = element->next;
+    }
+    while (element != NULL) {
+        element = element->next;
+        value->size++;
+    }
+    value->store_size = value->size;
+}
+
 void delete(struct list_t *list)
 {
     struct list_t *delete;

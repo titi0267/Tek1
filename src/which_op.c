@@ -79,6 +79,6 @@ int pa(struct seclist_t **list_b, struct list_t **list)
     element->next = *list;
     *list = element;
     *list_b = first->next;
-   free(first);
+    free(first);
     return (0);
 }

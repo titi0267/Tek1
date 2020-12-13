@@ -71,7 +71,7 @@ int pb(struct seclist_t **list_b, struct list_t **list)
     if (element == NULL)
         return (84);
     if (*list == NULL) {
-        my_putstr("There are less elements in a than you wants to push in b\n");
+        my_putstr("There are less elements in a than you want to push in b\n");
         return (-1);
     }
     element->num = first->nbr;

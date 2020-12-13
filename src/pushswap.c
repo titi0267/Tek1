@@ -9,25 +9,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void size_a(struct list_t **list, in_b_t *value)
-{
-    struct list_t *element = *list;
-    int i = 0;
-    value->low = element->nbr;
-
-    value->size = 0;
-    while (element->next != NULL) {
-        if (value->low > element->next->nbr)
-            value->low = element->next->nbr;
-        element = element->next;
-    }
-    while (element != NULL) {
-        element = element->next;
-        value->size++;
-    }
-    value->store_size = value->size;
-}
-
 void push_low_front(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
 {
     struct list_t *element = *list;
