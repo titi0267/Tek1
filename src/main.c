@@ -31,7 +31,6 @@ int main(int ac, char **av)
     struct seclist_t *my_seclist;
     int x = error(ac, av);
 
-    printf("%i\n", my_getnbr(av[1]));
     my_list = NULL;
     my_seclist = NULL;
     int i = 1;
