@@ -10,4 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int connection(int ac, char **av, inf)
+int connection(int ac, char **av, infin_number_t *info)
+{
+    for (int i = 1; )
+}
