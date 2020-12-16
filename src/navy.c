@@ -25,5 +25,6 @@ int main(int ac, char **av)
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
     help(ac, av);
+    connection(ac, av, info);
     return (0);
 }
