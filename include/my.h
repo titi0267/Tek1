@@ -44,6 +44,6 @@ void pn(va_list *my_list, infin_number_t *info);
 void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
-int read_map(map_t *buff, infin_number_t *info);
+void *read_map(map_t *buff);
 
 #endif /* !MY_H_ */

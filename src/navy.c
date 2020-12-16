@@ -27,6 +27,6 @@ int main(int ac, char **av)
 
     //help(ac, av);
     //connection(ac, av, info);
-    read_map(buff, info);
+    read_map(buff);
     return (0);
 }
