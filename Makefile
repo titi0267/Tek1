@@ -5,8 +5,9 @@
 ## Makefile
 ##
 
-SRC = 	src/navy.c		\
-		src/map.c		\
+SRC = 	src/navy.c				\
+		src/connection.c		\
+		src/map.c				\
 
 CC		=	gcc -o -lm
 

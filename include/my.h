@@ -23,6 +23,7 @@ int my_putstr(char const *, infin_number_t *info);
 void my_puterr(char *);
 int my_strlen(char const *);
 int my_getnbr(char const *);
+int my_char_isnum(char);
 int my_strcmp(char const *s1, char const *s2);
 char *my_strcpy(char *, char const *);
 int my_putnbr_base(int, char const *, infin_number_t *info);
@@ -44,5 +45,8 @@ void pn(va_list *my_list, infin_number_t *info);
 void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
+void display_connexion(int, infin_number_t *info);
+int which_player(char *, infin_number_t *info);
+int connection(int, char **, infin_number_t *info);
 
 #endif /* !MY_H_ */
