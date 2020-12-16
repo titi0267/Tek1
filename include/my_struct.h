@@ -6,6 +6,8 @@
 */
 
 #include <unistd.h>
+#include <sys/types.h>
+#include <signal.h>
 
 #ifndef MY_STRUCT_H_
 #define MY_STRUCT_H_
@@ -13,6 +15,7 @@
 typedef struct infin_number
 {
     int amount;
+    pid_t process_id;
 } infin_number_t;
 
 #endif /* !MY_STRUCT_H_ */
