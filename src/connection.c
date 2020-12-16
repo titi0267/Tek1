@@ -10,7 +10,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int which_player(char *player)
+{
+    for (int i = 0; )
+}
+
 int connection(int ac, char **av, infin_number_t *info)
 {
-    for (int i = 1; )
+    for (int i = 1; av[i] != 0; i++) {
+        if (which_player(av[i]) == 1) {
+            display_pid(info);
+        }
+    }
 }
