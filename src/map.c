@@ -28,7 +28,7 @@ void *read_map(map_t *buff)
     return (0);
 }
 
-int enemy_map(map_t *buff)
+/*int enemy_map(map_t *buff)
 {
 
-}
+}*/

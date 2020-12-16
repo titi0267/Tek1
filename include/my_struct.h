@@ -15,7 +15,8 @@
 typedef struct infin_number
 {
     int amount;
-    pid_t process_id;
+    pid_t process_id1;
+    pid_t process_id2;
 } infin_number_t;
 
 typedef struct map

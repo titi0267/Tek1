@@ -23,6 +23,7 @@ int my_putstr(char const *, infin_number_t *info);
 void my_puterr(char *);
 int my_strlen(char const *);
 int my_getnbr(char const *);
+int my_char_isnum(char);
 int my_strcmp(char const *s1, char const *s2);
 char *my_strcpy(char *, char const *);
 int my_putnbr_base(int, char const *, infin_number_t *info);
