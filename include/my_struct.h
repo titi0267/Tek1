@@ -15,4 +15,10 @@ typedef struct infin_number
     int amount;
 } infin_number_t;
 
+typedef struct map
+{
+    int buffer_size;
+    char *buffer;
+} map_t;
+
 #endif /* !MY_STRUCT_H_ */
