@@ -6,6 +6,7 @@
 ##
 
 SRC = 	src/navy.c		\
+		src/map.c		\
 
 CC		=	gcc -o -lm
 
@@ -30,3 +31,5 @@ fclean: clean
 	make -C lib/my fclean
 
 re:	fclean
+
+.PHONY: all clean fclean re
