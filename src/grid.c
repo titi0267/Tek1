@@ -11,7 +11,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-
 int char_column(char c)
 {
     switch(c) {
