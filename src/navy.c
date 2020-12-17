@@ -31,5 +31,8 @@ int main(int ac, char **av)
     print_map(buff, info);
     print_pos(where, info);
     map_p1(buff, where, info);
+    free(where);
+    free(buff);
+    free(info);
     return (0);
 }
