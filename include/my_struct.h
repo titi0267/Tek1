@@ -35,6 +35,8 @@ typedef struct pos_s
     char **find_pos2;
     int *column_start;
     int *column_end;
+    int *line_start;
+    int *line_end;
 } pos_t;
 
 #endif /* !MY_STRUCT_H_ */

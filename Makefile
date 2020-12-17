@@ -9,6 +9,7 @@ SRC = 	src/navy.c				\
 		src/connection.c		\
 		src/map.c				\
 		src/position.c			\
+		src/grid.c				\
 
 CC		=	gcc -o -lm
 
