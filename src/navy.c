@@ -28,8 +28,8 @@ int main(int ac, char **av)
 
     help(ac, av);
     connection(av, info);
-    print_pos(where, info);
-    map_p1(buff, where);
+    print_pos(where);
+    map_p1(where);
     print_map(buff, where, info);
     free(where);
     free(buff);

@@ -86,20 +86,9 @@ int store_pos(pos_t *where)
     return (0);
 }
 
-int print_pos(pos_t *where, infin_number_t *info)
+int print_pos(pos_t *where)
 {
-    int l = 0;
-    int l2 = 0;
-
     read_pos(where);
     store_pos(where);
-    while (l != 4 && l2 != 4) {
-        for (int c = 0; where->find_pos1[l][c] != '\0'; c++)
-            my_putchar(where->find_pos1[l][c], info);
-        for (int c = 0; where->find_pos2[l2][c] != '\0'; c++)
-            my_putchar(where->find_pos2[l2][c], info);
-        l++;
-        l2++;
-    }
     return (0);
 }

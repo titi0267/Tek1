@@ -102,10 +102,9 @@ int which_column(pos_t *where)
     return (0);
 }
 
-int map_p1(map_t *buff, pos_t *where)
+int map_p1(pos_t *where)
 {
     which_column(where);
     which_line(where);
-    //printf("The 5 ship ends in column %i and line %i\n", where->column_end[3], where->line_end[3]);
     return (0);
 }

@@ -53,7 +53,7 @@ int store_map(map_t *buff)
     return (0);
 }
 
-int ship_map(map_t *buff, pos_t *where, infin_number_t *info)
+void ship_map(map_t *buff, pos_t *where)
 {
     int i = 0;
     read_map(buff);
@@ -77,7 +77,7 @@ int print_map(map_t *buff, pos_t *where, infin_number_t *info)
 {
     int l = 0;
 
-    ship_map(buff, where, info);
+    ship_map(buff, where);
     while (l != 10) {
         for (int c = 0; buff->line[l][c] != '\0'; c++) {
             my_putchar(buff->line[l][c], info);

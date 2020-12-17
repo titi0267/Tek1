@@ -50,7 +50,7 @@ void display_connexion(int, infin_number_t *info);
 int which_player(char *, infin_number_t *info);
 int connection(char **, infin_number_t *info);
 int print_map(map_t *buff, pos_t *where, infin_number_t *info);
-int print_pos(pos_t *where, infin_number_t *info);
-int map_p1(map_t *buff, pos_t *where);
+int print_pos(pos_t *where);
+int map_p1(pos_t *where);
 
 #endif /* !MY_H_ */
