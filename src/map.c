@@ -55,16 +55,20 @@ int store_map(map_t *buff)
 
 int ship_map(map_t *buff, pos_t *where, infin_number_t *info)
 {
+    int i = 0;
     read_map(buff);
     store_map(buff);
-    //buff->line[where->column_start[1]][where->line_start[1]] = '3';
-    //buff->line[where->column_end[1]][where->line_end[1]] = '3';
-    //printf("C2 %c\n", buff->line[where->column_start[1]][where->line_start[1]]);
-    //printf("C4 %c\n", buff->line[where->column_end[1]][where->line_end[1]]);
-    for (int i = 0; i <= 3; i++) {
-        //printf("Column : %i\n", where->column_start[0]);
-        //printf("line : %i\n", where->line_start[0]);
-        buff->line[where->line_start[i]][where->column_start[i]] = 50 + i;
+    for (; i <= 3; i++) {
+        if (where->line_start[i] == where->line_end[i]) {
+            buff->line[where->line_start[i]][where->column_start[i]] = 50 + i;
+            for (int x = 0; x <= i && i != 0; x++)
+                buff->line[where->line_start[i]][where->column_start[i] + (x * 2)] = 50 + i;
+        }
+        if (where->column_start[i] == where->column_end[i]) {
+            buff->line[where->line_start[i]][where->column_start[i]] = 50 + i;
+            for (int x = 0; x <= i && i != 0; x++)
+                buff->line[where->line_start[i] + (x + 1)][where->column_start[i]] = 50 + i;
+        }
         buff->line[where->line_end[i]][where->column_end[i]] = 50 + i;
     }
 }
@@ -80,7 +84,5 @@ int print_map(map_t *buff, pos_t *where, infin_number_t *info)
         }
         l++;
     }
-    //printf("Here is the line 5 : %c\n", buff->line[8][0]);
-    //printf("Here is the column B : %c\n", buff->line[0][16]);
     return (0);
 }
