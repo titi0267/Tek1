@@ -18,7 +18,6 @@ void *read_map(map_t *buff)
 
     if (fd == -1)
         return (NULL);
-    my_printf("my positions:\n");
     buff->buffer_size = 180;
     buff->buffer = malloc(sizeof(char) * buff->buffer_size + 1);
     read_ret = read(fd, buff->buffer, buff->buffer_size);
@@ -78,11 +77,17 @@ int print_map(map_t *buff, pos_t *where, infin_number_t *info)
     int l = 0;
 
     ship_map(buff, where);
+    my_printf("my positions:\n");
     while (l != 10) {
         for (int c = 0; buff->line[l][c] != '\0'; c++) {
             my_putchar(buff->line[l][c], info);
         }
         l++;
     }
+    my_printf("\nenemy's positions:\n");
+    for (int i = 0; i != 180; i++) {
+        my_putchar(buff->buffer[i], info);
+    }
+    my_putchar('\n', info);
     return (0);
 }
