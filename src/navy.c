@@ -24,9 +24,12 @@ int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
     map_t *buff = malloc(sizeof(map_t));
+    pos_t *where = malloc(sizeof(pos_t));
 
     help(ac, av);
     //connection(av, info);
-    assemble(buff, info);
+    print_map(buff, info);
+    print_pos(where, info);
+    map_p1(buff, where, info);
     return (0);
 }

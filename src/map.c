@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2020
-** Map by Timothy CONIEL & Eloitt WALDVOGEL
+** Map by Timothy CONIEL & Elliot WALDVOGEL
 ** File description:
 ** map.c
 */
@@ -52,7 +52,7 @@ int store_map(map_t *buff)
     return (0);
 }
 
-int assemble(map_t *buff, infin_number_t *info)
+int print_map(map_t *buff, infin_number_t *info)
 {
     int l = 0;
     read_map(buff);
@@ -66,7 +66,56 @@ int assemble(map_t *buff, infin_number_t *info)
     return (0);
 }
 
-/*int enemy_map(map_t *buff)
+int my_charcmp(char c, infin_number_t *info)
 {
-    
-}*/
+    switch(c) {
+    case 'A':
+        return (2);
+    case 'B':
+        return (4);
+    case 'C':
+        return (6);
+    case 'D':
+        return (8);
+    case 'E':
+        return (10);
+    case 'F':
+        return (12);
+    case 'G':
+        return (14);
+    case 'H':
+        return (16);
+    default:
+        my_putstr("Invalid position\n", info);
+    }
+    return (-1);
+}
+
+int which_column(pos_t *where, infin_number_t *info)
+{
+    int f = 0;
+    int i = 0;
+    int x = -1;
+
+    where->column_start = malloc(sizeof(int) * 5);
+    where->column_end = malloc(sizeof(int) * 5);
+    while (f != 4) {
+        x = my_charcmp(where->find_pos1[f][2], info);
+        if (x != -1)
+            where->column_start[i] = x;
+        x = my_charcmp(where->find_pos1[f][5], info);
+        if (x != -1)
+            where->column_end[i] = x;
+        f++;
+        i++;
+    }
+    return (0);
+}
+
+int map_p1(map_t *buff, pos_t *where, infin_number_t *info)
+{
+    which_column(where, info);
+
+    //printf("The second ship ends in column %i", where->column_end[1]);
+    return (0);
+}
