@@ -60,8 +60,10 @@ int connection(char **av, infin_number_t *info)
     info->process_id1 = 0;
     info->process_id2 = 0;
     for (int i = 1; av[i] != 0; i++) {
-        if (my_char_isnum(av[i][0]) == 1)
+        if (my_char_isnum(av[i][0]) == 1) {
+            info->process_id1 = my_getnbr(av[i]);
             i++;
+        }
         if (which_player(av[i], info) == 84)
             return (84);
         if (which_player(av[i], info) == 0)
