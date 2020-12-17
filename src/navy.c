@@ -20,6 +20,26 @@ void help(int ac, char **av)
     }
 }
 
+void destroy_all(pos_t *where, map_t *buff, infin_number_t *info)
+{
+    free(buff->buffer);
+    free(where->pos_1);
+    free(where->pos_2);
+    free(where->column_start);
+    free(where->column_end);
+    free(where->line_start);
+    free(where->line_end);
+    for (int i = 0; i != 10; i++)
+        free(buff->line[i]);
+    free(buff->line);
+    for (int i = 0; i != 4; i++) {
+        free(where->find_pos1[i]);
+        free(where->find_pos2[i]);
+    }
+    free(where->find_pos1);
+    free(where->find_pos2);
+}
+
 int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
@@ -31,6 +51,7 @@ int main(int ac, char **av)
     print_pos(where);
     map_p1(where);
     print_map(buff, where, info);
+    destroy_all(where, buff, info);
     free(where);
     free(buff);
     free(info);
