@@ -26,7 +26,7 @@ int main(int ac, char **av)
     map_t *buff = malloc(sizeof(map_t));
 
     help(ac, av);
-    connection(av, info);
-    read_map(buff);
+    //connection(av, info);
+    assemble(buff, info);
     return (0);
 }

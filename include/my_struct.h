@@ -23,6 +23,7 @@ typedef struct map
 {
     int buffer_size;
     char *buffer;
+    char **line;
 } map_t;
 
 #endif /* !MY_STRUCT_H_ */

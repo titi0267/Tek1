@@ -49,5 +49,6 @@ void *read_map(map_t *buff);
 void display_connexion(int, infin_number_t *info);
 int which_player(char *, infin_number_t *info);
 int connection(char **, infin_number_t *info);
+int assemble(map_t *buff, infin_number_t *info);
 
 #endif /* !MY_H_ */
