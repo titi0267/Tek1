@@ -26,6 +26,7 @@ typedef struct map_s
     int buffer_size;
     char *buffer;
     char **line;
+    char **line2;
 } map_t;
 
 typedef struct pos_s
@@ -39,6 +40,10 @@ typedef struct pos_s
     int *column_end;
     int *line_start;
     int *line_end;
+    int *column_start2;
+    int *column_end2;
+    int *line_start2;
+    int *line_end2;
 } pos_t;
 
 #endif /* !MY_STRUCT_H_ */

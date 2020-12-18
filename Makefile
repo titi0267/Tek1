@@ -9,7 +9,8 @@ SRC = 	src/navy.c				\
 		src/connection.c		\
 		src/map.c				\
 		src/position.c			\
-		src/grid.c				\
+		src/place_ship.c		\
+		src/match_case.c
 
 CC		=	gcc -o -lm
 

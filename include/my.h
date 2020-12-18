@@ -49,9 +49,17 @@ void *read_map(map_t *buff);
 void display_connexion(int, infin_number_t *info);
 int which_player(char *, infin_number_t *info);
 int connection(char **, infin_number_t *info);
-int print_map(map_t *buff, pos_t *where, infin_number_t *info);
+int print_map1(map_t *buff, pos_t *where, infin_number_t *info);
 int print_pos(pos_t *where);
 int map_p1(pos_t *where);
+int map_p2(pos_t *where);
 int assemble(char **av, infin_number_t *info);
+int char_column(char c);
+int char_line(char c);
+int which_line(pos_t *where);
+int which_line2(pos_t *where);
+int which_column(pos_t *where);
+int which_column2(pos_t *where);
+int print_map2(map_t *buff, pos_t *where, infin_number_t *info);
 
 #endif /* !MY_H_ */

@@ -52,6 +52,50 @@ int store_map(map_t *buff)
     return (0);
 }
 
+int store_map2(map_t *buff)
+{
+    int i = 0;
+    int l = 0;
+    int c = 0;
+
+    buff->line2 = malloc(sizeof(char *) * 11);
+    while (l != 10) {
+        buff->line2[l] = malloc(sizeof(char) * 19);
+        while (buff->buffer[i] != '\n') {
+            buff->line2[l][c] = buff->buffer[i];
+            c++;
+            i++;
+        }
+        buff->line2[l][c] = '\n';
+        buff->line2[l][c + 1] = '\0';
+        i++;
+        l++;
+        c = 0;
+    }
+    buff->line2[l] = NULL;
+    return (0);
+}
+
+void ship_map2(map_t *buff, pos_t *where)
+{
+    int i = 0;
+    read_map(buff);
+    store_map2(buff);
+    for (; i <= 3; i++) {
+        if (where->line_start2[i] == where->line_end2[i]) {
+            buff->line2[where->line_start2[i]][where->column_start2[i]] = 50 + i;
+            for (int x = 0; x <= i && i != 0; x++)
+                buff->line2[where->line_start2[i]][where->column_start2[i] + (x * 2)] = 50 + i;
+        }
+        if (where->column_start2[i] == where->column_end2[i]) {
+            buff->line2[where->line_start2[i]][where->column_start2[i]] = 50 + i;
+            for (int x = 0; x <= i && i != 0; x++)
+                buff->line2[where->line_start2[i] + (x + 1)][where->column_start2[i]] = 50 + i;
+        }
+        buff->line2[where->line_end2[i]][where->column_end2[i]] = 50 + i;
+    }
+}
+
 void ship_map(map_t *buff, pos_t *where)
 {
     int i = 0;
@@ -72,7 +116,7 @@ void ship_map(map_t *buff, pos_t *where)
     }
 }
 
-int print_map(map_t *buff, pos_t *where, infin_number_t *info)
+int print_map1(map_t *buff, pos_t *where, infin_number_t *info)
 {
     int l = 0;
 
@@ -81,6 +125,26 @@ int print_map(map_t *buff, pos_t *where, infin_number_t *info)
     while (l != 10) {
         for (int c = 0; buff->line[l][c] != '\0'; c++) {
             my_putchar(buff->line[l][c], info);
+        }
+        l++;
+    }
+    my_printf("\nenemy's positions:\n");
+    for (int i = 0; i != 180; i++) {
+        my_putchar(buff->buffer[i], info);
+    }
+    my_putchar('\n', info);
+    return (0);
+}
+
+int print_map2(map_t *buff, pos_t *where, infin_number_t *info)
+{
+    int l = 0;
+
+    ship_map2(buff, where);
+    my_printf("my positions:\n");
+    while (l != 10) {
+        for (int c = 0; buff->line2[l][c] != '\0'; c++) {
+            my_putchar(buff->line2[l][c], info);
         }
         l++;
     }

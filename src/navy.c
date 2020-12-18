@@ -9,6 +9,7 @@
 #include "../include/my_struct.h"
 #include <stdlib.h>
 #include <stdio.h>
+extern int connect;
 
 void help(int ac, char **av)
 {
@@ -20,11 +21,8 @@ void help(int ac, char **av)
     }
 }
 
-void destroy_all(pos_t *where, map_t *buff, infin_number_t *info)
+void destroy_p1(pos_t *where, map_t *buff)
 {
-    free(buff->buffer);
-    free(where->pos_1);
-    free(where->pos_2);
     free(where->column_start);
     free(where->column_end);
     free(where->line_start);
@@ -32,12 +30,30 @@ void destroy_all(pos_t *where, map_t *buff, infin_number_t *info)
     for (int i = 0; i != 10; i++)
         free(buff->line[i]);
     free(buff->line);
+}
+
+void common_destroy(pos_t *where, map_t *buff)
+{
+    free(where->pos_1);
+    free(where->pos_2);
+    free(buff->buffer);
     for (int i = 0; i != 4; i++) {
         free(where->find_pos1[i]);
         free(where->find_pos2[i]);
     }
     free(where->find_pos1);
     free(where->find_pos2);
+}
+
+void destroy_p2(pos_t *where, map_t *buff)
+{
+    free(where->column_start2);
+    free(where->column_end2);
+    free(where->line_start2);
+    free(where->line_end2);
+    for (int i = 0; i != 10; i++)
+        free(buff->line2[i]);
+    free(buff->line2);
 }
 
 int main(int ac, char **av)
@@ -47,12 +63,19 @@ int main(int ac, char **av)
     pos_t *where = malloc(sizeof(pos_t));
 
     help(ac, av);
-    //connection(av, info);
     assemble(av, info);
     print_pos(where);
-    map_p1(where);
-    print_map(buff, where, info);
-    destroy_all(where, buff, info);
+    if (ac == 2 && av[1][3] == '1') {
+        map_p1(where);
+        print_map1(buff, where, info);
+        destroy_p1(where, buff);
+    }
+    if (ac == 3 && av[2][3] == '2') {
+        map_p2(where);
+        print_map2(buff, where, info);
+        destroy_p2(where, buff);
+    }
+    common_destroy(where, buff);
     free(where);
     free(buff);
     free(info);
