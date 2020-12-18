@@ -19,11 +19,12 @@ void handle_sigusr1(int sig, siginfo_t *info, void *context)
     connect = 1;
 }
 
-void handle_sigusr(int sig, siginfo_t *info, void *context)
+/*void handle_sigusr(int sig, siginfo_t *info, void *context)
 {
     connect = info->si_pid;
-    //printf("Connection = %i\n", connect);
-}
+    //printf("PID2 = %i\n", info->proc)
+    printf("Connection = %i\n", connect);
+}*/
 
 void display_connexion(int player, infin_number_t *info)
 {
@@ -65,7 +66,7 @@ int which_player(char *player, infin_number_t *info)
     return (84);
 }
 
-void sig(infin_number_t *info)
+/*void sig(infin_number_t *info)
 {
     struct sigaction sa;
     sa.sa_flags = SA_SIGINFO;
@@ -74,7 +75,7 @@ void sig(infin_number_t *info)
     sigaction(SIGUSR1, &sa, NULL);
     //printf("Connect pid2 = %i\n", connect);
     connect = info->process_id2;
-}
+}*/
 
 int connection(char **av, infin_number_t *info)
 {
@@ -95,7 +96,8 @@ int connection(char **av, infin_number_t *info)
             display_connexion(1, info);
             //printf("pid2 after kill pid1 = %i\n", info->process_id2);
             kill(info->process_id1, SIGUSR1);
-            sig(info);
+            kill(info->process_id2, SIGUSR1);
+            //sig(info);
         }
     }
     return (0);
@@ -113,10 +115,10 @@ int assemble(char **av, infin_number_t *info)
         if (connect == 1 || connect == info->process_id1)
             break;
     }
-    /*my_printf("enemy connected\n");
-    info->process_id2 = getpid();
-    printf("pid2 : %i\n", info->process_id2);*/
-    sig(info);
-    kill(connect, SIGUSR1);
+    my_printf("enemy connected\n");
+    //info->process_id2 = getpid();
+    //printf("pid2 : %i\n", info->process_id2);*/
+    //sig(info);
+    //kill(connect, SIGUSR1);
     return (0);
 }
