@@ -12,19 +12,12 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <signal.h>
-connect = 0;
+int connect = 0;
 
 void handle_sigusr1(int sig, siginfo_t *info, void *context)
 {
-    connect = 1;
-}
-
-/*void handle_sigusr(int sig, siginfo_t *info, void *context)
-{
     connect = info->si_pid;
-    //printf("PID2 = %i\n", info->proc)
-    printf("Connection = %i\n", connect);
-}*/
+}
 
 void display_connexion(int player, infin_number_t *info)
 {
@@ -54,28 +47,15 @@ int which_player(char *player, infin_number_t *info)
         }
         if (player[i] == comp1[3]) {
             info->process_id1 = getpid();
-            //printf("pid1 : %i\n", info->process_id1);
             return (0);
         }
         if (player[i] == comp2[3]) {
             info->process_id2 = getpid();
-            //printf("pid2 : %i\n", info->process_id2);
             return (1);
         }
     }
     return (84);
 }
-
-/*void sig(infin_number_t *info)
-{
-    struct sigaction sa;
-    sa.sa_flags = SA_SIGINFO;
-    sigemptyset(&sa.sa_mask);
-    sa.sa_sigaction = handle_sigusr;
-    sigaction(SIGUSR1, &sa, NULL);
-    //printf("Connect pid2 = %i\n", connect);
-    connect = info->process_id2;
-}*/
 
 int connection(char **av, infin_number_t *info)
 {
@@ -90,14 +70,13 @@ int connection(char **av, infin_number_t *info)
             return (84);
         if (which_player(av[i], info) == 0) {
             display_connexion(0, info);
-            //kill(connect, SIGUSR1);
+            pause();
+            my_printf("enemy connected\n");
         }
         if (which_player(av[i], info) == 1) {
             display_connexion(1, info);
-            //printf("pid2 after kill pid1 = %i\n", info->process_id2);
             kill(info->process_id1, SIGUSR1);
             kill(info->process_id2, SIGUSR1);
-            //sig(info);
         }
     }
     return (0);
@@ -111,14 +90,5 @@ int assemble(char **av, infin_number_t *info)
     sa.sa_sigaction = handle_sigusr1;
     sigaction(SIGUSR1, &sa, NULL);
     connection(av, info);
-    while (1) {
-        if (connect == 1 || connect == info->process_id1)
-            break;
-    }
-    my_printf("enemy connected\n");
-    //info->process_id2 = getpid();
-    //printf("pid2 : %i\n", info->process_id2);*/
-    //sig(info);
-    //kill(connect, SIGUSR1);
     return (0);
 }
