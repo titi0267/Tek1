@@ -47,7 +47,8 @@ int main(int ac, char **av)
     pos_t *where = malloc(sizeof(pos_t));
 
     help(ac, av);
-    connection(av, info);
+    //connection(av, info);
+    assemble(av, info);
     print_pos(where);
     map_p1(where);
     print_map(buff, where, info);

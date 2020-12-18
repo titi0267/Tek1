@@ -52,5 +52,6 @@ int connection(char **, infin_number_t *info);
 int print_map(map_t *buff, pos_t *where, infin_number_t *info);
 int print_pos(pos_t *where);
 int map_p1(pos_t *where);
+int assemble(char **av, infin_number_t *info);
 
 #endif /* !MY_H_ */

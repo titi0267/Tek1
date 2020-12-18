@@ -12,6 +12,8 @@
 #ifndef MY_STRUCT_H_
 #define MY_STRUCT_H_
 
+extern int connect;
+
 typedef struct infin_number_s
 {
     int amount;
