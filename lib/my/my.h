@@ -45,5 +45,6 @@ void pn(va_list *my_list, infin_number_t *info);
 void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
+void game_core(char **, infin_number_t *info);
 
 #endif /* !MY_H_ */

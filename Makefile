@@ -10,7 +10,8 @@ SRC = 	src/navy.c				\
 		src/map.c				\
 		src/position.c			\
 		src/place_ship.c		\
-		src/match_case.c
+		src/match_case.c		\
+		src/game_core.c			\
 
 CC		=	gcc -o -lm
 

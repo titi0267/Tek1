@@ -19,6 +19,11 @@ typedef struct infin_number_s
     int amount;
     pid_t process_id1;
     pid_t process_id2;
+    int round;
+    char *shot_col;
+    char *shot_line;
+    int player_one;
+    int player_two;
 } infin_number_t;
 
 typedef struct map_s

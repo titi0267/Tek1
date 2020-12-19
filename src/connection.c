@@ -39,6 +39,8 @@ int which_player(char *player, infin_number_t *info)
 {
     char *comp1 = "pos1";
     char *comp2 = "pos2";
+    info->player_one = 0;
+    info->player_two = 0;
 
     for (int i = 0; player[i] != '\0'; i++) {
         if (player[i] != comp1[i] && player[i] != comp2[i]) {
@@ -46,10 +48,12 @@ int which_player(char *player, infin_number_t *info)
             return (84);
         }
         if (player[i] == comp1[3]) {
+            info->player_one = 1;
             info->process_id1 = getpid();
             return (0);
         }
         if (player[i] == comp2[3]) {
+            info->player_one = 1;
             info->process_id2 = getpid();
             return (1);
         }
@@ -85,10 +89,12 @@ int connection(char **av, infin_number_t *info)
 int assemble(char **av, infin_number_t *info)
 {
     struct sigaction sa;
+    info->round = 0;
     sa.sa_flags = SA_SIGINFO;
     sigemptyset(&sa.sa_mask);
     sa.sa_sigaction = handle_sigusr1;
     sigaction(SIGUSR1, &sa, NULL);
     connection(av, info);
+    game_core(av, info);
     return (0);
 }
