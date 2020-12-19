@@ -24,27 +24,55 @@ void pos_selection_one(char *pos, infin_number_t *info, char **av, int i)
     }
     if (pos[0] <= 'A' || pos[0] >= 'H' || pos[1] <= '1' || pos[1] >= '8') {
         my_putstr("wrong position", info);
-        converge_one(av, info, i);
+        converge_one(info);
     }
 }
 
-void converge_one(char **av, infin_number_t *info, int i)
+void converge_two(infin_number_t *info)
 {
     char *line = NULL;
     size_t len = 0;
-    my_putstr("attack: ", info);
-    while (1) {
-        if (getline(&line, &len, stdin) == 3)
-            break;
+    if (info->player_one == 1) {
+        my_printf("Waiting for p2's shot\n");
+        pause();
+    }
+    if (info->player_two == 1) {
+        my_putstr("attack: ", info);
+        if (getline(&line, &len, stdin) == 3) {
+            kill(info->process_id2, SIGUSR2);
+            kill(info->process_id1, SIGUSR2);
+        }
     }
 }
 
-void game_core(char **av, infin_number_t *info)
+void converge_one(infin_number_t *info)
 {
-    int i = 2;
-
+    char *line = NULL;
+    size_t len = 0;
     if (info->player_one == 1) {
-        converge_one(av, info, i);
-        i++;
+        my_putstr("attack: ", info);
+        if (getline(&line, &len, stdin) == 3) {
+            kill(info->process_id1, SIGUSR2);
+            kill(info->process_id2, SIGUSR2);
+        }
     }
+    if (info->player_two == 1) {
+        my_printf("Waiting for p1's shot\n");
+        pause();
+    }
+}
+
+void handle_sigusr2(int sig, siginfo_t *info, void *context)
+{
+}
+
+void game_core(infin_number_t *info)
+{
+    struct sigaction sa;
+    sa.sa_flags = SA_SIGINFO;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_sigaction = handle_sigusr2;
+    sigaction(SIGUSR2, &sa, NULL);
+    converge_one(info);
+    converge_two(info);
 }

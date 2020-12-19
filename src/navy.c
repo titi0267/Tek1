@@ -66,14 +66,20 @@ int main(int ac, char **av)
     assemble(av, info);
     print_pos(where);
     if (ac == 2 && av[1][3] == '1') {
-        map_p1(where);
-        print_map1(buff, where, info);
-        destroy_p1(where, buff);
+        for (int i = 0; i < 2; i++) {
+            map_p1(where);
+            print_map1(buff, where, info);
+            game_core(info);
+            destroy_p1(where, buff);
+        }
     }
     if (ac == 3 && av[2][3] == '2') {
-        map_p2(where);
-        print_map2(buff, where, info);
-        destroy_p2(where, buff);
+        for (int i = 0; i < 2; i++) {
+            map_p2(where);
+            print_map2(buff, where, info);
+            game_core(info);
+            destroy_p2(where, buff);
+        }
     }
     common_destroy(where, buff);
     free(where);

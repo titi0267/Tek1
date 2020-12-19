@@ -53,7 +53,7 @@ int which_player(char *player, infin_number_t *info)
             return (0);
         }
         if (player[i] == comp2[3]) {
-            info->player_one = 1;
+            info->player_two = 1;
             info->process_id2 = getpid();
             return (1);
         }
@@ -95,6 +95,5 @@ int assemble(char **av, infin_number_t *info)
     sigaction(SIGUSR1, &sa, NULL);
     connection(av, info);
     info->process_id2 = connect;
-    game_core(av, info);
     return (0);
 }
