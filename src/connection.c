@@ -80,7 +80,6 @@ int connection(char **av, infin_number_t *info)
         if (which_player(av[i], info) == 1) {
             display_connexion(1, info);
             kill(info->process_id1, SIGUSR1);
-            kill(info->process_id2, SIGUSR1);
         }
     }
     return (0);
@@ -95,6 +94,7 @@ int assemble(char **av, infin_number_t *info)
     sa.sa_sigaction = handle_sigusr1;
     sigaction(SIGUSR1, &sa, NULL);
     connection(av, info);
+    printf("Connect = %i\n", connect);
     game_core(av, info);
     return (0);
 }

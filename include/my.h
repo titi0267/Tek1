@@ -62,5 +62,6 @@ int which_column(pos_t *where);
 int which_column2(pos_t *where);
 int print_map2(map_t *buff, pos_t *where, infin_number_t *info);
 void game_core(char **, infin_number_t *info);
+void converge_one(char **av, infin_number_t *info, int i);
 
 #endif /* !MY_H_ */

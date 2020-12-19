@@ -30,15 +30,12 @@ void pos_selection_one(char *pos, infin_number_t *info, char **av, int i)
 
 void converge_one(char **av, infin_number_t *info, int i)
 {
+    char *line = NULL;
+    size_t len = 0;
     my_putstr("attack: ", info);
-    while (av[i] == NULL) {
-        my_putstr("Hello", info);
-        if (av[i] != NULL) {
-            my_putstr("Hello", info);
-            pos_selection_one(av[i], info, av, i);
-            i++;
+    while (1) {
+        if (getline(&line, &len, stdin) == 3)
             break;
-        }
     }
 }
 
