@@ -14,25 +14,20 @@
 #include <signal.h>
 extern int connect;
 
-void pos_selection(char *pos, infin_number_t *info, pos_t *where)
+int pos_selection(char *pos, infin_number_t *info, pos_t *where)
 {
-    if (pos[0] >= 'A' && pos[0] <= 'H') {
-        info->shot_col[info->round] = pos[0];
+    if (pos[0] < 'A' || pos[0] > 'H' || pos[1] < '1' || pos[1] > '8' || 
+    my_strlen(pos) > 3) {
+        my_putstr("wrong position\n", info);
+        return (-1);
     }
-    if (pos[1] >= '1' && pos[1] <= '8') {
-        info->shot_line[info->round] = pos[0];
-    }
-    if (pos[0] <= 'A' || pos[0] >= 'H' || pos[1] <= '1' || pos[1] >= '8' || 
-    my_strlen(pos) >= 4) {
-        my_putstr("wrong position", info);
-        converge_one(info, where);
-        converge_two(info, where);
-    }
+    return (0);
 }
 
-void converge_two(infin_number_t *info, pos_t *where)
+int converge_two(infin_number_t *info, pos_t *where)
 {
     char *line = NULL;
+    int temp = 0;
     size_t len = 0;
     if (info->player_one == 1) {
         my_printf("Waiting for p2's shot\n");
@@ -40,24 +35,34 @@ void converge_two(infin_number_t *info, pos_t *where)
     }
     if (info->player_two == 1) {
         my_putstr("attack: ", info);
-        if (getline(&line, &len, stdin) == 3) {
+        temp = getline(&line, &len, stdin);
+        if (temp != 3 || pos_selection(line, info, where) == -1)
+            return (-1);
+        if (temp == 3) {
             info->encrpt = encrypt(line, info);
             //printf("%i\n", connect);
             kill(info->process_id2, SIGUSR1);
             kill(info->process_id1, SIGUSR1);
         }
     }
+    return (0);
 }
 
-void converge_one(infin_number_t *info, pos_t *where)
+int converge_one(infin_number_t *info, pos_t *where)
 {
     char *line = NULL;
+    int temp = 0;
     int encrpt = 0;
     int decrpt = 0;
     size_t len = 0;
     if (info->player_one == 1) {
         my_putstr("attack: ", info);
-        if (getline(&line, &len, stdin) == 3) {
+        temp = getline(&line, &len, stdin);
+        my_putstr(line, info);
+        if (temp != 3 || pos_selection(line, info, where) == -1)
+            return (-1);
+        if (temp == 3) {
+            my_putstr("Hello", info);
             info->encrpt = encrypt(line, info);
             printf("Encrypted pos: %i\n", info->encrpt);
             decrypt(info->encrpt, where);
@@ -71,6 +76,7 @@ void converge_one(infin_number_t *info, pos_t *where)
         my_printf("Waiting for p1's shot\n");
         pause();
     }
+    return (0);
 }
 
 void handle_sigusr(int sig, siginfo_t *info, void *context)
@@ -98,12 +104,22 @@ void data(infin_number_t *info)
 void game_core(infin_number_t *info, pos_t *where)
 {
     struct sigaction sa;
+    int temp_err1 = -1;
+    int temp_err2 = -1;
     sa.sa_flags = SA_SIGINFO;
     info->game_done = 0;
     sigemptyset(&sa.sa_mask);
     sa.sa_sigaction = handle_sigusr;
     sigaction(SIGUSR1, &sa, NULL);
-    converge_one(info, where);
-    converge_two(info, where);
+    while (temp_err1 == -1) {
+        temp_err1 = converge_one(info, where);
+        if (temp_err1 != -1)
+            break;
+    }
+    while (temp_err2 == -1) {
+        temp_err2 = converge_two(info, where);
+        if (temp_err2 != -1)
+            break;
+    }
     data(info);
 }

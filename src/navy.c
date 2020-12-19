@@ -71,7 +71,6 @@ int main(int ac, char **av)
             map_p1(where);
             print_map1(buff, where, info);
             game_core(info, where);
-            printf("%i\n = (45 ->B4", connect);
             destroy_p1(where, buff);
         }
     }
