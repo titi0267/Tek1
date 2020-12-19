@@ -22,7 +22,8 @@ void pos_selection_one(char *pos, infin_number_t *info, char **av, int i)
     if (pos[1] >= '1' && pos[1] <= '8') {
         info->shot_line[info->round] = pos[0];
     }
-    if (pos[0] <= 'A' || pos[0] >= 'H' || pos[1] <= '1' || pos[1] >= '8') {
+    if (pos[0] <= 'A' || pos[0] >= 'H' || pos[1] <= '1' || pos[1] >= '8' || 
+    my_strlen(pos) >= 4) {
         my_putstr("wrong position", info);
         converge_one(info);
     }
@@ -70,9 +71,11 @@ void game_core(infin_number_t *info)
 {
     struct sigaction sa;
     sa.sa_flags = SA_SIGINFO;
+    info->game_done = 0;
     sigemptyset(&sa.sa_mask);
     sa.sa_sigaction = handle_sigusr2;
     sigaction(SIGUSR2, &sa, NULL);
-    converge_one(info);
-    converge_two(info);
+    while (info->game_done == 0)
+        converge_one(info);
+        converge_two(info);
 }
