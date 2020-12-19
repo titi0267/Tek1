@@ -88,7 +88,7 @@ int connection(char **av, infin_number_t *info)
 int assemble(char **av, infin_number_t *info)
 {
     struct sigaction sa;
-    info->round = 0;
+    //info->round = 0;
     sa.sa_flags = SA_SIGINFO;
     sigemptyset(&sa.sa_mask);
     sa.sa_sigaction = handle_sigusr1;
