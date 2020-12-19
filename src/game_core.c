@@ -22,7 +22,8 @@ void pos_selection(char *pos, infin_number_t *info)
     if (pos[1] >= '1' && pos[1] <= '8') {
         info->shot_line[info->round] = pos[0];
     }
-    if (pos[0] <= 'A' || pos[0] >= 'H' || pos[1] <= '1' || pos[1] >= '8') {
+    if (pos[0] <= 'A' || pos[0] >= 'H' || pos[1] <= '1' || pos[1] >= '8' || 
+    my_strlen(pos) >= 4) {
         my_putstr("wrong position", info);
         converge_one(info);
         converge_two(info);
@@ -40,8 +41,10 @@ void converge_two(infin_number_t *info)
     if (info->player_two == 1) {
         my_putstr("attack: ", info);
         if (getline(&line, &len, stdin) == 3) {
-            kill(info->process_id2, SIGUSR2);
-            kill(info->process_id1, SIGUSR2);
+            info->encrpt = encrypt(line, info);
+            //printf("%i\n", connect);
+            kill(info->process_id2, SIGUSR1);
+            kill(info->process_id1, SIGUSR1);
         }
     }
 }
@@ -49,12 +52,15 @@ void converge_two(infin_number_t *info)
 void converge_one(infin_number_t *info)
 {
     char *line = NULL;
+    int encrpt = 0;
     size_t len = 0;
     if (info->player_one == 1) {
         my_putstr("attack: ", info);
         if (getline(&line, &len, stdin) == 3) {
-            kill(info->process_id1, SIGUSR2);
-            kill(info->process_id2, SIGUSR2);
+            info->encrpt = encrypt(line, info);
+            //printf("%i\n", connect);
+            kill(info->process_id1, SIGUSR1);
+            kill(info->process_id2, SIGUSR1);
         }
     }
     if (info->player_two == 1) {
@@ -63,19 +69,37 @@ void converge_one(infin_number_t *info)
     }
 }
 
+void handle_sigusr(int sig, siginfo_t *info, void *context)
+{
+}
+
 void handle_sigusr2(int sig, siginfo_t *info, void *context)
 {
     connect;
+}
+
+void data(infin_number_t *info)
+{
+    struct sigaction sa;
+    sa.sa_flags = SA_SIGINFO;
+    info->game_done = 0;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_sigaction = handle_sigusr2;
+    sigaction(SIGUSR2, &sa, NULL);
+    connect = info->encrpt;
+    //kill(info->process_id1, SIGUSR2);
+    kill(info->process_id2, SIGUSR2);
 }
 
 void game_core(infin_number_t *info)
 {
     struct sigaction sa;
     sa.sa_flags = SA_SIGINFO;
+    info->game_done = 0;
     sigemptyset(&sa.sa_mask);
-    sa.sa_sigaction = handle_sigusr2;
-    sigaction(SIGUSR2, &sa, NULL);
+    sa.sa_sigaction = handle_sigusr;
+    sigaction(SIGUSR1, &sa, NULL);
     converge_one(info);
     converge_two(info);
-    printf("connect = %i\n", connect);
+    data(info);
 }
