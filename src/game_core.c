@@ -4,6 +4,7 @@
 ** File description:
 ** game_core
 */
+
 #define _XOPEN_SOURCE 700
 #include "../include/my.h"
 #include "../include/my_struct.h"
@@ -11,6 +12,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <signal.h>
+extern int connect;
 
 void pos_selection_one(char *pos, infin_number_t *info, char **av, int i)
 {
@@ -30,8 +32,9 @@ void converge_one(char **av, infin_number_t *info, int i)
 {
     my_putstr("attack: ", info);
     while (av[i] == NULL) {
-        pause();
+        my_putstr("Hello", info);
         if (av[i] != NULL) {
+            my_putstr("Hello", info);
             pos_selection_one(av[i], info, av, i);
             i++;
             break;
