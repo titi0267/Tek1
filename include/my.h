@@ -63,5 +63,6 @@ int which_column2(pos_t *where);
 int print_map2(map_t *buff, pos_t *where, infin_number_t *info);
 void game_core(infin_number_t *info);
 void converge_one(infin_number_t *info);
+int encrypt(char *, infin_number_t *info);
 
 #endif /* !MY_H_ */

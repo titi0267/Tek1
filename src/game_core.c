@@ -14,7 +14,7 @@
 #include <signal.h>
 extern int connect;
 
-void pos_selection_one(char *pos, infin_number_t *info, char **av, int i)
+void pos_selection(char *pos, infin_number_t *info, char **av)
 {
     if (pos[0] >= 'A' && pos[0] <= 'H') {
         info->shot_col[info->round] = pos[0];
@@ -40,6 +40,8 @@ void converge_two(infin_number_t *info)
     if (info->player_two == 1) {
         my_putstr("attack: ", info);
         if (getline(&line, &len, stdin) == 3) {
+            connect = encrypt(line, info);
+            //printf("%i\n", connect);
             kill(info->process_id2, SIGUSR2);
             kill(info->process_id1, SIGUSR2);
         }
@@ -53,6 +55,8 @@ void converge_one(infin_number_t *info)
     if (info->player_one == 1) {
         my_putstr("attack: ", info);
         if (getline(&line, &len, stdin) == 3) {
+            connect = encrypt(line, info);
+            printf("%i\n", connect);
             kill(info->process_id1, SIGUSR2);
             kill(info->process_id2, SIGUSR2);
         }
@@ -65,6 +69,7 @@ void converge_one(infin_number_t *info)
 
 void handle_sigusr2(int sig, siginfo_t *info, void *context)
 {
+    connect;
 }
 
 void game_core(infin_number_t *info)
@@ -75,7 +80,6 @@ void game_core(infin_number_t *info)
     sigemptyset(&sa.sa_mask);
     sa.sa_sigaction = handle_sigusr2;
     sigaction(SIGUSR2, &sa, NULL);
-    while (info->game_done == 0)
-        converge_one(info);
-        converge_two(info);
+    converge_one(info);
+    converge_two(info);
 }

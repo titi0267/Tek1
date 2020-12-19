@@ -12,6 +12,7 @@ SRC = 	src/navy.c				\
 		src/place_ship.c		\
 		src/match_case.c		\
 		src/game_core.c			\
+		src/encryption.c		\
 
 CC		=	gcc -o -lm
 
