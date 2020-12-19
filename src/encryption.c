@@ -14,6 +14,12 @@
 #include <signal.h>
 extern int connect;
 
+void decrypt(int pos, pos_t *where)
+{
+    where->decrypt_lin = pos%10;
+    where->decrypt_col = (pos - (where->decrypt_lin)) / 10;
+}
+
 int encrypt(char *pos, infin_number_t *info)
 {
     int encryption = 0;
