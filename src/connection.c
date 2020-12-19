@@ -94,7 +94,7 @@ int assemble(char **av, infin_number_t *info)
     sa.sa_sigaction = handle_sigusr1;
     sigaction(SIGUSR1, &sa, NULL);
     connection(av, info);
-    printf("Connect = %i\n", connect);
+    info->process_id2 = connect;
     game_core(av, info);
     return (0);
 }
