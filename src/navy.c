@@ -64,12 +64,14 @@ int main(int ac, char **av)
 
     help(ac, av);
     assemble(av, info);
+    connect = 0;
     print_pos(where);
     if (ac == 2 && av[1][3] == '1') {
         for (int i = 0; i < 2; i++) {
             map_p1(where);
             print_map1(buff, where, info);
             game_core(info);
+            printf("%i\n = (45 ->B4", connect);
             destroy_p1(where, buff);
         }
     }

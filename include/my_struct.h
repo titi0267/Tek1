@@ -25,6 +25,7 @@ typedef struct infin_number_s
     int player_one;
     int player_two;
     int game_done;
+    int encrpt;
 } infin_number_t;
 
 typedef struct map_s
