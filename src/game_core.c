@@ -14,7 +14,7 @@
 #include <signal.h>
 extern int connect;
 
-void pos_selection_one(char *pos, infin_number_t *info, char **av, int i)
+void pos_selection(char *pos, infin_number_t *info)
 {
     if (pos[0] >= 'A' && pos[0] <= 'H') {
         info->shot_col[info->round] = pos[0];
@@ -25,6 +25,7 @@ void pos_selection_one(char *pos, infin_number_t *info, char **av, int i)
     if (pos[0] <= 'A' || pos[0] >= 'H' || pos[1] <= '1' || pos[1] >= '8') {
         my_putstr("wrong position", info);
         converge_one(info);
+        converge_two(info);
     }
 }
 
@@ -64,6 +65,7 @@ void converge_one(infin_number_t *info)
 
 void handle_sigusr2(int sig, siginfo_t *info, void *context)
 {
+    connect;
 }
 
 void game_core(infin_number_t *info)
@@ -75,4 +77,5 @@ void game_core(infin_number_t *info)
     sigaction(SIGUSR2, &sa, NULL);
     converge_one(info);
     converge_two(info);
+    printf("connect = %i\n", connect);
 }
