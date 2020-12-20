@@ -24,7 +24,7 @@ int pos_selection(char *pos, infin_number_t *info, pos_t *where)
     return (0);
 }
 
-int converge_two(infin_number_t *info, pos_t *where)
+int converge_two(infin_number_t *info, pos_t *where, map_t *buff)
 {
     char *line = NULL;
     int temp = 0;
@@ -32,15 +32,19 @@ int converge_two(infin_number_t *info, pos_t *where)
     if (info->player_one == 1) {
         my_printf("Waiting for p2's shot\n");
         pause();
+        shots_management_pone(info, where, buff);
     }
     if (info->player_two == 1) {
+        printf("Convert(T1): %i\n", connect);
         my_putstr("attack: ", info);
         temp = getline(&line, &len, stdin);
         if (temp != 3 || pos_selection(line, info, where) == -1)
             return (-1);
         if (temp == 3) {
             info->encrpt = encrypt(line, info);
+            connect = info->encrpt;
             //printf("%i\n", connect);
+            //shots_management_ptwo(info, where, buff);
             kill(info->process_id2, SIGUSR1);
             kill(info->process_id1, SIGUSR1);
         }
@@ -48,7 +52,7 @@ int converge_two(infin_number_t *info, pos_t *where)
     return (0);
 }
 
-int converge_one(infin_number_t *info, pos_t *where)
+int converge_one(infin_number_t *info, pos_t *where, map_t *buff)
 {
     char *line = NULL;
     int temp = 0;
@@ -58,16 +62,16 @@ int converge_one(infin_number_t *info, pos_t *where)
     if (info->player_one == 1) {
         my_putstr("attack: ", info);
         temp = getline(&line, &len, stdin);
-        my_putstr(line, info);
         if (temp != 3 || pos_selection(line, info, where) == -1)
             return (-1);
         if (temp == 3) {
-            my_putstr("Hello", info);
             info->encrpt = encrypt(line, info);
+            connect = info->encrpt;
             printf("Encrypted pos: %i\n", info->encrpt);
             decrypt(info->encrpt, where);
             printf("Decrypted col pos: %i\n", where->decrypt_col);
             printf("Decrypted lin pos: %i\n", where->decrypt_lin);
+            //shots_management_pone(info, where, buff);
             kill(info->process_id1, SIGUSR1);
             kill(info->process_id2, SIGUSR1);
         }
@@ -75,6 +79,7 @@ int converge_one(infin_number_t *info, pos_t *where)
     if (info->player_two == 1) {
         my_printf("Waiting for p1's shot\n");
         pause();
+        shots_management_ptwo(info, where, buff);
     }
     return (0);
 }
@@ -101,7 +106,7 @@ void data(infin_number_t *info)
     kill(info->process_id2, SIGUSR2);
 }
 
-void game_core(infin_number_t *info, pos_t *where)
+void game_core(infin_number_t *info, pos_t *where, map_t *buff)
 {
     struct sigaction sa;
     int temp_err1 = -1;
@@ -112,12 +117,12 @@ void game_core(infin_number_t *info, pos_t *where)
     sa.sa_sigaction = handle_sigusr;
     sigaction(SIGUSR1, &sa, NULL);
     while (temp_err1 == -1) {
-        temp_err1 = converge_one(info, where);
+        temp_err1 = converge_one(info, where, buff);
         if (temp_err1 != -1)
             break;
     }
     while (temp_err2 == -1) {
-        temp_err2 = converge_two(info, where);
+        temp_err2 = converge_two(info, where, buff);
         if (temp_err2 != -1)
             break;
     }

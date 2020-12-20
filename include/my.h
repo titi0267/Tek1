@@ -61,10 +61,12 @@ int which_line2(pos_t *where);
 int which_column(pos_t *where);
 int which_column2(pos_t *where);
 int print_map2(map_t *buff, pos_t *where, infin_number_t *info);
-void game_core(infin_number_t *info, pos_t *where);
-int converge_one(infin_number_t *info, pos_t *where);
-int converge_two(infin_number_t *info, pos_t *where);
+void game_core(infin_number_t *info, pos_t *where, map_t *buff);
+int converge_one(infin_number_t *info, pos_t *where, map_t *buff);
+int converge_two(infin_number_t *info, pos_t *where, map_t *buff);
 int encrypt(char *, infin_number_t *info);
-void decrypt(int pos, pos_t *where);
+void decrypt(int, pos_t *where);
+void letter_decrypt(pos_t *where);
+void shots_management_pone(infin_number_t *info, pos_t *where, map_t *buff);
 
 #endif /* !MY_H_ */

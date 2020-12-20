@@ -53,6 +53,8 @@ typedef struct pos_s
     int *line_end2;
     int decrypt_col;
     int decrypt_lin;
+    char decrypted_lin_char;
+    char decrypted_col_char;
 } pos_t;
 
 #endif /* !MY_STRUCT_H_ */

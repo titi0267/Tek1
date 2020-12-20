@@ -13,6 +13,7 @@ SRC = 	src/navy.c				\
 		src/match_case.c		\
 		src/game_core.c			\
 		src/encryption.c		\
+		src/shots_managements.c	\
 
 CC		=	gcc -o -lm
 

@@ -70,7 +70,7 @@ int main(int ac, char **av)
         for (int i = 0; i < 2; i++) {
             map_p1(where);
             print_map1(buff, where, info);
-            game_core(info, where);
+            game_core(info, where, buff);
             destroy_p1(where, buff);
         }
     }
@@ -78,7 +78,7 @@ int main(int ac, char **av)
         for (int i = 0; i < 2; i++) {
             map_p2(where);
             print_map2(buff, where, info);
-            game_core(info, where);
+            game_core(info, where, buff);
             destroy_p2(where, buff);
         }
     }
