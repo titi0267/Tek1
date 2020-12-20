@@ -18,8 +18,8 @@ void letter_decrypt(pos_t *where)
 {
     where->decrypted_lin_char = '0' + (where->decrypt_lin - 1);
     where->decrypted_col_char = 'A' + ((where->decrypt_col / 2) - 1);
-    printf("line: %c\n", where->decrypted_lin_char);
-    printf("col: %c\n", where->decrypted_col_char);
+    my_printf("line: %c\n", where->decrypted_lin_char);
+    my_printf("col: %c\n", where->decrypted_col_char);
 }
 
 void decrypt(int pos, pos_t *where)

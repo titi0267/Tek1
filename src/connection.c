@@ -39,8 +39,6 @@ int which_player(char *player, infin_number_t *info)
 {
     char *comp1 = "pos1";
     char *comp2 = "pos2";
-    info->player_one = 0;
-    info->player_two = 0;
 
     for (int i = 0; player[i] != '\0'; i++) {
         if (player[i] != comp1[i] && player[i] != comp2[i]) {
@@ -65,6 +63,7 @@ int connection(char **av, infin_number_t *info)
 {
     info->process_id1 = 0;
     info->process_id2 = 0;
+
     for (int i = 1; av[i] != 0; i++) {
         if (my_char_isnum(av[i][0]) == 1) {
             info->process_id1 = my_getnbr(av[i]);
@@ -88,8 +87,10 @@ int connection(char **av, infin_number_t *info)
 int assemble(char **av, infin_number_t *info)
 {
     struct sigaction sa;
-    //info->round = 0;
     sa.sa_flags = SA_SIGINFO;
+    info->player_one = 0;
+    info->player_two = 0;
+
     sigemptyset(&sa.sa_mask);
     sa.sa_sigaction = handle_sigusr1;
     sigaction(SIGUSR1, &sa, NULL);

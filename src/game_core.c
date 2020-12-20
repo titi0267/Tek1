@@ -35,7 +35,7 @@ int converge_two(infin_number_t *info, pos_t *where, map_t *buff)
         shots_management_pone(info, where, buff);
     }
     if (info->player_two == 1) {
-        printf("Convert(T1): %i\n", connect);
+        my_printf("Convert(T1): %i\n", connect);
         my_putstr("attack: ", info);
         temp = getline(&line, &len, stdin);
         if (temp != 3 || pos_selection(line, info, where) == -1)
@@ -43,8 +43,6 @@ int converge_two(infin_number_t *info, pos_t *where, map_t *buff)
         if (temp == 3) {
             info->encrpt = encrypt(line, info);
             connect = info->encrpt;
-            //printf("%i\n", connect);
-            //shots_management_ptwo(info, where, buff);
             kill(info->process_id2, SIGUSR1);
             kill(info->process_id1, SIGUSR1);
         }
@@ -67,11 +65,10 @@ int converge_one(infin_number_t *info, pos_t *where, map_t *buff)
         if (temp == 3) {
             info->encrpt = encrypt(line, info);
             connect = info->encrpt;
-            printf("Encrypted pos: %i\n", info->encrpt);
+            my_printf("Encrypted pos: %i\n", info->encrpt);
             decrypt(info->encrpt, where);
-            printf("Decrypted col pos: %i\n", where->decrypt_col);
-            printf("Decrypted lin pos: %i\n", where->decrypt_lin);
-            //shots_management_pone(info, where, buff);
+            my_printf("Decrypted col pos: %i\n", where->decrypt_col);
+            my_printf("Decrypted lin pos: %i\n", where->decrypt_lin);
             kill(info->process_id1, SIGUSR1);
             kill(info->process_id2, SIGUSR1);
         }
@@ -102,7 +99,6 @@ void data(infin_number_t *info)
     sa.sa_sigaction = handle_sigusr2;
     sigaction(SIGUSR2, &sa, NULL);
     connect = info->encrpt;
-    //kill(info->process_id1, SIGUSR2);
     kill(info->process_id2, SIGUSR2);
 }
 

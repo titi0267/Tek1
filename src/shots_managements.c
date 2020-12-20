@@ -35,10 +35,8 @@ int missed_or_touched(map_t *buff, pos_t *where)
 
 void shots_management_ptwo(infin_number_t *info, pos_t *where, map_t *buff)
 {
-    //kill_sig_to_transmit_connect(encrypted coordinates value)_to_T1;
     decrypt(connect, where);
     connect = missed_or_touched(buff, where);
-    //kill_sig_to_transmit_connect(value 1 or 2)_to_T2;
     letter_decrypt(where);
     mark_ennemy_map(buff, where);
     if (connect == 1) {
@@ -49,15 +47,12 @@ void shots_management_ptwo(infin_number_t *info, pos_t *where, map_t *buff)
         my_printf("%c%c: missed\n", where->decrypted_col_char,
         where->decrypted_lin_char);
     }
-    //kill_sig_to_pass_to_T1's_turn;
 }
 
 void shots_management_pone(infin_number_t *info, pos_t *where, map_t *buff)
 {
-    //kill_sig_to_transmit_connect(encrypted coordinates value)_to_T2;
     decrypt(connect, where);
     connect = missed_or_touched(buff, where);
-    //kill_sig_to_transmit_connect(value 1 or 2)_to_T1;
     letter_decrypt(where);
     mark_ennemy_map(buff, where);
     if (connect == 1) {
@@ -68,5 +63,4 @@ void shots_management_pone(infin_number_t *info, pos_t *where, map_t *buff)
         my_printf("%c%c: missed\n", where->decrypted_col_char,
         where->decrypted_lin_char);
     }
-    //kill_sig_to_pass_to_T2's_turn;
 }

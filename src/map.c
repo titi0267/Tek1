@@ -79,18 +79,23 @@ int store_map2(map_t *buff)
 void ship_map2(map_t *buff, pos_t *where)
 {
     int i = 0;
+
     read_map(buff);
     store_map2(buff);
     for (; i <= 3; i++) {
         if (where->line_start2[i] == where->line_end2[i]) {
-            buff->line2[where->line_start2[i]][where->column_start2[i]] = 50 + i;
+            buff->line2[where->line_start2[i]][where->column_start2[i]] = 50 + 
+            i;
             for (int x = 0; x <= i && i != 0; x++)
-                buff->line2[where->line_start2[i]][where->column_start2[i] + (x * 2)] = 50 + i;
+                buff->line2[where->line_start2[i]][where->column_start2[i] + 
+                (x * 2)] = 50 + i;
         }
         if (where->column_start2[i] == where->column_end2[i]) {
-            buff->line2[where->line_start2[i]][where->column_start2[i]] = 50 + i;
+            buff->line2[where->line_start2[i]][where->column_start2[i]] = 50 + 
+            i;
             for (int x = 0; x <= i && i != 0; x++)
-                buff->line2[where->line_start2[i] + (x + 1)][where->column_start2[i]] = 50 + i;
+                buff->line2[where->line_start2[i] + 
+                (x + 1)][where->column_start2[i]] = 50 + i;
         }
         buff->line2[where->line_end2[i]][where->column_end2[i]] = 50 + i;
     }
@@ -99,18 +104,21 @@ void ship_map2(map_t *buff, pos_t *where)
 void ship_map(map_t *buff, pos_t *where)
 {
     int i = 0;
+
     read_map(buff);
     store_map(buff);
     for (; i <= 3; i++) {
         if (where->line_start[i] == where->line_end[i]) {
             buff->line[where->line_start[i]][where->column_start[i]] = 50 + i;
             for (int x = 0; x <= i && i != 0; x++)
-                buff->line[where->line_start[i]][where->column_start[i] + (x * 2)] = 50 + i;
+                buff->line[where->line_start[i]][where->column_start[i] + 
+                (x * 2)] = 50 + i;
         }
         if (where->column_start[i] == where->column_end[i]) {
             buff->line[where->line_start[i]][where->column_start[i]] = 50 + i;
             for (int x = 0; x <= i && i != 0; x++)
-                buff->line[where->line_start[i] + (x + 1)][where->column_start[i]] = 50 + i;
+                buff->line[where->line_start[i] + 
+                (x + 1)][where->column_start[i]] = 50 + i;
         }
         buff->line[where->line_end[i]][where->column_end[i]] = 50 + i;
     }
