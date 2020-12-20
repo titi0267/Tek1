@@ -10,6 +10,7 @@
 #include <stdarg.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <signal.h>
 
 #ifndef MY_H_
 #define MY_H_
@@ -68,5 +69,7 @@ int encrypt(char *, infin_number_t *info);
 void decrypt(int, pos_t *where);
 void letter_decrypt(pos_t *where);
 void shots_management_pone(infin_number_t *info, pos_t *where, map_t *buff);
+int converge_one(infin_number_t *info, pos_t *where, map_t *buff);
+int converge_two(infin_number_t *info, pos_t *where, map_t *buff);
 
 #endif /* !MY_H_ */

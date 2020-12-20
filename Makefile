@@ -14,6 +14,7 @@ SRC = 	src/navy.c				\
 		src/game_core.c			\
 		src/encryption.c		\
 		src/shots_managements.c	\
+		src/handle_sigusr.c		\
 
 CC		=	gcc -o -lm
 
