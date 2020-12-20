@@ -32,7 +32,7 @@ void destroy_p1(pos_t *where, map_t *buff)
     free(buff->line);
 }
 
-void common_destroy(pos_t *where, map_t *buff)
+void common_destroy(pos_t *where, map_t *buff, infin_number_t *info)
 {
     free(where->pos_1);
     free(where->pos_2);
@@ -43,6 +43,9 @@ void common_destroy(pos_t *where, map_t *buff)
     }
     free(where->find_pos1);
     free(where->find_pos2);
+    free(where);
+    free(buff);
+    free(info);
 }
 
 void destroy_p2(pos_t *where, map_t *buff)
@@ -56,6 +59,14 @@ void destroy_p2(pos_t *where, map_t *buff)
     free(buff->line2);
 }
 
+void game_loop1(pos_t *where, map_t *buff, infin_number_t *info)
+{
+    map_p1(where);
+    print_map1(buff, where, info);
+    game_core(info, where, buff);
+    destroy_p1(where, buff);
+}
+
 int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
@@ -66,25 +77,14 @@ int main(int ac, char **av)
     assemble(av, info);
     connect = 0;
     print_pos(where);
-    if (ac == 2 && av[1][3] == '1') {
-        for (int i = 0; i < 2; i++) {
-            map_p1(where);
-            print_map1(buff, where, info);
-            game_core(info, where, buff);
-            destroy_p1(where, buff);
-        }
-    }
+    if (ac == 2 && av[1][3] == '1')
+            game_loop1(where, buff, info);
     if (ac == 3 && av[2][3] == '2') {
-        for (int i = 0; i < 2; i++) {
             map_p2(where);
             print_map2(buff, where, info);
             game_core(info, where, buff);
             destroy_p2(where, buff);
-        }
     }
-    common_destroy(where, buff);
-    free(where);
-    free(buff);
-    free(info);
+    common_destroy(where, buff, info);
     return (0);
 }

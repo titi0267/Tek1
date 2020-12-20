@@ -18,7 +18,7 @@ SRC = 	src/navy.c				\
 
 CC		=	gcc -o -lm
 
-CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude -g
+CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude
 
 OBJS	=	$(SRC:.c=.o)
 

@@ -30,7 +30,6 @@ void handle_sigusr(int sig, siginfo_t *info, void *context)
 
 void handle_sigusr2(int sig, siginfo_t *info, void *context)
 {
-    connect;
 }
 
 void data(infin_number_t *info)
@@ -41,7 +40,7 @@ void data(infin_number_t *info)
     sigemptyset(&sa.sa_mask);
     sa.sa_sigaction = handle_sigusr2;
     sigaction(SIGUSR2, &sa, NULL);
-    connect = info->encrpt;
+    //connect = info->encrpt;
     kill(info->process_id2, SIGUSR2);
 }
 

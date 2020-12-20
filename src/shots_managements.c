@@ -39,28 +39,11 @@ void shots_management_ptwo(infin_number_t *info, pos_t *where, map_t *buff)
     connect = missed_or_touched(buff, where);
     letter_decrypt(where);
     mark_ennemy_map(buff, where);
-    if (connect == 1) {
-        my_printf("%c%c: hit\n", where->decrypted_col_char, 
-        where->decrypted_lin_char);
-    }
-    if (connect == 0) {
-        my_printf("%c%c: missed\n", where->decrypted_col_char,
-        where->decrypted_lin_char);
-    }
 }
 
 void shots_management_pone(infin_number_t *info, pos_t *where, map_t *buff)
 {
     decrypt(connect, where);
-    connect = missed_or_touched(buff, where);
     letter_decrypt(where);
     mark_ennemy_map(buff, where);
-    if (connect == 1) {
-        my_printf("%c%c: hit\n", where->decrypted_col_char, 
-        where->decrypted_lin_char);
-    }
-    if (connect == 0) {
-        my_printf("%c%c: missed\n", where->decrypted_col_char,
-        where->decrypted_lin_char);
-    }
 }
