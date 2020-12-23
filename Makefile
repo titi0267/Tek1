@@ -7,9 +7,12 @@
 CC		=	gcc	-o
 
 SRC=	src/main.c		\
+		src/display.c	\
+		src/paralax.c	\
+		src/set_background.c	\
 		src/map.c
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-window -l csfml-graphics -l csfml-system
 
 NAME	=	my_runner
 

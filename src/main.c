@@ -6,11 +6,18 @@
 */
 #include "../include/my.h"
 #include "../include/my_struct.h"
+#include <stdio.h>
 
 int main(void)
 {
+    int x = 0;
     map_t *buff = malloc(sizeof(map_t));
-    print_map(buff);
+    if (buff == NULL)
+        return (84);
+    keep_window_open();
+    x = print_map(buff);
+    if (x != 0)
+        return (84);
     for (int i = 0; i != 11; i++)
         free(buff->line[i]);
     free(buff->line);
