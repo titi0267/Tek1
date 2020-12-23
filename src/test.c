@@ -4,10 +4,10 @@
 ** File description:
 ** test
 */
-#include "include/my.h"
+#include "../include/my.h"
 
-int main(int ac, char **av)
+int main(void)
 {
     my_putnbr(30);
-    my_printf("%s", "lul");
+    my_printf("\n%s\n", "lul");
 }

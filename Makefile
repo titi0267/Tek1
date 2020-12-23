@@ -4,25 +4,23 @@
 ## File description:
 ## Makefile
 ##
+CC		=	gcc	-o
+
 SRC=	src/test.c
 
-CC		=	gcc -o
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-Iinclude
+NAME	=	my_runner
 
-EXEC	=	my_runner
-
-all:	${EXEC}
-
-${EXEC}: ${SRC}
-	${MAKE}	-C	lib/my/
-	${CC}	${EXEC}	-L.	-lmy	${CFLAGS}
+all:
+	${MAKE} -C lib/my/
+	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
 
 clean:
 	make	-C	lib/my/	clean
 
 fclean: clean
-	rm	-f	${EXEC}
+	rm	-f	$(NAME)
 	make	-C	lib/my	fclean
 
 re:	fclean
