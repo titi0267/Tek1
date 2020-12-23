@@ -30,6 +30,7 @@ void my_vprintf(char *str, str_len_t *info, va_list *argu_list)
 
 int my_printf(char *str, ...)
 {
+    int x = 0;
     str_len_t *info = malloc(sizeof(str_len_t));
     info->buf_size = 0;
     va_list argu_list;
@@ -37,5 +38,7 @@ int my_printf(char *str, ...)
     va_start(argu_list, str);
     my_vprintf(str, info, &argu_list);
     va_end(argu_list);
-    return (info->buf_size);
+    x = info->buf_size;
+    free(info);
+    return (0);
 }

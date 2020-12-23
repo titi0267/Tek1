@@ -5,9 +5,16 @@
 ** test
 */
 #include "../include/my.h"
+#include "../include/my_struct.h"
 
 int main(void)
 {
-    my_putnbr(30);
-    my_printf("\n%s\n", "lul");
+    map_t *buff = malloc(sizeof(map_t));
+    print_map(buff);
+    my_printf("%c\n", buff->line[1][7]);
+    for (int i = 0; i != 10; i++)
+        free(buff->line[i]);
+    free(buff->line);
+    free(buff->buffer);
+    free(buff);
 }

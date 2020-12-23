@@ -6,7 +6,8 @@
 ##
 CC		=	gcc	-o
 
-SRC=	src/test.c
+SRC=	src/test.c		\
+		src/map.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include
 
