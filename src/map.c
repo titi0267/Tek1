@@ -31,10 +31,10 @@ void *store_map(map_t *buff)
     int l = 0;
     int c = 0;
 
-    buff->line = malloc(sizeof(char *) * 11);
+    buff->line = malloc(sizeof(char *) * 12);
     if (buff->line == NULL)
         return (NULL);
-    while (l != 10) {
+    while (l != 11) {
         buff->line[l] = malloc(sizeof(char) * 139);
         if (buff->line[l] == NULL)
             return (NULL);
@@ -60,16 +60,15 @@ int print_map(map_t *buff)
     read_map(buff);
     store_map(buff);
     my_printf("my positions:\n");
-    while (l != 10) {
+    while (l != 11) {
         for (int c = 0; buff->line[l][c] != '\0'; c++) {
             my_putchar(buff->line[l][c]);
         }
         l++;
     }
-    my_printf("\nenemy's positions:\n");
+    my_printf("enemy's positions:\n");
     for (int i = 0; i != 1518; i++) {
         my_putchar(buff->buffer[i]);
     }
-    my_putchar('\n');
     return (0);
 }

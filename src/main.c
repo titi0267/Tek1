@@ -11,7 +11,7 @@ int main(void)
 {
     map_t *buff = malloc(sizeof(map_t));
     print_map(buff);
-    for (int i = 0; i != 10; i++)
+    for (int i = 0; i != 11; i++)
         free(buff->line[i]);
     free(buff->line);
     free(buff->buffer);
