@@ -8,16 +8,16 @@
 #include "../include/my_struct.h"
 #include <stdio.h>
 
-int main(void)
+int main(int ac, char **av)
 {
     int x = 0;
     map_t *buff = malloc(sizeof(map_t));
     if (buff == NULL)
         return (84);
-    keep_window_open();
-    x = print_map(buff);
+    x = wich_map(ac, av, buff);
     if (x != 0)
         return (84);
+    keep_window_open();
     for (int i = 0; i != 11; i++)
         free(buff->line[i]);
     free(buff->line);

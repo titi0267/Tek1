@@ -24,4 +24,12 @@ typedef struct background_s
     sfVector2f pos_bottom;
 } background_t;
 
+typedef struct player_s
+{
+    sfTexture *bird_tex;
+    sfSprite *my_bird;
+    sfVector2f position;
+    sfIntRect anim;
+    int offset;
+} player_t;
 #endif /* !MY_STRUCT_H_ */

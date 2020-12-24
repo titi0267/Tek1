@@ -9,6 +9,7 @@ CC		=	gcc	-o
 SRC=	src/main.c		\
 		src/display.c	\
 		src/paralax.c	\
+		src/bird.c		\
 		src/set_background.c	\
 		src/map.c
 

@@ -67,3 +67,30 @@ int print_map(map_t *buff)
     }
     return (0);
 }
+
+void print_usage(void)
+{
+    my_printf("USAGE\n");
+}
+
+int wich_map(int ac, char **av, map_t *buff)
+{
+    int x = 0;
+
+    if (ac != 2)
+        return (-1);
+    if (ac == 2 && (av[1][0] == '-' && av[1][1] == 'h')) {
+        print_usage();
+        return (84);
+    } else if (ac == 2) {
+            x = my_strncmp("png/map.txt", av[1]);
+        if (x == 0)
+            x = print_map(buff);
+        else
+            return (-1);
+    } else
+        return (-1);
+    if (x != 0)
+        return (-1);
+    return (0);
+}

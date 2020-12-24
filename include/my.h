@@ -14,6 +14,7 @@
 
 void my_putchar(char c);
 int my_putstr(char const *str);
+int my_strncmp(char *cmp, char *cmpd);
 int my_putnbr(int nb);
 int my_getnbr(char *str);
 int my_printf(char *, ...);
@@ -21,6 +22,10 @@ int print_map(map_t *buff);
 void timer(float delta_time, background_t *back);
 void set_background(sfRenderWindow *window, background_t *back);
 void init_background(background_t *back);
+int wich_map(int ac, char **av, map_t *buff);
+void bird_sprite(sfRenderWindow *window, player_t *bird);
+void birdrect_speed(float delta_time, player_t *bird);
+void bird_init(player_t *bird);
 void keep_window_open(void);
 
 #endif /* !MY_H_ */

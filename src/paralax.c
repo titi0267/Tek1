@@ -56,13 +56,13 @@ void timer(float delta_time, background_t *back)
     static float bottom = 0;
 
     if (b_ground >= 0.03f) {
-        b_ground = 0;
         background_paralax(back);
+        b_ground = 0;
     }
     b_ground = delta_time + b_ground;
     if (bottom >= 0.001f) {
-        bottom = 0;
         bottom_paralax(back);
+        bottom = 0;
     }
     bottom = delta_time + bottom;
 }

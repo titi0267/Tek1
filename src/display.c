@@ -20,21 +20,25 @@ void keep_window_open(void)
 {
     sfRenderWindow *window;
     background_t back;
+    player_t bird;
     sfVideoMode video_mode = {1350, 947.25f, 32};
     sfClock *clock = sfClock_create();
     float elapsed_time = 0;
     float delta_time = 0;
 
     init_background(&back);
+    bird_init(&bird);
     window = sfRenderWindow_create(video_mode, "MyWindow", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_display(window);
         poll_event(window);
         set_background(window, &back);
+        bird_sprite(window, &bird);
         delta_time = sfClock_restart(clock).microseconds / 1000000.0;
         elapsed_time += delta_time;
         timer(delta_time, &back);
+        birdrect_speed(delta_time, &bird);
     }
     sfRenderWindow_destroy(window);
 }
