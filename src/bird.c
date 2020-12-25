@@ -44,7 +44,6 @@ void birdrect_speed(float delta_time, player_t *bird)
 {
     static float nbr = 0;
 
-    // printf("%f\n", nbr);
     if (nbr >= 0.07f) {
         move_rect(bird);
         bird->offset++;

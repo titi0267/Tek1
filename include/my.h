@@ -26,6 +26,10 @@ int wich_map(int ac, char **av, map_t *buff);
 void bird_sprite(sfRenderWindow *window, player_t *bird);
 void birdrect_speed(float delta_time, player_t *bird);
 void bird_init(player_t *bird);
-void keep_window_open(void);
+void init_pipe(enemy_t *enemy, map_t *buff, sfRenderWindow *window);
+void pipe_sprite(sfRenderWindow *window, enemy_t *enemy, map_t *buff);
+void enemy_speed(float delta_time, map_t *buff, player_t *bird, enemy_t *enemy, sfRenderWindow *window);
+void map_limit(map_t *buff, player_t *bird, enemy_t *enemy, sfRenderWindow *window);
+void keep_window_open(map_t *buff);
 
 #endif /* !MY_H_ */

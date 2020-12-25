@@ -17,7 +17,7 @@ int main(int ac, char **av)
     x = wich_map(ac, av, buff);
     if (x != 0)
         return (84);
-    keep_window_open();
+    keep_window_open(buff);
     for (int i = 0; i != 11; i++)
         free(buff->line[i]);
     free(buff->line);

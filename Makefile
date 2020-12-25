@@ -11,9 +11,10 @@ SRC=	src/main.c		\
 		src/paralax.c	\
 		src/bird.c		\
 		src/set_background.c	\
+		src/collision.c		\
 		src/map.c
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-window -l csfml-graphics -l csfml-system
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-window -l csfml-graphics -l csfml-system -g
 
 NAME	=	my_runner
 

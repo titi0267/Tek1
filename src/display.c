@@ -16,11 +16,12 @@ void poll_event(sfRenderWindow *window)
     }
 }
 
-void keep_window_open(void)
+void keep_window_open(map_t *buff)
 {
     sfRenderWindow *window;
     background_t back;
     player_t bird;
+    enemy_t enemy;
     sfVideoMode video_mode = {1350, 947.25f, 32};
     sfClock *clock = sfClock_create();
     float elapsed_time = 0;
@@ -28,6 +29,7 @@ void keep_window_open(void)
 
     init_background(&back);
     bird_init(&bird);
+    //init_pipe(&enemy, buff, window);
     window = sfRenderWindow_create(video_mode, "MyWindow", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
     while (sfRenderWindow_isOpen(window)) {
@@ -38,6 +40,9 @@ void keep_window_open(void)
         delta_time = sfClock_restart(clock).microseconds / 1000000.0;
         elapsed_time += delta_time;
         timer(delta_time, &back);
+        pipe_sprite(window, &enemy, buff);
+        enemy_speed(delta_time, buff, &bird, &enemy, window);
+        //map_limit(buff, &bird, &enemy, window);
         birdrect_speed(delta_time, &bird);
     }
     sfRenderWindow_destroy(window);
