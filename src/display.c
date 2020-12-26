@@ -29,7 +29,7 @@ void keep_window_open(map_t *buff)
 
     init_background(&back);
     bird_init(&bird);
-    //init_pipe(&enemy, buff, window);
+    pipe_sprite(window, &enemy, buff);
     window = sfRenderWindow_create(video_mode, "MyWindow", sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
     while (sfRenderWindow_isOpen(window)) {
@@ -39,11 +39,12 @@ void keep_window_open(map_t *buff)
         bird_sprite(window, &bird);
         delta_time = sfClock_restart(clock).microseconds / 1000000.0;
         elapsed_time += delta_time;
+        pos_update(window, &enemy);
         timer(delta_time, &back);
-        pipe_sprite(window, &enemy, buff);
         enemy_speed(delta_time, buff, &bird, &enemy, window);
-        //map_limit(buff, &bird, &enemy, window);
         birdrect_speed(delta_time, &bird);
     }
+    sfSprite_destroy(enemy.my_pipe);
+    sfTexture_destroy(enemy.pipe_tex);
     sfRenderWindow_destroy(window);
 }

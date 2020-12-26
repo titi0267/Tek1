@@ -31,5 +31,6 @@ void pipe_sprite(sfRenderWindow *window, enemy_t *enemy, map_t *buff);
 void enemy_speed(float delta_time, map_t *buff, player_t *bird, enemy_t *enemy, sfRenderWindow *window);
 void map_limit(map_t *buff, player_t *bird, enemy_t *enemy, sfRenderWindow *window);
 void keep_window_open(map_t *buff);
+void pos_update(sfRenderWindow *window, enemy_t *enemy);
 
 #endif /* !MY_H_ */
