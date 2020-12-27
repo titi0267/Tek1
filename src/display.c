@@ -27,24 +27,23 @@ void keep_window_open(map_t *buff)
     float elapsed_time = 0;
     float delta_time = 0;
 
-    init_background(&back);
-    bird_init(&bird);
-    pipe_sprite(window, &enemy, buff);
     window = sfRenderWindow_create(video_mode, "MyWindow", sfResize | sfClose, NULL);
+    bird_init(&bird);
+    pipe_sprite(&enemy, buff);
+    bottom(&back);
+    background(&back);
     sfRenderWindow_setFramerateLimit(window, 60);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_display(window);
         poll_event(window);
-        set_background(window, &back);
-        bird_sprite(window, &bird);
         delta_time = sfClock_restart(clock).microseconds / 1000000.0;
         elapsed_time += delta_time;
-        pos_update(window, &enemy);
-        timer(delta_time, &back);
-        enemy_speed(delta_time, buff, &bird, &enemy, window);
+        background_update(window, &back);
+        bottom_update(window, &back);
+        pipe_update(window, &enemy);
+        bird_sprite(window, &bird);
         birdrect_speed(delta_time, &bird);
     }
-    sfSprite_destroy(enemy.my_pipe);
-    sfTexture_destroy(enemy.pipe_tex);
+    destroy_sprite(&back, &enemy);
     sfRenderWindow_destroy(window);
 }

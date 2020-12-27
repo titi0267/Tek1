@@ -22,6 +22,15 @@ typedef struct background_s
     sfVector2f pos_back;
     sfVector2f position_bott;
     sfVector2f pos_bottom;
+    sfIntRect move_back;
+    sfSprite *my_background;
+    sfTexture *background;
+    sfSprite *my_bottom;
+    sfTexture *bottom;
+    sfSprite *my_bottom1;
+    sfTexture *bottom1;
+    sfSprite *my_background1;
+    sfTexture *background1;
 } background_t;
 
 typedef struct player_s
@@ -45,6 +54,5 @@ typedef struct enemy_s
     sfVector2f *pos;
     sfVector2f *pos_u;
     sfVector2f *pos_d;
-    int wich_p;
 } enemy_t;
 #endif /* !MY_STRUCT_H_ */

@@ -14,7 +14,7 @@ SRC=	src/main.c		\
 		src/collision.c		\
 		src/map.c
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-window -l csfml-graphics -l csfml-system -g
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-window -l csfml-graphics -l csfml-system
 
 NAME	=	my_runner
 
