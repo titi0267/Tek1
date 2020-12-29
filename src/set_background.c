@@ -60,10 +60,12 @@ void bottom_update(sfRenderWindow *window, background_t *back)
             init_bottom(back);
 }
 
-void destroy_sprite(background_t *back, enemy_t *enemy)
+void destroy_sprite(background_t *back, enemy_t *enemy, player_t *bird)
 {
     sfSprite_destroy(enemy->my_pipe);
     sfTexture_destroy(enemy->pipe_tex);
+    sfSprite_destroy(bird->my_bird);
+    sfTexture_destroy(bird->bird_tex);
     sfSprite_destroy(back->my_bottom);
     sfTexture_destroy(back->bottom);
     sfSprite_destroy(back->my_background);

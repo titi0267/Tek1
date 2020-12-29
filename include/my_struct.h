@@ -39,7 +39,18 @@ typedef struct player_s
     sfSprite *my_bird;
     sfVector2f position;
     sfIntRect anim;
+    float rotation;
     int offset;
+    int while_jump;
+    int second_jump;
+    int stop_jump;
+    float fall_fast;
+    /*int jump;
+    int high;
+    int death;
+    int rotate_down;
+    int rotate_speed;
+    int keep_pos;*/
 } player_t;
 
 typedef struct enemy_s
@@ -54,5 +65,7 @@ typedef struct enemy_s
     sfVector2f *pos;
     sfVector2f *pos_u;
     sfVector2f *pos_d;
+    float limit;
+    float *collision;
 } enemy_t;
 #endif /* !MY_STRUCT_H_ */

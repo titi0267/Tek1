@@ -10,6 +10,7 @@
 #include "../lib/my/printf/myp.h"
 #include "my_struct.h"
 #include <SFML/Graphics.h>
+#include <SFML/Window/Export.h>
 #include <fcntl.h>
 
 void my_putchar(char c);
@@ -30,15 +31,20 @@ void init_bottom(background_t *back);
 void bottom(background_t *back);
 void bottom_update(sfRenderWindow *window, background_t *back);
 
-void bird_sprite(sfRenderWindow *window, player_t *bird);
-void birdrect_speed(float delta_time, player_t *bird);
 void bird_init(player_t *bird);
+void bird_sprite(player_t *bird);
+void birdrect_speed(float delta_time, player_t *bird);
+void bird_update(player_t *bird, sfRenderWindow *window);
+void fall(player_t *bird, float delta_time);
+void jump(player_t *bird);
 
 void init_pipe(enemy_t *enemy, map_t *buff);
 void pipe_sprite(enemy_t *enemy, map_t *buff);
 void pipe_update(sfRenderWindow *window, enemy_t *enemy);
 
 void keep_window_open(map_t *buff);
-void destroy_sprite(background_t *back, enemy_t *enemy);
+void poll_event(sfRenderWindow *window, player_t *bird);
+void updater(sfRenderWindow *window, enemy_t *enemy, background_t *back, player_t *bird);
+void destroy_sprite(background_t *back, enemy_t *enemy, player_t *bird);
 
 #endif /* !MY_H_ */
