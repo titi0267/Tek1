@@ -20,6 +20,8 @@ void keep_window_open(map_t *buff)
     enemy_t enemy;
     sfVideoMode video_mode = {1350, 947.25f, 32};
     sfClock *clock = sfClock_create();
+    sfText *text;
+    sfFont *font;
     float elapsed_time = 0;
     float delta_time = 0;
     bird.while_jump = 0;
@@ -27,10 +29,16 @@ void keep_window_open(map_t *buff)
     bird.rotation = 0;
     bird.stop_jump = 0;
     bird.fall_fast = 1;
+    bird.death = 0;
+    bird.fit_space = 0;
+    bird.high = 0;
+    text = sfText_create();
+    font = sfFont_createFromFile("png/Amatic-Bold.ttf");
+    score(text, font, window);
 
     window = sfRenderWindow_create(video_mode, "MyWindow", sfResize | sfClose, NULL);
     bird_sprite(&bird);
-    pipe_sprite(&enemy, buff);
+    pipe_sprite(&enemy, buff, &bird);
     bottom(&back);
     background(&back);
     sfRenderWindow_setFramerateLimit(window, 60);
@@ -39,12 +47,19 @@ void keep_window_open(map_t *buff)
         delta_time = sfClock_restart(clock).microseconds / 1000000.0;
         elapsed_time += delta_time;
         poll_event(window, &bird);
-        updater(window, &enemy, &back, &bird);
-        birdrect_speed(delta_time, &bird);
-        if (bird.while_jump == 0)
-            fall(&bird, delta_time);
-        jump(&bird);
+        if (bird.death == 0) {
+            updater(window, &enemy, &back, &bird);
+            birdrect_speed(delta_time, &bird);
+            sfRenderWindow_drawText(window, text, NULL);
+            if (bird.while_jump == 0)
+                fall(&bird, delta_time);
+            jump(&bird);
+            limit(&enemy, &bird);
+        } else
+            my_printf("died\n");
     }
     destroy_sprite(&back, &enemy, &bird);
+    sfText_destroy(text);
+    sfFont_destroy(font);
     sfRenderWindow_destroy(window);
 }

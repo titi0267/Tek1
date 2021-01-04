@@ -13,7 +13,6 @@ void fall(player_t *bird, float delta_time)
     if (nbr >= 0.01f) {
         bird->position.y = (4 * bird->fall_fast) + bird->position.y;
         nbr = 0;
-
     }
     nbr = delta_time + nbr;
 }

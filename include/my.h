@@ -38,9 +38,14 @@ void bird_update(player_t *bird, sfRenderWindow *window);
 void fall(player_t *bird, float delta_time);
 void jump(player_t *bird);
 
-void init_pipe(enemy_t *enemy, map_t *buff);
-void pipe_sprite(enemy_t *enemy, map_t *buff);
+void init_pipe(enemy_t *enemy, map_t *buff, player_t *bird);
+void pipe_sprite(enemy_t *enemy, map_t *buff, player_t *bird);
 void pipe_update(sfRenderWindow *window, enemy_t *enemy);
+
+void limit(enemy_t *enemy, player_t *bird);
+void collision(enemy_t *enemy, player_t *bird);
+void bird_pass(enemy_t *enemy, player_t *bird);
+void score(sfText *text, sfFont *font, sfRenderWindow *window);
 
 void keep_window_open(map_t *buff);
 void poll_event(sfRenderWindow *window, player_t *bird);

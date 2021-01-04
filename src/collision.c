@@ -1,101 +1,50 @@
 /*
 ** EPITECH PROJECT, 2020
-** Collision by Timothy CONIEL
+** collision by Timothy CONIEL
 ** File description:
 ** collision.c
 */
 #include "../include/my.h"
 
-void init_pipe(enemy_t *enemy, map_t *buff)
+void limit(enemy_t *enemy, player_t *bird)
 {
-    int c = 0;
-    int l = 0;
-    int x = 0;
-    int i = 0;
-    int f = 0;
-    int v = 0;
+    static int d = 0;
 
-    enemy->pos = malloc(sizeof(sfVector2f) * 90);
-    enemy->pos_d = malloc(sizeof(sfVector2f) * 17);
-    enemy->pos_u = malloc(sizeof(sfVector2f) * 17);
-    enemy->collision = malloc(sizeof(float) * 3);
-    for (; l != 11; l++) {
-        for (; buff->line[l][c] != '\0'; c++) {
-            if (buff->line[l][c] == '1' && buff->line[l][c + 1] == '\n') {
-                if (v == 1) {
-                    enemy->limit = 750;
-                } else
-                    enemy->limit = 0;
-                enemy->collision[v] = enemy->limit;
-            }
-            if (buff->line[l][c] == '\n') {
-                enemy->enemy_pos.y = 0;
-                enemy->enemy_pos.x = 1000;
-                v = 1;
-            }
-            if (buff->line[l][c] == ' ' && (c % 8) != 0) {
-                enemy->enemy_pos.x = enemy->enemy_pos.x + 70;
-            }
-            if (buff->line[l][c] == ' ' && (c % 8) == 0) {
-                enemy->enemy_pos.x = enemy->enemy_pos.x;
-            }
-            if (buff->line[l][c] == '2') {
-                enemy->enemy_pos.x = enemy->enemy_pos.x;
-                enemy->enemy_pos.y = (((l - 1) * 84) - 6);
-                enemy->pos[x] = enemy->enemy_pos;
-                x++;
-            }
-            if (buff->line[l][c] == '3') {
-                enemy->enemy_pos.x = enemy->enemy_pos.x;
-                enemy->enemy_pos.y = (((l - 1) * 84) - 6);
-                enemy->pos_d[i] = enemy->enemy_pos;
-                i++;
-            }
-            if (buff->line[l][c] == '4') {
-                enemy->enemy_pos.x = enemy->enemy_pos.x;
-                enemy->enemy_pos.y = (((l - 1) * 84) - 6);
-                enemy->pos_u[f] = enemy->enemy_pos;
-                f++;
-            }
-        }
-        c = 0;
+    if (bird->position.y >= enemy->limit) {
+        bird->position.y = 700;
+        bird->death = 1;
     }
 }
 
-void pipe_update(sfRenderWindow *window, enemy_t *enemy)
+void collision(enemy_t *enemy, player_t *bird)
 {
-    for (int x = 0; x < 16; x++) {
-        enemy->pos_d[x].x -= 4;
-        sfSprite_setPosition(enemy->my_pipe_d, enemy->pos_d[x]);
-        sfRenderWindow_drawSprite(window, enemy->my_pipe_d, NULL);
+    static int i = 1;
+
+    while (i <= 16) {
+        bird->collision[i].x -= 4;
+        i++;
     }
-    for (int x = 0; x < 16; x++) {
-        enemy->pos_u[x].x -= 4;
-        sfSprite_setPosition(enemy->my_pipe_u, enemy->pos_u[x]);
-        sfRenderWindow_drawSprite(window, enemy->my_pipe_u, NULL);
-    }
-    for (int x = 0; x < 89; x++) {
-        enemy->pos[x].x -= 4;
-        sfSprite_setPosition(enemy->my_pipe, enemy->pos[x]);
-        sfRenderWindow_drawSprite(window, enemy->my_pipe, NULL);
-    }
+    i = 1;
 }
 
-void pipe_sprite(enemy_t *enemy, map_t *buff)
+void bird_pass(enemy_t *enemy, player_t *bird)
 {
-    enemy->pipe_tex = sfTexture_createFromFile("png/pipe.png", NULL);
-    enemy->pipe_tex_d = sfTexture_createFromFile("png/pipe_down.png", NULL);
-    enemy->pipe_tex_u = sfTexture_createFromFile("png/pipe_up.png", NULL);
-    enemy->my_pipe_d = sfSprite_create();
-    enemy->my_pipe = sfSprite_create();
-    enemy->my_pipe_u = sfSprite_create();
-    sfVector2f scale = {1, 1};
+    static int h = 1;
 
-    sfSprite_setTexture(enemy->my_pipe, enemy->pipe_tex, sfFalse);
-    sfSprite_setScale(enemy->my_pipe, scale);
-    sfSprite_setTexture(enemy->my_pipe_d, enemy->pipe_tex_d, sfFalse);
-    sfSprite_setScale(enemy->my_pipe_d, scale);
-    sfSprite_setTexture(enemy->my_pipe_u, enemy->pipe_tex_u, sfFalse);
-    sfSprite_setScale(enemy->my_pipe_u, scale);
-    init_pipe(enemy, buff);
+    while (h <= 16) {
+        if (bird->collision[h].x < (bird->position.x + 60) && bird->collision[h].x > (bird->position.x - 84))
+            break;
+        h++;
+    }
+    if (h != 17) {
+        if ((bird->collision[h].y) < bird->position.y && bird->collision[h].y + (84 * 2) > (bird->position.y + 42.7f))
+            bird->high = 1;
+        else
+            bird->high = 0;
+    }
+    if (h == 17)
+        bird->high = 1;
+    h = 1;
+    if (bird->high == 0)
+        bird->death = 1;
 }

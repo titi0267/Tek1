@@ -11,5 +11,7 @@ void updater(sfRenderWindow *window, enemy_t *enemy, background_t *back, player_
     background_update(window, back);
     bottom_update(window, back);
     pipe_update(window, enemy);
+    collision(enemy, bird);
     bird_update(bird, window);
+    bird_pass(enemy, bird);
 }
