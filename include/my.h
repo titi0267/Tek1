@@ -43,9 +43,9 @@ void pipe_sprite(enemy_t *enemy, map_t *buff, player_t *bird);
 void pipe_update(sfRenderWindow *window, enemy_t *enemy);
 
 void limit(enemy_t *enemy, player_t *bird);
-void collision(enemy_t *enemy, player_t *bird);
-void bird_pass(enemy_t *enemy, player_t *bird);
-void score(score_t *score, sfRenderWindow *window);
+void collision(player_t *bird);
+void bird_pass(player_t *bird);
+void score(score_t *score);
 
 void keep_window_open(map_t *buff);
 void poll_event(sfRenderWindow *window, player_t *bird);

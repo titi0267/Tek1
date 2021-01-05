@@ -8,15 +8,13 @@
 
 void limit(enemy_t *enemy, player_t *bird)
 {
-    static int d = 0;
-
     if (bird->position.y >= enemy->limit) {
         bird->position.y = 700;
         bird->death = 1;
     }
 }
 
-void collision(enemy_t *enemy, player_t *bird)
+void collision(player_t *bird)
 {
     static int i = 1;
 
@@ -27,7 +25,7 @@ void collision(enemy_t *enemy, player_t *bird)
     i = 1;
 }
 
-void bird_pass(enemy_t *enemy, player_t *bird)
+void bird_pass(player_t *bird)
 {
     static int h = 1;
 

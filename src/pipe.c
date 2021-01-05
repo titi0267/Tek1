@@ -13,7 +13,6 @@ void init_pipe(enemy_t *enemy, map_t *buff, player_t *bird)
     int x = 0;
     int i = 0;
     int f = 0;
-    int v = 0;
     int d = 0;
     int h = 0;
 
@@ -39,7 +38,6 @@ void init_pipe(enemy_t *enemy, map_t *buff, player_t *bird)
             if (buff->line[l][c] == ' ' && (c % 8) == 0) {
                 h = 0;
                 while (d >= h) {
-                    //printf("collision = %f\n", bird->collision[h].x);
                     if (enemy->enemy_pos.x != bird->collision[h].x) {
                         h++;
                     }

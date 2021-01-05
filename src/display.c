@@ -15,8 +15,8 @@ void keep_window_open(map_t *buff)
     float elapsed_time = 0;
     float delta_time = 0;
 
-    score(&gather.score, window);
     window = sfRenderWindow_create(video_mode, "MyWindow", sfResize | sfClose, NULL);
+    score(&gather.score);
     bird_sprite(&gather.bird);
     pipe_sprite(&gather.enemy, buff, &gather.bird);
     bottom(&gather.back);

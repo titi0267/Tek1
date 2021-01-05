@@ -6,7 +6,7 @@
 */
 #include "../include/my.h"
 
-void score(score_t *score, sfRenderWindow *window)
+void score(score_t *score)
 {
     score->text = sfText_create();
     score->font = sfFont_createFromFile("png/Amatic-Bold.ttf");
