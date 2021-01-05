@@ -12,15 +12,15 @@
 
 typedef struct infin_number
 {
-    int i;
     int amount;
-    int *store_key;
-    int *sentence;
-    int strlen;
-    int *encrypt;
-    int fill_matrix;
-    int fill_sentence;
-    int divide;
+    int opt;
+    int xp;
+    int yp;
+    int zp;
+    int xv;
+    int yv;
+    int zv;
+    int p;
 } infin_number_t;
 
 #endif /* !MY_STRUCT_H_ */

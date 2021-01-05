@@ -7,6 +7,7 @@
 
 SRC	=	my_putchar.c	\
 		my_put_nbr.c	\
+		my_getnbr.c		\
 		my_char_isnum.c		\
 		my_puterr.c		\
 		my_putcerr.c	\

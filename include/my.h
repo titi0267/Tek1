@@ -21,6 +21,7 @@ int my_put_nbr(int, infin_number_t *info);
 unsigned int my_put_nbr_u(unsigned int, infin_number_t *info);
 int my_putstr(char const *, infin_number_t *info);
 void my_puterr(char *);
+int my_char_isnum(char);
 int my_strlen(char const *);
 int my_getnbr(char const *);
 int my_strcmp(char const *s1, char const *s2);
@@ -44,17 +45,7 @@ void pn(va_list *my_list, infin_number_t *info);
 void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
-void usage(void);
-int error_handling(int ac, char **av);
-int str_handling(char c);
-int ascii(char **av, infin_number_t *info);
-int print_matrix(char **av, infin_number_t *info);
-int my_intlen(int i);
-int my_infint(int i);
-int my_supint(int i);
-int store_sentence(char **av, infin_number_t *info);
-int encrypt_3(char **av, infin_number_t *info);
-int encrypt_2(char **av, infin_number_t *info);
-int encrypt_1(char **av, infin_number_t *info);
+void help(void);
+int error_handling(int, char **);
 
 #endif /* !MY_H_ */

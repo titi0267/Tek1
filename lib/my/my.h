@@ -21,6 +21,7 @@ int my_put_nbr(int, infin_number_t *info);
 unsigned int my_put_nbr_u(unsigned int, infin_number_t *info);
 int my_putstr(char const *, infin_number_t *info);
 void my_puterr(char *);
+int my_char_isnum(char);
 int my_strlen(char const *);
 int my_getnbr(char const *);
 int my_strcmp(char const *s1, char const *s2);
