@@ -5,6 +5,7 @@
 ** display.c
 */
 #include "../include/my.h"
+#include <SFML/Audio/Music.h>
 
 void keep_window_open(map_t *buff)
 {
@@ -16,6 +17,10 @@ void keep_window_open(map_t *buff)
     float delta_time = 0;
 
     window = sfRenderWindow_create(video_mode, "MyWindow", sfResize | sfClose, NULL);
+    //gather.sound.music = sfMusic_createFromFile("png/coin_music.ogg");
+    gather.sound.coin = sfSound_create();
+    gather.sound.coin_buf = sfSoundBuffer_createFromFile("png/coin_sound.ogg");
+    sfSound_setBuffer(gather.sound.coin, gather.sound.coin_buf);
     score(&gather.score);
     bird_sprite(&gather.bird);
     pipe_sprite(&gather.enemy, buff, &gather.bird);

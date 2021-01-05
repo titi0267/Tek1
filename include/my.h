@@ -10,6 +10,7 @@
 #include "../lib/my/printf/myp.h"
 #include "my_struct.h"
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 #include <SFML/Window/Export.h>
 #include <fcntl.h>
 
@@ -44,8 +45,9 @@ void pipe_update(sfRenderWindow *window, enemy_t *enemy);
 
 void limit(enemy_t *enemy, player_t *bird);
 void collision(player_t *bird);
-void bird_pass(player_t *bird);
+void bird_pass(gather_t *gather);
 void score(score_t *score);
+void noise(sound_t *sound);
 
 void keep_window_open(map_t *buff);
 void poll_event(sfRenderWindow *window, player_t *bird);

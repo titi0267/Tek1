@@ -25,26 +25,27 @@ void collision(player_t *bird)
     i = 1;
 }
 
-void bird_pass(player_t *bird)
+void bird_pass(gather_t *gather)
 {
     static int h = 1;
 
     while (h <= 16) {
-        if (bird->collision[h].x < (bird->position.x + 60) &&
-            bird->collision[h].x > (bird->position.x - 84))
+        if (gather->bird.collision[h].x < (gather->bird.position.x + 60) &&
+            gather->bird.collision[h].x > (gather->bird.position.x - 84))
             break;
         h++;
     }
     if (h != 17) {
-        if ((bird->collision[h].y) < bird->position.y &&
-            bird->collision[h].y + (84 * 2) > (bird->position.y + 42.7f))
-            bird->high = 1;
-        else
-            bird->high = 0;
+        if ((gather->bird.collision[h].y + 12) < gather->bird.position.y &&
+            gather->bird.collision[h].y + ((84 * 2) - 6) > (gather->bird.position.y + 42.7f)) {
+            gather->bird.high = 1;
+            sfSound_play(gather->sound.coin);
+        } else
+            gather->bird.high = 0;
     }
     if (h == 17)
-        bird->high = 1;
-    if (bird->high == 0)
-        bird->death = 1;
+        gather->bird.high = 1;
+    if (gather->bird.high == 0)
+        gather->bird.death = 1;
     h = 1;
 }

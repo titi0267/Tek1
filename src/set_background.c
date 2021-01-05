@@ -84,5 +84,7 @@ void destroy_sprite(gather_t *gather, sfRenderWindow *window)
     free(gather->enemy.pos_d);
     free(gather->enemy.pos_u);
     free(gather->bird.collision);
+    sfSound_destroy(gather->sound.coin);
+    sfSoundBuffer_destroy(gather->sound.coin_buf);
     sfRenderWindow_destroy(window);
 }

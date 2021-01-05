@@ -13,5 +13,5 @@ void updater(sfRenderWindow *window, gather_t *gather)
     pipe_update(window, &gather->enemy);
     collision(&gather->bird);
     bird_update(&gather->bird, window);
-    bird_pass(&gather->bird);
+    bird_pass(gather);
 }

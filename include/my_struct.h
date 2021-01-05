@@ -8,6 +8,7 @@
 #ifndef MY_STRUCT_H_
 #define MY_STRUCT_H_
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 
 typedef struct map_s
 {
@@ -72,11 +73,19 @@ typedef struct score_s
     sfFont *font;
 } score_t;
 
+typedef struct sound_s
+{
+    sfMusic *music;
+    sfSoundBuffer *coin_buf;
+    sfSound *coin;
+} sound_t;
+
 typedef struct gather_s
 {
     background_t back;
     player_t bird;
     enemy_t enemy;
     score_t score;
+    sound_t sound;
 } gather_t;
 #endif /* !MY_STRUCT_H_ */

@@ -16,10 +16,11 @@ SRC=	src/main.c		\
 		src/moving_sprite.c		\
 		src/bird_jump.c		\
 		src/collision.c		\
+		src/sound.c			\
 		src/score.c			\
 		src/map.c
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-window -l csfml-graphics -l csfml-system
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-audio -l csfml-graphics -l csfml-window -l csfml-system -g
 
 NAME	=	my_runner
 
