@@ -6,12 +6,12 @@
 */
 #include "../include/my.h"
 
-void updater(sfRenderWindow *window, enemy_t *enemy, background_t *back, player_t *bird)
+void updater(sfRenderWindow *window, gather_t *gather)
 {
-    background_update(window, back);
-    bottom_update(window, back);
-    pipe_update(window, enemy);
-    collision(enemy, bird);
-    bird_update(bird, window);
-    bird_pass(enemy, bird);
+    background_update(window, &gather->back);
+    bottom_update(window, &gather->back);
+    pipe_update(window, &gather->enemy);
+    collision(&gather->enemy, &gather->bird);
+    bird_update(&gather->bird, window);
+    bird_pass(&gather->enemy, &gather->bird);
 }

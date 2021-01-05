@@ -45,11 +45,11 @@ void pipe_update(sfRenderWindow *window, enemy_t *enemy);
 void limit(enemy_t *enemy, player_t *bird);
 void collision(enemy_t *enemy, player_t *bird);
 void bird_pass(enemy_t *enemy, player_t *bird);
-void score(sfText *text, sfFont *font, sfRenderWindow *window);
+void score(score_t *score, sfRenderWindow *window);
 
 void keep_window_open(map_t *buff);
 void poll_event(sfRenderWindow *window, player_t *bird);
-void updater(sfRenderWindow *window, enemy_t *enemy, background_t *back, player_t *bird);
-void destroy_sprite(background_t *back, enemy_t *enemy, player_t *bird);
+void updater(sfRenderWindow *window, gather_t *gather);
+void destroy_sprite(gather_t *gather, sfRenderWindow *window);
 
 #endif /* !MY_H_ */

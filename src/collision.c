@@ -32,19 +32,21 @@ void bird_pass(enemy_t *enemy, player_t *bird)
     static int h = 1;
 
     while (h <= 16) {
-        if (bird->collision[h].x < (bird->position.x + 60) && bird->collision[h].x > (bird->position.x - 84))
+        if (bird->collision[h].x < (bird->position.x + 60) &&
+            bird->collision[h].x > (bird->position.x - 84))
             break;
         h++;
     }
     if (h != 17) {
-        if ((bird->collision[h].y) < bird->position.y && bird->collision[h].y + (84 * 2) > (bird->position.y + 42.7f))
+        if ((bird->collision[h].y) < bird->position.y &&
+            bird->collision[h].y + (84 * 2) > (bird->position.y + 42.7f))
             bird->high = 1;
         else
             bird->high = 0;
     }
     if (h == 17)
         bird->high = 1;
-    h = 1;
     if (bird->high == 0)
         bird->death = 1;
+    h = 1;
 }

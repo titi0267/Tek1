@@ -60,18 +60,29 @@ void bottom_update(sfRenderWindow *window, background_t *back)
             init_bottom(back);
 }
 
-void destroy_sprite(background_t *back, enemy_t *enemy, player_t *bird)
+void destroy_sprite(gather_t *gather, sfRenderWindow *window)
 {
-    sfSprite_destroy(enemy->my_pipe);
-    sfTexture_destroy(enemy->pipe_tex);
-    sfSprite_destroy(bird->my_bird);
-    sfTexture_destroy(bird->bird_tex);
-    sfSprite_destroy(back->my_bottom);
-    sfTexture_destroy(back->bottom);
-    sfSprite_destroy(back->my_background);
-    sfTexture_destroy(back->background1);
-    sfSprite_destroy(back->my_background1);
-    sfTexture_destroy(back->background);
-    sfSprite_destroy(back->my_bottom1);
-    sfTexture_destroy(back->bottom1);
+    sfSprite_destroy(gather->enemy.my_pipe_d);
+    sfSprite_destroy(gather->enemy.my_pipe_u);
+    sfSprite_destroy(gather->enemy.my_pipe);
+    sfTexture_destroy(gather->enemy.pipe_tex);
+    sfTexture_destroy(gather->enemy.pipe_tex_d);
+    sfTexture_destroy(gather->enemy.pipe_tex_u);
+    sfSprite_destroy(gather->bird.my_bird);
+    sfTexture_destroy(gather->bird.bird_tex);
+    sfSprite_destroy(gather->back.my_bottom);
+    sfTexture_destroy(gather->back.bottom);
+    sfSprite_destroy(gather->back.my_background);
+    sfTexture_destroy(gather->back.background1);
+    sfSprite_destroy(gather->back.my_background1);
+    sfTexture_destroy(gather->back.background);
+    sfSprite_destroy(gather->back.my_bottom1);
+    sfTexture_destroy(gather->back.bottom1);
+    sfText_destroy(gather->score.text);
+    sfFont_destroy(gather->score.font);
+    free(gather->enemy.pos);
+    free(gather->enemy.pos_d);
+    free(gather->enemy.pos_u);
+    free(gather->bird.collision);
+    sfRenderWindow_destroy(window);
 }

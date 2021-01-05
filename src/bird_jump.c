@@ -21,9 +21,8 @@ void go_straight(player_t *bird)
 {
     static int move_straight = 0;
 
-    if (bird->while_jump == 2 && move_straight < 15) {
+    if (bird->while_jump == 2 && move_straight < 15)
         move_straight++;
-    }
     if (move_straight >= 15) {
         move_straight = 0;
         bird->while_jump = 0;

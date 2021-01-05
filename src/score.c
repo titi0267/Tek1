@@ -6,12 +6,14 @@
 */
 #include "../include/my.h"
 
-void score(sfText *text, sfFont *font, sfRenderWindow *window)
+void score(score_t *score, sfRenderWindow *window)
 {
-    sfText_setString(text, "SCORE :");
-    sfText_setFont(text, font);
-    sfText_setCharacterSize(text, 75);
-    sfText_setColor(text, sfBlack);
+    score->text = sfText_create();
+    score->font = sfFont_createFromFile("png/Amatic-Bold.ttf");
+    sfText_setString(score->text, "SCORE :");
+    sfText_setFont(score->text, score->font);
+    sfText_setCharacterSize(score->text, 75);
+    sfText_setColor(score->text, sfBlack);
     sfVector2f position = {500, 0};
-    sfText_setPosition(text, position);
+    sfText_setPosition(score->text, position);
 }

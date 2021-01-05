@@ -21,6 +21,14 @@ void bird_init(player_t *bird)
     bird->anim.width = 173.666f;
     bird->anim.height = 122;
     bird->offset = 0;
+    bird->while_jump = 0;
+    bird->second_jump = 0;
+    bird->rotation = 0;
+    bird->stop_jump = 0;
+    bird->fall_fast = 1;
+    bird->death = 0;
+    bird->fit_space = 0;
+    bird->high = 0;
 }
 
 void bird_sprite(player_t *bird)

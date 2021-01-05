@@ -20,7 +20,9 @@ void init_pipe(enemy_t *enemy, map_t *buff, player_t *bird)
     enemy->pos = malloc(sizeof(sfVector2f) * 100);
     enemy->pos_d = malloc(sizeof(sfVector2f) * 20);
     enemy->pos_u = malloc(sizeof(sfVector2f) * 20);
-    bird->collision = malloc(sizeof(sfVector2f) * 50);
+    bird->collision = malloc(sizeof(sfVector2f) * 17);
+    for (int h = 0; h < 17; h++)
+        bird->collision[h].x = 0;
     for (; l != 11; l++) {
         for (; buff->line[l][c] != '\0'; c++) {
             if (buff->line[l][c] == '1' && buff->line[l][c + 1] == '\n') {
@@ -28,7 +30,7 @@ void init_pipe(enemy_t *enemy, map_t *buff, player_t *bird)
                 enemy->enemy_pos.x = 1100;
             }
             if (buff->line[l][c] == '\n' && buff->line[l][c - 1] != '1') {
-                enemy->enemy_pos.y += 84;//(((l - 1) * 84) - 6);
+                enemy->enemy_pos.y += 84;
                 enemy->enemy_pos.x = 1100;
             }
             if (buff->line[l][c] == ' ' && (c % 8) != 0) {
@@ -37,6 +39,7 @@ void init_pipe(enemy_t *enemy, map_t *buff, player_t *bird)
             if (buff->line[l][c] == ' ' && (c % 8) == 0) {
                 h = 0;
                 while (d >= h) {
+                    //printf("collision = %f\n", bird->collision[h].x);
                     if (enemy->enemy_pos.x != bird->collision[h].x) {
                         h++;
                     }

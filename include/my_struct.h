@@ -49,12 +49,6 @@ typedef struct player_s
     float fall_fast;
     int fit_space;
     int high;
-    /*int jump;
-    int high;
-    int death;
-    int rotate_down;
-    int rotate_speed;
-    int keep_pos;*/
 } player_t;
 
 typedef struct enemy_s
@@ -71,4 +65,18 @@ typedef struct enemy_s
     sfVector2f *pos_d;
     float limit;
 } enemy_t;
+
+typedef struct score_s
+{
+    sfText *text;
+    sfFont *font;
+} score_t;
+
+typedef struct gather_s
+{
+    background_t back;
+    player_t bird;
+    enemy_t enemy;
+    score_t score;
+} gather_t;
 #endif /* !MY_STRUCT_H_ */
