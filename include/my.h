@@ -47,5 +47,7 @@ void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
 void help(void);
 int error_handling(int, char **);
+void angle(char **av, infin_number_t *info);
+void line(char **av, infin_number_t *info);
 
 #endif /* !MY_H_ */

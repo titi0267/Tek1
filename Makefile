@@ -6,6 +6,8 @@
 ##
 
 SRC = 	src/intersection.c		\
+		src/radius.c			\
+		src/line.c				\
 		src/error_handling.c	\
 
 CC		=	gcc -o -lm

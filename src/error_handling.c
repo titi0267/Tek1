@@ -19,15 +19,23 @@ int check_numbers(char *str)
     return (0);
 }
 
+int error_arg1(char **av)
+{
+    if (av[1][0] != '1' && av[1][0] != '2' && av[1][0] != '3')
+        return (84);
+    return (0);
+}
+
 int error_handling_next(int ac, char **av)
 {
     int check = 0;
+    int x = error_arg1(av);
 
     if (ac == 9) {
         for (int i = 1; av[i] != 0; i++)
             check += check_numbers(av[i]);
     }
-    if ((ac != 2 && ac != 9) || check != 0) {
+    if ((ac != 2 && ac != 9) || check != 0 || x != 0) {
         my_puterr("Invalid argument inputs\nFor help execute: ");
         my_puterr("./104intersection -h\n");
         return (84);

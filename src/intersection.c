@@ -27,28 +27,33 @@ void help(void)
 void arg_to_stru(infin_number_t *info, char **av)
 {
     for (int i = 1; i <= 8; i++) {
-        if (i == 1)
-            info->opt = my_getnbr(av[i]);
-        if (i == 2)
-            info->xp = my_getnbr(av[i]);
-        if (i == 3)
-            info->yp = my_getnbr(av[i]);
-        if (i == 4)
-            info->zp = my_getnbr(av[i]);
-        if (i == 5)
-            info->xv = my_getnbr(av[i]);
-        if (i == 6)
-            info->yv = my_getnbr(av[i]);
-        if (i == 7)
-            info->zv = my_getnbr(av[i]);
-        if (i == 8)
-            info->p = my_getnbr(av[i]);
+        switch (i) {
+            case 1:
+                info->opt = my_getnbr(av[i]);
+            case 2:
+                info->xp = my_getnbr(av[i]);
+            case 3:
+                info->yp = my_getnbr(av[i]);
+            case 4:
+                info->zp = my_getnbr(av[i]);
+            case 5:
+                info->xv = my_getnbr(av[i]);
+            case 6:
+                info->yv = my_getnbr(av[i]);
+            case 7:
+                info->zv = my_getnbr(av[i]);
+            case 8:
+                info->p = my_getnbr(av[i]);
+            default:
+                break;
+        }
     }
 }
 
-void intersection_core(infin_number_t *info)
+void intersection_core(char **av, infin_number_t *info)
 {
-
+    angle(av, info);
+    line(av, info);
 }
 
 int main(int ac, char **av)
@@ -58,6 +63,6 @@ int main(int ac, char **av)
     if (error_handling(ac, av) != 0)
         return (84);
     arg_to_stru(info, av);
-    intersection_core(info);
+    intersection_core(av, info);
     return (0);
 }
