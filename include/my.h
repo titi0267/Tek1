@@ -10,6 +10,7 @@
 #include <stdarg.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <math.h>
 
 #ifndef MY_H_
 #define MY_H_
@@ -49,5 +50,9 @@ void help(void);
 int error_handling(int, char **);
 void angle(char **av, infin_number_t *info);
 void line(char **av, infin_number_t *info);
+void sphere_equation(infin_number_t *info, sphere_t *sphere);
+int delta_is(infin_number_t *info, sphere_t *sphere);
+int solution(infin_number_t *info, sphere_t *sphere);
+void find_inter(infin_number_t *info, sphere_t *sphere);
 
 #endif /* !MY_H_ */

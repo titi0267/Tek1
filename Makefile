@@ -10,7 +10,7 @@ SRC = 	src/intersection.c		\
 		src/line.c				\
 		src/error_handling.c	\
 
-CC		=	gcc -o -lm
+CC		=	gcc -lm
 
 CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude -g
 

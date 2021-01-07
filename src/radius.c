@@ -25,5 +25,5 @@ void angle(char **av, infin_number_t *info)
     int x = radius(av, info);
 
     if (x == 1)
-        printf("whit a %i degree angle\n", info->p);
+        my_printf("whit a %i degree angle\n", info->p);
 }

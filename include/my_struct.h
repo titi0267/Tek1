@@ -10,7 +10,7 @@
 #ifndef MY_STRUCT_H_
 #define MY_STRUCT_H_
 
-typedef struct infin_number
+typedef struct infin_number_s
 {
     int amount;
     int opt;
@@ -22,5 +22,39 @@ typedef struct infin_number
     int zv;
     int p;
 } infin_number_t;
+
+typedef struct sphere_s
+{
+    float delta;
+    int a;
+    int b;
+    int c;
+    int a_sqrt;
+    int b_sqrt;
+    int c_sqrt;
+    int a1;
+    int b1;
+    int c1;
+    int a2;
+    int b2;
+    int c2;
+    int a3;
+    int b3;
+    int c3;
+    float solution1;
+    float solution2;
+    float x;
+    float y;
+    float z;
+    float x1;
+    float y1;
+    float z1;
+} sphere_t;
+
+typedef struct gather_s
+{
+    sphere_t *sphere;
+    infin_number_t *info;
+} gather_t;
 
 #endif /* !MY_STRUCT_H_ */

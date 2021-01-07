@@ -50,19 +50,30 @@ void arg_to_stru(infin_number_t *info, char **av)
     }
 }
 
-void intersection_core(char **av, infin_number_t *info)
+void intersection_core(char **av, gather_t *gather)
 {
-    angle(av, info);
-    line(av, info);
+    angle(av, gather->info);
+    line(av, gather->info);
+    find_inter(gather->info, gather->sphere);
+}
+
+void struct_malloc(gather_t *gather)
+{
+    gather->info = malloc(sizeof(infin_number_t));
+    gather->sphere = malloc(sizeof(sphere_t));
 }
 
 int main(int ac, char **av)
 {
-    infin_number_t *info = malloc(sizeof(infin_number_t));
+    gather_t *gather = malloc(sizeof(gather_t));
+    struct_malloc(gather);
 
     if (error_handling(ac, av) != 0)
         return (84);
-    arg_to_stru(info, av);
-    intersection_core(av, info);
+    arg_to_stru(gather->info, av);
+    intersection_core(av, gather);
+    free(gather->sphere);
+    free(gather->info);
+    free(gather);
     return (0);
 }
