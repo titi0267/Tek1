@@ -39,12 +39,12 @@ void bird_pass(gather_t *gather)
         if ((gather->bird.collision[h].y + 12) < gather->bird.position.y &&
             gather->bird.collision[h].y + ((84 * 2) - 6) > (gather->bird.position.y + 42.7f)) {
             gather->bird.high = 1;
-            sfSound_play(gather->sound.coin);
         } else
             gather->bird.high = 0;
     }
-    if (h == 17)
+    if (h == 17) {
         gather->bird.high = 1;
+    }
     if (gather->bird.high == 0)
         gather->bird.death = 1;
     h = 1;

@@ -6,23 +6,24 @@
 */
 #include "../include/my.h"
 
-void space_pressed(sfEvent event, player_t *bird)
+void space_pressed(sfEvent event, gather_t *gather)
 {
     if (event.type == sfEvtKeyPressed) {
         if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-            bird->while_jump = 1;
-            bird->second_jump++;
+            gather->bird.while_jump = 1;
+            gather->bird.second_jump++;
+            sfSound_play(gather->sound.jump);
         }
     }
 }
 
-void poll_event(sfRenderWindow *window, player_t *bird)
+void poll_event(sfRenderWindow *window, gather_t *gather)
 {
     sfEvent event;
 
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
-        space_pressed(event, bird);
+        space_pressed(event, gather);
     }
 }

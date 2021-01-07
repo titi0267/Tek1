@@ -8,8 +8,10 @@
 SRC=	my_putchar.c	\
 		my_putstr.c		\
 		my_putnbr.c		\
+		my_revstr.c		\
 		my_strncmp.c	\
 		my_getnbr.c		\
+		my_int_to_str.c	\
 		printf/disp_adress.c		\
 		printf/disp_bin.c			\
 		printf/disp_char.c			\

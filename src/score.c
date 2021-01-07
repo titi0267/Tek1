@@ -9,11 +9,42 @@
 void score(score_t *score)
 {
     score->text = sfText_create();
-    score->font = sfFont_createFromFile("png/Amatic-Bold.ttf");
-    sfText_setString(score->text, "SCORE :");
+    score->text_score = sfText_create();
+    score->text_increase = sfText_create();
+    score->font = sfFont_createFromFile("png/score.ttf");
     sfText_setFont(score->text, score->font);
+    sfText_setFont(score->text_increase, score->font);
+    sfText_setFont(score->text_score, score->font);
     sfText_setCharacterSize(score->text, 75);
-    sfText_setColor(score->text, sfBlack);
-    sfVector2f position = {500, 0};
+    sfText_setCharacterSize(score->text_increase, 75);
+    sfText_setCharacterSize(score->text_score, 75);
+    sfText_setColor(score->text, sfWhite);
+    sfText_setColor(score->text_increase, sfWhite);
+    sfText_setColor(score->text_score, sfWhite);
+    sfVector2f position = {583, 83};
+    score->position_increase.x = 630;
+    score->position_increase.y = 83;
+    sfVector2f position_score = {500, 0};
     sfText_setPosition(score->text, position);
+    sfText_setPosition(score->text_increase, score->position_increase);
+    sfText_setPosition(score->text_score, position_score);
+}
+
+void increase_score(score_t *score, sfRenderWindow *window)
+{
+    lib_t lib;
+    sfText_setString(score->text_score, "SCORE:\n");
+    sfText_setString(score->text_increase, my_revstr(my_intstr(score->amount, &lib), &lib));
+    if (score->amount == 0)
+        sfText_setString(score->text_increase, "0");
+    if (score->amount < 10) {
+        sfText_setString(score->text, "0");
+        sfRenderWindow_drawText(window, score->text, NULL);
+    }
+    if (score->amount >= 10) {
+        score->position_increase.x = 583;
+    }
+    sfText_setPosition(score->text_increase, score->position_increase);
+    sfRenderWindow_drawText(window, score->text_score, NULL);
+    sfRenderWindow_drawText(window, score->text_increase, NULL);
 }

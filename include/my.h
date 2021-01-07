@@ -8,6 +8,7 @@
 #ifndef MY_H_
 #define MY_H_
 #include "../lib/my/printf/myp.h"
+#include "../lib/my/my.h"
 #include "my_struct.h"
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
@@ -19,6 +20,7 @@ int my_putstr(char const *str);
 int my_strncmp(char *cmp, char *cmpd);
 int my_putnbr(int nb);
 int my_getnbr(char *str);
+char *my_intstr(int nb, lib_t *lib);
 int my_printf(char *, ...);
 
 int print_map(map_t *buff);
@@ -38,6 +40,8 @@ void birdrect_speed(float delta_time, player_t *bird);
 void bird_update(player_t *bird, sfRenderWindow *window);
 void fall(player_t *bird, float delta_time);
 void jump(player_t *bird);
+void bird_passed(gather_t *gather);
+void death(gather_t *gather);
 
 void init_pipe(enemy_t *enemy, map_t *buff, player_t *bird);
 void pipe_sprite(enemy_t *enemy, map_t *buff, player_t *bird);
@@ -47,10 +51,11 @@ void limit(enemy_t *enemy, player_t *bird);
 void collision(player_t *bird);
 void bird_pass(gather_t *gather);
 void score(score_t *score);
-void noise(sound_t *sound);
+void increase_score(score_t *score, sfRenderWindow *window);
+void create_sound(sound_t *sound);
 
 void keep_window_open(map_t *buff);
-void poll_event(sfRenderWindow *window, player_t *bird);
+void poll_event(sfRenderWindow *window, gather_t *gather);
 void updater(sfRenderWindow *window, gather_t *gather);
 void destroy_sprite(gather_t *gather, sfRenderWindow *window);
 

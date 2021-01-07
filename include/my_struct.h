@@ -70,7 +70,12 @@ typedef struct enemy_s
 typedef struct score_s
 {
     sfText *text;
+    sfText *text_score;
+    sfText *text_increase;
     sfFont *font;
+    sfVector2f position_increase;
+    int amount;
+    int increase_score;
 } score_t;
 
 typedef struct sound_s
@@ -78,6 +83,10 @@ typedef struct sound_s
     sfMusic *music;
     sfSoundBuffer *coin_buf;
     sfSound *coin;
+    sfSoundBuffer *death_buf;
+    sfSound *death;
+    sfSoundBuffer *jump_buf;
+    sfSound *jump;
 } sound_t;
 
 typedef struct gather_s

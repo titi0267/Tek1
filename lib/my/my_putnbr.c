@@ -22,4 +22,5 @@ int my_putnbr(int nb)
         for (; d > 0; d /= 10)
             my_putchar((nb / d) % 10 + '0');
     }
+    return (0);
 }
