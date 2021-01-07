@@ -6,7 +6,6 @@
 */
 #include "../include/my.h"
 #include "../include/my_struct.h"
-#include <stdio.h>
 
 int main(int ac, char **av)
 {
