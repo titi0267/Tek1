@@ -6,10 +6,10 @@
 */
 #include "../include/my.h"
 
-int read_map(map_t *buff)
+int read_map(map_t *buff, char *filepath)
 {
     int read_ret;
-    int fd = open("png/map.txt", O_RDONLY);
+    int fd = open(filepath, O_RDONLY);
 
     if (fd == -1)
         return (-1);
@@ -53,13 +53,16 @@ int store_map(map_t *buff)
     return (0);
 }
 
-int print_map(map_t *buff)
+int print_map(map_t *buff, char *filepath)
 {
     int l = 0;
-    int x = read_map(buff);
-    int y = store_map(buff);
+    int x = read_map(buff, filepath);
+    int y;
 
-    if (x != 0 || y != 0)
+    if (x != 0)
+        return (-1);
+    y = store_map(buff);
+    if (y != 0)
         return (-1);
     for (; l != 11; l++) {
         for (int c = 0; buff->line[l][c] != '\0'; c++)
@@ -83,9 +86,10 @@ int wich_map(int ac, char **av, map_t *buff)
         print_usage();
         return (84);
     } else if (ac == 2) {
-            x = my_strncmp("png/map.txt", av[1]);
+            //x = my_strncmp("png/map.txt", av[1]);
+        x = print_map(buff, av[1]);
         if (x == 0)
-            x = print_map(buff);
+            return (0);
         else
             return (-1);
     } else

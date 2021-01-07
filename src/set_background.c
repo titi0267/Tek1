@@ -79,6 +79,8 @@ void destroy_sprite(gather_t *gather, sfRenderWindow *window)
     sfSprite_destroy(gather->back.my_bottom1);
     sfTexture_destroy(gather->back.bottom1);
     sfText_destroy(gather->score.text);
+    sfText_destroy(gather->score.text_increase);
+    sfText_destroy(gather->score.text_score);
     sfFont_destroy(gather->score.font);
     free(gather->enemy.pos);
     free(gather->enemy.pos_d);
@@ -86,6 +88,8 @@ void destroy_sprite(gather_t *gather, sfRenderWindow *window)
     free(gather->bird.collision);
     sfSound_destroy(gather->sound.coin);
     sfSoundBuffer_destroy(gather->sound.coin_buf);
+    sfSound_destroy(gather->sound.jump);
+    sfSoundBuffer_destroy(gather->sound.jump_buf);
     sfSound_destroy(gather->sound.death);
     sfSoundBuffer_destroy(gather->sound.death_buf);
     sfRenderWindow_destroy(window);

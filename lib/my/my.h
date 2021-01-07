@@ -14,6 +14,7 @@
 typedef struct lib_s
 {
     int count;
+    char *str;
 } lib_t;
 
 void my_putchar(char c);

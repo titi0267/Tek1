@@ -76,6 +76,7 @@ typedef struct score_s
     sfVector2f position_increase;
     int amount;
     int increase_score;
+    char *score_disp;
 } score_t;
 
 typedef struct sound_s

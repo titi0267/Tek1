@@ -23,7 +23,7 @@ int my_getnbr(char *str);
 char *my_intstr(int nb, lib_t *lib);
 int my_printf(char *, ...);
 
-int print_map(map_t *buff);
+int print_map(map_t *buff, char *filepath);
 int wich_map(int ac, char **av, map_t *buff);
 
 void init_background(background_t *back);

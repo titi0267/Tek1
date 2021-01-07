@@ -33,8 +33,9 @@ void score(score_t *score)
 void increase_score(score_t *score, sfRenderWindow *window)
 {
     lib_t lib;
+    score->score_disp =  my_revstr(my_intstr(score->amount, &lib), &lib);
     sfText_setString(score->text_score, "SCORE:\n");
-    sfText_setString(score->text_increase, my_revstr(my_intstr(score->amount, &lib), &lib));
+    sfText_setString(score->text_increase, score->score_disp);
     if (score->amount == 0)
         sfText_setString(score->text_increase, "0");
     if (score->amount < 10) {
@@ -47,4 +48,5 @@ void increase_score(score_t *score, sfRenderWindow *window)
     sfText_setPosition(score->text_increase, score->position_increase);
     sfRenderWindow_drawText(window, score->text_score, NULL);
     sfRenderWindow_drawText(window, score->text_increase, NULL);
+    free(score->score_disp);
 }

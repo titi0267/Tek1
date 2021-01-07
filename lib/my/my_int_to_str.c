@@ -8,20 +8,20 @@
 
 char *my_intstr(int nb, lib_t *lib)
 {
-    char *str = malloc(sizeof(char) * 15);
+    lib->str = malloc(sizeof(char) * 15);
     lib->count = 0;
     int store = 0;
 
     if (nb < 0) {
-        str[lib->count] = '-';
+        lib->str[lib->count] = '-';
         lib->count = 1;
         nb *= -1;
     }
     for (; nb != 0; lib->count++) {
         store = nb % 10;
-        str[lib->count] = store + '0';
+        lib->str[lib->count] = store + '0';
         nb /= 10;
     }
-    str[lib->count] = '\0';
-    return (str);
+    lib->str[lib->count] = '\0';
+    return (lib->str);
 }

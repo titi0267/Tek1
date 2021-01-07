@@ -24,9 +24,8 @@ void bird_passed(gather_t *gather)
     static int i = 1;
 
     while (i <= 16) {
-        if (gather->bird.collision[i].x < 170 && gather->bird.collision[i].x >= 166) {
+        if (gather->bird.collision[i].x < 170 && gather->bird.collision[i].x >= 166)
             break;
-        }
         i++;
     }
     if (i != 17) {
