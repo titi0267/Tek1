@@ -16,7 +16,7 @@ SRC=	my_putchar.c	\
 		printf/disp_bin.c			\
 		printf/disp_char.c			\
 		printf/disp_hex.c			\
-		printf/disp_Na.c			\
+		printf/disp_nascii.c		\
 		printf/disp_nbr.c			\
 		printf/disp_oct.c			\
 		printf/disp_str.c			\

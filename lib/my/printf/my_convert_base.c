@@ -34,7 +34,7 @@ int convert_minus(int nb, str_len_t *info)
     return (nb);
 }
 
-void convert_heX(unsigned int nb, str_len_t *info)
+void convert_hexa(unsigned int nb, str_len_t *info)
 {
     int temp = 0;
     int f = 0;

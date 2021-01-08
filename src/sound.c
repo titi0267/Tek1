@@ -19,12 +19,13 @@ void create_sound(sound_t *sound)
     sfSound_setBuffer(sound->jump, sound->jump_buf);
 }
 
-void bird_passed(gather_t *gather)
+void bird_after_pipe(gather_t *gather)
 {
     static int i = 1;
 
     while (i <= 16) {
-        if (gather->bird.collision[i].x < 170 && gather->bird.collision[i].x >= 166)
+        if (gather->bird.collision[i].x < 170 &&
+            gather->bird.collision[i].x >= 166)
             break;
         i++;
     }
@@ -33,15 +34,13 @@ void bird_passed(gather_t *gather)
         gather->score.amount++;
     }
     i = 1;
-
 }
 
 void death(gather_t *gather)
 {
     static int i = 0;
-    if (gather->bird.death == 1) {
-        if (i < 1)
-            sfSound_play(gather->sound.death);
-        i = 1;
-    }
+
+    if (i < 1)
+        sfSound_play(gather->sound.death);
+    i = 1;
 }

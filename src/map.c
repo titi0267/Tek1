@@ -6,95 +6,91 @@
 */
 #include "../include/my.h"
 
+int read_map_next(map_t *buff, int fd, int read_ret)
+{
+    read_ret = read(fd, buff->buffer, buff->buffer_size);
+    if (read_ret != buff->buffer_size) {
+        my_printf("Couldn't read the buffer\n");
+        return (read_ret);
+    }
+    return (read_ret);
+}
+
 int read_map(map_t *buff, char *filepath)
 {
-    int read_ret;
+    int read_ret = 0;
     int fd = open(filepath, O_RDONLY);
 
-    if (fd == -1)
+    if (fd == -1) {
+        my_printf("Couldn't open the file because of a wrong filepath\n");
         return (-1);
+    }
     buff->buffer_size = 1518;
     buff->buffer = malloc(sizeof(char) * buff->buffer_size + 1);
-    if (buff->buffer == NULL)
+    if (buff->buffer == NULL) {
+        my_printf("Malloc didn't worked as expected\n");
         return (-1);
-    read_ret = read(fd, buff->buffer, buff->buffer_size);
+    }
+    read_ret = read_map_next(buff, fd, read_ret);
     if (read_ret != buff->buffer_size)
         return (-1);
     buff->buffer[buff->buffer_size] = '\0';
-    close (fd);
+    close(fd);
     return(0);
 }
 
 int store_map(map_t *buff)
 {
     int i = 0;
-    int l = 0;
+    int e = 0;
     int c = 0;
 
     buff->line = malloc(sizeof(char *) * 12);
     if (buff->line == NULL)
         return (-1);
-    while (l != 11) {
-        buff->line[l] = malloc(sizeof(char) * 139);
-        if (buff->line[l] == NULL)
+    for (;e != 11; i++, e++) {
+        buff->line[e] = malloc(sizeof(char) * 139);
+        if (buff->line[e] == NULL)
             return (-1);
-        while (buff->buffer[i] != '\n') {
-            buff->line[l][c] = buff->buffer[i];
-            c++;
-            i++;
-        }
-        buff->line[l][c] = '\n';
-        buff->line[l][c + 1] = '\0';
-        i++;
-        l++;
+        for (;buff->buffer[i] != '\n'; i++, c++)
+            buff->line[e][c] = buff->buffer[i];
+        buff->line[e][c] = '\n';
+        buff->line[e][c + 1] = '\0';
         c = 0;
     }
-    buff->line[l] = NULL;
-    return (0);
-}
-
-int print_map(map_t *buff, char *filepath)
-{
-    int l = 0;
-    int x = read_map(buff, filepath);
-    int y;
-
-    if (x != 0)
-        return (-1);
-    y = store_map(buff);
-    if (y != 0)
-        return (-1);
-    for (; l != 11; l++) {
-        for (int c = 0; buff->line[l][c] != '\0'; c++)
-            my_putchar(buff->line[l][c]);
-    }
+    buff->line[e] = NULL;
     return (0);
 }
 
 void print_usage(void)
 {
-    my_printf("USAGE\n");
+    my_printf("Finite runner created with CSFML.\n\n");
+    my_printf("USAGE\n    ./my_runner map.txt\n\n\n");
+    my_printf("OPTION\n    -h        Print the usage and quit.\n\n");
+    my_printf("USER INTERACTIONS:\n");
+    my_printf("    SPACE_KEY        jump\n");
 }
 
 int wich_map(int ac, char **av, map_t *buff)
 {
-    int x = 0;
-
-    if (ac != 2)
+    if (ac != 2) {
+        my_printf("Not that much arguments as expected.\n");
         return (-1);
+    }
     if (ac == 2 && (av[1][0] == '-' && av[1][1] == 'h')) {
         print_usage();
         return (84);
-    } else if (ac == 2) {
-            //x = my_strncmp("png/map.txt", av[1]);
-        x = print_map(buff, av[1]);
-        if (x == 0)
-            return (0);
-        else
+    }
+    if (ac == 2) {
+        if (read_map(buff, av[1]) == 0) {
+            if (store_map(buff) == 0)
+                return (0);
+            else {
+                my_printf("Malloc didn't worked as expected\n");
+                return (-1);
+            }
+        } else
             return (-1);
-    } else
-        return (-1);
-    if (x != 0)
-        return (-1);
+    }
     return (0);
 }

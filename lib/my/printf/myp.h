@@ -28,12 +28,12 @@ void print_unsigned(va_list *, str_len_t *);
 void print_bin(va_list *, str_len_t *);
 unsigned int my_put_uint(int, str_len_t *);
 void disp_oct(va_list *, str_len_t *);
-void disp_heX(va_list *, str_len_t *);
+void disp_hexa(va_list *, str_len_t *);
 void disp_hex(va_list *, str_len_t *);
 void my_vprintf(char *, str_len_t *, va_list *);
 int convert_minus(int, str_len_t *);
 void convert_base(unsigned int, int, str_len_t *);
-void convert_heX(unsigned int, str_len_t *);
+void convert_hexa(unsigned int, str_len_t *);
 void convert_hex(unsigned int, str_len_t *);
 void store_len(va_list *, str_len_t *);
 void print_ad(va_list *, str_len_t *);
@@ -42,4 +42,3 @@ void disp_nascii(va_list *, str_len_t *);
 char *my_strcpyp(char *, char const *);
 
 #endif /* !MYP_H_ */
-

@@ -1,25 +1,26 @@
 /*
 ** EPITECH PROJECT, 2020
-** B-MUL-100-STG-1-1-myrunner-timothe.coniel
+** My Runner by Timothy CONIEL
 ** File description:
-** test
+** main.c
 */
 #include "../include/my.h"
 #include "../include/my_struct.h"
 
 int main(int ac, char **av)
 {
-    int x = 0;
     map_t *buff = malloc(sizeof(map_t));
+
     if (buff == NULL)
         return (84);
-    x = wich_map(ac, av, buff);
-    if (x != 0)
+    if (wich_map(ac, av, buff) != 0)
         return (84);
-    keep_window_open(buff);
+    if (keep_window_open(buff) != 0)
+        return (84);
     for (int i = 0; i != 11; i++)
         free(buff->line[i]);
     free(buff->line);
     free(buff->buffer);
     free(buff);
+    return (0);
 }

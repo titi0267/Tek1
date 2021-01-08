@@ -6,11 +6,11 @@
 */
 #include "myp.h"
 
-void disp_heX(va_list *argu_list, str_len_t *info)
+void disp_hexa(va_list *argu_list, str_len_t *info)
 {
     unsigned int e = va_arg(*argu_list, unsigned int);
 
-    convert_heX(e, info);
+    convert_hexa(e, info);
 }
 
 void disp_hex(va_list *argu_list, str_len_t *info)

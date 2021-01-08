@@ -6,7 +6,7 @@
 */
 #include "my.h"
 
-char *my_intstr(int nb, lib_t *lib)
+char *my_int_str(int nb, lib_t *lib)
 {
     lib->str = malloc(sizeof(char) * 15);
     lib->count = 0;

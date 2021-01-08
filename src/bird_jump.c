@@ -6,7 +6,7 @@
 */
 #include "../include/my.h"
 
-void fall(player_t *bird, float delta_time)
+void fall(player_t *bird, time_t *time)
 {
     static float nbr = 0;
 
@@ -14,7 +14,7 @@ void fall(player_t *bird, float delta_time)
         bird->position.y = (4 * bird->fall_fast) + bird->position.y;
         nbr = 0;
     }
-    nbr = delta_time + nbr;
+    nbr = time->delta_time + nbr;
 }
 
 void go_straight(player_t *bird)

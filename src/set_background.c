@@ -1,10 +1,9 @@
 /*
 ** EPITECH PROJECT, 2020
-** Set Background by Timmothy CONIEL
+** Set Background by Timothy CONIEL
 ** File description:
 ** set_background.c
 */
-#include <stdio.h>
 #include "../include/my.h"
 
 void background(background_t *back)
@@ -39,30 +38,29 @@ void bottom(background_t *back)
 
 void background_update(sfRenderWindow *window, background_t *back)
 {
-        back->position_back.x -= 0.5f;
-        back->pos_back.x -= 0.5f;
-        sfSprite_setPosition(back->my_background, back->position_back);
-        sfRenderWindow_drawSprite(window, back->my_background, NULL);
-        sfSprite_setPosition(back->my_background1, back->pos_back);
-        sfRenderWindow_drawSprite(window, back->my_background1, NULL);
-        if (back->position_back.x <= -1350 || back->pos_back.x <= 0)
-            init_background(back);
+    back->position_back.x -= 0.5f;
+    back->pos_back.x -= 0.5f;
+    sfSprite_setPosition(back->my_background, back->position_back);
+    sfRenderWindow_drawSprite(window, back->my_background, NULL);
+    sfSprite_setPosition(back->my_background1, back->pos_back);
+    sfRenderWindow_drawSprite(window, back->my_background1, NULL);
+    if (back->position_back.x <= -1350 || back->pos_back.x <= 0)
+        init_background(back);
 }
 
 void bottom_update(sfRenderWindow *window, background_t *back)
 {
-        back->position_bott.x -= 4;
-        back->pos_bottom.x -= 4;
-        sfSprite_setPosition(back->my_bottom1, back->pos_bottom);
-        sfRenderWindow_drawSprite(window, back->my_bottom1, NULL);
-        sfSprite_setPosition(back->my_bottom, back->position_bott);
-        sfRenderWindow_drawSprite(window, back->my_bottom, NULL);
-        if (back->position_bott.x <= -1350 || back->pos_bottom.x <= 0) {
-            init_bottom(back);
-        }
+    back->position_bott.x -= 4;
+    back->pos_bottom.x -= 4;
+    sfSprite_setPosition(back->my_bottom1, back->pos_bottom);
+    sfRenderWindow_drawSprite(window, back->my_bottom1, NULL);
+    sfSprite_setPosition(back->my_bottom, back->position_bott);
+    sfRenderWindow_drawSprite(window, back->my_bottom, NULL);
+    if (back->position_bott.x <= -1350 || back->pos_bottom.x <= 0)
+        init_bottom(back);
 }
 
-void destroy_sprite(gather_t *gather, sfRenderWindow *window)
+void destroy_alias(gather_t *gather)
 {
     sfSprite_destroy(gather->enemy.my_pipe_d);
     sfSprite_destroy(gather->enemy.my_pipe_u);
@@ -80,6 +78,11 @@ void destroy_sprite(gather_t *gather, sfRenderWindow *window)
     sfTexture_destroy(gather->back.background);
     sfSprite_destroy(gather->back.my_bottom1);
     sfTexture_destroy(gather->back.bottom1);
+}
+
+void destroy(gather_t *gather)
+{
+    destroy_alias(gather);
     sfText_destroy(gather->score.text);
     sfText_destroy(gather->score.text_increase);
     sfText_destroy(gather->score.text_score);
@@ -88,11 +91,12 @@ void destroy_sprite(gather_t *gather, sfRenderWindow *window)
     free(gather->enemy.pos_d);
     free(gather->enemy.pos_u);
     free(gather->bird.collision);
+    sfClock_destroy(gather->time.clock);
     sfSound_destroy(gather->sound.coin);
     sfSoundBuffer_destroy(gather->sound.coin_buf);
     sfSound_destroy(gather->sound.jump);
     sfSoundBuffer_destroy(gather->sound.jump_buf);
     sfSound_destroy(gather->sound.death);
     sfSoundBuffer_destroy(gather->sound.death_buf);
-    sfRenderWindow_destroy(window);
+    sfRenderWindow_destroy(gather->windo.window);
 }

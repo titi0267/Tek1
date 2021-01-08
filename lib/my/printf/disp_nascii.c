@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** Display Non-Ascii character by Timothy CONIEL
 ** File description:
-** disp_Na.c
+** disp_nascii.c
 */
 #include "myp.h"
 

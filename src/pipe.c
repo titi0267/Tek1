@@ -6,71 +6,27 @@
 */
 #include "../include/my.h"
 
-void init_pipe(enemy_t *enemy, map_t *buff, player_t *bird)
+int init_pipe(enemy_t *enemy, map_t *buff, player_t *bird)
 {
-    int c = 0;
-    int l = 0;
-    int x = 0;
-    int i = 0;
-    int f = 0;
-    int d = 0;
-    int h = 0;
+    int x = malloc_array(enemy, buff, bird);
 
-    enemy->pos = malloc(sizeof(sfVector2f) * 100);
-    enemy->pos_d = malloc(sizeof(sfVector2f) * 20);
-    enemy->pos_u = malloc(sizeof(sfVector2f) * 20);
-    bird->collision = malloc(sizeof(sfVector2f) * 17);
-    for (int h = 0; h < 17; h++)
-        bird->collision[h].x = 0;
-    for (; l != 11; l++) {
-        for (; buff->line[l][c] != '\0'; c++) {
-            if (buff->line[l][c] == '1' && buff->line[l][c + 1] == '\n') {
-                enemy->limit = 750 - 50;
-                enemy->enemy_pos.x = 1100;
-            }
-            if (buff->line[l][c] == '\n' && buff->line[l][c - 1] != '1') {
-                enemy->enemy_pos.y += 84;
-                enemy->enemy_pos.x = 1100;
-            }
-            if (buff->line[l][c] == ' ' && (c % 8) != 0) {
-                enemy->enemy_pos.x = enemy->enemy_pos.x + 70;
-            }
-            if (buff->line[l][c] == ' ' && (c % 8) == 0) {
-                h = 0;
-                while (d >= h) {
-                    if (enemy->enemy_pos.x != bird->collision[h].x) {
-                        h++;
-                    }
-                    else if (enemy->enemy_pos.x == bird->collision[h].x) {
-                        h = d + 100;
-                    }
-                }
-                if (h <= 40) {
-                    bird->collision[d] = enemy->enemy_pos;
-                    d++;
-                }
-            }
-            if (buff->line[l][c] == '2') {
-                enemy->enemy_pos.x = enemy->enemy_pos.x;
-                enemy->enemy_pos.y = (((l - 1) * 84) - 6);
-                enemy->pos[x] = enemy->enemy_pos;
-                x++;
-            }
-            if (buff->line[l][c] == '3') {
-                enemy->enemy_pos.x = enemy->enemy_pos.x;
-                enemy->enemy_pos.y = (((l - 1) * 84) - 6);
-                enemy->pos_d[i] = enemy->enemy_pos;
-                i++;
-            }
-            if (buff->line[l][c] == '4') {
-                enemy->enemy_pos.x = enemy->enemy_pos.x;
-                enemy->enemy_pos.y = (((l - 1) * 84) - 6);
-                enemy->pos_u[f] = enemy->enemy_pos;
-                f++;
-            }
-        }
-        c = 0;
+    if (x == -1) {
+        my_printf("Error, Malloc didn't worked as expected\n");
+        return (-1);
     }
+    for (; buff->lin_val != 11; buff->lin_val++) {
+        for (; buff->line[buff->lin_val][buff->char_val] != '\0';
+            buff->char_val++) {
+            space_btw_pipe(enemy, buff);
+            if (buff->line[buff->lin_val][buff->char_val] ==
+                ' ' && (buff->char_val % 8) == 0)
+                fill_array(enemy, bird);
+            place_obstacles(enemy, buff);
+            place_obstacles_next(enemy, buff);
+        }
+        buff->char_val = 0;
+    }
+    return (0);
 }
 
 void pipe_update(sfRenderWindow *window, enemy_t *enemy)
@@ -92,7 +48,7 @@ void pipe_update(sfRenderWindow *window, enemy_t *enemy)
     }
 }
 
-void pipe_sprite(enemy_t *enemy, map_t *buff, player_t *bird)
+int pipe_sprite(enemy_t *enemy, map_t *buff, player_t *bird)
 {
     enemy->pipe_tex = sfTexture_createFromFile("png/pipe.png", NULL);
     enemy->pipe_tex_d = sfTexture_createFromFile("png/pipe_down.png", NULL);
@@ -108,5 +64,7 @@ void pipe_sprite(enemy_t *enemy, map_t *buff, player_t *bird)
     sfSprite_setScale(enemy->my_pipe_d, scale);
     sfSprite_setTexture(enemy->my_pipe_u, enemy->pipe_tex_u, sfFalse);
     sfSprite_setScale(enemy->my_pipe_u, scale);
-    init_pipe(enemy, buff, bird);
+    if (init_pipe(enemy, buff, bird) != 0)
+        return (-1);
+    return (0);
 }

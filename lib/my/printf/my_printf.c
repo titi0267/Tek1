@@ -10,7 +10,7 @@ void my_vprintf(char *str, str_len_t *info, va_list *argu_list)
 {
     void (*functionName[12]) (va_list *, str_len_t *) = {print_bin, print_char,
         print_nbr, print_nbr, print_unsigned, print_str,
-        disp_oct, disp_hex, disp_heX, store_len, print_ad, disp_nascii};
+        disp_oct, disp_hex, disp_hexa, store_len, print_ad, disp_nascii};
     char flag_board[13] = {'b', 'c', 'd', 'i', 'u', 's', 'o', 'x',
         'X', 'n', 'p', 'S', 0};
     int flag_nbr = 0;

@@ -15,6 +15,8 @@ typedef struct map_s
     int buffer_size;
     char *buffer;
     char **line;
+    int lin_val;
+    int char_val;
 } map_t;
 
 typedef struct background_s
@@ -67,6 +69,19 @@ typedef struct enemy_s
     float limit;
 } enemy_t;
 
+typedef struct time_s
+{
+    sfClock *clock;
+    float elapsed_time;
+    float delta_time;
+}time_t;
+
+typedef struct window_s
+{
+    sfRenderWindow *window;
+    sfVideoMode video_mode;
+} window_t;
+
 typedef struct score_s
 {
     sfText *text;
@@ -97,5 +112,8 @@ typedef struct gather_s
     enemy_t enemy;
     score_t score;
     sound_t sound;
+    time_t time;
+    window_t windo;
 } gather_t;
+
 #endif /* !MY_STRUCT_H_ */

@@ -51,7 +51,7 @@ void bird_update(player_t *bird, sfRenderWindow *window)
     sfRenderWindow_drawSprite(window, bird->my_bird, NULL);
 }
 
-void birdrect_speed(float delta_time, player_t *bird)
+void bird_anim_speed(time_t *time, player_t *bird)
 {
     static float nbr = 0;
 
@@ -60,5 +60,5 @@ void birdrect_speed(float delta_time, player_t *bird)
         bird->offset++;
         nbr = 0;
     }
-    nbr = delta_time + nbr;
+    nbr = time->delta_time + nbr;
 }
