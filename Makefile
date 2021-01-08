@@ -7,8 +7,9 @@
 
 SRC = 	src/intersection.c		\
 		src/radius.c			\
-		src/line.c				\
+		src/sphere.c			\
 		src/error_handling.c	\
+		src/error_sphere.c
 
 CC		=	gcc -lm
 
