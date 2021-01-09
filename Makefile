@@ -19,6 +19,7 @@ SRC=	src/main.c		\
 		src/sound.c			\
 		src/score.c			\
 		src/init_obstacle.c	\
+		src/destroy_all.c	\
 		src/map.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-audio -l csfml-graphics -l csfml-window -l csfml-system -g
