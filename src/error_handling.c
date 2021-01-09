@@ -45,7 +45,7 @@ int null(infin_number_t *info)
         my_printf("The radius can't be equal or under 0.\n");
         return (84);
     }
-    if (info->opt == 3 && (info->p > 1.56 || info->p < 1.58)) {
+    if ((info->opt == 3 && (info->p > 1.56 && info->p < 1.58)) || info->p <= 0) {
         my_printf("Invalid angle, change the last argument.\n");
         return (84);
     }

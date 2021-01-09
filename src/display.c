@@ -44,4 +44,6 @@ void line(infin_number_t *info)
     my_printf("(%i, %i, %i) ", info->xp, info->yp, info->zp);
     my_printf("and parallel to the vector ");
     my_printf("(%i, %i, %i)\n", info->xv, info->yv, info->zv);
+    if (info->opt == 3)
+        my_printf("No intersection point.\n");
 }
