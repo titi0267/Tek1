@@ -6,55 +6,30 @@
 */
 #include "../include/my.h"
 
-void line(char **av, infin_number_t *info)
+int find_letters_sphere(infin_number_t *info, sphere_t *sphere)
 {
-    my_printf("Line passing through the point ");
-    my_printf("(%i, %i, %i) ", info->xp, info->yp, info->zp);
-    my_printf("and parallel to the vector ");
-    my_printf("(%i, %i, %i)\n", info->xv, info->yv, info->zv);
-}
-
-int find_letters(infin_number_t *info, sphere_t *sphere)
-{
-    sphere->ax = info->xv;
+    sphere->ax = pow(info->xv, 2);
     sphere->bx = (2 * info->xp * info->xv);
-    sphere->cx = info->xp;
-    sphere->ay = info->yv;
+    sphere->cx = pow(info->xp, 2);
+    sphere->ay = pow(info->yv, 2);
     sphere->by = (2 * info->yp * info->yv);
-    sphere->cy = info->yp;
-    sphere->az = info->zv;
+    sphere->cy = pow(info->yp, 2);
+    sphere->az = pow(info->zv, 2);
     sphere->bz = (2 * info->zp * info->zv);
-    sphere->cz = info->zp;
+    sphere->cz = pow(info->zp, 2);
     sphere->a = sphere->ax + sphere->ay + sphere->az;
     sphere->b = sphere->bx + sphere->by + sphere->bz;
-    sphere->c = sphere->cx + sphere->cy + sphere->cz - info->p;
-    sphere->a = pow(sphere->a, 2);
-    sphere->c = pow(sphere->c, 2);
-    if (divide_0(info, sphere) == 84)
+    sphere->c = sphere->cx + sphere->cy + sphere->cz - pow(info->p, 2);
+    if (divide_0(sphere) == 84)
         return (84);
     return (0);
 }
 
-void sphere_equation(infin_number_t *info, sphere_t *sphere)
+int delta_sphere_is(infin_number_t *info , sphere_t *sphere)
 {
-    sphere->ax = pow(info->xv, 2);
-    sphere->bx = pow((2 * info->xp * info->xv), 2);
-    sphere->cx = pow(info->xp, 2);
-    sphere->ay = pow(info->yv, 2);
-    sphere->by = pow((2 * info->yp * info->yv), 2);
-    sphere->cy = pow(info->yp, 2);
-    sphere->az = pow(info->zv, 2);
-    sphere->bz = pow((2 * info->zp * info->zv), 2);
-    sphere->cz = pow(info->zp, 2);
-    sphere->a_sqrt = sphere->ax + sphere->ay + sphere->az;
-    sphere->b_sqrt = sphere->bx + sphere->by + sphere->bz;
-    sphere->c_sqrt = (sphere->cx + sphere->cy + sphere->cz) - pow(info->p, 2);
-    sphere->delta = sphere->b_sqrt - (4 * sphere->a_sqrt * sphere->c_sqrt);
-}
-
-int delta_is(infin_number_t *info , sphere_t *sphere)
-{
-    sphere_equation(info, sphere);
+    if (find_letters_sphere(info, sphere) == 84)
+        return (84);
+    sphere->delta = pow(sphere->b, 2) - (4 * sphere->a * sphere->c);
     if (sphere->delta < 0) {
         my_printf("No intersection point.\n");
         return (1);
@@ -70,11 +45,11 @@ int delta_is(infin_number_t *info , sphere_t *sphere)
     return (0);
 }
 
-int solution(infin_number_t *info, sphere_t *sphere)
+int solution_sph(infin_number_t *info, sphere_t *sphere)
 {
-    int x = delta_is(info, sphere);
+    int x = delta_sphere_is(info, sphere);
 
-    if (find_letters(info, sphere) == 84)
+    if (find_letters_sphere(info, sphere) == 84)
         return (84);
     if (x == 84)
         return (84);
@@ -92,9 +67,9 @@ int solution(infin_number_t *info, sphere_t *sphere)
     return (0);
 }
 
-int find_inter(infin_number_t *info, sphere_t *sphere)
+int find_inter_sph(infin_number_t *info, sphere_t *sphere)
 {
-    int x = solution(info, sphere);
+    int x = solution_sph(info, sphere);
 
     if (x == 84)
         return (84);

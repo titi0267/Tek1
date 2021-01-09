@@ -6,10 +6,10 @@
 ##
 
 SRC = 	src/intersection.c		\
-		src/radius.c			\
 		src/sphere.c			\
 		src/error_handling.c	\
-		src/error_sphere.c
+		src/cylindre.c			\
+		src/display.c
 
 CC		=	gcc -lm
 

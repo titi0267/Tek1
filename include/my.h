@@ -47,12 +47,14 @@ void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
 void help(void);
-int error_handling(int, char **);
-void angle(char **av, infin_number_t *info);
-void line(char **av, infin_number_t *info);
-int delta_is(infin_number_t *info, sphere_t *sphere);
-int solution(infin_number_t *info, sphere_t *sphere);
-int find_inter(infin_number_t *info, sphere_t *sphere);
-int divide_0(infin_number_t *info, sphere_t *sphere);
+int error_handling(int ac, char **av);
+void radius_angle(infin_number_t *info);
+void line(infin_number_t *info);
+int null(infin_number_t *info);
+int find_inter_sph(infin_number_t *info, sphere_t *sphere);
+int divide_0(sphere_t *sphere);
+void find_letters_cylindre(infin_number_t *info, cylindre_t *cylindre);
+void cylindre_equation(infin_number_t *info, cylindre_t *cylindre);
+int find_inter_cyl(infin_number_t *info, cylindre_t *cylindre);
 
 #endif /* !MY_H_ */

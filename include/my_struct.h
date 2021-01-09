@@ -51,10 +51,33 @@ typedef struct sphere_s
     float z1;
 } sphere_t;
 
+typedef struct cylindre_s
+{
+    int a;
+    int b;
+    int c;
+    int ax;
+    int bx;
+    int cx;
+    int ay;
+    int by;
+    int cy;
+    float delta;
+    float solution1;
+    float solution2;
+    float x;
+    float y;
+    float z;
+    float x1;
+    float y1;
+    float z1;
+} cylindre_t;
+
 typedef struct gather_s
 {
     sphere_t *sphere;
     infin_number_t *info;
+    cylindre_t *cylindre;
 } gather_t;
 
 #endif /* !MY_STRUCT_H_ */
