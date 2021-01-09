@@ -32,6 +32,9 @@ void destroy(gather_t *gather)
     sfText_destroy(gather->score.text);
     sfText_destroy(gather->score.text_increase);
     sfText_destroy(gather->score.text_score);
+    sfText_destroy(gather->menu.press);
+    sfText_destroy(gather->menu.count);
+    sfFont_destroy(gather->menu.font);
     sfFont_destroy(gather->score.font);
     free(gather->enemy.pos);
     free(gather->enemy.pos_d);

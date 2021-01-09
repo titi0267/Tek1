@@ -64,6 +64,14 @@ void increase_score(score_t *score, sfRenderWindow *window);
 
 void create_sound(sound_t *sound);
 
+void init_text(menu_t *menu);
+void create_button(menu_t *menu);
+void update_button(gather_t *gather);
+void start_text(menu_t *menu);
+void update_press(gather_t *gather);
+void update_start(gather_t *gather);
+void update_count(gather_t *gather);
+
 int call_init(gather_t *gather, map_t *buff);
 int keep_window_open(map_t *buff);
 void poll_event(sfRenderWindow *window, gather_t *gather);

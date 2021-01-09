@@ -12,16 +12,24 @@ void update_time(time_t *time)
     time->elapsed_time += time->delta_time;
 }
 
-void updater(gather_t *gather)
+void update_start(gather_t *gather)
 {
     background_update(gather->windo.window, &gather->back);
     bottom_update(gather->windo.window, &gather->back);
-    pipe_update(gather->windo.window, &gather->enemy);
-    move_pipe_array(&gather->bird);
     bird_update(&gather->bird, gather->windo.window);
+    bird_anim_speed(&gather->time, &gather->bird);
+    update_press(gather);
+    if (gather->menu.start_count == 1 && gather->menu.countdown >= 0)
+        update_count(gather);
+}
+
+void updater(gather_t *gather)
+{
+    pipe_update(gather->windo.window, &gather->enemy);
+    //update_button(gather);
+    move_pipe_array(&gather->bird);
     bird_btw_pipe(gather);
     increase_score(&gather->score, gather->windo.window);
-    bird_anim_speed(&gather->time, &gather->bird);
     bird_after_pipe(gather);
 }
 

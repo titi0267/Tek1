@@ -10,7 +10,6 @@ int malloc_array(enemy_t *enemy, map_t *buff, player_t *bird)
 {
     buff->char_val = 0;
     buff->lin_val = 0;
-
     enemy->pos = malloc(sizeof(sfVector2f) * 89);
     if (enemy->pos == NULL)
         return (-1);
@@ -20,10 +19,10 @@ int malloc_array(enemy_t *enemy, map_t *buff, player_t *bird)
     enemy->pos_u = malloc(sizeof(sfVector2f) * 17);
     if (enemy->pos_u == NULL)
         return (-1);
-    bird->collision = malloc(sizeof(sfVector2f) * 17);
+    bird->collision = malloc(sizeof(sfVector2f) * 18);
     if (bird->collision == NULL)
         return (-1);
-    for (int h = 0; h < 17; h++)
+    for (int h = 0; h < 18; h++)
         bird->collision[h].x = 0;
     return (0);
 }

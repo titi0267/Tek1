@@ -105,6 +105,28 @@ typedef struct sound_s
     sfSound *jump;
 } sound_t;
 
+typedef struct menu_s
+{
+    sfSprite *button;
+    sfTexture *button_tex;
+    sfVector2f position;
+    sfText *press;
+    sfText *count;
+    sfFont *font;
+    int font_size;
+    sfVector2f text_pos;
+    sfVector2f count_pos;
+    sfVector2f scale;
+    int countdown;
+    char *counter;
+    int game_starting;
+    int random_move1;
+    int random_move2;
+    int random;
+    int delay;
+    int start_count;
+} menu_t;
+
 typedef struct gather_s
 {
     background_t back;
@@ -114,6 +136,7 @@ typedef struct gather_s
     sound_t sound;
     time_t time;
     window_t windo;
+    menu_t menu;
 } gather_t;
 
 #endif /* !MY_STRUCT_H_ */

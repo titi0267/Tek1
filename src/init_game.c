@@ -6,6 +6,22 @@
 */
 #include "../include/my.h"
 
+void init_text(menu_t *menu)
+{
+    menu->game_starting = 0;
+    menu->random_move1 = 1;
+    menu->random_move2 = 1;
+    menu->delay = 0;
+    menu->random = 0;
+    menu->font_size = 80;
+    menu->text_pos.y = 250;
+    menu->text_pos.x = 100;
+    menu->count_pos.x = 600;
+    menu->count_pos.y = 200;
+    menu->countdown = 3;
+    menu->start_count = 0;
+}
+
 void init_background(background_t *back)
 {
     back->position_back.x = 0;
@@ -32,6 +48,8 @@ void init_timer(time_t *time)
 int call_init(gather_t *gather, map_t *buff)
 {
     init_timer(&gather->time);
+    start_text(&gather->menu);
+    //create_button(&gather->menu);
     bird_sprite(&gather->bird);
     create_sound(&gather->sound);
     if (pipe_sprite(&gather->enemy, buff, &gather->bird) != 0)

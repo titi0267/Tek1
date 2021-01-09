@@ -27,11 +27,14 @@ int keep_window_open(map_t *buff)
         sfRenderWindow_display(gather.windo.window);
         poll_event(gather.windo.window, &gather);
         update_time(&gather.time);
-        if (gather.bird.death == 0) {
-            updater(&gather);
-            bird_action(&gather);
-        } else
-            death(&gather);
+        update_start(&gather);
+        if (gather.menu.game_starting == 1 && gather.menu.countdown <= 0) {
+            if (gather.bird.death == 0) {
+                updater(&gather);
+                bird_action(&gather);
+            } else
+                death(&gather);
+        }
     }
     destroy(&gather);
     return (0);

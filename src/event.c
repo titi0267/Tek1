@@ -10,6 +10,8 @@ void space_pressed(sfEvent event, gather_t *gather)
 {
     if (event.type == sfEvtKeyPressed) {
         if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+            gather->menu.game_starting = 1;
+            gather->menu.start_count = 1;
             gather->bird.while_jump = 1;
             gather->bird.second_jump++;
             sfSound_play(gather->sound.jump);

@@ -19,6 +19,8 @@ SRC=	src/main.c		\
 		src/sound.c			\
 		src/score.c			\
 		src/init_obstacle.c	\
+		src/start_text.c			\
+		src/end_button.c	\
 		src/destroy_all.c	\
 		src/map.c
 
