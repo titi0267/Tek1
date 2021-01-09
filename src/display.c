@@ -25,17 +25,22 @@ int keep_window_open(map_t *buff)
         return (-1);
     while (sfRenderWindow_isOpen(gather.windo.window)) {
         sfRenderWindow_display(gather.windo.window);
+        restart(&gather, buff);
         poll_event(gather.windo.window, &gather);
         update_time(&gather.time);
-        update_start(&gather);
+        if (gather.menu.stop_game == 0)
+            update_start(&gather);
         if (gather.menu.game_starting == 1 && gather.menu.countdown <= 0) {
             if (gather.bird.death == 0) {
                 updater(&gather);
                 bird_action(&gather);
-            } else
+            } else {
                 death(&gather);
+                bird_fall_death(&gather.bird, &gather.windo);
+            }
         }
     }
     destroy(&gather);
+    sfRenderWindow_destroy(gather.windo.window);
     return (0);
 }

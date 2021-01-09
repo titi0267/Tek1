@@ -26,9 +26,8 @@ void update_start(gather_t *gather)
 void updater(gather_t *gather)
 {
     pipe_update(gather->windo.window, &gather->enemy);
-    //update_button(gather);
     move_pipe_array(&gather->bird);
-    bird_btw_pipe(gather);
+    bird_btw_pipe(&gather->bird);
     increase_score(&gather->score, gather->windo.window);
     bird_after_pipe(gather);
 }

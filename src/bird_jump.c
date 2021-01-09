@@ -31,15 +31,13 @@ void go_straight(player_t *bird)
 
 void rotate(player_t *bird)
 {
-    static float rotate_speed = 1;
-
     if (bird->while_jump > 0 && bird->rotation > -20) {
         if (bird->rotation >= -20 && bird->rotation <= 30)
-            rotate_speed -= 0.3f;
+            bird->rotate_speed -= 0.3f;
         if (bird->rotation > 30 && bird->rotation <= 100)
-            rotate_speed -= 0.5f;
+            bird->rotate_speed -= 0.5f;
         if (bird->rotation >= 1)
-            bird->rotation *= rotate_speed;
+            bird->rotation *= bird->rotate_speed;
         if (bird->rotation < 1 && bird->rotation >= -20)
             bird->rotation -= 2;
         sfSprite_setRotation(bird->my_bird, bird->rotation);
@@ -48,7 +46,7 @@ void rotate(player_t *bird)
         bird->rotation += 2;
         bird->fall_fast += 0.03;
         sfSprite_setRotation(bird->my_bird, bird->rotation);
-        rotate_speed = 1;
+        bird->rotate_speed = 1;
     }
 }
 

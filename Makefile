@@ -22,6 +22,7 @@ SRC=	src/main.c		\
 		src/start_text.c			\
 		src/end_button.c	\
 		src/destroy_all.c	\
+		src/bird_died.c		\
 		src/map.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-audio -l csfml-graphics -l csfml-window -l csfml-system -g

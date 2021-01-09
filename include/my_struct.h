@@ -52,6 +52,14 @@ typedef struct player_s
     float fall_fast;
     int fit_space;
     int high;
+    int stop;
+    int fall_dead;
+    float rotate_speed;
+    int angle_down;
+    int move_pipe;
+    int col_arr;
+    int aft_pip;
+    float angle;
 } player_t;
 
 typedef struct enemy_s
@@ -66,7 +74,13 @@ typedef struct enemy_s
     sfVector2f *pos;
     sfVector2f *pos_u;
     sfVector2f *pos_d;
+    int pos_x;
+    int pos_di;
+    int pos_uf;
+    int fill_d;
+    int death_i;
     float limit;
+    int restart_game;
 } enemy_t;
 
 typedef struct time_s
@@ -108,6 +122,12 @@ typedef struct sound_s
 typedef struct menu_s
 {
     sfSprite *button;
+    sfSprite *black_but;
+    sfSprite *load;
+    sfSprite *gm_ovr;
+    sfTexture *game_ovr;
+    sfTexture *loading;
+    sfTexture *black_tex;
     sfTexture *button_tex;
     sfVector2f position;
     sfText *press;
@@ -116,7 +136,11 @@ typedef struct menu_s
     int font_size;
     sfVector2f text_pos;
     sfVector2f count_pos;
+    sfVector2f pos_death;
     sfVector2f scale;
+    sfVector2f black_scale;
+    sfVector2f pos_black;
+    int change_button;
     int countdown;
     char *counter;
     int game_starting;
@@ -125,6 +149,8 @@ typedef struct menu_s
     int random;
     int delay;
     int start_count;
+    int stop_game;
+    int restart;
 } menu_t;
 
 typedef struct gather_s

@@ -29,6 +29,9 @@ void bird_init(player_t *bird)
     bird->death = 0;
     bird->fit_space = 0;
     bird->high = 0;
+    bird->fall_dead = 1;
+    bird->angle_down = 1;
+    bird->stop = 0;
 }
 
 void bird_sprite(player_t *bird)
@@ -48,6 +51,7 @@ void bird_update(player_t *bird, sfRenderWindow *window)
         bird->offset = 0;
     sfSprite_setPosition(bird->my_bird, bird->position);
     sfSprite_setTextureRect(bird->my_bird, bird->anim);
+    sfSprite_setRotation(bird->my_bird, bird->rotation);
     sfRenderWindow_drawSprite(window, bird->my_bird, NULL);
 }
 

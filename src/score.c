@@ -23,6 +23,12 @@ void init_score(score_t *score)
     sfText_setColor(score->text_score, sfWhite);
 }
 
+void reset_score(score_t *score)
+{
+    score->amount = 0;
+    score->increase_score = 0;
+}
+
 void init_score_next(score_t *score)
 {
     sfVector2f position = {583, 83};
@@ -32,8 +38,7 @@ void init_score_next(score_t *score)
     sfText_setPosition(score->text, position);
     sfText_setPosition(score->text_increase, score->position_increase);
     sfText_setPosition(score->text_score, position_score);
-    score->amount = 0;
-    score->increase_score = 0;
+    reset_score(score);
 }
 
 void increase_score(score_t *score, sfRenderWindow *window)

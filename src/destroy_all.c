@@ -26,9 +26,22 @@ void destroy_alias(gather_t *gather)
     sfTexture_destroy(gather->back.bottom1);
 }
 
+void destroy_alias1(gather_t *gather)
+{
+    sfSprite_destroy(gather->menu.button);
+    sfSprite_destroy(gather->menu.black_but);
+    sfSprite_destroy(gather->menu.load);
+    sfSprite_destroy(gather->menu.gm_ovr);
+    sfTexture_destroy(gather->menu.loading);
+    sfTexture_destroy(gather->menu.black_tex);
+    sfTexture_destroy(gather->menu.game_ovr);
+    sfTexture_destroy(gather->menu.button_tex);
+}
+
 void destroy(gather_t *gather)
 {
     destroy_alias(gather);
+    destroy_alias1(gather);
     sfText_destroy(gather->score.text);
     sfText_destroy(gather->score.text_increase);
     sfText_destroy(gather->score.text_score);
@@ -47,5 +60,4 @@ void destroy(gather_t *gather)
     sfSoundBuffer_destroy(gather->sound.jump_buf);
     sfSound_destroy(gather->sound.death);
     sfSoundBuffer_destroy(gather->sound.death_buf);
-    sfRenderWindow_destroy(gather->windo.window);
 }

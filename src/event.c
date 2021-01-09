@@ -6,6 +6,16 @@
 */
 #include "../include/my.h"
 
+void restart_click(sfEvent event, gather_t *gather)
+{
+    sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(gather->windo.window);
+
+    if (event.type == sfEvtMouseButtonPressed) {
+        if ((mouse_pos.x > 500 && mouse_pos.x < 745) && (mouse_pos.y > 400 && mouse_pos.y < 540))
+            gather->menu.change_button = 1;
+    }
+}
+
 void space_pressed(sfEvent event, gather_t *gather)
 {
     if (event.type == sfEvtKeyPressed) {
@@ -27,5 +37,6 @@ void poll_event(sfRenderWindow *window, gather_t *gather)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         space_pressed(event, gather);
+        restart_click(event, gather);
     }
 }

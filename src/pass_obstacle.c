@@ -16,34 +16,30 @@ void limit(enemy_t *enemy, player_t *bird)
 
 void move_pipe_array(player_t *bird)
 {
-    static int i = 1;
-
-    while (i <= 16) {
-        bird->collision[i].x -= 4;
-        i++;
+    while (bird->move_pipe <= 16) {
+        bird->collision[bird->move_pipe].x -= 4;
+        bird->move_pipe++;
     }
-    i = 1;
+    bird->move_pipe = 1;
 }
 
-void bird_btw_pipe(gather_t *gather)
+void bird_btw_pipe(player_t *bird)
 {
-    static int h = 1;
-
-    while (h <= 16) {
-        if (gather->bird.collision[h].x < (gather->bird.position.x + 60) &&
-            gather->bird.collision[h].x > (gather->bird.position.x - 84))
+    while (bird->col_arr <= 16) {
+        if (bird->collision[bird->col_arr].x < (bird->position.x + 60) &&
+            bird->collision[bird->col_arr].x > (bird->position.x - 84))
             break;
-        h++;
+        bird->col_arr++;
     }
-    if (h != 17) {
-        if ((gather->bird.collision[h].y + 12) < gather->bird.position.y &&
-            gather->bird.collision[h].y + ((84 * 2) - 6)
-            > (gather->bird.position.y + 42.7f))
-            gather->bird.high = 1;
+    if (bird->col_arr != 17) {
+        if ((bird->collision[bird->col_arr].y + 12) < bird->position.y &&
+            bird->collision[bird->col_arr].y + ((84 * 2) - 6)
+            > (bird->position.y + 42.7f))
+            bird->high = 1;
         else
-            gather->bird.high = 0;
+            bird->high = 0;
     }
-    if (h == 17)
-        gather->bird.high = 1;
-    h = 1;
+    if (bird->col_arr == 17)
+        bird->high = 1;
+    bird->col_arr = 1;
 }
