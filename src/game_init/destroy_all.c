@@ -40,12 +40,6 @@ void destroy_alias1(gather_t *gather)
     sfSoundBuffer_destroy(gather->sound.out_gm_buf);
     sfText_destroy(gather->score.your_score);
     sfText_destroy(gather->score.high_score);
-}
-
-void destroy(gather_t *gather)
-{
-    destroy_alias(gather);
-    destroy_alias1(gather);
     sfText_destroy(gather->score.text);
     sfText_destroy(gather->score.text_increase);
     sfText_destroy(gather->score.text_score);
@@ -53,6 +47,12 @@ void destroy(gather_t *gather)
     sfText_destroy(gather->menu.count);
     sfFont_destroy(gather->menu.font);
     sfFont_destroy(gather->score.font);
+}
+
+void destroy(gather_t *gather)
+{
+    destroy_alias(gather);
+    destroy_alias1(gather);
     free(gather->enemy.pos);
     free(gather->enemy.pos_d);
     free(gather->enemy.pos_u);

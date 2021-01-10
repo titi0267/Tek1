@@ -6,7 +6,6 @@
 */
 #include "../../../include/my.h"
 
-
 void limit(enemy_t *enemy, player_t *bird)
 {
     if (bird->position.y >= enemy->limit) {

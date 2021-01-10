@@ -59,6 +59,8 @@ void increase_score(score_t *score, sfRenderWindow *window)
     }
     if (score->amount >= 10)
         score->position_increase.x = 583;
+    else
+        score->position_increase.x = 630;
     sfText_setPosition(score->text_increase, score->position_increase);
     sfRenderWindow_drawText(window, score->text_score, NULL);
     sfRenderWindow_drawText(window, score->text_increase, NULL);

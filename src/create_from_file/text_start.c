@@ -11,6 +11,7 @@ void start_text(menu_t *menu)
     menu->press = sfText_create();
     menu->count = sfText_create();
     menu->font = sfFont_createFromFile("ressource/score.ttf");
+
     init_text(menu);
     sfText_setFont(menu->press, menu->font);
     sfText_setFont(menu->count, menu->font);

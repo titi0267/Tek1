@@ -83,6 +83,8 @@ void restart(gather_t *gather, map_t *buff);
 void your_score(score_t *score, sfRenderWindow *window);
 void best_score(score_t *score, sfRenderWindow *window);
 void re_init(gather_t *gather, map_t *buff);
+void reset_static(enemy_t *enemy, player_t *bird);
+int init_enemy(enemy_t *enemy, map_t *buff, player_t *bird);
 
 int call_init(gather_t *gather, map_t *buff);
 int keep_window_open(map_t *buff);
