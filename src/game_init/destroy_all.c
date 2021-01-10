@@ -47,6 +47,7 @@ void destroy_alias1(gather_t *gather)
     sfText_destroy(gather->menu.count);
     sfFont_destroy(gather->menu.font);
     sfFont_destroy(gather->score.font);
+    sfFont_destroy(gather->score.font1);
 }
 
 void destroy(gather_t *gather)

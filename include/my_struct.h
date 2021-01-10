@@ -104,6 +104,7 @@ typedef struct score_s
     sfText *text_score;
     sfText *text_increase;
     sfFont *font;
+    sfFont *font1;
     sfVector2f position_increase;
     sfVector2f pos_best;
     int amount;

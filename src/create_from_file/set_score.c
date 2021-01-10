@@ -10,10 +10,10 @@ void init_end_score(score_t *score)
 {
     score->high_score = sfText_create();
     score->your_score = sfText_create();
-    score->font = sfFont_createFromFile("ressource/score.ttf");
+    score->font1 = sfFont_createFromFile("ressource/score.ttf");
 
-    sfText_setFont(score->high_score, score->font);
-    sfText_setFont(score->your_score, score->font);
+    sfText_setFont(score->high_score, score->font1);
+    sfText_setFont(score->your_score, score->font1);
     sfText_setCharacterSize(score->your_score, 75);
     sfText_setCharacterSize(score->high_score, 30);
     sfText_setColor(score->your_score, sfBlack);
