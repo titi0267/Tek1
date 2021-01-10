@@ -54,6 +54,8 @@ void destroy(gather_t *gather)
 {
     destroy_alias(gather);
     destroy_alias1(gather);
+    sfSprite_destroy(gather->back.winner);
+    sfTexture_destroy(gather->back.winner_tex);
     free(gather->enemy.pos);
     free(gather->enemy.pos_d);
     free(gather->enemy.pos_u);

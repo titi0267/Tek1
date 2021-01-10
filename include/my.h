@@ -29,6 +29,7 @@ int wich_map(int ac, char **av, map_t *buff);
 void init_background(background_t *back);
 void background(background_t *back);
 void background_update(sfRenderWindow *window, background_t *back);
+void won(background_t *back);
 
 void init_bottom(background_t *back);
 void bottom(background_t *back);
@@ -85,6 +86,7 @@ void best_score(score_t *score, sfRenderWindow *window);
 void re_init(gather_t *gather, map_t *buff);
 void reset_static(enemy_t *enemy, player_t *bird);
 int init_enemy(enemy_t *enemy, map_t *buff, player_t *bird);
+void congrats(gather_t *gather);
 
 int call_init(gather_t *gather, map_t *buff);
 int keep_window_open(map_t *buff);

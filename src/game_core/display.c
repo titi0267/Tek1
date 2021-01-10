@@ -21,15 +21,16 @@ void main_loop(map_t *buff, gather_t *gather)
     restart(gather, buff);
     poll_event(gather->windo.window, gather);
     update_time(&gather->time);
-    if (gather->menu.stop_game == 0)
+    if (gather->menu.stop_game == 0 || gather->score.win == 1)
         update_start(gather);
     if (gather->menu.game_starting == 1 && gather->menu.countdown <= 0) {
-        if (gather->bird.death == 0) {
+        if (gather->bird.death == 0 && gather->score.win == 0) {
             updater(gather);
             bird_action(gather);
         } else {
             death(gather);
-            bird_fall_death(&gather->bird, &gather->windo);
+            if (gather->score.win == 0)
+                bird_fall_death(&gather->bird, &gather->windo);
         }
     }
     best_score(&gather->score, gather->windo.window);

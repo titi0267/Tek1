@@ -17,6 +17,7 @@ void init_button(menu_t *menu)
     menu->scale.y = 5;
     menu->black_scale.x = 4;
     menu->black_scale.y = 4;
+    menu->button_black = 0;
 }
 
 int init_enemy(enemy_t *enemy, map_t *buff, player_t *bird)

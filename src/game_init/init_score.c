@@ -10,6 +10,7 @@ void reset_score(score_t *score)
 {
     score->amount = 0;
     score->increase_score = 0;
+    score->win = 0;
 }
 
 void init_score_next(score_t *score)

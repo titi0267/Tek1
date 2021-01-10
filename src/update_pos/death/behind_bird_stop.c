@@ -38,9 +38,17 @@ void death(gather_t *gather)
 {
     if (gather->enemy.death_i < 1)
         sfSound_play(gather->sound.death);
-    back_death(&gather->back, &gather->windo);
-    pipe_death(gather->windo.window, &gather->enemy);
-    update_gm_over(gather);
+    if (gather->score.win == 0) {
+        back_death(&gather->back, &gather->windo);
+        pipe_death(gather->windo.window, &gather->enemy);
+        update_gm_over(gather);
+    }
+    if (gather->score.win == 1) {
+        pipe_update(gather->windo.window, &gather->enemy);
+        congrats(gather);
+        gather->bird.position.x += 4;
+        update_gm_over(gather);
+    }
     gather->menu.stop_game = 1;
     gather->enemy.death_i = 1;
     gather->score.actual = gather->score.amount;

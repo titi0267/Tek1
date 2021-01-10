@@ -13,4 +13,7 @@ void updater(gather_t *gather)
     bird_btw_pipe(&gather->bird);
     increase_score(&gather->score, gather->windo.window);
     bird_after_pipe(gather);
+    if (gather->score.amount >= 16) {
+        gather->score.win = 1;
+    }
 }

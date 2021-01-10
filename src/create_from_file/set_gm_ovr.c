@@ -53,3 +53,15 @@ void game_over(menu_t *menu)
     sfSprite_setScale(menu->gm_ovr, scale);
     sfSprite_setPosition(menu->gm_ovr, menu->pos_death);
 }
+
+void won(background_t *back)
+{
+    back->winner = sfSprite_create();
+    back->winner_tex = sfTexture_createFromFile("ressource/img/won.png", NULL);
+    sfVector2f scale = {0.5f, 0.5};
+    sfVector2f pos = {500, 100};
+
+    sfSprite_setTexture(back->winner, back->winner_tex, sfFalse);
+    sfSprite_setScale(back->winner, scale);
+    sfSprite_setPosition(back->winner, pos);
+}

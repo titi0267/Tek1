@@ -25,25 +25,31 @@ void draw_load(gather_t *gather)
     sfRenderWindow_drawSprite(gather->windo.window, gather->menu.load, NULL);
 }
 
+void draw_button(gather_t *gather)
+{
+    sfRenderWindow_drawSprite(gather->windo.window, gather->menu.button, NULL);
+}
+
 void update_gm_over(gather_t *gather)
 {
     static float nbr = 0;
-    static int button_black = 0;
 
     if (gather->menu.change_button == 0) {
-        sfRenderWindow_drawSprite(gather->windo.window, gather->menu.gm_ovr,
-                                    NULL);
-        sfRenderWindow_drawSprite(gather->windo.window, gather->menu.button,
-                                    NULL);
+        if (gather->score.win == 1)
+            draw_button(gather);
+        else {
+            draw_button(gather);
+            sfRenderWindow_drawSprite(gather->windo.window, gather->menu.gm_ovr,
+                                        NULL);
+        }
     } else {
         if (nbr > 0.1) {
             move_black(gather);
-            button_black = 1;
+            gather->menu.button_black = 1;
             nbr = 0;
         }
-        if (button_black == 1) {
+        if (gather->menu.button_black == 1)
             draw_load(gather);
-        }
         nbr += gather->time.delta_time;
     }
 }

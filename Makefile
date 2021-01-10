@@ -31,6 +31,7 @@ SRC=	src/game_core/main.c		\
 		src/update_pos/death/behind_bird_stop.c			\
 		src/update_pos/death/bird_death.c				\
 		src/update_pos/death/move_button.c				\
+		src/update_pos/win/win.c						\
 		src/update_pos/before_space.c					\
 		src/update_pos/bird_actions.c					\
 		src/update_pos/bird_animation.c					\

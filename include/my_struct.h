@@ -34,6 +34,8 @@ typedef struct background_s
     sfTexture *bottom1;
     sfSprite *my_background1;
     sfTexture *background1;
+    sfSprite *winner;
+    sfTexture *winner_tex;
 } background_t;
 
 typedef struct player_s
@@ -114,6 +116,7 @@ typedef struct score_s
     char *score_disp;
     char *current;
     char *max_disp;
+    int win;
 } score_t;
 
 typedef struct sound_s
@@ -161,6 +164,7 @@ typedef struct menu_s
     int start_count;
     int stop_game;
     int restart;
+    int button_black;
 } menu_t;
 
 typedef struct gather_s
