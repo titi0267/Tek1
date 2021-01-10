@@ -6,6 +6,44 @@
 */
 #include "../../../include/my.h"
 
+void your_score(score_t *score, sfRenderWindow *window)
+{
+    lib_t lib;
+    sfVector2f pos_your = {375, 0};
+
+    sfText_setPosition(score->your_score, pos_your);
+    sfText_setString(score->your_score, "Your score: ");
+    sfRenderWindow_drawText(window, score->your_score, NULL);
+    pos_your.x = 825;
+    sfText_setPosition(score->your_score, pos_your);
+    score->current = my_revstr(my_int_str(score->actual, &lib), &lib);
+    if (score->actual == 0)
+        sfText_setString(score->your_score, "0");
+    else
+        sfText_setString(score->your_score, score->current);
+    sfRenderWindow_drawText(window, score->your_score, NULL);
+    free(score->current);
+}
+
+void best_score(score_t *score, sfRenderWindow *window)
+{
+    lib_t lib;
+
+    score->pos_best.x = 5;
+    sfText_setPosition(score->high_score, score->pos_best);
+    sfText_setString(score->high_score, "Best score: ");
+    sfRenderWindow_drawText(window, score->high_score, NULL);
+    score->pos_best.x = 185;
+    sfText_setPosition(score->high_score, score->pos_best);
+    score->max_disp = my_revstr(my_int_str(score->max, &lib), &lib);
+    if (score->max == 0)
+        sfText_setString(score->high_score, "0");
+    else
+        sfText_setString(score->high_score, score->max_disp);
+    sfRenderWindow_drawText(window, score->high_score, NULL);
+    free(score->max_disp);
+}
+
 void increase_score(score_t *score, sfRenderWindow *window)
 {
     lib_t lib;

@@ -36,6 +36,10 @@ void destroy_alias1(gather_t *gather)
     sfTexture_destroy(gather->menu.black_tex);
     sfTexture_destroy(gather->menu.game_ovr);
     sfTexture_destroy(gather->menu.button_tex);
+    sfSound_destroy(gather->sound.out_gm);
+    sfSoundBuffer_destroy(gather->sound.out_gm_buf);
+    sfText_destroy(gather->score.your_score);
+    sfText_destroy(gather->score.high_score);
 }
 
 void destroy(gather_t *gather)

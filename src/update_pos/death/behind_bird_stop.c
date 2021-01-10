@@ -43,4 +43,8 @@ void death(gather_t *gather)
     update_gm_over(gather);
     gather->menu.stop_game = 1;
     gather->enemy.death_i = 1;
+    gather->score.actual = gather->score.amount;
+    your_score(&gather->score, gather->windo.window);
+    if (gather->score.amount > gather->score.max)
+        gather->score.max = gather->score.amount;
 }

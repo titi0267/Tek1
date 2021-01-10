@@ -13,8 +13,10 @@ void restart_click(sfEvent event, gather_t *gather)
     mouse_pos = sfMouse_getPositionRenderWindow(gather->windo.window);
     if (event.type == sfEvtMouseButtonPressed) {
         if ((mouse_pos.x > 500 && mouse_pos.x < 745) && (mouse_pos.y > 400 &&
-            mouse_pos.y < 540))
+            mouse_pos.y < 540)) {
+            sfSound_play(gather->sound.out_gm);
             gather->menu.change_button = 1;
+        }
     }
 }
 
@@ -26,6 +28,8 @@ void space_pressed(sfEvent event, gather_t *gather)
             gather->menu.start_count = 1;
             gather->bird.while_jump = 1;
             gather->bird.second_jump++;
+            if (gather->menu.countdown == 3)
+                sfSound_play(gather->sound.out_gm);
             if (gather->menu.countdown <= 0 && gather->bird.death == 0)
                 sfSound_play(gather->sound.jump);
         }

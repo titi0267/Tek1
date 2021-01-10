@@ -99,13 +99,20 @@ typedef struct window_s
 typedef struct score_s
 {
     sfText *text;
+    sfText *high_score;
+    sfText *your_score;
     sfText *text_score;
     sfText *text_increase;
     sfFont *font;
     sfVector2f position_increase;
+    sfVector2f pos_best;
     int amount;
+    int max;
+    int actual;
     int increase_score;
     char *score_disp;
+    char *current;
+    char *max_disp;
 } score_t;
 
 typedef struct sound_s
@@ -117,6 +124,8 @@ typedef struct sound_s
     sfSound *death;
     sfSoundBuffer *jump_buf;
     sfSound *jump;
+    sfSound *out_gm;
+    sfSoundBuffer *out_gm_buf;
 } sound_t;
 
 typedef struct menu_s

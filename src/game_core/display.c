@@ -39,6 +39,7 @@ int keep_window_open(map_t *buff)
                 bird_fall_death(&gather.bird, &gather.windo);
             }
         }
+        best_score(&gather.score, gather.windo.window);
     }
     destroy(&gather);
     sfRenderWindow_destroy(gather.windo.window);

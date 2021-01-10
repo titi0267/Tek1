@@ -18,4 +18,8 @@ void create_sound(sound_t *sound)
     sound->jump = sfSound_create();
     sound->jump_buf = sfSoundBuffer_createFromFile("ressource/sound/jump.ogg");
     sfSound_setBuffer(sound->jump, sound->jump_buf);
+    sound->out_gm = sfSound_create();
+    sound->out_gm_buf = sfSoundBuffer_createFromFile(
+                                                    "ressource/sound/menu.ogg");
+    sfSound_setBuffer(sound->out_gm, sound->out_gm_buf);
 }

@@ -77,6 +77,7 @@ int call_init(gather_t *gather, map_t *buff)
     bottom(&gather->back);
     background(&gather->back);
     init_score(&gather->score);
+    gather->score.max = 0;
     init_score_next(&gather->score);
     game_over(&gather->menu);
     return (0);

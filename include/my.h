@@ -80,6 +80,8 @@ void bird_fall_death(player_t *bird, window_t *windo);
 void game_over(menu_t *menu);
 void update_gm_over(gather_t *gather);
 void restart(gather_t *gather, map_t *buff);
+void your_score(score_t *score, sfRenderWindow *window);
+void best_score(score_t *score, sfRenderWindow *window);
 void re_init(gather_t *gather, map_t *buff);
 
 int call_init(gather_t *gather, map_t *buff);
