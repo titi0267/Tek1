@@ -121,7 +121,6 @@ typedef struct score_s
 
 typedef struct sound_s
 {
-    sfMusic *music;
     sfSoundBuffer *coin_buf;
     sfSound *coin;
     sfSoundBuffer *death_buf;
@@ -130,6 +129,9 @@ typedef struct sound_s
     sfSound *jump;
     sfSound *out_gm;
     sfSoundBuffer *out_gm_buf;
+    sfSound *death_down;
+    sfSoundBuffer *death_down_bu;
+    int played;
 } sound_t;
 
 typedef struct menu_s

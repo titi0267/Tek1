@@ -23,14 +23,14 @@ void bird_fall_speed(player_t *bird)
         bird->angle_down = 4;
         bird->stop = 1;
     }
-    if (bird->position.y >= 550 && bird->position.y <= 720) {
+    if (bird->position.y >= 550 && bird->position.y <= 670) {
         bird->fall_dead = 3;
         bird->angle_down = 5;
         bird->stop = 1;
     }
 }
 
-void bird_fall_death(player_t *bird, window_t *windo)
+void bird_fall_death(player_t *bird, window_t *windo, sound_t *sound)
 {
     float angle_bottom = bird->rotation;
 
@@ -43,8 +43,10 @@ void bird_fall_death(player_t *bird, window_t *windo)
         if (bird->angle <= 85)
             bird->angle += bird->angle_down;
     }
-    if (bird->position.y >= 720 && bird->stop == 0) {
+    if (bird->position.y >= 670 && bird->stop == 0) {
         sfSprite_setRotation(bird->my_bird, angle_bottom);
+        sound->played = 1;
+        sfSound_play(sound->death_down);
         bird->stop = 1;
     } else
         sfSprite_setRotation(bird->my_bird, bird->angle);

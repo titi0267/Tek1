@@ -56,6 +56,8 @@ void destroy(gather_t *gather)
     destroy_alias1(gather);
     sfSprite_destroy(gather->back.winner);
     sfTexture_destroy(gather->back.winner_tex);
+    sfSound_destroy(gather->sound.death_down);
+    sfSoundBuffer_destroy(gather->sound.death_down_bu);
     free(gather->enemy.pos);
     free(gather->enemy.pos_d);
     free(gather->enemy.pos_u);

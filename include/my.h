@@ -77,7 +77,7 @@ void update_press(gather_t *gather);
 void update_start(gather_t *gather);
 void update_count(gather_t *gather);
 
-void bird_fall_death(player_t *bird, window_t *windo);
+void bird_fall_death(player_t *bird, window_t *windo, sound_t *sound);
 void game_over(menu_t *menu);
 void update_gm_over(gather_t *gather);
 void restart(gather_t *gather, map_t *buff);

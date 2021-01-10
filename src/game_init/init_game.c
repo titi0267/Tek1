@@ -6,7 +6,7 @@
 */
 #include "../../include/my.h"
 
-void init_static(enemy_t *enemy, player_t *bird)
+void init_static(enemy_t *enemy, player_t *bird, sound_t *sound)
 {
     enemy->pos_di = 0;
     enemy->pos_x = 0;
@@ -18,6 +18,7 @@ void init_static(enemy_t *enemy, player_t *bird)
     enemy->pos_uf = 0;
     bird->move_pipe = 1;
     bird->aft_pip = 1;
+    sound->played = 0;
 }
 
 void init_timer(time_t *time)
@@ -29,7 +30,7 @@ void init_timer(time_t *time)
 
 int call_init(gather_t *gather, map_t *buff)
 {
-    init_static(&gather->enemy, &gather->bird);
+    init_static(&gather->enemy, &gather->bird, &gather->sound);
     init_timer(&gather->time);
     start_text(&gather->menu);
     create_button(&gather->menu);

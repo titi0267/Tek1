@@ -36,7 +36,7 @@ void back_death(background_t *back, window_t *windo)
 
 void death(gather_t *gather)
 {
-    if (gather->enemy.death_i < 1)
+    if (gather->enemy.death_i < 1 && gather->bird.position.y < 670)
         sfSound_play(gather->sound.death);
     if (gather->score.win == 0) {
         back_death(&gather->back, &gather->windo);

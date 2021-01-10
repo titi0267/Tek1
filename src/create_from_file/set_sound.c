@@ -42,4 +42,8 @@ void create_sound(sound_t *sound)
     death_sound(sound);
     jump_sound(sound);
     game_over_sound(sound);
+    sound->death_down= sfSound_create();
+    sound->death_down_bu = sfSoundBuffer_createFromFile(
+                                            "ressource/sound/death_down.ogg");
+    sfSound_setBuffer(sound->death_down, sound->death_down_bu);
 }

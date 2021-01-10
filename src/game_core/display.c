@@ -30,7 +30,7 @@ void main_loop(map_t *buff, gather_t *gather)
         } else {
             death(gather);
             if (gather->score.win == 0)
-                bird_fall_death(&gather->bird, &gather->windo);
+                bird_fall_death(&gather->bird, &gather->windo, &gather->sound);
         }
     }
     best_score(&gather->score, gather->windo.window);
