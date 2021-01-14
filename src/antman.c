@@ -18,20 +18,16 @@ int main(int ac, char **av)
         return (84);
     //for (int i = 0; buffer)
     //my_printf("fuck\n");
-    while (buffer->line[e] != 0) {
-        for (; buffer->line[e][c] != '\0'; c++) {
+    for (;buffer->line[e] != 0; e++) {
+        for (; buffer->line[e][c] != '\0'; c++)
             my_printf("%c", buffer->line[e][c]);
-        }
-        printf("e = %i\n", e);
-        printf("\n");
+        my_printf("\n");
         c = 0;
-        e++;
     }
-    if (buffer->line[e] == 0)
-        e--;
-    printf("\ne = %i\n", e);
     for (int i = 0; i < e; i++)
         free(buffer->line[i]);
+    free(buffer->str);
     free(buffer->line);
+    free(buffer);
     return (0);
 }

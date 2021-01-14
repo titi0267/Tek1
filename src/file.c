@@ -45,6 +45,7 @@ int store_map(map_t *buffer)
 {
     int i = 0;
     int e = 0;
+    int x = 0;
     int c = 0;
 
     buffer->line = malloc(sizeof(char *) * buffer->buffer_size);
@@ -57,8 +58,10 @@ int store_map(map_t *buffer)
         for (; buffer->str[i] != ' ' && buffer->str[i] != '\n' && i < buffer->buffer_size - 1; i++, c++) {
             buffer->line[e][c] = buffer->str[i];
         }
-        if (i == buffer->buffer_size - 1)
+        x = c;
+        if (i == buffer->buffer_size - 1) {
             break;
+        }
         if (buffer->str[i + 1] == ' ' && i < buffer->buffer_size - 1) {
             i++;
         }
@@ -69,7 +72,7 @@ int store_map(map_t *buffer)
         }
         c = 0;
     }
-    printf("e = %i\n", e);
+    buffer->line[e][x] = '\0';
     buffer->line[e + 1] = 0;
     return (0);
 }
