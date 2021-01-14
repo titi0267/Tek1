@@ -7,6 +7,7 @@
 CC		=	gcc	-o
 
 SRC=	src/antman.c	\
+		src/usage.c		\
 		src/file.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g

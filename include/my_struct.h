@@ -13,8 +13,8 @@ typedef struct map_s
     int buffer_size;
     char *str;
     char **line;
-    int lin_val;
-    int char_val;
+    int word;
+    int *word_len;
 } map_t;
 
 #endif /* !MY_STRUCT_H_ */

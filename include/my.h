@@ -28,5 +28,4 @@ int my_printf(char *str, ...);
 void print_usage(void);
 int wich_map(int ac, char **av, map_t *buff);
 
-
 #endif /* !MY_H_ */

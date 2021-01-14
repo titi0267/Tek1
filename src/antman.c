@@ -6,7 +6,6 @@
 */
 
 #include "../include/my.h"
-#include <stdio.h>
 
 int main(int ac, char **av)
 {
@@ -16,16 +15,16 @@ int main(int ac, char **av)
 
     if (buffer == NULL || wich_map(ac, av, buffer) != 0)
         return (84);
-    //for (int i = 0; buffer)
-    //my_printf("fuck\n");
-    for (;buffer->line[e] != 0; e++) {
+    for (; e < buffer->word; e++) {
         for (; buffer->line[e][c] != '\0'; c++)
             my_printf("%c", buffer->line[e][c]);
-        my_printf("\n");
+        my_printf(" ");
         c = 0;
     }
-    for (int i = 0; i < e; i++)
+    for (int i = 0; i < e; i++) {
         free(buffer->line[i]);
+    }
+    free(buffer->word_len);
     free(buffer->str);
     free(buffer->line);
     free(buffer);
