@@ -10,6 +10,7 @@
 #include "../lib/my/printf/myp.h"
 #include "../lib/my/my.h"
 #include "my_struct.h"
+#include <fcntl.h>
 
 
 void my_putchar(char c);
@@ -19,6 +20,9 @@ int my_putnbr(int nb);
 int my_getnbr(char *str);
 char *my_int_str(int nb, lib_t *lib);
 int my_printf(char *str, ...);
+
+void print_usage(void);
+int wich_map(int ac, char **av, map_t *buff);
 
 
 #endif /* !MY_H_ */
