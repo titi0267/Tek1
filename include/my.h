@@ -11,6 +11,10 @@
 #include "../lib/my/my.h"
 #include "my_struct.h"
 #include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 
 void my_putchar(char c);

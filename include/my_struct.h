@@ -11,7 +11,7 @@
 typedef struct map_s
 {
     int buffer_size;
-    char *buffer;
+    char *str;
     char **line;
     int lin_val;
     int char_val;
