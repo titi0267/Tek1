@@ -4,18 +4,30 @@
 ** File description:
 ** antman
 */
+
 #include "../include/my.h"
+#include <stdio.h>
 
 int main(int ac, char **av)
 {
-    map_t *buff = malloc(sizeof(map_t));
+    map_t *buffer = malloc(sizeof(map_t));
+    int c = 0;
+    int e = 0;
 
-    if (buff == NULL)
+    if (buffer == NULL || wich_map(ac, av, buffer) != 0)
         return (84);
-    if (wich_map(ac, av, buff) != 0)
-        return (84);
-    for (int i = 0; i != 11; i++)
-        free(buff->line[i]);
-    free(buff->line);
+    //for (int i = 0; buffer)
+    //my_printf("fuck\n");
+    for (; buffer->line[e] != 0; e++) {
+        for (; buffer->line[e][c] != '\0'; c++) {
+            printf("e = %i\n", e);
+            my_printf("%c", buffer->line[e][c]);
+        }
+        c = 0;
+    }
+    printf("e = %i\n", e);
+    for (int i = 0; i < e; i++)
+        free(buffer->line[i]);
+    free(buffer->line);
     return (0);
 }
