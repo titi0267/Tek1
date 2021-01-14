@@ -25,7 +25,7 @@ int main(int ac, char **av)
         }
         c = 0;
     }
-    printf("e = %i\n", e);
+    printf("\ne = %i\n", e);
     for (int i = 0; i < e; i++)
         free(buffer->line[i]);
     free(buffer->line);
