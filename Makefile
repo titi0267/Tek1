@@ -1,34 +1,28 @@
 ##
 ## EPITECH PROJECT, 2020
-## Makefile by Elliot WALDVOGEL
+## My_Runner by Timothy CONIEL
 ## File description:
 ## Makefile
 ##
+CC		=	gcc	-o
 
-SRC = 	src/antman.c			\
+SRC=	src/antman.c
 
-CC		=	gcc -o -lm
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include
 
-CFLAGS	=	-Wall -Wextra -pedantic --std=c99 -Llib/my -lmy -Iinclude -g
+NAME	=	antman
 
-OBJS	=	$(SRC:.c=.o)
-
-EXEC	=	navy
-
-all:	${EXEC}
-
-${EXEC}: ${OBJS}
+all:
 	${MAKE} -C lib/my/
-	${CC} 	-o ${EXEC} ${OBJS} ${CFLAGS}
+	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
 
 clean:
-	rm -f ${OBJS}
-	make -C lib/my/ clean
+	make	-C	lib/my/	clean
 
 fclean: clean
-	rm -f ${EXEC}
-	make -C lib/my fclean
+	rm	-f	$(NAME)
+	make	-C	lib/my	fclean
 
 re:	fclean
 
-.PHONY: all clean fclean re
+.PHONY:	all	clean	fclean	re

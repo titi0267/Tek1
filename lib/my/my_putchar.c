@@ -1,14 +1,11 @@
 /*
 ** EPITECH PROJECT, 2020
-** my_putchar.c by Elliot WALDVOGEL
+** My_put_character by Timothy CONIEL
 ** File description:
 ** my_putchar
 */
 
-#include "../../include/my_struct.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "my.h"
 
 void my_putchar(char c)
 {

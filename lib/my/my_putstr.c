@@ -1,17 +1,15 @@
 /*
 ** EPITECH PROJECT, 2020
-** my_putstr.c by Elliot WALDVOGEL
+** my_put_string by Timothy CONIEL
 ** File description:
-** my_putstr
+** my_putstr.c
 */
 
-#include "../../include/my.h"
-#include "../../include/my_struct.h"
-#include <unistd.h>
+#include "my.h"
 
-int my_putstr(char const *str, infin_number_t *info)
+int my_putstr(char const *str)
 {
     for (int i = 0; str[i] != '\0'; i++)
-        my_putchar(str[i], info);
+        my_putchar(str[i]);
     return (0);
 }
