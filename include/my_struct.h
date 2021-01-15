@@ -18,6 +18,8 @@ typedef struct map_s
     int **multi_word;
     int *alrd;
     int wch;
+    int **wrd_plc;
+    int diff_wrd;
 } map_t;
 
 #endif /* !MY_STRUCT_H_ */
