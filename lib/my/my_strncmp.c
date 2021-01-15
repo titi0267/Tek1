@@ -10,7 +10,7 @@ int my_strncmp(char *cmp, char *cmpd)
 {
     int l = 0;
 
-    while (cmp[l] != '\0') {
+    while (cmp[l] != '\0' || cmpd[l] != '\0') {
         if (cmpd[l] == cmp[l])
             l++;
         else

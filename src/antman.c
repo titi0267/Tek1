@@ -36,6 +36,8 @@ int main(int ac, char **av)
         return (84);
     select_word(buffer);
     print_word(buffer);
+    int x = my_strncmp("To", "Too");
+    my_printf("x = %i\n", x);
     memfree(buffer);
     return (0);
 }

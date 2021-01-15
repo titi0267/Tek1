@@ -48,9 +48,9 @@ void word_place(map_t *buffer)
     int e = 0;
     int s = 0;
 
-    buffer->wrd_plc = malloc(sizeof(int *) * 100);
+    buffer->wrd_plc = malloc(sizeof(int *) * 1000);
     for (; s <= buffer->diff_wrd; s++) {
-        buffer->wrd_plc[s] = malloc(sizeof(int) * 100);
+        buffer->wrd_plc[s] = malloc(sizeof(int) * 1000);
         for (; e < buffer->word && my_strncmp(buffer->line[buffer->alrd[e]], buffer->line[buffer->alrd[x]]) == 0; c++, e++)
             buffer->wrd_plc[s][c] = buffer->alrd[e];
         x = e;
@@ -64,6 +64,7 @@ void print_word(map_t *buffer)
     buffer->diff_wrd = 0;
     for (int i = 0; i < buffer->word; i++) {
         if (i > 0) {
+            //my_printf("%s compared to %s\n", buffer->line[buffer->alrd[i - 1]], buffer->line[buffer->alrd[i]]);
             if (my_strncmp(buffer->line[buffer->alrd[i - 1]], buffer->line[buffer->alrd[i]]) != 0) {
                 my_printf("%s", buffer->line[buffer->alrd[i]]);
                 my_printf("@");
@@ -72,6 +73,18 @@ void print_word(map_t *buffer)
         }
     }
     word_place(buffer);
-    my_printf("\n");
-    my_printf("first wd = %i\n", buffer->wrd_plc[1][2]);
+    //my_printf("\n");
+    //my_printf("alrd = %i", buffer->alrd[1]);
+    //my_printf("\nfirst wd = %i", buffer->wrd_plc[0][1]);
 }
+
+/*void print_place(map_t *buffer)
+{
+    int x = 0;
+    int y = 0;
+
+    for (; x < buffer->word; x++) {
+        if (buffer->wrd_plc[x][y] == )
+
+    }
+}*/
