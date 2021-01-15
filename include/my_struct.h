@@ -15,6 +15,9 @@ typedef struct map_s
     char **line;
     int word;
     int *word_len;
+    int **multi_word;
+    int *alrd;
+    int wch;
 } map_t;
 
 #endif /* !MY_STRUCT_H_ */

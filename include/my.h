@@ -27,5 +27,8 @@ int my_printf(char *str, ...);
 
 void print_usage(void);
 int wich_map(int ac, char **av, map_t *buff);
+void select_word(map_t *buffer);
+void compare(map_t *buffer);
+void print_word(map_t *buffer);
 
 #endif /* !MY_H_ */
