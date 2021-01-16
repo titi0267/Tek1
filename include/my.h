@@ -30,5 +30,6 @@ int wich_map(int ac, char **av, map_t *buff);
 void select_word(map_t *buffer);
 void compare(map_t *buffer);
 void print_word(map_t *buffer);
+void print_place(map_t *buffer);
 
 #endif /* !MY_H_ */
