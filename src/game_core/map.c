@@ -36,7 +36,7 @@ int read_map(map_t *buff, char *filepath)
         return (-1);
     buff->buffer[buff->buffer_size] = '\0';
     close(fd);
-    return(0);
+    return (0);
 }
 
 int store_map(map_t *buff)
