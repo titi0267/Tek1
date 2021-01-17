@@ -20,6 +20,10 @@ typedef struct map_s
     int wch;
     int **wrd_plc;
     int diff_wrd;
+    int wrd_nbr;
+    int i;
+    int h;
+    int p;
 } map_t;
 
 #endif /* !MY_STRUCT_H_ */

@@ -32,13 +32,10 @@ int main(int ac, char **av)
 {
     map_t *buffer = malloc(sizeof(map_t));
 
-    if (buffer == NULL || wich_map(ac, av, buffer) != 0)
+    if (buffer == NULL || wich_map(ac, av, buffer) != 0 ||
+        print_place(buffer) == -1)
         return (84);
-    select_word(buffer);
-    print_word(buffer);
-    print_place(buffer);
-    //int x = my_strncmp("To", "Too");
-    //my_printf("x = %i\n", x);
-    memfree(buffer);
+    else
+        memfree(buffer);
     return (0);
 }

@@ -7,91 +7,77 @@
 
 #include "../include/my.h"
 
-void select_word(map_t *buffer)
+int init_select(map_t *buffer)
 {
-    int i = 0;
     buffer->wch = 0;
-    int h = 0;
-    int s = 0;
-    int c = 0;
-
-    buffer->multi_word = malloc(sizeof(int *) * 1000);
+    buffer->i = 0;
+    buffer->h = 0;
+    buffer->multi_word = malloc(sizeof(int *) * 10000);
     buffer->alrd = malloc(sizeof(int) * buffer->word);
+    if (buffer->multi_word == NULL || buffer->alrd == NULL)
+        return (-1);
     for (int u = 0; u < buffer->word; u++)
         buffer->alrd[u] = -1;
-    for (; buffer->wch < buffer->word; buffer->wch++) {
-        buffer->multi_word[buffer->wch] = malloc(sizeof(int) * 1000);
-        for (; i < buffer->word; i++) {
-            if (my_strncmp(buffer->line[buffer->wch], buffer->line[i]) == 0) {
-                buffer->multi_word[buffer->wch][h] = i;
-                for (int v = 0; v < buffer->word; v++) {
-                    if (buffer->alrd[v] != i)
-                        c++;
-                }
-                h++;
-                if (c == buffer->word) {
-                    buffer->alrd[s] = i;
-                    s++;
-                }
-                c = 0;
-            }
-        }
-        i = 0;
-        h = 0;
+    return (0);
+}
+
+void fill_multi(map_t *buffer)
+{
+    static int s = 0;
+    int c = 0;
+
+    for (int v = 0; v < buffer->word; v++) {
+        if (buffer->alrd[v] != buffer->i)
+            c++;
+    }
+    buffer->h++;
+    if (c == buffer->word) {
+        buffer->alrd[s] = buffer->i;
+        s++;
     }
 }
 
-void word_place(map_t *buffer)
+int select_word(map_t *buffer)
+{
+    if (init_select(buffer) == -1)
+        return (-1);
+    for (; buffer->wch < buffer->word; buffer->wch++) {
+        buffer->multi_word[buffer->wch] = malloc(sizeof(int) * 10000);
+        if (buffer->multi_word[buffer->wch] == NULL)
+            return (-1);
+        for (; buffer->i < buffer->word; buffer->i++) {
+            if (my_strncmp(buffer->line[buffer->wch], buffer->line[buffer->i])
+                == 0) {
+                buffer->multi_word[buffer->wch][buffer->h] = buffer->i;
+                fill_multi(buffer);
+            }
+        }
+        buffer->i = 0;
+        buffer->h = 0;
+    }
+    return (0);
+}
+
+int word_place(map_t *buffer)
 {
     int x = 0;
     int c = 0;
     int e = 0;
     int s = 0;
 
-    buffer->wrd_plc = malloc(sizeof(int *) * 2000);
+    buffer->wrd_plc = malloc(sizeof(int *) * 10000);
+    if (buffer->wrd_plc == NULL)
+        return (-1);
     for (; s <= buffer->diff_wrd; s++) {
-        buffer->wrd_plc[s] = malloc(sizeof(int) * 2000);
-        for (; e < buffer->word && my_strncmp(buffer->line[buffer->alrd[e]], buffer->line[buffer->alrd[x]]) == 0; c++, e++) {
+        buffer->wrd_plc[s] = malloc(sizeof(int) * 10000);
+        if (buffer->wrd_plc[s] == NULL)
+            return(-1);
+        for (; e < buffer->word && my_strncmp(buffer->line[buffer->alrd[e]],
+            buffer->line[buffer->alrd[x]]) == 0; c++, e++)
             buffer->wrd_plc[s][c] = buffer->alrd[e];
-        }
         buffer->wrd_plc[s][c] = -1;
         x = e;
         c = 0;
     }
-}
-
-void print_word(map_t *buffer)
-{
-    my_printf("%s@", buffer->line[buffer->alrd[0]]);
-    buffer->diff_wrd = 0;
-    for (int i = 0; i < buffer->word; i++) {
-        if (i > 0) {
-            if (my_strncmp(buffer->line[buffer->alrd[i - 1]], buffer->line[buffer->alrd[i]]) != 0) {
-                my_printf("%s@", buffer->line[buffer->alrd[i]]);
-                buffer->diff_wrd++;
-            }
-        }
-    }
-    word_place(buffer);
-}
-
-void print_place(map_t *buffer)
-{
-    int x = 0;
-    int y = 0;
-    int p = buffer->wrd_plc[0][0];
-    int t = 0;
-
-    while (p < buffer->word) {
-        for (; x <= buffer->diff_wrd; x++) {
-            for (; buffer->wrd_plc[x][y] != -1; y++) {
-                if (buffer->wrd_plc[x][y] == p) {
-                    p++;
-                    my_printf("%i", x);
-                }
-            }
-            y = 0;
-        }
-        x = 0;
-    }
+    return (0);
 }
