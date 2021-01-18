@@ -11,6 +11,7 @@ SRC=	my_putchar.c	\
 		my_revstr.c		\
 		my_strncmp.c	\
 		my_getnbr.c		\
+		my_char_isnum.c	\
 		my_int_to_str.c	\
 		printf/disp_adress.c		\
 		printf/disp_bin.c			\

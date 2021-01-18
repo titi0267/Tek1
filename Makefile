@@ -6,7 +6,8 @@
 ##
 CC		=	gcc	-o
 
-SRC=	src/main.c
+SRC=	src/main.c				\
+		src/error_handling.c
 
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include

@@ -18,5 +18,8 @@ int my_putnbr(int nb);
 int my_getnbr(char *str);
 char *my_int_str(int nb, lib_t *lib);
 int my_printf(char *str, ...);
+int my_char_isnum(char c);
+
+int error_handling(int ac, char **av);
 
 #endif /* !MY_H_ */

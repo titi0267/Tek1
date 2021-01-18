@@ -7,7 +7,9 @@
 
 #include "../include/my.h"
 
-int main(void)
+int main(int ac, char **av)
 {
+    error_handling(ac, av);
+
     return (0);
 }
