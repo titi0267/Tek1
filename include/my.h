@@ -35,4 +35,6 @@ int print_place(map_t *buffer);
 void calc_x(map_t *buffer);
 void diff_wrd(map_t *buffer);
 
+int giantman_me(int);
+
 #endif /* !MY_H_ */

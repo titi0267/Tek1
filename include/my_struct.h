@@ -26,4 +26,9 @@ typedef struct map_s
     int p;
 } map_t;
 
+typedef struct giant_s
+{
+    int i;
+} giant_t;
+
 #endif /* !MY_STRUCT_H_ */

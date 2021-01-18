@@ -93,7 +93,7 @@ int store_map(map_t *buffer)
 int wich_map(int ac, char **av, map_t *buffer)
 {
     if (ac != 2) {
-        my_printf("Not that much arguments as expected.\n");
+        my_printf("Wrong amounts of arguments given\n");
         return (-1);
     }
     if (ac == 2 && (av[1][0] == '-' && av[1][1] == 'h')) {

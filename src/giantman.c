@@ -9,7 +9,7 @@
 #include "../include/my_struct.h"
 #include <stdio.h>
 
-int giantman_me(map_t *map)
+int main(int ac, char **av)
 {
-    for (int i )
+    return (0);
 }
