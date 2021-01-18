@@ -29,9 +29,12 @@ int main(int ac, char **av)
     }
     if (buffer->line[e] == 0)
         e--;
+    if (buffer->line[e] == 0)
+        e--;
     printf("\ne = %i\n", e);
-    for (int i = 0; i < e; i++)
+    for (int i = 0; i <= e + 1; i++)
         free(buffer->line[i]);
     free(buffer->line);
+    free(buffer);
     return (0);
 }
