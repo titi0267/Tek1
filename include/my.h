@@ -27,6 +27,12 @@ int my_printf(char *str, ...);
 
 void print_usage(void);
 int wich_map(int ac, char **av, map_t *buff);
-
+int select_word(map_t *buffer);
+void compare(map_t *buffer);
+int word_place(map_t *buffer);
+int print_word(map_t *buffer);
+int print_place(map_t *buffer);
+void calc_x(map_t *buffer);
+void diff_wrd(map_t *buffer);
 
 #endif /* !MY_H_ */

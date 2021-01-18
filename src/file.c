@@ -6,11 +6,12 @@
 */
 
 #include "../include/my.h"
-#include <stdio.h>
 
 int read_map_next(map_t *buffer, int fd)
 {
     ssize_t read_ret = 0;
+    buffer->word = 0;
+
     read_ret = read(fd, buffer->str, buffer->buffer_size);
     if (read_ret == -1)
         my_printf("Couldn't read the buffer\n");
@@ -41,42 +42,52 @@ int read_map(map_t *buffer, char *filepath)
     return (0);
 }
 
+int count_word(map_t *buffer)
+{
+    int len = 0;
+    int x = 0;
+
+    for (int i = 0; buffer->str[i] != '\0'; i++) {
+        if ((buffer->str[i] == ' ' && buffer->str[i + 1] != ' ') ||
+            buffer->str[i + 1] == '\0')
+            buffer->word++;
+    }
+    if (!(buffer->word_len = malloc(sizeof(int *) * buffer->word + 1)))
+        return (-1);
+    for (int i = 0; buffer->str[i] != '\0'; i++) {
+        if (buffer->str[i] != ' ')
+            len++;
+        if (buffer->str[i] == ' ' || buffer->str[i + 1] == '\0') {
+            buffer->word_len[x] = len;
+            x++;
+            len = 0;
+        }
+    }
+    return (0);
+}
+
 int store_map(map_t *buffer)
 {
     int i = 0;
     int e = 0;
     int c = 0;
 
-    buffer->line = malloc(sizeof(char *) * buffer->buffer_size);
+    if (count_word(buffer) == -1)
+        return (-1);
+    buffer->line = malloc(sizeof(char *) * (buffer->word + 1));
     if (buffer->line == NULL)
         return (-1);
-    while (buffer->str[i] != '\0') {
-            buffer->line[e] = malloc(sizeof(char) * 100);
+    for (;e != buffer->word; e++, i++) {
+        buffer->line[e] = malloc(sizeof(char) * buffer->word_len[e] + 1);
         if (buffer->line[e] == NULL)
             return (-1);
-        for (; buffer->str[i] != ' ' && buffer->str[i] != '\n' && i < buffer->buffer_size - 1; i++, c++) {
+        for (; buffer->str[i] != ' ' && i < buffer->buffer_size - 1; i++, c++)
             buffer->line[e][c] = buffer->str[i];
-        }
-        if (i == buffer->buffer_size - 1)
-            break;
-        if (buffer->str[i + 1] == ' ' && i < buffer->buffer_size - 1) {
-            i++;
-        }
-        if (buffer->str[i + 1] != ' ' && buffer->str[i] == ' ' && i < buffer->buffer_size - 1) {
-            buffer->line[e][c] = '\0';
-            e++;
-            i++;
-        }
+        buffer->line[e][c] = '\0';
         c = 0;
     }
-    printf("e = %i\n", e);
-    buffer->line[e + 1] = 0;
+    buffer->line[e] = NULL;
     return (0);
-}
-
-void print_usage(void)
-{
-    my_printf("Print -h arg");
 }
 
 int wich_map(int ac, char **av, map_t *buffer)
