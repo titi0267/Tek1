@@ -10,7 +10,13 @@
 
 typedef struct input_t
 {
-
+    int opt;
+    int a0;
+    int a1;
+    int a2;
+    int a3;
+    int a4;
+    int n;
 } input_t;
 
 #endif /* !MY_STRUCT_H_ */
