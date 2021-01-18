@@ -33,7 +33,7 @@ int error_handling_next(int ac, char **av)
     }
     if ((ac != 2 && ac != 8) || check != 0 || error_arg1(av) != 0) {
         my_printf("Invalid argument inputs\nFor help execute: ");
-        my_printf("./104intersection -h\n");
+        my_printf("./105torus -h\n");
         return (84);
     }
     if (check == 0)
@@ -59,7 +59,7 @@ int error_handling(int ac, char **av)
     if (ac == 2) {
         if (av[1][0] != '-' || av[1][1] != 'h') {
             my_printf("Invalid argument inputs\nFor help execute: ");
-            my_printf("./104intersection -h\n");
+            my_printf("./105torus -h\n");
             return (84);
         }
         if (av[1][0] == '-' && av[1][1] == 'h') {

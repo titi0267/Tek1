@@ -9,7 +9,8 @@
 
 int main(int ac, char **av)
 {
-    error_handling(ac, av);
+    if (error_handling(ac, av) != 0)
+        return (84);
 
     return (0);
 }
