@@ -5,9 +5,7 @@
 ** solo_stumper.c
 */
 
-#include "../include/my.h"
 #include <unistd.h>
-#include <stdio.h>
 
 int error(int ac, char **av)
 {
@@ -18,16 +16,45 @@ int error(int ac, char **av)
     return (0);
 }
 
+int already(char **av)
+{
+    int c;
+    int x = 0;
+    int f = 0;
+    static int r = 0;
+
+    for (int e = 0; av[1][e] != '\0'; e++)
+        c = e;
+    c -= r;
+    if (r <= c + 1)
+        r++;
+    for (; c >= 0; c--) {
+        for (; av[1][x] != '\0'; x++) {
+            if (av[1][x] == av[1][c] && x != c) {
+                c++;
+                return (x);
+            }
+        }
+        x = 0;
+    }
+    return (-1);
+}
+
 int count_anag(char **av)
 {
     int c = 0;
     int count = 0;
+    int alrd = 0;
 
     for (; av[1][c] != '\0'; c++) {
+        alrd = already(av);
         for (int x = 0; av[2][x] != '\0'; x++) {
-            if (av[1][c] == av[2][x])
+            if (((av[1][c] == av[2][x] || (av[1][c] == (av[2][x] + 32))
+                 || (av[1][c] == (av[2][x] - 32)))))
                 count++;
         }
+        if (alrd == c)
+            count--;
     }
     return (count);
 }
@@ -37,6 +64,7 @@ int anagram(int ac, char **av)
     int len = 0;
     int len2 = 0;
 
+    already(av);
     for (int c = 0; av[1][c] != '\0'; c++)
         len++;
     for (int x = 0; av[2][x] != '\0'; x++)

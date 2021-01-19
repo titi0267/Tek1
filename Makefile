@@ -6,10 +6,9 @@
 ##
 CC		=	gcc	-o
 
-SRC=	src/main.c		\
-		src/next_main.c
+SRC=	src/main.c
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-I./include
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99
 
 NAME	=	anagram
 
