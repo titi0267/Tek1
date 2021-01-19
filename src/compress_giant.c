@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2021
-** compress by Timothy CONIEL & Elliot Waldvogel
+** compress_giant.c for antman project by Timothy CONIEL & Elliot WALDVOGEL
 ** File description:
-** compress.c
+** compress_giant
 */
 
 #include "../include/my.h"
+#include "../include/my_struct.h"
 
-int init_select(map_t *buffer)
+int init_select_giant(giant_t *buffer)
 {
     buffer->wch = 0;
     buffer->i = 0;
@@ -21,7 +22,7 @@ int init_select(map_t *buffer)
     return (0);
 }
 
-void fill_multi(map_t *buffer)
+void fill_multi_giant(giant_t *buffer)
 {
     static int s = 0;
     int c = 0;
@@ -37,9 +38,9 @@ void fill_multi(map_t *buffer)
     }
 }
 
-int select_word(map_t *buffer)
+int select_word_giant(giant_t *buffer)
 {
-    if (init_select(buffer) == -1)
+    if (init_select_giant(buffer) == -1)
         return (-1);
     for (; buffer->wch < buffer->word; buffer->wch++) {
         buffer->multi_word[buffer->wch] = malloc(sizeof(int) * 10000);
@@ -49,7 +50,7 @@ int select_word(map_t *buffer)
             if (my_strncmp(buffer->line[buffer->wch], buffer->line[buffer->i])
                 == 0) {
                 buffer->multi_word[buffer->wch][buffer->h] = buffer->i;
-                fill_multi(buffer);
+                fill_multi_giant(buffer);
             }
         }
         buffer->i = 0;
@@ -58,7 +59,7 @@ int select_word(map_t *buffer)
     return (0);
 }
 
-int word_place(map_t *buffer)
+int word_place_giant(giant_t *buffer)
 {
     int x = 0;
     int c = 0;

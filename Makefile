@@ -11,7 +11,12 @@ SRC=	src/antman.c	\
 		src/compress.c	\
 		src/compress_print.c	\
 		src/file.c
-SRCS=	src/giantman.c			\
+
+SRCS=	src/giantman.c				\
+		src/file_giant.c			\
+		src/usage.c					\
+		src/compress_giant.c		\
+		src/compress_print_giant.c	\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
 

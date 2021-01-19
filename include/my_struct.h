@@ -28,7 +28,20 @@ typedef struct map_s
 
 typedef struct giant_s
 {
+    char *str;
+    int word;
+    int *word_len;
+    int buffer_size;
+    char **line;
+    int wch;
     int i;
+    int h;
+    int **multi_word;
+    int *alrd;
+    int **wrd_plc;
+    int diff_wrd;
+    int p;
+    int wrd_nbr;
 } giant_t;
 
 #endif /* !MY_STRUCT_H_ */

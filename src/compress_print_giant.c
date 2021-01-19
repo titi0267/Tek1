@@ -1,13 +1,14 @@
 /*
 ** EPITECH PROJECT, 2021
-** compress better by Timothy CONIEL & Elliot WALVOGEL
+** compress_print_giant.c for antman project Timothy CONIEL & Elliot WALDVOGEL
 ** File description:
-** compress_better.c
+** compress_print_giant
 */
 
 #include "../include/my.h"
+#include "../include/my_struct.h"
 
-void calc_x(map_t *buffer)
+void calc_x_giant(giant_t *buffer)
 {
     if (buffer->diff_wrd > 100 && buffer->diff_wrd < 1000) {
         if (buffer->wrd_nbr < 10)
@@ -27,7 +28,7 @@ void calc_x(map_t *buffer)
         my_printf("%i", buffer->wrd_nbr);
 }
 
-void diff_wrd(map_t *buffer)
+void diff_wrd_giant(giant_t *buffer)
 {
     if (buffer->diff_wrd < 10)
         my_printf("§");
@@ -37,9 +38,9 @@ void diff_wrd(map_t *buffer)
         my_printf("§§§");
 }
 
-int print_word(map_t *buffer)
+int print_word_giant(giant_t *buffer)
 {
-    if (select_word(buffer) == -1)
+    if (select_word_giant(buffer) == -1)
         return (-1);
     buffer->diff_wrd = 0;
     my_printf("%s@", buffer->line[buffer->alrd[0]]);
@@ -52,12 +53,12 @@ int print_word(map_t *buffer)
             }
         }
     }
-    if (word_place(buffer) == -1)
+    if (word_place_giant(buffer) == -1)
         return (-1);
     return (0);
 }
 
-void print_place_next(map_t *buffer)
+void print_place_next_giant(giant_t *buffer)
 {
     int y = 0;
 
@@ -65,7 +66,7 @@ void print_place_next(map_t *buffer)
         for (; buffer->wrd_plc[buffer->wrd_nbr][y] != -1; y++) {
             if (buffer->wrd_plc[buffer->wrd_nbr][y] == buffer->p) {
                 buffer->p++;
-                calc_x(buffer);
+                calc_x_giant(buffer);
             }
         }
         y = 0;
@@ -73,15 +74,15 @@ void print_place_next(map_t *buffer)
     buffer->wrd_nbr = 0;
 }
 
-int print_place(map_t *buffer)
+int print_place_giant(giant_t *buffer)
 {
-    if (print_word(buffer) == -1)
+    if (print_word_giant(buffer) == -1)
         return (-1);
     buffer->wrd_nbr = 0;
     buffer->p = buffer->wrd_plc[0][0];
 
-    diff_wrd(buffer);
+    diff_wrd_giant(buffer);
     while (buffer->p < buffer->word)
-        print_place_next(buffer);
+        print_place_next_giant(buffer);
     return (0);
 }

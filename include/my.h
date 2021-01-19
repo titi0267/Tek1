@@ -36,5 +36,20 @@ void calc_x(map_t *buffer);
 void diff_wrd(map_t *buffer);
 
 int giantman_me(int);
+int read_map_next_giant(giant_t *buffer, int);
+int read_map_giant(giant_t *buffer, char *filepath);
+int count_word_giant(giant_t *buffer);
+int store_map_giant(giant_t *buffer);
+int wich_map_giant(int ac, char **av, giant_t *buffer);
+
+int init_select_giant(giant_t *buffer);
+void fill_multi_giant(giant_t *buffer);
+int select_word_giant(giant_t *buffer);
+int word_place_giant(giant_t *buffer);
+void calc_x_giant(giant_t *buffer);
+void diff_wrd_giant(giant_t *buffer);
+int print_word_giant(giant_t *buffer);
+void print_place_next_giant(giant_t *buffer);
+int print_place_giant(giant_t *buffer);
 
 #endif /* !MY_H_ */
