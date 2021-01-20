@@ -34,8 +34,8 @@ int main(int ac, char **av)
 {
     giant_t *buffer = malloc(sizeof(giant_t));
 
-    if (buffer == NULL || error_arg(ac, av) != 0 || wich_map_giant(av, buffer) != 0 ||
-        print_place_giant(buffer) == -1)
+    if (buffer == NULL || error_arg(ac, av) != 0 || wich_map_giant(av, buffer) 
+    != 0 || print_place_giant(buffer) == -1)
         return (84);
     else
         memfree_giant(buffer);

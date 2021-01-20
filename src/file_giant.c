@@ -7,6 +7,7 @@
 
 #include "../include/my.h"
 #include "../include/my_struct.h"
+#include <stdio.h>
 
 int read_map_next_giant(giant_t *buffer, int fd)
 {
@@ -88,6 +89,9 @@ int store_map_giant(giant_t *buffer)
         c = 0;
     }
     buffer->line[e] = NULL;
+    for (int i = 0; buffer->line[i] != NULL; i++) {
+        printf("%s", buffer->line[i]);
+    }
     return (0);
 }
 
