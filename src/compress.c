@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-int init_select(map_t *buffer)
+int init_select(ant_t *buffer)
 {
     buffer->wch = 0;
     buffer->i = 0;
@@ -21,7 +21,7 @@ int init_select(map_t *buffer)
     return (0);
 }
 
-void fill_multi(map_t *buffer)
+void fill_multi(ant_t *buffer)
 {
     static int s = 0;
     int c = 0;
@@ -37,7 +37,7 @@ void fill_multi(map_t *buffer)
     }
 }
 
-int select_word(map_t *buffer)
+int select_word(ant_t *buffer)
 {
     if (init_select(buffer) == -1)
         return (-1);
@@ -58,7 +58,7 @@ int select_word(map_t *buffer)
     return (0);
 }
 
-int word_place(map_t *buffer)
+int word_place(ant_t *buffer)
 {
     int x = 0;
     int c = 0;

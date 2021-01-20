@@ -8,7 +8,7 @@
 #ifndef MY_STRUCT_H_
 #define MY_STRUCT_H_
 
-typedef struct map_s
+typedef struct ant_s
 {
     int buffer_size;
     char *str;
@@ -24,7 +24,7 @@ typedef struct map_s
     int i;
     int h;
     int p;
-} map_t;
+} ant_t;
 
 typedef struct giant_s
 {

@@ -9,5 +9,5 @@
 
 void print_usage(void)
 {
-    my_printf("Print -h arg");
+    my_printf("Print -h arg\nUSAGE\n");
 }

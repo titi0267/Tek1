@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-int read_map_next(map_t *buffer, int fd)
+int read_map_next(ant_t *buffer, int fd)
 {
     ssize_t read_ret = 0;
     buffer->word = 0;
@@ -18,7 +18,7 @@ int read_map_next(map_t *buffer, int fd)
     return (read_ret);
 }
 
-int read_map(map_t *buffer, char *filepath)
+int read_map(ant_t *buffer, char *filepath)
 {
     struct stat buff;
     ssize_t read_ret = 0;
@@ -42,7 +42,7 @@ int read_map(map_t *buffer, char *filepath)
     return (0);
 }
 
-int count_word(map_t *buffer)
+int count_word(ant_t *buffer)
 {
     int len = 0;
     int x = 0;
@@ -66,7 +66,7 @@ int count_word(map_t *buffer)
     return (0);
 }
 
-int store_map(map_t *buffer)
+int store_map(ant_t *buffer)
 {
     int i = 0;
     int e = 0;
@@ -90,26 +90,16 @@ int store_map(map_t *buffer)
     return (0);
 }
 
-int wich_map(int ac, char **av, map_t *buffer)
+int wich_map(char **av, ant_t *buffer)
 {
-    if (ac != 2) {
-        my_printf("Wrong amounts of arguments given\n");
-        return (-1);
-    }
-    if (ac == 2 && (av[1][0] == '-' && av[1][1] == 'h')) {
-        print_usage();
-        return (84);
-    }
-    if (ac == 2) {
-        if (read_map(buffer, av[1]) == 0) {
-            if (store_map(buffer) == 0)
-                return (0);
-            else {
-                my_printf("Malloc didn't worked as expected\n");
-                return (-1);
-            }
-        } else
+    if (read_map(buffer, av[1]) == 0) {
+        if (store_map(buffer) == 0)
+            return (0);
+        else {
+            my_printf("Malloc didn't worked as expected\n");
             return (-1);
-    }
+        }
+    } else
+        return (-1);
     return (0);
 }

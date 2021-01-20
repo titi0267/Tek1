@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-void memfree(map_t *buffer)
+void memfree(ant_t *buffer)
 {
     int x = 0;
 
@@ -30,9 +30,9 @@ void memfree(map_t *buffer)
 
 int main(int ac, char **av)
 {
-    map_t *buffer = malloc(sizeof(map_t));
+    ant_t *buffer = malloc(sizeof(ant_t));
 
-    if (buffer == NULL || wich_map(ac, av, buffer) != 0 ||
+    if (buffer == NULL || error_arg(ac, av) != 0 || wich_map(av, buffer) != 0 ||
         print_place(buffer) == -1)
         return (84);
     else

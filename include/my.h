@@ -26,21 +26,22 @@ char *my_int_str(int nb, lib_t *lib);
 int my_printf(char *str, ...);
 
 void print_usage(void);
-int wich_map(int ac, char **av, map_t *buff);
-int select_word(map_t *buffer);
-void compare(map_t *buffer);
-int word_place(map_t *buffer);
-int print_word(map_t *buffer);
-int print_place(map_t *buffer);
-void calc_x(map_t *buffer);
-void diff_wrd(map_t *buffer);
+int error_arg(int ac, char **av);
+int wich_map(char **av, ant_t *buff);
+int select_word(ant_t *buffer);
+void compare(ant_t *buffer);
+int word_place(ant_t *buffer);
+int print_word(ant_t *buffer);
+int print_place(ant_t *buffer);
+void calc_x(ant_t *buffer);
+void diff_wrd(ant_t *buffer);
 
 int giantman_me(int);
 int read_map_next_giant(giant_t *buffer, int);
 int read_map_giant(giant_t *buffer, char *filepath);
 int count_word_giant(giant_t *buffer);
 int store_map_giant(giant_t *buffer);
-int wich_map_giant(int ac, char **av, giant_t *buffer);
+int wich_map_giant(char **av, giant_t *buffer);
 
 int init_select_giant(giant_t *buffer);
 void fill_multi_giant(giant_t *buffer);

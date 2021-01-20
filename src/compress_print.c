@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-void calc_x(map_t *buffer)
+void calc_x(ant_t *buffer)
 {
     if (buffer->diff_wrd > 100 && buffer->diff_wrd < 1000) {
         if (buffer->wrd_nbr < 10)
@@ -27,7 +27,7 @@ void calc_x(map_t *buffer)
         my_printf("%i", buffer->wrd_nbr);
 }
 
-void diff_wrd(map_t *buffer)
+void diff_wrd(ant_t *buffer)
 {
     if (buffer->diff_wrd < 10)
         my_printf("§");
@@ -37,7 +37,7 @@ void diff_wrd(map_t *buffer)
         my_printf("§§§");
 }
 
-int print_word(map_t *buffer)
+int print_word(ant_t *buffer)
 {
     if (select_word(buffer) == -1)
         return (-1);
@@ -57,7 +57,7 @@ int print_word(map_t *buffer)
     return (0);
 }
 
-void print_place_next(map_t *buffer)
+void print_place_next(ant_t *buffer)
 {
     int y = 0;
 
@@ -73,7 +73,7 @@ void print_place_next(map_t *buffer)
     buffer->wrd_nbr = 0;
 }
 
-int print_place(map_t *buffer)
+int print_place(ant_t *buffer)
 {
     if (print_word(buffer) == -1)
         return (-1);

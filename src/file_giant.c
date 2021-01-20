@@ -91,26 +91,16 @@ int store_map_giant(giant_t *buffer)
     return (0);
 }
 
-int wich_map_giant(int ac, char **av, giant_t *buffer)
+int wich_map_giant(char **av, giant_t *buffer)
 {
-    if (ac != 2) {
-        my_printf("Wrong amounts of arguments given\n");
-        return (-1);
-    }
-    if (ac == 2 && (av[1][0] == '-' && av[1][1] == 'h')) {
-        print_usage();
-        return (84);
-    }
-    if (ac == 2) {
-        if (read_map_giant(buffer, av[1]) == 0) {
-            if (store_map_giant(buffer) == 0)
-                return (0);
-            else {
-                my_printf("Malloc didn't worked as expected\n");
-                return (-1);
-            }
-        } else
+    if (read_map_giant(buffer, av[1]) == 0) {
+        if (store_map_giant(buffer) == 0)
+            return (0);
+        else {
+            my_printf("Malloc didn't worked as expected\n");
             return (-1);
-    }
+        }
+    } else
+        return (-1);
     return (0);
 }
