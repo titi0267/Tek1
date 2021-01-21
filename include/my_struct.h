@@ -24,6 +24,7 @@ typedef struct ant_s
     int i;
     int h;
     int p;
+    char *car;
 } ant_t;
 
 typedef struct giant_s
