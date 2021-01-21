@@ -52,5 +52,6 @@ void diff_wrd_giant(giant_t *buffer);
 int print_word_giant(giant_t *buffer);
 void print_place_next_giant(giant_t *buffer);
 int print_place_giant(giant_t *buffer);
+void store_map_giant_next(giant_t *buffer, int e, int c, int i);
 
 #endif /* !MY_H_ */

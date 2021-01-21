@@ -83,15 +83,16 @@ int store_map_giant(giant_t *buffer)
         buffer->line[e] = malloc(sizeof(char) * buffer->word_len[e] + 1);
         if (buffer->line[e] == NULL)
             return (-1);
-        for (; buffer->str[i] != '@' && i < buffer->buffer_size - 1; i++, c++)
-            buffer->line[e][c] = buffer->str[i];
+        for (; buffer->str[i] != '§' && i < buffer->buffer_size - 1; i++, c++) {
+            //my_putchar('\n');
+            //my_putchar(buffer->str[i]);
+            //my_putchar('\n');
+            store_map_giant_next(buffer, e, c, i);
+        }
         buffer->line[e][c] = '\0';
         c = 0;
     }
     buffer->line[e] = NULL;
-    for (int i = 0; buffer->line[i] != NULL; i++) {
-        printf("%s", buffer->line[i]);
-    }
     return (0);
 }
 
