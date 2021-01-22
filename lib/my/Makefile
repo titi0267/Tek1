@@ -10,6 +10,7 @@ SRC=	my_putchar.c	\
 		my_putnbr.c		\
 		my_revstr.c		\
 		my_strncmp.c	\
+		my_strlen.c		\
 		my_getnbr.c		\
 		my_int_to_str.c	\
 		printf/disp_adress.c		\

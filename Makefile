@@ -24,19 +24,19 @@ SRCS=	giant_src/giantman.c					\
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
 
 NAME	=	antman
-NAMES	=	giantman
+##NAMES	=	giantman
 
 all:
 	${MAKE} -C lib/my/
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
-	$(CC)	$(NAMES) $(SRCS) $(CFLAGS)
+##	$(CC)	$(NAMES) $(SRCS) $(CFLAGS)
 
 clean:
 	make	-C	lib/my/	clean
 
 fclean: clean
 	rm	-f	$(NAME)
-	rm	-f	$(NAMES)
+##	rm	-f	$(NAMES)
 	make	-C	lib/my	fclean
 
 re:	fclean

@@ -12,13 +12,16 @@ void convert_base(unsigned int nb, int base, str_len_t *info)
     int r = 0;
     int a[x];
 
-    while (nb > 0 && base != 16) {
+    while (nb >= 0 && base != 16) {
         a[r] = (nb % base);
         nb /= base;
-        r ++;
+        r++;
+        if (r == 8)
+            break;
     }
-    for (int j = r - 1; j >= 0 && base != 16; j --)
+    for (int j = r - 1; j >= 0 && base != 16; j--) {
         my_putnbrp(a[j], info);
+    }
 }
 
 int convert_minus(int nb, str_len_t *info)
