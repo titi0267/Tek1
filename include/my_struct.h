@@ -13,18 +13,9 @@ typedef struct ant_s
     int buffer_size;
     char *str;
     char **line;
-    int word;
-    int *word_len;
-    int **multi_word;
-    int *alrd;
-    int wch;
-    int **wrd_plc;
-    int diff_wrd;
-    int wrd_nbr;
-    int i;
-    int h;
-    int p;
-    char *car;
+    float *l_freq;
+    float diff_let;
+    char *store;
 } ant_t;
 
 typedef struct giant_s

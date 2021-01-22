@@ -6,37 +6,38 @@
 ##
 CC		=	gcc	-o
 
-SRC=	src/antman.c	\
+SRC=	src2/antman.c	\
 		src/usage.c		\
-		src/compress.c	\
-		src/compress_print.c	\
-		src/error_handling.c	\
-		src/file.c
+		src2/file.c		\
+		src2/frequency.c	\
+		src2/error_handling.c
+##		src/compress.c
+##		src/compress_print.c
 
-SRCS=	src/giantman.c				\
+##SRCS=	src/giantman.c				\
 		src/file_giant.c			\
 		src/usage.c					\
 		src/compress_giant.c		\
 		src/compress_print_giant.c	\
-		src/error_handling.c		\
-		src/compress_bis_giant.c
+		src2/error_handling.c		\
+		src/file_giant_bis.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
 
 NAME	=	antman
-NAMES	=	giantman
+##NAMES	=	giantman
 
 all:
 	${MAKE} -C lib/my/
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
-	$(CC)	$(NAMES) $(SRCS) $(CFLAGS)
+##	$(CC)	$(NAMES) $(SRCS) $(CFLAGS)
 
 clean:
 	make	-C	lib/my/	clean
 
 fclean: clean
 	rm	-f	$(NAME)
-	rm	-f	$(NAMES)
+##	rm	-f	$(NAMES)
 	make	-C	lib/my	fclean
 
 re:	fclean
