@@ -6,20 +6,20 @@
 ##
 CC		=	gcc	-o
 
-SRC=	src/antman.c	\
-		src/usage.c		\
-		src/compress.c	\
-		src/compress_print.c	\
-		src/error_handling.c	\
-		src/file.c
+SRC=	ant_src/antman.c						\
+		ant_src/usage.c							\
+		ant_src/compress.c						\
+		ant_src/compress_print.c				\
+		ant_src/error_handling.c				\
+		ant_src/file.c
 
-SRCS=	src/giantman.c				\
-		src/file_giant.c			\
-		src/usage.c					\
-		src/compress_giant.c		\
-		src/compress_print_giant.c	\
-		src/error_handling.c		\
-		src/compress_bis_giant.c
+SRCS=	giant_src/giantman.c					\
+		giant_src/file.c						\
+		giant_src/file_bis.c					\
+		giant_src/usage.c						\
+		giant_src/decompress.c					\
+		giant_src/decompress_print.c			\
+		giant_src/error_handling.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
 
