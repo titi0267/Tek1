@@ -24,16 +24,12 @@ typedef struct giant_s
     int word;
     int *word_len;
     int buffer_size;
-    char **line;
-    int wch;
-    int i;
-    int h;
-    int **multi_word;
-    int *alrd;
-    int **wrd_plc;
-    int diff_wrd;
-    int p;
-    int wrd_nbr;
+    int keysize;
+    char *key;
+    int codesize;
+    char *code;
+    int oversize;
+    char *leftover;
 } giant_t;
 
 #endif /* !MY_STRUCT_H_ */

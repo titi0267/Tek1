@@ -6,6 +6,24 @@
 */
 
 #include "../include/my.h"
+#include "../include/my_struct.h"
+
+int encoded_error(giant_t *buffer)
+{
+    int i = 0;
+    int cut = 0;
+
+    while (buffer->str[i] != '\0') {
+        if (buffer->str[i] == '@')
+            cut++;
+        i++;
+    }
+    if (cut == 3)
+        return (0);
+    my_printf("The encoding of this file is not handled by giantman, ");
+    my_printf("see ./antman -h\n");
+    return (84);
+}
 
 int error_arg(int ac, char **av)
 {
