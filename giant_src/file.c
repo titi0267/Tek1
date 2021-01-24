@@ -99,7 +99,7 @@ int wich_map_giant(char **av, giant_t *buffer)
         buffer->leftover = malloc(sizeof(char) * buffer->oversize + 1);
         if (cutting(buffer) == 0) {
             //my_putchar('\n');
-            //my_putstr("Hello\n");
+            my_printf("Hello\n");
             ascToBin(buffer);
             /*my_putstr(buffer->key);
             my_putchar('\n');

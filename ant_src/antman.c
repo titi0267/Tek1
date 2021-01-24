@@ -33,9 +33,6 @@ int main(int ac, char **av)
     HuffmanCodes(ant);
     store_sentence(ant);
     bin_to_ascii(ant);
-    my_putchar('@');
-    my_putnbr(10);
-    my_putchar('@');
     memfree(ant);
     return (0);
 }

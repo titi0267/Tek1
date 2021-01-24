@@ -12,7 +12,7 @@ int store_sentence(ant_t *ant)
     int i = 0;
     int f = 0;
     int e = 0;
-    ant->bin_str = malloc(sizeof(char) * 10000000);
+    ant->bin_str = malloc(sizeof(char) * (8 * ant->buffer_size) + 1);
 
     for (; i < ant->buffer_size; i++) {
         for (; ant->reorder[e] != '\0'; e++) {
@@ -35,11 +35,13 @@ int bin_to_ascii(ant_t *ant)
     int x = 1;
     int sum = 0;
     int y = 0;
+    int not_bit = 0;
     int i = 128;
-    ant->temp = malloc(sizeof(char) * 1000);
-    ant->compress = malloc(sizeof(char) * 10000000);
-    my_printf("\n");
-    for (; c < ant->bin_size + 1; c++) {
+    ant->temp = malloc(sizeof(char) * 9);
+    ant->compress = malloc(sizeof(char) * (ant->bin_size / 8) + 1);
+    //my_printf("   %i\n", ant->bin_size);
+    not_bit = ant->bin_size % 8;
+    for (; c < (ant->bin_size + 1) - not_bit; c++) {
         if ((c % 8) != 0) {
             ant->temp[x - 1] = ant->bin_str[c - 1];
             x++;
@@ -47,6 +49,7 @@ int bin_to_ascii(ant_t *ant)
         if ((c % 8) == 0) {
             ant->temp[x - 1] = ant->bin_str[c - 1];
             for (int f = 0; f < 8; f++) {
+                //my_printf("f = %i\n", f);
                 if (f == 8 && ant->temp[f] == 1) {
                     i = 1;
                     sum += i;
@@ -65,6 +68,10 @@ int bin_to_ascii(ant_t *ant)
             i = 128;
             x = 1;
         }
-
     }
+    my_printf("@");
+    for (; not_bit != 0; not_bit--) {
+        my_printf("%i", ant->bin_str[ant->bin_size - not_bit]);
+    }
+    my_printf("@");
 }
