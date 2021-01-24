@@ -27,6 +27,7 @@ int main(int ac, char **av)
         return (84);
     recover_freq(buffer, 0, 1, 0);
     GHuffmanCodes(buffer);
+    bindecode(buffer);
     memfree_giant(buffer);
     return (0);
 }

@@ -50,6 +50,7 @@ int wich_map_giant(char **av, giant_t *buffer);
 int encoded_error(giant_t *buffer);
 int ascToBin(giant_t *buffer);
 int recover_freq(giant_t *buffer, int i, int x, int store);
+void bindecode(giant_t *buffer);
 
 void HuffmanCodes(ant_t *ant);
 void GHuffmanCodes(giant_t *buffer);
