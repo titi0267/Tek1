@@ -12,17 +12,9 @@ int encoded_error(giant_t *buffer)
 {
     int cut = 0;
 
-<<<<<<< HEAD
-    while (i < buffer->buffer_size) {
-        my_putchar(buffer->str[i]);
-        if (buffer->str[i] == '@')
-            cut++;
-        i++;
-=======
     for (int i = 0; i < buffer->buffer_size; i++) {
         if (buffer->str[i] == '@')
             cut++;
->>>>>>> 32aed14a916feec2b479a8885ff522c62967ee98
     }
     if (cut == 3)
         return (0);
