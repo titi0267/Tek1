@@ -14,8 +14,10 @@ int encoded_error(giant_t *buffer)
     int cut = 0;
 
     while (buffer->str[i] != '\0') {
-        if (buffer->str[i] == '@')
+        if (buffer->str[i] == '@') {
+            my_putchar('e');
             cut++;
+        }
         i++;
     }
     if (cut == 3)
@@ -41,7 +43,7 @@ int error_arg(int ac, char **av)
         }
     }
     if (ac == 3 && (av[2][0] != '1' && av[2][0] != '2' && av[2][0] != '3')) {
-        my_printf("wrong argument for file type.\n");
+        my_printf("Wrong argument for file type.\n");
         return (84);
     }
     return (0);
