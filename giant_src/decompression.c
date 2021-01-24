@@ -10,13 +10,21 @@
 #include <stdio.h>
 #include <string.h>
 
+void check_value_counter(giant_t *buffer, int value, int char_pos, int counter)
+{
+    if (counter < 8 && value == 0) {
+        while (counter < 8) {
+            buffer->char_res[char_pos] = '0';
+            counter++;
+        }
+    }
+}
+
 int cp_res_to_buff(giant_t *buffer, int pos_res)
 {
     for (int i = 7; i >= 0; i--, pos_res++) {
-        my_putchar(buffer->char_res[i]);
         buffer->code_binResult[pos_res] = buffer->char_res[i];
     }
-    my_putnbr(pos_res);
     return (pos_res);
 }
 
@@ -31,29 +39,37 @@ int bin_me(giant_t *buffer, int value, int char_pos)
 
 int ascToBin(giant_t *buffer)
 {
-    buffer->code_binResult = (char *) malloc(sizeof(char) * 32);
+    buffer->code_binResult = (char *) malloc(sizeof(char) * 8 * 
+    buffer->codesize + 1);
     buffer->char_res = malloc(sizeof(char) * 9);
     int i = 0;
     int char_pos = 0;
     int pos_res = 0;
     int value = 0;
+    int counter = 0;
 
     while (i <= buffer->codesize) {
         value = buffer->code[i];
-        my_printf("val = %i\n", value);
+        if (value < 0)
+            value += 128 + (value * -1);
         while (value > 0) {
             value = bin_me(buffer, value, char_pos);
-            value /= 2;
+            counter++;
             char_pos++;
+            value /= 2;
+            check_value_counter(buffer, value, char_pos, counter);
         }
-        my_putstr(buffer->char_res);
-        my_putchar('\n');
-        //pos_res = cp_res_to_buff(buffer, pos_res);
-        my_putchar('\n');
+        pos_res = cp_res_to_buff(buffer, pos_res);
+        counter = 0;
         char_pos = 0;
         i++;
     }
     buffer->code_binResult[pos_res] = '\0';
+    my_putnbr(pos_res);
+    my_putchar('\n');
+    my_putchar(buffer->code_binResult[pos_res - 2853]);
+    my_putchar('\n');
+    my_putchar(buffer->code_binResult[pos_res]);
     my_putstr(buffer->code_binResult);
     return (0);
 }
