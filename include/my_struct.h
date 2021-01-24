@@ -48,6 +48,8 @@ typedef struct giant_s
     char *code;
     int oversize;
     char *leftover;
+    char *char_res;
+    char *code_binResult;
 } giant_t;
 
 #endif /* !MY_STRUCT_H_ */

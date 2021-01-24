@@ -24,5 +24,7 @@ int my_strlen(char *str);
 char *my_int_str(int nb, lib_t *lib);
 char *my_revstr(char *str, lib_t *lib);
 int *pushswap(int *arr);
+void my_puterr(char *str);
+void my_putcerr(char c);
 
 #endif /* !my_h_ */

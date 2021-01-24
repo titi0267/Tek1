@@ -13,14 +13,10 @@ int encoded_error(giant_t *buffer)
     int i = 0;
     int cut = 0;
 
-    my_putstr(buffer->str);
-    my_putchar('\n');
-    while (buffer->str[i] != '\0') {
+    while (i < buffer->buffer_size) {
         my_putchar(buffer->str[i]);
-        if (buffer->str[i] == '@') {
-            my_putchar('@');
+        if (buffer->str[i] == '@')
             cut++;
-        }
         i++;
     }
     if (cut == 3)

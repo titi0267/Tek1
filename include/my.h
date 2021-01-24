@@ -26,6 +26,7 @@ int my_getnbr(char *str);
 char *my_int_str(int nb, lib_t *lib);
 int my_printf(char *str, ...);
 int *pushswap(int *arr);
+void my_puterr(char *str);
 
 void print_usage(void);
 int error_arg(int ac, char **av);
@@ -47,6 +48,7 @@ int count_word_giant(giant_t *buffer);
 int store_map_giant(giant_t *buffer);
 int wich_map_giant(char **av, giant_t *buffer);
 int encoded_error(giant_t *buffer);
+int ascToBin(giant_t *buffer);
 
 void HuffmanCodes(ant_t *ant);
 MinHeap_t *createAndBuildMinHeap(ant_t *ant);

@@ -6,18 +6,19 @@
 ##
 CC		=	gcc	-o
 
-SRC=	ant_src/antman.c				\
-		ant_src/usage.c					\
-		ant_src/create_list.c			\
-		ant_src/frequency.c				\
-		ant_src/print_compress.c		\
-		ant_src/error_handling.c		\
+SRC=	ant_src/antman.c						\
+		ant_src/usage.c							\
+		ant_src/create_list.c					\
+		ant_src/frequency.c						\
+		ant_src/print_compress.c				\
+		ant_src/error_handling.c				\
 		ant_src/file.c
 
 SRCS=	giant_src/giantman.c					\
 		giant_src/file.c						\
 		giant_src/usage.c						\
-		giant_src/error_handling.c
+		giant_src/error_handling.c				\
+		giant_src/decompression.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include
 
