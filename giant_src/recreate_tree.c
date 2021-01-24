@@ -167,12 +167,13 @@ void GHuffmanCodes(giant_t *buffer)
     int *arr = malloc(sizeof(int) * buffer->diff_le);
     buffer->binkey = malloc(sizeof(int *) * buffer->diff_le);
     int top = 0;
+    int i = 0;
 
-    gprint_encrypt_bin(buffer, root, arr, top); /*      print binary key for each letter (keep as comment)
+    gprint_encrypt_bin(buffer, root, arr, top); //      print binary key for each letter (keep as comment)
     for (; i < buffer->diff_le; i++) {
         my_printf("letter =  %c ->  ", buffer->in_order[i]);
         for (int c = 0; buffer->binkey[i][c] != -1; c++)
             my_printf("%i", buffer->binkey[i][c]);
         my_printf("\n");
-    }*/
+    }
 }

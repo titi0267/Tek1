@@ -22,9 +22,8 @@ void check_value_counter(giant_t *buffer, int value, int char_pos, int counter)
 
 int cp_res_to_buff(giant_t *buffer, int pos_res)
 {
-    for (int i = 7; i >= 0; i--, pos_res++) {
+    for (int i = 7; i >= 0; i--, pos_res++)
         buffer->code_binResult[pos_res] = buffer->char_res[i];
-    }
     return (pos_res);
 }
 
@@ -39,8 +38,7 @@ int bin_me(giant_t *buffer, int value, int char_pos)
 
 int ascToBin(giant_t *buffer)
 {
-    buffer->code_binResult = (char *) malloc(sizeof(char) * 8 * 
-    buffer->codesize + 1);
+    buffer->code_binResult = (char *) malloc(sizeof(char) * (8 * (buffer->codesize + 1)) + 1);
     buffer->char_res = malloc(sizeof(char) * 9);
     int i = 0;
     int char_pos = 0;
@@ -65,11 +63,16 @@ int ascToBin(giant_t *buffer)
         i++;
     }
     buffer->code_binResult[pos_res] = '\0';
-    my_putnbr(pos_res);
-    my_putchar('\n');
-    my_putchar(buffer->code_binResult[pos_res - 2853]);
-    my_putchar('\n');
-    my_putchar(buffer->code_binResult[pos_res]);
-    my_putstr(buffer->code_binResult);
+    my_printf("pos after loop = %i\n", pos_res);
+    my_printf("binary sentence size = %i & is at %i\n", 8 * (buffer->codesize +1), pos_res);
+    my_printf("pos 0 = %i\n", buffer->code_binResult[0]);
+    //my_putchar('\n');
+    //my_putchar(buffer->code_binResult[pos_res - 2853]);
+    //my_putchar('\n');
+    //my_putchar(buffer->code_binResult[pos_res]);
+    for (int i = 0; i < pos_res; i++) {
+        //my_printf("i = %i\n", i);
+        my_printf("%c", buffer->code_binResult[i]);
+    }
     return (0);
 }
