@@ -11,7 +11,7 @@ void print_ants(ant_t *ant)
 {
     my_printf("@");
     for (; ant->not_bit != 0; ant->not_bit--) {
-        my_printf("%i", ant->bin_str[ant->bin_size - ant->not_bit]);
+        my_printf("%c", ant->bin_str[ant->bin_size - ant->not_bit]);
     }
     my_printf("@");
 }
