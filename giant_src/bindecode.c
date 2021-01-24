@@ -10,14 +10,16 @@
 
 int check_next_letter(giant_t *buffer, int c, int d, int i)
 {
-
+    for (; buffer->code[i] != '\0'; i++) {
+        
+    }
 }
 
 void bindecode(giant_t *buffer)
 {
     char a = NULL;
     char b = NULL;
-    int count = 0;
+    buffer->decoding_count = 0;
     int c = 0;
     int d = 0;
 
@@ -25,17 +27,19 @@ void bindecode(giant_t *buffer)
         while (buffer->binkey[c][d] != buffer->code[i]) {
             c++;
         }
-        while (buffer->binkey[c][d] == buffer->code[i] && count < 8) {
+        while (buffer->binkey[c][d] == buffer->code[i] && 
+        buffer->decoding_count < 8) {
             d++;
             i++;
-            count++;
+            buffer->decoding_count++;
         }
-        if ((count != 8) && (check_next_letter(buffer, c, d, i) == 1)) {
+        if ((buffer->decoding_count != 8) && (check_next_letter(buffer, c, d, i) == 1)) {
             my_putchar(buffer->in_order[c]);
         }
-        if (count == 8) {
+        if (buffer->decoding_count == 8) {
             my_putchar(buffer->in_order[c]);
         }
-        count = 0;
+        buffer->decoding_count = 0;
+        c = 0;
     }
 }
