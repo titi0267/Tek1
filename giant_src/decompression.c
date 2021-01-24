@@ -49,7 +49,7 @@ int ascToBin(giant_t *buffer)
     while (i <= buffer->codesize) {
         value = buffer->code[i];
         if (value < 0)
-            value += 128 + (value * -1);
+            value = value + ((127 - value) * (-1));
         while (value > 0) {
             value = bin_me(buffer, value, char_pos);
             counter++;

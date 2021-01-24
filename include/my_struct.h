@@ -22,6 +22,12 @@ typedef struct ant_s
     int bin_size;
     char *temp;
     char *compress;
+    int x;
+    int w;
+    int c;
+    int i;
+    int sum;
+    int y;
 } ant_t;
 
 typedef struct MinHNode

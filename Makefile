@@ -12,7 +12,8 @@ SRC=	ant_src/antman.c						\
 		ant_src/frequency.c						\
 		ant_src/print_compress.c				\
 		ant_src/error_handling.c				\
-		ant_src/file.c
+		ant_src/file.c							\
+		ant_src/huffmansbox.c
 
 SRCS=	giant_src/giantman.c					\
 		giant_src/file.c						\

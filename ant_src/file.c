@@ -41,10 +41,9 @@ int read_map(ant_t *ant, char *filepath)
     return (0);
 }
 
-int store_car(ant_t *ant)
+int store_car(ant_t *ant, int x)
 {
     int c = 0;
-    int x = 0;
     int i = 0;
 
     ant->store = malloc(sizeof(char) * ant->buffer_size);
@@ -67,12 +66,9 @@ int store_car(ant_t *ant)
     return (0);
 }
 
-int store_map(ant_t *ant)
+int store_map(ant_t *ant, int c, int t)
 {
-    int c = 0;
-    int t = 0;
-
-    store_car(ant);
+    store_car(ant, 0);
     ant->line = malloc(sizeof(char *) * ant->buffer_size);
     if (ant->line == NULL)
         return (-1);
@@ -97,7 +93,7 @@ int store_map(ant_t *ant)
 int which_map(char **av, ant_t *ant)
 {
     if (read_map(ant, av[1]) == 0) {
-        if (store_map(ant) == 0)
+        if (store_map(ant, 0, 0) == 0)
             return (0);
         else {
             my_printf("Malloc didn't worked as expected\n");

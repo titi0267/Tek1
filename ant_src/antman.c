@@ -23,10 +23,15 @@ void memfree(ant_t *ant)
 int main(int ac, char **av)
 {
     ant_t *ant = malloc(sizeof(ant_t));
+    ant->x = 0;
+    ant->c = 1;
+    ant->w = 1;
+    ant->sum = 0;
 
-    if (ant == NULL || error_arg(ac, av) != 0 || which_map(av, ant) != 0 || letter_freq(ant) != 0)
+    if (ant == NULL || error_arg(ac, av) != 0 || which_map(av, ant) != 0 
+    || letter_freq(ant) != 0)
         return (84);
-    descend_ord(ant);
+    descend_ord(ant, 0, 0, 0);
     for (int i = 0; ant->reorder[i] != '\0'; i++)
         my_printf("%c%i%c", ant->reorder[i], ant->l_freq[i], 6);
     my_printf("@");

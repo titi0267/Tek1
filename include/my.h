@@ -39,7 +39,7 @@ int print_place(ant_t *buffer);
 void calc_x(ant_t *buffer);
 void diff_wrd(ant_t *buffer);
 int letter_freq(ant_t *ant);
-int descend_ord(ant_t *ant);
+int descend_ord(ant_t *ant, int, int, int);
 
 int giantman_me(int);
 int read_map_next_giant(giant_t *buffer, int);
@@ -54,9 +54,11 @@ int recover_freq(giant_t *buffer);
 void HuffmanCodes(ant_t *ant);
 void GHuffmanCodes(giant_t *buffer);
 MinHeap_t *createAndBuildMinHeap(ant_t *ant);
+MinHNodelr *buildHuffmanTree(ant_t *ant);
 MinHNodelr *newNode(char car, int min_freq);
 void minHeapify(MinHeap_t *minHeap, int idx);
 int store_sentence(ant_t *ant);
-int bin_to_ascii(ant_t *ant);
+void bin_to_ascii(ant_t *ant);
+void print_encrypt_bin(ant_t *ant, MinHNodelr *root, int *arr, int top);
 
 #endif /* !MY_H_ */
