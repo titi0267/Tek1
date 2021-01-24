@@ -39,9 +39,12 @@ int size_analysis(giant_t *buffer)
     while (buffer->str[buffer->keysize] != '@')
         buffer->keysize++;
     if (buffer->str[buffer->keysize] == '@') {
-        while (buffer->str[buffer->keysize + buffer->codesize + 1] != '@')
+        while (buffer->str[buffer->keysize + buffer->codesize + 1] != '@') {
+            my_printf("%c & code = %i\n", buffer->str[buffer->keysize + buffer->codesize + 1], buffer->codesize);
             buffer->codesize++;
+        }
     }
+    my_printf("key = %i, code = %i\n", buffer->keysize, buffer->codesize);
     if (buffer->str[buffer->keysize + buffer->codesize + 1] == '@') {
         while (buffer->str[buffer->keysize + buffer->codesize +
         buffer->oversize + 2] != '@')
@@ -77,7 +80,6 @@ int read_map_giant(giant_t *buffer, char *filepath)
     }
     my_putnbr(buff.st_size);
     buffer->buffer_size = buff.st_size + 1;
-    my_printf("%i", buff.st_size);
     buffer->str = malloc(sizeof(char) * buffer->buffer_size);
     if (buffer->str == NULL) {
         my_printf("Malloc didn't worked as expected\n");
