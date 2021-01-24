@@ -19,7 +19,7 @@ SRCS=	giant_src/giantman.c					\
 		giant_src/usage.c						\
 		giant_src/error_handling.c
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include
 
 NAME	=	antman
 NAMES	=	giantman

@@ -27,7 +27,7 @@ int cutting(giant_t *buffer)
     , i++)
         buffer->leftover[i] = buffer->str[h + 1];
     buffer->leftover[buffer->oversize] = '\0';
-    return (0); 
+    return (0);
 }
 
 int size_analysis(giant_t *buffer)
@@ -43,11 +43,11 @@ int size_analysis(giant_t *buffer)
             buffer->codesize++;
     }
     if (buffer->str[buffer->keysize + buffer->codesize + 1] == '@') {
-        while (buffer->str[buffer->keysize + buffer->codesize + 
+        while (buffer->str[buffer->keysize + buffer->codesize +
         buffer->oversize + 2] != '@')
             buffer->oversize++;
     }
-    if (buffer->str[buffer->keysize + buffer->codesize + 
+    if (buffer->str[buffer->keysize + buffer->codesize +
     buffer->oversize + 2] == '@')
         return (0);
     //my_puterr("Giantman cannot work with this encoded file")
@@ -91,7 +91,7 @@ int read_map_giant(giant_t *buffer, char *filepath)
 
 int wich_map_giant(char **av, giant_t *buffer)
 {
-    if (read_map_giant(buffer, av[1]) == 0 && encoded_error(buffer) == 0 
+    if (read_map_giant(buffer, av[1]) == 0 && encoded_error(buffer) == 0
     && size_analysis(buffer) == 0) {
         buffer->key = malloc(sizeof(char) * buffer->keysize);
         buffer->code = malloc(sizeof(char) * buffer->codesize);
