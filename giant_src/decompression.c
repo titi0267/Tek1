@@ -65,6 +65,10 @@ int ascToBin(giant_t *buffer)
         i++;
     }
     buffer->code_binResult[pos_res] = '\0';
+    for (int i = 0; buffer->code_binResult[i] != '\0'; i++) {
+        my_putchar(buffer->code_binResult[i]);
+        my_putnbr(i);
+    }
     my_putnbr(pos_res);
     my_putchar('\n');
     my_putchar(buffer->code_binResult[pos_res - 2853]);
