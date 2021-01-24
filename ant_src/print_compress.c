@@ -12,7 +12,7 @@ int store_sentence(ant_t *ant)
     int i = 0;
     int f = 0;
     int e = 0;
-    ant->bin_str = malloc(sizeof(char) * 100000);
+    ant->bin_str = malloc(sizeof(char) * 10000000);
 
     for (; i < ant->buffer_size; i++) {
         for (; ant->reorder[e] != '\0'; e++) {
@@ -37,7 +37,7 @@ int bin_to_ascii(ant_t *ant)
     int y = 0;
     int i = 128;
     ant->temp = malloc(sizeof(char) * 1000);
-    ant->compress = malloc(sizeof(char) * 100000);
+    ant->compress = malloc(sizeof(char) * 10000000);
     my_printf("\n");
     for (; c < ant->bin_size + 1; c++) {
         if ((c % 8) != 0) {

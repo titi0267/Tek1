@@ -36,6 +36,7 @@ int read_map(ant_t *ant, char *filepath)
     read_ret = read_map_next(ant, fd);
     if (read_ret == -1)
         return (-1);
+    my_printf("%i", ant->buffer_size);
     ant->str[ant->buffer_size - 1] = '\0';
     close(fd);
     return (0);
