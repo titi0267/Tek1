@@ -48,6 +48,8 @@ typedef struct giant_s
     char *code;
     int oversize;
     char *leftover;
+    int *le_freq;
+    char *in_order;
     char *char_res;
     char *code_binResult;
 } giant_t;

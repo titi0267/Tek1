@@ -28,7 +28,7 @@ int main(int ac, char **av)
         return (84);
     descend_ord(ant);
     for (int i = 0; ant->reorder[i] != '\0'; i++)
-        my_printf("%c$%i", ant->reorder[i], ant->l_freq[i]);
+        my_printf("%c%i%c", ant->reorder[i], ant->l_freq[i], 6);
     my_printf("@");
     HuffmanCodes(ant);
     store_sentence(ant);

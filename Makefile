@@ -17,10 +17,15 @@ SRC=	ant_src/antman.c						\
 SRCS=	giant_src/giantman.c					\
 		giant_src/file.c						\
 		giant_src/usage.c						\
+<<<<<<< HEAD
 		giant_src/error_handling.c				\
 		giant_src/decompression.c
+=======
+		giant_src/recreate_tree.c				\
+		giant_src/error_handling.c
+>>>>>>> 32aed14a916feec2b479a8885ff522c62967ee98
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
 
 NAME	=	antman
 NAMES	=	giantman
