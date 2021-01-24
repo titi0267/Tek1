@@ -51,7 +51,7 @@ int size_analysis(giant_t *buffer)
     if (buffer->str[buffer->keysize + buffer->codesize +
     buffer->oversize + 2] == '@')
         return (0);
-    //my_puterr("Giantman cannot work with this encoded file")
+    my_puterr("Giantman cannot work with this encoded file");
     return (84);
 }
 
@@ -62,7 +62,7 @@ int read_map_next_giant(giant_t *buffer, int fd)
 
     read_ret = read(fd, buffer->str, buffer->buffer_size);
     if (read_ret == -1)
-        my_printf("Couldn't read the buffer\n");
+        my_puterr("Couldn't read the buffer\n");
     return (read_ret);
 }
 
@@ -73,13 +73,13 @@ int read_map_giant(giant_t *buffer, char *filepath)
     int fd = open(filepath, O_RDONLY);
 
     if (fd == -1 || stat(filepath, &buff) == -1) {
-        my_printf("Couldn't open the file because of a wrong filepath\n");
+        my_puterr("Couldn't open the file because of a wrong filepath\n");
         return (-1);
     }
     buffer->buffer_size = buff.st_size + 1;
     buffer->str = malloc(sizeof(char) * buffer->buffer_size);
     if (buffer->str == NULL) {
-        my_printf("Malloc didn't worked as expected\n");
+        my_puterr("Malloc didn't worked as expected\n");
         return (-1);
     }
     read_ret = read_map_next_giant(buffer, fd);

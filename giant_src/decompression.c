@@ -38,39 +38,34 @@ int bin_me(giant_t *buffer, int value, int char_pos)
 
 int ascToBin(giant_t *buffer)
 {
-    buffer->code_binResult = (char *) malloc(sizeof(char) * (8 * (buffer->codesize + 1)) + 1);
-    buffer->char_res = malloc(sizeof(char) * 9);
-    int i = 0;
-    int char_pos = 0;
-    int pos_res = 0;
-    int value = 0;
-    int counter = 0;
-
-    while (i <= buffer->codesize) {
-        value = buffer->code[i];
-        if (value < 0)
-            value = value + ((127 - value) * (-1));
-        while (value > 0) {
-            value = bin_me(buffer, value, char_pos);
-            counter++;
-            char_pos++;
-            value /= 2;
-            check_value_counter(buffer, value, char_pos, counter);
+    while (buffer->i <= buffer->codesize) {
+        buffer->value = buffer->code[buffer->i];
+        if (buffer->value > 127) {
+                buffer->red = buffer->value - 127;
+                buffer->value = 127 + buffer->red;
+            }
+        while (buffer->value > 0) {
+            buffer->value = bin_me(buffer, buffer->value, buffer->char_pos);
+            buffer->counter++;
+            buffer->char_pos++;
+            buffer->value /= 2;
+            check_value_counter(buffer, buffer->value, buffer->char_pos, 
+            buffer->counter);
         }
-        pos_res = cp_res_to_buff(buffer, pos_res);
-        counter = 0;
-        char_pos = 0;
-        i++;
+        buffer->pos_res = cp_res_to_buff(buffer, buffer->pos_res);
+        buffer->counter = 0;
+        buffer->char_pos = 0;
+        buffer->i++;
     }
-    buffer->code_binResult[pos_res] = '\0';
-    my_printf("pos after loop = %i\n", pos_res);
-    my_printf("binary sentence size = %i & is at %i\n", 8 * (buffer->codesize +1), pos_res);
+    buffer->code_binResult[buffer->pos_res] = '\0';
+    my_printf("pos after loop = %i\n", buffer->pos_res);
+    my_printf("binary sentence size = %i & is at %i\n", 8 * (buffer->codesize +1), buffer->pos_res);
     my_printf("pos 0 = %i\n", buffer->code_binResult[0]);
     //my_putchar('\n');
     //my_putchar(buffer->code_binResult[pos_res - 2853]);
     //my_putchar('\n');
     //my_putchar(buffer->code_binResult[pos_res]);
-    for (int i = 0; i < pos_res; i++) {
+    for (int i = 0; i < buffer->pos_res; i++) {
         //my_printf("i = %i\n", i);
         my_printf("%c", buffer->code_binResult[i]);
     }

@@ -21,6 +21,15 @@ void memfree_giant(giant_t *buffer)
 int main(int ac, char **av)
 {
     giant_t *buffer = malloc(sizeof(giant_t));
+    buffer->code_binResult = (char *) malloc(sizeof(char) * (8 * 
+    (buffer->codesize + 1)) + 1);
+    buffer->char_res = malloc(sizeof(char) * 9);
+    buffer->i = 0;
+    buffer->char_pos = 0;
+    buffer->pos_res = 0;
+    buffer->value = 0;
+    buffer->counter = 0;
+    buffer->red = 0;
 
     if (buffer == NULL || error_arg(ac, av) != 0 || wich_map_giant(av, buffer)
     != 0)

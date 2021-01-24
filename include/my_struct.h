@@ -64,6 +64,12 @@ typedef struct giant_s
     char **binkey;
     char *key_binstr;
     int key_binsize;
+    int i;
+    int char_pos;
+    int pos_res;
+    int value;
+    int counter;
+    int red;
 } giant_t;
 
 typedef struct GMinHNode
