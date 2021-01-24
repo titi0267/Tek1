@@ -26,6 +26,7 @@ int main(int ac, char **av)
     != 0)
         return (84);
     recover_freq(buffer);
+    GHuffmanCodes(buffer);
     memfree_giant(buffer);
     return (0);
 }

@@ -32,14 +32,15 @@ int bin_me(giant_t *buffer, int value, int char_pos)
 int ascToBin(giant_t *buffer)
 {
     buffer->code_binResult = (char *) malloc(sizeof(char) * 32);
-    buffer->char_res = malloc(sizeof(char) * 8);
+    buffer->char_res = malloc(sizeof(char) * 9);
     int i = 0;
     int char_pos = 0;
     int pos_res = 0;
     int value = 0;
 
-    while (i < buffer->codesize) {
-        value = buffer->code[i] - '0';
+    while (i <= buffer->codesize) {
+        value = buffer->code[i];
+        my_printf("val = %i\n", value);
         while (value > 0) {
             value = bin_me(buffer, value, char_pos);
             value /= 2;

@@ -7,13 +7,6 @@
 
 #include "../include/my.h"
 
-MinHeap_t *createMinH(ant_t *ant)
-{
-    MinHeap_t *minHeap = malloc(sizeof(MinHeap_t));
-    minHeap->array = malloc(sizeof(MinHNodelr) * ant->diff_let);
-    return (minHeap);
-}
-
 MinHNodelr *newNode(char car, int min_freq)
 {
     MinHNode_t *temp = malloc(sizeof(MinHNode_t));

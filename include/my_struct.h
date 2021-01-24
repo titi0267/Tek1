@@ -24,14 +24,16 @@ typedef struct ant_s
     char *compress;
 } ant_t;
 
-typedef struct MinHNode {
+typedef struct MinHNode
+{
   char item;
   int freq;
   struct MinHNode *left;
   struct MinHNode *right;
 } MinHNode_t, MinHNodelr;
 
-typedef struct MinHeap {
+typedef struct MinHeap
+{
   int size;
   struct MinHNode **array;
 } MinHeap_t;
@@ -52,6 +54,25 @@ typedef struct giant_s
     char *in_order;
     char *char_res;
     char *code_binResult;
+    int diff_le;
+    char **binkey;
+    char *key_binstr;
+    int key_binsize;
 } giant_t;
+
+typedef struct GMinHNode
+{
+  char item;
+  int freq;
+  struct GMinHNode *left;
+  struct GMinHNode *right;
+} GMinHNode_t, GMinHNodelr;
+
+typedef struct GMinHeap
+{
+  int size;
+  struct GMinHNode **array;
+} GMinHeap_t;
+
 
 #endif /* !MY_STRUCT_H_ */

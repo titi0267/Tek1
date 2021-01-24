@@ -17,7 +17,6 @@ int cutting(giant_t *buffer)
 
     for (; i < buffer->keysize; i++)
         buffer->key[i] = buffer->str[i];
-    my_printf("key = %i\n", buffer->keysize);
     buffer->key[buffer->keysize] = '\0';
     i = 0;
     for (; j < buffer->keysize + buffer->codesize; j++, i++)
@@ -99,9 +98,9 @@ int wich_map_giant(char **av, giant_t *buffer)
         buffer->code = malloc(sizeof(char) * buffer->codesize + 1);
         buffer->leftover = malloc(sizeof(char) * buffer->oversize + 1);
         if (cutting(buffer) == 0) {
-            my_putchar('\n');
-            my_putstr("Hello\n");
-            ascToBin(buffer);
+            //my_putchar('\n');
+            //my_putstr("Hello\n");
+            //ascToBin(buffer);
             /*my_putstr(buffer->key);
             my_putchar('\n');
             my_putstr(buffer->code);
