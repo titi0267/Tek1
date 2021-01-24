@@ -13,6 +13,13 @@ SRC=	my_putchar.c	\
 		my_strlen.c		\
 		my_getnbr.c		\
 		my_int_to_str.c	\
+		pushswap/src_psw/which_op.c		\
+		pushswap/src_psw/my_lib.c		\
+		pushswap/src_psw/create_list.c	\
+		pushswap/src_psw/op_seclist.c	\
+		pushswap/src_psw/pushswap.c		\
+		pushswap/bonus/print_list.c		\
+		pushswap/src_psw/main.c			\
 		printf/disp_adress.c		\
 		printf/disp_bin.c			\
 		printf/disp_char.c			\

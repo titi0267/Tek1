@@ -7,18 +7,17 @@
 
 #include "../include/my.h"
 
-int read_map_next(ant_t *buffer, int fd)
+int read_map_next(ant_t *ant, int fd)
 {
     ssize_t read_ret = 0;
-    buffer->word = 0;
 
-    read_ret = read(fd, buffer->str, buffer->buffer_size);
+    read_ret = read(fd, ant->str, ant->buffer_size);
     if (read_ret == -1)
-        my_printf("Couldn't read the buffer\n");
+        my_printf("Couldn't read the ant\n");
     return (read_ret);
 }
 
-int read_map(ant_t *buffer, char *filepath)
+int read_map(ant_t *ant, char *filepath)
 {
     struct stat buff;
     ssize_t read_ret = 0;
@@ -28,72 +27,77 @@ int read_map(ant_t *buffer, char *filepath)
         my_printf("Couldn't open the file because of a wrong filepath\n");
         return (-1);
     }
-    buffer->buffer_size = buff.st_size + 1;
-    buffer->str = malloc(sizeof(char) * buffer->buffer_size);
-    if (buffer->str == NULL) {
+    ant->buffer_size = buff.st_size + 1;
+    ant->str = malloc(sizeof(char) * ant->buffer_size);
+    if (ant->str == NULL) {
         my_printf("Malloc didn't worked as expected\n");
         return (-1);
     }
-    read_ret = read_map_next(buffer, fd);
+    read_ret = read_map_next(ant, fd);
     if (read_ret == -1)
         return (-1);
-    buffer->str[buffer->buffer_size - 1] = '\0';
+    ant->str[ant->buffer_size - 1] = '\0';
     close(fd);
     return (0);
 }
 
-int count_word(ant_t *buffer)
+int store_car(ant_t *ant)
 {
-    int len = 0;
-    int x = 0;
-
-    for (int i = 0; buffer->str[i] != '\0'; i++) {
-        if ((buffer->str[i] == ' ' && buffer->str[i + 1] != ' ') ||
-            buffer->str[i + 1] == '\0')
-            buffer->word++;
-    }
-    if (!(buffer->word_len = malloc(sizeof(int *) * buffer->word + 1)))
-        return (-1);
-    for (int i = 0; buffer->str[i] != '\0'; i++) {
-        if (buffer->str[i] != ' ')
-            len++;
-        if (buffer->str[i] == ' ' || buffer->str[i + 1] == '\0') {
-            buffer->word_len[x] = len;
-            x++;
-            len = 0;
-        }
-    }
-    return (0);
-}
-
-int store_map(ant_t *buffer)
-{
-    int i = 0;
-    int e = 0;
     int c = 0;
+    int x = 0;
+    int i = 0;
 
-    if (count_word(buffer) == -1)
+    ant->store = malloc(sizeof(char) * ant->buffer_size);
+    if (ant->store == NULL)
         return (-1);
-    buffer->line = malloc(sizeof(char *) * (buffer->word + 1));
-    if (buffer->line == NULL)
-        return (-1);
-    for (;e != buffer->word; e++, i++) {
-        buffer->line[e] = malloc(sizeof(char) * buffer->word_len[e] + 1);
-        if (buffer->line[e] == NULL)
-            return (-1);
-        for (; buffer->str[i] != ' ' && i < buffer->buffer_size - 1; i++, c++)
-            buffer->line[e][c] = buffer->str[i];
-        buffer->line[e][c] = '\0';
-        c = 0;
+    for (int f = 0; f < ant->buffer_size; f++)
+        ant->store[f] = NULL;
+    for (; ant->str[c] != '\0'; c++) {
+        for (; x <= c; x++) {
+            if (ant->store[x] == ant->str[c])
+                break;
+            if (x == c) {
+                ant->store[i] = ant->str[c];
+                i++;
+            }
+        }
+        x = 0;
     }
-    buffer->line[e] = NULL;
+    ant->store[i] = '\0';
     return (0);
 }
 
-int wich_map(char **av, ant_t *buffer)
+int store_map(ant_t *ant)
 {
-    if (read_map(buffer, av[1]) == 0) {
-        if (store_map(buffer) == 0)
+    int c = 0;
+    int t = 0;
+
+    store_car(ant);
+    ant->line = malloc(sizeof(char *) * ant->buffer_size);
+    if (ant->line == NULL)
+        return (-1);
+    for (; ant->store[c] != '\0'; c++) {
+        ant->line[c] = malloc(sizeof(char) * 100000);
+        if (ant->line[c] == NULL)
+            return (-1);
+        for (int x = 0; ant->str[x] != '\0'; x++) {
+            if (ant->store[c] == ant->str[x]) {
+                ant->line[c][t] = ant->str[x];
+                t++;
+            }
+        }
+        ant->line[c][t] = '\0';
+        t = 0;
+    }
+    ant->diff_let = c;
+    ant->line[c] = NULL;
+    return (0);
+}
+
+int which_map(char **av, ant_t *ant)
+{
+    if (read_map(ant, av[1]) == 0) {
+        if (store_map(ant) == 0)
             return (0);
         else {
             my_printf("Malloc didn't worked as expected\n");

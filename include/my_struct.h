@@ -13,10 +13,28 @@ typedef struct ant_s
     int buffer_size;
     char *str;
     char **line;
-    float *l_freq;
-    float diff_let;
+    int *l_freq;
+    int diff_let;
     char *store;
+    char *reorder;
+    char *bin_str;
+    int **fill_sent;
+    int bin_size;
+    char *temp;
+    char *compress;
 } ant_t;
+
+typedef struct MinHNode {
+  char item;
+  int freq;
+  struct MinHNode *left;
+  struct MinHNode *right;
+} MinHNode_t, MinHNodelr;
+
+typedef struct MinHeap {
+  int size;
+  struct MinHNode **array;
+} MinHeap_t;
 
 typedef struct giant_s
 {

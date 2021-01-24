@@ -8,6 +8,7 @@
 #ifndef my_h_
 #define my_h_
 #include "printf/myp.h"
+#include "pushswap/include/my.h"
 
 typedef struct lib_s
 {
@@ -22,5 +23,6 @@ int my_getnbr(char *str);
 int my_strlen(char *str);
 char *my_int_str(int nb, lib_t *lib);
 char *my_revstr(char *str, lib_t *lib);
+int *pushswap(int *arr);
 
 #endif /* !my_h_ */
