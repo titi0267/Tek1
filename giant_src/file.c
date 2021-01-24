@@ -76,6 +76,7 @@ int read_map_giant(giant_t *buffer, char *filepath)
         return (-1);
     }
     buffer->buffer_size = buff.st_size + 1;
+    my_printf("%i", buff.st_size);
     buffer->str = malloc(sizeof(char) * buffer->buffer_size);
     if (buffer->str == NULL) {
         my_printf("Malloc didn't worked as expected\n");

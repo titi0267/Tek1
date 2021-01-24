@@ -14,6 +14,7 @@ int encoded_error(giant_t *buffer)
     int cut = 0;
 
     while (buffer->str[i] != '\0') {
+        my_printf("%c", buffer->str[i]);
         if (buffer->str[i] == '@') {
             my_putchar('e');
             cut++;
