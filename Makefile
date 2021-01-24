@@ -20,7 +20,9 @@ SRCS=	giant_src/giantman.c					\
 		giant_src/usage.c						\
 		giant_src/recreate_tree.c				\
 		giant_src/error_handling.c				\
-		giant_src/decompression.c
+		giant_src/decompression.c				\
+		giant_src/huffmanstree.c				\
+		giant_src/huffmanstree_bis.c
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
 

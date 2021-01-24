@@ -34,7 +34,8 @@ int main(int ac, char **av)
     if (buffer == NULL || error_arg(ac, av) != 0 || wich_map_giant(av, buffer)
     != 0)
         return (84);
-    recover_freq(buffer);
+    my_putstr("Hello2\n");
+    recover_freq(buffer, 0, 1, 0);
     GHuffmanCodes(buffer);
     memfree_giant(buffer);
     return (0);

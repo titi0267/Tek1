@@ -57,6 +57,10 @@ int ascToBin(giant_t *buffer)
         buffer->char_pos = 0;
         buffer->i++;
     }
+    my_putnbr(buffer->codesize);
+    my_putchar('\n');
+    my_putnbr(buffer->pos_res);
+    my_putchar('\n');
     buffer->code_binResult[buffer->pos_res] = '\0';
     my_printf("pos after loop = %i\n", buffer->pos_res);
     my_printf("binary sentence size = %i & is at %i\n", 8 * (buffer->codesize +1), buffer->pos_res);

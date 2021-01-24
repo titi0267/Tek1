@@ -49,13 +49,23 @@ int store_map_giant(giant_t *buffer);
 int wich_map_giant(char **av, giant_t *buffer);
 int encoded_error(giant_t *buffer);
 int ascToBin(giant_t *buffer);
-int recover_freq(giant_t *buffer);
+int recover_freq(giant_t *buffer, int i, int x, int store);
 
 void HuffmanCodes(ant_t *ant);
 void GHuffmanCodes(giant_t *buffer);
 MinHeap_t *createAndBuildMinHeap(ant_t *ant);
 MinHNodelr *buildHuffmanTree(ant_t *ant);
 MinHNodelr *newNode(char car, int min_freq);
+
+void insertgMinHeap(GMinHeap_t *minHeap, GMinHNode_t *minHeapNode);
+void printgArray(int *arr, int top, giant_t *buffer);
+void gprint_encrypt_bin(giant_t *buffer, GMinHNodelr *root, int *arr, int top);
+void gminHeapify(GMinHeap_t *minHeap, int idx);
+GMinHeap_t *createAndBuildgMinHeap(giant_t *buffer);
+GMinHNodelr *extractgMin(GMinHeap_t *minHeap);
+GMinHNodelr *newgNode(char car, int min_freq);
+void swapgMinHNode(GMinHNodelr **a, GMinHNodelr **b);
+
 void minHeapify(MinHeap_t *minHeap, int idx);
 int store_sentence(ant_t *ant);
 void bin_to_ascii(ant_t *ant);

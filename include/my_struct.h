@@ -70,6 +70,7 @@ typedef struct giant_s
     int value;
     int counter;
     int red;
+    int y;
 } giant_t;
 
 typedef struct GMinHNode
