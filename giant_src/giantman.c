@@ -14,7 +14,6 @@ void memfree_giant(giant_t *buffer)
     free(buffer->key);
     free(buffer->code);
     free(buffer->leftover);
-    free(buffer->word_len);
     free(buffer->str);
     free(buffer);
 }
@@ -23,10 +22,10 @@ int main(int ac, char **av)
 {
     giant_t *buffer = malloc(sizeof(giant_t));
 
-    if (buffer == NULL || error_arg(ac, av) != 0 || wich_map_giant(av, buffer) 
+    if (buffer == NULL || error_arg(ac, av) != 0 || wich_map_giant(av, buffer)
     != 0)
         return (84);
-    else
-        memfree_giant(buffer);
+    recover_freq(buffer);
+    memfree_giant(buffer);
     return (0);
 }

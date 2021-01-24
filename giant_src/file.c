@@ -17,6 +17,7 @@ int cutting(giant_t *buffer)
 
     for (; i < buffer->keysize; i++)
         buffer->key[i] = buffer->str[i];
+    my_printf("key = %i\n", buffer->keysize);
     buffer->key[buffer->keysize] = '\0';
     i = 0;
     for (; j < buffer->keysize + buffer->codesize; j++, i++)
@@ -40,11 +41,9 @@ int size_analysis(giant_t *buffer)
         buffer->keysize++;
     if (buffer->str[buffer->keysize] == '@') {
         while (buffer->str[buffer->keysize + buffer->codesize + 1] != '@') {
-            my_printf("%c & code = %i\n", buffer->str[buffer->keysize + buffer->codesize + 1], buffer->codesize);
             buffer->codesize++;
         }
     }
-    my_printf("key = %i, code = %i\n", buffer->keysize, buffer->codesize);
     if (buffer->str[buffer->keysize + buffer->codesize + 1] == '@') {
         while (buffer->str[buffer->keysize + buffer->codesize +
         buffer->oversize + 2] != '@')
@@ -78,7 +77,6 @@ int read_map_giant(giant_t *buffer, char *filepath)
         my_printf("Couldn't open the file because of a wrong filepath\n");
         return (-1);
     }
-    my_putnbr(buff.st_size);
     buffer->buffer_size = buff.st_size + 1;
     buffer->str = malloc(sizeof(char) * buffer->buffer_size);
     if (buffer->str == NULL) {
@@ -97,9 +95,9 @@ int wich_map_giant(char **av, giant_t *buffer)
 {
     if (read_map_giant(buffer, av[1]) == 0 && encoded_error(buffer) == 0
     && size_analysis(buffer) == 0) {
-        buffer->key = malloc(sizeof(char) * buffer->keysize);
-        buffer->code = malloc(sizeof(char) * buffer->codesize);
-        buffer->leftover = malloc(sizeof(char) * buffer->oversize);
+        buffer->key = malloc(sizeof(char) * buffer->keysize + 1);
+        buffer->code = malloc(sizeof(char) * buffer->codesize + 1);
+        buffer->leftover = malloc(sizeof(char) * buffer->oversize + 1);
         if (cutting(buffer) == 0) {
             /*my_putstr(buffer->key);
             my_putchar('\n');

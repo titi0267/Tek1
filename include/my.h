@@ -47,6 +47,7 @@ int count_word_giant(giant_t *buffer);
 int store_map_giant(giant_t *buffer);
 int wich_map_giant(char **av, giant_t *buffer);
 int encoded_error(giant_t *buffer);
+int recover_freq(giant_t *buffer);
 
 void HuffmanCodes(ant_t *ant);
 MinHeap_t *createAndBuildMinHeap(ant_t *ant);
