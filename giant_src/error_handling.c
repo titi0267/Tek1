@@ -13,6 +13,7 @@ int encoded_error(giant_t *buffer)
     int i = 0;
     int cut = 0;
 
+    my_putstr(buffer->str);
     while (buffer->str[i] != '\0') {
         if (buffer->str[i] == '@') {
             my_putchar('e');

@@ -75,6 +75,7 @@ int read_map_giant(giant_t *buffer, char *filepath)
         my_printf("Couldn't open the file because of a wrong filepath\n");
         return (-1);
     }
+    my_putnbr(buff.st_size);
     buffer->buffer_size = buff.st_size + 1;
     buffer->str = malloc(sizeof(char) * buffer->buffer_size);
     if (buffer->str == NULL) {
