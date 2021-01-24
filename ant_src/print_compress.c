@@ -7,40 +7,11 @@
 
 #include "../include/my.h"
 
-void temporal_bis(ant_t *ant)
-{
-    ant->temp[ant->w - 1] = ant->bin_str[ant->c - 1];
-    for (int f = 0; f < 8; f++) {
-        if (f == 8 && ant->temp[f] == 1) {
-            ant->i = 1;
-            ant->sum += ant->i;
-        }
-        if (f == 8)
-            ant->i = 1;
-        if (f != 8 && ant->temp[f] == 1) {
-            ant->sum = ant->sum + ant->i;
-        }
-        ant->i /= 2;
-    }
-    ant->compress[ant->y] = ant->sum;
-    my_printf("%c", ant->compress[ant->y]);
-    ant->y++;
-    ant->sum = 0;
-    ant->i = 128;
-    ant->w = 1;
-}
-
-int temporal(ant_t *ant, int x, int c)
-{
-    ant->temp[x - 1] = ant->bin_str[c - 1];
-    return (1);
-}
-
-void print_ants(ant_t *ant, int not_bit)
+void print_ants(ant_t *ant)
 {
     my_printf("@");
-    for (; not_bit != 0; not_bit--) {
-        my_printf("%i", ant->bin_str[ant->bin_size - not_bit]);
+    for (; ant->not_bit != 0; ant->not_bit--) {
+        my_printf("%i", ant->bin_str[ant->bin_size - ant->not_bit]);
     }
     my_printf("@");
 }
@@ -56,7 +27,7 @@ int store_sentence(ant_t *ant)
         for (; ant->reorder[e] != '\0'; e++) {
             if (ant->str[i] == ant->reorder[e]) {
                 for (int x = 0; ant->fill_sent[e][x] != -1; x++) {
-                    ant->bin_str[f] = ant->fill_sent[e][x];
+                    ant->bin_str[f] = ant->fill_sent[e][x] + 48;
                     f++;
                 }
                 break;
@@ -69,18 +40,40 @@ int store_sentence(ant_t *ant)
 
 void bin_to_ascii(ant_t *ant)
 {
-    ant->y = 0;
-    int not_bit = 0;
-    ant->i = 128;
+    int i = 128;
+    int c = 0;
+    int x = 0;
+    int sum = 0;
+    int f = 0;
+    int e = 7;
+    int y = 0;
     ant->temp = malloc(sizeof(char) * 9);
     ant->compress = malloc(sizeof(char) * (ant->bin_size / 8) + 1);
+    ant->not_bit = ant->bin_size % 8;
 
-    not_bit = ant->bin_size % 8;
-    for (; ant->c < (ant->bin_size + 1) - not_bit; ant->c++) {
-        if ((ant->c % 8) != 0)
-            ant->w += temporal(ant, ant->w, ant->c);
-        if ((ant->c % 8) == 0)
-            temporal_bis(ant);
+    for (;c < ant->bin_size - ant->not_bit; c++) {
+        if (c == 0 || c % 8 != 0) {
+            ant->temp[x] = ant->bin_str[c];
+            x++;
+        } else {
+            while(e >= 0) {
+                if (ant->temp[y] == '1')
+                    sum = sum + i;
+                i /= 2;
+                y++;
+                e--;
+            }
+            x = 0;
+            e = 7;
+            f++;
+            ant->compress[f] = sum;
+            my_printf("%c", ant->compress[f]);
+            sum = 0;
+            y = 0;
+            i = 128;
+            ant->temp[x] = ant->bin_str[c];
+            x++;
+        }
     }
-    print_ants(ant, not_bit);
+    print_ants(ant);
 }

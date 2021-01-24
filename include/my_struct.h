@@ -25,6 +25,7 @@ typedef struct ant_s
     int x;
     int w;
     int c;
+    int not_bit;
     int i;
     int sum;
     int y;
@@ -32,16 +33,16 @@ typedef struct ant_s
 
 typedef struct MinHNode
 {
-  char item;
-  int freq;
-  struct MinHNode *left;
-  struct MinHNode *right;
+    char item;
+    int freq;
+    struct MinHNode *left;
+    struct MinHNode *right;
 } MinHNode_t, MinHNodelr;
 
 typedef struct MinHeap
 {
-  int size;
-  struct MinHNode **array;
+    int size;
+    struct MinHNode **array;
 } MinHeap_t;
 
 typedef struct giant_s
@@ -75,16 +76,16 @@ typedef struct giant_s
 
 typedef struct GMinHNode
 {
-  char item;
-  int freq;
-  struct GMinHNode *left;
-  struct GMinHNode *right;
+    char item;
+    int freq;
+    struct GMinHNode *left;
+    struct GMinHNode *right;
 } GMinHNode_t, GMinHNodelr;
 
 typedef struct GMinHeap
 {
-  int size;
-  struct GMinHNode **array;
+    int size;
+    struct GMinHNode **array;
 } GMinHeap_t;
 
 

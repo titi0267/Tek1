@@ -53,8 +53,8 @@ void HuffmanCodes(ant_t *ant)
 {
     MinHNodelr *root = buildHuffmanTree(ant);
     int *arr = malloc(sizeof(int) * ant->diff_let);
-    ant->fill_sent = malloc(sizeof(int *) * ant->diff_let);
     int top = 0;
 
+    ant->fill_sent = malloc(sizeof(int *) * ant->diff_let);
     print_encrypt_bin(ant, root, arr, top);
 }
