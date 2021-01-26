@@ -37,7 +37,7 @@ void print_num(char **av)
 
     for (; i <= my_getnbr(av[2]); i++) {
         if (is_mult9(i) == 2)
-            printf("FoozBazz\n");
+            printf("FozzBazz\n");
         if (is_mult2(i) == 1)
             printf("Fozz\n");
         if (is_mult9(i) == 1)
