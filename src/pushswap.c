@@ -28,12 +28,12 @@ void size_a(struct list_t **list, in_b_t *value)
     value->store_size = value->size;
 }
 
-void push_low_front(struct list_t **list, struct seclist_t **list_b, in_b_t *value)
+void push_low_front(struct list_t **list, struct seclist_t **list_b, in_b_t *va)
 {
     struct list_t *element = *list;
 
-    while ((*list)->nbr != value->low) {
-        ra(list, list_b, value);
+    while ((*list)->nbr != va->low) {
+        ra(list, list_b, va);
         write(1, "ra ", 3);
     }
     pb(list_b, list);
