@@ -10,22 +10,22 @@
 
 struct list_t
 {
-    int nbr;
+    long long int nbr;
     struct list_t *next;
 };
 
 struct seclist_t
 {
-    int num;
+    long long int num;
     struct seclist_t *next;
 };
 
 typedef struct in_b
 {
-    int max;
-    int size;
-    int store_size;
-    int low;
+    long long int max;
+    long long int size;
+    long long int store_size;
+    long long int low;
 } in_b_t;
 
 #endif /* !LIST_H_ */

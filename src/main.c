@@ -16,7 +16,8 @@ int error(int ac, char **av)
     }
     for (int i = 1; av[i] != 0; i++) {
         for (int j = 0; av[i][j] != '\0'; j++) {
-            if ((av[i][j] < 48 && av[i][j] != 45) || (av[i][j] > 57 && av[i][j] != 45)) {
+            if ((av[i][j] < 48 && av[i][j] != 45) ||
+                (av[i][j] > 57 && av[i][j] != 45)) {
                 my_putstr("The list can only contain numbers\n");
                 return (-1);
             }

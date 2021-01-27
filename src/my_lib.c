@@ -35,10 +35,10 @@ int my_putnbr(int nb)
     }
 }
 
-int my_getnbr(char *str)
+long long int my_getnbr(char *str)
 {
     int i = 0;
-    int j = 0;
+    long long int j = 0;
     int n = 1;
 
     for (; str[i] != '\0' && (str[i] == '+' || str[i] == '-'); i++) {
@@ -46,11 +46,9 @@ int my_getnbr(char *str)
             n *= -1;
     }
     while (str[i] != '\0' && str[i] <= '9' && str[i] >= '0') {
-        j = j + str[i] - 48;
-        j = j * 10;
+        j = j * 10 + str[i] - 48;
         i++;
     }
-    j /= 10;
     if (n == -1)
         return ((-1) * j);
     else

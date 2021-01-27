@@ -9,7 +9,7 @@
 #define MY_H_
 #include "list.h"
 
-int my_getnbr(char *str);
+long long int my_getnbr(char *str);
 int my_putstr(char const *str);
 void my_putchar(char c);
 int my_putnbr(int nb);
