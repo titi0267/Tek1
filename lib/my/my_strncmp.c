@@ -8,11 +8,11 @@
 
 int my_strncmp(char *cmp, char *cmpd)
 {
-    int l = 0;
+    int x = 0;
 
-    while (cmp[l] != '\0') {
-        if (cmpd[l] == cmp[l])
-            l++;
+    while (cmp[x] != '\0') {
+        if (cmpd[x] == cmp[x])
+            x++;
         else
             return (-1);
     }

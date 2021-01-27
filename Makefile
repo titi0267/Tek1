@@ -9,9 +9,9 @@ CC		=	gcc	-o
 SRC=	src/main.c
 
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
 
-NAME	=	my_runner
+NAME	=	mysh
 
 all:
 	${MAKE} -C lib/my/
