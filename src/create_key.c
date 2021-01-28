@@ -12,12 +12,15 @@ int ascii(char **av, infin_number_t *info)
 {
     int i = 0;
     for (info->i = 0; av[2][info->i] != '\0'; info->i++);
-    info->store_key = (int *)malloc(sizeof(int *) * info->i);
+    info->store_key = malloc(sizeof(int) * 10);
     if (info->store_key == NULL)
         return (84);
     for (; av[2][i] != '\0'; i++) {
         info->store_key[i] = av[2][i];
     }
+    if (i > 4)
+        for (; i != 9; i++)
+        info->store_key[i] = 0;
     info->store_key[i] = 0;
     return (0);
 }
