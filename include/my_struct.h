@@ -10,7 +10,8 @@
 
 typedef struct my_struct_s
 {
-    int process_id;
+    int process_id1;
+    int process_id2;
     char *str;
     char **cmd;
     int cmd_flags;

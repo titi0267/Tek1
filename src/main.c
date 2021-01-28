@@ -51,7 +51,7 @@ void my_count_word(my_struct_t *info)
     info->cmd[e] = NULL;
 }
 
-int shell(void)
+/*int shell(void)
 {
     char *argv[] = { "/bin/sh", "-c", "env", 0 };
     char *envp[] =
@@ -64,11 +64,13 @@ int shell(void)
         0
     };
     execve(argv[0], &argv[0], NULL);
-}
+}*/
 
 int shell_ls(my_struct_t *info)
 {
     int i = 0;
+    pid_t pid;
+    int status;
 
     if (my_strncmp(info->cmd[0], "ls") != 0)
         return (-1);
@@ -84,8 +86,24 @@ int shell_ls(my_struct_t *info)
         }
     }
     info->ls_args[i] = NULL;
-    execve(info->ls_args[0], info->ls_args, NULL);
+    if ((pid = fork()) == -1) {
+        perror("fork");
+        return (1);
+    } else if (pid == 0) {
+        if (execve(info->ls_args[0], info->ls_args, NULL) == -1)
+            perror("execve");
+        return (1);
+    } else
+        wait(&status);
     return (0);
+}
+
+void out_shell(my_struct_t *info)
+{
+    pid_t pid = getpid();
+
+    if (my_strncmp(info->str, "exit\n") == 0)
+        exit(pid);
 }
 
 int user_input(my_struct_t *info)
@@ -93,23 +111,27 @@ int user_input(my_struct_t *info)
     size_t len = 0;
 
     info->str = NULL;
-    info->process_id = getpid();
+    my_printf("$>");
     if (getline(&info->str, &len, stdin) != -1) {
         my_count_word(info);
         shell_ls(info);
+        out_shell(info);
+        if (shell_ls(info) == -1) {
+            for (int i = 0; info->str[i] != '\n'; i++)
+                my_putchar(info->str[i]);
+            my_printf(": Command not found\n");
+        }
+        user_input(info);
     }
-    return (0);
+    return 0;
 }
 
-
-int main(int ac)
+int main(int ac, char **av)
 {
-    int i = 0;
     my_struct_t *info = malloc(sizeof(my_struct_t));
 
     if (info == NULL || ac > 1)
         return (84);
-    my_printf("$>");
     user_input(info);
     return (0);
 }
