@@ -44,13 +44,26 @@ int encrypt(char **av, infin_number_t *info)
     }
     return (0);
 }
+
+void my_free(infin_number_t *info)
+{
+    free(info->sentence);
+    free(info->store_key);
+    //free(info->encrypt);
+    free(info);
+}
+
 int main(int ac, char **av)
 {
     infin_number_t *info = malloc(sizeof(infin_number_t));
 
     if (error_handling(ac, av) != 0)
         return (84);
-    if (encrypt(av, info) == 84)
+    if (encrypt(av, info) == 84) {
+        //printf("%i\n", encrypt(av, info));
         return (84);
+    }
+    my_free(info);
+    printf("xd");
     return (0);
 }
