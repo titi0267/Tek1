@@ -6,7 +6,9 @@
 ##
 CC		=	gcc	-o
 
-SRC=	src/main.c
+SRC=	src/main.c			\
+		src/simple_cmd.c	\
+		src/flags.c			\
 
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g

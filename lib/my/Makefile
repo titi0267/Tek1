@@ -9,7 +9,7 @@ SRC=	my_putchar.c	\
 		my_putstr.c		\
 		my_putnbr.c		\
 		my_revstr.c		\
-		my_strlen.c		\
+		my_len.c		\
 		my_strncmp.c	\
 		my_getnbr.c		\
 		my_int_to_str.c	\

@@ -4,144 +4,36 @@
 ** File description:
 ** main.c
 */
-
-#define _XOPEN_SOURCE 700
+//#define  _POSIX_C_SOURCE 200809L
 #include "../include/my.h"
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdio.h>
-#include <signal.h>
-#include <unistd.h>
-#include <dirent.h>
 
-void my_count_word(my_struct_t *info)
+void exit_shell(my_struct_t *info)
 {
-    int e = 0;
-    int f = 0;
-    int x = 0;
-    int p = 0;
-    int count = 0;
-
-    info->cmd_flags = 1;
-    for (int i = 0; info->str[i] != '\0'; i++) {
-        if (info->str[i] == ' ')
-            info->cmd_flags++;
-    }
-    info->flag_len = malloc(sizeof(int) * info->cmd_flags + 1);
-    info->cmd = malloc(sizeof(char *) * info->cmd_flags + 8);
-    for (int i = 0; info->str[i] != '\0'; i++) {
-        if (info->str[i] != ' ' && info->str[i] != '\n') {
-            count++;
-        }
-        else {
-            info->flag_len[f] = count;
-            f++;
-            count = 0;
-        }
-    }
-    for (; e < info->cmd_flags; e++) {
-        info->cmd[e] = malloc(sizeof(char) * info->flag_len[e] + 1);
-        for (; info->str[x] != '\0' && (info->str[x] != ' ' && info->str[x] != '\n');  p++, x++) {
-            info->cmd[e][p] = info->str[x];
-        }
-        x += 1;
-        info->cmd[e][p] = '\0';
-        p = 0;
-    }
-    info->cmd[e] = NULL;
-}
-
-/*int shell(void)
-{
-    char *argv[] = { "/bin/sh", "-c", "env", 0 };
-    char *envp[] =
-    {
-        "HOME=/",
-        "PATH=/bin:/usr/bin",
-        "TZ=UTC0",
-        "USER=timothe",
-        "LOGNAME=coniel",
-        0
-    };
-    execve(argv[0], &argv[0], NULL);
-}*/
-
-int my_strcat(my_struct_t *info)
-{
-    char bin[6] = {'/', 'b', 'i', 'n', '/', '\0'};
-    int i = 0;
-
-    info->cmd_path = malloc(sizeof(char) * my_strlen(info->cmd[0]) + 6);
-    for (; bin[i] != '\0'; i++) {
-        info->cmd_path[i] = bin[i];
-        if (bin[i + 1] == '\0') {
-            for (int x = 0; info->cmd[0][x] != '\0'; x++) {
-                i++;
-                info->cmd_path[i] = info->cmd[0][x];
-            }
-        }
-    }
-    info->cmd_path[i] = '\0';
-}
-
-int shell(my_struct_t *info)
-{
-    int i = 0;
-    pid_t pid;
-    int status;
-
-    //if (my_strncmp(info->cmd[0], "ls") != 0)
-    //    return (-1);
-    info->ls_args = malloc(sizeof(char *) * info->cmd_flags + 8);
-    my_strcat(info);
-    for (; i < info->cmd_flags; i++) {
-        if (i == 0) {
-            info->ls_args[i] = info->cmd_path;
-        }
-        else {
-            if (i != info->cmd_flags) {
-                info->ls_args[i] = info->cmd[i];
-            }
-        }
-    }
-    info->ls_args[i] = NULL;
-    if ((pid = fork()) == -1) {
-        perror("fork");
-        return (1);
-    } else if (pid == 0) {
-        if (execve(info->ls_args[0], info->ls_args, NULL) == -1)
-            perror("execve");
-        return (1);
-    } else
-        wait(&status);
-    return (0);
-}
-
-void out_shell(my_struct_t *info)
-{
-    pid_t pid = getpid();
-
     if (my_strncmp(info->str, "exit\n") == 0)
-        exit(pid);
+        exit(info->process_id1);
 }
 
 int user_input(my_struct_t *info)
 {
+    int x = 0;
     size_t len = 0;
 
     info->str = NULL;
     my_printf("$>");
     if (getline(&info->str, &len, stdin) != -1) {
         my_count_word(info);
-        out_shell(info);
-        if (shell(info) == -1) {
+        exit_shell(info);
+        x = shell(info);
+        if (x == -1) {
             for (int i = 0; info->str[i] != '\n'; i++)
                 my_putchar(info->str[i]);
             my_printf(": Command not found\n");
-        }
+            exit(info->process_id1);
+        } else if (x == -2)
+            my_printf("Malloc didn't work\n");
         user_input(info);
     }
-    return 0;
+    return (0);
 }
 
 int main(int ac, char **av)
