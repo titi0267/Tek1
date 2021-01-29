@@ -24,7 +24,8 @@ int cd(my_struct_t *info)
         info->cd_pwd = malloc(sizeof(char) * p + 1);
         for (int m = 3; y != p - 1; m++, y++)
             info->cd_pwd[y] = info->str[m];
-        chdir(info->cd_pwd);
+        if (chdir(info->cd_pwd) != 0)
+            return (-2);
     } else
         return (-1);
     return (0);

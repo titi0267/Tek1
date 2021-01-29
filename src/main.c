@@ -15,6 +15,7 @@ void exit_shell(my_struct_t *info)
 int user_input(my_struct_t *info)
 {
     int x = 0;
+    int y = 0;
     size_t len = 0;
 
     info->str = NULL;
@@ -22,13 +23,18 @@ int user_input(my_struct_t *info)
     if (getline(&info->str, &len, stdin) != -1) {
         my_count_word(info);
         exit_shell(info);
-        if (cd(info) != -1)
+        y = cd(info);
+        if (y == 0)
             user_input(info);
+        else if (y == -2) {
+            my_printf("%s: No such file or directory.\n", info->cd_pwd);
+            user_input(info);
+        }
         x = shell(info);
         if (x == -1) {
             for (int i = 0; info->str[i] != '\n'; i++)
                 my_putchar(info->str[i]);
-            my_printf(": Command not found\n");
+            my_printf(": Command not found.\n");
             exit(info->process_id1);
         } else if (x == -2) {
             my_printf("Malloc didn't work\n");
