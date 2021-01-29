@@ -29,5 +29,6 @@ int my_strlen(char *str);
 int my_printf(char *str, ...);
 void my_count_word(my_struct_t *info);
 int shell(my_struct_t *info);
+int cd(my_struct_t *info);
 
 #endif /* !MY_H_ */

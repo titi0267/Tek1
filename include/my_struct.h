@@ -16,6 +16,7 @@ typedef struct my_struct_s
     int cmd_flags;
     int *flag_len;
     char **flags;
+    char *cd_pwd;
     char *cmd_path;
 } my_struct_t;
 
