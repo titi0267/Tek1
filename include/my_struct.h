@@ -17,6 +17,7 @@ typedef struct my_struct_s
     int cmd_flags;
     int *flag_len;
     char **ls_args;
+    char *cmd_path;
 } my_struct_t;
 
 #endif /* !MY_STRUCT_H_ */

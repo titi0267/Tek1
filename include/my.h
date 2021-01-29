@@ -17,6 +17,7 @@ int my_strncmp(char *cmp, char *cmpd);
 int my_putnbr(int nb);
 int my_getnbr(char *str);
 char *my_int_str(int nb, lib_t *lib);
+int my_strlen(char *str);
 int my_printf(char *str, ...);
 
 #endif /* !MY_H_ */

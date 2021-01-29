@@ -66,18 +66,37 @@ void my_count_word(my_struct_t *info)
     execve(argv[0], &argv[0], NULL);
 }*/
 
-int shell_ls(my_struct_t *info)
+int my_strcat(my_struct_t *info)
+{
+    char bin[6] = {'/', 'b', 'i', 'n', '/', '\0'};
+    int i = 0;
+
+    info->cmd_path = malloc(sizeof(char) * my_strlen(info->cmd[0]) + 6);
+    for (; bin[i] != '\0'; i++) {
+        info->cmd_path[i] = bin[i];
+        if (bin[i + 1] == '\0') {
+            for (int x = 0; info->cmd[0][x] != '\0'; x++) {
+                i++;
+                info->cmd_path[i] = info->cmd[0][x];
+            }
+        }
+    }
+    info->cmd_path[i] = '\0';
+}
+
+int shell(my_struct_t *info)
 {
     int i = 0;
     pid_t pid;
     int status;
 
-    if (my_strncmp(info->cmd[0], "ls") != 0)
-        return (-1);
+    //if (my_strncmp(info->cmd[0], "ls") != 0)
+    //    return (-1);
     info->ls_args = malloc(sizeof(char *) * info->cmd_flags + 8);
+    my_strcat(info);
     for (; i < info->cmd_flags; i++) {
-        if (i == 0 && my_strncmp(info->cmd[0], "ls") == 0) {
-            info->ls_args[i] = "/bin/ls";
+        if (i == 0) {
+            info->ls_args[i] = info->cmd_path;
         }
         else {
             if (i != info->cmd_flags) {
@@ -114,9 +133,8 @@ int user_input(my_struct_t *info)
     my_printf("$>");
     if (getline(&info->str, &len, stdin) != -1) {
         my_count_word(info);
-        shell_ls(info);
         out_shell(info);
-        if (shell_ls(info) == -1) {
+        if (shell(info) == -1) {
             for (int i = 0; info->str[i] != '\n'; i++)
                 my_putchar(info->str[i]);
             my_printf(": Command not found\n");
