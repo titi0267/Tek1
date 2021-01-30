@@ -41,7 +41,6 @@ void store_cmdline(my_struct_t *info)
     int e = 0;
     int p = 0;
     int x = 0;
-    int y = 0;
 
     for (; e < info->cmd_flags; e++) {
         info->cmd[e] = malloc(sizeof(char) * info->flag_len[e] + 10);

@@ -9,7 +9,6 @@
 
 int cd(my_struct_t *info)
 {
-    int i = 0;
     int p = 0;
     int y = 0;
     int x = 0;

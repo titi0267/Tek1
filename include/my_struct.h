@@ -23,6 +23,7 @@ typedef struct my_struct_s
     char **find_cmd;
     int cmd_nbrp;
     char *keep_alph;
+    char *pwd;
 } my_struct_t;
 
 #endif /* !MY_STRUCT_H_ */
