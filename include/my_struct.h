@@ -16,8 +16,13 @@ typedef struct my_struct_s
     int cmd_flags;
     int *flag_len;
     char **flags;
+    char **cmd_path;
     char *cd_pwd;
-    char *cmd_path;
+    char **bin_path;
+    char **bin_cat;
+    char **find_cmd;
+    int cmd_nbrp;
+    char *keep_alph;
 } my_struct_t;
 
 #endif /* !MY_STRUCT_H_ */

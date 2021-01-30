@@ -7,11 +7,6 @@
 
 #include "../include/my.h"
 
-void change(my_struct_t *info)
-{
-    chdir(info->cd_pwd);
-}
-
 int cd(my_struct_t *info)
 {
     int i = 0;
@@ -20,10 +15,12 @@ int cd(my_struct_t *info)
     int x = 0;
 
     if (info->str[0] == 'c' && info->str[1] == 'd' && info->str[2] == ' ') {
-        for (x = 2; info->str[x] != '\n'; x++, p++);
+        for (x = 2; info->str[x] != '\0'; x++, p++);
         info->cd_pwd = malloc(sizeof(char) * p + 1);
-        for (int m = 3; y != p - 1; m++, y++)
+        for (int m = 3; y != p - 1; m++, y++) {
             info->cd_pwd[y] = info->str[m];
+        }
+        info->cd_pwd[y] = '\0';
         if (chdir(info->cd_pwd) != 0)
             return (-2);
     } else

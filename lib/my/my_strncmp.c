@@ -9,8 +9,9 @@
 int my_strncmp(char *cmp, char *cmpd)
 {
     int x = 0;
+    int y = my_strlen(cmpd);
 
-    while (cmp[x] != '\0') {
+    while (x != y) {
         if (cmpd[x] == cmp[x])
             x++;
         else
