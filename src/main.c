@@ -40,15 +40,12 @@ int user_input(my_struct_t *info, char **env)
 
     info->str = NULL;
     my_printf("$>");
-    while (1) {
     if (getline(&info->str, &len, stdin) != -1) {
         info->str = keep_alpha(info);
         my_count_word(info);
         exit_shell(info);
         y = cd(info);
-        my_printf("y = %i\n", y);
         if (y == 0) {
-            my_printf("good dir\n");
             user_input(info, env);
             exit(0);
         }
@@ -73,7 +70,6 @@ int user_input(my_struct_t *info, char **env)
         user_input(info, env);
     } else
         return (0);
-    }
     exit(info->process_id1);
     return (0);
 }
