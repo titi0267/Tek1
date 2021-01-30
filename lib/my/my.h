@@ -23,5 +23,6 @@ char *my_int_str(int nb, lib_t *lib);
 char *my_revstr(char *str, lib_t *lib);
 int my_strlen(char *str);
 int my_wordnbr(char *str);
+int my_error(char *str);
 
 #endif /* !my_h_ */

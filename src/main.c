@@ -40,33 +40,40 @@ int user_input(my_struct_t *info, char **env)
 
     info->str = NULL;
     my_printf("$>");
+    while (1) {
     if (getline(&info->str, &len, stdin) != -1) {
         info->str = keep_alpha(info);
         my_count_word(info);
         exit_shell(info);
         y = cd(info);
-        if (y == 0)
+        my_printf("y = %i\n", y);
+        if (y == 0) {
+            my_printf("good dir\n");
             user_input(info, env);
+            exit(0);
+        }
         else if (y == -2) {
-            my_printf("%s: No such file or directory.\n", info->cd_pwd);
+            my_error(info->cd_pwd);
+            my_error(": No such file or directory.\n");
             user_input(info, env);
+            exit(0);
         }
         y = act_pwd(info, env);
         if (y == 0)
             user_input(info, env);
         y = shell(info);
         if (y == -1) {
-            for (int i = 0; info->str[i] != '\0'; i++)
-                my_putchar(info->str[i]);
-            my_printf(": Command not found.\n");
+            my_error(info->str);
+            my_error(": Command not found.\n");
             exit(info->process_id1);
         } else if (y == -2) {
-            my_printf("Malloc didn't work\n");
+            my_error("Malloc didn't work\n");
             return (-1);
         }
         user_input(info, env);
     } else
         return (0);
+    }
     exit(info->process_id1);
     return (0);
 }

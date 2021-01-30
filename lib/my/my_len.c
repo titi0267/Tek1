@@ -27,3 +27,9 @@ int my_wordnbr(char *str)
     }
     return (nbr);
 }
+
+int my_error(char *str)
+{
+    write(2, str, my_strlen(str));
+    return (84);
+}

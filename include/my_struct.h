@@ -11,6 +11,7 @@
 typedef struct my_struct_s
 {
     pid_t process_id1;
+    pid_t process_id2;
     char *str;
     char **cmd;
     int cmd_flags;

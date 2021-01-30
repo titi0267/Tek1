@@ -59,6 +59,7 @@ int my_exec(my_struct_t *info)
 {
     int i = 0;
 
+    my_printf("find : %s\n", info->str);
     while (info->bin_cat[i] != NULL) {
         info->flags[0] = malloc(sizeof(char) * (my_strlen(info->bin_cat[i]) + 1));
         info->flags[0] = info->bin_cat[i];

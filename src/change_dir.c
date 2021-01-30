@@ -26,3 +26,18 @@ int cd(my_struct_t *info)
         return (-1);
     return (0);
 }
+
+/*int create_cd(my_struct_t *info)
+{
+    int status;
+    if ((info->process_id2 = fork()) == -1) {
+        perror("fork");
+        return (1);
+    } else if (info->process_id2 == 0) {
+        if (cd(info) == -2)
+            return (-1);
+        return (1);
+    } else
+        wait(&status);
+    return (0);
+}*/
