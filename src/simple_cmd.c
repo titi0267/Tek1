@@ -40,14 +40,14 @@ int store_flags(my_struct_t *info)
     if ((info->cmd_path = malloc(sizeof(char *) * (info->cmd_nbrp + 2))) == NULL)
         return (-1);
             for (int x = 0; info->bin_cat[x] != NULL; x++) {
-                info->cmd_path[x] = malloc(sizeof(char) * (my_strlen(info->bin_cat[x]) + my_strlen(info->cmd[0])));
+                info->cmd_path[x] = malloc(sizeof(char) *
+                (my_strlen(info->bin_cat[x]) + my_strlen(info->cmd[0])));
                 info->cmd_path[x] = info->bin_cat[x];
             }
     for (; info->cmd[y] != 0; i++, y++) {
         info->flags[y] = malloc(sizeof(char) * (my_strlen(info->cmd[y]) + 1));
-        for (; info->cmd[y][p] != '\0'; p++) {
+        for (; info->cmd[y][p] != '\0'; p++)
             info->flags[y][p] = info->cmd[y][p];
-        }
         info->flags[y][p] = '\0';
         p = 0;
     }
@@ -62,9 +62,9 @@ int my_exec(my_struct_t *info)
     while (info->bin_cat[i] != NULL) {
         info->flags[0] = malloc(sizeof(char) * (my_strlen(info->bin_cat[i]) + 1));
         info->flags[0] = info->bin_cat[i];
-        if (execve(info->flags[0], info->flags, NULL) != -1) {
+        if (execve(info->flags[0], info->flags, NULL) != -1)
             break;
-        } else
+        else
             i++;
     }
     if (info->bin_cat[i] == 0)
@@ -76,14 +76,19 @@ int shell(my_struct_t *info)
 {
     int status;
 
-    if (my_strcat(info) == -1 || store_flags(info) == -1)
+    if (my_strcat(info) == -1 || store_flags(info) == -1) {
+        my_error("Malloc didn't work\n");
         return (-2);
+    }
     if ((info->process_id1 = fork()) == -1) {
         perror("fork");
         return (1);
     } else if (info->process_id1 == 0) {
-        if (my_exec(info) == -1)
+        if (my_exec(info) == -1) {
+            my_error(info->str);
+            my_error(": Command not found.\n");
             return (-1);
+        }
         return (1);
     } else
         wait(&status);

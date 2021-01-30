@@ -6,11 +6,12 @@
 */
 #include "../include/my.h"
 
-void exit_shell(my_struct_t *info)
+int exit_shell(my_struct_t *info, char **env)
 {
     if (my_strncmp(info->str, "exit") == 0) {
         exit(0);
     }
+    return (0);
 }
 
 int act_pwd(my_struct_t *info, char **env)
@@ -27,8 +28,34 @@ int act_pwd(my_struct_t *info, char **env)
             info->pwd[t] = env[x][c];
         info->pwd[t] = '\0';
         my_printf("%s\n", info->pwd);
+        return (1);
     } else
         return (-1);
+    return (0);
+}
+
+int envi(my_struct_t *info, char **env)
+{
+    return (0);
+}
+
+int ptr_arr(my_struct_t *info, char **env)
+{
+    int (*function[3])(my_struct_t *, char **) = {cd, envi, exit_shell};
+    char *loul[4] = {"cd", "env", "exit", 0};
+    char *str = malloc(sizeof(char) * (my_strlen(info->cmd[0]) + 1));
+    int p = 0;
+
+    for (;info->cmd[0][p + 1] != ' ' && info->cmd[0][p + 1] != '\0'; p++) {
+        str[p] = info->cmd[0][p + 1];
+    }
+    str[p] = '\0';
+    for (int i = 0; loul[i] != 0; i++) {
+        if (my_strncmp(loul[i], str) == 0) {
+            (*function[i]) (info, env);
+            return (1);
+        }
+    }
     return (0);
 }
 
@@ -36,40 +63,26 @@ int user_input(my_struct_t *info, char **env)
 {
     int x = 0;
     int y = 0;
+    int v = 0;
+    int p = 0;
     size_t len = 0;
 
-    info->str = NULL;
-    my_printf("$>");
-    if (getline(&info->str, &len, stdin) != -1) {
-        info->str = keep_alpha(info);
-        my_count_word(info);
-        exit_shell(info);
-        y = cd(info);
-        if (y == 0) {
-            user_input(info, env);
-            exit(0);
-        }
-        else if (y == -2) {
-            my_error(info->cd_pwd);
-            my_error(": No such file or directory.\n");
-            user_input(info, env);
-            exit(0);
-        }
-        y = act_pwd(info, env);
-        if (y == 0)
-            user_input(info, env);
-        y = shell(info);
-        if (y == -1) {
-            my_error(info->str);
-            my_error(": Command not found.\n");
-            exit(info->process_id1);
-        } else if (y == -2) {
-            my_error("Malloc didn't work\n");
-            return (-1);
-        }
-        user_input(info, env);
-    } else
-        return (0);
+    while (1) {
+        len = 0;
+        info->str = NULL;
+        my_printf("$>");
+        if (getline(&info->str, &len, stdin) != -1) {
+            info->str = keep_alpha(info);
+            my_count_word(info);
+            p = ptr_arr(info, env);
+            if (p != 1) {
+                y = shell(info);
+                if (y == -2)
+                    return (84);
+            }
+        } else
+            return (0);
+    }
     exit(info->process_id1);
     return (0);
 }
