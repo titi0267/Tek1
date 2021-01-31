@@ -94,7 +94,7 @@ int shell(my_struct_t *info)
         if (my_exec(info) == -1) {
             my_error(info->str);
             my_error(": Command not found.\n");
-            return (-1);
+            exit(info->process_id1);
         }
         return (1);
     } else

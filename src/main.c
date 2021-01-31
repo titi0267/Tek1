@@ -12,26 +12,6 @@ int exit_shell(my_struct_t *info, char **env)
     return (0);
 }
 
-/*int act_pwd(my_struct_t *info, char **env)
-{
-    int x = 0;
-    int t = 0;
-
-    if (info->str[0] == 'p' && info->str[1] == 'w' && info->str[2] == 'd') {
-        for (int i = 0; env[i] != 0; i++)
-            if (my_strncmp(env[i], "PWD=") == 0)
-                x = i;
-        info->pwd = malloc(sizeof(char) * my_strlen(env[x]));
-        for (int c = 4; env[x][c] != '\0'; c++, t++)
-            info->pwd[t] = env[x][c];
-        info->pwd[t] = '\0';
-        my_printf("%s\n", info->pwd);
-        return (1);
-    } else
-        return (-1);
-    return (0);
-}*/
-
 int envi(my_struct_t *info, char **env)
 {
     int i = 0;
@@ -123,8 +103,6 @@ int create_env(my_struct_t *info)
     int f = 0;
 
     store_tempenv(info);
-    //v = word_tablen(info->sec_env);
-    //my_printf("%s & f = %i & end = %i\n", info->sec_env[info->end_env -1], f, info->end_env);
     info->new_env = malloc(sizeof(char *) * (v + 2));
     for (; info->sec_env[i] != NULL; i++) {
         info->new_env[i] = malloc(sizeof(char) * (my_strlen(info->sec_env[i]) + 1));
