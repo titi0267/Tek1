@@ -19,3 +19,17 @@ int my_strncmp(char *cmp, char *cmpd)
     }
     return (0);
 }
+
+int my_cmpequal(char *cmp, char *cmpd)
+{
+    int x = 0;
+    int y = my_strlen(cmpd);
+
+    while (x != y) {
+        if (cmpd[x] == cmp[x])
+            x++;
+        else
+            return (-1);
+    }
+    return (x);
+}

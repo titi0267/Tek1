@@ -14,18 +14,32 @@ int my_strcat(my_struct_t *info)
     if ((info->bin_cat = malloc(sizeof(char *) * info->cmd_nbrp + 16)) == NULL)
         return (-1);
     for (int y = 0; info->bin_path[y] != 0; y++) {
-        info->bin_cat[y] = malloc(sizeof(char) * (my_strlen(info->bin_path[y]) + my_strlen(info->cmd[0]) + 1));
-            for (; info->bin_path[y][i] != '\0'; i++) {
-                info->bin_cat[y][i] = info->bin_path[y][i];
-            }
-            for (int x = 0; info->cmd[0][x] != '\0'; x++, i++) {
-                info->bin_cat[y][i] = info->cmd[0][x];
-            }
-            info->bin_cat[y][i] = '\0';
-            i = 0;
+        info->bin_cat[y] = malloc(sizeof(char) * (my_strlen(info->bin_path[y])
+        + my_strlen(info->cmd[0]) + 1));
+        for (; info->bin_path[y][i] != '\0'; i++)
+            info->bin_cat[y][i] = info->bin_path[y][i];
+        for (int x = 0; info->cmd[0][x] != '\0'; x++, i++)
+            info->bin_cat[y][i] = info->cmd[0][x];
+        info->bin_cat[y][i] = '\0';
+        i = 0;
         info->cmd_nbrp = y;
     }
     info->bin_cat[info->cmd_nbrp + 1] = NULL;
+    return (0);
+}
+
+int store_next_flag(my_struct_t *info)
+{
+    if ((info->flags = malloc(sizeof(char *) * (info->cmd_flags + 1))) == NULL)
+        return (-1);
+    if ((info->cmd_path = malloc(sizeof(char *) * (info->cmd_nbrp + 2)))
+    == NULL)
+        return (-1);
+    for (int x = 0; info->bin_cat[x] != NULL; x++) {
+        info->cmd_path[x] = malloc(sizeof(char) *
+        (my_strlen(info->bin_cat[x]) + my_strlen(info->cmd[0])));
+        info->cmd_path[x] = info->bin_cat[x];
+    }
     return (0);
 }
 
@@ -35,15 +49,8 @@ int store_flags(my_struct_t *info)
     int p = 0;
     int y = 1;
 
-    if ((info->flags = malloc(sizeof(char *) * (info->cmd_flags + 1))) == NULL)
+    if ((i = store_next_flag(info)) == -1)
         return (-1);
-    if ((info->cmd_path = malloc(sizeof(char *) * (info->cmd_nbrp + 2))) == NULL)
-        return (-1);
-            for (int x = 0; info->bin_cat[x] != NULL; x++) {
-                info->cmd_path[x] = malloc(sizeof(char) *
-                (my_strlen(info->bin_cat[x]) + my_strlen(info->cmd[0])));
-                info->cmd_path[x] = info->bin_cat[x];
-            }
     for (; info->cmd[y] != 0; i++, y++) {
         info->flags[y] = malloc(sizeof(char) * (my_strlen(info->cmd[y]) + 1));
         for (; info->cmd[y][p] != '\0'; p++)

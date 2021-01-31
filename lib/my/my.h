@@ -24,5 +24,6 @@ char *my_revstr(char *str, lib_t *lib);
 int my_strlen(char *str);
 int my_wordnbr(char *str);
 int my_error(char *str);
+int word_tablen(char **str);
 
 #endif /* !my_h_ */

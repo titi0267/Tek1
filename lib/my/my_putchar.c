@@ -11,3 +11,9 @@ void my_putchar(char c)
 {
     write(1, &c, 1);
 }
+
+int my_error(char *str)
+{
+    write(2, str, my_strlen(str));
+    return (84);
+}
