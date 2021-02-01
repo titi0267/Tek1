@@ -20,16 +20,16 @@ int my_strncmp(char *cmp, char *cmpd)
     return (0);
 }
 
-int my_cmpequal(char *cmp, char *cmpd)
+int my_strxcmp(char *cmp, char *cmpd)
 {
     int x = 0;
-    int y = my_strlen(cmpd);
+    int y = 0;
 
-    while (x != y) {
+    while (cmp[x] != '\0') {
         if (cmpd[x] == cmp[x])
             x++;
         else
             return (-1);
     }
-    return (x);
+    return (0);
 }

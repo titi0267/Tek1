@@ -69,6 +69,7 @@ int my_exec(my_struct_t *info)
     while (info->bin_cat[i] != NULL) {
         info->flags[0] = malloc(sizeof(char) * (my_strlen(info->bin_cat[i]) + 1));
         info->flags[0] = info->bin_cat[i];
+        //my_printf("%s\n", info->flags[0]);
         if (execve(info->flags[0], info->flags, NULL) != -1)
             break;
         else

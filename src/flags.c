@@ -15,6 +15,8 @@ char *keep_alpha(my_struct_t *info)
     char *keep_alpha;
 
     keep_alpha = malloc(sizeof(char) * my_strlen(info->str));
+    if (info->str[0] == '\0')
+        return (keep_alpha);
     while (info->str[i] != '\0') {
         if (info->str[i] >= 0 && info->str[i] < 33) {
             i++;

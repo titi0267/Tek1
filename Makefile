@@ -9,6 +9,9 @@ CC		=	gcc	-o
 SRC=	src/main.c			\
 		src/simple_cmd.c	\
 		src/change_dir.c	\
+		src/un_env.c		\
+		src/builtin_cmd.c	\
+		src/env.c			\
 		src/flags.c
 
 

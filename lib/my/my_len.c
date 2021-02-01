@@ -41,3 +41,11 @@ int word_tablen(char **str)
     }
     return (count);
 }
+
+int my_tabint(int *nbr)
+{
+    int i = 0;
+
+    for (; nbr[i] != -1; i++);
+    return (i);
+}

@@ -15,6 +15,7 @@ typedef struct my_struct_s
     char *str;
     char **cmd;
     int cmd_flags;
+    int m;
     int *flag_len;
     char **flags;
     char **cmd_path;
@@ -23,6 +24,7 @@ typedef struct my_struct_s
     char **bin_cat;
     char **find_cmd;
     int cmd_nbrp;
+    char **rm_env;
     char **new_env;
     char **sec_env;
     int end_env;
