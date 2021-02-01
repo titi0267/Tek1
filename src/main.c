@@ -16,7 +16,7 @@ int user_input(my_struct_t *info, char **env)
             len = 0;
             info->str = NULL;
         if (isatty(STDIN_FILENO))
-            my_printf("$>");
+            my_printf("$> ");
         if (getline(&info->str, &len, stdin) != -1) {
             info->str = keep_alpha(info);
             my_count_word(info);
@@ -43,6 +43,13 @@ int find_path(char **env, my_struct_t *info)
     for (; env[i] != 0; i++) {
         if (my_strncmp(env[i], "PATH=") == 0)
             x = i;
+    }
+    if (env[x] == NULL) {
+        info->bin_path = malloc(sizeof(char *) * 1);
+        info->bin_path[t] = malloc(sizeof(char) * 9);
+        info->bin_path[i] = NULL;
+        info->cmd_nbrp = t;
+        return (0);
     }
     info->bin_path = malloc(sizeof(char *) * my_strlen(env[x]));
     info->bin_path[t] = malloc(sizeof(char) * 1000);

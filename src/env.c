@@ -50,7 +50,7 @@ int search(my_struct_t *info, char **env)
 
     for (; info->new_env[i]; i++) {
         for (int p = 0; info->new_env[i][p]; p++) {
-            if (info->new_env[i][p] == '=')
+            if (info->new_env[i][p] == '=' && info->cmd[1][p] == '\0')
                 return (i);
             if (info->new_env[i][p] != info->cmd[1][p])
                 break;
@@ -76,14 +76,20 @@ int my_setenv(my_struct_t *info, char **env)
 
     if (info->cmd[1] == NULL) {
         envi(info, env);
-        return (0);
+        return (1);
     } else if (info->cmd[2] != NULL && info->cmd[3] != NULL) {
         my_error("setenv: Too many arguments.\n");
-        return (0);
+        return (1);
+    } else if (only_alpha(info->cmd[1]) == -2) {
+        my_error("setenv: Variable name must begin with a letter.\n");
+        return (1);
+    } else if (only_alpha(info->cmd[1]) == -1) {
+        my_error("setenv: Variable name must contain alphanumeric characters.\n");
+        return (1);
     }
-    if ((x = search(info, env)) == -1) {
+    if ((x = search(info, env)) == -1)
         create_env(info);
-    } else {
+    else
         alrd_setenv(info, x);
-    }
+    return (1);
 }

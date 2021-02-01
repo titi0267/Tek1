@@ -45,10 +45,14 @@ void store_cmdline(my_struct_t *info)
     int x = 0;
 
     for (; e < info->cmd_flags; e++) {
-        info->cmd[e] = malloc(sizeof(char) * info->flag_len[e] + 10);
+        info->cmd[e] = malloc(sizeof(char) * (info->flag_len[e] + 15));
         if (e == 0) {
             info->cmd[e][0] = '/';
-            p++;
+            info->cmd[e][1] = 'b';
+            info->cmd[e][2] = 'i';
+            info->cmd[e][3] = 'n';
+            info->cmd[e][4] = '/';
+            p += 5;
         }
         for (; info->str[x] != '\0' && info->str[x] != ' ';  p++, x++)
             info->cmd[e][p] = info->str[x];

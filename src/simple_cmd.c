@@ -69,20 +69,23 @@ int my_exec(my_struct_t *info)
     while (info->bin_cat[i] != NULL) {
         info->flags[0] = malloc(sizeof(char) * (my_strlen(info->bin_cat[i]) + 1));
         info->flags[0] = info->bin_cat[i];
-        //my_printf("%s\n", info->flags[0]);
         if (execve(info->flags[0], info->flags, NULL) != -1)
             break;
         else
             i++;
     }
-    if (info->bin_cat[i] == 0)
-        return (-1);
+    if (info->bin_cat[i] == 0) {
+        info->flags[0] = malloc(sizeof(char) * (my_strlen(info->cmd[0]) + 1));
+        info->flags[0] = info->cmd[0];
+        if (execve(info->flags[0], info->flags, NULL) == -1)
+            return (-1);
+    }
     return (0);
 }
 
 int shell(my_struct_t *info)
 {
-    int status;
+    int status = 0;
 
     if (my_strcat(info) == -1 || store_flags(info) == -1) {
         my_error("Malloc didn't work\n");
@@ -95,7 +98,7 @@ int shell(my_struct_t *info)
         if (my_exec(info) == -1) {
             my_error(info->str);
             my_error(": Command not found.\n");
-            exit(info->process_id1);
+            exit(1);
         }
         return (1);
     } else
