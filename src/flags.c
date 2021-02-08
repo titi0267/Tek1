@@ -46,7 +46,7 @@ void store_cmdline(my_struct_t *info)
 
     for (; e < info->cmd_flags; e++) {
         info->cmd[e] = malloc(sizeof(char) * (info->flag_len[e] + 15));
-        if (e == 0) {
+        if (e == 0 && my_strncmp(info->str, "/bin/") != 0) {
             info->cmd[e][0] = '/';
             info->cmd[e][1] = 'b';
             info->cmd[e][2] = 'i';

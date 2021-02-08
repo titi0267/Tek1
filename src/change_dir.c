@@ -13,13 +13,19 @@ int cd_arg(my_struct_t *info)
     int x = 0;
     int c = 0;
 
-    for (; info->new_env[i] != 0; i++) {
+    for (; info->new_env[i] != 0; i++)
         if (my_strncmp(info->new_env[i], "HOME=") == 0)
             x = i;
+    if (info->new_env[x] == NULL) {
+        my_error("cd: HOME not set\n");
+        return (0);
     }
-    for (int p = 5; info->new_env[x][p] != '\0'; p++, c++)
+    info->cd_pwd = malloc(sizeof(char) * (my_strlen(info->new_env[x]) + 2));
+    for (int p = 5; info->new_env[x][p] != '\0'; p++, c++) {
         info->cd_pwd[c] = info->new_env[x][p];
+    }
     info->cd_pwd[c] = '\0';
+    return (0);
 }
 
 int cd(my_struct_t *info, char **env)

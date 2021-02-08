@@ -49,3 +49,23 @@ int my_tabint(int *nbr)
     for (; nbr[i] != -1; i++);
     return (i);
 }
+
+int find_char(char *str, char ascii, int i)
+{
+    int count = 0;
+
+    if (i == 0) {
+        for (int c = 0; str[c] != '\0'; c++) {
+            if (str[c] == ascii)
+                count++;
+        }
+        return (count);
+    }
+    if (i == 1) {
+        for (int f = 0; str[f] != '\0'; f++) {
+            if (str[f] == ascii)
+                return (1);
+        }
+    }
+    return (0);
+}

@@ -28,5 +28,6 @@ int my_error(char *str);
 int my_strxcmp(char *cmp, char *cmpd);
 int word_tablen(char **str);
 int my_tabint(int *nbr);
+int find_char(char *str, char ascii, int i);
 
 #endif /* !my_h_ */

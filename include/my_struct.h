@@ -28,6 +28,7 @@ typedef struct my_struct_s
     char **new_env;
     char **sec_env;
     int end_env;
+    int cd_min;
     char *keep_alph;
     char *pwd;
 } my_struct_t;
