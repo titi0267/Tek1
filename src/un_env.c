@@ -40,7 +40,6 @@ void skip_env(my_struct_t *info, int *x, int y, int g)
     for (; info->new_env[i] != 0; i++, m++) {
         for (int d = 0; x[d] != -1; d++) {
             if (i == x[d] && (y - 1) != x[d]) {
-                i++;
                 m--;
                 break;
             }
@@ -100,6 +99,21 @@ void create_next(my_struct_t *info)
     info->end_env += 1;
 }
 
+void create_envnext(my_struct_t *info)
+{
+    int f = 0;
+
+    for (; info->cmd[1][f] != '\0'; f++);
+    if (info->cmd[2] != NULL) {
+        info->new_env[info->end_env] = malloc(sizeof(char) *
+        (my_strlen(info->cmd[2]) + f + 2));
+        create_next(info);
+    } else {
+        info->new_env[info->end_env] = malloc(sizeof(char) * (f + 2));
+        create_next(info);
+    }
+}
+
 int create_env(my_struct_t *info)
 {
     int p = 0;
@@ -117,15 +131,7 @@ int create_env(my_struct_t *info)
         p = 0;
     }
     info->end_env = i;
-    for (; info->cmd[1][f] != '\0'; f++);
-    if (info->cmd[2] != NULL) {
-        info->new_env[info->end_env] = malloc(sizeof(char) *
-        (my_strlen(info->cmd[2]) + f + 2));
-        create_next(info);
-    } else {
-        info->new_env[info->end_env] = malloc(sizeof(char) * (f + 2));
-        create_next(info);
-    }
+    create_envnext(info);
 }
 
 int alrd_setenv(my_struct_t *info, int x)
