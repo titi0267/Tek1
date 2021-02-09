@@ -6,6 +6,7 @@
 */
 
 #include "../include/my.h"
+#include <errno.h>
 
 int cd_arg(my_struct_t *info)
 {
@@ -17,7 +18,7 @@ int cd_arg(my_struct_t *info)
         if (my_strncmp(info->new_env[i], "HOME=") == 0)
             x = i;
     if (info->new_env[x] == NULL) {
-        my_error("cd: HOME not set\n");
+        my_error("cd: HOME not set.\n");
         return (0);
     }
     info->cd_pwd = malloc(sizeof(char) * (my_strlen(info->new_env[x]) + 2));
@@ -39,18 +40,26 @@ int cd(my_struct_t *info, char **env)
     if (info->cmd[1] == NULL) {
         cd_arg(info);
         if (chdir(info->cd_pwd) != 0) {
+            return (0);
+        } /*else {
             my_error(info->cd_pwd);
-            my_error(": No such file or directory.\n");
-        }
+            my_error(": ");
+            my_error(strerror(errno));
+            my_error(".\n");
+        }*/
         return (0);
     }
     for (int m = 3; y != p - 1; m++, y++) {
         info->cd_pwd[y] = info->str[m];
     }
     info->cd_pwd[y] = '\0';
-    if (chdir(info->cd_pwd) != 0) {
+    if (chdir(info->cd_pwd) == 0) {
+        return (0);
+    } else {
         my_error(info->cd_pwd);
-        my_error(": No such file or directory.\n");
+        my_error(": ");
+        my_error(strerror(errno));
+        my_error(".\n");
     }
     return (0);
 }
