@@ -7,6 +7,7 @@
 
 #include "../include/my.h"
 #include <errno.h>
+#include <string.h>
 
 int cd_arg(my_struct_t *info)
 {
@@ -39,14 +40,8 @@ int cd(my_struct_t *info, char **env)
     info->cd_pwd = malloc(sizeof(char) * p + 1);
     if (info->cmd[1] == NULL) {
         cd_arg(info);
-        if (chdir(info->cd_pwd) != 0) {
+        if (chdir(info->cd_pwd) != 0)
             return (0);
-        } /*else {
-            my_error(info->cd_pwd);
-            my_error(": ");
-            my_error(strerror(errno));
-            my_error(".\n");
-        }*/
         return (0);
     }
     for (int m = 3; y != p - 1; m++, y++) {
