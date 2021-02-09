@@ -31,6 +31,7 @@ typedef struct my_struct_s
     int cd_min;
     char *keep_alph;
     char *pwd;
+    int find_un;
 } my_struct_t;
 
 #endif /* !MY_STRUCT_H_ */

@@ -41,5 +41,7 @@ int exit_shell(my_struct_t *info, char **env);
 int ptr_arr(my_struct_t *info, char **env);
 int create_env(my_struct_t *info);
 void store_tempenv(my_struct_t *info);
+int *search_toun(my_struct_t *info);
+void store_unenv(my_struct_t *info);
 
 #endif /* !MY_H_ */

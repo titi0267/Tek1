@@ -7,110 +7,69 @@
 
 #include "../include/my.h"
 
-void store_unenv(my_struct_t *info)
+int *prepare_un(my_struct_t *info)
 {
-    int i = 0;
-    int p = 0;
+    int *x = malloc(sizeof(int) * 2);
 
-    info->sec_env = malloc(sizeof(char *) * (word_tablen(info->new_env) + 1));
-    for (; info->new_env[i] != NULL; i++) {
-        info->sec_env[i] = malloc(sizeof(char) *
-        (my_strlen(info->new_env[i]) + 1));
-        for (; info->new_env[i][p]; p++) {
-            info->sec_env[i][p] = info->new_env[i][p];
-        }
-        info->sec_env[i][p] = '\0';
-        p = 0;
+    if (info->cmd[1] == NULL) {
+        my_error("unsetenv: Too few arguments.\n");
+        x[0] = -1;
+        return (x);
     }
-    info->end_env = i;
-    info->sec_env[i] = NULL;
+    x = search_toun(info);
+    store_unenv(info);
+    return (x);
 }
 
-int *search_toun(my_struct_t *info)
+void remove_env(my_struct_t *info, int i, int m)
+{
+    int p = 0;
+
+    info->rm_env[m] = malloc(sizeof(char) * (my_strlen(info->new_env[i]) + 1));
+    for (; info->new_env[i][p] != '\0'; p++) {
+        info->rm_env[m][p] = info->new_env[i][p];
+    }
+    info->rm_env[m][p] = '\0';
+}
+
+void skip_env(my_struct_t *info, int *x, int y, int g)
 {
     int i = 0;
-    int p = 0;
-    int m = 1;
-    int x = 0;
-    int d = 0;
-    int y = 0;
-    int g = 0;
-    int *found_env = malloc(sizeof(int) * (word_tablen(info->cmd) + 1));
+    int m = 0;
 
-    found_env[0] = -1;
-    for (; info->cmd[m] != 0; m++) {
-        for (; info->new_env[i]; i++) {
-                for (int y = 0; info->cmd[m][y]; y++, p++) {
-                    for (int f = 0; f <= d; f++) {
-                        if (info->new_env[i][p] != info->cmd[m][y] || found_env[f] == i) {
-                            g = 1;
-                            break;
-                        }
-                    }
-                    if (g == 1)
-                        break;
-                    if (info->new_env[i][p + 1] == '=') {
-                        found_env[d] = i;
-                        d++;
-                        found_env[d] = -1;
-                        break;
-                    }
-                }
-                y = 0;
-            p = 0;
-            g = 0;
+    for (; info->new_env[i] != 0; i++, m++) {
+        for (int d = 0; x[d] != -1; d++) {
+            if (i == x[d] && (y - 1) != x[d]) {
+                i++;
+                m--;
+                break;
+            }
+            if ((y - 1) == x[d] && i == x[d]) {
+                g = 1;
+                break;
+            }
+            remove_env(info, i, m);
         }
-        i = 0;
+        if (g == 1)
+            break;
     }
-    found_env[d] = -1;
-    return (found_env);
+    info->rm_env[m] = NULL;
 }
 
 int my_unsetenv(my_struct_t *info, char **env)
 {
     int *x;
-    int i = 0;
-    int m = 0;
-    int p = 0;
     int y = 0;
-    int *alrd;
-    int k = 0;
-    int v = 0;
-    //int d = 0;
     int g = 0;
 
-    if (info->cmd[1] == NULL) {
-        my_error("unsetenv: Too few arguments.\n");
-        return (0);
-    }
-    x = search_toun(info);
-    store_unenv(info);
+    x = prepare_un(info);
     if (x[0] == -1)
         return (-1);
     else {
         for (; info->new_env[y] != 0; y++);
         info->rm_env = malloc(sizeof(char *) * y);
-        for (; info->new_env[i] != 0; i++, m++) {
-            for (int d = 0; x[d] != -1; d++) {
-                    if (i == x[d] && (y - 1) != x[d]) {
-                        i++;
-                    }
-                    if ((y - 1) == x[d] && i == x[d]) {
-                        g = 1;
-                        break;
-                    }
-                    info->rm_env[m] = malloc(sizeof(char) * (my_strlen(info->new_env[i]) + 1));
-                    for (; info->new_env[i][p] != '\0'; p++)
-                        info->rm_env[m][p] = info->new_env[i][p];
-                    info->rm_env[m][p] = '\0';
-                    p = 0;
-            }
-            if (g == 1) {
-                g = 0;
-                break;
-            }
-        }
-        info->rm_env[m] = NULL;
+        skip_env(info, x, y, g);
+        g = 0;
     }
     info->new_env = info->rm_env;
     return (0);

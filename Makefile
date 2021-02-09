@@ -10,12 +10,13 @@ SRC=	src/main.c			\
 		src/simple_cmd.c	\
 		src/change_dir.c	\
 		src/un_env.c		\
+		src/unenv_cmd.c		\
 		src/builtin_cmd.c	\
 		src/env.c			\
 		src/flags.c
 
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -g
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./includes
 
 NAME	=	mysh
 
