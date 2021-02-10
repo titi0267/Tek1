@@ -10,6 +10,7 @@ SRC=	src/main.c			\
 		src/simple_cmd.c	\
 		src/change_dir.c	\
 		src/un_env.c		\
+		src/setenv.c		\
 		src/unenv_cmd.c		\
 		src/builtin_cmd.c	\
 		src/env.c			\

@@ -57,7 +57,6 @@ int *search_toun(my_struct_t *info)
 {
     int i = 0;
     int m = 1;
-    int x = 0;
     info->find_un = 0;
     int *found_env = malloc(sizeof(int) * (word_tablen(info->cmd) + 1));
 

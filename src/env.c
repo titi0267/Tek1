@@ -70,10 +70,8 @@ int envi(my_struct_t *info, char **env)
     }
 }
 
-int my_setenv(my_struct_t *info, char **env)
+int my_setenv_error(my_struct_t *info, char **env)
 {
-    int x = 0;
-
     if (info->cmd[1] == NULL) {
         envi(info, env);
         return (1);
@@ -87,6 +85,15 @@ int my_setenv(my_struct_t *info, char **env)
         my_error("setenv: Variable name must contain alphanumeric characters.\n");
         return (1);
     }
+    return (0);
+}
+
+int my_setenv(my_struct_t *info, char **env)
+{
+    int x = 0;
+
+    if (my_setenv_error(info, env) != 0)
+        return (1);
     if ((x = search(info, env)) == -1)
         create_env(info);
     else

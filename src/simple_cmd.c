@@ -15,7 +15,7 @@ int my_strcat(my_struct_t *info)
         return (-1);
     for (int y = 0; info->bin_path[y] != 0; y++) {
         info->bin_cat[y] = malloc(sizeof(char) * (my_strlen(info->bin_path[y])
-        + my_strlen(info->cmd[0]) + 1));
+                                    + my_strlen(info->cmd[0]) + 1));
         for (; info->bin_path[y][i] != '\0'; i++)
             info->bin_cat[y][i] = info->bin_path[y][i];
         for (int x = 0; info->cmd[0][x] != '\0'; x++, i++)
@@ -67,7 +67,8 @@ int my_exec(my_struct_t *info)
     int i = 0;
 
     while (info->bin_cat[i] != NULL) {
-        info->flags[0] = malloc(sizeof(char) * (my_strlen(info->bin_cat[i]) + 1));
+        info->flags[0] = malloc(sizeof(char) *
+                                (my_strlen(info->bin_cat[i]) + 1));
         info->flags[0] = info->bin_cat[i];
         if (execve(info->flags[0], info->flags, NULL) != -1)
             break;

@@ -38,6 +38,19 @@ char *keep_alpha(my_struct_t *info)
     return (keep_alpha);
 }
 
+int alrd_bin(my_struct_t *info, int p)
+{
+    if (my_strncmp(info->str, "/bin/") != 0) {
+        info->cmd[0][0] = '/';
+        info->cmd[0][1] = 'b';
+        info->cmd[0][2] = 'i';
+        info->cmd[0][3] = 'n';
+        info->cmd[0][4] = '/';
+        return (p + 5);
+    }
+    return (p);
+}
+
 void store_cmdline(my_struct_t *info)
 {
     int e = 0;
@@ -46,14 +59,8 @@ void store_cmdline(my_struct_t *info)
 
     for (; e < info->cmd_flags; e++) {
         info->cmd[e] = malloc(sizeof(char) * (info->flag_len[e] + 15));
-        if (e == 0 && my_strncmp(info->str, "/bin/") != 0) {
-            info->cmd[e][0] = '/';
-            info->cmd[e][1] = 'b';
-            info->cmd[e][2] = 'i';
-            info->cmd[e][3] = 'n';
-            info->cmd[e][4] = '/';
-            p += 5;
-        }
+        if (e == 0)
+            p = alrd_bin(info, p);
         for (; info->str[x] != '\0' && info->str[x] != ' ';  p++, x++)
             info->cmd[e][p] = info->str[x];
         x += 1;
