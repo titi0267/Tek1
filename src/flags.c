@@ -7,34 +7,40 @@
 
 #include "../include/my.h"
 
+int keep_alpha_next(my_struct_t *info, char *keep_alpha, int i)
+{
+    static int m = 0;
+
+    if (info->str[i] >= 0 && info->str[i] < 33) {
+        i++;
+        m = 1;
+    } else {
+        if (m == 1 && info->p != 0) {
+            keep_alpha[info->p] = ' ';
+            info->p++;
+            m = 0;
+        } else {
+            keep_alpha[info->p] = info->str[i];
+            info->p++;
+            i++;
+            m = 0;
+        }
+    }
+    return (i);
+}
+
 char *keep_alpha(my_struct_t *info)
 {
-    int p = 0;
     int i = 0;
-    int m = 0;
+    info->p = 0;
     char *keep_alpha;
 
     keep_alpha = malloc(sizeof(char) * my_strlen(info->str));
     if (info->str[0] == '\0')
         return (keep_alpha);
-    while (info->str[i] != '\0') {
-        if (info->str[i] >= 0 && info->str[i] < 33) {
-            i++;
-            m = 1;
-        } else {
-            if (m == 1 && p != 0) {
-                keep_alpha[p] = ' ';
-                p++;
-                m = 0;
-            } else {
-                keep_alpha[p] = info->str[i];
-                p++;
-                i++;
-                m = 0;
-            }
-        }
-    }
-    keep_alpha[p] = '\0';
+    while (info->str[i] != '\0')
+        i = keep_alpha_next(info, keep_alpha, i);
+    keep_alpha[info->p] = '\0';
     return (keep_alpha);
 }
 

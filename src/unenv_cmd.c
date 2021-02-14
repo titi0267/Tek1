@@ -62,9 +62,8 @@ int *search_toun(my_struct_t *info)
 
     found_env[0] = -1;
     for (; info->cmd[m] != 0; m++) {
-        for (; info->new_env[i]; i++) {
+        for (; info->new_env[i]; i++)
             search_tounext(info, found_env, i, m);
-        }
         i = 0;
     }
     found_env[info->find_un] = -1;

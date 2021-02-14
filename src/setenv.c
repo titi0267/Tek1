@@ -34,9 +34,8 @@ void create_next(my_struct_t *info)
 {
     int f = 0;
 
-    for (; info->cmd[1][f] != '\0'; f++) {
+    for (; info->cmd[1][f] != '\0'; f++)
         info->new_env[info->end_env][f] = info->cmd[1][f];
-    }
     info->new_env[info->end_env][f] = '=';
     f += 1;
     if (info->cmd[2] != NULL) {

@@ -12,7 +12,9 @@ SRC=	src/main.c			\
 		src/un_env.c		\
 		src/setenv.c		\
 		src/unenv_cmd.c		\
+		src/user_input.c	\
 		src/builtin_cmd.c	\
+		src/next_env.c		\
 		src/env.c			\
 		src/flags.c
 

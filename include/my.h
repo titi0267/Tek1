@@ -43,5 +43,8 @@ int create_env(my_struct_t *info);
 void store_tempenv(my_struct_t *info);
 int *search_toun(my_struct_t *info);
 void store_unenv(my_struct_t *info);
+void store_env(my_struct_t *info, char **env);
+void store_tempenv(my_struct_t *info);
+int user_input(my_struct_t *info, char **env);
 
 #endif /* !MY_H_ */

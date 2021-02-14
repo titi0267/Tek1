@@ -30,6 +30,18 @@ int cd_arg(my_struct_t *info)
     return (0);
 }
 
+int cd_error(my_struct_t *info)
+{
+    if (chdir(info->cd_pwd) == 0) {
+        return (0);
+    } else {
+        my_error(info->cd_pwd);
+        my_error(": ");
+        my_error(strerror(errno));
+        my_error(".\n");
+    }
+}
+
 int cd(my_struct_t *info, char **env)
 {
     int p = 0;
@@ -48,13 +60,6 @@ int cd(my_struct_t *info, char **env)
         info->cd_pwd[y] = info->str[m];
     }
     info->cd_pwd[y] = '\0';
-    if (chdir(info->cd_pwd) == 0) {
-        return (0);
-    } else {
-        my_error(info->cd_pwd);
-        my_error(": ");
-        my_error(strerror(errno));
-        my_error(".\n");
-    }
+    cd_error(info);
     return (0);
 }

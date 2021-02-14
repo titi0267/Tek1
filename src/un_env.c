@@ -76,7 +76,6 @@ int my_unsetenv(my_struct_t *info, char **env)
 
 int alrdy_unenv(my_struct_t *info, char **env)
 {
-    if (my_unsetenv(info, env) == -1) {
+    if (my_unsetenv(info, env) == -1)
         return (0);
-    }
 }

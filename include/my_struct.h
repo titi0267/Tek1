@@ -32,6 +32,7 @@ typedef struct my_struct_s
     char *keep_alph;
     char *pwd;
     int find_un;
+    int p;
 } my_struct_t;
 
 #endif /* !MY_STRUCT_H_ */
