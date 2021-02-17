@@ -22,11 +22,12 @@ int error_handling(map_t *map, int ac, char **av)
     return (0);
 }
 
-int center_text(map_t *map)
+int center_text(map_t *map, char **av)
 {
     int *str_len = line_len(map->str);
     int row;
     int col;
+    map->quit = 0;
 
     initscr();
     curs_set(0);
@@ -41,18 +42,27 @@ int center_text(map_t *map)
         }
         find_player(map);
         refresh();
-        key_pressed(map);
+        key_pressed(map, av);
         replace_o(map);
-        if (win_mode(map) == 1)
+        while (win_mode(map) == 1) {
+            clear();
+            mvprintw((LINES / 2), (COLS / 2) - (9 / 2), "You Won !");
+            switch (getch()) {
+                case KEY_q:
+                    map->quit = 1;
+                    break;
+                case SPACE:
+                    restart_gm(map, av);
+                    break;
+            }
+            if (map->quit == 1)
+                break;
+            refresh();
+        }
+        if (map->quit == 1)
             break;
     }
-    my_printf("You won !");
-    //if (getch() == ' ') {
-
-    //}
     endwin();
-
-    ///center_text(map);
 }
 
 int main(int ac, char **av)
@@ -68,6 +78,6 @@ int main(int ac, char **av)
         for (int y = 0; map->line_map[i][y] != '\0'; y++)
             my_printf("%c", map->line_map[i][y]);
     }*/
-    center_text(map);
+    center_text(map, av);
     return (0);
 }

@@ -37,17 +37,3 @@ void replace_o(map_t *map)
             map->line_map[map->target_line[i]][map->target_car[i]] = 'O';
     }
 }
-
-int win_mode(map_t *map)
-{
-    int i = 0;
-    int win = 0;
-
-    for (; map->target_line[i] != -1 && map->target_car[i] != -1; i++) {
-        if (map->line_map[map->target_line[i]][map->target_car[i]] == 'X')
-            win++;
-    }
-    if (win == find_char(map->str, 'O', 0))
-        return (1);
-    return (0);
-}

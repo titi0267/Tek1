@@ -91,7 +91,7 @@ void right(map_t *map)
     }
 }
 
-void key_pressed(map_t *map)
+void key_pressed(map_t *map, char **av)
 {
     switch(getch()) {
         case KEY_UP:
@@ -105,6 +105,12 @@ void key_pressed(map_t *map)
             break;
         case KEY_RIGHT:
             right(map);
+            break;
+        case SPACE:
+            restart_gm(map, av);
+            break;
+        case KEY_q:
+            map->quit = 1;
             break;
     }
 }

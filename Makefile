@@ -9,6 +9,7 @@ CC		=	gcc	-o
 SRC=	src/main.c		\
 		src/on_target.c	\
 		src/player.c	\
+		src/restart_gm.c	\
 		src/press_key.c	\
 		src/get_map.c
 

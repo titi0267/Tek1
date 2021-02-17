@@ -16,6 +16,8 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#define KEY_q 'q'
+#define SPACE ' '
 
 void my_putchar(char c);
 int my_putstr(char const *str);
@@ -28,8 +30,10 @@ int my_printf(char *str, ...);
 int read_map(map_t *map, char *filepath);
 int find_player(map_t *map);
 int find_target(map_t *map);
-void key_pressed(map_t *map);
+void key_pressed(map_t *map, char **av);
 void replace_o(map_t *map);
 int win_mode(map_t *map);
+int center_text(map_t *map, char **av);
+int restart_gm(map_t *map, char **av);
 
 #endif /* !MY_H_ */
