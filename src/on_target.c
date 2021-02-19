@@ -37,3 +37,28 @@ void replace_o(map_t *map)
             map->line_map[map->target_line[i]][map->target_car[i]] = 'O';
     }
 }
+
+int small_screen(map_t *map, int i, int *str_len)
+{
+    if ((map->col < (my_strlen(map->line_map[0]) / 2) + (COLS / 2) + 1)
+        || (map->row < ((word_tablen(map->line_map) / 2) + (LINES / 2) + 1))) {
+        clear();
+        mvprintw((LINES / 2), (COLS / 2) - (28 / 2), "Enlarge the screen !");
+        refresh();
+        map->small_scr = 1;
+        switch (getch()) {
+            case SPACE:
+                map->restart = 1;
+                break;
+            case KEY_q:
+                map->quit = 1;
+                break;
+        }
+        if (map->restart == 1 || map->quit == 1) {
+            map->small_scr = 1;
+            clear();
+        }
+        return (0);
+    }
+    return (1);
+}

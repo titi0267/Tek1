@@ -10,74 +10,65 @@
 void help(void)
 {
     my_printf("USAGE\n");
-    my_printf("            ./my_sokoban map.txt\n");
+    my_printf("    ./my_sokoban map\n");
+    my_printf("DESCRIPTION\n    map  file representing the wharehouse map,");
+    my_printf(" containing '#' for walls,\n         'P' for the player, ");
+    my_printf("'X' for boxes and 'O' for storage locations.\n");
 }
 
 int error_handling(map_t *map, int ac, char **av)
 {
     if (ac != 2) {
+        return (ERROR);
+    } else if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
         help();
-        return (84);
+        return (ERROR);
     }
     return (0);
 }
 
-int center_text(map_t *map, char **av)
+int init_ncurses(map_t *map, char **av)
 {
-    int *str_len = line_len(map->str);
-    int row;
-    int col;
     map->quit = 0;
 
+    if (read_map(map, av[1]) != 0)
+        return (ERROR);
+    map->line_map = str_to_wordarray(map->str);
+    if (assemble_error(map) == ERROR)
+        return (ERROR);
     initscr();
     curs_set(0);
     keypad(stdscr, TRUE);
     find_target(map);
+    big_loop(map, av);
+    endwin();
+    return (0);
+}
+
+int big_loop(map_t *map, char **av)
+{
+    int *str_len = line_len(map->str);
+
     while (1) {
-        clear();
-        getmaxyx(stdscr, col, row);
-        for (int i = 0; map->line_map[i] != NULL; i++) {
-            mvprintw((LINES / 2) + i - (word_tablen(map->line_map) / 2),
-                        (COLS / 2) - (str_len[i] / 2), map->line_map[i]);
-        }
-        find_player(map);
-        refresh();
-        key_pressed(map, av);
-        replace_o(map);
-        while (win_mode(map) == 1) {
-            clear();
-            mvprintw((LINES / 2), (COLS / 2) - (9 / 2), "You Won !");
-            switch (getch()) {
-                case KEY_q:
-                    map->quit = 1;
-                    break;
-                case SPACE:
-                    restart_gm(map, av);
-                    break;
-            }
-            if (map->quit == 1)
-                break;
-            refresh();
-        }
+        in_big_loop(map, av, str_len);
         if (map->quit == 1)
             break;
+        else if (map->restart == 1)
+            break;
     }
-    endwin();
+    if (map->restart == 1)
+        restart_gm(map, av);
 }
 
 int main(int ac, char **av)
 {
-    map_t *map = malloc(sizeof(map_t));
-    int i = 0;
+    map_t *map;
 
-    if (error_handling(map, ac, av) == 84)
-        return (84);
-    read_map(map, av[1]);
-    map->line_map = str_to_wordarray(map->str);
-    /*for (; map->line_map[i] != NULL; i++) {
-        for (int y = 0; map->line_map[i][y] != '\0'; y++)
-            my_printf("%c", map->line_map[i][y]);
-    }*/
-    center_text(map, av);
+    if ((map = malloc(sizeof(map_t))) == NULL)
+        return (ERROR);
+    if (error_handling(map, ac, av) == ERROR)
+        return (ERROR);
+    if (init_ncurses(map, av) == ERROR)
+        return (ERROR);
     return (0);
 }

@@ -17,9 +17,12 @@ typedef struct map_s
     int car;
     int *target_line;
     int *target_car;
-    int up_on_o;
-    int left_on_o;
     int quit;
+    int event;
+    int restart;
+    int col;
+    int row;
+    int small_scr;
 } map_t;
 
 #endif /* !MY_STRUCT_H_ */

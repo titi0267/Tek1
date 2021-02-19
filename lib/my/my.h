@@ -31,5 +31,7 @@ int find_char(char *str, char ascii, int i);
 int count_line(char *str);
 char **str_to_wordarray(char *str);
 int *line_len(char *str);
+void my_putcerr(char c);
+void my_puterr(char *str);
 
 #endif /* !my_h_ */

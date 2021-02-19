@@ -7,6 +7,7 @@
 
 SRC=	my_putchar.c		\
 		my_putstr.c			\
+		error_stdout.c		\
 		my_putnbr.c			\
 		my_revstr.c			\
 		my_line_counter.c	\

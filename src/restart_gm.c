@@ -23,7 +23,5 @@ int win_mode(map_t *map)
 
 int restart_gm(map_t *map, char **av)
 {
-    read_map(map, av[1]);
-    map->line_map = str_to_wordarray(map->str);
-    center_text(map, av);
+    init_ncurses(map, av);
 }

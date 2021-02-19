@@ -18,14 +18,7 @@
 #include <fcntl.h>
 #define KEY_q 'q'
 #define SPACE ' '
-
-void my_putchar(char c);
-int my_putstr(char const *str);
-int my_strncmp(char *cmp, char *cmpd);
-int my_putnbr(int nb);
-int my_getnbr(char *str);
-char *my_int_str(int nb, lib_t *lib);
-int my_printf(char *str, ...);
+#define ERROR 84
 
 int read_map(map_t *map, char *filepath);
 int find_player(map_t *map);
@@ -33,7 +26,20 @@ int find_target(map_t *map);
 void key_pressed(map_t *map, char **av);
 void replace_o(map_t *map);
 int win_mode(map_t *map);
-int center_text(map_t *map, char **av);
+int init_ncurses(map_t *map, char **av);
 int restart_gm(map_t *map, char **av);
+int corner(map_t *map);
+void winning_case(map_t *map, char **av);
+void blocked(map_t *map, char **av);
+int big_loop(map_t *map, char **av);
+void in_big_loop(map_t *map, char **av, int *str_len);
+int small_screen(map_t *map, int i, int *str_len);
+int right_border(map_t *map);
+int target_box(map_t *map);
+int is_player(map_t *map);
+int assemble_lose(map_t *map);
+int assemble_error(map_t *map);
+int down_border(map_t *map);
+int left_border(map_t *map);
 
 #endif /* !MY_H_ */

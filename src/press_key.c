@@ -93,7 +93,7 @@ void right(map_t *map)
 
 void key_pressed(map_t *map, char **av)
 {
-    switch(getch()) {
+    switch (getch()) {
         case KEY_UP:
             up(map);
             break;
@@ -107,7 +107,7 @@ void key_pressed(map_t *map, char **av)
             right(map);
             break;
         case SPACE:
-            restart_gm(map, av);
+            map->restart = 1;
             break;
         case KEY_q:
             map->quit = 1;
