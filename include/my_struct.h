@@ -23,6 +23,7 @@ typedef struct map_s
     int col;
     int row;
     int small_scr;
+    int winner;
 } map_t;
 
 #endif /* !MY_STRUCT_H_ */

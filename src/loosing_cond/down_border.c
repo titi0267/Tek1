@@ -15,6 +15,8 @@ int count_down_next(map_t *map, int m, int i, int y)
         x++;
     if (map->line_map[i][map->target_car[m]] == 'X' && map->line_map[i][y] == 'X')
         x++;
+    if (map->line_map[i][map->target_car[m]] == 'P')
+        x++;
     return (x);
 }
 

@@ -13,7 +13,14 @@ int count_left_next(map_t *map, int m, int i, int u)
 
     if (map->line_map[i][u] == 'O')
         x++;
-    if (map->line_map[i][map->target_car[m]] == 'X' && map->line_map[i][u] == 'X')
+    if (map->line_map[i][map->target_car[m]] == 'X' && map->line_map[i][u] == 'X') {
+        /*clear();
+        printw("");
+        refresh();
+        sleep(1);*/
+        x++;
+    }
+    if (map->line_map[i][map->target_car[m]] == 'P')
         x++;
     return (x);
 }
@@ -47,7 +54,7 @@ int left_border(map_t *map)
 
     x = count_left(map);
     for (int k = 0; map->line_map[k] != NULL; k++) {
-        if (map->line_map[k][v - 3] == 'X')
+        if (map->line_map[k][v] == 'X')
         g++;
     }
     if (g <= x)

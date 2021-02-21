@@ -29,17 +29,22 @@ int win_mode(map_t *map);
 int init_ncurses(map_t *map, char **av);
 int restart_gm(map_t *map, char **av);
 int corner(map_t *map);
-void winning_case(map_t *map, char **av);
-void blocked(map_t *map, char **av);
+int winning_case(map_t *map, char **av);
+int blocked(map_t *map, char **av);
 int big_loop(map_t *map, char **av);
-void in_big_loop(map_t *map, char **av, int *str_len);
+int in_big_loop(map_t *map, char **av, int *str_len);
 int small_screen(map_t *map, int i, int *str_len);
 int right_border(map_t *map);
 int target_box(map_t *map);
 int is_player(map_t *map);
+int corner_next(map_t *map);
 int assemble_lose(map_t *map);
 int assemble_error(map_t *map);
 int down_border(map_t *map);
 int left_border(map_t *map);
+int up_border(map_t *map);
+
+int blocked_key(map_t *map);
+int win_key(map_t *map);
 
 #endif /* !MY_H_ */

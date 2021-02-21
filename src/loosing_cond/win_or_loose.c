@@ -7,41 +7,35 @@
 
 #include "../../include/my.h"
 
-void winning_case(map_t *map, char **av)
+int winning_case(map_t *map, char **av)
 {
     while (win_mode(map) == 1) {
         clear();
         mvprintw((LINES / 2), (COLS / 2) - (9 / 2), "You Won !");
-        switch (getch()) {
-            case KEY_q:
-                map->quit = 1;
-                break;
-            case SPACE:
-                map->restart = 1;
-                break;
-        }
-        if (map->quit == 1 || map->restart == 1)
-            break;
         refresh();
+        map->winner = TRUE;
+        if (av[2] == NULL) {
+            usleep(3000000);
+            return (TRUE);
+        } else
+            if (win_key(map) == TRUE)
+                break;
     }
-    //clear();
+    return (FALSE);
 }
 
-void blocked(map_t *map, char **av)
+int blocked(map_t *map, char **av)
 {
     while (assemble_lose(map) == 1) {
         clear();
         mvprintw((LINES / 2), (COLS / 2) - (18 / 2), "You are a loser !");
-        switch (getch()) {
-            case KEY_q:
-                map->quit = 1;
-                break;
-            case SPACE:
-                map->restart = 1;
-                break;
-        }
-        if (map->quit == 1 || map->restart == 1)
-            break;
         refresh();
+        if (av[2] == NULL) {
+            usleep(3000000);
+            return (TRUE);
+        } else
+            if (blocked_key(map) == TRUE)
+                break;
     }
+    return (FALSE);
 }
