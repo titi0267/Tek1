@@ -15,20 +15,16 @@ int assemble_lose(map_t *map)
     for (int i = 0; map->line_map[i] != NULL; i++)
         x += find_char(map->line_map[i], 'X', 0);
     y = corner_next(map);
-    if (y == x)// || right_border(map) == 1 || down_border(map) == 1 || left_border(map) == 1 || up_border(map) == 1)
+    if (y == x)
         return (1);
     return (0);
 
 }
 
-int in_big_loop(map_t *map, char **av, int *str_len)
+int in_big_loop_next(map_t *map, char **av, int *str_len)
 {
     int i = 0;
-    map->restart = 0;
-    map->small_scr = 0;
-    map->winner = FALSE;
-    clear();
-    getmaxyx(stdscr, map->row, map->col);
+
     if (small_screen(map, i, str_len) == 1)
         map->small_scr = 0;
     clear();
@@ -43,6 +39,16 @@ int in_big_loop(map_t *map, char **av, int *str_len)
         key_pressed(map, av);
         replace_o(map);
     }
+}
+
+int in_big_loop(map_t *map, char **av, int *str_len)
+{
+    map->restart = 0;
+    map->small_scr = 0;
+    map->winner = FALSE;
+    clear();
+    getmaxyx(stdscr, map->row, map->col);
+    in_big_loop_next(map, av, str_len);
     if (winning_case(map, av) == TRUE)
         return (0);
     if (map->winner == FALSE && blocked(map, av) == TRUE)

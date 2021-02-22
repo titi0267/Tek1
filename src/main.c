@@ -7,37 +7,10 @@
 
 #include "../include/my.h"
 
-void help(void)
-{
-    my_printf("USAGE\n");
-    my_printf("    Without bonus : ./my_sokoban map\n");
-    my_printf("    With bonus : ./my_sokoban map 1\n");
-    my_printf("DESCRIPTION\n    map  file representing the wharehouse map,");
-    my_printf(" containing '#' for walls,\n         'P' for the player, ");
-    my_printf("'X' for boxes and 'O' for storage locations.\n");
-}
-
-int error_handling(map_t *map, int ac, char **av)
-{
-    int bonus = 0;
-
-    if (ac == 3 && av[2][0] == '1' && av[2][1] == '\0')
-        bonus = 1;
-    else if (bonus == 0) {
-        if (ac != 2) {
-            return (ERROR);
-        } else if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
-            help();
-            return (ERROR);
-        }
-    }
-    return (0);
-}
-
 int init_ncurses(map_t *map, char **av)
 {
-    map->quit = 0;
     int x;
+    map->quit = 0;
 
     if (read_map(map, av[1]) != 0)
         return (ERROR);

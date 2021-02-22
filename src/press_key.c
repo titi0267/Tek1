@@ -109,8 +109,5 @@ void key_pressed(map_t *map, char **av)
         case SPACE:
             map->restart = 1;
             break;
-        case KEY_q:
-            map->quit = 1;
-            break;
     }
 }

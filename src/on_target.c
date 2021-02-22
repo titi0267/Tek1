@@ -50,11 +50,8 @@ int small_screen(map_t *map, int i, int *str_len)
             case SPACE:
                 map->restart = 1;
                 break;
-            case KEY_q:
-                map->quit = 1;
-                break;
         }
-        if (map->restart == 1 || map->quit == 1) {
+        if (map->restart == 1) {
             map->small_scr = 1;
             clear();
         }

@@ -15,13 +15,8 @@ SRC=	src/main.c			\
 		src/assemble.c		\
 		src/get_map.c		\
 		src/map_elements.c	\
-		src/loosing_cond/win_or_loose.c	\
-		src/loosing_cond/corner.c		\
-		src/loosing_cond/down_border.c	\
-		src/loosing_cond/up_border.c	\
-		src/loosing_cond/right_border.c	\
-		src/loosing_cond/left_border.c	\
-		bonus/quit.c	\
+		src/win_or_loose.c	\
+		src/corner.c		\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-lncurses -g
 

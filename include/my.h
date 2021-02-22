@@ -43,6 +43,8 @@ int assemble_error(map_t *map);
 int down_border(map_t *map);
 int left_border(map_t *map);
 int up_border(map_t *map);
+int error_handling(map_t *map, int ac, char **av);
+void help(void);
 
 int blocked_key(map_t *map);
 int win_key(map_t *map);

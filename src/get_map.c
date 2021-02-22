@@ -24,8 +24,10 @@ int read_map(map_t *map, char *filepath)
     int stat_ret;
     int fd = open(filepath, O_RDONLY);
 
-    if (fd == -1)
+    if (fd == -1) {
+        my_puterr("Couldn't open the file.\n");
         return (-1);
+    }
     stat_ret = read_mapsize(map, filepath, fd);
     if (stat_ret == -1)
         return (-1);

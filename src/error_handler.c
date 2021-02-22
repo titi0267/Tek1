@@ -12,11 +12,23 @@ int assemble_error(map_t *map)
     if (target_box(map) == ERROR || is_player(map) == ERROR)
         return (ERROR);
 }
-/*if ( is_o == 0 &&
-            (map->line_map[i][y] == 'X' &&
-            (((map->line_map[i][y - 1] == '#' && map->line_map[i + 1][y] == '#') || (map->line_map[i][y - 1] == 'X' && map->line_map[i + 1][y] == 'X'))
-            || ((map->line_map[i][y - 1] == '#' && map->line_map[i - 1][y] == '#') || (map->line_map[i][y - 1] == 'X' && map->line_map[i - 1][y] == 'X'))
-            || ((map->line_map[i][y + 1] == '#' && map->line_map[i + 1][y] == '#') || (map->line_map[i][y + 1] == 'X' && map->line_map[i + 1][y] == 'X'))
-            || ((map->line_map[i][y + 1] == '#' && map->line_map[i - 1][y] == '#') || (map->line_map[i][y + 1] == 'X' && map->line_map[i - 1][y] == 'X')))))
-                return (1);
-*/
+
+int error_handling(map_t *map, int ac, char **av)
+{
+    if (ac != 2) {
+        return (ERROR);
+    } else if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
+        help();
+        return (ERROR);
+    }
+    return (0);
+}
+
+void help(void)
+{
+    my_printf("USAGE\n");
+    my_printf("    ./my_sokoban map\n");
+    my_printf("DESCRIPTION\n    map  file representing the wharehouse map,");
+    my_printf(" containing '#' for walls,\n         'P' for the player, ");
+    my_printf("'X' for boxes and 'O' for storage locations.\n");
+}
