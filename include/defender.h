@@ -7,7 +7,7 @@
 
 #ifndef DEFENDER_H_
 #define DEFENDER_H_
-
+#include  "../lib/my/my.h"
 
 int start_error(int ac, char **av);
 int initialize_wnd(int ac, char **av);

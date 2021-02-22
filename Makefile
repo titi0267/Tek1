@@ -5,21 +5,27 @@
 ## Makefile
 ##
 
+CC=	gcc	-o
+
 SRC		=		Source/main.c 					\
 				Source/Rigor/start_errors.c 	\
 				Source/Start/initialize_wnd.c 	\
 
+CFLAGS =	-L./lib/my	-lmy	-I./include	-l	csfml-window	-l	csfml-graphics	-l	csfml-system	-l	csfml-audio
+
 NAME	=		my_defender
 
-all:	$(NAME)
-
-$(NAME):		$(SRC)
-		gcc -o $(NAME) $(SRC) -l csfml-window -l csfml-graphics -l csfml-system -l csfml-audio
+all:
+		${MAKE}	-C	lib/my/
+		$(CC) $(NAME) $(SRC) $(CFLAGS)
 
 clean:
-		rm -f $(OBJ)
+		make	-C	lib/my/	clean
 
 fclean:	clean
 		rm -f $(NAME)
+		make	-C	lib/my	fclean
 
 re:		fclean all
+
+.PHONY:	all	clean	fclean	re
