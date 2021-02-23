@@ -10,6 +10,9 @@
 void destroy1(core_t *core)
 {
     sfRenderWindow_destroy(core->wnd->window);
+    sfSprite_destroy(core->wnd->sandwich1);
+    sfSprite_destroy(core->wnd->sandwich);
     free(core->wnd);
+    free(core->time);
     free(core);
 }
