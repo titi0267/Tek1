@@ -10,14 +10,15 @@ CC=	gcc	-o
 SRC		=		Source/main.c 					\
 				Source/Rigor/start_errors.c 	\
 				Source/Start/initialize_wnd.c 	\
+				Source/End/destroy.c 			\
 
-CFLAGS =	-L./lib/my	-lmy	-I./include	-l	csfml-window	-l	csfml-graphics	-l	csfml-system	-l	csfml-audio
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-audio -l csfml-graphics -l csfml-window -l csfml-system -g
 
 NAME	=		my_defender
 
 all:
 		${MAKE}	-C	lib/my/
-		$(CC) $(NAME) $(SRC) $(CFLAGS)
+	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
 
 clean:
 		make	-C	lib/my/	clean

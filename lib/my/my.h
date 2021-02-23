@@ -21,5 +21,8 @@ int my_putnbr(int nb);
 int my_getnbr(char *str);
 char *my_int_str(int nb, lib_t *lib);
 char *my_revstr(char *str, lib_t *lib);
+void my_putcerr(char c);
+void my_puterr(char *str);
+
 
 #endif /* !my_h_ */

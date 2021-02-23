@@ -9,6 +9,8 @@
 
 int start_error(int ac, char **av)
 {
-    if (ac != 2)
+    if (ac != 2) {
+        my_puterr("This program needs two args !\n");
         return (84);
+    }
 }
