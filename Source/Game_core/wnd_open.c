@@ -14,6 +14,7 @@ void wnd_open(core_t *core)
         sfRenderWindow_drawSprite(core->wnd->window, core->wnd->sandwich1, NULL);
         sfRenderWindow_drawSprite(core->wnd->window, core->wnd->sandwich, NULL);
         poll_event(core->wnd);
+        update_time(core->time);
         sfRenderWindow_display(core->wnd->window);
     }
     destroy1(core);

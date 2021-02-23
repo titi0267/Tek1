@@ -16,6 +16,7 @@
 #include <stddef.h>
 
 int start_error(int ac, char **av);
+int struct_alloc(core_t *core);
 
 void initialize_wnd(window_t *wnd);
 void wnd_open(core_t *core);

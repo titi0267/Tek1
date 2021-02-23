@@ -10,10 +10,9 @@
 int main(int ac, char **av)
 {
     core_t *core = malloc(sizeof(core_t));
-    core->wnd = malloc(sizeof(window_t));
-    core->time = malloc(sizeof(time_t));
+;
 
-    if (core == NULL || start_error(ac, av) == ERROR)
+    if (struct_alloc(core) == ERROR || start_error(ac, av) == ERROR)
         return (ERROR);
     wnd_open(core);
 }
