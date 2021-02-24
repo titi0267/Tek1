@@ -14,3 +14,7 @@ void update_time(time_t *time)
     time->elapsed_time += time->delta_time;
     printf("%2f\n", time->elapsed_time);
 }
+
+//1920/1080
+//1280/720
+//800/600

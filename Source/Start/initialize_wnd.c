@@ -18,7 +18,7 @@ void initialize_wnd(window_t *wnd)
     wnd->scr_size.height = 1080;
     wnd->scr_size.bitsPerPixel = 32;
     wnd->window = sfRenderWindow_create(wnd->scr_size, "My_defender",
-                                        sfResize | sfClose, NULL);
+                                        sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(wnd->window, 55);
 }
 
