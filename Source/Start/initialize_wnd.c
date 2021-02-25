@@ -14,20 +14,13 @@
 
 void initialize_wnd(window_t *wnd)
 {
+    sfVector2i wnd_pos = {0, 0};
+
     wnd->scr_size.width = 1920;
     wnd->scr_size.height = 1080;
     wnd->scr_size.bitsPerPixel = 32;
     wnd->window = sfRenderWindow_create(wnd->scr_size, "My_defender",
-                                        sfDefaultStyle, NULL);
+                                        sfClose, NULL);
     sfRenderWindow_setFramerateLimit(wnd->window, 55);
-}
-
-void poll_event(window_t *wnd)
-{
-    sfEvent event;
-
-    while (sfRenderWindow_pollEvent(wnd->window, &event)) {
-        if (event.type == sfEvtClosed)
-            sfRenderWindow_close(wnd->window);
-    }
+    sfRenderWindow_setPosition(wnd->window, wnd_pos);
 }

@@ -11,8 +11,10 @@ int struct_alloc(core_t *core)
 {
     core->wnd = malloc(sizeof(window_t));
     core->time = malloc(sizeof(time_t));
+    core->menu = malloc(sizeof(menu_t));
 
-    if (core == NULL || core->wnd == NULL || core->time == NULL)
+    if (core == NULL || core->wnd == NULL || core->time == NULL ||
+        core->menu == NULL)
         return (ERROR);
     return (0);
 }

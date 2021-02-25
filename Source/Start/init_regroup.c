@@ -11,6 +11,6 @@ void init(core_t *core)
 {
     initialize_wnd(core->wnd);
     init_timer(core->time);
-    mia(core->wnd);
-    mia2(core->wnd);
+    backgd_menu(core->menu);
+   mia2(core->wnd);
 }

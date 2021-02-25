@@ -23,11 +23,13 @@ void wnd_open(core_t *core);
 void init_timer(time_t *time);
 void init(core_t *core);
 
-void poll_event(window_t *wnd);
+void poll_event(window_t *wnd, menu_t *menu);
 
 void update_time(time_t *time);
+void resize_wnd(window_t *wnd);
 
-void mia(window_t *wnd);
+void setting_button(menu_t *menu, window_t *wnd);
+void backgd_menu(menu_t *menu);
 void mia2(window_t *wnd);
 
 void destroy1(core_t *core);

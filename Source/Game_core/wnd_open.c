@@ -11,9 +11,9 @@ void wnd_open(core_t *core)
 {
     init(core);
     while (sfRenderWindow_isOpen(core->wnd->window)) {
+        sfRenderWindow_drawSprite(core->wnd->window, core->menu->bgd_spt, NULL);
         sfRenderWindow_drawSprite(core->wnd->window, core->wnd->sandwich1, NULL);
-        sfRenderWindow_drawSprite(core->wnd->window, core->wnd->sandwich, NULL);
-        poll_event(core->wnd);
+        poll_event(core->wnd, core->menu);
         update_time(core->time);
         sfRenderWindow_display(core->wnd->window);
     }

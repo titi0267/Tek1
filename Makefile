@@ -11,12 +11,14 @@ SRCSPATH = Source/
 
 SRCSFILES	=	main.c 			\
 				Rigor/start_errors.c 		\
-				Start/malloc.c					\
+				Rigor/malloc.c					\
 				Start/Create_spt/background.c	\
 				Start/initialize_wnd.c 			\
 				Start/init_regroup.c			\
 				Start/init_time.c				\
 				Game_core/wnd_open.c				\
+				Game_core/events.c					\
+				Game_core/menu/settings/resize_window.c			\
 				Game_core/timer.c					\
 				End/destroy.c 			\
 

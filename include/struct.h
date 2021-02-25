@@ -16,9 +16,16 @@ typedef struct window_s
 {
     sfRenderWindow *window;
     sfVideoMode scr_size;
-    sfSprite *sandwich;
     sfSprite *sandwich1;
+    sfVector2f pos;
+
 } window_t;
+
+typedef struct menu_s
+{
+    sfTexture *bgd_tex;
+    sfSprite *bgd_spt;
+} menu_t;
 
 typedef struct time_s
 {
@@ -31,6 +38,7 @@ typedef struct core_s
 {
     window_t *wnd;
     time_t *time;
+    menu_t *menu;
 } core_t;
 
 #endif /* !struct_header */
