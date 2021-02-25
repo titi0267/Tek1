@@ -62,13 +62,17 @@ void leave_gm(menu_t *menu, button_t *button, sfEvent event, window_t *wnd)
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
 
     if (event.type == sfEvtMouseButtonPressed) {
-        if ((mouse_pos.x >= box_size_x(wnd, sfSprite_getGlobalBounds(button->leave_spt).left) &&
-            mouse_pos.x <= (box_size_x(wnd, sfSprite_getGlobalBounds(button->leave_spt).left) +
-            box_size_x(wnd, sfSprite_getGlobalBounds(button->leave_spt).width))) &&
-            (mouse_pos.y >= box_size_y(wnd, sfSprite_getGlobalBounds(button->leave_spt).top) &&
-            mouse_pos.y <= (box_size_y(wnd, sfSprite_getGlobalBounds(button->leave_spt).top) +
-            box_size_y(wnd, sfSprite_getGlobalBounds(button->leave_spt).height)))) {
+        if ((mouse_pos.x >= box_size_x(wnd,
+                        sfSprite_getGlobalBounds(button->leave_spt).left) &&
+            mouse_pos.x <= (box_size_x(wnd,
+                            sfSprite_getGlobalBounds(button->leave_spt).left) +
+            box_size_x(wnd, sfSprite_getGlobalBounds(button->leave_spt).width)))
+            && (mouse_pos.y >= box_size_y(wnd,
+                            sfSprite_getGlobalBounds(button->leave_spt).top) &&
+            mouse_pos.y <= (box_size_y(wnd,
+                            sfSprite_getGlobalBounds(button->leave_spt).top) +
+            box_size_y(wnd,
+                        sfSprite_getGlobalBounds(button->leave_spt).height))))
                 menu->end_gm = TRUE;
-        }
     }
 }
