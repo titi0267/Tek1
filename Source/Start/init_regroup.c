@@ -12,5 +12,11 @@ void init(core_t *core)
     initialize_wnd(core->wnd);
     init_timer(core->time);
     backgd_menu(core->menu);
-   mia2(core->wnd);
+    button_play(core->menu->button);
+    button_setting(core->menu->button);
+    game_name(core->menu);
+    hover_setting_but(core->menu->button);
+    hover_play_but(core->menu->button);
+    button_leave(core->menu->button);
+    hover_leave_but(core->menu->button);
 }

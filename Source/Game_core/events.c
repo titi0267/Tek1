@@ -12,13 +12,15 @@
 void click_settings(menu_t *menu, sfEvent event, window_t *wnd)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
-    printf("left = %2.f & width = %2.f\n", sfSprite_getGlobalBounds(wnd->sandwich1).left, sfSprite_getGlobalBounds(wnd->sandwich1).width);
+
     if (event.type == sfEvtMouseButtonPressed) {
-        if (mouse_pos.x >= sfSprite_getGlobalBounds(wnd->sandwich1).left &&
-            mouse_pos.x <= (sfSprite_getGlobalBounds(wnd->sandwich1).left +
-            sfSprite_getGlobalBounds(wnd->sandwich1).width)) {
-            my_printf("mouse_pos = %i\n", mouse_pos.x);
-            resize_wnd(wnd);
+        if ((mouse_pos.x >= box_size_x(wnd, sfSprite_getGlobalBounds(menu->button->setting_spt).left) &&
+            mouse_pos.x <= (box_size_x(wnd, sfSprite_getGlobalBounds(menu->button->setting_spt).left) +
+            box_size_x(wnd, sfSprite_getGlobalBounds(menu->button->setting_spt).width))) &&
+            (mouse_pos.y >= box_size_y(wnd, sfSprite_getGlobalBounds(menu->button->setting_spt).top) &&
+            mouse_pos.y <= (box_size_y(wnd, sfSprite_getGlobalBounds(menu->button->setting_spt).top) +
+            box_size_y(wnd, sfSprite_getGlobalBounds(menu->button->setting_spt).height)))) {
+            resize_wnd(wnd, menu);
         }
     }
 }
