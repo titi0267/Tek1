@@ -33,5 +33,6 @@ void poll_event(window_t *wnd, menu_t *menu)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(wnd->window);
         click_settings(menu, event, wnd);
+        leave_gm(menu, menu->button, event, wnd);
     }
 }

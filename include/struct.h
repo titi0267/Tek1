@@ -11,6 +11,8 @@
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #define ERROR 84
+#define TRUE 1
+#define FALSE 0
 
 typedef struct window_s
 {
@@ -43,7 +45,7 @@ typedef struct menu_s
     sfTexture *name_tex;
     sfSprite *name_spt;
     button_t *button;
-
+    int end_gm;
 } menu_t;
 
 typedef struct time_s

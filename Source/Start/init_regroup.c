@@ -17,6 +17,6 @@ void init(core_t *core)
     game_name(core->menu);
     hover_setting_but(core->menu->button);
     hover_play_but(core->menu->button);
-    button_leave(core->menu->button);
+    button_leave(core->menu, core->menu->button);
     hover_leave_but(core->menu->button);
 }

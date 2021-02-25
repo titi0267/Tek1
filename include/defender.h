@@ -38,10 +38,10 @@ void hover_setting(button_t *button, window_t *wnd);
 void hover_play_but(button_t *button);
 void hover_play(button_t *button, window_t *wnd);
 void button_play(button_t *button);
-void button_leave(button_t *button);
+void button_leave(menu_t *menu, button_t *button);
 void hover_leave(button_t *button, window_t *wnd);
 void hover_leave_but(button_t *button);
-void leave_gm(button_t *button, sfEvent event, window_t *wnd);
+void leave_gm(menu_t *menu, button_t *button, sfEvent event, window_t *wnd);
 void main_menu_draw(menu_t *menu, window_t *wnd);
 void game_name(menu_t *menu);
 

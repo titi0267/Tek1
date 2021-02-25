@@ -11,6 +11,8 @@ void wnd_open(core_t *core)
 {
     init(core);
     while (sfRenderWindow_isOpen(core->wnd->window)) {
+        if (core->menu->end_gm == TRUE)
+            break;
         poll_event(core->wnd, core->menu);
         update_time(core->time);
         main_menu_draw(core->menu, core->wnd);

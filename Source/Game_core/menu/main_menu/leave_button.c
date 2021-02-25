@@ -22,7 +22,7 @@ void hover_leave_but(button_t *button)
     sfSprite_setScale(button->hover_leave_spt, scale);
 }
 
-void button_leave(button_t *button)
+void button_leave(menu_t *menu, button_t *button)
 {
     button->leave_tex = sfTexture_createFromFile(
                         "Ressources/My_defender/image/button/leave.png",
@@ -34,6 +34,7 @@ void button_leave(button_t *button)
     sfSprite_setTexture(button->leave_spt, button->leave_tex, sfFalse);
     sfSprite_setPosition(button->leave_spt, leave_pos);
     sfSprite_setScale(button->leave_spt, scale);
+    menu->end_gm = FALSE;
 }
 
 void hover_leave(button_t *button, window_t *wnd)
@@ -56,7 +57,7 @@ void hover_leave(button_t *button, window_t *wnd)
             sfRenderWindow_drawSprite(wnd->window, button->leave_spt, NULL);
 }
 
-void leave_gm(button_t *button, sfEvent event, window_t *wnd)
+void leave_gm(menu_t *menu, button_t *button, sfEvent event, window_t *wnd)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
 
@@ -67,7 +68,7 @@ void leave_gm(button_t *button, sfEvent event, window_t *wnd)
             (mouse_pos.y >= box_size_y(wnd, sfSprite_getGlobalBounds(button->leave_spt).top) &&
             mouse_pos.y <= (box_size_y(wnd, sfSprite_getGlobalBounds(button->leave_spt).top) +
             box_size_y(wnd, sfSprite_getGlobalBounds(button->leave_spt).height)))) {
-                my_printf("ok");
+                menu->end_gm = TRUE;
         }
     }
 }
