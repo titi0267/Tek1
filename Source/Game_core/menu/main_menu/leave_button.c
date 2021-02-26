@@ -10,7 +10,7 @@
 void hover_leave_but(button_t *button)
 {
     button->hover_leave_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/image/button/leav_on.png",
+                        "Ressources/My_defender/button/leav_on.png",
                         NULL);
     button->hover_leave_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -25,7 +25,7 @@ void hover_leave_but(button_t *button)
 void button_leave(menu_t *menu, button_t *button)
 {
     button->leave_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/image/button/leave.png",
+                        "Ressources/My_defender/button/leave.png",
                         NULL);
     button->leave_spt = sfSprite_create();
     sfVector2f scale = {1, 1};

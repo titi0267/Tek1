@@ -25,10 +25,19 @@ float box_size_y(window_t *wnd, float y)
     return (adapt);
 }
 
-void resize_wnd(window_t *wnd, menu_t *menu)
+void resize_wnd_med(window_t *wnd)
 {
     sfVector2u resize = {1280, 720};
     sfVector2i wnd_pos = {350, 150};
+
+    sfRenderWindow_setSize(wnd->window, resize);
+    sfRenderWindow_setPosition(wnd->window, wnd_pos);
+}
+
+void resize_wnd_full(window_t *wnd)
+{
+    sfVector2u resize = {1920, 1080};
+    sfVector2i wnd_pos = {0, 0};
 
     sfRenderWindow_setSize(wnd->window, resize);
     sfRenderWindow_setPosition(wnd->window, wnd_pos);

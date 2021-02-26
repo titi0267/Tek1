@@ -10,7 +10,7 @@
 void hover_setting_but(button_t *button)
 {
     button->hover_setting_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/image/button/settings_on.png",
+                        "Ressources/My_defender/button/settings_on.png",
                         NULL);
     button->hover_setting_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -43,10 +43,10 @@ void hover_setting(button_t *button, window_t *wnd)
             sfRenderWindow_drawSprite(wnd->window, button->setting_spt, NULL);
 }
 
-void button_setting(button_t *button)
+void button_setting(button_t *button, menu_t *menu)
 {
     button->setting_tex = sfTexture_createFromFile(
-                            "Ressources/My_defender/image/button/settings.png",
+                            "Ressources/My_defender/button/settings.png",
                             NULL);
     button->setting_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -55,4 +55,5 @@ void button_setting(button_t *button)
     sfSprite_setTexture(button->setting_spt, button->setting_tex, sfFalse);
     sfSprite_setPosition(button->setting_spt, setting_pos);
     sfSprite_setScale(button->setting_spt, scale);
+    menu->settings = FALSE;
 }

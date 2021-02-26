@@ -36,6 +36,16 @@ typedef struct button_s
     sfSprite *hover_play_spt;
     sfTexture *hover_leave_tex;
     sfSprite *hover_leave_spt;
+    sfTexture *fullscr_tex;
+    sfSprite *fullscr_spt;
+    sfTexture *medscr_tex;
+    sfSprite *medscr_spt;
+    sfTexture *vol_tex;
+    sfSprite *vol_spt;
+    sfTexture *return_tex;
+    sfSprite *return_spt;
+    sfTexture *hover_return_tex;
+    sfSprite *hover_return_spt;
 } button_t;
 
 typedef struct menu_s
@@ -44,8 +54,12 @@ typedef struct menu_s
     sfSprite *bgd_spt;
     sfTexture *name_tex;
     sfSprite *name_spt;
+    sfTexture *set_bg_tex;
+    sfSprite *set_bg_spt;
     button_t *button;
     int end_gm;
+    int return_to_menu;
+    int settings;
 } menu_t;
 
 typedef struct time_s

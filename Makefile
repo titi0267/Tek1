@@ -19,10 +19,14 @@ SRCSFILES	=	main.c 			\
 				Game_core/events.c					\
 				Game_core/menu/settings/resize_window.c			\
 				Game_core/menu/settings/setting_button.c		\
-				Game_core/menu/main_menu/leave_button.c			\
-				Game_core/menu/main_menu/create_spt.c			\
-				Game_core/menu/main_menu/hover_button.c			\
-				Game_core/menu/main_menu/button_click.c			\
+				Game_core/menu/settings/switch_bg.c				\
+				Game_core/menu/settings/volume.c				\
+				Game_core/menu/settings/resize_button.c			\
+				Game_core/menu/settings/switch_return_menu.c	\
+				Game_core/menu/main_menu/play_button.c			\
+				Game_core/menu/main_menu/menu_spt.c			\
+				Game_core/menu/main_menu/leave_button.c		\
+				Game_core/menu/main_menu/return_to_menu.c	\
 				Game_core/menu/main_menu/draw_spt.c			\
 				Game_core/timer.c					\
 				End/destroy.c 			\

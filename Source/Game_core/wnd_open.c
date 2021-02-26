@@ -15,7 +15,10 @@ void wnd_open(core_t *core)
             break;
         poll_event(core->wnd, core->menu);
         update_time(core->time);
-        main_menu_draw(core->menu, core->wnd);
+        if (core->menu->settings == FALSE)
+            main_menu_draw(core->menu, core->wnd);
+        else
+            draw_spt_setting(core->menu, core->wnd);
         sfRenderWindow_display(core->wnd->window);
     }
     destroy1(core);
