@@ -21,7 +21,7 @@ int win_mode(map_t *map)
     return (0);
 }
 
-int restart_gm(map_t *map, char **av)
+void restart_gm(map_t *map, char **av)
 {
     init_ncurses(map, av);
 }

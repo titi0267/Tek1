@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-int find_target(map_t *map)
+void find_target(map_t *map)
 {
     int i = 0;
     int p = 0;
@@ -38,7 +38,7 @@ void replace_o(map_t *map)
     }
 }
 
-int small_screen(map_t *map, int i, int *str_len)
+int small_screen(map_t *map)
 {
     if ((map->col < (my_strlen(map->line_map[0]) / 2) + (COLS / 2) + 1)
         || (map->row < ((word_tablen(map->line_map) / 2) + (LINES / 2) + 1))) {

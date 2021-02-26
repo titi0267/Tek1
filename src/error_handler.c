@@ -11,9 +11,10 @@ int assemble_error(map_t *map)
 {
     if (target_box(map) == ERROR || is_player(map) == ERROR)
         return (ERROR);
+    return (0);
 }
 
-int error_handling(map_t *map, int ac, char **av)
+int error_handling(int ac, char **av)
 {
     if (ac != 2) {
         return (ERROR);

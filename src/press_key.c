@@ -26,6 +26,7 @@ void up(map_t *map)
         map->line_map[map->word - 1][map->car] = 'P';
         map->line_map[map->word][map->car] = ' ';
     }
+    refresh();
 }
 
 void down(map_t *map)
@@ -47,6 +48,7 @@ void down(map_t *map)
         map->line_map[map->word + 1][map->car] = 'P';
         map->line_map[map->word][map->car] = ' ';
     }
+    refresh();
 }
 
 void left(map_t *map)
@@ -68,6 +70,7 @@ void left(map_t *map)
         map->line_map[map->word][map->car - 1] = 'P';
         map->line_map[map->word][map->car] = ' ';
     }
+    refresh();
 }
 
 void right(map_t *map)
@@ -89,9 +92,10 @@ void right(map_t *map)
         map->line_map[map->word][map->car + 1] = 'P';
         map->line_map[map->word][map->car] = ' ';
     }
+    refresh();
 }
 
-void key_pressed(map_t *map, char **av)
+void key_pressed(map_t *map)
 {
     switch (getch()) {
         case KEY_UP:

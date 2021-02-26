@@ -7,29 +7,27 @@
 
 #include "../include/my.h"
 
-int read_mapsize(map_t *map, char *filepath, int fd)
+int read_mapsize(map_t *map, char *filepath)
 {
     struct stat buff;
-    ssize_t read_ret = 0;
 
     if (stat(filepath, &buff) == -1)
         return (-1);
     map->size = buff.st_size;
     map->str = malloc(sizeof(char) * (buff.st_size + 2));
+    return (0);
 }
 
 int read_map(map_t *map, char *filepath)
 {
     int read_ret;
-    int stat_ret;
     int fd = open(filepath, O_RDONLY);
 
     if (fd == -1) {
         my_puterr("Couldn't open the file.\n");
         return (-1);
     }
-    stat_ret = read_mapsize(map, filepath, fd);
-    if (stat_ret == -1)
+    if (read_mapsize(map, filepath) == -1)
         return (-1);
     read_ret = read(fd, map->str, map->size);
     if (read_ret == -1)

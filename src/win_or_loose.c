@@ -7,26 +7,34 @@
 
 #include "../include/my.h"
 
-int winning_case(map_t *map, char **av)
+int winning_case(map_t *map, int *str_len)
 {
+    int i = 0;
+
     while (win_mode(map) == 1) {
-        clear();
-        mvprintw((LINES / 2), (COLS / 2) - (9 / 2), "You Won !");
         refresh();
         map->winner = TRUE;
-        usleep(3000000);
+        for (; map->line_map[i] != NULL; i++) {
+            mvprintw((LINES / 2) + i - (word_tablen(map->line_map) / 2),
+                        (COLS / 2) - (str_len[i] / 2), map->line_map[i]);
+            refresh();
+        }
         return (TRUE);
     }
     return (FALSE);
 }
 
-int blocked(map_t *map, char **av)
+int blocked(map_t *map, int *str_len)
 {
+    int i = 0;
+
     if (assemble_lose(map) == 1) {
-        clear();
-        mvprintw((LINES / 2), (COLS / 2) - (18 / 2), "You are a loser !");
         refresh();
-        usleep(3000000);
+        for (; map->line_map[i] != NULL; i++) {
+            mvprintw((LINES / 2) + i - (word_tablen(map->line_map) / 2),
+                        (COLS / 2) - (str_len[i] / 2), map->line_map[i]);
+            refresh();
+        }
         return (TRUE);
     }
     return (FALSE);

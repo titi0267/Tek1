@@ -7,6 +7,27 @@
 
 #include "../include/my.h"
 
+int big_loop(map_t *map, char **av)
+{
+    int *str_len = line_len(map->str);
+    int x;
+
+    while (1) {
+        x = in_big_loop(map, str_len);
+        if (x == 1)
+            return (1);
+        if (x == 0)
+            return (0);
+        if (map->quit == 1)
+            break;
+        else if (map->restart == 1)
+            break;
+    }
+    if (map->restart == 1)
+        restart_gm(map, av);
+    return (0);
+}
+
 int init_ncurses(map_t *map, char **av)
 {
     int x;
@@ -27,26 +48,7 @@ int init_ncurses(map_t *map, char **av)
         return (0);
     if (x == 1)
         return (1);
-}
-
-int big_loop(map_t *map, char **av)
-{
-    int *str_len = line_len(map->str);
-    int x;
-
-    while (1) {
-        x = in_big_loop(map, av, str_len);
-        if (x == 1)
-            return (1);
-        if (x == 0)
-            return (0);
-        if (map->quit == 1)
-            break;
-        else if (map->restart == 1)
-            break;
-    }
-    if (map->restart == 1)
-        restart_gm(map, av);
+    return (-1);
 }
 
 int main(int ac, char **av)
@@ -56,7 +58,7 @@ int main(int ac, char **av)
 
     if ((map = malloc(sizeof(map_t))) == NULL)
         return (ERROR);
-    if (error_handling(map, ac, av) == ERROR)
+    if (error_handling(ac, av) == ERROR)
         return (ERROR);
     x = init_ncurses(map, av);
     if (x == ERROR)

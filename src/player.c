@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-int find_player(map_t *map)
+void find_player(map_t *map)
 {
     int i = 0;
 

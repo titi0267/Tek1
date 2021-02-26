@@ -21,19 +21,19 @@
 #define ERROR 84
 
 int read_map(map_t *map, char *filepath);
-int find_player(map_t *map);
-int find_target(map_t *map);
-void key_pressed(map_t *map, char **av);
+void find_player(map_t *map);
+void find_target(map_t *map);
+void key_pressed(map_t *map);
 void replace_o(map_t *map);
 int win_mode(map_t *map);
 int init_ncurses(map_t *map, char **av);
-int restart_gm(map_t *map, char **av);
+void restart_gm(map_t *map, char **av);
 int corner(map_t *map);
-int winning_case(map_t *map, char **av);
-int blocked(map_t *map, char **av);
+int winning_case(map_t *map, int *str_len);
+int blocked(map_t *map, int *str_len);
 int big_loop(map_t *map, char **av);
-int in_big_loop(map_t *map, char **av, int *str_len);
-int small_screen(map_t *map, int i, int *str_len);
+int in_big_loop(map_t *map, int *str_len);
+int small_screen(map_t *map);
 int right_border(map_t *map);
 int target_box(map_t *map);
 int is_player(map_t *map);
@@ -43,7 +43,7 @@ int assemble_error(map_t *map);
 int down_border(map_t *map);
 int left_border(map_t *map);
 int up_border(map_t *map);
-int error_handling(map_t *map, int ac, char **av);
+int error_handling(int ac, char **av);
 void help(void);
 
 int blocked_key(map_t *map);
