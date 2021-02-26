@@ -7,16 +7,16 @@
 
 #include "../../../../include/defender.h"
 
-void volume_spt(button_t *button)
+void volume_spt(settings_t *stg)
 {
-    button->vol_tex = sfTexture_createFromFile(
+    stg->vol_tex = sfTexture_createFromFile(
                         "Ressources/My_defender/button/volume.png",
                         NULL);
-    button->vol_spt = sfSprite_create();
+    stg->vol_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
     sfVector2f vol_pos = {2020, 400};
 
-    sfSprite_setTexture(button->vol_spt, button->vol_tex, sfFalse);
-    sfSprite_setPosition(button->vol_spt, vol_pos);
-    sfSprite_setScale(button->vol_spt, scale);
+    sfSprite_setTexture(stg->vol_spt, stg->vol_tex, sfFalse);
+    sfSprite_setPosition(stg->vol_spt, vol_pos);
+    sfSprite_setScale(stg->vol_spt, scale);
 }

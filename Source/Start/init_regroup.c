@@ -20,9 +20,11 @@ void init(core_t *core)
     button_leave(core->menu, core->menu->button);
     setting_bg(core->menu, core->wnd);
     hover_leave_but(core->menu->button);
-    medscr_button(core->menu->button, core->menu);
-    fullscr_button(core->menu->button, core->menu);
-    volume_spt(core->menu->button);
-    back_to_menu_spt(core->menu->button, core->menu);
-    hover_back_to_menu_spt(core->menu->button);
+    medscr_button(core->menu->stg);
+    hover_medscr_button(core->menu->stg);
+    fullscr_button(core->menu->stg);
+    hover_fullscr_button(core->menu->stg);
+    volume_spt(core->menu->stg);
+    back_to_menu_spt(core->menu);
+    hover_back_to_menu_spt(core->menu->stg);
 }
