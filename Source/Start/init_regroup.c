@@ -24,7 +24,8 @@ void init(core_t *core)
     hover_medscr_button(core->menu->stg);
     fullscr_button(core->menu->stg);
     hover_fullscr_button(core->menu->stg);
-    volume_spt(core->menu->stg);
+    volume_spt(core->menu->stg->vol);
     back_to_menu_spt(core->menu);
     hover_back_to_menu_spt(core->menu->stg);
+    vol_nbr_spt(core->menu->stg->vol);
 }

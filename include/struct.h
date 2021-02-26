@@ -38,6 +38,16 @@ typedef struct button_s
     sfSprite *hover_leave_spt;
 } button_t;
 
+typedef struct volume_s
+{
+    sfTexture *vol_tex;
+    sfSprite *vol_spt;
+    sfSprite *vol_nbr_spt;
+    sfTexture *vol_nbr_tex;
+    sfIntRect vol_nbr;
+    int offset;
+} volume_t;
+
 typedef struct settings_s
 {
     sfTexture *return_tex;
@@ -52,8 +62,7 @@ typedef struct settings_s
     sfSprite *medscr_spt;
     sfTexture *hover_medscr_tex;
     sfSprite *hover_medscr_spt;
-    sfTexture *vol_tex;
-    sfSprite *vol_spt;
+    volume_t *vol;
 } settings_t;
 
 typedef struct menu_s

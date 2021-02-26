@@ -19,5 +19,13 @@ void poll_event(window_t *wnd, menu_t *menu)
         click_resize_full(menu->stg, wnd, event);
         click_resize_med(menu->stg, wnd, event);
         return_to_menu(menu, menu->stg, event, wnd);
+        if (event.type == sfEvtMouseButtonPressed) {
+            if (menu->stg->vol->offset < 9) {
+                menu->stg->vol->vol_nbr.left = menu->stg->vol->offset * menu->stg->vol->vol_nbr.width;
+                menu->stg->vol->offset++;
+            }
+            if (menu->stg->vol->offset == 9)
+                menu->stg->vol->offset = 0;
+        }
     }
 }
