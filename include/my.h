@@ -41,10 +41,12 @@ int corner_next(map_t *map);
 int assemble_lose(map_t *map);
 int assemble_error(map_t *map);
 int down_border(map_t *map);
+int is_hole(map_t *map);
 int left_border(map_t *map);
 int up_border(map_t *map);
 int error_handling(int ac, char **av);
 void help(void);
+int only_mapcar(map_t *map);
 
 int blocked_key(map_t *map);
 int win_key(map_t *map);
