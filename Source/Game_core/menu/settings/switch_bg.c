@@ -34,6 +34,14 @@ void switch_bg_next(menu_t *menu, sfVector2f global_pos)
     global_pos.y = sfSprite_getGlobalBounds(menu->name_spt).top;
     global_pos.x -= 20;
     sfSprite_setPosition(menu->name_spt, global_pos);
+    global_pos.x = sfSprite_getGlobalBounds(menu->stg->vol->down_spt).left;
+    global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->down_spt).top;
+    global_pos.x -= 20;
+    sfSprite_setPosition(menu->stg->vol->down_spt, global_pos);
+    global_pos.x = sfSprite_getGlobalBounds(menu->stg->vol->up_spt).left;
+    global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->up_spt).top;
+    global_pos.x -= 20;
+    sfSprite_setPosition(menu->stg->vol->up_spt, global_pos);
     global_pos.x = sfSprite_getGlobalBounds(menu->button->play_spt).left;
     global_pos.y = sfSprite_getGlobalBounds(menu->button->play_spt).top;
     global_pos.x -= 20;

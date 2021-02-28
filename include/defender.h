@@ -44,6 +44,10 @@ float box_size_x(window_t *wnd, float x);
 
 void volume_spt(volume_t *vol);
 void vol_nbr_spt(volume_t *vol);
+void volume_up_spt(volume_t *vol);
+void volume_down_spt(volume_t *vol);
+void click_down_vol(volume_t *vol, window_t *wnd);
+void click_up_vol(volume_t *vol, window_t *wnd);
 
 void backgd_menu(menu_t *menu);
 

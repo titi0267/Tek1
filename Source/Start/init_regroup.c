@@ -28,4 +28,6 @@ void init(core_t *core)
     back_to_menu_spt(core->menu);
     hover_back_to_menu_spt(core->menu->stg);
     vol_nbr_spt(core->menu->stg->vol);
+    volume_up_spt(core->menu->stg->vol);
+    volume_down_spt(core->menu->stg->vol);
 }

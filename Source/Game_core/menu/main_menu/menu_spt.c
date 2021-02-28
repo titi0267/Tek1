@@ -26,10 +26,10 @@ void game_name(menu_t *menu)
                             NULL);
     menu->name_spt = sfSprite_create();
     sfVector2f scale = {0.9f, 0.9f};
-    sfVector2f setting_pos = {2300, 50};
+    sfVector2f name_pos = {2300, 50};
 
     sfSprite_setTexture(menu->name_spt, menu->name_tex, sfFalse);
-    sfSprite_setPosition(menu->name_spt, setting_pos);
+    sfSprite_setPosition(menu->name_spt, name_pos);
     sfSprite_setScale(menu->name_spt, scale);
 }
 

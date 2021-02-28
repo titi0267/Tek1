@@ -45,6 +45,10 @@ typedef struct volume_s
     sfSprite *vol_nbr_spt;
     sfTexture *vol_nbr_tex;
     sfIntRect vol_nbr;
+    sfTexture *up_tex;
+    sfSprite *up_spt;
+    sfTexture *down_tex;
+    sfSprite *down_spt;
     int offset;
 } volume_t;
 

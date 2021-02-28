@@ -20,6 +20,8 @@ void settings_spt(menu_t *menu, window_t *wnd)
     sfRenderWindow_drawSprite(wnd->window, menu->stg->return_spt, NULL);
     sfSprite_setTextureRect(menu->stg->vol->vol_nbr_spt, menu->stg->vol->vol_nbr);
     sfRenderWindow_drawSprite(wnd->window, menu->stg->vol->vol_nbr_spt, NULL);
+    sfRenderWindow_drawSprite(wnd->window, menu->stg->vol->down_spt, NULL);
+    sfRenderWindow_drawSprite(wnd->window, menu->stg->vol->up_spt, NULL);
 }
 
 void return_bg_3(menu_t *menu, sfVector2f global_pos)
@@ -28,6 +30,14 @@ void return_bg_3(menu_t *menu, sfVector2f global_pos)
     global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->vol_spt).top;
     global_pos.x += 20;
     sfSprite_setPosition(menu->stg->vol->vol_spt, global_pos);
+    global_pos.x = sfSprite_getGlobalBounds(menu->stg->vol->down_spt).left;
+    global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->down_spt).top;
+    global_pos.x += 20;
+    sfSprite_setPosition(menu->stg->vol->down_spt, global_pos);
+    global_pos.x = sfSprite_getGlobalBounds(menu->stg->vol->up_spt).left;
+    global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->up_spt).top;
+    global_pos.x += 20;
+    sfSprite_setPosition(menu->stg->vol->up_spt, global_pos);
     global_pos.x = sfSprite_getGlobalBounds(menu->stg->return_spt).left;
     global_pos.y = sfSprite_getGlobalBounds(menu->stg->return_spt).top;
     global_pos.x += 20;
