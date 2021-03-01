@@ -25,6 +25,9 @@ def nbr_arg():
 
 def two_arg(n, k):
     try:
+        k = float(k)
+        if k < 1 or k > 4:
+            exit(84)
         x = float(n)
         y = float(n)
         print("1 %.2f" % float(n))
@@ -39,18 +42,20 @@ def three_arg(n):
     try:
         x = float(n)
         y = float(n)
-        i0 = sys.argv[2]
-        i1 = sys.argv[3]
+        i0 = int(sys.argv[2])
+        i1 = int(sys.argv[3])
     except ValueError:
         exit (84)
     for k in range(100, 401):
         for i in range(1, int(i0)):
             x = ((k / 100) * y) * ((1000 - y) / 1000)
             y = x
+            i += 1
         for h in range(int(i0), int(i1) + 1):
             x = ((k / 100) * y) * ((1000 - y) / 1000)
             print(str("%.2f" % (k / 100)) + " " + str("%.2f" % x))
             y = x
+            h += 1
         k += 1
 
 if __name__ == '__main__':
@@ -59,6 +64,8 @@ if __name__ == '__main__':
         exit(84)
     try:
         n = sys.argv[1]
+        if int(n) < 1 or int(n) > 100:
+            exit(84)
         k = sys.argv[2]
     except ValueError:
         exit (84)
