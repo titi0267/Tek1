@@ -13,12 +13,12 @@ void wnd_open(core_t *core)
     while (sfRenderWindow_isOpen(core->wnd->window)) {
         if (core->menu->end_gm == TRUE)
             break;
-        poll_event(core->wnd, core->menu);
         update_time(core->time);
         if (core->menu->settings == FALSE)
             main_menu_draw(core->menu, core->wnd);
         else
             draw_spt_setting(core->menu, core->wnd);
+        poll_event(core->wnd, core->menu);
         sfRenderWindow_display(core->wnd->window);
     }
     destroy1(core);

@@ -36,17 +36,38 @@ typedef struct button_s
     sfSprite *hover_play_spt;
     sfTexture *hover_leave_tex;
     sfSprite *hover_leave_spt;
-    sfTexture *fullscr_tex;
-    sfSprite *fullscr_spt;
-    sfTexture *medscr_tex;
-    sfSprite *medscr_spt;
+} button_t;
+
+typedef struct volume_s
+{
     sfTexture *vol_tex;
     sfSprite *vol_spt;
+    sfSprite *vol_nbr_spt;
+    sfTexture *vol_nbr_tex;
+    sfIntRect vol_nbr;
+    sfTexture *up_tex;
+    sfSprite *up_spt;
+    sfTexture *down_tex;
+    sfSprite *down_spt;
+    int offset;
+} volume_t;
+
+typedef struct settings_s
+{
     sfTexture *return_tex;
     sfSprite *return_spt;
     sfTexture *hover_return_tex;
     sfSprite *hover_return_spt;
-} button_t;
+    sfTexture *fullscr_tex;
+    sfSprite *fullscr_spt;
+    sfTexture *hover_fullscr_tex;
+    sfSprite *hover_fullscr_spt;
+    sfTexture *medscr_tex;
+    sfSprite *medscr_spt;
+    sfTexture *hover_medscr_tex;
+    sfSprite *hover_medscr_spt;
+    volume_t *vol;
+} settings_t;
 
 typedef struct menu_s
 {
@@ -57,6 +78,7 @@ typedef struct menu_s
     sfTexture *set_bg_tex;
     sfSprite *set_bg_spt;
     button_t *button;
+    settings_t *stg;
     int end_gm;
     int return_to_menu;
     int settings;

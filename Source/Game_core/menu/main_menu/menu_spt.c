@@ -25,11 +25,11 @@ void game_name(menu_t *menu)
                             "Ressources/My_defender/Text/Dead_island.png",
                             NULL);
     menu->name_spt = sfSprite_create();
-    sfVector2f scale = {0.7f, 0.7f};
-    sfVector2f setting_pos = {500, 50};
+    sfVector2f scale = {0.9f, 0.9f};
+    sfVector2f name_pos = {2300, 50};
 
     sfSprite_setTexture(menu->name_spt, menu->name_tex, sfFalse);
-    sfSprite_setPosition(menu->name_spt, setting_pos);
+    sfSprite_setPosition(menu->name_spt, name_pos);
     sfSprite_setScale(menu->name_spt, scale);
 }
 

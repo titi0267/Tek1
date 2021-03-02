@@ -16,8 +16,12 @@ void poll_event(window_t *wnd, menu_t *menu)
             sfRenderWindow_close(wnd->window);
         click_settings(menu, event, wnd);
         leave_gm(menu, menu->button, event, wnd);
-        click_resize_full(menu, wnd, event);
-        click_resize_med(menu, wnd, event);
-        return_to_menu(menu, menu->button, event, wnd);
+        click_resize_full(menu->stg, wnd, event);
+        click_resize_med(menu->stg, wnd, event);
+        return_to_menu(menu, menu->stg, event, wnd);
+        if (event.type == sfEvtMouseButtonPressed) {
+            click_up_vol(menu->stg->vol, wnd);
+            click_down_vol(menu->stg->vol, wnd);
+        }
     }
 }
