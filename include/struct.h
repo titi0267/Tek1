@@ -50,6 +50,8 @@ typedef struct volume_s
     sfTexture *down_tex;
     sfSprite *down_spt;
     int offset;
+    int width_backup;
+    int size_one;
 } volume_t;
 
 typedef struct settings_s

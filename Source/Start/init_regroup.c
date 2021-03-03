@@ -49,9 +49,9 @@ void return_to_one(menu_t *menu)
     menu->stg->hover_medscr_spt = sfSprite_copy(menu->list[12]);
     menu->stg->return_spt = sfSprite_copy(menu->list[13]);
     menu->stg->hover_return_spt = sfSprite_copy(menu->list[14]);
-    menu->stg->vol->down_spt = sfSprite_copy(menu->list[15]);
+    menu->stg->vol->vol_spt = sfSprite_copy(menu->list[15]);
     menu->stg->vol->up_spt = sfSprite_copy(menu->list[16]);
-    menu->stg->vol->vol_spt = sfSprite_copy(menu->list[17]);
+    menu->stg->vol->down_spt = sfSprite_copy(menu->list[17]);
     menu->stg->vol->vol_nbr_spt = sfSprite_copy(menu->list[18]);
 }
 
@@ -74,9 +74,9 @@ void create_sprite_arr(menu_t *menu)
     menu->list[12] = sfSprite_copy(menu->stg->hover_medscr_spt);
     menu->list[13] = sfSprite_copy(menu->stg->return_spt);
     menu->list[14] = sfSprite_copy(menu->stg->hover_return_spt);
-    menu->list[15] = sfSprite_copy(menu->stg->vol->down_spt);
+    menu->list[15] = sfSprite_copy(menu->stg->vol->vol_spt);
     menu->list[16] = sfSprite_copy(menu->stg->vol->up_spt);
-    menu->list[17] = sfSprite_copy(menu->stg->vol->vol_spt);
+    menu->list[17] = sfSprite_copy(menu->stg->vol->down_spt);
     menu->list[18] = sfSprite_copy(menu->stg->vol->vol_nbr_spt);
     menu->list[19] = NULL;
 }

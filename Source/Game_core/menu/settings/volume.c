@@ -10,11 +10,11 @@
 void volume_spt(volume_t *vol)
 {
     vol->vol_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/volume.png",
+                        "Ressources/My_defender/button/sound_img.png",
                         NULL);
     vol->vol_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
-    sfVector2f vol_pos = {2020, 400};
+    sfVector2f vol_pos = {2020, 500};
 
     sfSprite_setTexture(vol->vol_spt, vol->vol_tex, sfFalse);
     sfSprite_setPosition(vol->vol_spt, vol_pos);
@@ -33,11 +33,13 @@ void vol_nbr_spt(volume_t *vol)
     sfSprite_setTexture(vol->vol_nbr_spt, vol->vol_nbr_tex, sfFalse);
     sfSprite_setPosition(vol->vol_nbr_spt, vol_nbr_pos);
     sfSprite_setScale(vol->vol_nbr_spt, scale);
-    vol->vol_nbr.left = 0;
+    vol->vol_nbr.left = 73 * 4;
     vol->vol_nbr.top = 0;
-    vol->vol_nbr.width = 73.22f;
-    vol->vol_nbr.height = 129;
-    vol->offset = 1;
+    vol->vol_nbr.width = 73;
+    vol->vol_nbr.height = 146;
+    vol->offset = 4;
+    vol->width_backup = vol->vol_nbr.width;
+    vol->size_one = vol->vol_nbr.width - 15;
 }
 
 void volume_up_spt(volume_t *vol)
@@ -56,10 +58,10 @@ void volume_up_spt(volume_t *vol)
 void volume_down_spt(volume_t *vol)
 {
     vol->down_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/volume_down.png",
+                        "Ressources/My_defender/button/vol_down_spt.png",
                         NULL);
     vol->down_spt = sfSprite_create();
-    sfVector2f scale = {0.1f, 0.1f};
+    sfVector2f scale = {1, 1};
     sfVector2f down_pos = {2220, 700};
 
     sfSprite_setTexture(vol->down_spt, vol->down_tex, sfFalse);

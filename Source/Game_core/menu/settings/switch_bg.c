@@ -99,77 +99,9 @@ void mv_spt_return(menu_t *menu, window_t *wnd)
     return_to_one(menu);
 }
 
-void switch_bg_next(menu_t *menu, sfVector2f global_pos)
-{
-    global_pos.x = sfSprite_getGlobalBounds(menu->name_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->name_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->name_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->vol->down_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->down_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->vol->down_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->vol->up_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->up_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->vol->up_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->button->play_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->button->play_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->button->play_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->button->setting_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->button->setting_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->button->setting_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->vol->vol_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->vol_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->vol->vol_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->return_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->return_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->return_spt, global_pos);
-}
-
-void switch_side_setting(menu_t *menu, sfVector2f global_pos)
-{
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->medscr_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->medscr_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->medscr_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->fullscr_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->fullscr_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->fullscr_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->bgd_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->bgd_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->bgd_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->set_bg_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->set_bg_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->set_bg_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->hover_return_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->hover_return_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->hover_return_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->hover_fullscr_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->hover_fullscr_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->hover_fullscr_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->hover_medscr_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->hover_medscr_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->hover_medscr_spt, global_pos);
-    global_pos.x = sfSprite_getGlobalBounds(menu->stg->vol->vol_nbr_spt).left;
-    global_pos.y = sfSprite_getGlobalBounds(menu->stg->vol->vol_nbr_spt).top;
-    global_pos.x -= 20;
-    sfSprite_setPosition(menu->stg->vol->vol_nbr_spt, global_pos);
-}
-
 void switch_bg(menu_t *menu, window_t *wnd)
 {
-    sfVector2f global_pos;
+    sfVector2f pos;
 
     if (sfSprite_getGlobalBounds(menu->set_bg_spt).left > 0 &&
         menu->return_to_menu == FALSE) {
