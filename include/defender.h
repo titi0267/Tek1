@@ -49,6 +49,11 @@ void volume_down_spt(volume_t *vol);
 void click_down_vol(volume_t *vol, window_t *wnd);
 void click_up_vol(volume_t *vol, window_t *wnd);
 
+void create_sprite_arr(menu_t *menu);
+void return_to_one(menu_t *menu);
+void return_to_one(menu_t *menu);
+void fill_list(menu_t **menu, window_t *wnd);
+
 void backgd_menu(menu_t *menu);
 
 void settings_spt(menu_t *menu, window_t *wnd);
@@ -63,7 +68,7 @@ void draw_spt_setting(menu_t *menu, window_t *wnd);
 void hover_back_to_menu_spt(settings_t *stg);
 void back_to_menu_spt(menu_t *menu);
 void hover_return(settings_t *stg, window_t *wnd);
-void switch_bg(menu_t *menu);
+void switch_bg(menu_t *menu, window_t *wnd);
 void return_bg_next(menu_t *menu, sfVector2f global_pos);
 void return_side_setting(menu_t *menu, sfVector2f global_pos);
 void return_to_menu(menu_t *menu, settings_t *stg, sfEvent event, window_t *wnd);

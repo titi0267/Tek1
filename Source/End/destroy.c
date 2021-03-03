@@ -56,6 +56,8 @@ void destroy_spt(core_t *core)
     sfSprite_destroy(core->menu->button->leave_spt);
     sfSprite_destroy(core->menu->button->hover_leave_spt);
     destroy_spt2(core);
+    for (int i = 0; core->menu->list[i] != NULL; i++)
+        sfSprite_destroy(core->menu->list[i]);
 }
 
 void destroy1(core_t *core)

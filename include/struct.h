@@ -79,9 +79,12 @@ typedef struct menu_s
     sfSprite *set_bg_spt;
     button_t *button;
     settings_t *stg;
+    sfSprite *mv_spt;
+    struct menu_s *next;
     int end_gm;
     int return_to_menu;
     int settings;
+    sfSprite **list;
 } menu_t;
 
 typedef struct time_s

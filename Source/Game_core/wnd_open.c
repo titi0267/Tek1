@@ -6,20 +6,23 @@
 */
 
 #include "../../include/defender.h"
+#include <stdio.h>
 
 void wnd_open(core_t *core)
 {
     init(core);
     while (sfRenderWindow_isOpen(core->wnd->window)) {
+        sfRenderWindow_display(core->wnd->window);
         if (core->menu->end_gm == TRUE)
             break;
         update_time(core->time);
-        if (core->menu->settings == FALSE)
+        if (core->menu->settings == FALSE) {
             main_menu_draw(core->menu, core->wnd);
-        else
+        }
+        else {
             draw_spt_setting(core->menu, core->wnd);
+        }
         poll_event(core->wnd, core->menu);
-        sfRenderWindow_display(core->wnd->window);
     }
     destroy1(core);
 }
