@@ -79,7 +79,6 @@ void mv_spt_list(menu_t *menu, window_t *wnd)
         global_pos.y = sfSprite_getGlobalBounds(menu->list[i]).top;
         global_pos.x -= 20;
         sfSprite_setPosition(menu->list[i], global_pos);
-        sfRenderWindow_drawSprite(wnd->window, menu->list[i], NULL);
     }
     return_to_one(menu);
 }

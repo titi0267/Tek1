@@ -55,3 +55,18 @@ void hover_play(button_t *button, window_t *wnd)
         else
             sfRenderWindow_drawSprite(wnd->window, button->play_spt, NULL);
 }
+
+void click_play_but(button_t *button)
+{
+    button->click_play_tex = sfTexture_createFromFile(
+                        "Ressources/My_defender/button/play_click.png",
+                        NULL);
+    button->click_play_spt = sfSprite_create();
+    sfVector2f scale = {1, 1};
+    sfVector2f setting_pos = {175, 800};
+
+    sfSprite_setTexture(button->click_play_spt,
+                        button->click_play_tex, sfFalse);
+    sfSprite_setPosition(button->click_play_spt, setting_pos);
+    sfSprite_setScale(button->click_play_spt, scale);
+}

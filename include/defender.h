@@ -36,6 +36,7 @@ void click_resize_med(settings_t *stg, window_t *wnd, sfEvent event);
 void resize_wnd_full(window_t *wnd);
 void hover_fullscr_button(settings_t *stg);
 void fullscr_button(settings_t *stg);
+void click_fullscr_button(settings_t *stg);
 void hover_fullscr(settings_t *spt, window_t *wnd);
 void click_resize_full(settings_t *stg, window_t *wnd, sfEvent event);
 
@@ -58,6 +59,7 @@ void backgd_menu(menu_t *menu);
 
 void settings_spt(menu_t *menu, window_t *wnd);
 void setting_button(menu_t *menu, window_t *wnd);
+void click_setting_but(button_t *button);
 void button_setting(button_t *button, menu_t *menu);
 void hover_setting_but(button_t *button);
 void hover_setting(button_t *button, window_t *wnd);
@@ -74,12 +76,15 @@ void return_side_setting(menu_t *menu, sfVector2f global_pos);
 void return_to_menu(menu_t *menu, settings_t *stg, sfEvent event, window_t *wnd);
 
 void hover_play_but(button_t *button);
+void click_play_but(button_t *button);
+void click_on_play(menu_t *menu, window_t *wnd);
 void hover_play(button_t *button, window_t *wnd);
 void button_play(button_t *button);
 
 void button_leave(menu_t *menu, button_t *button);
 void hover_leave(button_t *button, window_t *wnd);
 void hover_leave_but(button_t *button);
+void click_leave_but(button_t *button);
 void leave_gm(menu_t *menu, button_t *button, sfEvent event, window_t *wnd);
 
 void game_name(menu_t *menu);

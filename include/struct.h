@@ -26,6 +26,8 @@ typedef struct button_s
 {
     sfTexture *play_tex;
     sfSprite *play_spt;
+    sfTexture *click_play_tex;
+    sfSprite *click_play_spt;
     sfTexture *setting_tex;
     sfSprite *setting_spt;
     sfTexture *leave_tex;
@@ -36,6 +38,8 @@ typedef struct button_s
     sfSprite *hover_play_spt;
     sfTexture *hover_leave_tex;
     sfSprite *hover_leave_spt;
+    sfTexture *click_settings_text;
+    sfSprite *click_setting_spt;
 } button_t;
 
 typedef struct volume_s

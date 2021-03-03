@@ -21,6 +21,20 @@ void fullscr_button(settings_t *stg)
     sfSprite_setScale(stg->fullscr_spt, scale);
 }
 
+void click_fullscr_button(settings_t *stg)
+{
+    stg->fullscr_tex = sfTexture_createFromFile(
+                            "Ressources/My_defender/button/1920-1080.png",
+                            NULL);
+    stg->fullscr_spt = sfSprite_create();
+    sfVector2f scale = {0.25f, 0.25f};
+    sfVector2f fullscr_pos = {3320, 400};
+
+    sfSprite_setTexture(stg->fullscr_spt, stg->fullscr_tex, sfFalse);
+    sfSprite_setPosition(stg->fullscr_spt, fullscr_pos);
+    sfSprite_setScale(stg->fullscr_spt, scale);
+}
+
 void hover_fullscr_button(settings_t *stg)
 {
     stg->hover_fullscr_tex = sfTexture_createFromFile(

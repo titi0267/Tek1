@@ -22,6 +22,21 @@ void hover_setting_but(button_t *button)
     sfSprite_setScale(button->hover_setting_spt, scale);
 }
 
+void click_setting_but(button_t *button)
+{
+    button->click_settings_text = sfTexture_createFromFile(
+                        "Ressources/My_defender/button/settings_click.png",
+                        NULL);
+    button->click_setting_spt = sfSprite_create();
+    sfVector2f scale = {1, 1};
+    sfVector2f setting_pos = {1400, 800};
+
+    sfSprite_setTexture(button->click_setting_spt,
+                        button->click_settings_text, sfFalse);
+    sfSprite_setPosition(button->click_setting_spt, setting_pos);
+    sfSprite_setScale(button->click_setting_spt, scale);
+}
+
 void hover_setting(button_t *button, window_t *wnd)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
