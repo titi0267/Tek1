@@ -31,7 +31,8 @@ void init(core_t *core)
     volume_up_spt(core->menu->stg->vol);
     volume_down_spt(core->menu->stg->vol);
     click_play_but(core->menu->button);
-    //click_setting_but(core->menu->button);
+    create_sprite_arr(core->menu);
+    click_setting_but(core->menu->button);
 }
 
 void return_to_one(menu_t *menu)
