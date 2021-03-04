@@ -90,6 +90,7 @@ typedef struct menu_s
     int end_gm;
     int return_to_menu;
     int settings;
+    int click_on_stg;
     sfSprite **list;
 } menu_t;
 

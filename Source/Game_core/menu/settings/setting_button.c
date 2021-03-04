@@ -22,7 +22,7 @@ void hover_setting_but(button_t *button)
     sfSprite_setScale(button->hover_setting_spt, scale);
 }
 
-void click_setting_but(button_t *button)
+void click_setting_but(button_t *button, menu_t *menu)
 {
     button->click_settings_text = sfTexture_createFromFile(
                         "Ressources/My_defender/button/settings_click.png",
@@ -35,9 +35,10 @@ void click_setting_but(button_t *button)
                         button->click_settings_text, sfFalse);
     sfSprite_setPosition(button->click_setting_spt, setting_pos);
     sfSprite_setScale(button->click_setting_spt, scale);
+    menu->click_on_stg = FALSE;
 }
 
-void hover_setting(button_t *button, window_t *wnd)
+void hover_setting(button_t *button, window_t *wnd, menu_t *menu)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
 
@@ -52,8 +53,12 @@ void hover_setting(button_t *button, window_t *wnd)
                         sfSprite_getGlobalBounds(button->setting_spt).top) +
         box_size_y(wnd,
         sfSprite_getGlobalBounds(button->setting_spt).height)))) {
-            sfRenderWindow_drawSprite(wnd->window,
+            if (menu->click_on_stg == FALSE)
+                sfRenderWindow_drawSprite(wnd->window,
                                     button->hover_setting_spt, NULL);
+            if (menu->click_on_stg == TRUE)
+                sfRenderWindow_drawSprite(wnd->window,
+                                    menu->button->click_setting_spt, NULL);
         } else
             sfRenderWindow_drawSprite(wnd->window, button->setting_spt, NULL);
 }

@@ -23,7 +23,7 @@ void wnd_open(core_t *core);
 void init_timer(time_t *time);
 void init(core_t *core);
 
-void poll_event(window_t *wnd, menu_t *menu);
+void poll_event(window_t *wnd, menu_t *menu, time_t *time);
 
 void update_time(time_t *time);
 
@@ -59,13 +59,14 @@ void backgd_menu(menu_t *menu);
 
 void settings_spt(menu_t *menu, window_t *wnd);
 void setting_button(menu_t *menu, window_t *wnd);
-void click_setting_but(button_t *button);
+void click_setting_but(button_t *button, menu_t *menu);
 void button_setting(button_t *button, menu_t *menu);
 void hover_setting_but(button_t *button);
-void hover_setting(button_t *button, window_t *wnd);
+void hover_setting(button_t *button, window_t *wnd, menu_t *menu);
+void click_setting_but(button_t *button, menu_t *menu);
 void setting_bg(menu_t *menu, window_t *wnd);
-void click_settings(menu_t *menu, sfEvent event, window_t *wnd);
-void draw_spt_setting(menu_t *menu, window_t *wnd);
+void click_settings(menu_t *menu, sfEvent event, window_t *wnd, time_t *time);
+void draw_spt_setting(menu_t *menu, window_t *wnd, time_t *time);
 
 void hover_back_to_menu_spt(settings_t *stg);
 void back_to_menu_spt(menu_t *menu);
