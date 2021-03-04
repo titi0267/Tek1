@@ -50,6 +50,7 @@ typedef struct ennemy_s
 {
     int life;
     int speed;
+    int road;
     sfVector2f pos;
     struct ennemy_s *next;
 } ennemy_t;
