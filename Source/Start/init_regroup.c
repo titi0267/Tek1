@@ -33,6 +33,7 @@ void init(core_t *core)
     click_play_but(core->menu->button);
     click_setting_but(core->menu->button, core->menu);
     create_sprite_arr(core->menu);
+    core->menu->button->enable_click = FALSE;
 }
 
 void return_to_one(menu_t *menu)

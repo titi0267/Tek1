@@ -80,6 +80,8 @@ typedef struct button_s
     sfSprite *hover_leave_spt;
     sfTexture *click_settings_text;
     sfSprite *click_setting_spt;
+    int click_on_play;
+    int enable_click;
 } button_t;
 
 typedef struct volume_s
@@ -126,7 +128,6 @@ typedef struct menu_s
     button_t *button;
     settings_t *stg;
     sfSprite *mv_spt;
-    struct menu_s *next;
     int end_gm;
     int return_to_menu;
     int settings;

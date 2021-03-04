@@ -49,9 +49,14 @@ void hover_play(button_t *button, window_t *wnd)
                         sfSprite_getGlobalBounds(button->play_spt).top) &&
         mouse_pos.y <= (box_size_y(wnd,
                         sfSprite_getGlobalBounds(button->play_spt).top) +
-        box_size_y(wnd, sfSprite_getGlobalBounds(button->play_spt).height))))
-            sfRenderWindow_drawSprite(wnd->window,
-                                    button->hover_play_spt, NULL);
+        box_size_y(wnd, sfSprite_getGlobalBounds(button->play_spt).height)))) {
+            if (button->enable_click == TRUE)
+                sfRenderWindow_drawSprite(wnd->window,
+                                        button->click_play_spt, NULL);
+            else
+                sfRenderWindow_drawSprite(wnd->window,
+                                        button->hover_play_spt, NULL);
+        }
         else
             sfRenderWindow_drawSprite(wnd->window, button->play_spt, NULL);
 }
@@ -69,4 +74,5 @@ void click_play_but(button_t *button)
                         button->click_play_tex, sfFalse);
     sfSprite_setPosition(button->click_play_spt, setting_pos);
     sfSprite_setScale(button->click_play_spt, scale);
+    button->click_on_play = FALSE;
 }

@@ -75,10 +75,16 @@ void switch_bg(menu_t *menu, window_t *wnd)
     }
 }
 
+void button_click_timer(time_t *time, menu_t *menu)
+{
+    if (menu->button->enable_click == FALSE) {
+        menu->button->click_on_play = FALSE;
+        menu->click_on_stg = FALSE;
+    }
+}
+
 void draw_spt_setting(menu_t *menu, window_t *wnd, time_t *time)
 {
-    static float nbr = 0;
-
     switch_bg(menu, wnd);
     settings_spt(menu, wnd);
     hover_setting(menu->button, wnd, menu);
@@ -88,10 +94,5 @@ void draw_spt_setting(menu_t *menu, window_t *wnd, time_t *time)
     hover_leave(menu->button, wnd);
     hover_fullscr(menu->stg, wnd);
     hover_medscr(menu->stg, wnd);
-    if (nbr < 0.7 && menu->click_on_stg == TRUE)
-        nbr += time->delta_time;
-    if (nbr > 0.7 && menu->click_on_stg == TRUE) {
-        menu->click_on_stg = FALSE;
-        nbr = 0;
-    }
+    button_click_timer(time, menu);
 }
