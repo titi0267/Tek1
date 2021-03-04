@@ -14,7 +14,7 @@ void volume_spt(volume_t *vol)
                         NULL);
     vol->vol_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
-    sfVector2f vol_pos = {2020, 500};
+    sfVector2f vol_pos = {2020, 513};
 
     sfSprite_setTexture(vol->vol_spt, vol->vol_tex, sfFalse);
     sfSprite_setPosition(vol->vol_spt, vol_pos);
@@ -28,27 +28,26 @@ void vol_nbr_spt(volume_t *vol)
                         NULL);
     vol->vol_nbr_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
-    sfVector2f vol_nbr_pos = {2220, 550};
+    sfVector2f vol_nbr_pos = {2240, 540};
 
     sfSprite_setTexture(vol->vol_nbr_spt, vol->vol_nbr_tex, sfFalse);
     sfSprite_setPosition(vol->vol_nbr_spt, vol_nbr_pos);
     sfSprite_setScale(vol->vol_nbr_spt, scale);
-    vol->vol_nbr.left = 73 * 4;
+    vol->vol_nbr.left = 72 * 4;
     vol->vol_nbr.top = 0;
-    vol->vol_nbr.width = 73;
+    vol->vol_nbr.width = 72;
     vol->vol_nbr.height = 146;
     vol->offset = 4;
     vol->width_backup = vol->vol_nbr.width;
-    vol->size_one = vol->vol_nbr.width - 15;
 }
 
 void volume_up_spt(volume_t *vol)
 {
     vol->up_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/volume_up.png",
+                        "Ressources/My_defender/button/up_image.png",
                         NULL);
     vol->up_spt = sfSprite_create();
-    sfVector2f scale = {0.1f, 0.1f};
+    sfVector2f scale = {1, 1};
     sfVector2f up_pos = {2220, 400};
     sfSprite_setTexture(vol->up_spt, vol->up_tex, sfFalse);
     sfSprite_setPosition(vol->up_spt, up_pos);

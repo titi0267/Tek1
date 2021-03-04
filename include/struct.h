@@ -14,6 +14,46 @@
 #define TRUE 1
 #define FALSE 0
 
+typedef struct wave_s
+{
+    int nb_wave;
+    int pirate_one;
+    int pirate_two;
+    int pirate_three;
+    int boss;
+} wave_t;
+
+typedef struct shop_s
+{
+    sfVector2f pos;
+    int price;
+    struct shop_s *next;
+} shop_t;
+
+typedef struct eco_center_s
+{
+    sfVector2f pos;
+    int earn;
+    int rate;
+    struct eco_center_s *next;
+} eco_center_t;
+
+typedef struct defense_s
+{
+    sfVector2f pos;
+    int damage;
+    int range;
+    struct defense_s *next;
+} defense_t;
+
+typedef struct ennemy_s
+{
+    int life;
+    int speed;
+    sfVector2f pos;
+    struct ennemy_s *next;
+} ennemy_t;
+
 typedef struct window_s
 {
     sfRenderWindow *window;
