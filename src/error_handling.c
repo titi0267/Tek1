@@ -31,7 +31,7 @@ int error_argnbr(int ac, char **av)
 int error_arg_one(int ac, char **av)
 {
     for (int i = 0; av[1][i] != '\0'; i++) {
-        if (av[1][i] <= 48 || av[1][i] >= 57)
+        if (av[1][i] < 48 || av[1][i] > 57)
             return (84);
     }
 }

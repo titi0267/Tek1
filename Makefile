@@ -13,7 +13,7 @@ SRC	= 	main.c \
 		src/my_putchar.c \
 		src/my_getnbr.c \
 		src/fractal_zero.c \
-		src/fractal_two.c \ 
+		src/fractal_two.c
 
 OBJ	=	$(SRC:.c=.o)
 
