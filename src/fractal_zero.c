@@ -9,7 +9,6 @@
 
 int parse_string_zero(char **av)
 {
-    my_putstr("salut");
     int f = my_getnbr(av[1]);
 
     if (f == '0')

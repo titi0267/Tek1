@@ -6,12 +6,12 @@
 ##
 
 SRC	= 	main.c \
+		tools/my_strlen.c \
+		tools/my_putstr.c \
+		tools/my_put_nbr.c \
+		tools/my_putchar.c \
+		tools/my_getnbr.c \
 		src/error_handling.c \
-		src/my_strlen.c \
-		src/my_putstr.c \
-		src/my_put_nbr.c \
-		src/my_putchar.c \
-		src/my_getnbr.c \
 		src/fractal_zero.c \
 		src/fractal_two.c
 
