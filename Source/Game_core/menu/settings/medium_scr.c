@@ -10,11 +10,11 @@
 void medscr_button(settings_t *stg)
 {
     stg->medscr_tex = sfTexture_createFromFile(
-                            "Ressources/My_defender/button/1280-720.png",
+                            "Ressources/My_defender/button/1280x720.png",
                             NULL);
     stg->medscr_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};
-    sfVector2f medscr_pos = {3320, 600};
+    sfVector2f medscr_pos = {3320, 700};
 
     sfSprite_setTexture(stg->medscr_spt, stg->medscr_tex, sfFalse);
     sfSprite_setPosition(stg->medscr_spt, medscr_pos);
@@ -24,11 +24,11 @@ void medscr_button(settings_t *stg)
 void hover_medscr_button(settings_t *stg)
 {
     stg->hover_medscr_tex = sfTexture_createFromFile(
-                            "Ressources/My_defender/button/hover_1280-720.png",
+                            "Ressources/My_defender/button/1280x720_on.png",
                             NULL);
     stg->hover_medscr_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};
-    sfVector2f hover_medscr_pos = {3320, 600};
+    sfVector2f hover_medscr_pos = {3320, 700};
 
     sfSprite_setTexture(stg->hover_medscr_spt, stg->hover_medscr_tex, sfFalse);
     sfSprite_setPosition(stg->hover_medscr_spt, hover_medscr_pos);
