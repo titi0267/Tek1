@@ -19,6 +19,5 @@ int my_putchar(char c);
 int my_getnbr(char *str);
 int parse_string_zero(char **av);
 int if_one(char **av);
-int if_two(char **av);
 
 #endif
