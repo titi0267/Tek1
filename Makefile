@@ -16,7 +16,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	fractals
 
-CFLAGS	+=	-Wall	-Wextra -g
+CFLAGS	+=	-Wall	-Wextra
 
 all:	$(NAME)
 
