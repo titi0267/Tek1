@@ -17,8 +17,8 @@ int error_argnbr(int ac, char **av);
 int error_arg_one(int ac, char **av);
 int my_putchar(char c);
 int my_getnbr(char *str);
-int parse_str_sec(char **av);
 int parse_string_zero(char **av);
 int if_one(char **av);
+int if_two(char **av);
 
 #endif
