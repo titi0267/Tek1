@@ -5,7 +5,7 @@
 ** my_getnbr.c
 */
 
-#include "my.h"
+#include "../include/my.h"
 
 int my_getnbr(char *str)
 {
