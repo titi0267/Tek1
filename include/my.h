@@ -15,5 +15,6 @@
 int main(int ac, char **av);
 int error_argnbr(int ac, char **av);
 int error_arg1(int ac, char **av);
+int my_putchar(char c);
 
 #endif
