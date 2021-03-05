@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** fractal0.c
+** fractal_zero.c
 ** File description:
 ** 
 */
@@ -9,10 +9,11 @@
 
 int parse_string_zero(char **av)
 {
-    for (int i = 0; av[0][i] != '\0'; i++)
-        if (av[0][i] == '@')
-            my_putchar('\n');
-        else
-            my_putchar(av[0][i]);
-    
+    my_putstr("salut");
+    int f = my_getnbr(av[1]);
+
+    if (f == '0')
+        my_putchar(av[2][0]);
+    my_putchar('\n');
+    return (0);
 }
