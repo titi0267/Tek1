@@ -10,11 +10,11 @@
 void fullscr_button(settings_t *stg)
 {
     stg->fullscr_tex = sfTexture_createFromFile(
-                            "Ressources/My_defender/button/1920-1080.png",
+                            "Ressources/My_defender/button/1920x1080.png",
                             NULL);
     stg->fullscr_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};
-    sfVector2f fullscr_pos = {3320, 400};
+    sfVector2f fullscr_pos = {3320, 500};
 
     sfSprite_setTexture(stg->fullscr_spt, stg->fullscr_tex, sfFalse);
     sfSprite_setPosition(stg->fullscr_spt, fullscr_pos);
@@ -23,26 +23,26 @@ void fullscr_button(settings_t *stg)
 
 void click_fullscr_button(settings_t *stg)
 {
-    stg->click_fullscr_tex = sfTexture_createFromFile(
-                            "Ressources/My_defender/button/click_1920-1080.png",
+    stg->fullscr_tex = sfTexture_createFromFile(
+                            "Ressources/My_defender/button/1920x1080_click.png",
                             NULL);
     stg->click_fullscr_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};
-    sfVector2f click_fullscr_pos = {3320, 400};
+    sfVector2f fullscr_pos = {3320, 500};
 
     sfSprite_setTexture(stg->click_fullscr_spt, stg->click_fullscr_tex, sfFalse);
-    sfSprite_setPosition(stg->click_fullscr_spt, click_fullscr_pos);
+    sfSprite_setPosition(stg->click_fullscr_spt, fullscr_pos);
     sfSprite_setScale(stg->click_fullscr_spt, scale);
 }
 
 void hover_fullscr_button(settings_t *stg)
 {
     stg->hover_fullscr_tex = sfTexture_createFromFile(
-                            "Ressources/My_defender/button/hover_1920-1080.png",
+                            "Ressources/My_defender/button/1920x1080_on.png",
                             NULL);
     stg->hover_fullscr_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};
-    sfVector2f hover_fullscr_pos = {3320, 400};
+    sfVector2f hover_fullscr_pos = {3320, 500};
 
     sfSprite_setTexture(stg->hover_fullscr_spt, stg->hover_fullscr_tex, sfFalse);
     sfSprite_setPosition(stg->hover_fullscr_spt, hover_fullscr_pos);
