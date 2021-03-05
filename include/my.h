@@ -14,7 +14,10 @@
 
 int main(int ac, char **av);
 int error_argnbr(int ac, char **av);
-int error_arg1(int ac, char **av);
+int error_arg_one(int ac, char **av);
 int my_putchar(char c);
+int my_getnbr(char *str);
+int parse_str_sec(char **av);
+int parse_str_zero(char **av);
 
 #endif
