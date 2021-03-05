@@ -9,7 +9,7 @@
 
 int main(int ac, char **av)
 {
-    error_argnbr(ac, av);
-    error_arg1(ac, av);
+    if (error_argnbr(ac, av) == 84 || error_arg1(ac, av) == 84)
+        return (84);
     return (0);
 }
