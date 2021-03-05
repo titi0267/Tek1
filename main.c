@@ -5,7 +5,11 @@
 ** main.c
 */
 
+#include "include/my.h"
+
 int main(int ac, char **av)
 {
+    error_argnbr(ac, av);
+    error_arg1(ac, av);
     return (0);
 }
