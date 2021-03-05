@@ -74,5 +74,4 @@ void click_play_but(button_t *button)
                         button->click_play_tex, sfFalse);
     sfSprite_setPosition(button->click_play_spt, setting_pos);
     sfSprite_setScale(button->click_play_spt, scale);
-    button->click_on_play = FALSE;
 }

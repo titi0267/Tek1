@@ -7,7 +7,7 @@
 
 #include "../../include/defender.h"
 
-void poll_event(window_t *wnd, menu_t *menu, time_t *time)
+void poll_event(window_t *wnd, menu_t *menu)
 {
     sfEvent event;
 
@@ -20,12 +20,11 @@ void poll_event(window_t *wnd, menu_t *menu, time_t *time)
             menu->button->enable_click = FALSE;
         leave_gm(menu, menu->button, event, wnd);
         click_resize_full(menu->stg, wnd, event);
-        click_resize_med(menu->stg, wnd, event);
         return_to_menu(menu, menu->stg, event, wnd);
         if (menu->button->enable_click == TRUE) {
             click_up_vol(menu->stg->vol, wnd);
             click_down_vol(menu->stg->vol, wnd);
         }
-        click_settings(menu, event, wnd, time);
+        click_settings(menu, event, wnd);
     }
 }

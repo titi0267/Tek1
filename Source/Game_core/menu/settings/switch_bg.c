@@ -8,7 +8,7 @@
 #include "../../../../include/defender.h"
 #include <stdio.h>
 
-void click_settings(menu_t *menu, sfEvent event, window_t *wnd, time_t *time)
+void click_settings(menu_t *menu, sfEvent event, window_t *wnd)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
 
@@ -31,7 +31,7 @@ void click_settings(menu_t *menu, sfEvent event, window_t *wnd, time_t *time)
     }
 }
 
-void mv_spt_list(menu_t *menu, window_t *wnd)
+void mv_spt_list(menu_t *menu)
 {
     sfVector2f global_pos;
 
@@ -64,7 +64,7 @@ void switch_bg(menu_t *menu, window_t *wnd)
 {
     if (sfSprite_getGlobalBounds(menu->set_bg_spt).left > 0 &&
         menu->return_to_menu == FALSE) {
-        mv_spt_list(menu, wnd);
+        mv_spt_list(menu);
     } else if (sfSprite_getGlobalBounds(menu->bgd_spt).left < 0 &&
             menu->return_to_menu == TRUE) {
         mv_spt_return(menu, wnd);
@@ -75,15 +75,15 @@ void switch_bg(menu_t *menu, window_t *wnd)
     }
 }
 
-void button_click_timer(time_t *time, menu_t *menu)
+void button_click_timer(menu_t *menu)
 {
     if (menu->button->enable_click == FALSE) {
-        menu->button->click_on_play = FALSE;
         menu->click_on_stg = FALSE;
+        menu->button->click_on_play = FALSE;
     }
 }
 
-void draw_spt_setting(menu_t *menu, window_t *wnd, time_t *time)
+void draw_spt_setting(menu_t *menu, window_t *wnd)
 {
     switch_bg(menu, wnd);
     settings_spt(menu, wnd);
@@ -92,7 +92,9 @@ void draw_spt_setting(menu_t *menu, window_t *wnd, time_t *time)
     hover_leave(menu->button, wnd);
     hover_return(menu->stg, wnd);
     hover_leave(menu->button, wnd);
-    hover_fullscr(menu->stg, wnd);
-    hover_medscr(menu->stg, wnd);
-    button_click_timer(time, menu);
+    print_fullscr(menu->stg, wnd, menu);
+    print_medscr(menu->stg, wnd, menu);
+    print_up_vol(menu, wnd);
+    print_down_vol(menu, wnd);
+    button_click_timer(menu);
 }
