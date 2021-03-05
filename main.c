@@ -14,7 +14,6 @@ int main(int ac, char **av)
     if (my_getnbr(av[1]) == 0)
         parse_string_zero(av);
     else
-        parse_str_sec(av);
-          
+        if_one(av);
     return (0);
 }

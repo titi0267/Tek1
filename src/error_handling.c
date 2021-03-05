@@ -6,6 +6,7 @@
 */
 
 #include "../include/my.h"
+#include <unistd.h>
 
 int error_argnbr(int ac, char **av)
 {
