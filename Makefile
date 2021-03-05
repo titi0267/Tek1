@@ -22,6 +22,8 @@ SRCSFILES	=	main.c 			\
 				Game_core/menu/settings/switch_bg.c				\
 				Game_core/menu/settings/volume.c				\
 				Game_core/menu/settings/volume_change.c			\
+				Game_core/menu/settings/volume_down_array.c		\
+				Game_core/menu/settings/volume_up_array.c		\
 				Game_core/menu/settings/full_scr.c				\
 				Game_core/menu/settings/medium_scr.c			\
 				Game_core/menu/settings/click_on_resize.c		\

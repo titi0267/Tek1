@@ -26,13 +26,13 @@ void click_fullscr_button(settings_t *stg)
     stg->fullscr_tex = sfTexture_createFromFile(
                             "Ressources/My_defender/button/1920x1080_click.png",
                             NULL);
-    stg->fullscr_spt = sfSprite_create();
+    stg->click_fullscr_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};
     sfVector2f fullscr_pos = {3320, 500};
 
-    sfSprite_setTexture(stg->fullscr_spt, stg->fullscr_tex, sfFalse);
-    sfSprite_setPosition(stg->fullscr_spt, fullscr_pos);
-    sfSprite_setScale(stg->fullscr_spt, scale);
+    sfSprite_setTexture(stg->click_fullscr_spt, stg->click_fullscr_tex, sfFalse);
+    sfSprite_setPosition(stg->click_fullscr_spt, fullscr_pos);
+    sfSprite_setScale(stg->click_fullscr_spt, scale);
 }
 
 void hover_fullscr_button(settings_t *stg)
@@ -49,7 +49,7 @@ void hover_fullscr_button(settings_t *stg)
     sfSprite_setScale(stg->hover_fullscr_spt, scale);
 }
 
-void hover_fullscr(settings_t *stg, window_t *wnd)
+void print_fullscr(settings_t *stg, window_t *wnd, menu_t *menu)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
 
@@ -62,9 +62,13 @@ void hover_fullscr(settings_t *stg, window_t *wnd)
                         sfSprite_getGlobalBounds(stg->fullscr_spt).top) &&
         mouse_pos.y <= (box_size_y(wnd,
                         sfSprite_getGlobalBounds(stg->fullscr_spt).top) +
-        box_size_y(wnd, sfSprite_getGlobalBounds(stg->fullscr_spt).height))))
-            sfRenderWindow_drawSprite(wnd->window,
-                                    stg->hover_fullscr_spt, NULL);
-        else
+        box_size_y(wnd, sfSprite_getGlobalBounds(stg->fullscr_spt).height)))) {
+            if (menu->button->enable_click == FALSE)
+                sfRenderWindow_drawSprite(wnd->window,
+                                        stg->hover_fullscr_spt, NULL);
+            else
+                sfRenderWindow_drawSprite(wnd->window,
+                                        stg->click_fullscr_spt, NULL);
+        } else
             sfRenderWindow_drawSprite(wnd->window, stg->fullscr_spt, NULL);
 }

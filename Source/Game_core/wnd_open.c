@@ -20,9 +20,9 @@ void wnd_open(core_t *core)
             main_menu_draw(core->menu, core->wnd);
         }
         else {
-            draw_spt_setting(core->menu, core->wnd, core->time);
+            draw_spt_setting(core->menu, core->wnd);
         }
-        poll_event(core->wnd, core->menu, core->time);
+        poll_event(core->wnd, core->menu);
     }
-    destroy1(core);
+    destroy_all(core);
 }

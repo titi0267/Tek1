@@ -21,6 +21,20 @@ void medscr_button(settings_t *stg)
     sfSprite_setScale(stg->medscr_spt, scale);
 }
 
+void click_medscr_button(settings_t *stg)
+{
+    stg->click_medscr_tex = sfTexture_createFromFile(
+                            "Ressources/My_defender/button/click_1280-720.png",
+                            NULL);
+    stg->click_medscr_spt = sfSprite_create();
+    sfVector2f scale = {0.25f, 0.25f};
+    sfVector2f click_medscr_pos = {3320, 600};
+
+    sfSprite_setTexture(stg->click_medscr_spt, stg->click_medscr_tex, sfFalse);
+    sfSprite_setPosition(stg->click_medscr_spt, click_medscr_pos);
+    sfSprite_setScale(stg->click_medscr_spt, scale);
+}
+
 void hover_medscr_button(settings_t *stg)
 {
     stg->hover_medscr_tex = sfTexture_createFromFile(
@@ -35,7 +49,7 @@ void hover_medscr_button(settings_t *stg)
     sfSprite_setScale(stg->hover_medscr_spt, scale);
 }
 
-void hover_medscr(settings_t *stg, window_t *wnd)
+void print_medscr(settings_t *stg, window_t *wnd, menu_t *menu)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
 
@@ -48,9 +62,15 @@ void hover_medscr(settings_t *stg, window_t *wnd)
                         sfSprite_getGlobalBounds(stg->medscr_spt).top) &&
         mouse_pos.y <= (box_size_y(wnd,
                         sfSprite_getGlobalBounds(stg->medscr_spt).top) +
-        box_size_y(wnd, sfSprite_getGlobalBounds(stg->medscr_spt).height))))
-            sfRenderWindow_drawSprite(wnd->window,
-                                    stg->hover_medscr_spt, NULL);
+        box_size_y(wnd, sfSprite_getGlobalBounds(stg->medscr_spt).height)))) {
+            if (menu->button->enable_click == TRUE) {
+                sfRenderWindow_drawSprite(wnd->window,
+                                    stg->click_medscr_spt, NULL);
+                resize_wnd_med(wnd);
+            } else
+                sfRenderWindow_drawSprite(wnd->window,
+                                        stg->hover_medscr_spt, NULL);
+        }
         else
             sfRenderWindow_drawSprite(wnd->window, stg->medscr_spt, NULL);
 }

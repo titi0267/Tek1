@@ -24,7 +24,7 @@ void hover_setting_but(button_t *button)
 
 void click_setting_but(button_t *button, menu_t *menu)
 {
-    button->click_settings_text = sfTexture_createFromFile(
+    button->click_settings_tex = sfTexture_createFromFile(
                         "Ressources/My_defender/button/settings_click.png",
                         NULL);
     button->click_setting_spt = sfSprite_create();
@@ -32,7 +32,7 @@ void click_setting_but(button_t *button, menu_t *menu)
     sfVector2f setting_pos = {1400, 800};
 
     sfSprite_setTexture(button->click_setting_spt,
-                        button->click_settings_text, sfFalse);
+                        button->click_settings_tex, sfFalse);
     sfSprite_setPosition(button->click_setting_spt, setting_pos);
     sfSprite_setScale(button->click_setting_spt, scale);
     menu->click_on_stg = FALSE;

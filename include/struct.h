@@ -79,8 +79,10 @@ typedef struct button_s
     sfSprite *hover_play_spt;
     sfTexture *hover_leave_tex;
     sfSprite *hover_leave_spt;
-    sfTexture *click_settings_text;
+    sfTexture *click_settings_tex;
     sfSprite *click_setting_spt;
+    int click_on_play;
+    int enable_click;
 } button_t;
 
 typedef struct volume_s
@@ -94,6 +96,14 @@ typedef struct volume_s
     sfSprite *up_spt;
     sfTexture *down_tex;
     sfSprite *down_spt;
+    sfTexture *up_click_tex;
+    sfSprite *up_click_spt;
+    sfTexture *down_click_tex;
+    sfSprite *down_click_spt;
+    sfTexture *hover_down_tex;
+    sfSprite *hover_down_spt;
+    sfTexture *hover_up_tex;
+    sfSprite *hover_up_spt;
     int offset;
     int width_backup;
     int size_one;
@@ -109,10 +119,14 @@ typedef struct settings_s
     sfSprite *fullscr_spt;
     sfTexture *hover_fullscr_tex;
     sfSprite *hover_fullscr_spt;
+    sfTexture *click_fullscr_tex;
+    sfSprite *click_fullscr_spt;
     sfTexture *medscr_tex;
     sfSprite *medscr_spt;
     sfTexture *hover_medscr_tex;
     sfSprite *hover_medscr_spt;
+    sfTexture *click_medscr_tex;
+    sfSprite *click_medscr_spt;
     volume_t *vol;
 } settings_t;
 
@@ -127,7 +141,6 @@ typedef struct menu_s
     button_t *button;
     settings_t *stg;
     sfSprite *mv_spt;
-    struct menu_s *next;
     int end_gm;
     int return_to_menu;
     int settings;
