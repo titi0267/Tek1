@@ -5,6 +5,8 @@
 ** duo stumper
 */
 
+#include "../include/my.h"
+
 int error_argnbr(int ac, char **av)
 {
     int arg2_len = 0;
