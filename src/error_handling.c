@@ -17,11 +17,11 @@ int error_argnbr(int ac, char **av)
     for (int i = 0; av[2][i] != '\0'; i++) {
         if (av[2][i] != '.' && av[2][i] != '#' && av[2][i] != '@')
             return (84);
-        arg_2_len++;
+        arg2_len++;
     }
     for (int i = 0; av[3][i] != '\0'; i++) {
         if (av[3][i] != '.' && av[3][i] != '#' && av[3][i] != '@')
-            return (84)
+            return (84);
         arg3_len++;
     }
     if (arg2_len != arg3_len)
