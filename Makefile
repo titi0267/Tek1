@@ -6,6 +6,11 @@
 ##
 
 SRC	= 	main.c \
+		src/error_handling.c \
+		src/my_strlen.c \
+		src/my_putstr.c \
+		src/my_put_nbr.c \
+		src/my_putchar.c \
 
 OBJ	=	$(SRC:.c=.o)
 

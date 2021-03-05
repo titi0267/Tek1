@@ -1,11 +1,12 @@
 /*
 ** EPITECH PROJECT, 2021
-** error.c
+** my_putchar
 ** File description:
 ** 
 */
 
-int error(void)
+int my_putchar(char c)
 {
+    write(1, &c, 1);
     return (0);
 }
