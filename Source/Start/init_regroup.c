@@ -7,19 +7,9 @@
 
 #include "../../include/defender.h"
 
-void init(core_t *core)
+void init_settings_spt(core_t *core)
 {
-    initialize_wnd(core->wnd);
-    init_timer(core->time);
-    backgd_menu(core->menu);
-    button_play(core->menu->button);
-    button_setting(core->menu->button, core->menu);
-    game_name(core->menu);
-    hover_setting_but(core->menu->button);
-    hover_play_but(core->menu->button);
-    button_leave(core->menu, core->menu->button);
     setting_bg(core->menu, core->wnd);
-    hover_leave_but(core->menu->button);
     medscr_button(core->menu->stg);
     hover_medscr_button(core->menu->stg);
     fullscr_button(core->menu->stg);
@@ -30,8 +20,6 @@ void init(core_t *core)
     vol_nbr_spt(core->menu->stg->vol);
     volume_up_spt(core->menu->stg->vol);
     volume_down_spt(core->menu->stg->vol);
-    click_play_but(core->menu->button);
-    click_setting_but(core->menu->button);
     up_click_spt(core->menu->stg->vol);
     hover_up_spt(core->menu->stg->vol);
     up_click_spt(core->menu->stg->vol);
@@ -40,6 +28,28 @@ void init(core_t *core)
     click_medscr_button(core->menu->stg);
     click_fullscr_button(core->menu->stg);
     click_back_to_menu_spt(core->menu->stg);
+}
+
+void init_menu_spt(core_t *core)
+{
+    backgd_menu(core->menu);
+    button_play(core->menu->button);
+    button_setting(core->menu->button, core->menu);
+    game_name(core->menu);
+    hover_setting_but(core->menu->button);
+    hover_play_but(core->menu->button);
+    button_leave(core->menu, core->menu->button);
+    hover_leave_but(core->menu->button);
+    click_play_but(core->menu->button);
+    click_setting_but(core->menu->button);
+}
+
+void init(core_t *core)
+{
+    initialize_wnd(core->wnd);
+    init_timer(core->time);
+    init_menu_spt(core);
+    init_settings_spt(core);
     core->menu->scene_one = scene_menu;
     core->menu->scene_two = no_scene;
     core->menu->list = malloc(sizeof(sfSprite *) * 30);
