@@ -10,19 +10,20 @@
 void backgd_menu(menu_t *menu)
 {
     menu->bgd_tex = sfTexture_createFromFile(
-                    "Ressources/My_defender/MenuJeu.png",
+                    "Ressources/background/MenuJeu.png",
                     NULL);
     menu->bgd_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
 
     sfSprite_setTexture(menu->bgd_spt, menu->bgd_tex, sfFalse);
     sfSprite_setScale(menu->bgd_spt, scale);
+    menu->menu_bg = TRUE;
 }
 
 void game_name(menu_t *menu)
 {
     menu->name_tex = sfTexture_createFromFile(
-                            "Ressources/My_defender/Text/Dead_island.png",
+                            "Ressources/Text/Dead_island.png",
                             NULL);
     menu->name_spt = sfSprite_create();
     sfVector2f scale = {0.9f, 0.9f};
@@ -36,7 +37,7 @@ void game_name(menu_t *menu)
 void setting_bg(menu_t *menu, window_t *wnd)
 {
     menu->set_bg_tex = sfTexture_createFromFile(
-                            "Ressources/My_defender/MenuSettings.png",
+                            "Ressources/background/MenuSettings.png",
                             NULL);
     menu->set_bg_spt = sfSprite_create();
     sfVector2f scale = {1, 1};

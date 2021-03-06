@@ -17,6 +17,7 @@ SRCSFILES	=	main.c 			\
 				Start/init_time.c				\
 				Game_core/wnd_open.c				\
 				Game_core/events.c					\
+				Game_core/draw_scene.c				\
 				Game_core/menu/settings/resize_window.c			\
 				Game_core/menu/settings/setting_button.c		\
 				Game_core/menu/settings/switch_bg.c				\
@@ -26,13 +27,10 @@ SRCSFILES	=	main.c 			\
 				Game_core/menu/settings/volume_up_array.c		\
 				Game_core/menu/settings/full_scr.c				\
 				Game_core/menu/settings/medium_scr.c			\
-				Game_core/menu/settings/click_on_resize.c		\
-				Game_core/menu/settings/switch_return_menu.c	\
 				Game_core/menu/main_menu/play_button.c			\
 				Game_core/menu/main_menu/menu_spt.c			\
 				Game_core/menu/main_menu/leave_button.c		\
 				Game_core/menu/main_menu/return_to_menu.c	\
-				Game_core/menu/main_menu/draw_spt.c			\
 				Game_core/timer.c					\
 				End/destroy.c 			\
 

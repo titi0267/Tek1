@@ -10,7 +10,7 @@
 void volume_down_spt(volume_t *vol)
 {
     vol->down_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/vol_down_spt.png",
+                        "Ressources/button/settings/volume/vol_down_spt.png",
                         NULL);
     vol->down_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -24,7 +24,7 @@ void volume_down_spt(volume_t *vol)
 void down_click_spt(volume_t *vol)
 {
     vol->down_click_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/down_vol_click.png",
+                        "Ressources/button/settings/volume/down_vol_click.png",
                         NULL);
     vol->down_click_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -32,12 +32,13 @@ void down_click_spt(volume_t *vol)
     sfSprite_setTexture(vol->down_click_spt, vol->down_click_tex, sfFalse);
     sfSprite_setPosition(vol->down_click_spt, down_click_pos);
     sfSprite_setScale(vol->down_click_spt, scale);
+    vol->click_down = FALSE;
 }
 
 void hover_down_spt(volume_t *vol)
 {
     vol->hover_down_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/hover_down_vol.png",
+                        "Ressources/button/settings/volume/hover_down_vol.png",
                         NULL);
     vol->hover_down_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -50,27 +51,20 @@ void hover_down_spt(volume_t *vol)
 void print_down_vol(menu_t *menu, window_t *wnd)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
+    sfFloatRect down_spt = sfSprite_getGlobalBounds(menu->stg->vol->down_spt);
 
-    if ((mouse_pos.x >= box_size_x(wnd,
-                    sfSprite_getGlobalBounds(menu->stg->vol->down_spt).left) &&
-        mouse_pos.x <= (box_size_x(wnd,
-                        sfSprite_getGlobalBounds(menu->stg->vol->down_spt).left) +
-        box_size_x(wnd,
-                    sfSprite_getGlobalBounds(menu->stg->vol->down_spt).width)))
-        && (mouse_pos.y >= box_size_y(wnd,
-                        sfSprite_getGlobalBounds(menu->stg->vol->down_spt).top) &&
-        mouse_pos.y <= (box_size_y(wnd,
-                        sfSprite_getGlobalBounds(menu->stg->vol->down_spt).top) +
-        box_size_y(wnd,
-                sfSprite_getGlobalBounds(menu->stg->vol->down_spt).height)))) {
-            if (menu->button->enable_click == TRUE)
-                sfRenderWindow_drawSprite(wnd->window,
-                                        menu->stg->vol->down_click_spt, NULL);
-            else
-                sfRenderWindow_drawSprite(wnd->window,
-                                        menu->stg->vol->hover_down_spt, NULL);
-        }
-        else
+    if ((mouse_pos.x >= box_size_x(wnd, down_spt.left) && mouse_pos.x <=
+        (box_size_x(wnd, down_spt.left) + box_size_x(wnd, down_spt.width)))
+        && (mouse_pos.y >= box_size_y(wnd, down_spt.top) && mouse_pos.y <=
+        (box_size_y(wnd, down_spt.top) + box_size_y(wnd, down_spt.height)))) {
+        if (menu->button->enable_click == TRUE) {
             sfRenderWindow_drawSprite(wnd->window,
-                                        menu->stg->vol->down_spt, NULL);
+                                    menu->stg->vol->down_click_spt, NULL);
+            menu->stg->vol->click_down = TRUE;
+        } else
+            sfRenderWindow_drawSprite(wnd->window,
+                                    menu->stg->vol->hover_down_spt, NULL);
+    } else
+        sfRenderWindow_drawSprite(wnd->window, menu->stg->vol->down_spt, NULL);
+    change_vol_down(menu);
 }

@@ -10,7 +10,7 @@
 void hover_play_but(button_t *button)
 {
     button->hover_play_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/Play_on.png",
+                        "Ressources/button/menu/play/hover_play.png",
                         NULL);
     button->hover_play_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -25,7 +25,7 @@ void hover_play_but(button_t *button)
 void button_play(button_t *button)
 {
     button->play_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/PLAY.png",
+                        "Ressources/button/menu/play/play.png",
                         NULL);
     button->play_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -36,35 +36,30 @@ void button_play(button_t *button)
     sfSprite_setScale(button->play_spt, scale);
 }
 
-void hover_play(button_t *button, window_t *wnd)
+void draw_play(button_t *button, window_t *wnd)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
+    sfFloatRect play = sfSprite_getGlobalBounds(button->play_spt);
 
-    if ((mouse_pos.x >= box_size_x(wnd,
-                        sfSprite_getGlobalBounds(button->play_spt).left) &&
-        mouse_pos.x <= (box_size_x(wnd,
-                        sfSprite_getGlobalBounds(button->play_spt).left) +
-        box_size_x(wnd, sfSprite_getGlobalBounds(button->play_spt).width))) &&
-        (mouse_pos.y >= box_size_y(wnd,
-                        sfSprite_getGlobalBounds(button->play_spt).top) &&
-        mouse_pos.y <= (box_size_y(wnd,
-                        sfSprite_getGlobalBounds(button->play_spt).top) +
-        box_size_y(wnd, sfSprite_getGlobalBounds(button->play_spt).height)))) {
-            if (button->enable_click == TRUE)
-                sfRenderWindow_drawSprite(wnd->window,
-                                        button->click_play_spt, NULL);
-            else
-                sfRenderWindow_drawSprite(wnd->window,
-                                        button->hover_play_spt, NULL);
+    if ((mouse_pos.x >= box_size_x(wnd, play.left) && mouse_pos.x <=
+        (box_size_x(wnd, play.left) + box_size_x(wnd, play.width))) &&
+        (mouse_pos.y >= box_size_y(wnd, play.top) && mouse_pos.y <=
+        (box_size_y(wnd, play.top) + box_size_y(wnd, play.height)))) {
+        if (button->enable_click == TRUE) {
+            sfRenderWindow_drawSprite(wnd->window,
+                                    button->click_play_spt, NULL);
         }
         else
+            sfRenderWindow_drawSprite(wnd->window,
+                                    button->hover_play_spt, NULL);
+        } else
             sfRenderWindow_drawSprite(wnd->window, button->play_spt, NULL);
 }
 
 void click_play_but(button_t *button)
 {
     button->click_play_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/play_click.png",
+                        "Ressources/button/menu/play/click_play.png",
                         NULL);
     button->click_play_spt = sfSprite_create();
     sfVector2f scale = {1, 1};

@@ -25,13 +25,16 @@ float box_size_y(window_t *wnd, float y)
     return (adapt);
 }
 
-void resize_wnd_med(window_t *wnd)
+void resize_wnd_med(menu_t *menu, window_t *wnd)
 {
     sfVector2u resize = {1280, 720};
     sfVector2i wnd_pos = {350, 150};
 
-    sfRenderWindow_setSize(wnd->window, resize);
-    sfRenderWindow_setPosition(wnd->window, wnd_pos);
+    if (menu->stg->click_medscr == TRUE && menu->button->enable_click == FALSE) {
+        sfRenderWindow_setSize(wnd->window, resize);
+        sfRenderWindow_setPosition(wnd->window, wnd_pos);
+        menu->stg->click_medscr = FALSE;
+    }
 }
 
 void resize_wnd_full(window_t *wnd)

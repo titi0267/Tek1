@@ -10,7 +10,7 @@
 void volume_spt(volume_t *vol)
 {
     vol->vol_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/button/sound_img.png",
+                        "Ressources/button/settings/volume/sound_spt.png",
                         NULL);
     vol->vol_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
@@ -24,7 +24,7 @@ void volume_spt(volume_t *vol)
 void vol_nbr_spt(volume_t *vol)
 {
     vol->vol_nbr_tex = sfTexture_createFromFile(
-                        "Ressources/My_defender/Text/Number.png",
+                        "Ressources/Text/Number.png",
                         NULL);
     vol->vol_nbr_spt = sfSprite_create();
     sfVector2f scale = {1, 1};

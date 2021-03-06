@@ -63,6 +63,8 @@ typedef struct window_s
 
 } window_t;
 
+typedef enum scenes_s {scene_menu = 1, scene_settings = 2, scene_game = 3, no_scene = 4} scenes_t;
+
 typedef struct button_s
 {
     sfTexture *play_tex;
@@ -79,10 +81,13 @@ typedef struct button_s
     sfSprite *hover_play_spt;
     sfTexture *hover_leave_tex;
     sfSprite *hover_leave_spt;
+    sfSprite *click_leave_spt;
+    sfTexture *click_leave_tex;
     sfTexture *click_settings_tex;
     sfSprite *click_setting_spt;
     int click_on_play;
     int enable_click;
+    int end_gm;
 } button_t;
 
 typedef struct volume_s
@@ -107,6 +112,8 @@ typedef struct volume_s
     int offset;
     int width_backup;
     int size_one;
+    int click_down;
+    int click_up;
 } volume_t;
 
 typedef struct settings_s
@@ -115,6 +122,8 @@ typedef struct settings_s
     sfSprite *return_spt;
     sfTexture *hover_return_tex;
     sfSprite *hover_return_spt;
+    sfTexture *click_return_tex;
+    sfSprite *click_return_spt;
     sfTexture *fullscr_tex;
     sfSprite *fullscr_spt;
     sfTexture *hover_fullscr_tex;
@@ -128,6 +137,8 @@ typedef struct settings_s
     sfTexture *click_medscr_tex;
     sfSprite *click_medscr_spt;
     volume_t *vol;
+    int click_medscr;
+    int click_fullscr;
 } settings_t;
 
 typedef struct menu_s
@@ -139,12 +150,15 @@ typedef struct menu_s
     sfTexture *set_bg_tex;
     sfSprite *set_bg_spt;
     button_t *button;
+    scenes_t scene_one;
+    scenes_t scene_two;
     settings_t *stg;
     sfSprite *mv_spt;
-    int end_gm;
     int return_to_menu;
     int settings;
     int click_on_stg;
+    int go_to_stg;
+    int menu_bg;
     sfSprite **list;
 } menu_t;
 

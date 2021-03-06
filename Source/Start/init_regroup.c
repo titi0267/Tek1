@@ -31,7 +31,7 @@ void init(core_t *core)
     volume_up_spt(core->menu->stg->vol);
     volume_down_spt(core->menu->stg->vol);
     click_play_but(core->menu->button);
-    click_setting_but(core->menu->button, core->menu);
+    click_setting_but(core->menu->button);
     up_click_spt(core->menu->stg->vol);
     hover_up_spt(core->menu->stg->vol);
     up_click_spt(core->menu->stg->vol);
@@ -39,7 +39,10 @@ void init(core_t *core)
     down_click_spt(core->menu->stg->vol);
     click_medscr_button(core->menu->stg);
     click_fullscr_button(core->menu->stg);
-    core->menu->list = malloc(sizeof(sfSprite *) * 28);
+    click_back_to_menu_spt(core->menu->stg);
+    core->menu->scene_one = scene_menu;
+    core->menu->scene_two = no_scene;
+    core->menu->list = malloc(sizeof(sfSprite *) * 30);
     create_sprite_arr(core->menu);
     core->menu->button->enable_click = FALSE;
 }
@@ -66,13 +69,15 @@ void return_to_one(menu_t *menu)
     menu->stg->click_medscr_spt = sfSprite_copy(menu->list[17]);
     menu->stg->return_spt = sfSprite_copy(menu->list[18]);
     menu->stg->hover_return_spt = sfSprite_copy(menu->list[19]);
-    menu->stg->vol->vol_spt = sfSprite_copy(menu->list[20]);
-    menu->stg->vol->up_spt = sfSprite_copy(menu->list[21]);
-    menu->stg->vol->up_click_spt = sfSprite_copy(menu->list[22]);
-    menu->stg->vol->down_spt = sfSprite_copy(menu->list[23]);
-    menu->stg->vol->hover_down_spt = sfSprite_copy(menu->list[24]);
-    menu->stg->vol->down_click_spt = sfSprite_copy(menu->list[25]);
-    menu->stg->vol->vol_nbr_spt = sfSprite_copy(menu->list[26]);
+    menu->stg->click_return_spt = sfSprite_copy(menu->list[20]);
+    menu->stg->vol->vol_spt = sfSprite_copy(menu->list[21]);
+    menu->stg->vol->up_spt = sfSprite_copy(menu->list[22]);
+    menu->stg->vol->hover_up_spt = sfSprite_copy(menu->list[23]);
+    menu->stg->vol->up_click_spt = sfSprite_copy(menu->list[24]);
+    menu->stg->vol->down_spt = sfSprite_copy(menu->list[25]);
+    menu->stg->vol->hover_down_spt = sfSprite_copy(menu->list[26]);
+    menu->stg->vol->down_click_spt = sfSprite_copy(menu->list[27]);
+    menu->stg->vol->vol_nbr_spt = sfSprite_copy(menu->list[28]);
 }
 
 void create_sprite_arr(menu_t *menu)
@@ -97,12 +102,14 @@ void create_sprite_arr(menu_t *menu)
     menu->list[17] = sfSprite_copy(menu->stg->click_medscr_spt);
     menu->list[18] = sfSprite_copy(menu->stg->return_spt);
     menu->list[19] = sfSprite_copy(menu->stg->hover_return_spt);
-    menu->list[20] = sfSprite_copy(menu->stg->vol->vol_spt);
-    menu->list[21] = sfSprite_copy(menu->stg->vol->up_spt);
-    menu->list[22] = sfSprite_copy(menu->stg->vol->up_click_spt);
-    menu->list[23] = sfSprite_copy(menu->stg->vol->down_spt);
-    menu->list[24] = sfSprite_copy(menu->stg->vol->hover_down_spt);
-    menu->list[25] = sfSprite_copy(menu->stg->vol->down_click_spt);
-    menu->list[26] = sfSprite_copy(menu->stg->vol->vol_nbr_spt);
-    menu->list[27] = NULL;
+    menu->list[20] = sfSprite_copy(menu->stg->click_return_spt);
+    menu->list[21] = sfSprite_copy(menu->stg->vol->vol_spt);
+    menu->list[22] = sfSprite_copy(menu->stg->vol->up_spt);
+    menu->list[23] = sfSprite_copy(menu->stg->vol->hover_up_spt);
+    menu->list[24] = sfSprite_copy(menu->stg->vol->up_click_spt);
+    menu->list[25] = sfSprite_copy(menu->stg->vol->down_spt);
+    menu->list[26] = sfSprite_copy(menu->stg->vol->hover_down_spt);
+    menu->list[27] = sfSprite_copy(menu->stg->vol->down_click_spt);
+    menu->list[28] = sfSprite_copy(menu->stg->vol->vol_nbr_spt);
+    menu->list[29] = NULL;
 }

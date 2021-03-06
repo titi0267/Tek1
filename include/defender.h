@@ -26,8 +26,9 @@ void init(core_t *core);
 void poll_event(window_t *wnd, menu_t *menu);
 
 void update_time(time_t *time);
+void choose_scene(menu_t *menu, window_t *wnd);
 
-void resize_wnd_med(window_t *wnd);
+void resize_wnd_med(menu_t *menu, window_t *wnd);
 void medscr_button(settings_t *stg);
 void hover_medscr_button(settings_t *stg);
 void click_medscr_button(settings_t *stg);
@@ -56,6 +57,8 @@ void hover_up_spt(volume_t *vol);
 void hover_down_spt(volume_t *vol);
 void print_up_vol(menu_t *menu, window_t *wnd);
 void print_down_vol(menu_t *menu, window_t *wnd);
+void change_vol_down(menu_t *menu);
+void change_vol_up(menu_t *menu);
 
 void create_sprite_arr(menu_t *menu);
 void return_to_one(menu_t *menu);
@@ -66,37 +69,32 @@ void backgd_menu(menu_t *menu);
 
 void settings_spt(menu_t *menu, window_t *wnd);
 void setting_button(menu_t *menu, window_t *wnd);
-void click_setting_but(button_t *button, menu_t *menu);
 void button_setting(button_t *button, menu_t *menu);
 void hover_setting_but(button_t *button);
-void hover_setting(button_t *button, window_t *wnd, menu_t *menu);
-void click_setting_but(button_t *button, menu_t *menu);
+void draw_setting(menu_t *menu, window_t *wnd);
+void click_setting_but(button_t *button);
 void setting_bg(menu_t *menu, window_t *wnd);
-void click_settings(menu_t *menu, sfEvent event, window_t *wnd);
-void draw_spt_setting(menu_t *menu, window_t *wnd);
 
 void hover_back_to_menu_spt(settings_t *stg);
 void back_to_menu_spt(menu_t *menu);
-void hover_return(settings_t *stg, window_t *wnd);
-void switch_bg(menu_t *menu, window_t *wnd);
+void draw_return(settings_t *stg, menu_t *menu, window_t *wnd);
+void switch_bg(menu_t *menu);
 void return_bg_next(menu_t *menu, sfVector2f global_pos);
 void return_side_setting(menu_t *menu, sfVector2f global_pos);
-void return_to_menu(menu_t *menu, settings_t *stg, sfEvent event, window_t *wnd);
+void click_back_to_menu_spt(settings_t *stg);
 
 void hover_play_but(button_t *button);
 void click_play_but(button_t *button);
 void click_on_play(menu_t *menu, window_t *wnd);
-void hover_play(button_t *button, window_t *wnd);
+void draw_play(button_t *button, window_t *wnd);
 void button_play(button_t *button);
 
 void button_leave(menu_t *menu, button_t *button);
-void hover_leave(button_t *button, window_t *wnd);
+void draw_leave(button_t *button, window_t *wnd);
 void hover_leave_but(button_t *button);
 void click_leave_but(button_t *button);
-void leave_gm(menu_t *menu, button_t *button, sfEvent event, window_t *wnd);
 
 void game_name(menu_t *menu);
-void main_menu_draw(menu_t *menu, window_t *wnd);
 
 void destroy_regroup_spt(menu_t *menu);
 void destroy_all(core_t *core);
