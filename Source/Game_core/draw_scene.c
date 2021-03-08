@@ -46,6 +46,7 @@ void select_scene(menu_t *menu)
 
 void print_scene(menu_t *menu, window_t *wnd)
 {
+    select_scene(menu);
     if (menu->scene_one == scene_menu && menu->scene_two == no_scene)
         draw_menu(menu, wnd);
     else if (menu->scene_one == scene_settings && menu->scene_two == no_scene)
