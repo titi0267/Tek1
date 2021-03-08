@@ -9,10 +9,14 @@ CC=	gcc	-o
 
 SRCSPATH = src/
 
-SRCSFILES	=	main.c 			\
-				error_args.c	\
-				print_map.c		\
-				user_input.c	\
+SRCSFILES	=	main.c 				\
+				error_args.c		\
+				print_map.c			\
+				user_input.c		\
+				change_map.c		\
+				error_usr_input.c	\
+				ai.c				\
+				check_win.c			\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 
