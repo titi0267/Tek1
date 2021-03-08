@@ -41,25 +41,6 @@ void choose_scene(menu_t *menu, window_t *wnd)
         menu->scene_one = scene_settings;
         menu->scene_two = scene_menu;
     }
-
-
-
-    /*if (menu->return_to_menu == FALSE && menu->settings == TRUE) {
-        menu->scene_one = scene_settings;
-        menu->scene_two = scene_menu;
-    }
-    if (menu->settings == TRUE && menu->return_to_menu == TRUE) {
-        menu->scene_one = scene_menu;
-        menu->scene_two = scene_settings;
-    }
-    if (menu->menu_bg == FALSE && menu->return_to_menu == FALSE) {
-        menu->scene_one = scene_settings;
-        menu->scene_two = no_scene;
-    }
-    else if (menu->menu_bg == TRUE && menu->settings == FALSE && menu->return_to_menu == FALSE) {
-        menu->scene_one = scene_menu;
-        menu->scene_two = no_scene;
-    }*/
     if (menu->scene_one == scene_menu && menu->scene_two == no_scene) {
         draw_menu(menu, wnd);
     }
