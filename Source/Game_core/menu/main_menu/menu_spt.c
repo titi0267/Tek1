@@ -26,7 +26,7 @@ void game_name(menu_t *menu)
                             "Ressources/Text/Dead_island.png",
                             NULL);
     menu->name_spt = sfSprite_create();
-    sfVector2f scale = {0.9f, 0.9f};
+    sfVector2f scale = {1, 1};
     sfVector2f name_pos = {2300, 50};
 
     sfSprite_setTexture(menu->name_spt, menu->name_tex, sfFalse);

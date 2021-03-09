@@ -26,7 +26,7 @@ void init(core_t *core);
 void poll_event(window_t *wnd, menu_t *menu);
 
 void update_time(time_t *time);
-void choose_scene(menu_t *menu, window_t *wnd);
+void print_scene(menu_t *menu, window_t *wnd);
 
 void resize_wnd_med(menu_t *menu, window_t *wnd);
 void medscr_button(settings_t *stg);
@@ -98,6 +98,5 @@ void game_name(menu_t *menu);
 
 void destroy_regroup_spt(menu_t *menu);
 void destroy_all(core_t *core);
-
 
 #endif /* !DEFENDER_H_ */

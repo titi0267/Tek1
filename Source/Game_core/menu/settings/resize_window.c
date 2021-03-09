@@ -30,7 +30,8 @@ void resize_wnd_med(menu_t *menu, window_t *wnd)
     sfVector2u resize = {1280, 720};
     sfVector2i wnd_pos = {350, 150};
 
-    if (menu->stg->click_medscr == TRUE && menu->button->enable_click == FALSE) {
+    if (menu->stg->click_medscr == TRUE &&
+        menu->button->enable_click == FALSE) {
         sfRenderWindow_setSize(wnd->window, resize);
         sfRenderWindow_setPosition(wnd->window, wnd_pos);
         menu->stg->click_medscr = FALSE;

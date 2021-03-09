@@ -39,7 +39,7 @@ void hover_back_to_menu_spt(settings_t *stg)
 void click_back_to_menu_spt(settings_t *stg)
 {
     stg->click_return_tex = sfTexture_createFromFile(
-                        "Ressources/button/settings/return/hover_return.png",
+                        "Ressources/button/settings/return/click_return.png",
                         NULL);
     stg->click_return_spt = sfSprite_create();
     sfVector2f scale = {1, 1};

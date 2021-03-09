@@ -59,6 +59,7 @@ void destroy_menu_buttons_tex(menu_t *menu)
     sfTexture_destroy(menu->button->click_play_tex);
     sfTexture_destroy(menu->button->leave_tex);
     sfTexture_destroy(menu->button->hover_leave_tex);
+    sfTexture_destroy(menu->button->click_leave_tex);
     sfTexture_destroy(menu->button->setting_tex);
     sfTexture_destroy(menu->button->hover_setting_tex);
     sfTexture_destroy(menu->button->click_settings_tex);
@@ -72,6 +73,7 @@ void destroy_menu_buttons_spt(menu_t *menu)
     sfSprite_destroy(menu->button->click_play_spt);
     sfSprite_destroy(menu->button->leave_spt);
     sfSprite_destroy(menu->button->hover_leave_spt);
+    sfSprite_destroy(menu->button->click_leave_spt);
     sfSprite_destroy(menu->button->setting_spt);
     sfSprite_destroy(menu->button->hover_setting_spt);
     sfSprite_destroy(menu->button->click_setting_spt);

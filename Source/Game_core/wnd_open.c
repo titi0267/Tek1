@@ -18,10 +18,8 @@ void wnd_open(core_t *core)
             break;
         update_time(core->time);
         switch_bg(core->menu);
-        choose_scene(core->menu, core->wnd);
+        print_scene(core->menu, core->wnd);
         poll_event(core->wnd, core->menu);
-        //my_printf("return : %i\n", core->menu->return_to_menu);
-        //my_printf("setting : %i\n", core->menu->settings);
     }
     destroy_all(core);
 }

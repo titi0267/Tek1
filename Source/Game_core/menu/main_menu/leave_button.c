@@ -63,7 +63,7 @@ void draw_leave(button_t *button, window_t *wnd)
         (box_size_y(wnd, leave_spt.top) + box_size_y(wnd, leave_spt.height)))) {
         if (button->enable_click == TRUE) {
             sfRenderWindow_drawSprite(wnd->window,
-                                    button->hover_leave_spt, NULL);
+                                    button->click_leave_spt, NULL);
             button->end_gm = TRUE;
         } else
             sfRenderWindow_drawSprite(wnd->window,
