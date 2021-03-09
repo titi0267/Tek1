@@ -159,7 +159,6 @@ typedef struct menu_s
     int click_on_stg;
     int go_to_stg;
     int menu_bg;
-    sfSprite **list;
 } menu_t;
 
 typedef struct time_s

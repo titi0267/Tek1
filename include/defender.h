@@ -60,7 +60,18 @@ void print_down_vol(menu_t *menu, window_t *wnd);
 void change_vol_down(menu_t *menu);
 void change_vol_up(menu_t *menu);
 
-void create_sprite_arr(menu_t *menu);
+void mv_stg_one(menu_t *menu, sfVector2f pos);
+void mv_stg_two(menu_t *menu, sfVector2f pos);
+void mv_stg_three(menu_t *menu, sfVector2f pos);
+void mv_stg_four(menu_t *menu, sfVector2f pos);
+void mv_to_stg_all(menu_t *menu);
+
+void mv_menu_one(menu_t *menu, sfVector2f pos);
+void mv_menu_two(menu_t *menu, sfVector2f pos);
+void mv_menu_three(menu_t *menu, sfVector2f pos);
+void mv_menu_four(menu_t *menu, sfVector2f pos);
+void mv_menu_all(menu_t *menu);
+
 void return_to_one(menu_t *menu);
 void return_to_one(menu_t *menu);
 void fill_list(menu_t **menu, window_t *wnd);
@@ -74,6 +85,8 @@ void hover_setting_but(button_t *button);
 void draw_setting(menu_t *menu, window_t *wnd);
 void click_setting_but(button_t *button);
 void setting_bg(menu_t *menu, window_t *wnd);
+void mv_to_menu(menu_t *menu);
+void mv_to_stg(menu_t *menu);
 
 void hover_back_to_menu_spt(settings_t *stg);
 void back_to_menu_spt(menu_t *menu);

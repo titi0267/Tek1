@@ -103,9 +103,6 @@ void destroy_regroup_spt(menu_t *menu)
     destroy_size_stg_spt(menu->stg);
     destroy_volume_spt(menu->stg->vol);
     destroy_stg_bg_spt(menu);
-    for (int i = 0; menu->list[i] != NULL; i++)
-        sfSprite_destroy(menu->list[i]);
-    free(menu->list);
 }
 
 void destroy_regroup_tex(core_t *core)

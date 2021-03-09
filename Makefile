@@ -27,7 +27,11 @@ SRCSFILES	=	main.c 			\
 				Game_core/menu/settings/volume_up_array.c		\
 				Game_core/menu/settings/full_scr.c				\
 				Game_core/menu/settings/medium_scr.c			\
-				Game_core/menu/main_menu/play_button.c			\
+				Game_core/menu/settings/mv_background/mv_to_setting.c		\
+				Game_core/menu/settings/mv_background/mv_to_setting_next.c	\
+				Game_core/menu/settings/mv_background/mv_to_menu_next.c		\
+				Game_core/menu/settings/mv_background/mv_to_menu.c		\
+				Game_core/menu/main_menu/play_button.c		\
 				Game_core/menu/main_menu/menu_spt.c			\
 				Game_core/menu/main_menu/leave_button.c		\
 				Game_core/menu/main_menu/return_to_menu.c	\
