@@ -110,6 +110,7 @@ void click_leave_but(button_t *button);
 void game_name(menu_t *menu);
 
 void game_bgd(game_t *game);
+void shop_button(shop_t *shop);
 
 int manage_enemy(core_t *core);
 

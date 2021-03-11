@@ -25,6 +25,8 @@ typedef struct wave_s
 
 typedef struct shop_s
 {
+    sfTexture *shop_tex;
+    sfSprite *shop_spt;
     sfVector2f pos;
     int price;
     struct shop_s *next;
@@ -200,6 +202,7 @@ typedef struct core_s
     game_t *game;
     enemy_t *enemy;
     wave_t *wave;
+    shop_t *shop;
 } core_t;
 
 #endif /* !struct_header */
