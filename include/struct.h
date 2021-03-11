@@ -58,19 +58,17 @@ typedef struct pirat_data_s
     int life;
     int speed;
     int road;
-    int x;
     int x_walk;
     int y_walk;
-    int y;
     sfVector2f pos;
     struct pirat_data_s *next;
 } pirat_data_t;
 
 typedef struct enemy_s
 {
-    pirat_spt_t **pirat;
-    pirat_spt_t *pirat_bis;
-    pirat_data_t *data;
+    pirat_spt_t *pirat;
+    pirat_data_t **data;
+    pirat_data_t *data_bis;
 } enemy_t;
 
 typedef struct game_s
