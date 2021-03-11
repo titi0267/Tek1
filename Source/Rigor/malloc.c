@@ -21,8 +21,6 @@ int struct_alloc(core_t *core)
     core->enemy->pirat = malloc(sizeof(pirat_spt_t));
     core->enemy->data = malloc(sizeof(pirat_data_t));
     core->wave = malloc(sizeof(wave_t));
-    core->enemy->data = malloc(sizeof(pirat_data_t));
-    core->enemy->data_bis = malloc(sizeof(*core->enemy->data_bis));
 
     if (core == NULL || core->wnd == NULL || core->time == NULL ||
         core->menu == NULL || core->menu->button == NULL ||

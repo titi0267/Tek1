@@ -12,8 +12,8 @@ int display_list(core_t *core)
     pirat_data_t *data_bis = *(core->enemy->data);
 
     for (; data_bis != NULL; data_bis = data_bis->next)
-        printf("-> La route est la numéro %i\n", data_bis->road);
-    printf("-----------------------------------------\n");
+        my_printf("-> La route est la numéro %i\n", data_bis->road);
+    my_printf("-----------------------------------------\n");
 }
 
 int feed_enemy(core_t *core)
@@ -29,11 +29,12 @@ int feed_enemy(core_t *core)
         core->enemy->data_bis->pos.y = 600;
         core->enemy->data_bis->next = *(core->enemy->data);
         *(core->enemy->data) = core->enemy->data_bis;
+        my_printf("i = %i\n", i);
     }
-    if (i <= core->wave->pirate_one) {
+    /*if (i <= core->wave->pirate_one) {
         display_list(core);
         i++;
-    }
+    }*/
 }
 
 int manage_enemy(core_t *core)

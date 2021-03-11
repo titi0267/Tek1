@@ -30,10 +30,8 @@ void draw_settings(menu_t *menu, window_t *wnd)
     print_down_vol(menu, wnd);
 }
 
-void draw_game(game_t *game, window_t *wnd)
+void draw_game(game_t *game, window_t *wnd, core_t *core)
 {
-    core_t *core;
-
     sfRenderWindow_drawSprite(wnd->window, game->game_bgd_spt, NULL);
     manage_enemy(core);
 }
@@ -56,7 +54,7 @@ void select_scene(menu_t *menu)
     }
 }
 
-void print_scene(menu_t *menu, window_t *wnd, game_t *game)
+void print_scene(menu_t *menu, window_t *wnd, game_t *game, core_t *core)
 {
     select_scene(menu);
     if (menu->scene_one == scene_menu && menu->scene_two == no_scene)
@@ -72,6 +70,6 @@ void print_scene(menu_t *menu, window_t *wnd, game_t *game)
         draw_settings(menu, wnd);
         draw_menu(menu, wnd);
     } else if (menu->scene_one == scene_game && menu->scene_two == no_scene) {
-        draw_game(game, wnd);
+        draw_game(game, wnd, core);
     }
 }

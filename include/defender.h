@@ -26,7 +26,7 @@ void init(core_t *core);
 void poll_event(window_t *wnd, menu_t *menu);
 
 void update_time(time_t *time);
-void print_scene(menu_t *menu, window_t *wnd, game_t *game);
+void print_scene(menu_t *menu, window_t *wnd, game_t *game, core_t *core);
 
 void resize_wnd_med(menu_t *menu, window_t *wnd);
 void medscr_button(settings_t *stg);
