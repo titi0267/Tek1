@@ -37,17 +37,19 @@ void draw_game(game_t *game, window_t *wnd)
 
 void select_scene(menu_t *menu)
 {
-    if (menu->menu_bg == TRUE) {
+    if (menu->menu_bg == TRUE && menu->game_bgd == FALSE) {
         menu->scene_one = scene_menu;
         menu->scene_two = no_scene;
-    } else if (menu->settings == TRUE) {
+    } else if (menu->settings == TRUE && menu->game_bgd == FALSE) {
         menu->scene_one = scene_settings;
         menu->scene_two = no_scene;
-    } else if (menu->settings == FALSE && menu->menu_bg == FALSE) {
+    } else if (menu->settings == FALSE && menu->menu_bg == FALSE &&
+            menu->game_bgd == FALSE) {
         menu->scene_one = scene_settings;
         menu->scene_two = scene_menu;
     } else if (menu->game_bgd == TRUE) {
         menu->scene_one = scene_game;
+        menu->scene_two = no_scene;
     }
 }
 
@@ -66,7 +68,7 @@ void print_scene(menu_t *menu, window_t *wnd, game_t *game)
                 menu->scene_two == scene_settings) {
         draw_settings(menu, wnd);
         draw_menu(menu, wnd);
-    } else if (menu->scene_one == scene_game) {
+    } else if (menu->scene_one == scene_game && menu->scene_two == no_scene) {
         draw_game(game, wnd);
     }
 }
