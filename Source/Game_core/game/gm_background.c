@@ -13,7 +13,7 @@ void game_bgd(game_t *game)
                         "Ressources/background/menuGame.jpg",
                         NULL);
     game->game_bgd_spt = sfSprite_create();
-    sfVector2f scale = {1, 1};
+    sfVector2f scale = {1, 0.97};
     sfVector2f setting_pos = {0, 0};
 
     sfSprite_setTexture(game->game_bgd_spt,

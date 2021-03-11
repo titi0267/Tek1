@@ -49,8 +49,8 @@ void draw_play(menu_t *menu, window_t *wnd)
             sfRenderWindow_drawSprite(wnd->window,
                                     menu->button->click_play_spt, NULL);
             menu->game_bgd = TRUE;
-        }
-        else
+            menu->menu_bg = FALSE;
+        } else
             sfRenderWindow_drawSprite(wnd->window,
                                     menu->button->hover_play_spt, NULL);
         } else
