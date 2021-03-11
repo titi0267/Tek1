@@ -62,5 +62,4 @@ void init(core_t *core)
     core->menu->scene_two = no_scene;
     core->menu->button->enable_click = FALSE;
     core->wave->pirate_one = 5;
-    core->enemy->data = NULL;
 }
