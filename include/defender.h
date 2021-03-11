@@ -109,6 +109,8 @@ void click_leave_but(button_t *button);
 
 void game_name(menu_t *menu);
 
+void game_bgd(game_t *game);
+
 void destroy_regroup_spt(menu_t *menu);
 void destroy_all(core_t *core);
 

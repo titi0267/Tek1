@@ -45,12 +45,18 @@ void init_menu_spt(core_t *core)
     click_setting_but(core->menu->button);
 }
 
+void init_gm(core_t *core)
+{
+    game_bgd(core->game);
+}
+
 void init(core_t *core)
 {
     initialize_wnd(core->wnd);
     init_timer(core->time);
     init_menu_spt(core);
     init_settings_spt(core);
+    init_gm(core);
     core->menu->scene_one = scene_menu;
     core->menu->scene_two = no_scene;
     core->menu->button->enable_click = FALSE;

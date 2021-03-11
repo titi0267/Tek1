@@ -46,21 +46,26 @@ typedef struct defense_s
     struct defense_s *next;
 } defense_t;
 
-typedef struct ennemy_s
+typedef struct enemy_s
 {
     int life;
     int speed;
     int road;
     sfVector2f pos;
-    struct ennemy_s *next;
+    struct enemy_s *next;
 } ennemy_t;
+
+typedef struct game_s
+{
+    sfTexture *game_bgd_tex;
+    sfSprite *game_bgd_spt;
+} game_t;
 
 typedef struct window_s
 {
     sfRenderWindow *window;
     sfVideoMode scr_size;
     sfVector2f pos;
-
 } window_t;
 
 typedef enum scenes_s {scene_menu = 1, scene_settings = 2, scene_game = 3, no_scene = 4} scenes_t;
@@ -173,6 +178,7 @@ typedef struct core_s
     window_t *wnd;
     time_t *time;
     menu_t *menu;
+    game_t *game;
 } core_t;
 
 #endif /* !struct_header */
