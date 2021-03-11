@@ -27,14 +27,9 @@ int feed_enemy(core_t *core)
         core->enemy->data_bis->road = rand() % 2 + 0;
         core->enemy->data_bis->pos.x = 1500;
         core->enemy->data_bis->pos.y = 600;
-        core->enemy->data_bis->next = *(core->enemy->data);
-        *(core->enemy->data) = core->enemy->data_bis;
-        my_printf("i = %i\n", i);
+        core->enemy->data_bis->next = *core->enemy->data;
+        *core->enemy->data = core->enemy->data_bis;
     }
-    /*if (i <= core->wave->pirate_one) {
-        display_list(core);
-        i++;
-    }*/
 }
 
 int manage_enemy(core_t *core)
