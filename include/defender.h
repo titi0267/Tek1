@@ -26,7 +26,7 @@ void init(core_t *core);
 void poll_event(window_t *wnd, menu_t *menu);
 
 void update_time(time_t *time);
-void print_scene(menu_t *menu, window_t *wnd);
+void print_scene(menu_t *menu, window_t *wnd, game_t *game);
 
 void resize_wnd_med(menu_t *menu, window_t *wnd);
 void medscr_button(settings_t *stg);
@@ -97,9 +97,9 @@ void return_side_setting(menu_t *menu, sfVector2f global_pos);
 void click_back_to_menu_spt(settings_t *stg);
 
 void hover_play_but(button_t *button);
-void click_play_but(button_t *button);
+void click_play_but(menu_t *menu);
 void click_on_play(menu_t *menu, window_t *wnd);
-void draw_play(button_t *button, window_t *wnd);
+void draw_play(menu_t *menu, window_t *wnd);
 void button_play(button_t *button);
 
 void button_leave(menu_t *menu, button_t *button);

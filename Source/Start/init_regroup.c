@@ -41,7 +41,7 @@ void init_menu_spt(core_t *core)
     button_leave(core->menu, core->menu->button);
     hover_leave_but(core->menu->button);
     click_leave_but(core->menu->button);
-    click_play_but(core->menu->button);
+    click_play_but(core->menu);
     click_setting_but(core->menu->button);
 }
 

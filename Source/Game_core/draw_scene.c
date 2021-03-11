@@ -10,7 +10,7 @@
 void draw_menu(menu_t *menu, window_t *wnd)
 {
     sfRenderWindow_drawSprite(wnd->window, menu->bgd_spt, NULL);
-    draw_play(menu->button, wnd);
+    draw_play(menu, wnd);
     draw_setting(menu, wnd);
     draw_leave(menu->button, wnd);
 }
@@ -30,6 +30,11 @@ void draw_settings(menu_t *menu, window_t *wnd)
     print_down_vol(menu, wnd);
 }
 
+void draw_game(game_t *game, window_t *wnd)
+{
+    sfRenderWindow_drawSprite(wnd->window, game->game_bgd_spt, NULL);
+}
+
 void select_scene(menu_t *menu)
 {
     if (menu->menu_bg == TRUE) {
@@ -41,10 +46,12 @@ void select_scene(menu_t *menu)
     } else if (menu->settings == FALSE && menu->menu_bg == FALSE) {
         menu->scene_one = scene_settings;
         menu->scene_two = scene_menu;
+    } else if (menu->game_bgd == TRUE) {
+        menu->scene_one = scene_game;
     }
 }
 
-void print_scene(menu_t *menu, window_t *wnd)
+void print_scene(menu_t *menu, window_t *wnd, game_t *game)
 {
     select_scene(menu);
     if (menu->scene_one == scene_menu && menu->scene_two == no_scene)
@@ -59,5 +66,7 @@ void print_scene(menu_t *menu, window_t *wnd)
                 menu->scene_two == scene_settings) {
         draw_settings(menu, wnd);
         draw_menu(menu, wnd);
+    } else if (menu->scene_one == scene_game) {
+        draw_game(game, wnd);
     }
 }
