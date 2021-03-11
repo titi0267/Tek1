@@ -7,38 +7,33 @@
 
 #include "../../../include/defender.h"
 
-int display_list(pirat_data_t **data)
+int display_list(core_t *core)
 {
-    pirat_data_t *data_bis = *data;
+    pirat_data_t *data_bis = *(core->enemy->data);
 
     for (; data_bis != NULL; data_bis = data_bis->next)
         printf("-> La route est la numéro %i\n", data_bis->road);
-}
-
-void move_enemy(core_t *core)
-{
-    pira
+    printf("-----------------------------------------\n");
 }
 
 int feed_enemy(core_t *core)
 {
-    pirat_data_t **data
-    pirat_data_t *data_bis;
-    core->enemy->pirat
+    static int i = 0;
 
-    for (int i = 0; i < core->wave->pirate_one; i++) {
-        data_bis = malloc(sizeof(*data_bis));
-        data->life = 100;
-        data->speed = 1;
-        data->road = rand() % 2 + 0;
-        data->x = 1500;
-        data->y = 600;
-        data->pos = {x, y};
-        data_bis->next = *data;
-        *data = data_bis;
+    for (; i < core->wave->pirate_one; i++) {
+        core->enemy->data_bis = malloc(sizeof(*core->enemy->data_bis));
+        core->enemy->data_bis->life = 100;
+        core->enemy->data_bis->speed = 1;
+        core->enemy->data_bis->road = rand() % 2 + 0;
+        core->enemy->data_bis->pos.x = 1500;
+        core->enemy->data_bis->pos.y = 600;
+        core->enemy->data_bis->next = *(core->enemy->data);
+        *(core->enemy->data) = core->enemy->data_bis;
     }
-    core->data = *data;
-    display_list(data);
+    if (i <= core->wave->pirate_one) {
+        display_list(core);
+        i++;
+    }
 }
 
 int manage_enemy(core_t *core)
