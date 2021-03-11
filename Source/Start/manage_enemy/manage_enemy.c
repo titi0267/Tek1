@@ -7,9 +7,9 @@
 
 #include "../../../include/struct.h"
 
-int display_list(data_t **data)
+int display_list(pirat_data_t **data)
 {
-    data_t *data_bis = *data;
+    pirat_data_t *data_bis = *data;
 
     for (; data_bis != NULL; data_bis = data_bis->next)
         printf("-> La route est la numéro %i\n", data_bis->road);
@@ -17,8 +17,8 @@ int display_list(data_t **data)
 
 int feed_enemy(core_t *core)
 {
-    data_t **data
-    data_t *data_bis;
+    pirat_data_t **data
+    pirat_data_t *data_bis;
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
         data_bis = malloc(sizeof(*data_bis));
