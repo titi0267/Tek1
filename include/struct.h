@@ -49,13 +49,8 @@ typedef struct defense_s
 typedef struct pirat_spt_s
 {
     sfTexture *pirat_txt;
-    sfSprite *pirat_spt_1;
-    sfSprite *pirat_spt_2;
-    sfSprite *pirat_spt_3;
-    sfSprite *pirat_spt_4;
-    sfSprite *pirat_spt_5;
-    sfSprite *pirat_spt_6;
-    sfSprite *pirat_spt_7;
+    sfSprite *pirat_spt_walk;
+    sfSprite *pirat_spt_death;
 } pirat_spt_t;
 
 typedef struct pirat_data_s
@@ -63,6 +58,8 @@ typedef struct pirat_data_s
     int life;
     int speed;
     int road;
+    int x;
+    int y;
     sfVector2f pos;
     struct pirat_data_s *next;
 } pirat_data_t;
@@ -199,6 +196,7 @@ typedef struct core_s
     menu_t *menu;
     game_t *game;
     enemy_t *enemy;
+    wave_t *wave;
 } core_t;
 
 #endif /* !struct_header */

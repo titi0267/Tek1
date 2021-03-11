@@ -11,10 +11,11 @@ SRCSPATH = Source/
 
 SRCSFILES	=	main.c 			\
 				Rigor/start_errors.c 		\
-				Rigor/malloc.c					\
-				Start/initialize_wnd.c 			\
-				Start/init_regroup.c			\
-				Start/init_time.c				\
+				Rigor/malloc.c					 \
+				Start/initialize_wnd.c 			 \
+				Start/init_regroup.c			 \
+				Start/init_time.c				 \
+				Start/manage_enemy/manage_enemy.c\
 				Game_core/wnd_open.c				\
 				Game_core/events.c					\
 				Game_core/draw_scene.c				\
