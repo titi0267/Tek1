@@ -164,6 +164,7 @@ typedef struct menu_s
     int click_on_stg;
     int go_to_stg;
     int menu_bg;
+    int game_bgd;
 } menu_t;
 
 typedef struct time_s

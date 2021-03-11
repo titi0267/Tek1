@@ -36,37 +36,39 @@ void button_play(button_t *button)
     sfSprite_setScale(button->play_spt, scale);
 }
 
-void draw_play(button_t *button, window_t *wnd)
+void draw_play(menu_t *menu, window_t *wnd)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
-    sfFloatRect play = sfSprite_getGlobalBounds(button->play_spt);
+    sfFloatRect play = sfSprite_getGlobalBounds(menu->button->play_spt);
 
     if ((mouse_pos.x >= box_size_x(wnd, play.left) && mouse_pos.x <=
         (box_size_x(wnd, play.left) + box_size_x(wnd, play.width))) &&
         (mouse_pos.y >= box_size_y(wnd, play.top) && mouse_pos.y <=
         (box_size_y(wnd, play.top) + box_size_y(wnd, play.height)))) {
-        if (button->enable_click == TRUE) {
+        if (menu->button->enable_click == TRUE) {
             sfRenderWindow_drawSprite(wnd->window,
-                                    button->click_play_spt, NULL);
+                                    menu->button->click_play_spt, NULL);
+            menu->game_bgd = TRUE;
         }
         else
             sfRenderWindow_drawSprite(wnd->window,
-                                    button->hover_play_spt, NULL);
+                                    menu->button->hover_play_spt, NULL);
         } else
-            sfRenderWindow_drawSprite(wnd->window, button->play_spt, NULL);
+            sfRenderWindow_drawSprite(wnd->window, menu->button->play_spt, NULL);
 }
 
-void click_play_but(button_t *button)
+void click_play_but(menu_t *menu)
 {
-    button->click_play_tex = sfTexture_createFromFile(
+    menu->button->click_play_tex = sfTexture_createFromFile(
                         "Ressources/button/menu/play/click_play.png",
                         NULL);
-    button->click_play_spt = sfSprite_create();
+    menu->button->click_play_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
     sfVector2f setting_pos = {175, 800};
 
-    sfSprite_setTexture(button->click_play_spt,
-                        button->click_play_tex, sfFalse);
-    sfSprite_setPosition(button->click_play_spt, setting_pos);
-    sfSprite_setScale(button->click_play_spt, scale);
+    sfSprite_setTexture(menu->button->click_play_spt,
+                        menu->button->click_play_tex, sfFalse);
+    sfSprite_setPosition(menu->button->click_play_spt, setting_pos);
+    sfSprite_setScale(menu->button->click_play_spt, scale);
+    menu->game_bgd = FALSE;
 }

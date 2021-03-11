@@ -18,6 +18,7 @@ SRCSFILES	=	main.c 			\
 				Game_core/wnd_open.c				\
 				Game_core/events.c					\
 				Game_core/draw_scene.c				\
+				Game_core/timer.c			\
 				Game_core/menu/settings/resize_window.c			\
 				Game_core/menu/settings/setting_button.c		\
 				Game_core/menu/settings/switch_bg.c				\
@@ -35,7 +36,7 @@ SRCSFILES	=	main.c 			\
 				Game_core/menu/main_menu/menu_spt.c			\
 				Game_core/menu/main_menu/leave_button.c		\
 				Game_core/menu/main_menu/return_to_menu.c	\
-				Game_core/timer.c					\
+				Game_core/game/gm_background.c		\
 				End/destroy.c 			\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
