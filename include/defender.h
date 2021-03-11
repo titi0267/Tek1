@@ -111,6 +111,8 @@ void game_name(menu_t *menu);
 
 void game_bgd(game_t *game);
 
+int manage_enemy(core_t *core);
+
 void destroy_regroup_spt(menu_t *menu);
 void destroy_all(core_t *core);
 
