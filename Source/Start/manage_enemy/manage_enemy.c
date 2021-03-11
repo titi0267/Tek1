@@ -5,7 +5,7 @@
 ** manage_enemy
 */
 
-#include "../../../include/struct.h"
+#include "../../../include/defender.h"
 
 int display_list(pirat_data_t **data)
 {
@@ -15,10 +15,16 @@ int display_list(pirat_data_t **data)
         printf("-> La route est la numéro %i\n", data_bis->road);
 }
 
+void move_enemy(core_t *core)
+{
+    pira
+}
+
 int feed_enemy(core_t *core)
 {
     pirat_data_t **data
     pirat_data_t *data_bis;
+    core->enemy->pirat
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
         data_bis = malloc(sizeof(*data_bis));
@@ -31,6 +37,7 @@ int feed_enemy(core_t *core)
         data_bis->next = *data;
         *data = data_bis;
     }
+    core->data = *data;
     display_list(data);
 }
 
