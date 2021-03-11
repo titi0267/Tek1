@@ -10,7 +10,7 @@
 void shop_button(shop_t *shop)
 {
     shop->shop_tex = sfTexture_createFromFile(
-                            "Ressources/button/settings/size/shop_button.png",
+                            "Ressources/button/settings/size/hover_1920-1080.png",
                             NULL);
     shop->shop_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};
