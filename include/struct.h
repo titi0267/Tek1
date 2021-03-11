@@ -46,14 +46,32 @@ typedef struct defense_s
     struct defense_s *next;
 } defense_t;
 
-typedef struct enemy_s
+typedef struct pirat_spt_s
+{
+    sfTexture *pirat_txt;
+    sfSprite *pirat_spt_1;
+    sfSprite *pirat_spt_2;
+    sfSprite *pirat_spt_3;
+    sfSprite *pirat_spt_4;
+    sfSprite *pirat_spt_5;
+    sfSprite *pirat_spt_6;
+    sfSprite *pirat_spt_7;
+} pirat_spt_t;
+
+typedef struct pirat_data_s
 {
     int life;
     int speed;
     int road;
     sfVector2f pos;
-    struct enemy_s *next;
-} ennemy_t;
+    struct pirat_data_s *next;
+} pirat_data_t;
+
+typedef struct enemy_s
+{
+    pirat_spt_t *pirat;
+    pirat_data_t *data;
+} enemy_t;
 
 typedef struct game_s
 {
@@ -179,6 +197,7 @@ typedef struct core_s
     time_t *time;
     menu_t *menu;
     game_t *game;
+    enemy_t *enemy;
 } core_t;
 
 #endif /* !struct_header */
