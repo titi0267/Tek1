@@ -113,6 +113,7 @@ void game_bgd(game_t *game);
 void shop_button(shop_t *shop);
 
 int manage_enemy(core_t *core);
+int feed_spt(core_t *core);
 
 void destroy_regroup_spt(menu_t *menu);
 void destroy_all(core_t *core);

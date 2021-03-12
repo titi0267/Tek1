@@ -17,10 +17,12 @@
 typedef struct wave_s
 {
     int nb_wave;
+    int wave;
     int pirate_one;
     int pirate_two;
     int pirate_three;
     int boss;
+    int end_wave;
 } wave_t;
 
 typedef struct shop_s
@@ -51,7 +53,7 @@ typedef struct defense_s
 typedef struct pirat_spt_s
 {
     sfTexture *pirat_txt;
-    sfSprite *pirat_spt_walk;
+    sfIntRect rectangle;
     sfSprite *pirat_spt_death;
 } pirat_spt_t;
 
@@ -62,7 +64,9 @@ typedef struct pirat_data_s
     int road;
     int x_walk;
     int y_walk;
+    int nb_pirat;
     sfVector2f pos;
+    sfSprite *pirat_walk;
     struct pirat_data_s *next;
 } pirat_data_t;
 
