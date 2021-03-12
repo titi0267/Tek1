@@ -25,10 +25,12 @@ void feed_enemy(core_t *core)
         core->enemy->data_bis->road = rand() % 2 + 0;
         core->enemy->data_bis->pos.x = 1500;
         core->enemy->data_bis->pos.y = 600;
+        core->enemy->data_bis->nb_pirat = 0;
         core->enemy->data_bis->pirat_walk = sfSprite_create();
         core->enemy->data_bis->next = *core->enemy->data;
         *core->enemy->data = core->enemy->data_bis;
     }
+    rect_pirat(core);
     feed_spt(core);
     core->wave->wave = TRUE;
 }
@@ -50,6 +52,7 @@ int check_life(core_t *core)
 
 int process_enemy(core_t *core)
 {
+    manage_pirat(core);
     return (0);
 }
 
