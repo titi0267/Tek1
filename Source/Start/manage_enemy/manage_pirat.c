@@ -55,7 +55,7 @@ int manage_pirat(core_t *core)
 int feed_spt(core_t *core)
 {
     pirat_data_t *data = *(core->enemy->data);
-    core->enemy->pirat->pirat_txt = sfTexture_createFromFile("../../../Ressources/perso/Walk/pirate_animated.png", NULL);
+    core->enemy->pirat->pirat_txt = sfTexture_createFromFile("Ressources/perso/Walk/pirate_animated.png", NULL);
 
     for (int i = 0; i < core->wave->pirate_one; i++)
         sfSprite_setTexture(data->pirat_walk, core->enemy->pirat->pirat_txt, sfFalse);
