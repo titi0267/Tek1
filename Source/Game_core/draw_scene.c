@@ -33,6 +33,7 @@ void draw_settings(menu_t *menu, window_t *wnd)
 void draw_game(game_t *game, window_t *wnd, core_t *core)
 {
     sfRenderWindow_drawSprite(wnd->window, game->game_bgd_spt, NULL);
+    manage_enemy(core);
 }
 
 void select_scene(menu_t *menu)
