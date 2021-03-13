@@ -110,12 +110,19 @@ void click_leave_but(button_t *button);
 void game_name(menu_t *menu);
 
 void game_bgd(game_t *game);
-void shop_button(shop_t *shop);
+void shop_button(shop_t *shop, menu_t *menu);
+void click_shop(shop_t *shop, window_t *wnd, menu_t *menu);
+void get_spt_mouse(tower_t *tower, window_t *wnd);
+
+void ice_tower_spt(tower_t *tower);
+void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower);
 
 int manage_enemy(core_t *core);
 int feed_spt(core_t *core);
 
-void destroy_regroup_spt(menu_t *menu);
+void add_def(game_t *game, window_t *wnd);
+
+void destroy_regroup_spt(core_t *core);
 void destroy_all(core_t *core);
 
 #endif /* !DEFENDER_H_ */

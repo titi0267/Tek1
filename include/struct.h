@@ -42,12 +42,22 @@ typedef struct eco_center_s
     struct eco_center_s *next;
 } eco_center_t;
 
+typedef struct tower_s
+{
+    sfTexture *ice_tower_tex;
+    sfSprite *ice_tower_spt;
+    int tower_release;
+    int tower_click;
+} tower_t;
+
 typedef struct defense_s
 {
     sfVector2f pos;
     int damage;
     int range;
+    float shoot_speed;
     struct defense_s *next;
+    sfSprite *new_build;
 } defense_t;
 
 typedef struct pirat_spt_s
@@ -81,6 +91,9 @@ typedef struct game_s
 {
     sfTexture *game_bgd_tex;
     sfSprite *game_bgd_spt;
+    defense_t *defense_bis;
+    defense_t **defense;
+    tower_t *tower;
 } game_t;
 
 typedef struct window_s
@@ -90,7 +103,7 @@ typedef struct window_s
     sfVector2f pos;
 } window_t;
 
-typedef enum scenes_s {scene_menu = 1, scene_settings = 2, scene_game = 3, no_scene = 4} scenes_t;
+typedef enum scenes_s {scene_menu = 1, scene_settings = 2, scene_game = 3, scene_shop = 4, no_scene = 5} scenes_t;
 
 typedef struct button_s
 {
@@ -187,6 +200,7 @@ typedef struct menu_s
     int go_to_stg;
     int menu_bg;
     int game_bgd;
+    int shop_bgd;
 } menu_t;
 
 typedef struct time_s

@@ -40,6 +40,8 @@ SRCSFILES	=	main.c 			\
 				Game_core/menu/main_menu/return_to_menu.c	\
 				Game_core/game/gm_background.c		\
 				Game_core/game/shop/shop_button.c	\
+				Game_core/game/shop/tower_spt.c		\
+				Game_core/game/defense/def_list.c	\
 				End/destroy.c 			\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))

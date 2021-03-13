@@ -97,12 +97,23 @@ void destroy_stg_bg_spt(menu_t *menu)
     //sfSprite_destroy(menu->stg->click_return_spt);
 }
 
-void destroy_regroup_spt(menu_t *menu)
+void destroy_shop_spt(shop_t *shop)
 {
-    destroy_menu_buttons_spt(menu);
-    destroy_size_stg_spt(menu->stg);
-    destroy_volume_spt(menu->stg->vol);
-    destroy_stg_bg_spt(menu);
+    sfSprite_destroy(shop->shop_spt);
+}
+
+void destroy_shop_tex(shop_t *shop)
+{
+    sfTexture_destroy(shop->shop_tex);
+}
+
+void destroy_regroup_spt(core_t *core)
+{
+    destroy_menu_buttons_spt(core->menu);
+    destroy_size_stg_spt(core->menu->stg);
+    destroy_volume_spt(core->menu->stg->vol);
+    destroy_stg_bg_spt(core->menu);
+    destroy_shop_spt(core->shop);
 }
 
 void destroy_regroup_tex(core_t *core)
@@ -111,6 +122,7 @@ void destroy_regroup_tex(core_t *core)
     destroy_size_stg_tex(core->menu->stg);
     destroy_volume_tex(core->menu->stg->vol);
     destroy_stg_bg_tex(core->menu);
+    destroy_shop_tex(core->shop);
 }
 
 void destroy_struct(core_t *core)
@@ -127,7 +139,7 @@ void destroy_struct(core_t *core)
 void destroy_all(core_t *core)
 {
     destroy_regroup_tex(core);
-    destroy_regroup_spt(core->menu);
+    destroy_regroup_spt(core);
     sfRenderWindow_destroy(core->wnd->window);
     sfClock_destroy(core->time->clock);
     destroy_struct(core);
