@@ -119,6 +119,8 @@ void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower);
 
 int manage_enemy(core_t *core);
 int feed_spt(core_t *core);
+int manage_pirat(core_t *core);
+void rect_pirat(core_t *core);
 
 void add_def(game_t *game, window_t *wnd);
 

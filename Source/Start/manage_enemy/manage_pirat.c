@@ -28,8 +28,11 @@ void moove_rect(core_t *core)
         number = time.microseconds / 500000.0;
     }
     for (int i = 0; i < core->wave->pirate_one; i++) {
-        if (data->nb_pirat < 7)
+        if (data->nb_pirat < 7) {
             core->enemy->pirat->rectangle.left = data->nb_pirat * core->enemy->pirat->rectangle.width;
+        } else
+            core->enemy->pirat->rectangle.left = 0;
+        data->nb_pirat++;
         data = data->next;
     }
 }
@@ -46,6 +49,7 @@ int manage_pirat(core_t *core)
     for (int i = 0; i < core->wave->pirate_one; i++) {
         moove_pirat(core);
         sfSprite_setPosition(data->pirat_walk, data->pos);
+        sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);
         sfRenderWindow_drawSprite(core->wnd->window, data->pirat_walk, NULL);
         data = data->next;
     }

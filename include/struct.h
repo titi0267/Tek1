@@ -74,9 +74,9 @@ typedef struct pirat_data_s
     int road;
     int x_walk;
     int y_walk;
-    int nb_pirat;
     sfVector2f pos;
     sfSprite *pirat_walk;
+    int nb_pirat;
     struct pirat_data_s *next;
 } pirat_data_t;
 
