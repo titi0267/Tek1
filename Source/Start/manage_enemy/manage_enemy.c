@@ -23,8 +23,13 @@ void feed_enemy(core_t *core)
         core->enemy->data_bis->life = 100;
         core->enemy->data_bis->speed = 1;
         core->enemy->data_bis->road = rand() % 2 + 0;
-        core->enemy->data_bis->pos.x = 1500;
-        core->enemy->data_bis->pos.y = 600;
+        if (core->enemy->data_bis->road == 1) {
+            core->enemy->data_bis->pos.x = 1500;
+            core->enemy->data_bis->pos.y = 810;
+        } else {
+            core->enemy->data_bis->pos.x = 1600;
+            core->enemy->data_bis->pos.y = 410;
+        }
         core->enemy->data_bis->nb_pirat = 0;
         core->enemy->data_bis->pirat_walk = sfSprite_create();
         core->enemy->data_bis->next = *core->enemy->data;

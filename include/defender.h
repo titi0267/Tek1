@@ -116,6 +116,8 @@ int manage_enemy(core_t *core);
 int feed_spt(core_t *core);
 int manage_pirat(core_t *core);
 void rect_pirat(core_t *core);
+int moove_pirat(core_t *core);
+int move_road2(core_t *core);
 
 void destroy_regroup_spt(menu_t *menu);
 void destroy_all(core_t *core);

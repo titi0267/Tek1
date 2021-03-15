@@ -10,10 +10,10 @@
 void game_bgd(game_t *game)
 {
     game->game_bgd_tex = sfTexture_createFromFile(
-                        "Ressources/background/menuGame.jpg",
+                        "Ressources/background/menuGame.PNG",
                         NULL);
     game->game_bgd_spt = sfSprite_create();
-    sfVector2f scale = {1, 0.97};
+    sfVector2f scale = {1, 0.95};
     sfVector2f setting_pos = {0, 0};
 
     sfSprite_setTexture(game->game_bgd_spt,
