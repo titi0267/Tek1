@@ -48,7 +48,9 @@ void init_menu_spt(core_t *core)
 void init_gm(core_t *core)
 {
     game_bgd(core->game);
-    shop_button(core->shop);
+    shop_button(core->shop, core->menu);
+    feed_spt(core);
+    ice_tower_spt(core->game->tower);
 }
 
 void init(core_t *core)

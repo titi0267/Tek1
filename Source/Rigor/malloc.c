@@ -21,13 +21,16 @@ int struct_alloc(core_t *core)
     core->enemy->pirat = malloc(sizeof(pirat_spt_t));
     core->enemy->data = malloc(sizeof(pirat_data_t));
     core->wave = malloc(sizeof(wave_t));
+    core->game->defense = malloc(sizeof(defense_t));
+    core->game->tower = malloc(sizeof(tower_t));
 
     if (core == NULL || core->wnd == NULL || core->time == NULL ||
         core->menu == NULL || core->menu->button == NULL ||
         core->menu->stg == NULL || core->menu->stg->vol == NULL ||
         core->shop == NULL || core->game == NULL || core->enemy == NULL
         || core->enemy->pirat == NULL || core->enemy->data == NULL
-        || core->wave == NULL)
+        || core->wave == NULL || core->game->defense == NULL ||
+        core->game->tower == NULL)
         return (ERROR);
     return (0);
 }
