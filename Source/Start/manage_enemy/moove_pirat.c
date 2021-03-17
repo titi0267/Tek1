@@ -46,12 +46,14 @@ void manage_move(core_t *core, pirat_data_t *data)
 int moove_pirat(core_t *core)
 {
     pirat_data_t *data = *(core->enemy->data);
+    static float nbr = 0;
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
         if (data->road == 1)
             manage_move(core, data);
         else
             move_road2(core, data);
+        nbr += core->time->delta_time;
         data = data->next;
     }
     return (0);

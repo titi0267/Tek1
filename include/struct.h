@@ -88,9 +88,10 @@ typedef struct pirat_data_s
     int road;
     int x_walk;
     int y_walk;
+    int nb_pirat;
+    int spawn;
     sfVector2f pos;
     sfSprite *pirat_walk;
-    int nb_pirat;
     struct pirat_data_s *next;
 } pirat_data_t;
 
@@ -109,6 +110,7 @@ typedef struct game_s
     defense_t **defense;
     tower_t *tower;
     float lifepoint;
+    int nb_spt;
     sfText *life;
 } game_t;
 
