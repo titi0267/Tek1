@@ -43,21 +43,16 @@ int manage_pirat(core_t *core)
     sfVector2f scale = {0.37, 0.37};
     static float nbr = 0;
 
-    //printf("nb_spt = %i\n", core->game->nb_spt);
     nbr += core->time->delta_time;
-    printf("nbr = %f\n", nbr);
     for (int i = 0; i < core->game->nb_spt && core->enemy->data_bis != NULL; data_bis = data_bis->next, i++) {
         moove_pirat(core);
-        //range_def(core->game, core->enemy);
-        my_printf("enemy = %i\n", data_bis->road);
         sfSprite_setPosition(data_bis->pirat_walk, data_bis->pos);
         sfSprite_setTextureRect(data_bis->pirat_walk, core->enemy->pirat->rectangle);
         sfSprite_setScale(data_bis->pirat_walk, scale);
         sfRenderWindow_drawSprite(core->wnd->window, data_bis->pirat_walk, NULL);
     }
-    if (nbr >= 2) {
+    if (nbr >= 2 && core->game->nb_spt < core->wave->pirate_one) {
         core->game->nb_spt++;
-        my_printf("nb = %i\n", core->game->nb_spt);
         nbr = 0;
     }
     return (0);
