@@ -39,27 +39,28 @@ void moove_rect(core_t *core)
 
 int manage_pirat(core_t *core)
 {
-    pirat_data_t *data = *(core->enemy->data);
+    pirat_data_t *data_bis = *(core->enemy->data);
     sfVector2f scale = {0.37, 0.37};
 
-    for (int i = 0; i < core->wave->pirate_one; i++) {
+    for (; data_bis != NULL; data_bis = data_bis->next) {
         moove_pirat(core);
-        sfSprite_setPosition(data->pirat_walk, data->pos);
-        sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);
-        sfSprite_setScale(data->pirat_walk, scale);
-        scale.x += 10;
-        sfRenderWindow_drawSprite(core->wnd->window, data->pirat_walk, NULL);
-        data = data->next;
+        sfSprite_setPosition(data_bis->pirat_walk, data_bis->pos);
+        sfSprite_setTextureRect(data_bis->pirat_walk, core->enemy->pirat->rectangle);
+        sfSprite_setScale(data_bis->pirat_walk, scale);
+        //scale.x += 100;
+        sfRenderWindow_drawSprite(core->wnd->window, data_bis->pirat_walk, NULL);
     }
     return (0);
 }
 
 int feed_spt(core_t *core)
 {
-    pirat_data_t *data = *(core->enemy->data);
-    core->enemy->pirat->pirat_txt = sfTexture_createFromFile("Ressources/perso/Walk/pirate_animated.png", NULL);
+    pirat_data_t *data_bis = *(core->enemy->data);
+    core->enemy->pirat->pirat_txt = sfTexture_createFromFile(
+                            "Ressources/perso/Walk/pirate_animated.png", NULL);
 
-    for (int i = 0; i < core->wave->pirate_one; i++)
-        sfSprite_setTexture(data->pirat_walk, core->enemy->pirat->pirat_txt, sfFalse);
+    core->enemy->pirat->pirat_spt = sfSprite_create();
+    for (int i = 0; data_bis != NULL; data_bis = data_bis->next)
+        sfSprite_setTexture(data_bis->pirat_walk, core->enemy->pirat->pirat_txt, sfTrue);
     return (0);
 }
