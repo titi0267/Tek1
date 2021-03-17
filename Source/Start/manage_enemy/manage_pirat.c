@@ -44,6 +44,7 @@ int manage_pirat(core_t *core)
 
     for (; data_bis != NULL; data_bis = data_bis->next) {
         moove_pirat(core);
+        range_def(core->game, core->enemy);
         sfSprite_setPosition(data_bis->pirat_walk, data_bis->pos);
         sfSprite_setTextureRect(data_bis->pirat_walk, core->enemy->pirat->rectangle);
         sfSprite_setScale(data_bis->pirat_walk, scale);
