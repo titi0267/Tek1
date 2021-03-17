@@ -18,17 +18,23 @@ void display_list(core_t *core)
 
 void feed_enemy(core_t *core)
 {
+    int tmp_one = 0;
+    int tmp_two = 0;
+
     for (int i = 0; i < core->wave->pirate_one; i++) {
         core->enemy->data_bis = malloc(sizeof(*core->enemy->data_bis));
         core->enemy->data_bis->life = 100;
         core->enemy->data_bis->speed = 1;
         core->enemy->data_bis->road = rand() % 2 + 0;
+        core->enemy->data_bis->damage = 1;
         if (core->enemy->data_bis->road == 1) {
-            core->enemy->data_bis->pos.x = 1500;
+            core->enemy->data_bis->pos.x = 1500 - tmp_one;
             core->enemy->data_bis->pos.y = 810;
+            tmp_one += 45;
         } else {
-            core->enemy->data_bis->pos.x = 1000;
-            core->enemy->data_bis->pos.y = 210;
+            core->enemy->data_bis->pos.x = 1630 - tmp_two;
+            core->enemy->data_bis->pos.y = 40;
+            tmp_two += 45;
         }
         core->enemy->data_bis->nb_pirat = 0;
         core->enemy->data_bis->pirat_walk = sfSprite_create();
@@ -67,5 +73,6 @@ int manage_enemy(core_t *core)
         feed_enemy(core);
     else
         process_enemy(core);
+    manage_life(core);
     return (0);
 }

@@ -70,4 +70,6 @@ void init(core_t *core)
     core->wave->wave = FALSE;
     core->wave->end_wave = FALSE;
     core->wave->pirate_one = 5;
+    core->game->lifepoint = 100;
+    core->game->life = sfText_create();
 }

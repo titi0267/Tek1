@@ -59,7 +59,6 @@ int feed_spt(core_t *core)
     core->enemy->pirat->pirat_txt = sfTexture_createFromFile(
                             "Ressources/perso/Walk/pirate_animated.png", NULL);
 
-    core->enemy->pirat->pirat_spt = sfSprite_create();
     for (int i = 0; data_bis != NULL; data_bis = data_bis->next)
         sfSprite_setTexture(data_bis->pirat_walk, core->enemy->pirat->pirat_txt, sfTrue);
     return (0);

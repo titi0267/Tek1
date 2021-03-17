@@ -83,6 +83,7 @@ typedef struct pirat_spt_s
 typedef struct pirat_data_s
 {
     int life;
+    int damage;
     int speed;
     int road;
     int x_walk;
@@ -107,6 +108,8 @@ typedef struct game_s
     defense_t *defense_bis;
     defense_t **defense;
     tower_t *tower;
+    float lifepoint;
+    sfText *life;
 } game_t;
 
 typedef struct window_s

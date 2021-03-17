@@ -13,6 +13,8 @@ void manage_move_bis_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
         data->pos.y -= 0.5;
     else if (pos.x == 90 && pos.y > 100)
         data->pos.y--;
+    if (pos.x == 90 && pos.x == 100)
+        attack(core, data, pos);
 }
 
 void manage_move_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
@@ -46,7 +48,10 @@ int moove_pirat(core_t *core)
     pirat_data_t *data = *(core->enemy->data);
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
-        manage_move(core, data);
+        if (data->road == 1)
+            manage_move(core, data);
+        else
+            move_road2(core, data);
         data = data->next;
     }
     return (0);
