@@ -37,19 +37,17 @@ void moove_rect(core_t *core)
     }
 }
 
-int moove_pirat(core_t *core)
-{
-    return (0);
-}
-
 int manage_pirat(core_t *core)
 {
     pirat_data_t *data = *(core->enemy->data);
+    sfVector2f scale = {0.37, 0.37};
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
         moove_pirat(core);
         sfSprite_setPosition(data->pirat_walk, data->pos);
         sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);
+        sfSprite_setScale(data->pirat_walk, scale);
+        scale.x += 10;
         sfRenderWindow_drawSprite(core->wnd->window, data->pirat_walk, NULL);
         data = data->next;
     }
