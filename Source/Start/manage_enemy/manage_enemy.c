@@ -18,6 +18,8 @@ void display_list(core_t *core)
 
 void feed_enemy(core_t *core)
 {
+    int y = 0;
+
     for (int i = 0; i < core->wave->pirate_one; i++) {
         core->enemy->data_bis = malloc(sizeof(*core->enemy->data_bis));
         core->enemy->data_bis->life = 100;
@@ -31,10 +33,11 @@ void feed_enemy(core_t *core)
             core->enemy->data_bis->pos.x = 1630;
             core->enemy->data_bis->pos.y = 40;
         }
-        core->enemy->data_bis->nb_pirat = 0;
+        core->enemy->data_bis->nb_pirat = y;
         core->enemy->data_bis->pirat_walk = sfSprite_create();
         core->enemy->data_bis->next = *core->enemy->data;
         *core->enemy->data = core->enemy->data_bis;
+        y++;
     }
     rect_pirat(core);
     feed_spt(core);
