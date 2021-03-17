@@ -7,27 +7,47 @@
 
 #include "../../../../include/defender.h"
 
-void add_def(game_t *game, window_t *wnd)
+void tower_array(game_t *game)
 {
-    static int i = 0;
+    game->tower->def_list = malloc(sizeof(sfSprite *) * 10);
 
-    if (game->tower->tower_release == 2 && i == 0) {
-        game->defense_bis = malloc(sizeof(*game->defense_bis));
-        game->defense_bis->damage = 20;
-        game->defense_bis->shoot_speed = 0.1;
-        game->defense_bis->range = 5;
-        game->defense_bis->pos.x = 300;
-        game->defense_bis->pos.y = 700;
-        game->defense_bis->new_build = sfSprite_copy(game->tower->ice_tower_spt);
-        sfSprite_setPosition(game->defense_bis->new_build,
-                            game->defense_bis->pos);
-        game->defense_bis->next = *game->defense;
-        *game->defense = game->defense_bis;
-        i++;
+    game->tower->def_list[0] = sfSprite_copy(game->tower->ice_tower_spt);
+    game->tower->def_list[1] = sfSprite_copy(game->tower->arrow_tower_spt);
+    game->tower->def_list[2] = sfSprite_copy(game->tower->wiz_tower_spt);
+}
+
+void print_def(game_t *game, window_t *wnd)
+{
+    defense_t *defense_bis = *(game->defense);
+
+    for (; defense_bis != NULL; defense_bis = defense_bis->next) {
+        sfRenderWindow_drawSprite(wnd->window, defense_bis->new_build, NULL);
     }
-    if (i > 0) {
-        sfRenderWindow_drawSprite(wnd->window, game->defense_bis->new_build, NULL);
-        my_printf("damage = %i\n", game->defense_bis->damage);
-        my_printf("range = %i\n", game->defense_bis->range);
+}
+
+void is_good(game_t *game)
+{
+    for (int i = 0; game->tower->good_pos[i].top != -1; i++) {
+        if (sfIntRect_contains(game->tower->good_pos,
+            game->defense_bis->pos.x, game->defense_bis->pos.y) == TRUE) {
+            game->tower->valid = TRUE;
+            }
     }
+}
+
+void add_def(game_t *game)
+{
+    game->defense_bis = malloc(sizeof(*game->defense_bis));
+    ice_def(game);
+    archer_def(game);
+    wiz_def(game);
+    game->defense_bis->pos.x = game->tower->mouse_pos.x;
+    game->defense_bis->pos.y = game->tower->mouse_pos.y;
+    game->defense_bis->new_build = sfSprite_copy(
+                            game->tower->def_list[game->tower->wich_defense]);
+    sfSprite_setPosition(game->defense_bis->new_build,
+                        game->defense_bis->pos);
+    game->defense_bis->next = *game->defense;
+    *game->defense = game->defense_bis;
+    game->tower->tower_release = FALSE;
 }

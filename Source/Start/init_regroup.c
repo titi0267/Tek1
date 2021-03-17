@@ -51,6 +51,10 @@ void init_gm(core_t *core)
     shop_button(core->shop, core->menu);
     feed_spt(core);
     ice_tower_spt(core->game->tower);
+    archer_spt(core->game->tower);
+    wizzard_spt(core->game->tower);
+    tower_array(core->game);
+    fill_pos_def(core->game);
 }
 
 void init(core_t *core)

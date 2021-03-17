@@ -42,12 +42,24 @@ typedef struct eco_center_s
     struct eco_center_s *next;
 } eco_center_t;
 
+typedef enum def_spt_s {ice_tower = 0, arrow_tower = 1, wiz_tower = 2} def_spt_t;
+
 typedef struct tower_s
 {
     sfTexture *ice_tower_tex;
     sfSprite *ice_tower_spt;
+    sfTexture *wiz_tower_tex;
+    sfSprite *wiz_tower_spt;
+    sfTexture *arrow_tower_tex;
+    sfSprite *arrow_tower_spt;
+    sfSprite **def_list;
+    sfVector2f mouse_pos;
+    sfSprite *place_tower;
+    def_spt_t wich_defense;
+    sfIntRect *good_pos;
     int tower_release;
     int tower_click;
+    int valid;
 } tower_t;
 
 typedef struct defense_s
@@ -59,6 +71,7 @@ typedef struct defense_s
     struct defense_s *next;
     sfSprite *new_build;
 } defense_t;
+
 
 typedef struct pirat_spt_s
 {
@@ -201,6 +214,8 @@ typedef struct menu_s
     int menu_bg;
     int game_bgd;
     int shop_bgd;
+    int shop_to_gm;
+    int shop_release;
 } menu_t;
 
 typedef struct time_s

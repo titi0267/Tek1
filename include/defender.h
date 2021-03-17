@@ -113,16 +113,29 @@ void game_bgd(game_t *game);
 void shop_button(shop_t *shop, menu_t *menu);
 void click_shop(shop_t *shop, window_t *wnd, menu_t *menu);
 void get_spt_mouse(tower_t *tower, window_t *wnd);
+void tower_array(game_t *game);
+void fill_pos_def(game_t *game);
+void is_good(game_t *game);
 
 void ice_tower_spt(tower_t *tower);
 void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower);
+void ice_def(game_t *game);
+
+void archer_spt(tower_t *tower);
+void click_arrow_tower(window_t *wnd, menu_t *menu, tower_t *tower);
+void archer_def(game_t *game);
+
+void wizzard_spt(tower_t *tower);
+void click_wiz_tower(window_t *wnd, menu_t *menu, tower_t *tower);
+void wiz_def(game_t *game);
 
 int manage_enemy(core_t *core);
 int feed_spt(core_t *core);
 int manage_pirat(core_t *core);
 void rect_pirat(core_t *core);
 
-void add_def(game_t *game, window_t *wnd);
+void add_def(game_t *game);
+void print_def(game_t *game, window_t *wnd);
 
 void destroy_regroup_spt(core_t *core);
 void destroy_all(core_t *core);

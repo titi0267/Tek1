@@ -32,26 +32,32 @@ void draw_settings(menu_t *menu, window_t *wnd)
 
 void draw_game(game_t *game, window_t *wnd, core_t *core)
 {
+
     sfRenderWindow_drawSprite(wnd->window, game->game_bgd_spt, NULL);
     manage_enemy(core);
     click_shop(core->shop, core->wnd, core->menu);
-    click_ice_tower(wnd, core->menu, core->game->tower);
+    print_def(game, wnd);
+}
+
+void draw_shop(core_t *core, window_t *wnd)
+{
+    if (core->game->tower->tower_click == FALSE) {
+        click_ice_tower(wnd, core->menu, core->game->tower);
+        click_arrow_tower(wnd, core->menu, core->game->tower);
+        click_wiz_tower(wnd, core->menu, core->game->tower);
+    }
     if (core->game->tower->tower_click == TRUE) {
         get_spt_mouse(core->game->tower, wnd);
-        if ((core->game->tower->tower_release == 2) &&
+        if ((core->game->tower->tower_release == TRUE) &&
             (core->menu->button->enable_click == TRUE)) {
             core->game->tower->tower_click = FALSE;
             sfRenderWindow_setMouseCursorVisible(wnd->window, TRUE);
+            add_def(core->game);
         }
         if (core->menu->button->enable_click == FALSE)
-            core->game->tower->tower_release = 2;
+            core->game->tower->tower_release = TRUE;
     }
-    add_def(game, wnd);
 }
-
-/*void draw_shop(core_t *core)
-{
-}*/
 
 void select_scene(menu_t *menu)
 {
@@ -93,6 +99,6 @@ void print_scene(menu_t *menu, window_t *wnd, game_t *game, core_t *core)
         draw_game(game, wnd, core);
     } else if (menu->scene_one == scene_game && menu->scene_two == scene_shop) {
         draw_game(game, wnd, core);
-        //draw_shop(core);
+        draw_shop(core, wnd);
     }
 }

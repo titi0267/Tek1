@@ -10,27 +10,17 @@
 void ice_tower_spt(tower_t *tower)
 {
     tower->ice_tower_tex = sfTexture_createFromFile(
-                        "Ressources/button/settings/size/hover_1920-1080.png",
+                        "Ressources/tower/ice_tower.png",
                         NULL);
     tower->ice_tower_spt = sfSprite_create();
-    sfVector2f scale = {0.25f, 0.25f};
-    sfVector2f ice_tower_pos = {1600, 100};
+    sfVector2f scale = {1, 1};
+    sfVector2f ice_tower_pos = {1500, 100};
 
     sfSprite_setTexture(tower->ice_tower_spt, tower->ice_tower_tex, sfFalse);
     sfSprite_setPosition(tower->ice_tower_spt, ice_tower_pos);
     sfSprite_setScale(tower->ice_tower_spt, scale);
     tower->tower_click = FALSE;
     tower->tower_release = FALSE;
-}
-
-void get_spt_mouse(tower_t *tower, window_t *wnd)
-{
-    sfVector2i mouse = sfMouse_getPositionRenderWindow(wnd->window);
-    sfVector2f mouse_pos = sfRenderWindow_mapPixelToCoords(wnd->window, mouse, NULL);
-
-    sfSprite_setPosition(tower->ice_tower_spt, mouse_pos);
-    sfRenderWindow_drawSprite(wnd->window, tower->ice_tower_spt, NULL);
-    sfRenderWindow_setMouseCursorVisible(wnd->window, FALSE);
 }
 
 void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower)
@@ -42,13 +32,15 @@ void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower)
         (box_size_x(wnd, ice_pos.left) + box_size_x(wnd, ice_pos.width)))
         && (mouse_pos.y >= box_size_y(wnd, ice_pos.top) && mouse_pos.y <=
         (box_size_y(wnd, ice_pos.top) + box_size_y(wnd, ice_pos.height)))) {
-            if (menu->button->enable_click == TRUE)
-                tower->tower_click = TRUE;
-            else {
-                sfRenderWindow_drawSprite(wnd->window,
-                                        tower->ice_tower_spt, NULL);
-            }
-        } else
+        if (menu->button->enable_click == TRUE) {
+            tower->tower_click = TRUE;
+            tower->wich_defense = 0;
+        }
+        else {
             sfRenderWindow_drawSprite(wnd->window,
+                                    tower->ice_tower_spt, NULL);
+        }
+    } else
+        sfRenderWindow_drawSprite(wnd->window,
                                     tower->ice_tower_spt, NULL);
 }
