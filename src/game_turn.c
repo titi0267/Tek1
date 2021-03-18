@@ -21,10 +21,10 @@ int turn_nbr(char **av, duo_stp_t *map)
     }
     for (int i = 0; i != map->turns; i++) {
         find_map(map);
-    }
+   }
     for (int x = 0; map->temp_two[x] != NULL; x++)
         my_putstr(map->temp_two[x]);
-}
+} 
 
 int find_map(duo_stp_t *map)
 {
