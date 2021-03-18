@@ -55,6 +55,7 @@ void init_gm(core_t *core)
     wizzard_spt(core->game->tower);
     tower_array(core->game);
     fill_pos_def(core->game);
+    fill_alrd_build(core->game);
 }
 
 void init(core_t *core)

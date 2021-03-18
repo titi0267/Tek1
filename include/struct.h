@@ -56,10 +56,11 @@ typedef struct tower_s
     sfVector2f mouse_pos;
     sfSprite *place_tower;
     def_spt_t wich_defense;
-    sfIntRect *good_pos;
+    sfVector2f *good_pos;
+    sfVector2f transmit_pos;
     int tower_release;
     int tower_click;
-    int valid;
+    int *area;
 } tower_t;
 
 typedef struct defense_s
@@ -111,6 +112,7 @@ typedef struct game_s
     tower_t *tower;
     float lifepoint;
     int nb_spt;
+    int valid;
     sfText *life;
 } game_t;
 

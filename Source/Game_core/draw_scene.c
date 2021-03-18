@@ -48,11 +48,20 @@ void draw_shop(core_t *core, window_t *wnd)
     }
     if (core->game->tower->tower_click == TRUE) {
         get_spt_mouse(core->game->tower, wnd);
+        calc_vector(core->game, core->menu);
         if ((core->game->tower->tower_release == TRUE) &&
-            (core->menu->button->enable_click == TRUE)) {
+            (core->menu->button->enable_click == TRUE &&
+            core->game->valid == TRUE)) {
             core->game->tower->tower_click = FALSE;
             sfRenderWindow_setMouseCursorVisible(wnd->window, TRUE);
             add_def(core->game);
+            core->game->valid = FALSE;
+        } else if ((core->game->tower->tower_release == TRUE) &&
+            (core->menu->button->enable_click == TRUE &&
+            core->game->valid == FALSE)) {
+            core->game->tower->tower_click = FALSE;
+            sfRenderWindow_setMouseCursorVisible(wnd->window, TRUE);
+            core->game->tower->tower_release = FALSE;
         }
         if (core->menu->button->enable_click == FALSE)
             core->game->tower->tower_release = TRUE;

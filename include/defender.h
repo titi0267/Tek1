@@ -116,7 +116,9 @@ void get_spt_mouse(tower_t *tower, window_t *wnd);
 void tower_array(game_t *game);
 void fill_pos_def(game_t *game);
 void is_good(game_t *game);
-void range_def(game_t *game, enemy_t *enemy);
+void range_def(game_t *game, enemy_t *enemy, time_t *time);
+void fill_alrd_build(game_t *game);
+void calc_vector(game_t *game, menu_t *menu);
 
 void ice_tower_spt(tower_t *tower);
 void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower);

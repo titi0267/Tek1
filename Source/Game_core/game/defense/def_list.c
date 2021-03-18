@@ -25,15 +25,17 @@ void print_def(game_t *game, window_t *wnd)
     }
 }
 
-void is_good(game_t *game)
+/*void is_good(game_t *game)
 {
     for (int i = 0; game->tower->good_pos[i].top != -1; i++) {
         if (sfIntRect_contains(game->tower->good_pos,
-            game->defense_bis->pos.x, game->defense_bis->pos.y) == TRUE) {
-            game->tower->valid = TRUE;
-            }
+            game->tower->mouse_pos.x, game->tower->mouse_pos.y) == TRUE) {
+            game->valid = TRUE;
+            break;
+        } else
+            game->valid = FALSE;
     }
-}
+}*/
 
 void add_def(game_t *game)
 {
@@ -41,8 +43,8 @@ void add_def(game_t *game)
     ice_def(game);
     archer_def(game);
     wiz_def(game);
-    game->defense_bis->pos.x = game->tower->mouse_pos.x;
-    game->defense_bis->pos.y = game->tower->mouse_pos.y;
+    game->defense_bis->pos.x = game->tower->transmit_pos.x;
+    game->defense_bis->pos.y = game->tower->transmit_pos.y;
     game->defense_bis->new_build = sfSprite_copy(
                             game->tower->def_list[game->tower->wich_defense]);
     sfSprite_setPosition(game->defense_bis->new_build,
