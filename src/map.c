@@ -22,8 +22,11 @@ int read_map(duo_stp_t *map, char **av)
     read_ret = read(fd, map->buffer, map->buffer_size);
     if (read_ret == -1)
         return (84);
+    map->buffer_size = read_ret;
     map->buffer[map->buffer_size] = '\0';
     close (fd);
+    map->line_nbr = nbr_line(map->buffer);
+    map->char_nbr = nbr_char(map->buffer);
     return (0);
 }
 
@@ -33,9 +36,9 @@ int store_map(duo_stp_t *map)
     int d = 0;
     int c = 0;
 
-    map->line = malloc(sizeof(char *) * 11);
-    while (d != 10) {
-        map->line[d] = malloc(sizeof(char) * 19);
+    map->line = malloc(sizeof(char *) * (map->line_nbr + 1));
+    while (d != map->line_nbr) {
+        map->line[d] = malloc(sizeof(char) * (map->char_nbr + 1));
         while (map->buffer[i] != '\n') {
             map->line[d][c] = map->buffer[i];
             c++;

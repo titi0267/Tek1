@@ -13,7 +13,7 @@ SRC=		src/main.c		\
 		src/next_main.c		\
 		src/nbrline.c		\
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude	-g
 
 NAME	=	gameoflife
 

@@ -13,9 +13,10 @@ int nbr_line(char *buffer)
     int y = 0;
 
     while (buffer[i] != '\0') {
-        i++;
+        printf("%c", buffer[i]);
         if (buffer[i] == '\n')
             y++;
+        i++;
     }
     return (y);
 }
@@ -27,5 +28,5 @@ int nbr_char(char *buffer)
     while (buffer[i] != '\n') {
         i++;
     }
-    return (0);
+    return (i + 1);
 }
