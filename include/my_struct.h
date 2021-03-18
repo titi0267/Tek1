@@ -18,5 +18,4 @@ typedef struct duo_stp_s
     int turns;
 } duo_stp_t;
 
-
 #endif /* !MY_STRUCT_H_ */

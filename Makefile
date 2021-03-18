@@ -10,10 +10,9 @@ CC		=	gcc	-o
 SRC=		src/main.c		\
 		src/lib.c		\
 		src/map.c		\
-		src/next_main.c		\
 		src/nbrline.c		\
 		src/error_handling.c	\
-		src/game_turn.c	\
+		src/game_turn.c		\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude	-g
 
