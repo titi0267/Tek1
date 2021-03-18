@@ -4,13 +4,13 @@
 ## File description:
 ## Makefile
 ##
-g
+
 CC		=	gcc	-o
 
 SRC=	src/main.c		\
 		src/lib.c		\
 		src/map.c		\
-		src/next_main.c
+		src/next_main.c		\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude
 

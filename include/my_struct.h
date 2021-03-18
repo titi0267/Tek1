@@ -13,7 +13,7 @@ typedef struct duo_stp_s
     char **line;
     int buffer_size;
     char *buffer;
-} duo_spt_t;
+} duo_stp_t;
 
 
 #endif /* !MY_STRUCT_H_ */
