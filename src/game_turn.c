@@ -22,15 +22,14 @@ int find_map(duo_stp_t *map)
 
     for (int i = 0; map->line[i] != NULL; i++) {
         for (int f = 0; map->line[i][f] != '\n'; f++) {
-            if (map->line[i][f] == 'X') {
-                x = around_cell(map, i, f);
-                printf("x = %i\n", x);
-            }
+            x = over_cell(map, i, f);
+            x += under_cell(map, i, f);
+            printf("x = %i\n", x);
         }
     }
 }
 
-int around_cell(duo_stp_t *map, int i, int f)
+int over_cell(duo_stp_t *map, int i, int f)
 {
     int x = 0;
 
@@ -52,5 +51,30 @@ int around_cell(duo_stp_t *map, int i, int f)
         if (map->line[i - 1][f - 1] == 'X')
             x++;
     }
+    return (x);
+}
+
+int under_cell(duo_stp_t *map, int i, int f)
+{
+    int x = 0;
+
+    if (i != map->line_nbr && f != 0 && f != map->char_nbr) {
+        if (map->line[i + 1][f] == 'X')
+            x++;
+        if(map->line[i + 1[f + 1] == 'X')
+           x++;
+        if (map->line[i + 1][f - 1] == 'X')
+            x++;
+    } else if (i != map->line_nbr && f == 0) {
+        if (map->line[i + 1][f] == 'X')
+            x++;
+        if (map->line[i + 1][f + 1] == 'X')
+            x++;
+    } else if (i != map->line_nbr && f == map->char_nbr) {
+                if (map->line[i + 1][f] == 'X')
+                    x++;
+                if (map->line[i + 1][f - 1] == 'X')
+                    x++;
+            }
     return (x);
 }

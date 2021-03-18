@@ -28,5 +28,6 @@ int error_arg_one(int ac, char **av);
 int turn_nbr(char **av, duo_stp_t *map);
 int around_cell(duo_stp_t *map, int i, int f);
 int find_map(duo_stp_t *map);
+int under_cell(duo_stp_t *map, int i, int f);
 
 #endif /* !MY_H_ */
