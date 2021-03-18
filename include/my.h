@@ -28,6 +28,7 @@ int error_arg_one(int ac, char **av);
 int turn_nbr(char **av, duo_stp_t *map);
 int around_cell(duo_stp_t *map, int i, int f);
 int find_map(duo_stp_t *map);
+int over_cell(duo_stp_t *map, int i, int f);
 int under_cell(duo_stp_t *map, int i, int f);
 int side_cell(duo_stp_t *map, int i, int f);
 
