@@ -31,5 +31,6 @@ int find_map(duo_stp_t *map);
 int over_cell(duo_stp_t *map, int i, int f);
 int under_cell(duo_stp_t *map, int i, int f);
 int side_cell(duo_stp_t *map, int i, int f);
+void change_map(duo_stp_t *map, int x, int i, int f);
 
 #endif /* !MY_H_ */

@@ -13,7 +13,6 @@ int nbr_line(char *buffer)
     int y = 0;
 
     while (buffer[i] != '\0') {
-        printf("%c", buffer[i]);
         if (buffer[i] == '\n')
             y++;
         i++;
