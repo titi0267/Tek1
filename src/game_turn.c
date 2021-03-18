@@ -24,6 +24,7 @@ int find_map(duo_stp_t *map)
         for (int f = 0; map->line[i][f] != '\n'; f++) {
             x = over_cell(map, i, f);
             x += under_cell(map, i, f);
+            x += side_cell(map, i, f);
             printf("x = %i\n", x);
         }
     }
