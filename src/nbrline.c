@@ -7,35 +7,25 @@
 
 #include "../include/my.h"
 
-int nbr_char(char *buffer)
+int nbr_line(char *buffer)
 {
     int i = 0;
     int y = 0;
 
-    while (buffer[i] != '\n')
+    while (buffer[i] != '\0') {
         i++;
-    i++;
-    while (buffer[i] != '\n') {
-        y++;
-        i++;
+        if (buffer[i] == '\n')
+            y++;
     }
-    y++;
     return (y);
 }
 
-char *nbr_line(char *buffer)
+int nbr_char(char *buffer)
 {
     int i = 0;
-    char *str = malloc(sizeof(char) * 10);
 
-    if (str == NULL)
-        return (NULL);
     while (buffer[i] != '\n') {
-        str[i] = buffer[i];
         i++;
     }
-    str[i] = '\n';
-    i++;
-    str[i] = '\0';
-    return (str);
+    return (0);
 }
