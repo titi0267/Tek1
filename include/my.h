@@ -23,5 +23,7 @@ int read_map(duo_stp_t *map, char **av);
 int store_map(duo_stp_t *map);
 int nbr_char(char *buffer);
 int nbr_line(char *buffer);
+int error_argnbr(int ac, char **av);
+int error_arg_one(int ac, char **av);
 
 #endif /* !MY_H_ */
