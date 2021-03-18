@@ -1,9 +1,10 @@
 /*
 ** EPITECH PROJECT, 2021
-** my library by Timothy CONIEL
+** lib.c
 ** File description:
 ** lib.c
 */
+
 #include <unistd.h>
 #include "../include/my.h"
 

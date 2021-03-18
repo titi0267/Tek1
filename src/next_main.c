@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2021
-** solo_stumper by Timothy CONIEL
+** duo_stumper.c
 ** File description:
-** solo_stumper.c
+** duo_stumper.c
 */
 
 #include "../include/my.h"

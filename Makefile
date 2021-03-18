@@ -4,6 +4,7 @@
 ## File description:
 ## Makefile
 ##
+g
 CC		=	gcc	-o
 
 SRC=	src/main.c		\
@@ -12,7 +13,7 @@ SRC=	src/main.c		\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude
 
-NAME	=	duo
+NAME	=	gameoflife
 
 all:
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
