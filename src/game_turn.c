@@ -62,7 +62,7 @@ int under_cell(duo_stp_t *map, int i, int f)
     if (i != map->line_nbr && f != 0 && f != map->char_nbr) {
         if (map->line[i + 1][f] == 'X')
             x++;
-        if(map->line[i + 1[f + 1] == 'X')
+        if(map->line[i + 1][f + 1] == 'X')
            x++;
         if (map->line[i + 1][f - 1] == 'X')
             x++;
@@ -72,10 +72,10 @@ int under_cell(duo_stp_t *map, int i, int f)
         if (map->line[i + 1][f + 1] == 'X')
             x++;
     } else if (i != map->line_nbr && f == map->char_nbr) {
-                if (map->line[i + 1][f] == 'X')
-                    x++;
-                if (map->line[i + 1][f - 1] == 'X')
-                    x++;
-            }
+        if (map->line[i + 1][f] == 'X')
+            x++;
+        if (map->line[i + 1][f - 1] == 'X')
+            x++;
+    }
     return (x);
 }
