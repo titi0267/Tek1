@@ -12,8 +12,7 @@ int turn_nbr(char **av, duo_stp_t *map)
     map->turns = my_getnbr(av[2]);
     for (int i = 0; i != map->turns; i++) {
         find_map(map);
-    }
-    printf("turns = %i\n", map->turns); 
+    } 
 }
 
 int find_map(duo_stp_t *map)
@@ -25,7 +24,6 @@ int find_map(duo_stp_t *map)
             x = over_cell(map, i, f);
             x += under_cell(map, i, f);
             x += side_cell(map, i, f);
-            printf("x = %i\n", x);
         }
     }
 }
@@ -67,7 +65,6 @@ int under_cell(duo_stp_t *map, int i, int f)
         if (map->line[i + 1][f - 1] == 'X')
             x++;
     } else if (i != (map->line_nbr - 1) && f == 0) {
-        printf("i = %i\n", i);
         if (map->line[i + 1][f] == 'X')
             x++;
         if (map->line[i + 1][f + 1] == 'X')
