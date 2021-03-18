@@ -27,7 +27,7 @@ int read_map(duo_stp_t *map, char **av)
     return (0);
 }
 
-int store_map(map_t *map)
+int store_map(duo_stp_t *map)
 {
     int i = 0;
     int d = 0;
