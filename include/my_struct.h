@@ -10,7 +10,9 @@
 
 typedef struct duo_stp_s
 {
-    /* data */
+    char **line;
+    int buffer_size;
+    char *buffer;
 } duo_spt_t;
 
 
