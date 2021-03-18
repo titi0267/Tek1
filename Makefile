@@ -7,7 +7,7 @@
 
 CC		=	gcc	-o
 
-SRC=	src/main.c		\
+SRC=		src/main.c		\
 		src/lib.c		\
 		src/map.c		\
 		src/next_main.c		\
