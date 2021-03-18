@@ -12,6 +12,7 @@ SRC=		src/main.c		\
 		src/map.c		\
 		src/next_main.c		\
 		src/nbrline.c		\
+		src/error_handling.c	\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude
 
