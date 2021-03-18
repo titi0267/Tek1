@@ -9,5 +9,9 @@
 
 int main(int ac, char **av)
 {
+    duo_stp_t *map = malloc(sizeof(duo_stp_t));
+
+    read_map(map, av);
+    store_map(map);
     return (0);
 }
