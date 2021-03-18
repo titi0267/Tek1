@@ -16,5 +16,6 @@ int main(int ac, char **av)
     if (read_map(map, av) == 84)
         return (84);
     store_map(map);
+    turn_nbr(av, map);
     return (0);
 }

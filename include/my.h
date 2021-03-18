@@ -25,5 +25,6 @@ int nbr_char(char *buffer);
 int nbr_line(char *buffer);
 int error_argnbr(int ac, char **av);
 int error_arg_one(int ac, char **av);
+int turn_nbr(char **av, duo_stp_t *map);
 
 #endif /* !MY_H_ */

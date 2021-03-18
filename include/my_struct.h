@@ -15,6 +15,7 @@ typedef struct duo_stp_s
     char *buffer;
     int line_nbr;
     int char_nbr;
+    int turns;
 } duo_stp_t;
 
 

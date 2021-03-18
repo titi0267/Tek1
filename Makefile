@@ -13,6 +13,7 @@ SRC=		src/main.c		\
 		src/next_main.c		\
 		src/nbrline.c		\
 		src/error_handling.c	\
+		src/game_turn.c	\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude	-g
 
