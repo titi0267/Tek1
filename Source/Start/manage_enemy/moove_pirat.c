@@ -9,23 +9,23 @@
 
 void manage_move_bis_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
 {
-    if (pos.x == 90 && pos.y > 250)
+    if (pos.x == 90 && pos.y > 250 && pos.y < 230)
         data->pos.y -= 0.5;
-    else if (pos.x == 90 && pos.y > 100)
+    else if (pos.x == 90 && pos.y > 100 && pos.y < 90)
         data->pos.y--;
-    if (pos.x == 90 && pos.x == 100)
+    if (pos.x == 90 && pos.x >= 100)
         attack(core, data, pos);
 }
 
 void manage_move_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
 {
-    if (pos.y == 365 && pos.x > 550)
+    if (pos.y == 365 && pos.x > 550 && pos.x < 530)
         data->pos.x--;
-    else if (pos.x == 550 && pos.y < 815)
+    else if (pos.x == 550 && pos.y < 815 && pos.y > 830)
         data->pos.y++;
-    if (pos.y == 815 && pos.x > 90)
+    if (pos.y == 815 && pos.x > 90 && pos.x < 80)
         data->pos.x--;
-    else if (pos.x == 90 && pos.y > 420)
+    else if (pos.x == 90 && pos.y > 420 && pos.y < 400)
         data->pos.y--;
     else
         manage_move_bis_bis(core, data, pos);
@@ -37,7 +37,7 @@ void manage_move(core_t *core, pirat_data_t *data)
 
     if (pos.x > 1075 && pos.y == 810) {
         data->pos.x -= 1;
-    } else if (pos.x == 1075 && pos.y > 365)
+    } else if (pos.x <= 1075 && pos.x >= 1050 && pos.y > 365)
         data->pos.y--;
     else
         manage_move_bis(core, data, pos);
@@ -46,14 +46,12 @@ void manage_move(core_t *core, pirat_data_t *data)
 int moove_pirat(core_t *core)
 {
     pirat_data_t *data = *(core->enemy->data);
-    static float nbr = 0;
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
         if (data->road == 1)
             manage_move(core, data);
         else
             move_road2(core, data);
-        nbr += core->time->delta_time;
         data = data->next;
     }
     return (0);
