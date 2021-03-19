@@ -59,18 +59,11 @@ int check_life(core_t *core)
     return (0);
 }
 
-int process_enemy(core_t *core)
-{
-    manage_pirat(core);
-    return (0);
-}
-
-int manage_enemy(core_t *core)
+void manage_enemy(core_t *core)
 {
     if (core->wave->wave == FALSE)
         feed_enemy(core);
     else
-        process_enemy(core);
+        manage_pirat(core);
     manage_life(core);
-    return (0);
 }

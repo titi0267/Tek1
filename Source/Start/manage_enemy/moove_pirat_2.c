@@ -18,7 +18,7 @@ int attack(core_t *core, pirat_data_t *data, sfVector2f pos)
 int move_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
 {
     if (pos.x == 160 && pos.y > 250)
-        data->pos.y -= 0.5;
+        data->pos.y--;
     else if (pos.x == 160 && pos.y > 100)
         data->pos.y--;
     if (pos.x == 160 && pos.y == 100)
