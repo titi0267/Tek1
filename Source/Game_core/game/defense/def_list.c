@@ -25,18 +25,6 @@ void print_def(game_t *game, window_t *wnd)
     }
 }
 
-/*void is_good(game_t *game)
-{
-    for (int i = 0; game->tower->good_pos[i].top != -1; i++) {
-        if (sfIntRect_contains(game->tower->good_pos,
-            game->tower->mouse_pos.x, game->tower->mouse_pos.y) == TRUE) {
-            game->valid = TRUE;
-            break;
-        } else
-            game->valid = FALSE;
-    }
-}*/
-
 void add_def(game_t *game)
 {
     game->defense_bis = malloc(sizeof(*game->defense_bis));

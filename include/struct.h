@@ -58,6 +58,9 @@ typedef struct tower_s
     def_spt_t wich_defense;
     sfVector2f *good_pos;
     sfVector2f transmit_pos;
+    sfIntRect ice_rect;
+    sfIntRect wiz_rect;
+    sfIntRect archer_rect;
     int tower_release;
     int tower_click;
     int *area;

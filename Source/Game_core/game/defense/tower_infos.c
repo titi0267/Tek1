@@ -34,3 +34,19 @@ void wiz_def(game_t *game)
     }
 
 }
+
+void create_rect_def(tower_t *tower)
+{
+    tower->archer_rect.left = 0;
+    tower->archer_rect.top = 0;
+    tower->archer_rect.width = 55;
+    tower->archer_rect.height = 81;
+    tower->ice_rect.left = 0;
+    tower->ice_rect.top = 0;
+    tower->ice_rect.width = 51;
+    tower->ice_rect.height = 81;
+    tower->wiz_rect.left = -10;
+    tower->wiz_rect.top = 15;
+    tower->wiz_rect.width = 50;
+    tower->wiz_rect.height = 81;
+}

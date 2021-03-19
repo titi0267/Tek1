@@ -13,7 +13,7 @@ void archer_spt(tower_t *tower)
                         "Ressources/tower/archer_tower.png",
                         NULL);
     tower->arrow_tower_spt = sfSprite_create();
-    sfVector2f scale = {1, 1};
+    sfVector2f scale = {2, 2};
     sfVector2f arrow_tower_pos = {1500, 300};
 
     sfSprite_setTexture(tower->arrow_tower_spt, tower->arrow_tower_tex,

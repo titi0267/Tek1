@@ -119,6 +119,7 @@ void is_good(game_t *game);
 void range_def(game_t *game, enemy_t *enemy, time_t *time);
 void fill_alrd_build(game_t *game);
 void calc_vector(game_t *game, menu_t *menu);
+void create_rect_def(tower_t *tower);
 
 void ice_tower_spt(tower_t *tower);
 void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower);

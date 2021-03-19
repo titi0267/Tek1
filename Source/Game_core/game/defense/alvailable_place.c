@@ -43,24 +43,24 @@ void fill_pos_def(game_t *game)
 {
     game->tower->good_pos = malloc(sizeof(sfVector2f *) * 10);
 
-    game->tower->good_pos[0].x = 910;
-    game->tower->good_pos[0].y = 150;
-    game->tower->good_pos[1].x = 910;
-    game->tower->good_pos[1].y = 490;
-    game->tower->good_pos[2].x = 910;
-    game->tower->good_pos[2].y = 760;
-    game->tower->good_pos[3].x = 600;
-    game->tower->good_pos[3].y = 490;
-    game->tower->good_pos[4].x = 600;
-    game->tower->good_pos[4].y = 720;
-    game->tower->good_pos[5].x = 380;
-    game->tower->good_pos[5].y = 920;
-    game->tower->good_pos[6].x = 380;
-    game->tower->good_pos[6].y = 550;
-    game->tower->good_pos[7].x = 380;
-    game->tower->good_pos[7].y = 350;
-    game->tower->good_pos[8].x = 220;
-    game->tower->good_pos[8].y = 720;
+    game->tower->good_pos[0].x = 940;
+    game->tower->good_pos[0].y = 120;
+    game->tower->good_pos[1].x = 940;
+    game->tower->good_pos[1].y = 450;
+    game->tower->good_pos[2].x = 940;
+    game->tower->good_pos[2].y = 720;
+    game->tower->good_pos[3].x = 650;
+    game->tower->good_pos[3].y = 460;
+    game->tower->good_pos[4].x = 650;
+    game->tower->good_pos[4].y = 660;
+    game->tower->good_pos[5].x = 400;
+    game->tower->good_pos[5].y = 880;
+    game->tower->good_pos[6].x = 400;
+    game->tower->good_pos[6].y = 530;
+    game->tower->good_pos[7].x = 400;
+    game->tower->good_pos[7].y = 330;
+    game->tower->good_pos[8].x = 250;
+    game->tower->good_pos[8].y = 660;
     game->tower->good_pos[9].x = -1;
     game->tower->good_pos[9].y = -1;
 }

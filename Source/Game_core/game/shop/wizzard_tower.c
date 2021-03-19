@@ -13,7 +13,7 @@ void wizzard_spt(tower_t *tower)
                         "Ressources/tower/wiz_tower.png",
                         NULL);
     tower->wiz_tower_spt = sfSprite_create();
-    sfVector2f scale = {1, 1};
+    sfVector2f scale = {2, 2};
     sfVector2f wiz_tower_pos = {1500, 500};
 
     sfSprite_setTexture(tower->wiz_tower_spt, tower->wiz_tower_tex, sfFalse);

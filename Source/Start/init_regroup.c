@@ -53,9 +53,13 @@ void init_gm(core_t *core)
     ice_tower_spt(core->game->tower);
     archer_spt(core->game->tower);
     wizzard_spt(core->game->tower);
+    sfSprite_setTextureRect(core->game->tower->wiz_tower_spt, core->game->tower->wiz_rect);
+    sfSprite_setTextureRect(core->game->tower->arrow_tower_spt, core->game->tower->archer_rect);
+    sfSprite_setTextureRect(core->game->tower->ice_tower_spt, core->game->tower->ice_rect);
     tower_array(core->game);
     fill_pos_def(core->game);
     fill_alrd_build(core->game);
+    create_rect_def(core->game->tower);
 }
 
 void init(core_t *core)
