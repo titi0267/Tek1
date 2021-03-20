@@ -22,14 +22,15 @@ void display_list(core_t *core)
     pirat_data_t *data = *(core->enemy->data);
 
     for (; data != NULL; data = data->next) {
-        printf("road = %i\n", data->road);
-        printf("Life = %i\n", data->life);
+        my_printf("road = %i\n", data->road);
+        my_printf("Life = %i\n", data->life);
     }
 }
 
 void feed_enemy(core_t *core)
 {
     int y = 0;
+    *(core->enemy->data) = NULL;
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
         core->enemy->data_bis = malloc(sizeof(*core->enemy->data_bis));
@@ -52,8 +53,6 @@ void feed_enemy(core_t *core)
         y++;
     }
     core->game->nb_spt = 1;
-    /* display_list(core);
-    write(1, "bjr\n", 4); */
     rect_pirat(core);
     feed_spt(core);
     core->wave->wave = TRUE;
@@ -63,10 +62,11 @@ int free_linked_list(pirat_data_t *data)
 {
     pirat_data_t *data_bis;
 
-    while (data != NULL) {
-        data_bis = data;
-        data = data->next;
-        free(data_bis);
+   while (data != NULL)
+    {
+       data_bis = data;
+       data = data->next;
+       free(data_bis);
     }
 }
 
