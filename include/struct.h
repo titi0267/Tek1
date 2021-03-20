@@ -94,6 +94,7 @@ typedef struct pirat_data_s
     int y_walk;
     int nb_pirat;
     int spawn;
+    int dead;
     sfVector2f pos;
     sfSprite *pirat_walk;
     struct pirat_data_s *next;

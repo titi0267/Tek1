@@ -7,13 +7,24 @@
 
 #include "../../../include/defender.h"
 
+void check_life(core_t *core)
+{
+    pirat_data_t *data = *(core->enemy->data);
+
+    for (; data != NULL; data = data->next) {
+        if (data->life <= 0)
+            data->dead = 1;
+    }
+}
+
 void display_list(core_t *core)
 {
-    pirat_data_t *data_bis = *(core->enemy->data);
+    pirat_data_t *data = *(core->enemy->data);
 
-    for (; data_bis != NULL; data_bis = data_bis->next)
-        my_printf("-> La route est la numéro %i\n", data_bis->road);
-    my_printf("-----------------------------------------\n");
+    for (; data != NULL; data = data->next) {
+        printf("road = %i\n", data->road);
+        printf("Life = %i\n", data->life);
+    }
 }
 
 void feed_enemy(core_t *core)
@@ -26,6 +37,7 @@ void feed_enemy(core_t *core)
         core->enemy->data_bis->speed = 1;
         core->enemy->data_bis->road = rand() % 2 + 0;
         core->enemy->data_bis->damage = 1;
+        core->enemy->data_bis->dead = 0;
         if (core->enemy->data_bis->road == 1) {
             core->enemy->data_bis->pos.x = 1500;
             core->enemy->data_bis->pos.y = 810;
@@ -39,22 +51,41 @@ void feed_enemy(core_t *core)
         *core->enemy->data = core->enemy->data_bis;
         y++;
     }
+    core->game->nb_spt = 1;
+    /* display_list(core);
+    write(1, "bjr\n", 4); */
     rect_pirat(core);
     feed_spt(core);
     core->wave->wave = TRUE;
 }
 
-int check_life(core_t *core)
+int free_linked_list(pirat_data_t *data)
+{
+    pirat_data_t *data_bis;
+
+    while (data != NULL) {
+        data_bis = data;
+        data = data->next;
+        free(data_bis);
+    }
+}
+
+int check_wave(core_t *core)
 {
     pirat_data_t *data = *(core->enemy->data);
+    pirat_data_t *data_bis = *(core->enemy->data);
+    int tmp = 0;
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
-        if (core->enemy->data_bis->life <= 0)
-            return (0);
+        if (data->dead == 1)
+            tmp += 1;
         data = data->next;
     }
+    if (tmp != core->wave->pirate_one)
+        return (0);
+    free_linked_list(data_bis);
     core->wave->nb_wave++;
-    core->wave->pirate_one *= 2;
+    core->wave->pirate_one += 5;
     core->wave->wave = FALSE;
     return (0);
 }

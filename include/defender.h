@@ -141,6 +141,8 @@ int moove_pirat(core_t *core, pirat_data_t *data_bis);
 int move_road2(core_t *core, pirat_data_t *data);
 int attack(core_t *core, pirat_data_t *data, sfVector2f pos);
 int manage_life(core_t *core);
+void check_life(core_t *core);
+int check_wave(core_t *core);
 
 void add_def(game_t *game);
 void print_def(game_t *game, window_t *wnd);

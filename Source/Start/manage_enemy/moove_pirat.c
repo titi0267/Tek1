@@ -31,7 +31,7 @@ void manage_move_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
     if (pos.y == 815 && pos.x > 90 && pos.x < 80)
         data->pos.x--;
     else if (pos.x == 90 && pos.y > 420 && pos.y < 400)
-        data->pos.y--;
+        data->pos.y -= 3;
     else
         manage_move_bis_bis(core, data, pos);
 }
@@ -83,10 +83,26 @@ int manage_move(core_t *core, pirat_data_t *data)
         data->pos.y = 799;
         return (0);
     }
-    if (pos.x == 169 && pos.y < 800) {
+    if (pos.x == 169 && pos.y > 430) {
         data->pos.y -= data->speed;
         return (0);
-    } else if (pos.x == 169 && pos.y >= 800) {
+    } else if (pos.x == 169 && pos.y >= 430) {
+        data->pos.x = 168;
+        data->pos.y = 429;
+        return (0);
+    }
+    if (pos.x == 168 && pos.y > 260) {
+        data->pos.y -= data->speed / 2;
+        return (0);
+    } else if (pos.x == 168 && pos.y >= 259) {
+        data->pos.x = 167;
+        data->pos.y = 258;
+        return (0);
+    }
+    if (pos.x == 167 && pos.y > 100) {
+        data->pos.y -= data->speed;
+        return (0);
+    } else if (pos.x == 167 && pos.y >= 800) {
         data->pos.x = 168;
         data->pos.y = 799;
         return (0);
@@ -97,14 +113,17 @@ int moove_pirat(core_t *core, pirat_data_t *data)
 {
     sfVector2f scale = {0.37, 0.37};
 
-    if (data->road == 1)
-        manage_move(core, data);
-    else
-        move_road2(core, data);
-    range_def(core->game, core->enemy, core->time);
-    sfSprite_setPosition(data->pirat_walk, data->pos);
-    sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);
-    sfSprite_setScale(data->pirat_walk, scale);
-    sfRenderWindow_drawSprite(core->wnd->window, data->pirat_walk, NULL);
+    if (data->dead == 0) {
+        if (data->road == 1)
+            manage_move(core, data);
+        else
+            move_road2(core, data);
+        range_def(core->game, core->enemy, core->time);
+        sfSprite_setPosition(data->pirat_walk, data->pos);
+        sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);
+        sfSprite_setScale(data->pirat_walk, scale);
+        sfRenderWindow_drawSprite(core->wnd->window, data->pirat_walk, NULL);
+        check_life(core);
+    }
     return (0);
 }
