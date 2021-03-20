@@ -118,12 +118,12 @@ int moove_pirat(core_t *core, pirat_data_t *data)
             manage_move(core, data);
         else
             move_road2(core, data);
+        range_def(core->game, core->enemy, core->time);
+        sfSprite_setPosition(data->pirat_walk, data->pos);
+        sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);
+        sfSprite_setScale(data->pirat_walk, scale);
+        sfRenderWindow_drawSprite(core->wnd->window, data->pirat_walk, NULL);
+        check_life(core);
     }
-    range_def(core->game, core->enemy, core->time);
-    sfSprite_setPosition(data->pirat_walk, data->pos);
-    sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);
-    sfSprite_setScale(data->pirat_walk, scale);
-    sfRenderWindow_drawSprite(core->wnd->window, data->pirat_walk, NULL);
-    check_life(core);
     return (0);
 }
