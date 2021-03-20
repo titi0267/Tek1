@@ -46,6 +46,7 @@ int manage_pirat(core_t *core)
     nbr += core->time->delta_time;
     for (int i = 0; i < core->game->nb_spt && core->enemy->data_bis != NULL; data_bis = data_bis->next, i++)
         moove_pirat(core, data_bis);
+    check_wave(core);
     if (nbr >= 2 && core->game->nb_spt < core->wave->pirate_one) {
         core->game->nb_spt++;
         nbr = 0;
