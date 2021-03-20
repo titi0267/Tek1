@@ -71,6 +71,7 @@ void mv_menu_two(menu_t *menu, sfVector2f pos);
 void mv_menu_three(menu_t *menu, sfVector2f pos);
 void mv_menu_four(menu_t *menu, sfVector2f pos);
 void mv_menu_all(menu_t *menu);
+void select_scene(menu_t *menu);
 
 void return_to_one(menu_t *menu);
 void return_to_one(menu_t *menu);
@@ -82,11 +83,12 @@ void settings_spt(menu_t *menu, window_t *wnd);
 void setting_button(menu_t *menu, window_t *wnd);
 void button_setting(button_t *button, menu_t *menu);
 void hover_setting_but(button_t *button);
-void draw_setting(menu_t *menu, window_t *wnd);
+void draw_setting_btn(menu_t *menu, window_t *wnd);
 void click_setting_but(button_t *button);
 void setting_bg(menu_t *menu, window_t *wnd);
 void mv_to_menu(menu_t *menu);
 void mv_to_stg(menu_t *menu);
+void draw_settings(menu_t *menu, window_t *wnd);
 
 void hover_back_to_menu_spt(settings_t *stg);
 void back_to_menu_spt(menu_t *menu);
@@ -120,6 +122,10 @@ void range_def(game_t *game, enemy_t *enemy, time_t *time);
 void fill_alrd_build(game_t *game);
 void calc_vector(game_t *game, menu_t *menu);
 void create_rect_def(tower_t *tower);
+
+void pause_but(pause_t *pause);
+void pause_click(pause_t *pause, window_t *wnd, core_t *core);
+void draw_pause(pause_t *pause, window_t *wnd, core_t *core);
 
 void ice_tower_spt(tower_t *tower);
 void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower);

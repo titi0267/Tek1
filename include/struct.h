@@ -106,12 +106,19 @@ typedef struct enemy_s
     pirat_data_t *data_bis;
 } enemy_t;
 
+typedef struct pause_s
+{
+    sfTexture *pause_tex;
+    sfSprite *pause_spt;
+} pause_t;
+
 typedef struct game_s
 {
     sfTexture *game_bgd_tex;
     sfSprite *game_bgd_spt;
     defense_t *defense_bis;
     defense_t **defense;
+    pause_t *pause;
     tower_t *tower;
     float lifepoint;
     int nb_spt;
@@ -126,7 +133,7 @@ typedef struct window_s
     sfVector2f pos;
 } window_t;
 
-typedef enum scenes_s {scene_menu = 1, scene_settings = 2, scene_game = 3, scene_shop = 4, no_scene = 5} scenes_t;
+typedef enum scenes_s {scene_menu = 1, scene_settings = 2, scene_game = 3, scene_shop = 4, scene_pause = 5, no_scene = 6} scenes_t;
 
 typedef struct button_s
 {
@@ -215,6 +222,8 @@ typedef struct menu_s
     button_t *button;
     scenes_t scene_one;
     scenes_t scene_two;
+    scenes_t scene_three;
+    scenes_t scene_four;
     settings_t *stg;
     sfSprite *mv_spt;
     int return_to_menu;
@@ -226,6 +235,7 @@ typedef struct menu_s
     int shop_bgd;
     int shop_to_gm;
     int shop_release;
+    int pause_on;
 } menu_t;
 
 typedef struct time_s

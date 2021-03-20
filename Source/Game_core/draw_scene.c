@@ -11,7 +11,7 @@ void draw_menu(menu_t *menu, window_t *wnd)
 {
     sfRenderWindow_drawSprite(wnd->window, menu->bgd_spt, NULL);
     draw_play(menu, wnd);
-    draw_setting(menu, wnd);
+    draw_setting_btn(menu, wnd);
     draw_leave(menu->button, wnd);
 }
 
@@ -33,6 +33,7 @@ void draw_settings(menu_t *menu, window_t *wnd)
 void draw_game(game_t *game, window_t *wnd, core_t *core)
 {
     sfRenderWindow_drawSprite(wnd->window, game->game_bgd_spt, NULL);
+    sfRenderWindow_drawSprite(wnd->window, game->pause->pause_spt, NULL);
     sfSprite_setTextureRect(game->tower->wiz_tower_spt, game->tower->wiz_rect);
     sfSprite_setTextureRect(game->tower->arrow_tower_spt, game->tower->archer_rect);
     sfSprite_setTextureRect(game->tower->ice_tower_spt, game->tower->ice_rect);
@@ -75,33 +76,39 @@ void draw_shop(core_t *core, window_t *wnd)
 
 void select_scene(menu_t *menu)
 {
-    if (menu->menu_bg == TRUE && menu->game_bgd == FALSE) {
+    if (menu->menu_bg == TRUE && menu->game_bgd == FALSE && menu->pause_on == FALSE) {
         menu->scene_one = scene_menu;
         menu->scene_two = no_scene;
-    } else if (menu->settings == TRUE && menu->game_bgd == FALSE) {
+    } else if (menu->settings == TRUE && menu->game_bgd == FALSE && menu->pause_on == FALSE) {
         menu->scene_one = scene_settings;
         menu->scene_two = no_scene;
     } else if (menu->settings == FALSE && menu->menu_bg == FALSE &&
-            menu->game_bgd == FALSE) {
+            menu->game_bgd == FALSE && menu->pause_on == FALSE) {
         menu->scene_one = scene_settings;
         menu->scene_two = scene_menu;
-    } else if (menu->game_bgd == TRUE && menu->shop_bgd == FALSE) {
+    } else if (menu->game_bgd == TRUE && menu->shop_bgd == FALSE && menu->pause_on == FALSE) {
         menu->scene_one = scene_game;
         menu->scene_two = no_scene;
-    } else if (menu->shop_bgd == TRUE && menu->shop_bgd == TRUE) {
+    } else if (menu->game_bgd == TRUE && menu->shop_bgd == TRUE && menu->pause_on == FALSE) {
         menu->scene_one = scene_game;
         menu->scene_two = scene_shop;
+    } else if (menu->game_bgd == TRUE && menu->pause_on == TRUE) {
+        menu->scene_one = scene_game;
+        menu->scene_two = scene_pause;
+    } else if (menu->game_bgd == FALSE && menu->pause_on == TRUE && menu->go_to_stg == FALSE) {
+        menu->scene_one = scene_pause;
+        menu->scene_two = no_scene;
     }
 }
 
 void print_scene(menu_t *menu, window_t *wnd, game_t *game, core_t *core)
 {
     select_scene(menu);
-    if (menu->scene_one == scene_menu && menu->scene_two == no_scene)
+    if (menu->scene_one == scene_menu && menu->scene_two == no_scene) {
         draw_menu(menu, wnd);
-    else if (menu->scene_one == scene_settings && menu->scene_two == no_scene)
+    } else if (menu->scene_one == scene_settings && menu->scene_two == no_scene) {
         draw_settings(menu, wnd);
-    else if (menu->scene_one == scene_settings &&
+    } else if (menu->scene_one == scene_settings &&
             menu->scene_two == scene_menu) {
         draw_menu(menu, wnd);
         draw_settings(menu, wnd);
@@ -111,8 +118,16 @@ void print_scene(menu_t *menu, window_t *wnd, game_t *game, core_t *core)
         draw_menu(menu, wnd);
     } else if (menu->scene_one == scene_game && menu->scene_two == no_scene) {
         draw_game(game, wnd, core);
+        pause_click(game->pause, wnd, core);
     } else if (menu->scene_one == scene_game && menu->scene_two == scene_shop) {
         draw_game(game, wnd, core);
         draw_shop(core, wnd);
+        pause_click(game->pause, wnd, core);
+    } else if (menu->scene_one == scene_game && menu->scene_two == scene_pause) {
+        draw_game(game, wnd, core);
+        pause_click(game->pause, wnd, core);
+        draw_pause(game->pause, wnd, core);
+    } else if (menu->scene_one == scene_pause && menu->scene_two == no_scene) {
+        draw_pause(game->pause, wnd, core);
     }
 }

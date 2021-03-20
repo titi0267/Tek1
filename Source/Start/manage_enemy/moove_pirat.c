@@ -97,10 +97,12 @@ int moove_pirat(core_t *core, pirat_data_t *data)
 {
     sfVector2f scale = {0.37, 0.37};
 
-    if (data->road == 1)
-        manage_move(core, data);
-    else
-        move_road2(core, data);
+    if (core->menu->pause_on == FALSE) {
+        if (data->road == 1)
+            manage_move(core, data);
+        else
+            move_road2(core, data);
+    }
     range_def(core->game, core->enemy, core->time);
     sfSprite_setPosition(data->pirat_walk, data->pos);
     sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);

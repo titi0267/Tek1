@@ -17,8 +17,8 @@ void wnd_open(core_t *core)
             core->menu->button->enable_click == FALSE)
             break;
         update_time(core->time);
-        switch_bg(core->menu);
         print_scene(core->menu, core->wnd, core->game, core);
+        switch_bg(core->menu);
         poll_event(core->wnd, core->menu);
     }
     destroy_all(core);

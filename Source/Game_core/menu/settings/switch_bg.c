@@ -17,8 +17,11 @@ void switch_bg(menu_t *menu)
         menu->menu_bg = TRUE;
         menu->return_to_menu = FALSE;
     }
-    if (sfSprite_getGlobalBounds(menu->set_bg_spt).left <= 0) {
+    if (sfSprite_getGlobalBounds(menu->set_bg_spt).left <= 0 && menu->pause_on == FALSE) {
         menu->settings = TRUE;
         menu->go_to_stg = FALSE;
+    } else if (sfSprite_getGlobalBounds(menu->set_bg_spt).left <= 0 && menu->pause_on == TRUE) {
+        menu->go_to_stg = FALSE;
+        menu->game_bgd = FALSE;
     }
 }

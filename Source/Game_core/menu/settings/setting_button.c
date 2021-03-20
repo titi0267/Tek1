@@ -37,7 +37,7 @@ void click_setting_but(button_t *button)
     sfSprite_setScale(button->click_setting_spt, scale);
 }
 
-void draw_setting(menu_t *menu, window_t *wnd)
+void draw_setting_btn(menu_t *menu, window_t *wnd)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
     sfFloatRect setting = sfSprite_getGlobalBounds(menu->button->setting_spt);
