@@ -157,8 +157,7 @@ int manage_kill(core_t *core);
 char *my_itoa(int r, char *result);
 char *rev_str(char *str);
 int my_strlen(char *str);
-void sound_kill(core_t *core);
-void sound_nextlvl(core_t *core);
+void manage_sound_game(core_t *core);
 
 void add_def(game_t *game);
 void print_def(game_t *game, window_t *wnd);

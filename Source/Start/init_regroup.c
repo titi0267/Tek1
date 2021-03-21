@@ -78,11 +78,14 @@ void init(core_t *core)
     core->wave->end_wave = FALSE;
     *(core->game->defense) = NULL;
     core->wave->pirate_one = 5;
-    core->game->lifepoint = 100;
+    core->game->lifepoint = 25;
     core->game->nb_spt = 0;
     core->wave->kill = 0;
     core->game->valid = FALSE;
     core->wave->nb_wave = 1;
     core->wave->life_rate = 1;
     core->game->life = sfText_create();
+    core->wave->end_game = 0;
+    manage_sound_game(core);
+    init_spt_ingame(core);
 }

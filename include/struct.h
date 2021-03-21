@@ -25,6 +25,7 @@ typedef struct wave_s
     int pirate_three;
     int boss;
     int end_wave;
+    int end_game;
 } wave_t;
 
 typedef struct shop_s
@@ -128,7 +129,7 @@ typedef struct game_s
     defense_t **defense;
     pause_t *pause;
     tower_t *tower;
-    float lifepoint;
+    int lifepoint;
     int nb_spt;
     int valid;
     sfText *life;
@@ -188,6 +189,14 @@ typedef struct volume_s
     sfSprite *hover_down_spt;
     sfTexture *hover_up_tex;
     sfSprite *hover_up_spt;
+    sfSoundBuffer *buffer_kill;
+    sfSoundBuffer *buffer_level;
+    sfSoundBuffer *buffer_laugh;
+    sfSoundBuffer *buffer_gameover;
+    sfSound *kill;
+    sfSound *nxt_lvl;
+    sfSound *laugh;
+    sfSound *gameover;
     int offset;
     int width_backup;
     int size_one;
