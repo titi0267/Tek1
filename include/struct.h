@@ -44,7 +44,7 @@ typedef struct eco_center_s
     int cool_down;
 } eco_center_t;
 
-typedef enum def_spt_s {ice_tower = 0, arrow_tower = 1, wiz_tower = 2} def_spt_t;
+typedef enum def_spt_s {ice_tower = 0, arrow_tower = 1, wiz_tower = 2, eco_center = 3} def_spt_t;
 
 typedef struct tower_s
 {
@@ -69,12 +69,14 @@ typedef struct tower_s
     int tower_release;
     int tower_click;
     int *area;
+    int eco_placed;
 } tower_t;
 
 typedef struct defense_s
 {
     sfVector2f pos;
     int damage;
+    float slow_enemy;
     int range;
     float shoot_speed;
     struct defense_s *next;
@@ -93,7 +95,7 @@ typedef struct pirat_data_s
 {
     int life;
     int damage;
-    int speed;
+    float speed;
     int road;
     int x_walk;
     int y_walk;

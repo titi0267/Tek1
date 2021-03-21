@@ -33,6 +33,7 @@ void add_def(game_t *game)
     ice_def(game);
     archer_def(game);
     wiz_def(game);
+    eco_def(game);
     game->defense_bis->pos.x = game->tower->transmit_pos.x;
     game->defense_bis->pos.y = game->tower->transmit_pos.y;
     game->defense_bis->new_build = sfSprite_copy(

@@ -34,7 +34,7 @@ void click_arrow_tower(window_t *wnd, menu_t *menu, tower_t *tower)
         box_size_y(wnd, arrow_pos.height)))) {
         if (menu->button->enable_click == TRUE) {
             tower->tower_click = TRUE;
-            tower->wich_defense = 1;
+            tower->wich_defense = arrow_tower;
         } else {
             sfRenderWindow_drawSprite(wnd->window,
                                     tower->arrow_tower_spt, NULL);

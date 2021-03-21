@@ -146,6 +146,10 @@ void wizzard_spt(tower_t *tower);
 void click_wiz_tower(window_t *wnd, menu_t *menu, tower_t *tower);
 void wiz_def(game_t *game);
 
+void click_eco_center(window_t *wnd, menu_t *menu, tower_t *tower);
+void eco_def(game_t *game);
+void eco_placed(core_t *core);
+
 void manage_enemy(core_t *core);
 void feed_spt(core_t *core);
 int manage_pirat(core_t *core);

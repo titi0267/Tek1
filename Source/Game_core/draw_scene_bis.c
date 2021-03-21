@@ -37,13 +37,16 @@ void draw_game(game_t *game, window_t *wnd, core_t *core)
     sfSprite_setTextureRect(game->tower->wiz_tower_spt, game->tower->wiz_rect);
     sfSprite_setTextureRect(game->tower->arrow_tower_spt,
                             game->tower->archer_rect);
+    sfSprite_setTextureRect(game->tower->eco_center_spt, game->tower->eco_rect);
     sfSprite_setTextureRect(game->tower->ice_tower_spt, game->tower->ice_rect);
     sfSprite_setTextureRect(game->tower->def_list[0], game->tower->ice_rect);
     sfSprite_setTextureRect(game->tower->def_list[1],
                             game->tower->archer_rect);
     sfSprite_setTextureRect(game->tower->def_list[2], game->tower->wiz_rect);
+    sfSprite_setTextureRect(game->tower->def_list[3], game->tower->eco_rect);
     manage_enemy(core);
     click_shop(core->shop, core->wnd, core->menu);
+    eco_placed(core);
     if (game->init_def == TRUE)
         print_def(game, wnd);
 }
@@ -78,6 +81,7 @@ void draw_shop(core_t *core, window_t *wnd)
         click_ice_tower(wnd, core->menu, core->game->tower);
         click_arrow_tower(wnd, core->menu, core->game->tower);
         click_wiz_tower(wnd, core->menu, core->game->tower);
+        click_eco_center(wnd, core->menu, core->game->tower);
     }
     if (core->game->tower->tower_click == TRUE) {
        draw_shop_bis(core, wnd);

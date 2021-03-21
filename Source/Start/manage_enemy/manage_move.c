@@ -13,13 +13,13 @@ int moove_pirat(core_t *core, pirat_data_t *data)
 
     if (data->dead == 0) {
         if (core->menu->pause_on == FALSE) {
+            if (core->game->init_def == TRUE)
+                range_def(core->game, core->enemy, core->time);
             if (data->road == 1)
                 manage_move(core, data);
             else
                 move_road2(core, data);
             moove_rect(core);
-            if (core->game->init_def == TRUE)
-                range_def(core->game, core->enemy, core->time);
         }
         sfSprite_setPosition(data->pirat_walk, data->pos);
         sfSprite_setTextureRect(data->pirat_walk,
