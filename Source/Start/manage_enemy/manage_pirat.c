@@ -15,25 +15,27 @@ void rect_pirat(core_t *core)
     core->enemy->pirat->rectangle.height = 216;
 }
 
+void moove_rect_bis(core_t *core, pirat_data_t *data)
+{
+    if (data->nb_pirat < 7)
+        core->enemy->pirat->rectangle.left = data->nb_pirat * core->enemy->pirat->rectangle.width;
+    else
+        data->nb_pirat = 0;
+}
+
 void moove_rect(core_t *core)
 {
-    sfClock *clock;
-    sfTime time;
-    float number = 0;
     pirat_data_t *data = *(core->enemy->data);
+    static float nbr = 0;
 
-    clock = sfClock_create();
-    while (number < 0.1) {
-        time = sfClock_getElapsedTime(clock);
-        number = time.microseconds / 500000.0;
-    }
-    for (int i = 0; i < core->wave->pirate_one; i++) {
-        if (data->nb_pirat < 7) {
-            core->enemy->pirat->rectangle.left = data->nb_pirat * core->enemy->pirat->rectangle.width;
-        } else
-            core->enemy->pirat->rectangle.left = 0;
-        data->nb_pirat++;
-        data = data->next;
+    nbr += core->time->delta_time;
+    if (nbr > 0.5) {
+        for (int i = 0; i < core->wave->pirate_one; i++) {
+            moove_rect_bis(core, data);
+            data->nb_pirat++;
+            data = data->next;
+        }
+        nbr = 0;
     }
 }
 
@@ -44,9 +46,8 @@ int manage_pirat(core_t *core)
     static float nbr = 0;
 
     nbr += core->time->delta_time;
-    for (int i = 0; i < core->game->nb_spt && core->enemy->data_bis != NULL; data_bis = data_bis->next, i++) {
+    for (int i = 0; i < core->game->nb_spt && core->enemy->data_bis != NULL; data_bis = data_bis->next, i++)
         moove_pirat(core, data_bis);
-    }
     check_wave(core);
     if (nbr >= 2 && core->game->nb_spt < core->wave->pirate_one) {
         core->game->nb_spt++;

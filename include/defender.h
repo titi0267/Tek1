@@ -151,6 +151,14 @@ int attack(core_t *core, pirat_data_t *data, sfVector2f pos);
 int manage_life(core_t *core);
 void check_life(core_t *core);
 int check_wave(core_t *core);
+void moove_rect(core_t *core);
+int manage_wave(core_t *core);
+int manage_kill(core_t *core);
+char *my_itoa(int r, char *result);
+char *rev_str(char *str);
+int my_strlen(char *str);
+void sound_kill(core_t *core);
+void sound_nextlvl(core_t *core);
 
 void add_def(game_t *game);
 void print_def(game_t *game, window_t *wnd);

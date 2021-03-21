@@ -8,34 +8,6 @@
 #include "../../../include/defender.h"
 #include <stdio.h>
 
-void manage_move_bis_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
-{
-    if (pos.x == 90 && pos.y > 250 && pos.y < 230)
-        data->pos.y--;
-    else if (pos.x == 90 && pos.y > 100 && pos.y < 90)
-        data->pos.y--;
-    if (pos.x == 90 && pos.x >= 100)
-        attack(core, data, pos);
-}
-
-void manage_move_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
-{
-    if (pos.y == 364 && pos.x > 550 && pos.x < 530) {
-        data->pos.x--;
-    } else if (pos.x <= 550 && pos.y < 815 && pos.y > 830)
-        data->pos.y++;
-    else if (pos.x <= 1075 && pos.y == 364 && pos.x >= 550)
-        data->pos.x--;
-    else if (pos.x >= 550 && pos.y <= 830)
-        data->pos.y++;
-    if (pos.y == 815 && pos.x > 90 && pos.x < 80)
-        data->pos.x--;
-    else if (pos.x == 90 && pos.y > 420 && pos.y < 400)
-        data->pos.y -= 3;
-    else
-        manage_move_bis_bis(core, data, pos);
-}
-
 int manage_move(core_t *core, pirat_data_t *data)
 {
     sfVector2f pos = sfSprite_getPosition(data->pirat_walk);
@@ -91,8 +63,8 @@ int manage_move(core_t *core, pirat_data_t *data)
         data->pos.y = 429;
         return (0);
     }
-    if (pos.x == 168 && pos.y > 260) {
-        data->pos.y -= data->speed / 2;
+    if (pos.x == 168 && pos.y > 259) {
+        data->pos.y -= 0.5;
         return (0);
     } else if (pos.x == 168 && pos.y >= 259) {
         data->pos.x = 167;
@@ -102,9 +74,13 @@ int manage_move(core_t *core, pirat_data_t *data)
     if (pos.x == 167 && pos.y > 100) {
         data->pos.y -= data->speed;
         return (0);
-    } else if (pos.x == 167 && pos.y >= 800) {
-        data->pos.x = 168;
-        data->pos.y = 799;
+    } else if (pos.x == 167 && pos.y >= 100) {
+        data->pos.x = 166;
+        data->pos.y = 99;
+        return (0);
+    }
+    if (pos.x == 166 && pos.y == 99) {
+        attack(core, data, pos);
         return (0);
     }
 }
@@ -118,6 +94,7 @@ int moove_pirat(core_t *core, pirat_data_t *data)
             manage_move(core, data);
         else
             move_road2(core, data);
+        moove_rect(core);
         range_def(core->game, core->enemy, core->time);
         sfSprite_setPosition(data->pirat_walk, data->pos);
         sfSprite_setTextureRect(data->pirat_walk, core->enemy->pirat->rectangle);

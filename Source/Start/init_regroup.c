@@ -79,5 +79,8 @@ void init(core_t *core)
     core->wave->pirate_one = 5;
     core->game->lifepoint = 100;
     core->game->nb_spt = 0;
+    core->wave->kill = 0;
+    core->wave->nb_wave = 1;
+    core->wave->life_rate = 1;
     core->game->life = sfText_create();
 }
