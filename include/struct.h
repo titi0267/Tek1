@@ -50,7 +50,7 @@ typedef struct eco_center_s
     int cool_down;
 } eco_center_t;
 
-typedef enum def_spt_s {ice_tower = 0, arrow_tower = 1, wiz_tower = 2, eco_center = 3} def_spt_t;
+typedef enum def_spt_s {ice_tower = 0, arrow_tower = 1, wiz_tower = 2, eco_center = 3, poor = 4} def_spt_t;
 
 typedef struct tower_s
 {
@@ -151,6 +151,7 @@ typedef struct game_s
     int valid;
     sfText *money_txt;
     sfText *life;
+    int accpet;
     int init_def;
 } game_t;
 

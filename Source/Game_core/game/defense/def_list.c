@@ -44,4 +44,5 @@ void add_def(game_t *game)
     *game->defense = game->defense_bis;
     game->tower->tower_release = FALSE;
     game->init_def = TRUE;
+    game->accpet = FALSE;
 }

@@ -80,10 +80,11 @@ void init_bis(core_t *core)
     core->game->life = sfText_create();
     core->game->money_txt = sfText_create();
     core->wave->end_game = 0;
-    core->game->money = 0;
+    core->game->money = 10;
     core->menu->stg->vol->level_vol = 50;
     core->menu->init_music = FALSE;
     core->menu->tmp_pause = FALSE;
+    core->game->accpet = FALSE;
     manage_sound_game(core);
     init_spt_ingame(core);
 }

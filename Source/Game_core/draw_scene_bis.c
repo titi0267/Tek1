@@ -75,8 +75,9 @@ void draw_shop_bis(core_t *core, window_t *wnd)
     }
 }
 
-void draw_shop(core_t *core, window_t *wnd)
+int draw_shop(core_t *core, window_t *wnd)
 {
+    manage_price_all(core);
     if (core->game->tower->tower_click == FALSE) {
         click_ice_tower(wnd, core->menu, core->game->tower);
         click_arrow_tower(wnd, core->menu, core->game->tower);
@@ -84,6 +85,13 @@ void draw_shop(core_t *core, window_t *wnd)
         click_eco_center(wnd, core->menu, core->game->tower);
     }
     if (core->game->tower->tower_click == TRUE) {
-       draw_shop_bis(core, wnd);
+        if (core->game->accpet == FALSE)
+            block_buy(core);
+        if (core->game->tower->wich_defense == poor ||
+            core->game->accpet == FALSE) {
+            core->game->tower->tower_click = FALSE;
+            return (0);
+        }
+        draw_shop_bis(core, wnd);
     }
 }
