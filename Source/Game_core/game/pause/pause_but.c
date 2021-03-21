@@ -33,6 +33,7 @@ void draw_pause(pause_t *pause, window_t *wnd, core_t *core)
     print_down_vol(core->menu, wnd);
     draw_restart(pause, core->menu, wnd);
     sfRenderWindow_drawSprite(wnd->window, pause->pause_spt, NULL);
+    draw_leave_pause(pause, core->menu, wnd);
 }
 
 void pause_on(pause_t *pause, window_t *wnd, core_t *core)
