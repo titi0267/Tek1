@@ -81,7 +81,7 @@ void init_bis(core_t *core)
     core->game->life = sfText_create();
     core->game->money_txt = sfText_create();
     core->wave->end_game = 0;
-    core->game->money = 10;
+    core->game->money = 30;
     core->menu->stg->vol->level_vol = 50;
     core->menu->init_music = FALSE;
     core->menu->tmp_pause = FALSE;
@@ -103,9 +103,9 @@ void init(core_t *core)
     core->wave->wave = FALSE;
     core->wave->end_wave = FALSE;
     *(core->game->defense) = NULL;
-    core->shop->price1 = 10;
-    core->shop->price2 = 20;
-    core->shop->price3 = 30;
-    core->shop->price4 = 40;
+    core->shop->price1 = 5;
+    core->shop->price2 = 10;
+    core->shop->price3 = 15;
+    core->shop->price4 = 20;
     init_bis(core);
 }
