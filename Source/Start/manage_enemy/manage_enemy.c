@@ -87,6 +87,8 @@ int check_wave(core_t *core)
 
 void manage_enemy(core_t *core)
 {
+    sfRenderWindow_drawSprite(core->wnd->window, core->game->health, NULL);
+    sfRenderWindow_drawSprite(core->wnd->window, core->game->deadhead, NULL);
     if (core->wave->wave == FALSE)
         feed_enemy(core);
     else

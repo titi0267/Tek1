@@ -85,4 +85,5 @@ void init(core_t *core)
     core->game->life = sfText_create();
     core->wave->end_game = 0;
     manage_sound_game(core);
+    init_spt_ingame(core);
 }

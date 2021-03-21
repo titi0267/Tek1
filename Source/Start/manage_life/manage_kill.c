@@ -7,6 +7,25 @@
 
 #include "../../../include/defender.h"
 
+void init_spt_ingame(core_t *core)
+{
+    sfVector2f pos = {50, 10};
+    sfVector2f pos2 = {10, 940};
+    sfVector2f scale = {0.1, 0.1};
+    sfVector2f scale2 = {0.05, 0.05};
+
+    core->game->health_txt = sfTexture_createFromFile("Ressources/FONT/health.png", sfFalse);
+    core->game->deadhead_txt = sfTexture_createFromFile("Ressources/FONT/dead_head.png", sfFalse);
+    core->game->health = sfSprite_create();
+    core->game->deadhead = sfSprite_create();
+    sfSprite_setTexture(core->game->health, core->game->health_txt, sfFalse);
+    sfSprite_setTexture(core->game->deadhead, core->game->deadhead_txt, sfFalse);
+    sfSprite_setPosition(core->game->health, pos);
+    sfSprite_setPosition(core->game->deadhead, pos2);
+    sfSprite_setScale(core->game->deadhead, scale);
+    sfSprite_setScale(core->game->health, scale2);
+}
+
 int manage_kill(core_t *core)
 {
     sfFont *Font = sfFont_createFromFile("Ressources/FONT/Early GameBoy.ttf");
