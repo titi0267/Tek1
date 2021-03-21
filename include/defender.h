@@ -158,6 +158,9 @@ char *my_itoa(int r, char *result);
 char *rev_str(char *str);
 int my_strlen(char *str);
 void manage_sound_game(core_t *core);
+void init_spt_ingame(core_t *core);
+void init_spt_ingame(core_t *core);
+void init_eco(core_t *core);
 
 void add_def(game_t *game);
 void print_def(game_t *game, window_t *wnd);
