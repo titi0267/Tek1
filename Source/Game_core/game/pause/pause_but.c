@@ -9,10 +9,10 @@
 
 void pause_but(pause_t *pause)
 {
-    pause->pause_tex = sfTexture_createFromFile("Ressources/button/menu/leave/click_leave.png", NULL);
+    pause->pause_tex = sfTexture_createFromFile("Ressources/button/menu/setting/settings.png", NULL);
     pause->pause_spt = sfSprite_create();
-    sfVector2f scale = {1, 1};
-    sfVector2f pause_pos = {1800, 10};
+    sfVector2f scale = {0.5, 0.5};
+    sfVector2f pause_pos = {1690, 10};
 
     sfSprite_setTexture(pause->pause_spt, pause->pause_tex, sfFalse);
     sfSprite_setPosition(pause->pause_spt, pause_pos);
