@@ -49,8 +49,8 @@ void draw_restart(pause_t *pause, menu_t *menu, window_t *wnd)
 
 void leave_but(pause_t *pause, menu_t *menu)
 {
-    sfVector2f scale = {1, 1};
-    sfVector2f pos = {2900, 100};
+    sfVector2f scale = {1.3, 1.3};
+    sfVector2f pos = {2900, 500};
 
     pause->leave_spt = sfSprite_copy(menu->button->leave_spt);
     pause->leave_click_spt = sfSprite_copy(menu->button->click_leave_spt);
