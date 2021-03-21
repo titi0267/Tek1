@@ -129,6 +129,9 @@ typedef struct pause_s
     sfSprite *play_hover_spt;
     sfTexture *menu_tex;
     sfSprite *menu_spt;
+    sfSprite *leave_spt;
+    sfSprite *leave_click_spt;
+    sfSprite *leave_hover_spt;
 } pause_t;
 
 typedef struct game_s

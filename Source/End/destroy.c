@@ -41,6 +41,5 @@ void destroy_all(core_t *core)
     destroy_regroup_tex(core);
     destroy_regroup_spt(core);
     sfRenderWindow_destroy(core->wnd->window);
-    sfClock_destroy(core->time->clock);
     destroy_struct(core);
 }

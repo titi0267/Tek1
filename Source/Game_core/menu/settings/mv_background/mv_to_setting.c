@@ -61,6 +61,18 @@ sfVector2f mv_to_stg_all_bis(sfVector2f pos, pause_t *pause)
     pos.y = sfSprite_getGlobalBounds(pause->play_click_spt).top;
     pos.x -= 20;
     sfSprite_setPosition(pause->play_click_spt, pos);
+    pos.x = sfSprite_getGlobalBounds(pause->leave_click_spt).left;
+    pos.y = sfSprite_getGlobalBounds(pause->leave_click_spt).top;
+    pos.x -= 20;
+    sfSprite_setPosition(pause->leave_click_spt, pos);
+    pos.x = sfSprite_getGlobalBounds(pause->leave_spt).left;
+    pos.y = sfSprite_getGlobalBounds(pause->leave_spt).top;
+    pos.x -= 20;
+    sfSprite_setPosition(pause->leave_spt, pos);
+    pos.x = sfSprite_getGlobalBounds(pause->leave_hover_spt).left;
+    pos.y = sfSprite_getGlobalBounds(pause->leave_hover_spt).top;
+    pos.x -= 20;
+    sfSprite_setPosition(pause->leave_hover_spt, pos);
     pos.x = sfSprite_getGlobalBounds(pause->play_hover_spt).left;
     pos.y = sfSprite_getGlobalBounds(pause->play_hover_spt).top;
     pos.x -= 20;

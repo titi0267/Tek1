@@ -13,7 +13,6 @@ void pause_but(pause_t *pause)
     pause->pause_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
     sfVector2f pause_pos = {1800, 10};
-
     sfSprite_setTexture(pause->pause_spt, pause->pause_tex, sfFalse);
     sfSprite_setPosition(pause->pause_spt, pause_pos);
     sfSprite_setScale(pause->pause_spt, scale);
@@ -33,6 +32,7 @@ void draw_pause(pause_t *pause, window_t *wnd, core_t *core)
     print_down_vol(core->menu, wnd);
     draw_restart(pause, core->menu, wnd);
     sfRenderWindow_drawSprite(wnd->window, pause->pause_spt, NULL);
+    draw_leave_pause(pause, core->menu, wnd);
 }
 
 void pause_on(pause_t *pause, window_t *wnd, core_t *core)

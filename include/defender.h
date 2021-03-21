@@ -133,6 +133,8 @@ void pause_click(pause_t *pause, window_t *wnd, core_t *core);
 void draw_pause(pause_t *pause, window_t *wnd, core_t *core);
 void play_again_but(pause_t *pause, menu_t *menu);
 void draw_restart(pause_t *pause, menu_t *menu, window_t *wnd);
+void leave_but(pause_t *pause, menu_t *menu);
+void draw_leave_pause(pause_t *pause, menu_t *menu, window_t *wnd);
 
 void ice_tower_spt(tower_t *tower);
 void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower);
