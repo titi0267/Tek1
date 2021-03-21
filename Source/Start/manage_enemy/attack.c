@@ -18,8 +18,11 @@ int attack_bis(core_t *core)
         core->wave->end_game = 2;
         while (sfSound_getStatus(core->menu->stg->vol->laugh) == sfPlaying);
     } else if (core->wave->end_game == 2) {
-        sfRenderWindow_close(core->wnd->window);
-        exit(0);
+        init(core);
+        core->menu->menu_bg = TRUE;
+        core->menu->pause_on = FALSE;
+        core->menu->game_bgd = FALSE;
+        return (1);
     }
     return (0);
 }
@@ -31,7 +34,7 @@ int attack(core_t *core, pirat_data_t *data)
     data->dead = 1;
     if ((core->game->lifepoint - 5) <= 0) {
         while (tmp == 0)
-            attack_bis(core);
+            tmp = attack_bis(core);
     } else
         core->game->lifepoint -= 5;
     return (0);
