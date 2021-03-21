@@ -41,8 +41,7 @@ typedef struct eco_center_s
 {
     sfVector2f pos;
     int earn;
-    int rate;
-    struct eco_center_s *next;
+    int cool_down;
 } eco_center_t;
 
 typedef enum def_spt_s {ice_tower = 0, arrow_tower = 1, wiz_tower = 2} def_spt_t;
@@ -125,13 +124,21 @@ typedef struct game_s
 {
     sfTexture *game_bgd_tex;
     sfSprite *game_bgd_spt;
+    sfTexture *deadhead_txt;
+    sfTexture *health_txt;
+    sfTexture *money_text;
+    sfSprite *money;
+    sfSprite *deadhead;
+    sfSprite *health;
     defense_t *defense_bis;
     defense_t **defense;
     pause_t *pause;
     tower_t *tower;
+    int money;
     int lifepoint;
     int nb_spt;
     int valid;
+    sfText *money_txt;
     sfText *life;
 } game_t;
 
