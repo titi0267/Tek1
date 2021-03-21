@@ -57,12 +57,15 @@ typedef struct tower_s
     sfSprite **def_list;
     sfVector2f mouse_pos;
     sfSprite *place_tower;
+    sfTexture *eco_center_tex;
+    sfSprite *eco_center_spt;
     def_spt_t wich_defense;
     sfVector2f *good_pos;
     sfVector2f transmit_pos;
     sfIntRect ice_rect;
     sfIntRect wiz_rect;
     sfIntRect archer_rect;
+    sfIntRect eco_rect;
     int tower_release;
     int tower_click;
     int *area;
@@ -127,7 +130,7 @@ typedef struct game_s
     sfTexture *deadhead_txt;
     sfTexture *health_txt;
     sfTexture *money_text;
-    sfSprite *money;
+    sfSprite *money_spt;
     sfSprite *deadhead;
     sfSprite *health;
     defense_t *defense_bis;
@@ -267,6 +270,7 @@ typedef struct time_s
 {
     sfClock *clock;
     float elapsed_time;
+    int recreate_clock;
     float delta_time;
 }time_t;
 

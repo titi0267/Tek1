@@ -27,7 +27,6 @@ void draw_pause(pause_t *pause, window_t *wnd, core_t *core)
     sfSprite_setTextureRect(core->menu->stg->vol->vol_nbr_spt,
                             core->menu->stg->vol->vol_nbr);
     sfRenderWindow_drawSprite(wnd->window, core->menu->stg->vol->vol_nbr_spt, NULL);
-    //draw_return(core->menu->stg, core->menu, wnd);
     print_fullscr(core->menu->stg, wnd, core->menu);
     print_medscr(core->menu->stg, wnd, core->menu);
     print_up_vol(core->menu, wnd);
@@ -57,4 +56,8 @@ void pause_click(pause_t *pause, window_t *wnd, core_t *core)
     } else
         sfRenderWindow_drawSprite(wnd->window,
                                 pause->pause_spt, NULL);
+    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue) {
+        core->menu->pause_on = TRUE;
+        core->menu->go_to_stg = TRUE;
+    }
 }

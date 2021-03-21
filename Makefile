@@ -48,6 +48,7 @@ SRCSFILES	=	main.c 			\
 				Game_core/game/shop/ice_tower.c		\
 				Game_core/game/shop/archer_tower.c	\
 				Game_core/game/shop/wizzard_tower.c	\
+				Game_core/game/shop/eco_center.c	\
 				Game_core/game/defense/def_list.c		\
 				Game_core/game/defense/tower_infos.c	\
 				Game_core/game/defense/alvailable_place.c	\

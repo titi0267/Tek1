@@ -25,7 +25,7 @@ void init(core_t *core);
 
 void poll_event(window_t *wnd, menu_t *menu);
 
-void update_time(time_t *time);
+void update_time(core_t *core);
 void print_scene(menu_t *menu, window_t *wnd, game_t *game, core_t *core);
 
 void resize_wnd_med(menu_t *menu, window_t *wnd);
@@ -161,6 +161,7 @@ void manage_sound_game(core_t *core);
 void init_spt_ingame(core_t *core);
 void init_spt_ingame(core_t *core);
 void init_eco(core_t *core);
+void eco_center_spt(tower_t *tower);
 
 void add_def(game_t *game);
 void print_def(game_t *game, window_t *wnd);

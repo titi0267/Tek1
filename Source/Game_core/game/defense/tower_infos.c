@@ -32,7 +32,6 @@ void wiz_def(game_t *game)
         game->defense_bis->shoot_speed = 1.5;
         game->defense_bis->range = 150;
     }
-
 }
 
 void create_rect_def(tower_t *tower)
@@ -49,4 +48,8 @@ void create_rect_def(tower_t *tower)
     tower->wiz_rect.top = 15;
     tower->wiz_rect.width = 50;
     tower->wiz_rect.height = 81;
+    tower->eco_rect.left = 0;
+    tower->eco_rect.top = 0;
+    tower->eco_rect.height = 51;
+    tower->eco_rect.width = 54;
 }

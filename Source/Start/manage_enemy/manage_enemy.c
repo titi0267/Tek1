@@ -57,6 +57,7 @@ int free_linked_list(pirat_data_t *data)
    while (data != NULL) {
        data_bis = data;
        data = data->next;
+       sfSprite_destroy(data_bis->pirat_walk);
        free(data_bis);
     }
 }

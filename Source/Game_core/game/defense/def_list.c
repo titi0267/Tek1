@@ -14,6 +14,7 @@ void tower_array(game_t *game)
     game->tower->def_list[0] = sfSprite_copy(game->tower->ice_tower_spt);
     game->tower->def_list[1] = sfSprite_copy(game->tower->arrow_tower_spt);
     game->tower->def_list[2] = sfSprite_copy(game->tower->wiz_tower_spt);
+    game->tower->def_list[3] = sfSprite_copy(game->tower->eco_center_spt);
     game->init_def = FALSE;
 }
 

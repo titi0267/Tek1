@@ -45,13 +45,15 @@ int manage_pirat(core_t *core)
     sfVector2f scale = {0.37, 0.37};
     static float nbr = 0;
 
-    nbr += core->time->delta_time;
     for (int i = 0; i < core->game->nb_spt && core->enemy->data_bis != NULL; data_bis = data_bis->next, i++)
         moove_pirat(core, data_bis);
-    check_wave(core);
-    if (nbr >= 2 && core->game->nb_spt < core->wave->pirate_one) {
-        core->game->nb_spt++;
-        nbr = 0;
+    if (core->menu->pause_on == FALSE) {
+        nbr += core->time->delta_time;
+        check_wave(core);
+        if (nbr >= 2 && core->game->nb_spt < core->wave->pirate_one) {
+            core->game->nb_spt++;
+            nbr = 0;
+        }
     }
     return (0);
 }

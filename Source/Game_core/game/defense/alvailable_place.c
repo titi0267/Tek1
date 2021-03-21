@@ -29,7 +29,13 @@ void calc_vector(game_t *game, menu_t *menu)
         auto_place = sqrt(pow(place.x, 2) + pow(place.y, 2));
         if (auto_place < 150 && game->tower->area[i] == FALSE) {
             if (game->tower->tower_release == TRUE &&
-                menu->button->enable_click == TRUE) {
+                menu->button->enable_click == TRUE && game->tower->def_list != 3) {
+                game->tower->area[i] = TRUE;
+                game->tower->transmit_pos.x = game->tower->good_pos[i].x;
+                game->tower->transmit_pos.y = game->tower->good_pos[i].y;
+                game->valid = TRUE;
+            } else if (game->tower->tower_release == TRUE &&
+                    menu->button->enable_click == TRUE && game->tower->def_list == 3 && i == 9) {
                 game->tower->area[i] = TRUE;
                 game->tower->transmit_pos.x = game->tower->good_pos[i].x;
                 game->tower->transmit_pos.y = game->tower->good_pos[i].y;
@@ -61,6 +67,8 @@ void fill_pos_def(game_t *game)
     game->tower->good_pos[7].y = 330;
     game->tower->good_pos[8].x = 250;
     game->tower->good_pos[8].y = 660;
-    game->tower->good_pos[9].x = -1;
-    game->tower->good_pos[9].y = -1;
+    game->tower->good_pos[9].x = 400;
+    game->tower->good_pos[9].y = 800;
+    game->tower->good_pos[10].x = -1;
+    game->tower->good_pos[10].y = -1;
 }
