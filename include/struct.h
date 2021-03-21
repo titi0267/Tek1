@@ -18,6 +18,8 @@ typedef struct wave_s
 {
     int nb_wave;
     int wave;
+    int kill;
+    int life_rate;
     int pirate_one;
     int pirate_two;
     int pirate_three;

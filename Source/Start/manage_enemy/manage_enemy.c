@@ -12,18 +12,11 @@ void check_life(core_t *core)
     pirat_data_t *data = *(core->enemy->data);
 
     for (; data != NULL; data = data->next) {
-        if (data->life <= 0)
+        if (data->life <= 0 && data->dead == 0) {
+            sound_kill(core);
             data->dead = 1;
-    }
-}
-
-void display_list(core_t *core)
-{
-    pirat_data_t *data = *(core->enemy->data);
-
-    for (; data != NULL; data = data->next) {
-        my_printf("road = %i\n", data->road);
-        my_printf("Life = %i\n", data->life);
+            core->wave->kill++;
+        }
     }
 }
 
@@ -34,7 +27,7 @@ void feed_enemy(core_t *core)
 
     for (int i = 0; i < core->wave->pirate_one; i++) {
         core->enemy->data_bis = malloc(sizeof(*core->enemy->data_bis));
-        core->enemy->data_bis->life = 100;
+        core->enemy->data_bis->life = 100 * core->wave->life_rate;
         core->enemy->data_bis->speed = 1;
         core->enemy->data_bis->road = rand() % 2 + 0;
         core->enemy->data_bis->damage = 1;
@@ -83,7 +76,9 @@ int check_wave(core_t *core)
     }
     if (tmp != core->wave->pirate_one)
         return (0);
+    sound_nextlvl(core);
     free_linked_list(data_bis);
+    core->wave->life_rate++;
     core->wave->nb_wave++;
     core->wave->pirate_one += 5;
     core->wave->wave = FALSE;
@@ -97,4 +92,6 @@ void manage_enemy(core_t *core)
     else
         manage_pirat(core);
     manage_life(core);
+    manage_wave(core);
+    manage_kill(core);
 }

@@ -9,7 +9,8 @@
 
 int attack(core_t *core, pirat_data_t *data, sfVector2f pos)
 {
-    core->game->lifepoint -= 0.01;
+    core->game->lifepoint -= 5;
+    data->dead = 1;
     if (core->game->lifepoint <= 0)
         sfRenderWindow_close(core->wnd->window);
     return (0);
@@ -18,7 +19,7 @@ int attack(core_t *core, pirat_data_t *data, sfVector2f pos)
 int move_bis_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
 {
     if (pos.x == 83 && pos.y > 260) {
-        data->pos.y -= data->speed / 2;
+        data->pos.y -= 0.5;
         return (0);
     } else if (pos.x == 83 && pos.y >= 260) {
         data->pos.x = 82;
@@ -31,6 +32,10 @@ int move_bis_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
     } else if (pos.x == 82 && pos.y >= 100) {
         data->pos.x = 82;
         data->pos.y = 99;
+        return (0);
+    }
+    if (pos.x == 82 && pos.y == 99) {
+        attack(core, data, pos);
         return (0);
     }
 }

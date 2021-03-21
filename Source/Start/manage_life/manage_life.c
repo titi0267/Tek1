@@ -58,6 +58,26 @@ char *my_itoa(int r, char *result)
     return (result);
 }
 
+int manage_wave(core_t *core)
+{
+    sfFont *Font = sfFont_createFromFile("Ressources/FONT/Early GameBoy.ttf");
+    int i = core->wave->nb_wave;
+    char *scr = malloc(sizeof(char) * 4);
+    scr = my_itoa(i, scr);
+    sfColor color = sfBlack;
+    sfVector2f pos_score = {1800, 950};
+    sfVector2f scale_score = {1.5, 1.5};
+
+    sfText_setFont(core->game->life, Font);
+    sfText_setString(core->game->life, scr);
+    sfText_setColor(core->game->life, color);
+    sfText_setPosition(core->game->life, pos_score);
+    sfText_setScale(core->game->life, scale_score);
+    sfRenderWindow_drawText(core->wnd->window, core->game->life, NULL);
+    free(scr);
+    return (0);
+}
+
 int manage_life(core_t *core)
 {
     sfFont *Font = sfFont_createFromFile("Ressources/FONT/Early GameBoy.ttf");

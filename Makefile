@@ -20,6 +20,8 @@ SRCSFILES	=	main.c 			\
 				Start/manage_enemy/moove_pirat.c	\
 				Start/manage_enemy/moove_pirat_2.c 	\
 				Start/manage_life/manage_life.c 	\
+				Start/manage_life/manage_kill.c		\
+				Start/manage_life/manage_sound.c 	\
 				Game_core/wnd_open.c			\
 				Game_core/events.c				\
 				Game_core/draw_scene.c			\
