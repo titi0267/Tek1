@@ -9,11 +9,11 @@
 
 void destroy_sound(volume_t *vol)
 {
-    /* sfSoundBuffer_destroy(vol->buffer_kill);
+    sfSoundBuffer_destroy(vol->buffer_kill);
     sfSoundBuffer_destroy(vol->buffer_level);
     sfSoundBuffer_destroy(vol->buffer_laugh);
     sfSoundBuffer_destroy(vol->buffer_gameover);
-    sfSoundBuffer_destroy(vol->buffer_music); */
+    sfSoundBuffer_destroy(vol->buffer_music);
     sfSound_destroy(vol->kill);
     sfSound_destroy(vol->nxt_lvl);
     sfSound_destroy(vol->laugh);

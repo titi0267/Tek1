@@ -101,5 +101,9 @@ void init(core_t *core)
     core->wave->wave = FALSE;
     core->wave->end_wave = FALSE;
     *(core->game->defense) = NULL;
+    core->shop->price1 = 10;
+    core->shop->price2 = 20;
+    core->shop->price3 = 30;
+    core->shop->price4 = 40;
     init_bis(core);
 }

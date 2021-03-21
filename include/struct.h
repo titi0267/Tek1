@@ -33,8 +33,14 @@ typedef struct shop_s
     sfTexture *shop_tex;
     sfSprite *shop_spt;
     sfVector2f pos;
-    int price;
-    struct shop_s *next;
+    sfText *prc_tower1;
+    sfText *prc_tower2;
+    sfText *prc_tower3;
+    sfText *prc_tower4;
+    int price1;
+    int price2;
+    int price3;
+    int price4;
 } shop_t;
 
 typedef struct eco_center_s

@@ -26,6 +26,7 @@ SRCSFILES	=	main.c 			\
 				Start/manage_life/manage_kill.c		\
 				Start/manage_life/manage_sound.c 	\
 				Start/manage_life/manage_eco.c 		\
+				Start/manage_life/manage_price.c 	\
 				Game_core/wnd_open.c			\
 				Game_core/events.c				\
 				Game_core/draw_scene.c			\

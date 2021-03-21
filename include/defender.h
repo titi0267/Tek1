@@ -170,6 +170,7 @@ void eco_center_spt(tower_t *tower);
 void free_linked_list(pirat_data_t *data);
 void feed_enemy(core_t *core);
 int manage_move(core_t *core, pirat_data_t *data);
+void manage_price_all(core_t *core);
 
 void add_def(game_t *game);
 void print_def(game_t *game, window_t *wnd);
