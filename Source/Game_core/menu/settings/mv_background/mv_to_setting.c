@@ -51,22 +51,28 @@ void mv_stg_six(menu_t *menu, sfVector2f pos)
     sfSprite_setPosition(menu->name_spt, pos);
 }
 
+sfVector2f mv_to_stg_all_bis(sfVector2f pos, pause_t *pause)
+{
+    pos.x = sfSprite_getGlobalBounds(pause->play_spt).left;
+    pos.y = sfSprite_getGlobalBounds(pause->play_spt).top;
+    pos.x -= 20;
+    sfSprite_setPosition(pause->play_spt, pos);
+    pos.x = sfSprite_getGlobalBounds(pause->play_click_spt).left;
+    pos.y = sfSprite_getGlobalBounds(pause->play_click_spt).top;
+    pos.x -= 20;
+    sfSprite_setPosition(pause->play_click_spt, pos);
+    pos.x = sfSprite_getGlobalBounds(pause->play_hover_spt).left;
+    pos.y = sfSprite_getGlobalBounds(pause->play_hover_spt).top;
+    pos.x -= 20;
+    return (pos);
+}
+
 void mv_to_stg_all(menu_t *menu, pause_t *pause)
 {
     sfVector2f pos = {0, 0};
 
     if (menu->pause_on == TRUE) {
-        pos.x = sfSprite_getGlobalBounds(pause->play_spt).left;
-        pos.y = sfSprite_getGlobalBounds(pause->play_spt).top;
-        pos.x -= 20;
-        sfSprite_setPosition(pause->play_spt, pos);
-        pos.x = sfSprite_getGlobalBounds(pause->play_click_spt).left;
-        pos.y = sfSprite_getGlobalBounds(pause->play_click_spt).top;
-        pos.x -= 20;
-        sfSprite_setPosition(pause->play_click_spt, pos);
-        pos.x = sfSprite_getGlobalBounds(pause->play_hover_spt).left;
-        pos.y = sfSprite_getGlobalBounds(pause->play_hover_spt).top;
-        pos.x -= 20;
+        pos = mv_to_stg_all_bis(pos, pause);
         sfSprite_setPosition(pause->play_hover_spt, pos);
     }
     pos.x = sfSprite_getGlobalBounds(menu->bgd_spt).left;

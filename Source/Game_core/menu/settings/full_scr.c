@@ -52,6 +52,15 @@ void hover_fullscr_button(settings_t *stg)
     sfSprite_setScale(stg->hover_fullscr_spt, scale);
 }
 
+void print_fullscr_bis(menu_t *menu, window_t *wnd)
+{
+    if (menu->button->enable_click == FALSE
+        && menu->stg->click_fullscr == TRUE) {
+        resize_wnd_full(wnd);
+        menu->stg->click_fullscr = FALSE;
+    }
+}
+
 void print_fullscr(settings_t *stg, window_t *wnd, menu_t *menu)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(wnd->window);
@@ -71,8 +80,5 @@ void print_fullscr(settings_t *stg, window_t *wnd, menu_t *menu)
         }
     } else
         sfRenderWindow_drawSprite(wnd->window, stg->fullscr_spt, NULL);
-    if (menu->button->enable_click == FALSE && menu->stg->click_fullscr == TRUE) {
-        resize_wnd_full(wnd);
-        menu->stg->click_fullscr = FALSE;
-    }
+    print_fullscr_bis(menu, wnd);
 }

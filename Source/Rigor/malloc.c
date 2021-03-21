@@ -7,6 +7,19 @@
 
 #include "../../include/defender.h"
 
+int struct_alloc_bis(core_t *core)
+{
+    if (core == NULL || core->wnd == NULL || core->time == NULL ||
+        core->menu == NULL || core->menu->button == NULL ||
+        core->menu->stg == NULL || core->menu->stg->vol == NULL ||
+        core->shop == NULL || core->game == NULL || core->enemy == NULL
+        || core->enemy->pirat == NULL || core->enemy->data == NULL
+        || core->wave == NULL || core->game->defense == NULL ||
+        core->game->tower == NULL || core->game->pause == NULL)
+        return (ERROR);
+    return (0);
+}
+
 int struct_alloc(core_t *core)
 {
     core->wnd = malloc(sizeof(window_t));
@@ -25,13 +38,7 @@ int struct_alloc(core_t *core)
     core->game->tower = malloc(sizeof(tower_t));
     core->game->pause = malloc(sizeof(pause_t));
 
-    if (core == NULL || core->wnd == NULL || core->time == NULL ||
-        core->menu == NULL || core->menu->button == NULL ||
-        core->menu->stg == NULL || core->menu->stg->vol == NULL ||
-        core->shop == NULL || core->game == NULL || core->enemy == NULL
-        || core->enemy->pirat == NULL || core->enemy->data == NULL
-        || core->wave == NULL || core->game->defense == NULL ||
-        core->game->tower == NULL || core->game->pause == NULL)
+    if (struct_alloc_bis(core) == ERROR)
         return (ERROR);
     return (0);
 }

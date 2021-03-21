@@ -60,7 +60,8 @@ void draw_leave(button_t *button, window_t *wnd)
     if ((mouse_pos.x >= box_size_x(wnd, leave_spt.left) && mouse_pos.x <=
         (box_size_x(wnd, leave_spt.left) + box_size_x(wnd, leave_spt.width)))
         && (mouse_pos.y >= box_size_y(wnd, leave_spt.top) && mouse_pos.y <=
-        (box_size_y(wnd, leave_spt.top) + box_size_y(wnd, leave_spt.height)))) {
+        (box_size_y(wnd, leave_spt.top) +
+        box_size_y(wnd, leave_spt.height)))) {
         if (button->enable_click == TRUE) {
             sfRenderWindow_drawSprite(wnd->window,
                                     button->click_leave_spt, NULL);

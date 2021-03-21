@@ -26,6 +26,11 @@ void init(core_t *core);
 void poll_event(window_t *wnd, menu_t *menu);
 
 void update_time(time_t *time);
+void draw_menu(menu_t *menu, window_t *wnd);
+void draw_settings(menu_t *menu, window_t *wnd);
+void draw_game(game_t *game, window_t *wnd, core_t *core);
+void draw_shop_bis(core_t *core, window_t *wnd);
+void draw_shop(core_t *core, window_t *wnd);
 void print_scene(menu_t *menu, window_t *wnd, game_t *game, core_t *core);
 
 void resize_wnd_med(menu_t *menu, window_t *wnd);
@@ -147,7 +152,7 @@ int manage_pirat(core_t *core);
 void rect_pirat(core_t *core);
 int moove_pirat(core_t *core, pirat_data_t *data_bis);
 int move_road2(core_t *core, pirat_data_t *data);
-int attack(core_t *core, pirat_data_t *data, sfVector2f pos);
+int attack(core_t *core, pirat_data_t *data);
 int manage_life(core_t *core);
 void check_life(core_t *core);
 int check_wave(core_t *core);
@@ -161,11 +166,28 @@ void manage_sound_game(core_t *core);
 void init_spt_ingame(core_t *core);
 void init_spt_ingame(core_t *core);
 void init_eco(core_t *core);
+void free_linked_list(pirat_data_t *data);
+void feed_enemy(core_t *core);
+int manage_move(core_t *core, pirat_data_t *data);
 
 void add_def(game_t *game);
 void print_def(game_t *game, window_t *wnd);
 
 void destroy_regroup_spt(core_t *core);
 void destroy_all(core_t *core);
+void destroy_shop_text(shop_t *shop);
+void destroy_stg_bg_tex(menu_t *menu);
+void destroy_volume_tex(volume_t *volume);
+void destroy_size_stg_tex(settings_t *stg);
+void destroy_volume_spt(volume_t *vol);
+void destroy_size_stg_spt(settings_t *stg);
+void destroy_shop_spt(shop_t *shop);
+void destroy_enemy_tex(enemy_t *enemy);
+void destroy_enemy_spt(enemy_t *enemy);
+void destroy_menu_buttons_tex(menu_t *menu);
+void destroy_menu_buttons_spt(menu_t *menu);
+void destroy_stg_bg_tex(menu_t *menu);
+void destroy_stg_bg_spt(menu_t *menu);
+void destroy_shop_tex(shop_t *shop);
 
 #endif /* !DEFENDER_H_ */

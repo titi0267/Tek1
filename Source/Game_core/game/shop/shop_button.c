@@ -65,12 +65,12 @@ void get_spt_mouse(tower_t *tower, window_t *wnd)
     tower->mouse_pos = sfRenderWindow_mapPixelToCoords(wnd->window, mouse,
                                                     NULL);
     tower->mouse_pos.x -= sfSprite_getGlobalBounds(
-                                tower->def_list[tower->wich_defense]).width / 2;
+                tower->def_list[tower->wich_defense]).width / 2;
     tower->mouse_pos.y -= sfSprite_getGlobalBounds(
                             tower->def_list[tower->wich_defense]).height / 2;
     sfSprite_setPosition(
-                        tower->def_list[tower->wich_defense], tower->mouse_pos);
-    sfRenderWindow_drawSprite(wnd->window, tower->def_list[tower->wich_defense],
-                            NULL);
+                tower->def_list[tower->wich_defense], tower->mouse_pos);
+    sfRenderWindow_drawSprite(wnd->window,
+                tower->def_list[tower->wich_defense], NULL);
     sfRenderWindow_setMouseCursorVisible(wnd->window, FALSE);
 }
