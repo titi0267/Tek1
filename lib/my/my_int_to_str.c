@@ -17,11 +17,16 @@ char *my_int_str(int nb, lib_t *lib)
         lib->count = 1;
         nb *= -1;
     }
+    if (nb == 0) {
+        lib->str[lib->count] = '0';
+        lib->count++;
+    }
     for (; nb != 0; lib->count++) {
         store = nb % 10;
         lib->str[lib->count] = store + '0';
         nb /= 10;
     }
     lib->str[lib->count] = '\0';
+    lib->str = my_revstr(lib->str, lib);
     return (lib->str);
 }

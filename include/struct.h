@@ -78,11 +78,11 @@ typedef struct defense_s
     sfSprite *new_build;
 } defense_t;
 
-
 typedef struct pirat_spt_s
 {
     sfTexture *pirat_txt;
     sfIntRect rectangle;
+    sfSprite *pirat_spt;
     sfSprite *pirat_spt_death;
 } pirat_spt_t;
 
@@ -140,6 +140,7 @@ typedef struct game_s
     int valid;
     sfText *money_txt;
     sfText *life;
+    int init_def;
 } game_t;
 
 typedef struct window_s

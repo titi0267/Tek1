@@ -42,7 +42,8 @@ void draw_game(game_t *game, window_t *wnd, core_t *core)
     sfSprite_setTextureRect(game->tower->def_list[2], game->tower->wiz_rect);
     manage_enemy(core);
     click_shop(core->shop, core->wnd, core->menu);
-    print_def(game, wnd);
+    if (game->init_def == TRUE)
+        print_def(game, wnd);
 }
 
 void draw_shop(core_t *core, window_t *wnd)
@@ -62,15 +63,17 @@ void draw_shop(core_t *core, window_t *wnd)
             sfRenderWindow_setMouseCursorVisible(wnd->window, TRUE);
             add_def(core->game);
             core->game->valid = FALSE;
-        } else if ((core->game->tower->tower_release == TRUE) &&
+        }
+        if ((core->game->tower->tower_release == TRUE) &&
             (core->menu->button->enable_click == TRUE &&
             core->game->valid == FALSE)) {
             core->game->tower->tower_click = FALSE;
             sfRenderWindow_setMouseCursorVisible(wnd->window, TRUE);
             core->game->tower->tower_release = FALSE;
         }
-        if (core->menu->button->enable_click == FALSE)
+        if (core->menu->button->enable_click == FALSE) {
             core->game->tower->tower_release = TRUE;
+        }
     }
 }
 

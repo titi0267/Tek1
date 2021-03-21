@@ -14,6 +14,7 @@ void tower_array(game_t *game)
     game->tower->def_list[0] = sfSprite_copy(game->tower->ice_tower_spt);
     game->tower->def_list[1] = sfSprite_copy(game->tower->arrow_tower_spt);
     game->tower->def_list[2] = sfSprite_copy(game->tower->wiz_tower_spt);
+    game->init_def = FALSE;
 }
 
 void print_def(game_t *game, window_t *wnd)
@@ -40,4 +41,5 @@ void add_def(game_t *game)
     game->defense_bis->next = *game->defense;
     *game->defense = game->defense_bis;
     game->tower->tower_release = FALSE;
+    game->init_def = TRUE;
 }

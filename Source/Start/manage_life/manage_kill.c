@@ -46,10 +46,10 @@ void init_spt_ingame(core_t *core)
 
 int manage_kill(core_t *core)
 {
+    lib_t *lib = malloc(sizeof(lib_t));
     sfFont *Font = sfFont_createFromFile("Ressources/FONT/Early GameBoy.ttf");
     int i = core->wave->kill;
-    char *scr = malloc(sizeof(char) * 4);
-    scr = my_itoa(i, scr);
+    char *scr = my_int_str(i, lib);
     sfColor color = sfBlack;
     sfVector2f pos_score = {80, 950};
     sfVector2f scale_score = {1.5, 1.5};
@@ -61,5 +61,6 @@ int manage_kill(core_t *core)
     sfText_setScale(core->game->life, scale_score);
     sfRenderWindow_drawText(core->wnd->window, core->game->life, NULL);
     free(scr);
+    free(lib);
     return (0);
 }

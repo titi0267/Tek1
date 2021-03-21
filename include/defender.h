@@ -142,7 +142,7 @@ void click_wiz_tower(window_t *wnd, menu_t *menu, tower_t *tower);
 void wiz_def(game_t *game);
 
 void manage_enemy(core_t *core);
-int feed_spt(core_t *core);
+void feed_spt(core_t *core);
 int manage_pirat(core_t *core);
 void rect_pirat(core_t *core);
 int moove_pirat(core_t *core, pirat_data_t *data_bis);

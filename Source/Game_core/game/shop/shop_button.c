@@ -10,10 +10,10 @@
 void shop_button(shop_t *shop, menu_t *menu)
 {
     shop->shop_tex = sfTexture_createFromFile(
-                        "Ressources/button/settings/size/1920-1080.png",
+                        "Ressources/button/shop_btn.png",
                         NULL);
     shop->shop_spt = sfSprite_create();
-    sfVector2f scale = {0.25f, 0.25f};
+    sfVector2f scale = {1, 1};
     sfVector2f shop_pos = {1700, 100};
 
     sfSprite_setTexture(shop->shop_spt, shop->shop_tex, sfFalse);

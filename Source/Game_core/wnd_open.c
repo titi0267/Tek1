@@ -15,11 +15,12 @@ void wnd_open(core_t *core)
         if (core->menu->button->end_gm == TRUE &&
             core->menu->button->enable_click == FALSE)
             break;
-        if (core->menu->pause_on == FALSE)
+        if (core->menu->pause_on == FALSE) {
             update_time(core->time);
+        }
+        poll_event(core->wnd, core->menu);
         print_scene(core->menu, core->wnd, core->game, core);
         switch_bg(core->menu, core->game->pause);
-        poll_event(core->wnd, core->menu);
     }
     destroy_all(core);
 }

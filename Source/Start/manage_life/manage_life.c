@@ -36,34 +36,12 @@ char *rev_str(char *str)
     return (str);
 }
 
-char *my_itoa(int r, char *result)
-{
-    int i = 0;
-    int j;
-
-    if ((j = r) < 0)
-        r = -r;
-    r *= 10;
-    result[i] = r % 10 + '0';
-    while ((r /= 10) > 0)
-        result[i++] = r % 10 + '0';
-    if (j < 0)
-        result[i++] = '-';
-    else if (r == 0) {
-        result[i] = '0';
-        i++;
-    }
-    result[i] = '\0';
-    rev_str(result);
-    return (result);
-}
-
 int manage_wave(core_t *core)
 {
+    lib_t *lib = malloc(sizeof(lib_t));
     sfFont *Font = sfFont_createFromFile("Ressources/FONT/Early GameBoy.ttf");
     int i = core->wave->nb_wave;
-    char *scr = malloc(sizeof(char) * 4);
-    scr = my_itoa(i, scr);
+    char *scr = my_int_str(i, lib);
     sfColor color = sfBlack;
     sfVector2f pos_score = {1800, 950};
     sfVector2f scale_score = {1.5, 1.5};
@@ -75,15 +53,16 @@ int manage_wave(core_t *core)
     sfText_setScale(core->game->life, scale_score);
     sfRenderWindow_drawText(core->wnd->window, core->game->life, NULL);
     free(scr);
+    free(lib);
     return (0);
 }
 
 int manage_life(core_t *core)
 {
+    lib_t *lib = malloc(sizeof(lib_t));
     sfFont *Font = sfFont_createFromFile("Ressources/FONT/Early GameBoy.ttf");
     int i = core->game->lifepoint;
-    char *scr = malloc(sizeof(char) * 4);
-    scr = my_itoa(i, scr);
+    char *scr = my_int_str(i, lib);
     sfColor color = sfBlack;
     sfVector2f pos_score = {100, 0};
     sfVector2f scale_score = {1.5, 1.5};
@@ -95,5 +74,6 @@ int manage_life(core_t *core)
     sfText_setScale(core->game->life, scale_score);
     sfRenderWindow_drawText(core->wnd->window, core->game->life, NULL);
     free(scr);
+    free(lib);
     return (0);
 }

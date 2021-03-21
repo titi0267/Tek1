@@ -108,10 +108,10 @@ int move_road2(core_t *core, pirat_data_t *data)
 {
     sfVector2f pos = sfSprite_getPosition(data->pirat_walk);
 
-    if (pos.x > 850 & pos.y == 40) {
+    if (pos.x > 850 && pos.y == 40) {
         data->pos.x -= data->speed;
         return (0);
-    } else if (pos.x >= 850 & pos.y == 40) {
+    } else if (pos.x >= 850 && pos.y == 40) {
         data->pos.x = 849;
         data->pos.y = 40;
         return (0);
