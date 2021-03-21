@@ -127,7 +127,7 @@ typedef struct game_s
     sfTexture *deadhead_txt;
     sfTexture *health_txt;
     sfTexture *money_text;
-    sfSprite *money;
+    sfSprite *money_spt;
     sfSprite *deadhead;
     sfSprite *health;
     defense_t *defense_bis;

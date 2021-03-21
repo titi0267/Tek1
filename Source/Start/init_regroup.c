@@ -83,7 +83,9 @@ void init(core_t *core)
     core->wave->nb_wave = 1;
     core->wave->life_rate = 1;
     core->game->life = sfText_create();
+    core->game->money_txt = sfText_create();
     core->wave->end_game = 0;
+    core->game->money = 0;
     manage_sound_game(core);
     init_spt_ingame(core);
 }

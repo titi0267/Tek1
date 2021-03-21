@@ -16,6 +16,7 @@ void check_life(core_t *core)
             sfSound_play(core->menu->stg->vol->kill);
             data->dead = 1;
             core->wave->kill++;
+            core->game->money++;
         }
     }
 }
@@ -78,6 +79,7 @@ int check_wave(core_t *core)
         return (0);
     sfSound_play(core->menu->stg->vol->nxt_lvl);
     free_linked_list(data_bis);
+    core->game->money += 3;
     core->wave->life_rate++;
     core->wave->nb_wave++;
     core->wave->pirate_one += 5;
@@ -89,6 +91,7 @@ void manage_enemy(core_t *core)
 {
     sfRenderWindow_drawSprite(core->wnd->window, core->game->health, NULL);
     sfRenderWindow_drawSprite(core->wnd->window, core->game->deadhead, NULL);
+    sfRenderWindow_drawSprite(core->wnd->window, core->game->money_spt, NULL);
     if (core->wave->wave == FALSE)
         feed_enemy(core);
     else
@@ -96,4 +99,5 @@ void manage_enemy(core_t *core)
     manage_life(core);
     manage_wave(core);
     manage_kill(core);
+    init_eco(core);
 }
