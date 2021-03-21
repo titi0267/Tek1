@@ -107,6 +107,16 @@ void destroy_shop_tex(shop_t *shop)
     sfTexture_destroy(shop->shop_tex);
 }
 
+void destroy_enemy_tex(enemy_t *enemy)
+{
+    sfTexture_destroy(enemy->pirat->pirat_txt);
+}
+
+void destroy_enemy_spt(enemy_t *enemy)
+{
+    sfSprite_destroy(enemy->pirat->pirat_spt);
+}
+
 void destroy_regroup_spt(core_t *core)
 {
     destroy_menu_buttons_spt(core->menu);

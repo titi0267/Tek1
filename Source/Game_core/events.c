@@ -14,9 +14,11 @@ void poll_event(window_t *wnd, menu_t *menu)
     while (sfRenderWindow_pollEvent(wnd->window, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(wnd->window);
-        if (event.type == sfEvtMouseButtonPressed)
+        if (event.type == sfEvtMouseButtonPressed) {
             menu->button->enable_click = TRUE;
-        if (event.type == sfEvtMouseButtonReleased)
+        }
+        if (event.type == sfEvtMouseButtonReleased) {
             menu->button->enable_click = FALSE;
+        }
     }
 }

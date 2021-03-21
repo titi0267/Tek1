@@ -55,13 +55,13 @@ void init_gm(core_t *core)
     ice_tower_spt(core->game->tower);
     archer_spt(core->game->tower);
     wizzard_spt(core->game->tower);
-    sfSprite_setTextureRect(core->game->tower->wiz_tower_spt, core->game->tower->wiz_rect);
-    sfSprite_setTextureRect(core->game->tower->arrow_tower_spt, core->game->tower->archer_rect);
-    sfSprite_setTextureRect(core->game->tower->ice_tower_spt, core->game->tower->ice_rect);
     tower_array(core->game);
     fill_pos_def(core->game);
     fill_alrd_build(core->game);
     create_rect_def(core->game->tower);
+    sfSprite_setTextureRect(core->game->tower->wiz_tower_spt, core->game->tower->wiz_rect);
+    sfSprite_setTextureRect(core->game->tower->arrow_tower_spt, core->game->tower->archer_rect);
+    sfSprite_setTextureRect(core->game->tower->ice_tower_spt, core->game->tower->ice_rect);
 }
 
 void init(core_t *core)
@@ -76,10 +76,12 @@ void init(core_t *core)
     core->menu->button->enable_click = FALSE;
     core->wave->wave = FALSE;
     core->wave->end_wave = FALSE;
+    *(core->game->defense) = NULL;
     core->wave->pirate_one = 5;
     core->game->lifepoint = 100;
     core->game->nb_spt = 0;
     core->wave->kill = 0;
+    core->game->valid = FALSE;
     core->wave->nb_wave = 1;
     core->wave->life_rate = 1;
     core->game->life = sfText_create();

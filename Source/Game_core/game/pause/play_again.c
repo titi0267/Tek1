@@ -21,6 +21,7 @@ void play_again_but(pause_t *pause, menu_t *menu)
     sfSprite_setScale(pause->play_click_spt, scale);
     sfSprite_setPosition(pause->play_hover_spt, pos);
     sfSprite_setScale(pause->play_hover_spt, scale);
+    menu->pause_on = FALSE;
 }
 
 void draw_restart(pause_t *pause, menu_t *menu, window_t *wnd)
@@ -38,7 +39,6 @@ void draw_restart(pause_t *pause, menu_t *menu, window_t *wnd)
             menu->return_to_menu = TRUE;
             menu->pause_on = TRUE;
             menu->menu_bg = FALSE;
-            my_printf("return = %i\n", menu->return_to_menu);
         } else
             sfRenderWindow_drawSprite(wnd->window,
                                     pause->play_hover_spt, NULL);

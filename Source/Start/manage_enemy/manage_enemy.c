@@ -40,14 +40,13 @@ void feed_enemy(core_t *core)
             core->enemy->data_bis->pos.y = 40;
         }
         core->enemy->data_bis->nb_pirat = y;
-        core->enemy->data_bis->pirat_walk = sfSprite_create();
+        core->enemy->data_bis->pirat_walk = sfSprite_copy(core->enemy->pirat->pirat_spt);
         core->enemy->data_bis->next = *core->enemy->data;
         *core->enemy->data = core->enemy->data_bis;
         y++;
     }
     core->game->nb_spt = 1;
     rect_pirat(core);
-    feed_spt(core);
     core->wave->wave = TRUE;
 }
 
@@ -55,8 +54,7 @@ int free_linked_list(pirat_data_t *data)
 {
     pirat_data_t *data_bis;
 
-   while (data != NULL)
-    {
+   while (data != NULL) {
        data_bis = data;
        data = data->next;
        free(data_bis);
