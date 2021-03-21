@@ -13,7 +13,7 @@ void check_life(core_t *core)
 
     for (; data != NULL; data = data->next) {
         if (data->life <= 0 && data->dead == 0) {
-            sound_kill(core);
+            sfSound_play(core->menu->stg->vol->kill);
             data->dead = 1;
             core->wave->kill++;
         }
@@ -76,7 +76,7 @@ int check_wave(core_t *core)
     }
     if (tmp != core->wave->pirate_one)
         return (0);
-    sound_nextlvl(core);
+    sfSound_play(core->menu->stg->vol->nxt_lvl);
     free_linked_list(data_bis);
     core->wave->life_rate++;
     core->wave->nb_wave++;
