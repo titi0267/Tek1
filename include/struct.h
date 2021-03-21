@@ -205,10 +205,13 @@ typedef struct volume_s
     sfSoundBuffer *buffer_level;
     sfSoundBuffer *buffer_laugh;
     sfSoundBuffer *buffer_gameover;
+    sfSoundBuffer *buffer_music;
+    sfSound *music;
     sfSound *kill;
     sfSound *nxt_lvl;
     sfSound *laugh;
     sfSound *gameover;
+    int level_vol;
     int offset;
     int width_backup;
     int size_one;
@@ -266,6 +269,8 @@ typedef struct menu_s
     int shop_to_gm;
     int shop_release;
     int pause_on;
+    int init_music;
+    int tmp_pause;
 } menu_t;
 
 typedef struct time_s
