@@ -61,6 +61,7 @@ SRCSFILES	=	main.c 			\
 				Game_core/game/defense/def_shot.c			\
 				Game_core/game/pause/pause_but.c			\
 				Game_core/game/pause/play_again.c			\
+				Game_core/game/money/increase_money.c		\
 				End/destroy.c			\
 				End/destroy_one.c 		\
 				End/destroy_two.c 		\

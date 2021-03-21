@@ -32,7 +32,7 @@ void click_wiz_tower(window_t *wnd, menu_t *menu, tower_t *tower)
         (box_size_y(wnd, wiz_pos.top) + box_size_y(wnd, wiz_pos.height)))) {
         if (menu->button->enable_click == TRUE) {
             tower->tower_click = TRUE;
-            tower->wich_defense = 2;
+            tower->wich_defense = wiz_tower;
         } else {
             sfRenderWindow_drawSprite(wnd->window,
                                     tower->wiz_tower_spt, NULL);

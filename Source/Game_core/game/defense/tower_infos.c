@@ -10,16 +10,17 @@
 void ice_def(game_t *game)
 {
     if (game->tower->wich_defense == ice_tower) {
-        game->defense_bis->damage = 10;
+        game->defense_bis->damage = 1;
         game->defense_bis->shoot_speed = 2;
-        game->defense_bis->range = 170;
+        game->defense_bis->range = 250;
+        game->defense_bis->slow_enemy = 0.5;
     }
 }
 
 void archer_def(game_t *game)
 {
     if (game->tower->wich_defense == arrow_tower) {
-        game->defense_bis->damage = 20;
+        game->defense_bis->damage = 25;
         game->defense_bis->shoot_speed = 2.5;
         game->defense_bis->range = 200;
     }
@@ -32,6 +33,17 @@ void wiz_def(game_t *game)
         game->defense_bis->shoot_speed = 1.5;
         game->defense_bis->range = 150;
     }
+}
+
+void eco_def(game_t *game)
+{
+    if (game->tower->wich_defense == eco_center) {
+        game->defense_bis->damage = 0;
+        game->defense_bis->shoot_speed = 0;
+        game->defense_bis->range = 0;
+        game->tower->eco_placed = TRUE;
+    }
+
 }
 
 void create_rect_def(tower_t *tower)

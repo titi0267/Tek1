@@ -11,23 +11,23 @@
 
 void fill_alrd_build(game_t *game)
 {
-    game->tower->area = malloc(sizeof(int) * 10);
+    game->tower->area = malloc(sizeof(int) * 11);
 
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < 10; i++)
         game->tower->area[i] = FALSE;
-    game->tower->area[9] = -1;
+    game->tower->area[10] = -1;
 }
 
 void calc_vector_bis(game_t *game, menu_t *menu, int i)
 {
     if (game->tower->tower_release == TRUE &&
-        menu->button->enable_click == TRUE && game->tower->def_list != 3) {
+        menu->button->enable_click == TRUE && game->tower->wich_defense != 3 && i != 9) {
         game->tower->area[i] = TRUE;
         game->tower->transmit_pos.x = game->tower->good_pos[i].x;
         game->tower->transmit_pos.y = game->tower->good_pos[i].y;
         game->valid = TRUE;
     } else if (game->tower->tower_release == TRUE &&
-        menu->button->enable_click == TRUE && game->tower->def_list == 3 &&
+        menu->button->enable_click == TRUE && game->tower->wich_defense == 3 &&
         i == 9) {
         game->tower->area[i] = TRUE;
         game->tower->transmit_pos.x = game->tower->good_pos[i].x;
@@ -62,15 +62,15 @@ void fill_pos_def_bis(game_t *game)
     game->tower->good_pos[7].y = 330;
     game->tower->good_pos[8].x = 250;
     game->tower->good_pos[8].y = 660;
-    game->tower->good_pos[9].x = 400;
-    game->tower->good_pos[9].y = 800;
+    game->tower->good_pos[9].x = 780;
+    game->tower->good_pos[9].y = 640;
     game->tower->good_pos[10].x = -1;
     game->tower->good_pos[10].y = -1;
 }
 
 void fill_pos_def(game_t *game)
 {
-    game->tower->good_pos = malloc(sizeof(sfVector2f *) * 10);
+    game->tower->good_pos = malloc(sizeof(sfVector2f *) * 11);
 
     game->tower->good_pos[0].x = 940;
     game->tower->good_pos[0].y = 120;

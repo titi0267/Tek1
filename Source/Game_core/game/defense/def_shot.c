@@ -14,10 +14,12 @@ void make_damage(defense_t *defense_bis, pirat_data_t *data, time_t *time)
     static float nbr = 0;
 
     nbr += time->delta_time;
-    if (nbr >= defense_bis->shoot_speed) {
+    if (nbr >= defense_bis->shoot_speed && defense_bis->range != 250) {
         data->life -= defense_bis->damage;
         nbr = 0;
     }
+    if (defense_bis->range == 250)
+        data->speed = defense_bis->slow_enemy;
 }
 
 void range_def_bis(time_t *time, pirat_data_t *data, defense_t *def, float nb)
@@ -52,6 +54,7 @@ void range_def(game_t *game, enemy_t *enemy, time_t *time)
             bad_guy = sfSprite_getGlobalBounds(data->pirat_walk);
             build_enemy = range_def_bis_bis(in_range, bad_guy,
                 build, build_enemy);
+            data->speed = 1;
             range_def_bis(time, data, defense_bis, build_enemy);
         }
     }
