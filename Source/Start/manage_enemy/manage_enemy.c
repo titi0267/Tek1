@@ -46,6 +46,8 @@ int check_wave(core_t *core)
 
 void manage_enemy(core_t *core)
 {
+    if (sfSound_getStatus(core->menu->stg->vol->music) == sfStopped)
+        sfSound_play(core->menu->stg->vol->music);
     sfRenderWindow_drawSprite(core->wnd->window, core->game->health, NULL);
     sfRenderWindow_drawSprite(core->wnd->window, core->game->deadhead, NULL);
     sfRenderWindow_drawSprite(core->wnd->window, core->game->money_spt, NULL);
@@ -57,4 +59,5 @@ void manage_enemy(core_t *core)
     manage_wave(core);
     manage_kill(core);
     init_eco(core);
+    manage_sound_game(core);
 }
