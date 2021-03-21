@@ -20,6 +20,21 @@ void make_damage(defense_t *defense_bis, pirat_data_t *data, time_t *time)
     }
 }
 
+void range_def_bis(time_t *time, pirat_data_t *data, defense_t *def, float nb)
+{
+    if (nb < def->range) {
+        make_damage(def, data, time);
+    }
+}
+
+float range_def_bis_bis(sfVector2f ir, sfFloatRect bg, sfFloatRect b, float be)
+{
+    ir.x = (bg.left + (bg.width / 2)) - (b.left + (b.width / 2));
+    ir.y = (bg.top + (bg.height / 2)) - (b.top + (b.height / 2));
+    be = sqrt(pow(ir.x, 2) + pow(ir.y, 2));
+    return (be);
+}
+
 void range_def(game_t *game, enemy_t *enemy, time_t *time)
 {
     defense_t *defense_bis = *(game->defense);
@@ -32,14 +47,12 @@ void range_def(game_t *game, enemy_t *enemy, time_t *time)
     for (; defense_bis != NULL; defense_bis = defense_bis->next) {
         data = *(enemy->data);
         build = sfSprite_getGlobalBounds(defense_bis->new_build);
-        for (int i = 0;  i < game->nb_spt && data != NULL; data = data->next, i++) {
+        for (int i = 0;  i < game->nb_spt && data != NULL;
+                                data = data->next, i++) {
             bad_guy = sfSprite_getGlobalBounds(data->pirat_walk);
-            in_range.x = (bad_guy.left + (bad_guy.width / 2)) - (build.left + (build.width / 2));
-            in_range.y = (bad_guy.top + (bad_guy.height / 2)) - (build.top + (build.height / 2));
-            build_enemy = sqrt(pow(in_range.x, 2) + pow(in_range.y, 2));
-            if (build_enemy < defense_bis->range) {
-                make_damage(defense_bis, data, time);
-            }
+            build_enemy = range_def_bis_bis(in_range, bad_guy,
+                build, build_enemy);
+            range_def_bis(time, data, defense_bis, build_enemy);
         }
     }
 }

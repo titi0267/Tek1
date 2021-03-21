@@ -34,7 +34,8 @@ void draw_restart(pause_t *pause, menu_t *menu, window_t *wnd)
         (mouse_pos.y >= box_size_y(wnd, play.top) && mouse_pos.y <=
         (box_size_y(wnd, play.top) + box_size_y(wnd, play.height)))) {
         if (menu->button->enable_click == TRUE) {
-            sfRenderWindow_drawSprite(wnd->window, pause->play_click_spt, NULL);
+            sfRenderWindow_drawSprite(wnd->window,
+            pause->play_click_spt, NULL);
             menu->game_bgd = TRUE;
             menu->return_to_menu = TRUE;
             menu->pause_on = TRUE;

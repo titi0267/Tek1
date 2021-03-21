@@ -16,49 +16,8 @@ void check_life(core_t *core)
             sfSound_play(core->menu->stg->vol->kill);
             data->dead = 1;
             core->wave->kill++;
+            core->game->money++;
         }
-    }
-}
-
-void feed_enemy(core_t *core)
-{
-    int y = 0;
-    *(core->enemy->data) = NULL;
-
-    for (int i = 0; i < core->wave->pirate_one; i++) {
-        core->enemy->data_bis = malloc(sizeof(*core->enemy->data_bis));
-        core->enemy->data_bis->life = 100 * core->wave->life_rate;
-        core->enemy->data_bis->speed = 1;
-        core->enemy->data_bis->road = rand() % 2 + 0;
-        core->enemy->data_bis->damage = 1;
-        core->enemy->data_bis->dead = 0;
-        if (core->enemy->data_bis->road == 1) {
-            core->enemy->data_bis->pos.x = 1500;
-            core->enemy->data_bis->pos.y = 810;
-        } else {
-            core->enemy->data_bis->pos.x = 1630;
-            core->enemy->data_bis->pos.y = 40;
-        }
-        core->enemy->data_bis->nb_pirat = y;
-        core->enemy->data_bis->pirat_walk = sfSprite_copy(core->enemy->pirat->pirat_spt);
-        core->enemy->data_bis->next = *core->enemy->data;
-        *core->enemy->data = core->enemy->data_bis;
-        y++;
-    }
-    core->game->nb_spt = 1;
-    rect_pirat(core);
-    core->wave->wave = TRUE;
-}
-
-int free_linked_list(pirat_data_t *data)
-{
-    pirat_data_t *data_bis;
-
-   while (data != NULL) {
-       data_bis = data;
-       data = data->next;
-       sfSprite_destroy(data_bis->pirat_walk);
-       free(data_bis);
     }
 }
 
@@ -77,6 +36,7 @@ int check_wave(core_t *core)
         return (0);
     sfSound_play(core->menu->stg->vol->nxt_lvl);
     free_linked_list(data_bis);
+    core->game->money += 3;
     core->wave->life_rate++;
     core->wave->nb_wave++;
     core->wave->pirate_one += 5;
@@ -88,6 +48,7 @@ void manage_enemy(core_t *core)
 {
     sfRenderWindow_drawSprite(core->wnd->window, core->game->health, NULL);
     sfRenderWindow_drawSprite(core->wnd->window, core->game->deadhead, NULL);
+    sfRenderWindow_drawSprite(core->wnd->window, core->game->money_spt, NULL);
     if (core->wave->wave == FALSE)
         feed_enemy(core);
     else
@@ -95,4 +56,5 @@ void manage_enemy(core_t *core)
     manage_life(core);
     manage_wave(core);
     manage_kill(core);
+    init_eco(core);
 }

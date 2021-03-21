@@ -18,6 +18,24 @@ void fill_alrd_build(game_t *game)
     game->tower->area[9] = -1;
 }
 
+void calc_vector_bis(game_t *game, menu_t *menu, int i)
+{
+    if (game->tower->tower_release == TRUE &&
+        menu->button->enable_click == TRUE && game->tower->def_list != 3) {
+        game->tower->area[i] = TRUE;
+        game->tower->transmit_pos.x = game->tower->good_pos[i].x;
+        game->tower->transmit_pos.y = game->tower->good_pos[i].y;
+        game->valid = TRUE;
+    } else if (game->tower->tower_release == TRUE &&
+        menu->button->enable_click == TRUE && game->tower->def_list == 3 &&
+        i == 9) {
+        game->tower->area[i] = TRUE;
+        game->tower->transmit_pos.x = game->tower->good_pos[i].x;
+        game->tower->transmit_pos.y = game->tower->good_pos[i].y;
+        game->valid = TRUE;
+    }
+}
+
 void calc_vector(game_t *game, menu_t *menu)
 {
     sfVector2f place;
@@ -28,21 +46,26 @@ void calc_vector(game_t *game, menu_t *menu)
         place.y = ((game->tower->mouse_pos.y) - (game->tower->good_pos[i].y));
         auto_place = sqrt(pow(place.x, 2) + pow(place.y, 2));
         if (auto_place < 150 && game->tower->area[i] == FALSE) {
-            if (game->tower->tower_release == TRUE &&
-                menu->button->enable_click == TRUE && game->tower->def_list != 3) {
-                game->tower->area[i] = TRUE;
-                game->tower->transmit_pos.x = game->tower->good_pos[i].x;
-                game->tower->transmit_pos.y = game->tower->good_pos[i].y;
-                game->valid = TRUE;
-            } else if (game->tower->tower_release == TRUE &&
-                    menu->button->enable_click == TRUE && game->tower->def_list == 3 && i == 9) {
-                game->tower->area[i] = TRUE;
-                game->tower->transmit_pos.x = game->tower->good_pos[i].x;
-                game->tower->transmit_pos.y = game->tower->good_pos[i].y;
-                game->valid = TRUE;
-            }
+            calc_vector_bis(game, menu, i);
         }
     }
+}
+
+void fill_pos_def_bis(game_t *game)
+{
+    game->tower->good_pos[4].y = 660;
+    game->tower->good_pos[5].x = 400;
+    game->tower->good_pos[5].y = 880;
+    game->tower->good_pos[6].x = 400;
+    game->tower->good_pos[6].y = 530;
+    game->tower->good_pos[7].x = 400;
+    game->tower->good_pos[7].y = 330;
+    game->tower->good_pos[8].x = 250;
+    game->tower->good_pos[8].y = 660;
+    game->tower->good_pos[9].x = 400;
+    game->tower->good_pos[9].y = 800;
+    game->tower->good_pos[10].x = -1;
+    game->tower->good_pos[10].y = -1;
 }
 
 void fill_pos_def(game_t *game)
@@ -58,17 +81,5 @@ void fill_pos_def(game_t *game)
     game->tower->good_pos[3].x = 650;
     game->tower->good_pos[3].y = 460;
     game->tower->good_pos[4].x = 650;
-    game->tower->good_pos[4].y = 660;
-    game->tower->good_pos[5].x = 400;
-    game->tower->good_pos[5].y = 880;
-    game->tower->good_pos[6].x = 400;
-    game->tower->good_pos[6].y = 530;
-    game->tower->good_pos[7].x = 400;
-    game->tower->good_pos[7].y = 330;
-    game->tower->good_pos[8].x = 250;
-    game->tower->good_pos[8].y = 660;
-    game->tower->good_pos[9].x = 400;
-    game->tower->good_pos[9].y = 800;
-    game->tower->good_pos[10].x = -1;
-    game->tower->good_pos[10].y = -1;
+    fill_pos_def_bis(game);
 }

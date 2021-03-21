@@ -30,7 +30,8 @@ void click_arrow_tower(window_t *wnd, menu_t *menu, tower_t *tower)
     if ((mouse_pos.x >= box_size_x(wnd, arrow_pos.left) && mouse_pos.x <=
         (box_size_x(wnd, arrow_pos.left) + box_size_x(wnd, arrow_pos.width)))
         && (mouse_pos.y >= box_size_y(wnd, arrow_pos.top) && mouse_pos.y <=
-        (box_size_y(wnd, arrow_pos.top) + box_size_y(wnd, arrow_pos.height)))) {
+        (box_size_y(wnd, arrow_pos.top) +
+        box_size_y(wnd, arrow_pos.height)))) {
         if (menu->button->enable_click == TRUE) {
             tower->tower_click = TRUE;
             tower->wich_defense = 1;

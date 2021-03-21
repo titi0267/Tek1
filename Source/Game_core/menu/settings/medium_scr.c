@@ -24,7 +24,7 @@ void medscr_button(settings_t *stg)
 void click_medscr_button(settings_t *stg)
 {
     stg->click_medscr_tex = sfTexture_createFromFile(
-                            "Ressources/button/settings/size/click_1280-720.png",
+                        "Ressources/button/settings/size/click_1280-720.png",
                             NULL);
     stg->click_medscr_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};
@@ -39,7 +39,7 @@ void click_medscr_button(settings_t *stg)
 void hover_medscr_button(settings_t *stg)
 {
     stg->hover_medscr_tex = sfTexture_createFromFile(
-                            "Ressources/button/settings/size/hover_1280-720.png",
+                        "Ressources/button/settings/size/hover_1280-720.png",
                             NULL);
     stg->hover_medscr_spt = sfSprite_create();
     sfVector2f scale = {0.25f, 0.25f};

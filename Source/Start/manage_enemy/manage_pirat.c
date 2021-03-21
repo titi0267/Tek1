@@ -18,7 +18,8 @@ void rect_pirat(core_t *core)
 void moove_rect_bis(core_t *core, pirat_data_t *data)
 {
     if (data->nb_pirat < 7)
-        core->enemy->pirat->rectangle.left = data->nb_pirat * core->enemy->pirat->rectangle.width;
+        core->enemy->pirat->rectangle.left = data->nb_pirat *
+        core->enemy->pirat->rectangle.width;
     else
         data->nb_pirat = 0;
 }
@@ -42,10 +43,10 @@ void moove_rect(core_t *core)
 int manage_pirat(core_t *core)
 {
     pirat_data_t *data_bis = *(core->enemy->data);
-    sfVector2f scale = {0.37, 0.37};
     static float nbr = 0;
 
-    for (int i = 0; i < core->game->nb_spt && core->enemy->data_bis != NULL; data_bis = data_bis->next, i++)
+    for (int i = 0; i < core->game->nb_spt &&
+        core->enemy->data_bis != NULL; data_bis = data_bis->next, i++)
         moove_pirat(core, data_bis);
     if (core->menu->pause_on == FALSE) {
         nbr += core->time->delta_time;

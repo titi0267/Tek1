@@ -60,9 +60,29 @@ void init_gm(core_t *core)
     fill_pos_def(core->game);
     fill_alrd_build(core->game);
     create_rect_def(core->game->tower);
-    sfSprite_setTextureRect(core->game->tower->wiz_tower_spt, core->game->tower->wiz_rect);
-    sfSprite_setTextureRect(core->game->tower->arrow_tower_spt, core->game->tower->archer_rect);
-    sfSprite_setTextureRect(core->game->tower->ice_tower_spt, core->game->tower->ice_rect);
+    sfSprite_setTextureRect(core->game->tower->wiz_tower_spt,
+                                core->game->tower->wiz_rect);
+    sfSprite_setTextureRect(core->game->tower->arrow_tower_spt,
+                                core->game->tower->archer_rect);
+    sfSprite_setTextureRect(core->game->tower->ice_tower_spt,
+                                core->game->tower->ice_rect);
+}
+
+void init_bis(core_t *core)
+{
+    core->wave->pirate_one = 5;
+    core->game->lifepoint = 25;
+    core->game->nb_spt = 0;
+    core->wave->kill = 0;
+    core->game->valid = FALSE;
+    core->wave->nb_wave = 1;
+    core->wave->life_rate = 1;
+    core->game->life = sfText_create();
+    core->game->money_txt = sfText_create();
+    core->wave->end_game = 0;
+    core->game->money = 0;
+    manage_sound_game(core);
+    init_spt_ingame(core);
 }
 
 void init(core_t *core)
@@ -78,15 +98,5 @@ void init(core_t *core)
     core->wave->wave = FALSE;
     core->wave->end_wave = FALSE;
     *(core->game->defense) = NULL;
-    core->wave->pirate_one = 5;
-    core->game->lifepoint = 25;
-    core->game->nb_spt = 0;
-    core->wave->kill = 0;
-    core->game->valid = FALSE;
-    core->wave->nb_wave = 1;
-    core->wave->life_rate = 1;
-    core->game->life = sfText_create();
-    core->wave->end_game = 0;
-    manage_sound_game(core);
-    init_spt_ingame(core);
+    init_bis(core);
 }

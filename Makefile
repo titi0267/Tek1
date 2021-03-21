@@ -16,15 +16,20 @@ SRCSFILES	=	main.c 			\
 				Start/init_regroup.c			 	\
 				Start/init_time.c				 	\
 				Start/manage_enemy/manage_enemy.c	\
+				Start/manage_enemy/attack.c 		\
+				Start/manage_enemy/feel_enemy.c 	\
 				Start/manage_enemy/manage_pirat.c	\
+				Start/manage_enemy/manage_move.c 	\
 				Start/manage_enemy/moove_pirat.c	\
 				Start/manage_enemy/moove_pirat_2.c 	\
 				Start/manage_life/manage_life.c 	\
 				Start/manage_life/manage_kill.c		\
 				Start/manage_life/manage_sound.c 	\
+				Start/manage_life/manage_eco.c 		\
 				Game_core/wnd_open.c			\
 				Game_core/events.c				\
 				Game_core/draw_scene.c			\
+				Game_core/draw_scene_bis.c 		\
 				Game_core/timer.c				\
 				Game_core/menu/settings/resize_window.c			\
 				Game_core/menu/settings/setting_button.c		\
@@ -56,6 +61,9 @@ SRCSFILES	=	main.c 			\
 				Game_core/game/pause/pause_but.c			\
 				Game_core/game/pause/play_again.c			\
 				End/destroy.c			\
+				End/destroy_one.c 		\
+				End/destroy_two.c 		\
+				End/destroy_four.c 		\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

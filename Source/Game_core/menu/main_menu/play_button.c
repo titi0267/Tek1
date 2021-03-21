@@ -54,7 +54,8 @@ void draw_play(menu_t *menu, window_t *wnd)
             sfRenderWindow_drawSprite(wnd->window,
                                     menu->button->hover_play_spt, NULL);
         } else
-            sfRenderWindow_drawSprite(wnd->window, menu->button->play_spt, NULL);
+            sfRenderWindow_drawSprite(wnd->window,
+            menu->button->play_spt, NULL);
 }
 
 void click_play_but(menu_t *menu)

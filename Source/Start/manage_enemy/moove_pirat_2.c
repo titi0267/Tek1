@@ -7,36 +7,6 @@
 
 #include "../../../include/defender.h"
 
-int attack_bis(core_t *core, int nbr)
-{
-    if (core->wave->end_game == 0) {
-        sfSound_play(core->menu->stg->vol->gameover);
-        core->wave->end_game = 1;
-        while (sfSound_getStatus(core->menu->stg->vol->gameover) == sfPlaying);
-    } else if (core->wave->end_game == 1) {
-        sfSound_play(core->menu->stg->vol->laugh);
-        core->wave->end_game = 2;
-        while (sfSound_getStatus(core->menu->stg->vol->laugh) == sfPlaying);
-    } else if (core->wave->end_game == 2) {
-        sfRenderWindow_close(core->wnd->window);
-        exit(0);
-    }
-}
-
-int attack(core_t *core, pirat_data_t *data, sfVector2f pos)
-{
-    float nbr = 0;
-    int tmp = 0;
-
-    data->dead = 1;
-    if ((core->game->lifepoint - 5) <= 0) {
-        while (tmp == 0)
-            attack_bis(core, nbr);
-    } else
-        core->game->lifepoint -= 5;
-    return (0);
-}
-
 int move_bis_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
 {
     if (pos.x == 83 && pos.y > 260) {
@@ -56,9 +26,10 @@ int move_bis_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
         return (0);
     }
     if (pos.x == 82 && pos.y == 99) {
-        attack(core, data, pos);
+        attack(core, data);
         return (0);
     }
+    return (0);
 }
 
 int move_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
@@ -80,6 +51,7 @@ int move_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
         return (0);
     } else
         move_bis_bis(core, data, pos);
+    return (0);
 }
 
 int move_bis_bis_bis(core_t *core, pirat_data_t *data, sfVector2f pos)
@@ -125,4 +97,5 @@ int move_road2(core_t *core, pirat_data_t *data)
         return (0);
     } else
         move_bis_bis_bis(core, data, pos);
+    return (0);
 }
