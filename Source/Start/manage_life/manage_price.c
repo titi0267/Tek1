@@ -74,7 +74,7 @@ void manage_price_one(core_t *core)
     int i = core->shop->price4;
     char *scr = my_int_str(i, lib);
     sfColor color = sfBlack;
-    sfVector2f pos_score = {1540, 850};
+    sfVector2f pos_score = {1540, 810};
     sfVector2f scale_score = {1, 1};
 
     sfText_setFont(core->game->life, Font);
