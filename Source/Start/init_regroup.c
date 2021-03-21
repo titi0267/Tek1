@@ -44,6 +44,7 @@ void init_menu_spt(core_t *core)
     click_play_but(core->menu);
     click_setting_but(core->menu->button);
     pause_but(core->game->pause);
+    play_again_but(core->game->pause, core->menu);
 }
 
 void init_gm(core_t *core)

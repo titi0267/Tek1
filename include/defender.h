@@ -64,13 +64,13 @@ void mv_stg_one(menu_t *menu, sfVector2f pos);
 void mv_stg_two(menu_t *menu, sfVector2f pos);
 void mv_stg_three(menu_t *menu, sfVector2f pos);
 void mv_stg_four(menu_t *menu, sfVector2f pos);
-void mv_to_stg_all(menu_t *menu);
+void mv_to_stg_all(menu_t *menu, pause_t *pause);
 
 void mv_menu_one(menu_t *menu, sfVector2f pos);
 void mv_menu_two(menu_t *menu, sfVector2f pos);
 void mv_menu_three(menu_t *menu, sfVector2f pos);
 void mv_menu_four(menu_t *menu, sfVector2f pos);
-void mv_menu_all(menu_t *menu);
+void mv_menu_all(menu_t *menu, pause_t *pause);
 void select_scene(menu_t *menu);
 
 void return_to_one(menu_t *menu);
@@ -93,7 +93,7 @@ void draw_settings(menu_t *menu, window_t *wnd);
 void hover_back_to_menu_spt(settings_t *stg);
 void back_to_menu_spt(menu_t *menu);
 void draw_return(settings_t *stg, menu_t *menu, window_t *wnd);
-void switch_bg(menu_t *menu);
+void switch_bg(menu_t *menu, pause_t *pause);
 void return_bg_next(menu_t *menu, sfVector2f global_pos);
 void return_side_setting(menu_t *menu, sfVector2f global_pos);
 void click_back_to_menu_spt(settings_t *stg);
@@ -126,6 +126,8 @@ void create_rect_def(tower_t *tower);
 void pause_but(pause_t *pause);
 void pause_click(pause_t *pause, window_t *wnd, core_t *core);
 void draw_pause(pause_t *pause, window_t *wnd, core_t *core);
+void play_again_but(pause_t *pause, menu_t *menu);
+void draw_restart(pause_t *pause, menu_t *menu, window_t *wnd);
 
 void ice_tower_spt(tower_t *tower);
 void click_ice_tower(window_t *wnd, menu_t *menu, tower_t *tower);

@@ -51,6 +51,7 @@ SRCSFILES	=	main.c 			\
 				Game_core/game/defense/alvailable_place.c	\
 				Game_core/game/defense/def_shot.c			\
 				Game_core/game/pause/pause_but.c			\
+				Game_core/game/pause/play_again.c			\
 				End/destroy.c			\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
