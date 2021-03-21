@@ -32,6 +32,7 @@ void draw_pause(pause_t *pause, window_t *wnd, core_t *core)
     print_medscr(core->menu->stg, wnd, core->menu);
     print_up_vol(core->menu, wnd);
     print_down_vol(core->menu, wnd);
+    draw_restart(pause, core->menu, wnd);
     sfRenderWindow_drawSprite(wnd->window, pause->pause_spt, NULL);
 }
 
@@ -40,7 +41,6 @@ void pause_on(pause_t *pause, window_t *wnd, core_t *core)
     if (core->menu->button->enable_click == TRUE) {
         core->menu->pause_on = TRUE;
         core->menu->go_to_stg = TRUE;
-        //draw_settings(core->menu, wnd);
     }
 }
 
