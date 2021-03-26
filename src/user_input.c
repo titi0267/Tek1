@@ -18,10 +18,8 @@ int get_usr_line(user_t *user, map_t *map)
         if (getline(&user->str, &len, stdin) != -1) {
             if (take_line_input(user, map) == 0)
                 return (0);
-        } else {
-            my_printf("\n");
+        } else
             return (2);
-        }
     }
     return (0);
 }
@@ -34,17 +32,19 @@ int get_usr_match(user_t *user, map_t *map)
     while (1) {
         len = 0;
         user->str = NULL;
-        my_printf("Matches: ");
+        if (user->error == FALSE)
+            my_printf("Matches: ");
         if (getline(&user->str, &len, stdin) != -1) {
             ret_input = take_match_input(user, map);
-            if (ret_input == ERROR)
+            if (ret_input == ERROR) {
                 get_usr_line(user, map);
-            if (ret_input == 0)
+            }
+            if (ret_input == 0) {
+                user->error = TRUE;
                 return (0);
-        } else {
-            my_printf("\n");
+            }
+        } else
             return (2);
-        }
     }
     return (0);
 }
@@ -72,6 +72,7 @@ int main_loop(core_t *core)
             return (1);
         if (core->user->lose == TRUE)
             break;
+        core->user->error = FALSE;
         ai_turn(core->map, core->ai);
         if (core->ai->lose == TRUE)
             break;

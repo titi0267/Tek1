@@ -19,6 +19,7 @@ typedef struct map_s
     int lines_tot;
     int line_nbr;
     int match_max;
+    int *store_lines;
 } map_t;
 
 typedef struct user_s
@@ -28,6 +29,7 @@ typedef struct user_s
     char *str;
     int turn;
     int lose;
+    int error;
 } user_t;
 
 typedef struct ai_s
