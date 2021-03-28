@@ -6,6 +6,7 @@
 */
 
 #include "../include/matchstick.h"
+#include <time.h>
 
 int enough_matches_ai(ai_t *ai, map_t *map)
 {
@@ -37,6 +38,7 @@ int ai_rand(ai_t *ai)
 void ai_choice(ai_t *ai, map_t *map)
 {
     my_printf("\nAI's turn...\n");
+    srand(time(NULL));
     while (1) {
         ai_rand(ai);
         if (take_match_ai(ai, map) == 0)

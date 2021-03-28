@@ -16,7 +16,7 @@ SRCSFILES	=	main.c 				\
 				change_map.c		\
 				error_usr_input.c	\
 				ai.c				\
-				check_win.c			\
+				check_win.c
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

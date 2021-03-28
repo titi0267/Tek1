@@ -23,6 +23,7 @@ void free_struct(core_t *core)
     for (int i = 0; core->map->map[i] != NULL; i++)
         free(core->map->map[i]);
     free(core->map->map);
+    free(core->user->str);
     free(core->ai);
     free(core->user);
     free(core->map);
@@ -35,8 +36,10 @@ void init_game(core_t *core, char **av)
     core->ai->matches = my_getnbr(av[2]);
     core->user->lose = FALSE;
     core->ai->lose = FALSE;
-    for (int i = 0; core->map->map[i] != NULL; i++)
-        my_printf("%s", core->map->map[i]);
+    for (int i = 0; core->map->map[i] != NULL; i++) {
+        for (int c = 0; core->map->map[i][c] != '\0'; c++)
+            my_printf("%c", core->map->map[i][c]);
+    }
 }
 
 int main(int ac, char **av)
@@ -47,12 +50,13 @@ int main(int ac, char **av)
     if (core == NULL || malloc_struct(core) == ERROR ||
         error_wrong_arg(ac, av) == ERROR ||
         map_created(core->map, av) == ERROR) {
-        my_puterr("exit 84\n");
         return (ERROR);
     }
     init_game(core, av);
-    if (main_loop(core) == 1)
+    if (main_loop(core) == 1) {
+        free_struct(core);
         return (0);
+    }
     lose = who_lost(core);
     if (lose == 0)
         free_struct(core);

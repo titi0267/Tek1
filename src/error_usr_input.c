@@ -37,8 +37,8 @@ int enough_matches(user_t *user, map_t *map)
 
 int take_match_input(user_t *user, map_t *map)
 {
-    for (int i = 0; user->str[i] != '\n'; i++) {
-        if (user->str[i] < 48 || user->str[i] > 57) {
+    for (int i = 0; user->str[i] != '\0'; i++) {
+        if ((user->str[i] < 48 || user->str[i] > 57) && user->str[i] != '\n') {
             my_printf("Error: invalid input (positive number expected)\n");
             return (ERROR);
         }

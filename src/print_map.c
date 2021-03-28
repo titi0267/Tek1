@@ -50,8 +50,9 @@ int malloc_map(char **av, map_t *map)
 void create_outlines(map_t *map)
 {
     int i = 0;
+    int y = 0;
 
-    for (int y = 0; y != map->lines_tot; y++) {
+    for (; y != map->lines_tot; y++) {
         for (; i != (map->car_nbr); i++) {
             if ((i == 0 || i == map->car_nbr - 1) ||
                 (y == 0 || y == map->lines_tot - 1))
@@ -60,8 +61,11 @@ void create_outlines(map_t *map)
                 map->map[y][i] = ' ';
         }
         map->map[y][i] = '\n';
+        i += 1;
+        map->map[y][i] = '\0';
         i = 0;
     }
+    map->map[y] = NULL;
 }
 
 void place_sticks(map_t *map)
