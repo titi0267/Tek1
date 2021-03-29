@@ -19,7 +19,6 @@ int get_usr_line(user_t *user, map_t *map)
         if (getline(&user->str, &len, stdin) != -1) {
             user->error = FALSE;
             x = take_line_input(user, map);
-            free(user->str);
             if (x == 0) {
                 return (0);
             }
@@ -40,7 +39,6 @@ int get_usr_match(user_t *user, map_t *map)
         my_printf("Matches: ");
         if (getline(&user->str, &len, stdin) != -1) {
             ret_input = take_match_input(user, map);
-            free(user->str);
             if (ret_input == ERROR) {
                 user->error = TRUE;
                 return (4);
