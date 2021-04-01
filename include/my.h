@@ -24,6 +24,11 @@ int open_file(duo_stp_t *duo);
 int store_map(duo_stp_t *map);
 int cp_nbr(duo_stp_t *duo, int i);
 void print_digit(duo_stp_t *duo);
+void print_digit_one(duo_stp_t *duo);
+void print_digit_two(duo_stp_t *duo);
+void print_digit_three(duo_stp_t *duo);
+void print_digit_four(duo_stp_t *duo);
+void print_digit_five(duo_stp_t *duo);
 
 int find_arg(char **av);
 int store_nbrs(char **av, duo_stp_t *duo);
