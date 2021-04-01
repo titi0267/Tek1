@@ -12,7 +12,7 @@ SRC=		src/main.c		\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude
 
-NAME	=	gameoflife
+NAME	=	crocus
 
 all:
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
