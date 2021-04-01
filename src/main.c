@@ -57,11 +57,7 @@ int main(int ac, char **av)
     if (duo == NULL || store_nbrs(av, duo) == 84)
         return (84);
     open_file(duo);
-    for (int i = 0; duo->store_buf[i] != NULL; i++) {
-        for (int d = 0; duo->store_buf[i][d] != '\0'; d++) {
-            printf("%c", duo->store_buf[i][d]);
-        }
-    }
+    print_digit(duo);
     free_func(duo);
     return (0);
 }
