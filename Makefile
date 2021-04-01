@@ -9,10 +9,12 @@ CC		=	gcc	-o
 
 SRC=		src/main.c		\
 		src/lib.c		\
+		src/map.c		\
+		src/read.c		\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude
 
-NAME	=	gameoflife
+NAME	=	crocus
 
 all:
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
