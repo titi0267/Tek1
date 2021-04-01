@@ -10,9 +10,12 @@
 
 int main(int ac, char **av)
 {
-    int error_status = error_handler(ac, av);
+    data_t *data = malloc(sizeof(data_t));
+    int error_status = error_handler(ac, av, data);
 
     if (error_status == 1) return (0);
-    else if (error_status == 0);
+    else if (error_status == 0) {
+        
+    }
     else return (84);
 }

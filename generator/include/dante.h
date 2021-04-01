@@ -8,11 +8,15 @@
 #ifndef DANTE_H_
 #define DANTE_H_
 
+#include <unistd.h>
+
 typedef struct data_s {
     int maze_width;
     int maze_heigth;
+    int error_status;
+    int is_perfect;
 } data_t;
 
-int error_handler(int, char **);
+int error_handler(int, char **, data_t *);
 
 #endif /* !DANTE_H_ */
