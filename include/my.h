@@ -19,10 +19,10 @@ int my_putstr(char const *str);
 int my_getnbr(char *str);
 int my_strlen(char const *str);
 
-int read_map(duo_stp_t *map, char **av);
+int read_map(duo_stp_t *map, int i);
 int open_file(duo_stp_t *duo);
 int store_map(duo_stp_t *map);
 int which_file(duo_stp_t *duo);
-int cp_nbr(duo_stp_t *duo, int y);
+int cp_nbr(duo_stp_t *duo, int i);
 
 #endif /* !MY_H_ */

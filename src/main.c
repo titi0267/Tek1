@@ -11,7 +11,7 @@ int find_arg(char **av)
 {
     for (int i = 0; av[i] != NULL; i++) {
         for (int g = 0; av[i][g] != '\0'; g++) {
-            if ((i == 1 || i == 3) && av[i][g] == '-'
+            if (i == 1 && av[i][g] == '-'
                 && av[i][g + 1] == 'n')
                 return (i);
         }
@@ -24,17 +24,18 @@ int store_nbrs(char **av, duo_stp_t *duo)
     int y = 0;
     int x = find_arg(av);
     int i = 0;
-    duo->nbrs = malloc(sizeof(char *) * my_strlen(av[x + 1] + 1));
+    duo->nbrs = malloc(sizeof(char *) * (my_strlen(av[x + 1]) + 1));
 
     if (duo->nbrs == NULL)
         return (84);
-    for (int i = 0; av[x + 1][i] != '\0'; i++) {
+    for (; av[x + 1][i] != '\0'; i++) {
         duo->nbrs[i] = malloc(sizeof(char) * 2);
         if (duo->nbrs[i] == NULL)
             return (84);
         duo->nbrs[i][y] = av[x + 1][i];
         y++;
         duo->nbrs[i][y] = '\0';
+        y = 0;
     }
     duo->nbrs[i] = NULL;
     duo->len = i;
@@ -55,7 +56,12 @@ int main(int ac, char **av)
 
     if (duo == NULL || store_nbrs(av, duo) == 84)
         return (84);
-    read_map(duo);
+    open_file(duo);
+    for (int i = 0; duo->store_buf[i] != NULL; i++) {
+        for (int d = 0; duo->store_buf[i][d] != '\0'; d++) {
+            printf("%c", duo->store_buf[i][d]);
+        }
+    }
     free_func(duo);
     return (0);
 }

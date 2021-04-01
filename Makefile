@@ -12,7 +12,7 @@ SRC=		src/main.c		\
 		src/map.c		\
 		src/read.c		\
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g
 
 NAME	=	crocus
 
