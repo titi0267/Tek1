@@ -10,8 +10,8 @@
 void print_digit_five(duo_stp_t *duo)
 {
     for (int i = 0; duo->store_buf[i] != NULL; i++) {
-        for (int d = 25; d != 5; d++) {
-            if (duo->store_buf[i][d] == '\n' && i != duo->len)
+        for (int d = 24; d != 28; d++) {
+            if (duo->store_buf[i][d] == '\n')
                 printf(" ");
             else
                 printf("%c", duo->store_buf[i][d]);
@@ -23,8 +23,8 @@ void print_digit_five(duo_stp_t *duo)
 void print_digit_four(duo_stp_t *duo)
 {
     for (int i = 0; duo->store_buf[i] != NULL; i++) {
-        for (int d = 20; d != 5; d++) {
-            if (duo->store_buf[i][d] == '\n' && i != duo->len)
+        for (int d = 18; d != 24; d++) {
+            if (duo->store_buf[i][d] == '\n')
                 printf(" ");
             else
                 printf("%c", duo->store_buf[i][d]);
@@ -36,8 +36,8 @@ void print_digit_four(duo_stp_t *duo)
 void print_digit_three(duo_stp_t *duo)
 {
     for (int i = 0; duo->store_buf[i] != NULL; i++) {
-        for (int d = 15; d != 5; d++) {
-            if (duo->store_buf[i][d] == '\n' && i != duo->len)
+        for (int d = 12; d != 18; d++) {
+            if (duo->store_buf[i][d] == '\n')
                 printf(" ");
             else
                 printf("%c", duo->store_buf[i][d]);
@@ -49,8 +49,8 @@ void print_digit_three(duo_stp_t *duo)
 void print_digit_two(duo_stp_t *duo)
 {
     for (int i = 0; duo->store_buf[i] != NULL; i++) {
-        for (int d = 10; d != 5; d++) {
-            if (duo->store_buf[i][d] == '\n' && i != duo->len)
+        for (int d = 6; d != 12; d++) {
+            if (duo->store_buf[i][d] == '\n')
                 printf(" ");
             else
                 printf("%c", duo->store_buf[i][d]);
@@ -62,16 +62,16 @@ void print_digit_two(duo_stp_t *duo)
 void print_digit_one(duo_stp_t *duo)
 {
     for (int i = 0; duo->store_buf[i] != NULL; i++) {
-        for (int d = 0; d != 5; d++) {
-            if (duo->store_buf[i][d] == '\n' && i != duo->len)
+        for (int d = 0; d != 6; d++) {
+            if (duo->store_buf[i][d] == '\n')
                 printf(" ");
             else
                 printf("%c", duo->store_buf[i][d]);
         }
     }
     printf("\n");
-    digit_two(duo);
-    digit_three(duo);
-    digit_four(duo);
-    digit_five(duo);
+    print_digit_two(duo);
+    print_digit_three(duo);
+    print_digit_four(duo);
+    print_digit_five(duo);
 }

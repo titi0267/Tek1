@@ -45,7 +45,7 @@ int read_map(duo_stp_t *duo, int i)
 {
     int read_ret;
 
-    duo->buffer_size = 31;
+    duo->buffer_size = 33;
     duo->buffer = malloc(sizeof(char) * duo->buffer_size);
     if (duo->buffer == NULL)
         return (84);
@@ -54,7 +54,6 @@ int read_map(duo_stp_t *duo, int i)
         write(2, "wrong read\n", 12);
         return (84);
     }
-    printf("read = %i\n", read_ret);
     duo->buffer_size = read_ret;
     duo->buffer[duo->buffer_size] = '\0';
     if (cp_nbr(duo, i) == 84)

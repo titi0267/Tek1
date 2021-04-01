@@ -10,7 +10,7 @@
 
 int error_argnbr(int ac, char **av)
 {
-    if (ac != 3 || ac != 5) {
+    if (ac != 3) {
         write(2, "missing arguments\n", 19);
         return (84);
     }
