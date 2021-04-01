@@ -30,4 +30,9 @@ int store_nbrs(char **av, duo_stp_t *duo);
 void free_func(duo_stp_t *duo);
 int main(int ac, char **av);
 
+int error_argnbr(int ac, char **av);
+int error_arg_one(int ac, char **av);
+int error_string(int ac, char **av);
+int error_string_two(int ac, char **av);
+
 #endif /* !MY_H_ */
