@@ -11,6 +11,7 @@ SRC=		src/main.c		\
 		src/lib.c		\
 		src/map.c		\
 		src/read.c		\
+		src/error_handling.c	\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g
 
