@@ -9,8 +9,11 @@
 #define DANTE_H_
 
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct data_s {
+    char **maze;
     int maze_width;
     int maze_heigth;
     int error_status;

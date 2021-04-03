@@ -16,20 +16,34 @@ void print_usage(void)
     my_printf("imperfect one.\n");
 }
 
+int check_numbers(char **av, data_t *data)
+{
+    data->maze_width = my_getnbr(av[1]);
+    data->maze_heigth = my_getnbr(av[2]);
+
+    if (data->maze_width <= 0 || data->maze_heigth <= 0) return (84);
+    return (0);
+}
+
 int error_handler(int ac, char **av, data_t *data)
 {
     if (ac == 2 && my_strcmp(av[1], "-h") == 0) {
         print_usage();
         return (1);
     }
-    if (ac != 4 && ac != 4) return (84);
-    for (int i = 1; i != 3; i++) {
+    if (ac != 4 && ac != 3) return (84);
+    for (int i = 1; i < 3; i++) {
         for (int y = 0; av[i][y] != '\0'; y++) {
-            if (av[i] < '0' || av[i] > '9')
+            if (av[i][y] < '0' || av[i][y] > '9')
                 return (84);
         }
     }
-    if (ac == 4 && my_strcmp(av[3], "[perfect]") == 0) data->is_perfect = 1;
-    if (ac == 4 && my_strcmp(av[3], "[perfect]") != 0) return (84);
+    if (check_numbers(av, data) == 84) return (84);
+    if (ac == 4) {
+        if (my_strcmp(av[3], "[perfect]") == 0)
+            data->is_perfect = 1;
+        else
+            return (84);
+    }
     return (0);
 }
