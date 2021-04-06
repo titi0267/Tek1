@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS user (
-    id int NOT NULL primary key,
+    id int NOT NULL primary key AUTO_INCREMENT,
     email varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     name varchar(255) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS user (
 );
 
 CREATE TABLE IF NOT EXISTS todo (
-    id int NOT NULL primary key,
+    id int NOT NULL primary key AUTO_INCREMENT,
     title varchar(255) NOT NULL,
     description varchar(255) NOT NULL,
     created_at date default(CURRENT_DATE),
