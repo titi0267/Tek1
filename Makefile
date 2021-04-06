@@ -6,7 +6,12 @@
 ##
 
 SRC	= 	src/rpg.c							\
+		src/window.c						\
+		src/tools.c							\
+		src/parsing.c						\
 		src/graphics/main_menu.c			\
+		src/graphics/background.c			\
+		src/graphics/inits/init_main_menu.c	\
 		src/graphics/start.c				\
 
 OBJ	=	$(SRC:.c=.o)
