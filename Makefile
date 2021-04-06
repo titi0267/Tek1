@@ -5,28 +5,39 @@
 ## Makefile
 ##
 
-SRC	= 	src/rpg.c							\
-		src/window.c						\
-		src/tools.c							\
-		src/parsing.c						\
-		src/graphics/main_menu.c			\
-		src/graphics/background.c			\
-		src/graphics/inits/init_main_menu.c	\
-		src/graphics/start.c				\
+CC	=	gcc	-o
 
-OBJ	=	$(SRC:.c=.o)
+SRCSPATH = src/
+
+SRCSFILES=	rpg.c							\
+			window.c						\
+			tools.c							\
+			parsing.c						\
+			graphics/inits/init_audios.c	\
+			graphics/main_menu.c			\
+			graphics/background.c			\
+			graphics/inits/init_main_menu.c	\
+			graphics/hitbox_main_menu.c		\
+			graphics/start.c				\
+			graphics/inits/init_btn_menu.c	\
+			graphics/inits/init_logo.c		\
+			graphics/inits/init_pegi.c		\
+			graphics/inits/init_options.c		\
+			graphics/options.c				\
+
+SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 
 NAME	=	my_rpg
 
-all:	$(NAME)
+CFLAGS = -lm	-lcsfml-audio	-lcsfml-graphics	-lcsfml-window	-lcsfml-system	-g
 
-CFLAGS += -g
-
-$(NAME):	$(OBJ)
-	gcc $(OBJ) -o $(NAME) -lcsfml-window -lcsfml-graphics -lcsfml-system -lcsfml-audio -lm
+all:
+	$(CC)	$(NAME)	$(SRCS)	$(CFLAGS)
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
+
+.PHONY:	all	clean	fclean	make	re
