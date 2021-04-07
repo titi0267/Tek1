@@ -1,34 +1,22 @@
 const express = require("express");
-const env = require('../../../.env');
-const app = express();
-var mysql = require('mysql');
+const auth = express.Router();
 
-app.use(express.static("private"));
+auth.post("/register", (req, res) => {;
+    const request = "INSERT INTO user (email, name, firstname,  password) VALUES (?, ?, ?, ?)";
 
-var con = mysql.createConnection({
-    MYSQL_HOST,
-    MYSQL_USER,
-    MYSQL_ROOT_PASSWORD,
-    MYSQL_DATABASE
-});
+    const body = [req.body.email, req.body.name, req.body.firstname, req.body.password];
 
-module.exports = (app) => app.post("/register", (req, res) => {
-    const email = req.body.email;
-    const name = req.body.name;
-    const firstname = req.body.firstname;
-    const password = req.body.password;
-    con.query("INSERT INTO user (email, name, firstname,  password) VALUES", (email, name, firstname, password), function(err, result) {
+    con.query(request, body,(err, result) => {
         if (err) {
-            console.log('acccount already exists');
-        } else {
-            console.log('Token of the newly registered user');
+            res.send(err);
         }
+        res.send(result);
     });
 });
 
-app.post("/login", (req, res) => {
+auth.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 });
 
-module.exports = app;
+module.exports = auth;
