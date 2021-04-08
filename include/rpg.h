@@ -26,7 +26,20 @@ struct basics_s {
     int win_height;
     int fps;
     sfVector2i mouse;
+    int resolution;
 };
+
+typedef struct control_s {
+    char *up;
+    char *down;
+    char *right;
+    char *left;
+    char *run;
+    char *inventory;
+    char *cellphone;
+    char *car;
+    char *quadcopter;
+} control_t;
 
 typedef struct main_menu_s main_menu_t;
 struct main_menu_s {
@@ -53,12 +66,18 @@ struct main_menu_s {
     sfSoundBuffer *create_a_menu;
     sfSound *a_menu;
     sfSprite **options;
+    int opt_status;
+    sfSprite **sound;
+    sfSprite **graphismes;
+    sfTexture *empty_square;
+    sfTexture *fill_square;
 };
 
 typedef struct rpg_s rpg_t;
 struct rpg_s {
     basics_t *basics;
     main_menu_t *main_menu;
+    control_t *control;
     int status;
 };
 
@@ -81,6 +100,17 @@ typedef enum options_s {
     MAIN_MENU,
     NO
 } options_t;
+
+typedef enum graph_sound_s {
+    CIRCLE_MUSIC,
+    CIRCLE_DIAG,
+    CIRCLE_AMBT,
+    RES19x80,
+    RES12x20,
+    RES11x30,
+    FPS30,
+    FPS60
+} graph_sound_t;
 
 int create_window(rpg_t *rpg);
 float adapt_x(rpg_t *rpg, int hitbox_x);
@@ -105,5 +135,18 @@ void parsing_menu2(rpg_t *rpg);
 
 void options(rpg_t *rpg);
 void init_option1(rpg_t *rpg);
+void init_controls(rpg_t *rpg);
+void init_bt_opt(rpg_t *rpg);
+void sound_cirle(rpg_t *rpg);
+void create_size_square(rpg_t *rpg);
+void select_fps(rpg_t *rpg);
+void select_resolution(rpg_t *rpg);
+int manage_window_size(rpg_t *rpg);
+void show_menus2(rpg_t *rpg);
+void clic_menu(rpg_t *rpg);
+void draw_square(rpg_t *rpg);
+void manage_fill_resolution(rpg_t *rpg);
+void show_music_sound(rpg_t *rpg);
+void manage_sound(rpg_t *rpg);
 
 #endif /* !RPG_H_ */

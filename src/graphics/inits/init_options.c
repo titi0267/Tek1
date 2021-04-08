@@ -7,6 +7,19 @@
 
 #include "../../../include/rpg.h"
 
+void init_controls(rpg_t *rpg)
+{
+    rpg->control->up = "z";
+    rpg->control->down = "s";
+    rpg->control->left = "q";
+    rpg->control->right = "d";
+    rpg->control->run = "r";
+    rpg->control->inventory = "i";
+    rpg->control->cellphone = "t";
+    rpg->control->car = "c";
+    rpg->control->quadcopter = "x";
+}
+
 void init_menu_option2(rpg_t *rpg)
 {
     sfTexture *game_options = sfTexture_createFromFile
@@ -74,7 +87,7 @@ void init_option1(rpg_t *rpg)
     rpg->main_menu->options[SOUND_F] = sfSprite_create();
     sfSprite_setTexture(rpg->main_menu->options[SOUND_F],
     sound, sfTrue);
-    for (int i = 0; i != 2; i++) {
+    for (int i = 0; i != 3; i++) {
         sfSprite_setPosition(rpg->main_menu->options[i], mns_pos);
     }
 }

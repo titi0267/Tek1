@@ -13,6 +13,8 @@ int event(rpg_t *rpg)
     &rpg->basics->event))
         if (rpg->basics->event.type == sfEvtClosed)
             sfRenderWindow_close(rpg->basics->my_window);
+    if (sfKeyboard_isKeyPressed(sfKeySpace))
+        rpg->status = 1;
 }
 
 int time_clock(rpg_t *rpg)
@@ -36,7 +38,7 @@ int create_window(rpg_t *rpg)
     while (sfRenderWindow_isOpen(rpg->basics->my_window)) {
         sfRenderWindow_display(rpg->basics->my_window);
         time_clock(rpg);
-        parsing(rpg);
         event(rpg);
+        parsing(rpg);
     }
 }
