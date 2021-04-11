@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/todo", (req, res) => {
+app.get("/todos", (req, res) => {
     console.log();
     const search = "SELECT id FROM user WHERE email =?"
     const request = "SELECT * FROM todo WHERE user_id=?"

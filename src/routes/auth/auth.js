@@ -40,32 +40,33 @@ auth.post("/register", (req, res) => {
 
 auth.post("/login", (req, res) => {
     const body = [req.body.email, req.body.password];
-    //const request = "SELECT * FROM user WHERE email=?";
-    const request = 'select * from user where email="'+req.body.email+'" ';
+    const request = "SELECT * FROM user WHERE email=?";
 
-    con.query(request, (err, result) => {
+    con.query(request, [req.body.email], (err, result) => {
         if (err) throw err;
-        if (!result) {
+        if (result[0] === undefined) {
             let msg = {
                 msg: `Invalid Credentials`
             };
             res.json(msg);
             return;
+        } else {
+            bcrypt.compare(req.body.password, result[0].password, (err, same) => {
+                if (err) throw err;
+                if (same === false) {
+                    let msg = {
+                        msg: `Invalid Credentials`
+                    };
+                    res.json(msg);
+                } else {
+                    let token = jwt.sign({body}, process.env.SECRET);
+                    let printtoken = {
+                        token: `${token}`
+                    };
+                    res.json(printtoken);
+                }
+            });
         }
-        bcrypt.compare(result[0].password, req.body.password, (err, is_true) => {
-            if (is_true == false) {
-                let msg = {
-                    msg: `Invalid Credentials`
-                };
-                res.json(msg);
-            } else {
-                let token = jwt.sign({body}, process.env.SECRET);
-                let printtoken = {
-                    token: `${token}`
-                };
-                res.json(printtoken);
-            }
-        });
     });
 });
 
