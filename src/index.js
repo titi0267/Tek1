@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const con = require('./config/db.js');
 const authRouter = require('./routes/auth/auth.js');
 const userRouter = require('./routes/user/user.js');
+const todoRouter = require('./routes/todos/todos.js');
+const middle = require('./middleware/auth.js')
 
 con.connect(function(err) {
     if (err) {
@@ -21,4 +23,6 @@ app.listen(process.env.PORT, () => {
 });
 
 app.use('/', authRouter);
+app.use(middle);
 app.use('/user', userRouter);
+app.use('/todo', todoRouter);

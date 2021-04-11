@@ -12,10 +12,21 @@ auth.post("/register", (req, res) => {
     bcrypt.hash(req.body.password, 10, (error, hash) => {
         if (error) throw err;
         let body = [req.body.email, req.body.name, req.body.firstname, hash];
-        const select_email = 'SELECT email FROM user WHERE email ="' + mysql.escape(req.body.email) +'"';;
+        const select_email = 'SELECT email FROM user WHERE email =?'
 
-        con.query(select_email, (mailerror, emailresult) => {
-            if (mailerror) {
+        con.query(select_email, [req.body.email], (mailerror, emailresult) => {
+            if (emailresult[0] === undefined) {
+                con.query(request, body,(err, result) => {
+                    if (err) {
+                        res.send(err);
+                    };
+                    let token = jwt.sign({body}, process.env.SECRET);
+                    let printtoken = {
+                        token: `${token}`
+                    };
+                    res.json(printtoken);
+                });
+            } else {
                 let msg = {
                     msg: `account already exists`
                 };
@@ -23,16 +34,7 @@ auth.post("/register", (req, res) => {
                 return;
             }
         });
-        con.query(request, body,(err, result) => {
-            if (err) {
-                res.send(err);
-            };
-            let token = jwt.sign({body}, process.env.SECRET);
-            let printtoken = {
-                token: `${token}`
-            };
-            res.json(printtoken);
-        });
+
     });
 });
 
