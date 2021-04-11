@@ -5,16 +5,17 @@
 ## Makefile
 ##
 
-SRC	=	main.c
+CC=	gcc	-o
 
-OBJ	=	$(SRC:.c=.o)
+SRC	=	main.c		\
+		read_file.c
 
 NAME	=	solver
 
-all:	$(NAME)
+CFLAGS=	-L../lib/my -lmy
 
-$(NAME):	$(OBJ)
-	gcc	$(OBJ)	-o	$(NAME) -L./lib/my -lmy
+all:
+	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
 
 clean:
 	rm -f $(OBJ)

@@ -7,6 +7,8 @@
 
 #include <stdint.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #ifndef MY_H_
 #define MY_H_
@@ -52,5 +54,6 @@ void my_print_str(va_list *);
 void my_print_nbr(va_list *);
 char **my_str_to_line_array(char *);
 char **my_str_to_word_array(char *);
+int my_puterr(char *);
 
 #endif /* MY_H_ */
