@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my.h
 ** File description:
-** my.h
+** 
 */
 
 #ifndef MY_H_

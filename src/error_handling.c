@@ -1,8 +1,8 @@
 /*
-** EPITECH 2021
+** EPITECH PROJECT, 2021
 ** error_handling.c
-** File description
-** duo stumper
+** File description:
+** 
 */
 
 #include "../include/my.h"

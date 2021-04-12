@@ -1,8 +1,8 @@
 /*
-** STUMPER
-** duo stumper
-** file description:
-** read
+** EPITECH PROJECT, 2021
+** read.c
+** File description:
+** 
 */
 
 #include "../include/my.h"

@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2021
-** main
+** main.c
 ** File description:
-** main for duo
+** 
 */
 
 #include "../include/my.h"

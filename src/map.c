@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Map by Timothy CONIEL & Tom NOMINE
-** File description:
+** EPITECH PROJECT, 2021
 ** map.c
+** File description:
+** 
 */
 
 #include "../include/my.h"

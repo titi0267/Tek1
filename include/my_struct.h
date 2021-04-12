@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** My_structure by Timothy CONIEL
-** File description:
+** EPITECH PROJECT, 2021
 ** my_struct.h
+** File description:
+** 
 */
 
 #ifndef MY_STRUCT_H_
