@@ -5,20 +5,19 @@
 ## Makefile
 ##
 
+CC=	gcc	-o
+
 SRC	=	main.c	\
 		error.c
 
-OBJ	=	$(SRC:.c=.o)
-
 NAME	=	generator
 
-all:	$(NAME)
+CFLAGS=	-L../lib/my -lmy
 
-$(NAME):	$(OBJ)
-	gcc	-g	$(OBJ)	-o	$(NAME)	-L../lib/my	-lmy
+all:
+	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
 
 clean:
-	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

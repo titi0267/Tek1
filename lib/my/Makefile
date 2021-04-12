@@ -40,7 +40,8 @@ SRC	=	my_compute_power_rec.c		\
 		my_printf2.c		\
 		my_printf3.c		\
 		my_str_line_array.c	\
-		my_str_word_array.c
+		my_str_word_array.c	\
+		my_puterr.c			\
 
 
 OBJ	=	$(SRC:.c=.o)
@@ -51,12 +52,14 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
+	cp	$(NAME)	../../
 
 clean:
 	rm -f $(OBJ)
 
 fclean:
 	rm -f $(NAME)
+	rm ../../$(NAME)
 
 re:	fclean all
 

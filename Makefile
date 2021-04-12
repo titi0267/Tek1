@@ -15,16 +15,20 @@ all:	$(NAME)
 
 $(NAME):
 	${MAKE} -C ./lib/my
-	${MAKE} ./generator
+	${MAKE} -C ./generator
+	${MAKE} -C ./solver
 	$(CC)	$(NAME)	$(SRC)
+	rm $(NAME)
 
 clean:
 	${MAKE} clean -C ./lib/my
 	${MAKE} clean -C ./generator
+	${MAKE} clean -C ./solver
 
 fclean: clean
 	${MAKE} fclean -C ./lib/my
 	${MAKE} fclean -C ./generator
+	${MAKE} fclean -C ./solver
 	rm -f $(NAME)
 
 re: fclean all
