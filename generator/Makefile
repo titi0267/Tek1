@@ -15,7 +15,7 @@ NAME	=	generator
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	gcc	$(OBJ)	-g -o	$(NAME) -L../lib/my -lmy
+	gcc	-g	$(OBJ)	-o	$(NAME)	-L../lib/my	-lmy
 
 clean:
 	rm -f $(OBJ)
