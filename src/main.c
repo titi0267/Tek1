@@ -53,7 +53,7 @@ void free_func(duo_stp_t *duo)
 int main(int ac, char **av)
 {
     duo_stp_t *duo = malloc(sizeof(duo_stp_t));
-    
+
     if (duo == NULL ||
         store_nbrs(av, duo) == 84)
         return (84);
