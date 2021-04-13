@@ -13,12 +13,12 @@ void sound(rpg_t *rpg, int status)
     static int sound2 = 0;
 
     if (sound1 == 0 && status == 1) {
-        sfSound_play(rpg->main_menu->start);
+        sfSound_play(rpg->menu->intro->intro_snd->start);
         sound1 = 1;
     }
     if ((sound2 == 0) && status == 2) {
-        sfSound_stop(rpg->main_menu->start);
-        sfSound_play(rpg->main_menu->a_menu);
+        sfSound_stop(rpg->menu->intro->intro_snd->start);
+        sfSound_play(rpg->menu->menu_snd->a_menu);
         sound2 = 1;
     }
 }

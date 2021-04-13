@@ -9,12 +9,12 @@
 
 void init_rect_pegi(rpg_t *rpg)
 {
-    rpg->main_menu->rect_pegi.left = 0;
-    rpg->main_menu->rect_pegi.width = 1920;
-    rpg->main_menu->rect_pegi.height = 1080;
-    rpg->main_menu->rect_pegi.top = 0;
-    rpg->main_menu->line_pegi = 0;
-    rpg->main_menu->offset_pegi = 0;
+    rpg->menu->intro->intro_pegi->rect_pegi.left = 0;
+    rpg->menu->intro->intro_pegi->rect_pegi.width = 1920;
+    rpg->menu->intro->intro_pegi->rect_pegi.height = 1080;
+    rpg->menu->intro->intro_pegi->rect_pegi.top = 0;
+    rpg->menu->intro->intro_pegi->line_pegi = 0;
+    rpg->menu->intro->intro_pegi->offset_pegi = 0;
 }
 
 void init_pegi_spt(rpg_t *rpg)
@@ -22,9 +22,9 @@ void init_pegi_spt(rpg_t *rpg)
     sfTexture *pegi_tex = sfTexture_createFromFile
     ("assets/start/pegi.png", NULL);
 
-    rpg->main_menu->pegi_spt = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->pegi_spt,
+    rpg->menu->intro->intro_pegi->pegi_spt = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->intro->intro_pegi->pegi_spt,
     pegi_tex, sfTrue);
-    rpg->main_menu->wait_pegi = 0;
+    rpg->menu->intro->intro_pegi->wait_pegi = 0;
     init_rect_pegi(rpg);
 }

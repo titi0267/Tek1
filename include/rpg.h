@@ -33,28 +33,9 @@ typedef struct control_s {
 
 typedef struct main_menu_s main_menu_t;
 struct main_menu_s {
-    sfSprite *background;
-    sfTexture *create_background;
-    sfIntRect rect_but;
-    sfIntRect rect_logo;
-    sfIntRect rect_pegi;
-    int line_rect;
-    int line_logo;
-    int offset;
-    int offset_logo;
-    int offset_pegi;
-    int line_pegi;
     sfSprite *main_menu;
     sfTexture *create_main_menu;
     sfSprite **menu;
-    sfSprite *pegi_spt;
-    sfSprite *basil_spt;
-    int wait_basil;
-    int wait_pegi;
-    sfSoundBuffer *create_start;
-    sfSound *start;
-    sfSoundBuffer *create_a_menu;
-    sfSound *a_menu;
     sfSprite **options;
     int opt_status;
     sfSprite **sound;
@@ -87,7 +68,6 @@ void init_pegi_spt(rpg_t *rpg);
 
 void init_rect_adn(rpg_t *rpg);
 int init_main_menu(rpg_t *rpg);
-void create_boom(rpg_t *rpg);
 void hitbox1(rpg_t *rpg);
 void hitbox2(rpg_t *rpg);
 void clic1(rpg_t *rpg);

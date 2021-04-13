@@ -26,7 +26,7 @@ void init_function(rpg_t *rpg)
     init_main_menu(rpg);
     init_logo_spt(rpg);
     init_pegi_spt(rpg);
-    create_boom(rpg);
+    create_boom(rpg->menu);
     init_option1(rpg);
     create_size_square(rpg);
     sound_cirle(rpg);

@@ -7,15 +7,15 @@
 
 #include "../../../include/func_name.h"
 
-void create_boom(rpg_t *rpg)
+void create_boom(menu_t *menu)
 {
-    rpg->main_menu->create_start =
+    menu->intro->intro_snd->create_start =
     sfSoundBuffer_createFromFile("assets/audios/start.ogg");
-    rpg->main_menu->start = sfSound_create();
-    sfSound_setBuffer(rpg->main_menu->start, rpg->main_menu->create_start);
-    rpg->main_menu->create_a_menu =
+    menu->intro->intro_snd->start = sfSound_create();
+    sfSound_setBuffer(menu->intro->intro_snd->start, menu->intro->intro_snd->create_start);
+    menu->menu_snd->create_a_menu =
     sfSoundBuffer_createFromFile("assets/audios/menu.ogg");
-    rpg->main_menu->a_menu = sfSound_create();
-    sfSound_setBuffer(rpg->main_menu->a_menu, rpg->main_menu->create_a_menu);
-    sfSound_setLoop(rpg->main_menu->a_menu, sfTrue);
+    menu->menu_snd->a_menu = sfSound_create();
+    sfSound_setBuffer(menu->menu_snd->a_menu, menu->menu_snd->create_a_menu);
+    sfSound_setLoop(menu->menu_snd->a_menu, sfTrue);
 }

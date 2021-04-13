@@ -13,5 +13,7 @@ int alloc_all(rpg_t *rpg)
         return (MALLOC_ERROR);
     if (basic_malloc(rpg->basic) == MALLOC_ERROR)
         return (MALLOC_ERROR);
+    if (menu_alloc(rpg->menu) == MALLOC_ERROR)
+        return (MALLOC_ERROR);
     return (0);
 }
