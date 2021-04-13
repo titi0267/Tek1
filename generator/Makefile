@@ -8,7 +8,8 @@
 CC=	gcc	-o
 
 SRC	=	main.c	\
-		error.c
+		error.c	\
+		free.c	\
 
 NAME	=	generator
 

@@ -8,14 +8,6 @@
 #include "../include/my.h"
 #include "include/dante.h"
 
-void my_freeing(data_t *data)
-{
-    for (int i = 0; data->maze[i]; i++)
-        free(data->maze[i]);
-    free(data->maze);
-    free(data);
-}
-
 void print_tab(char **tab)
 {
     for (int g = 0; tab[g]; g++)
@@ -68,11 +60,11 @@ void put_maze_in_tab_int(data_t *data)
     for (int x = 0; x < data->maze_heigth; x++) {
         data->tab[x] = malloc(sizeof(int) * (data->maze_width + 1));
         for (int y = 0; y < data->maze_width; y++) {
-            if (data->maze[x][y] == 'X') {
+            if (data->maze[x][y] == '*') {
                 data->tab[x][y] = rand_nb;
                 rand_nb++;
             }
-            if (data->maze[x][y] == '*')
+            if (data->maze[x][y] == 'X')
                 data->tab[x][y] = 0;
         }
         data->tab[x][data->maze_width] = -1;
@@ -94,31 +86,18 @@ int check_if_finished(data_t *data)
 
 void set_mazyness(data_t *data)
 {
-    int row = rand() % (data->maze_heigth - 1);
-    int col = rand() % (data->maze_width - 1);
-
-    if (row > data->maze_heigth)
-        row = row - data->maze_heigth;
-    if (col > data->maze_width)
-        col = col - data->maze_width;
-    my_printf("Wtf ");
-    if (data->tab[row][col] != 0) {
-        if (data->tab[row - 1][col] != data->tab[row + 1][col]) {
-            data->tab[row][col] = 0;
-            data->tab[row - 1][col] = 0;
-            data->tab[row + 1][col] = 0;
-        }
-    }
-    my_printf("is happening\n");
-    if (data->is_perfect == 0) {
         int x = rand() % (data->maze_heigth - 2) + 1;
         int y = 0;
+        int left_cell = 0;
+        int right_cell = 0;
 
         if (x % 2 == 0)
-            y = rand() % data->maze_heigth;
+            y = rand() % ((data->maze_width - 1) / 2))) * 2 + 1;
         else
-            y = rand() % data->maze_heigth - 1;
+            y = rand() % ((data->maze_width - 1) / 2))) * 2 + 2;
         data->tab[x][y] = 0;
+    if (data->is_perfect == 0) {
+        //make it perfect
     }
 }
 

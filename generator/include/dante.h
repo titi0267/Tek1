@@ -22,5 +22,6 @@ typedef struct data_s {
 } data_t;
 
 int error_handler(int, char **, data_t *);
+void my_freeing(data_t *data);
 
 #endif /* !DANTE_H_ */

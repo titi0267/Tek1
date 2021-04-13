@@ -15,6 +15,8 @@ typedef struct read_s {
     int char_nbr;
     char **line;
     int **path;
+    int car;
+    int ln;
 } read_t;
 
 typedef struct solve_s {
