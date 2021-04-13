@@ -5,8 +5,12 @@
 ** menu rpg
 */
 
-#ifndef menu
-#define menu
+#ifndef menu_scr
+#define menu_scr
 
+typedef struct menu_s
+{
 
-#endif /* !menu */
+} menu_t;
+
+#endif /* !menu_scr */

@@ -5,7 +5,7 @@
 ** parsing
 */
 
-#include "../include/rpg.h"
+#include "../include/func_name.h"
 
 void sound(rpg_t *rpg, int status)
 {
@@ -37,7 +37,7 @@ int parsing_menus(rpg_t *rpg)
             background_pegi(rpg);
         if (nbr > 17.7)
             rpg->status = 1;
-        nbr += rpg->basics->time_loop;
+        nbr += rpg->basic->cnf->clk->time_loop;
     }
     if (rpg->status == 1) {
         sound(rpg, 2);

@@ -12,7 +12,7 @@
 
 int first_alloc(rpg_t *rpg);
 int basic_malloc(basic_t *basic);
-
+int alloc_all(rpg_t *rpg);
 
 void create_window(basic_t *basic);
 
@@ -20,9 +20,6 @@ void open_window(rpg_t *rpg);
 void inside_open(rpg_t *rpg);
 void event(rpg_t *rpg);
 void get_mouse_pos(basic_t *basic);
-void moove_clock(cloc_t *clk);
-
-
-
+void move_clock(cloc_t *clk);
 
 #endif /* !prototype */

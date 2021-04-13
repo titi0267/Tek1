@@ -5,63 +5,63 @@
 ** options_graph
 */
 
-#include "../../include/rpg.h"
+#include "../../include/func_name.h"
 
 void clic_menu(rpg_t *rpg)
 {
-    if (rpg->basics->event.type == sfEvtMouseButtonPressed) {
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 255)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 361.5)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 789)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 460)))
+    if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) {
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 361.5)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 460)))
             rpg->main_menu->opt_status = 0;
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 255)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 460.5)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 789)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 559.5)))
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 460.5)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 559.5)))
             rpg->main_menu->opt_status = 1;
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 255)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 559.5)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 789)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 658.5)))
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 559.5)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 658.5)))
             rpg->main_menu->opt_status = 2;
     }
 }
 
 void select_resolution(rpg_t *rpg)
 {
-    if (rpg->basics->event.type == sfEvtMouseButtonPressed) {
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 1589.804)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 613.25)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 1614.304)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 637.75)))
-            rpg->basics->resolution = 0;
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 1589.804)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 583.75)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 1614.304)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 597.25)))
-            rpg->basics->resolution = 1;
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 1589.804)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 530.25)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 1614.304)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 554.75)))
-            rpg->basics->resolution = 2;
+    if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) {
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1589.804)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 613.25)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1614.304)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 637.75)))
+            rpg->basic->cnf->scr_cnf->resolution = 0;
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1589.804)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 583.75)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1614.304)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 597.25)))
+            rpg->basic->cnf->scr_cnf->resolution = 1;
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1589.804)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 530.25)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1614.304)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 554.75)))
+            rpg->basic->cnf->scr_cnf->resolution = 2;
     }
 }
 
 void select_fps(rpg_t *rpg)
 {
-    if (rpg->basics->event.type == sfEvtMouseButtonPressed) {
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 1477.554)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 382.25)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 1502.054)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 406.75)))
-            rpg->basics->fps = 30;
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 1631.554)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 382.25)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 1656.054)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 406.75)))
-            rpg->basics->fps = 60;
+    if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) {
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1477.554)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 382.25)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1502.054)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 406.75)))
+            rpg->basic->cnf->scr_cnf->fps = 30;
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1631.554)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 382.25)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1656.054)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 406.75)))
+            rpg->basic->cnf->scr_cnf->fps = 60;
     }
 }
 
@@ -89,7 +89,7 @@ int manage_window_size(rpg_t *rpg)
     rpg->main_menu->empty_square, sfTrue);
     sfSprite_setTexture(rpg->main_menu->graphismes[RES11x30],
     rpg->main_menu->empty_square, sfTrue);
-    if (rpg->basics->resolution == 0) {
+    if (rpg->basic->cnf->scr_cnf->resolution == 0) {
         sfSprite_setTexture(rpg->main_menu->graphismes[RES19x80],
         rpg->main_menu->fill_square, sfTrue);
         sfRenderWindow_setSize(rpg->basic->wnd->my_wnd, size1);

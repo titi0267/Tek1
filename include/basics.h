@@ -7,37 +7,42 @@
 
 #ifndef basics
 #define basics
+#include "rpg.h"
+#define MALLOC_ERROR 84
 
 typedef struct window_s
 {
     sfRenderWindow *my_wnd;
-ndow_t;
+    int win_width;
+    int win_height;
+} window_t;
+
 typedef struct event_s
 {
-
+    sfEvent event;
 } event_t;
 
-    sfEvent event;typedef struct cloc_s
+typedef struct cloc_s
 {
-
-} cloc_t;
-
     sfClock *clock;
     float time_total;
-    float time_loop;typedef struct fps_s
+    float time_loop;
+} cloc_t;
+
+typedef struct screen_conf_s
 {
-
-} fps_t;src_creen_conf
-
     int fps;
-    int resolution;typedef struct config_s
-{screen_conf
+    int resolution;
+} screen_conf_t;
+
+typedef struct config_s
+{
     cloc_t *clk;
-    fps_t *fps;
+    screen_conf_t *scr_cnf;
+    sfVector2i mouse;
 } config_t;
 
-typescreen_conf strscr_cnf 
-    sfVector2i mouse;basic_s
+typedef struct basic_s
 {
     config_t *cnf;
     event_t *evt;

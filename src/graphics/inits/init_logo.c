@@ -5,7 +5,7 @@
 ** init_logo.c
 */
 
-#include "../../../include/rpg.h"
+#include "../../../include/func_name.h"
 
 void init_rect_logo(rpg_t *rpg)
 {

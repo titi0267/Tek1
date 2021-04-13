@@ -5,43 +5,43 @@
 ** options
 */
 
-#include "../../include/rpg.h"
+#include "../../include/func_name.h"
 
 void clic_options(rpg_t *rpg)
 {
-    if (((rpg->basics->mouse.x) >= adapt_x(rpg, 255)) &&
-    ((rpg->basics->mouse.y) >= adapt_y(rpg, 361.5)) &&
-    (rpg->basics->mouse.x <= adapt_x(rpg, 789)) &&
-    (rpg->basics->mouse.y <= adapt_y(rpg, 460)))
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 361.5)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 460)))
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->main_menu->options[GRAPH], NULL);
-    if (((rpg->basics->mouse.x) >= adapt_x(rpg, 255)) &&
-    ((rpg->basics->mouse.y) >= adapt_y(rpg, 460.5)) &&
-    (rpg->basics->mouse.x <= adapt_x(rpg, 789)) &&
-    (rpg->basics->mouse.y <= adapt_y(rpg, 559.5)))
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 460.5)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 559.5)))
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->main_menu->options[SOUND], NULL);
-    if (((rpg->basics->mouse.x) >= adapt_x(rpg, 255)) &&
-    ((rpg->basics->mouse.y) >= adapt_y(rpg, 559.5)) &&
-    (rpg->basics->mouse.x <= adapt_x(rpg, 789)) &&
-    (rpg->basics->mouse.y <= adapt_y(rpg, 658.5)))
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 559.5)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 658.5)))
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->main_menu->options[GAME_OPTIONS], NULL);
 }
 
 void clic_options1(rpg_t *rpg)
 {
-    if (((rpg->basics->mouse.x) >= adapt_x(rpg, 255)) &&
-    ((rpg->basics->mouse.y) >= adapt_y(rpg, 684.5)) &&
-    (rpg->basics->mouse.x <= adapt_x(rpg, 789)) &&
-    (rpg->basics->mouse.y <= adapt_y(rpg, 783.5)))
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 684.5)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 783.5)))
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->main_menu->options[MAIN_MENU], NULL);
-    if (rpg->basics->event.type == sfEvtMouseButtonPressed) {
-        if (((rpg->basics->mouse.x) >= adapt_x(rpg, 255)) &&
-        ((rpg->basics->mouse.y) >= adapt_y(rpg, 684.5)) &&
-        (rpg->basics->mouse.x <= adapt_x(rpg, 789)) &&
-        (rpg->basics->mouse.y <= adapt_y(rpg, 783.5)))
+    if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) {
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 684.5)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 783.5)))
             rpg->status = 1;
     }
 }

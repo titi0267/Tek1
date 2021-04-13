@@ -5,8 +5,12 @@
 ** rpg game
 */
 
-#ifndef game
-#define game
+#ifndef gm
+#define gm
 
+typedef struct game_s
+{
 
-#endif /* !game */
+} game_t;
+
+#endif /* !gm */

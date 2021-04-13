@@ -5,7 +5,7 @@
 ** init_pegi
 */
 
-#include "../../../include/rpg.h"
+#include "../../../include/func_name.h"
 
 void init_rect_pegi(rpg_t *rpg)
 {

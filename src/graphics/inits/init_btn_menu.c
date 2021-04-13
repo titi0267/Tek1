@@ -5,7 +5,7 @@
 ** init_btn_menu.c
 */
 
-#include "../../../include/rpg.h"
+#include "../../../include/func_name.h"
 
 void init_menu_newgame(rpg_t *rpg)
 {

@@ -11,9 +11,11 @@ SRCSPATH = src/
 
 SRCSFILES=	rpg.c							\
 			open_window.c					\
+			init_window.c					\
 			tools.c							\
 			parsing.c						\
 			init_struct/base_alloc.c		\
+			init_struct/alloc_all.c			\
 			init_struct/alloc_basic.c		\
 			graphics/inits/init_audios.c	\
 			graphics/main_menu.c			\

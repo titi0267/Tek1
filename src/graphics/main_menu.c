@@ -5,7 +5,7 @@
 ** main_menu
 */
 
-#include "../../include/rpg.h"
+#include "../../include/func_name.h"
 
 int main_menu(rpg_t *rpg)
 {

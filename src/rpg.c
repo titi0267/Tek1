@@ -5,28 +5,17 @@
 ** rpg
 */
 
-#include "../include/rpg.h"
+#include "../include/func_name.h"
 
-int init_structs(rpg_t *rpg)
+int init_basic_value(basic_t *basic)
 {
-    rpg->basics = malloc(sizeof(basics_t));
-    if (rpg->basics == NULL) exit(84);
-    rpg->main_menu = malloc(sizeof(main_menu_t));
-    if (rpg->main_menu == NULL) exit(84);
-    rpg->control = malloc(sizeof(control_t));
-    if (rpg->control == NULL) exit(84);
-    return (0);
-}
-
-int init_values(rpg_t *rpg)
-{
-    rpg->basics->clock = sfClock_create();
-    rpg->basics->fps = 60;
-    rpg->basics->time_total = 0;
-    rpg->basics->time_loop = 0;
-    rpg->main_menu->opt_status = 0;
-    rpg->status = 0;
-    rpg->basics->resolution = 0;
+    basic->cnf->clk->clock = sfClock_create();
+    basic->cnf->scr_cnf->fps = 60;
+    basic->cnf->clk->time_total = 0;
+    basic->cnf->clk->time_loop = 0;
+    //rpg->main_menu->opt_status = 0;
+    //rpg->status = 0;
+    basic->cnf->scr_cnf->resolution = 0;
     return (0);
 }
 
@@ -50,9 +39,9 @@ int main(int ac, char **av)
 
     if (rpg == NULL)
         return (84);
-    init_structs(rpg);
-    init_values(rpg);
+    alloc_all(rpg);
+    init_basic_value(rpg->basic);
     init_function(rpg);
-    create_window(rpg);
+    open_window(rpg);
     return (0);
 }

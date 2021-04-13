@@ -5,15 +5,15 @@
 ** init_window.c
 */
 
-#include "../include/rpg.h"
+#include "../include/func_name.h"
 
 void get_mouse_pos(basic_t *basic)
 {
     basic->cnf->mouse =
-    sfMouse_getPositionRenderWindow(basic->my_wnd);
+    sfMouse_getPositionRenderWindow(basic->wnd->my_wnd);
 }
 
-void mooe_clock(cloc_t *clk)
+void move_clock(cloc_t *clk)
 {
     clk->time_loop =
     sfClock_restart(clk->clock).microseconds / 1000000.0;

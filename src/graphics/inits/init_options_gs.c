@@ -5,7 +5,7 @@
 ** init_options_gs
 */
 
-#include "../../../include/rpg.h"
+#include "../../../include/func_name.h"
 
 void create_size_square(rpg_t *rpg)
 {

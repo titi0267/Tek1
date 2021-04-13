@@ -5,7 +5,7 @@
 ** audios
 */
 
-#include "../../../include/rpg.h"
+#include "../../../include/func_name.h"
 
 void create_boom(rpg_t *rpg)
 {

@@ -5,7 +5,7 @@
 ** window
 */
 
-#include "../include/rpg.h"
+#include "../include/func_name.h"
 
 void event(rpg_t *rpg)
 {
@@ -19,7 +19,7 @@ void event(rpg_t *rpg)
 
 void inside_open(rpg_t *rpg)
 {
-    move_clock(rpg->basic->clk);
+    move_clock(rpg->basic->cnf->clk);
     get_mouse_pos(rpg->basic);
 }
 

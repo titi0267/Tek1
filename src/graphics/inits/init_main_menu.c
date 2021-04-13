@@ -5,7 +5,7 @@
 ** init_main_menu
 */
 
-#include "../../../include/rpg.h"
+#include "../../../include/func_name.h"
 
 void init_rect_adn(rpg_t *rpg)
 {

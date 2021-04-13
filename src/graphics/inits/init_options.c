@@ -5,7 +5,7 @@
 ** init_options
 */
 
-#include "../../../include/rpg.h"
+#include "../../../include/func_name.h"
 
 void init_controls(rpg_t *rpg)
 {

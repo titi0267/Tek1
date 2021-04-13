@@ -14,11 +14,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
 #include "basics.h"
-#include "func_name.h"
-
-#define MALLOC_ERROR 84
+#include "game.h"
+#include "rpg_enum.h"
+#include "menu.h"
 
 typedef struct control_s {
     char *up;
@@ -67,43 +66,13 @@ struct main_menu_s {
 typedef struct rpg_s rpg_t;
 struct rpg_s {
     basic_t *basic;
+    game_t *game;
+    menu_t *menu;
     main_menu_t *main_menu;
     control_t *control;
     int status;
 };
 
-typedef enum menu_s {
-    NEW_GAME,
-    CONTINUE,
-    TUTORIAL,
-    OPTIONS,
-    QUIT,
-    NONE
-} menu_t;
-
-typedef enum options_s {
-    GRAPH_F,
-    SOUND_F,
-    GAME_OPTIONS_F,
-    GRAPH,
-    SOUND,
-    GAME_OPTIONS,
-    MAIN_MENU,
-    NO
-} options_t;
-
-typedef enum graph_sound_s {
-    CIRCLE_MUSIC,
-    CIRCLE_DIAG,
-    CIRCLE_AMBT,
-    RES19x80,
-    RES12x20,
-    RES11x30,
-    FPS30,
-    FPS60
-} graph_sound_t;
-
-int create_window(rpg_t *rpg);
 float adapt_x(rpg_t *rpg, int hitbox_x);
 float adapt_y(rpg_t *rpg, int hitbox_y);
 void init_menu_quit(rpg_t *rpg);

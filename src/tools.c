@@ -5,7 +5,7 @@
 ** tools
 */
 
-#include "../include/rpg.h"
+#include "../include/func_name.h"
 
 float adapt_x(rpg_t *rpg, int hitbox_x)
 {
