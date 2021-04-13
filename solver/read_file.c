@@ -18,6 +18,7 @@ void counter(read_t *rd)
         if (rd->buffer[i] == '\n')
             rd->line_nbr++;
     }
+    rd->line_nbr += 1;
 }
 
 int store_maze(read_t *rd)
@@ -31,7 +32,7 @@ int store_maze(read_t *rd)
     while (d != rd->line_nbr) {
         if ((rd->line[d] = malloc(sizeof(char) * (rd->char_nbr + 2))) == NULL)
             return (ERROR);
-        while (rd->buffer[i] != '\n') {
+        while (rd->buffer[i] != '\n' && rd->buffer[i] != '\0') {
             rd->line[d][c] = rd->buffer[i];
             c++;
             i++;

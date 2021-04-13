@@ -97,7 +97,7 @@ void set_mazyness(data_t *data)
             y = rand() % (((data->maze_width - 1) / 2)) * 2 + 2;
         //data->tab[x][y] = 0;
         my_printf("x : %d, y : %d\nmaze[x][y] = %d\n", x, y, data->tab[x][y]);
-        if (data->tab[x - 1][y] != )
+        //if (data->tab[x - 1][y] != )
     if (data->is_perfect == 0) {
         //make it perfect
     }

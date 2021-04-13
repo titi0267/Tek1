@@ -21,7 +21,7 @@ int replace_nbr(read_t *rd)
             rd->path[i][d] = 0;
         }
         if (rd->line[i][d] == 'X')
-            rd->path[i][d] = -1;
+            rd->path[i][d] = 1000000;
         }
         rd->path[i][d] = -2;
         d = 0;
