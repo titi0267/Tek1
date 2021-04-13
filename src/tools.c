@@ -9,7 +9,7 @@
 
 float adapt_x(rpg_t *rpg, int hitbox_x)
 {
-    sfVector2u window_size = sfRenderWindow_getSize(rpg->basics->my_window);
+    sfVector2u window_size = sfRenderWindow_getSize(rpg->basic->wnd->my_wnd);
     float result = 0;
 
     result = (((float)hitbox_x / 1920) * (float)window_size.x);
@@ -18,7 +18,7 @@ float adapt_x(rpg_t *rpg, int hitbox_x)
 
 float adapt_y(rpg_t *rpg, int hitbox_y)
 {
-    sfVector2u window_size = sfRenderWindow_getSize(rpg->basics->my_window);
+    sfVector2u window_size = sfRenderWindow_getSize(rpg->basic->wnd->my_wnd);
     float result = 0;
 
     result = (((float)hitbox_y / 1080) * (float)window_size.y);

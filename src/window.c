@@ -17,24 +17,30 @@ int event(rpg_t *rpg)
         rpg->status = 1;
 }
 
-int time_clock(rpg_t *rpg)
+/*void get_mouse_pos(basic_t *basic)
 {
-    rpg->basics->time_loop =
+    basic->cnf->mouse =
+    sfMouse_getPositionRenderWindow(basic->my_wnd);
+}*/
+
+/*int time_clock(basic_t *basic)
+{
+    basic->time_loop =
     sfClock_restart(rpg->basics->clock).microseconds / 1000000.0;
     rpg->basics->time_total += rpg->basics->time_loop;
-    rpg->basics->mouse =
-    sfMouse_getPositionRenderWindow(rpg->basics->my_window);
-}
+    get_mouse_pos(basic);
+}*/
+
 
 int create_window(rpg_t *rpg)
 {
-    sfVideoMode video_mode = {1920, 1080, 32};
-    sfVector2i position_window = {0, 0};
-
-    rpg->basics->my_window = sfRenderWindow_create(video_mode,
-    "Grand Theft Covid", sfClose, NULL);
-    sfRenderWindow_setPosition(rpg->basics->my_window, position_window);
-    sfRenderWindow_setFramerateLimit(rpg->basics->my_window, 60);
+//    sfVideoMode video_mode = {1920, 1080, 32};
+//    sfVector2i position_window = {0, 0};
+//
+//    rpg->basics->my_window = sfRenderWindow_create(video_mode,
+//    "Grand Theft Covid", sfClose, NULL);
+//    sfRenderWindow_setPosition(rpg->basics->my_window, position_window);
+//    sfRenderWindow_setFramerateLimit(rpg->basics->my_window, 60);
     while (sfRenderWindow_isOpen(rpg->basics->my_window)) {
         sfRenderWindow_display(rpg->basics->my_window);
         time_clock(rpg);

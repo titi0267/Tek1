@@ -40,7 +40,7 @@ void background_pegi(rpg_t *rpg)
     sfSprite_setTextureRect(rpg->main_menu->pegi_spt,
     rpg->main_menu->rect_pegi);
     nbr += rpg->basics->time_loop;
-    sfRenderWindow_drawSprite(rpg->basics->my_window,
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->main_menu->pegi_spt, NULL);
 }
 
@@ -77,6 +77,6 @@ void move_basil(rpg_t *rpg)
     sfSprite_setTextureRect(rpg->main_menu->basil_spt,
     rpg->main_menu->rect_logo);
     nbr += rpg->basics->time_loop;
-    sfRenderWindow_drawSprite(rpg->basics->my_window,
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->main_menu->basil_spt, NULL);
 }

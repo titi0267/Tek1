@@ -32,7 +32,7 @@ int parsing_menus(rpg_t *rpg)
         if (nbr > 1 && nbr < 9.2)
             move_basil(rpg);
         if (nbr > 9.2 && nbr < 10.5)
-            sfRenderWindow_clear(rpg->basics->my_window, sfBlack);
+            sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
         if (nbr > 10.5 && nbr < 17.7)
             background_pegi(rpg);
         if (nbr > 17.7)

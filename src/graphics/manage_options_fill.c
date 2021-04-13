@@ -31,23 +31,23 @@ void manage_fill_resolution(rpg_t *rpg)
     if (rpg->basics->resolution == 1) {
         sfSprite_setTexture(rpg->main_menu->graphismes[RES12x20],
         rpg->main_menu->fill_square, sfTrue);
-        sfRenderWindow_setSize(rpg->basics->my_window, size2);
+        sfRenderWindow_setSize(rpg->basic->wnd->my_wnd, size2);
     }
     if (rpg->basics->resolution == 2) {
         sfSprite_setTexture(rpg->main_menu->graphismes[RES11x30],
         rpg->main_menu->fill_square, sfTrue);
-        sfRenderWindow_setSize(rpg->basics->my_window, size3);
+        sfRenderWindow_setSize(rpg->basic->wnd->my_wnd, size3);
     }
     manage_fill_fps(rpg);
 }
 
 void show_music_sound(rpg_t *rpg)
 {
-    sfRenderWindow_drawSprite(rpg->basics->my_window
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
     ,rpg->main_menu->graphismes[CIRCLE_MUSIC], NULL);
-    sfRenderWindow_drawSprite(rpg->basics->my_window
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
     ,rpg->main_menu->graphismes[CIRCLE_DIAG], NULL);
-    sfRenderWindow_drawSprite(rpg->basics->my_window
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
     ,rpg->main_menu->graphismes[CIRCLE_AMBT], NULL);
 }
 
@@ -56,8 +56,8 @@ void manage_sound(rpg_t *rpg)
     sfFloatRect music = sfSprite_getGlobalBounds
     (rpg->main_menu->graphismes[CIRCLE_MUSIC]);
     sfVector2f sp_center = {music.width / 2, music.height / 2};
-    sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basics->my_window,
-    sfMouse_getPositionRenderWindow(rpg->basics->my_window), NULL);
+    sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
+    sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
     sfBool hover = sfFloatRect_contains(
     &rpg->main_menu->graphismes[CIRCLE_MUSIC], mouse.x, mouse.y);
 

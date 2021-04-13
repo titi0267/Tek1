@@ -35,6 +35,6 @@ int background(rpg_t *rpg)
     sfSprite_setTextureRect(rpg->main_menu->background,
     rpg->main_menu->rect_but);
     nbr += rpg->basics->time_loop;
-    sfRenderWindow_drawSprite(rpg->basics->my_window,
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->main_menu->background, NULL);
 }

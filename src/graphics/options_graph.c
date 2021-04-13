@@ -67,15 +67,15 @@ void select_fps(rpg_t *rpg)
 
 void draw_square(rpg_t *rpg)
 {
-    sfRenderWindow_drawSprite(rpg->basics->my_window,
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->main_menu->graphismes[RES19x80], NULL);
-    sfRenderWindow_drawSprite(rpg->basics->my_window,
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->main_menu->graphismes[RES12x20], NULL);
-    sfRenderWindow_drawSprite(rpg->basics->my_window,
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->main_menu->graphismes[RES11x30], NULL);
-    sfRenderWindow_drawSprite(rpg->basics->my_window,
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->main_menu->graphismes[FPS60], NULL);
-    sfRenderWindow_drawSprite(rpg->basics->my_window,
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->main_menu->graphismes[FPS30], NULL);
 }
 
@@ -92,7 +92,7 @@ int manage_window_size(rpg_t *rpg)
     if (rpg->basics->resolution == 0) {
         sfSprite_setTexture(rpg->main_menu->graphismes[RES19x80],
         rpg->main_menu->fill_square, sfTrue);
-        sfRenderWindow_setSize(rpg->basics->my_window, size1);
+        sfRenderWindow_setSize(rpg->basic->wnd->my_wnd, size1);
     }
     manage_fill_resolution(rpg);
 }

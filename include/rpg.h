@@ -15,19 +15,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-typedef struct basics_s basics_t;
-struct basics_s {
-    sfRenderWindow *my_window;
-    sfClock *clock;
-    sfEvent event;
-    float time_total;
-    float time_loop;
-    int win_width;
-    int win_height;
-    int fps;
-    sfVector2i mouse;
-    int resolution;
-};
+#include "basics.h"
+#include "func_name.h"
+
+#define MALLOC_ERROR 84
 
 typedef struct control_s {
     char *up;
@@ -75,7 +66,7 @@ struct main_menu_s {
 
 typedef struct rpg_s rpg_t;
 struct rpg_s {
-    basics_t *basics;
+    basic_t *basic;
     main_menu_t *main_menu;
     control_t *control;
     int status;
