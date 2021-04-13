@@ -44,8 +44,15 @@ int maze_init(data_t *data)
     data->maze = malloc(sizeof(char *) * (data->maze_heigth + 1));
     for (int x = 0; x < data->maze_heigth; x++) {
         data->maze[x] = malloc(sizeof(char) * (data->maze_width + 1));
-        for (int y = 0; y < data->maze_width; y++)
-            data->maze[x][y] = 'X';
+        for (int y = 0; y < data->maze_width; y++) {
+            if (x % 2 == 0) {
+                if (y % 2 != 0)
+                    data->maze[x][y] = 'X';
+                else
+                    data->maze[x][y] = '*';
+            } else
+                data->maze[x][y] = 'X';
+        }
         data->maze[x][data->maze_width] = '\0';
     }
     data->maze[data->maze_heigth] = NULL;
@@ -61,11 +68,12 @@ void put_maze_in_tab_int(data_t *data)
     for (int x = 0; x < data->maze_heigth; x++) {
         data->tab[x] = malloc(sizeof(int) * (data->maze_width + 1));
         for (int y = 0; y < data->maze_width; y++) {
-            if (data->maze[x][y] == 'X')
+            if (data->maze[x][y] == 'X') {
                 data->tab[x][y] = rand_nb;
+                rand_nb++;
+            }
             if (data->maze[x][y] == '*')
                 data->tab[x][y] = 0;
-            rand_nb++;
         }
         data->tab[x][data->maze_width] = -1;
     }
@@ -135,8 +143,8 @@ int main(int ac, char **av)
     else if (error_status == 0) {
         maze_init(data);
         put_maze_in_tab_int(data);
-        while (check_if_finished(data) != 0)
-            set_mazyness(data);
+        // while (check_if_finished(data) != 0)
+        //     set_mazyness(data);
         put_tab_in_map(data);
         print_tab(data->maze);
         print_inttab(data->tab);
