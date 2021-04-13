@@ -166,9 +166,10 @@ void replace_solve(read_t *rd)
     }
         if ((rd->ln != 0 && rd->ln < (rd->line_nbr - 1)) && (rd->car != 0 && rd->car < (rd->char_nbr - 1))) {
             if (rd->path[rd->ln - 1][rd->car] != -1) {
+                my_printf("next car %i\n", rd->car);
                 if ((rd->path[rd->ln - 1][rd->car] <= rd->path[rd->ln][rd->car + 1] && rd->path[rd->ln][rd->car + 1] != -1)
-                && (rd->path[rd->ln - 1][rd->car] <= rd->path[rd->ln][rd->car - 1] && rd->path[rd->ln][rd->car - 1] != -1)
-                && (rd->path[rd->ln - 1][rd->car] <= rd->path[rd->ln + 1][rd->car] && rd->path[rd->ln + 1][rd->car] != -1)) {
+                || (rd->path[rd->ln - 1][rd->car] <= rd->path[rd->ln][rd->car - 1] && rd->path[rd->ln][rd->car - 1] != -1)
+                || (rd->path[rd->ln - 1][rd->car] <= rd->path[rd->ln + 1][rd->car] && rd->path[rd->ln + 1][rd->car] != -1)) {
                     rd->line[rd->ln - 1][rd->car] = 'o';
                     rd->line--;
                 }
@@ -195,8 +196,9 @@ void replace_solve(read_t *rd)
                 }
             }
         }
-    
+    //inside ^
     if (rd->ln == 0 && rd->car != 0 && rd->car < (rd->char_nbr - 1)) {
+        my_printf("car = %i", rd->car);
         if (rd->path[rd->ln + 1][rd->car] != -1) {
             if ((rd->path[rd->ln + 1][rd->car] <= rd->path[rd->ln][rd->car + 1] && rd->path[rd->ln][rd->car + 1] != -1)
             && (rd->path[rd->ln + 1][rd->car] <= rd->path[rd->ln][rd->car - 1] && rd->path[rd->ln][rd->car - 1] != -1)) {
@@ -239,6 +241,7 @@ void replace_solve(read_t *rd)
             rd->ln++;
         }
     }
+    //first line ^
     if (rd->ln == (rd->line_nbr - 1) && rd->car != 0 && rd->car < (rd->char_nbr - 1)) {
         //C2 C3 *2;
         if (rd->path[rd->ln - 1][rd->car] != -1) {
@@ -283,6 +286,7 @@ void replace_solve(read_t *rd)
             rd->ln--;
         }
     }
+    //last line ^
     if (rd->car == 0 && rd->ln != 0 && rd->ln < (rd->line_nbr - 1)) {
         //B1 * 1;
         if (rd->path[rd->ln - 1][rd->car] != -1) {
@@ -307,6 +311,7 @@ void replace_solve(read_t *rd)
 
 
     }
+    //left middle ^
     if (rd->car == (rd->char_nbr - 1) && rd->ln != 0 && rd->ln < (rd->line_nbr - 1)) {
         //B4 *1;
         if (rd->path[rd->ln - 1][rd->car] != -1) {
@@ -331,5 +336,6 @@ void replace_solve(read_t *rd)
         }
 
     }
+    //right middle ^
     }
 }

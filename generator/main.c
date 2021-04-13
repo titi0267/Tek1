@@ -86,16 +86,18 @@ int check_if_finished(data_t *data)
 
 void set_mazyness(data_t *data)
 {
-        int x = rand() % (data->maze_heigth - 2) + 1;
+        int x = rand() % (data->maze_heigth - 1);
         int y = 0;
         int left_cell = 0;
         int right_cell = 0;
 
         if (x % 2 == 0)
-            y = rand() % ((data->maze_width - 1) / 2))) * 2 + 1;
+            y = rand() % (((data->maze_width - 1) / 2)) * 2 + 1;
         else
-            y = rand() % ((data->maze_width - 1) / 2))) * 2 + 2;
-        data->tab[x][y] = 0;
+            y = rand() % (((data->maze_width - 1) / 2)) * 2 + 2;
+        //data->tab[x][y] = 0;
+        my_printf("x : %d, y : %d\nmaze[x][y] = %d\n", x, y, data->tab[x][y]);
+        if (data->tab[x - 1][y] != )
     if (data->is_perfect == 0) {
         //make it perfect
     }
@@ -120,13 +122,14 @@ int main(int ac, char **av)
 
     if (error_status == 1) return (0);
     else if (error_status == 0) {
+        srand(time(NULL));
         maze_init(data);
         put_maze_in_tab_int(data);
         // while (check_if_finished(data) != 0)
-        //     set_mazyness(data);
+            set_mazyness(data);
         put_tab_in_map(data);
         print_tab(data->maze);
-        print_inttab(data->tab);
+        //print_inttab(data->tab);
         my_freeing(data);
     }
     else return (84);
