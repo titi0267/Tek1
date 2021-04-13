@@ -39,6 +39,7 @@ int error_handler(int ac, char **av, data_t *data)
         }
     }
     if (check_numbers(av, data) == 84) return (84);
+    data->is_perfect = 0;
     if (ac == 4) {
         if (my_strcmp(av[3], "[perfect]") == 0)
             data->is_perfect = 1;

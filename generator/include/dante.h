@@ -14,6 +14,7 @@
 
 typedef struct data_s {
     char **maze;
+    int **tab;
     int maze_width;
     int maze_heigth;
     int error_status;
