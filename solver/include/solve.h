@@ -17,6 +17,13 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+int malloc_struct(solve_t *slv);
+
 int read_maze(read_t *rd, char **av);
+int replace_nbr(read_t *rd);
+void increment(read_t *rd);
+void replace_solve(read_t *rd);
+
+void free_func(solve_t *slv);
 
 #endif /* !SOLVE_H_ */
