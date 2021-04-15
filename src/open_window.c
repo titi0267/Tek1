@@ -7,14 +7,22 @@
 
 #include "../include/func_name.h"
 
+void skip_start(rpg_t *rpg)
+{
+    if (rpg->basic->evt->event.type == sfEvtKeyReleased &&
+        rpg->basic->evt->event.key.code == sfKeySpace &&
+        rpg->menu->status == ON_BASIL)
+        rpg->menu->status = ON_PEGI;
+}
+
 void event(rpg_t *rpg)
 {
     while (sfRenderWindow_pollEvent(rpg->basic->wnd->my_wnd,
-    &rpg->basic->evt->event))
+    &rpg->basic->evt->event)) {
         if (rpg->basic->evt->event.type == sfEvtClosed)
             sfRenderWindow_close(rpg->basic->wnd->my_wnd);
-    if (sfKeyboard_isKeyPressed(sfKeySpace))
-        rpg->status = 1;
+        skip_start(rpg);
+    }
 }
 
 void inside_open(rpg_t *rpg)

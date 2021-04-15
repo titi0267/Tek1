@@ -7,7 +7,7 @@
 
 #ifndef basics
 #define basics
-#include "rpg.h"
+
 #define MALLOC_ERROR 84
 
 typedef struct window_s
@@ -41,12 +41,5 @@ typedef struct config_s
     screen_conf_t *scr_cnf;
     sfVector2i mouse;
 } config_t;
-
-typedef struct basic_s
-{
-    config_t *cnf;
-    event_t *evt;
-    window_t *wnd;
-} basic_t;
 
 #endif /* !basics */

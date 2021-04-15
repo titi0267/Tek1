@@ -19,11 +19,11 @@ void init_rect_adn(rpg_t *rpg)
 
 int init_main_menu(rpg_t *rpg)
 {
-    rpg->main_menu->create_main_menu = sfTexture_createFromFile
+    rpg->menu->main_menu->menu_spt->create_main_menu = sfTexture_createFromFile
     ("assets/menus/main/menu.png", NULL);
-    rpg->main_menu->main_menu = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->main_menu,
-    rpg->main_menu->create_main_menu, sfTrue);
+    rpg->menu->main_menu->menu_spt->main_menu = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->main_menu->menu_spt->main_menu,
+    rpg->menu->main_menu->menu_spt->create_main_menu, sfTrue);
     rpg->menu->bgd_adn->create_background = sfTexture_createFromFile
     ("assets/menus/gif.jpg", NULL);
     rpg->menu->bgd_adn->background = sfSprite_create();

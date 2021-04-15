@@ -8,52 +8,6 @@
 #ifndef RPG_H_
 #define RPG_H_
 
-#include <SFML/Graphics.h>
-#include <SFML/Window.h>
-#include <SFML/Audio.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "basics.h"
-#include "game.h"
-#include "rpg_enum.h"
-#include "menu.h"
-
-typedef struct control_s {
-    char *up;
-    char *down;
-    char *right;
-    char *left;
-    char *run;
-    char *inventory;
-    char *cellphone;
-    char *car;
-    char *quadcopter;
-} control_t;
-
-typedef struct main_menu_s main_menu_t;
-struct main_menu_s {
-    sfSprite *main_menu;
-    sfTexture *create_main_menu;
-    sfSprite **menu;
-    sfSprite **options;
-    int opt_status;
-    sfSprite **sound;
-    sfSprite **graphismes;
-    sfTexture *empty_square;
-    sfTexture *fill_square;
-};
-
-typedef struct rpg_s rpg_t;
-struct rpg_s {
-    basic_t *basic;
-    game_t *game;
-    menu_t *menu;
-    main_menu_t *main_menu;
-    control_t *control;
-    int status;
-};
-
 float adapt_x(rpg_t *rpg, int hitbox_x);
 float adapt_y(rpg_t *rpg, int hitbox_y);
 void init_menu_quit(rpg_t *rpg);

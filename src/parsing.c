@@ -18,7 +18,7 @@ void sound(rpg_t *rpg, int status)
     }
     if ((sound2 == 0) && status == 2) {
         sfSound_stop(rpg->menu->intro->intro_snd->start);
-        sfSound_play(rpg->menu->menu_snd->a_menu);
+        sfSound_play(rpg->menu->main_menu->menu_snd->a_menu);
         sound2 = 1;
     }
 }
@@ -27,7 +27,7 @@ int parsing_menus(rpg_t *rpg)
 {
     static float nbr = 0;
 
-    if (rpg->status == 0) {
+    if (rpg->menu->status == ON_BASIL) {
         sound(rpg, 1);
         if (nbr > 1 && nbr < 9.2)
             move_basil(rpg);
@@ -36,10 +36,10 @@ int parsing_menus(rpg_t *rpg)
         if (nbr > 10.5 && nbr < 17.7)
             background_pegi(rpg);
         if (nbr > 17.7)
-            rpg->status = 1;
+            rpg->menu->status = ON_PEGI;
         nbr += rpg->basic->cnf->clk->time_loop;
     }
-    if (rpg->status == 1) {
+    if (rpg->menu->status == ON_PEGI) {
         sound(rpg, 2);
         background(rpg);
         main_menu(rpg);
@@ -48,10 +48,10 @@ int parsing_menus(rpg_t *rpg)
 
 void parsing_menu2(rpg_t *rpg)
 {
-    // if (rpg->status == 2) // New game
-    // if (rpg->status == 3) // Continue game
-    // if (rpg->status == 4) // Tutoriel
-    if (rpg->status == 5) { // Options
+    // if (rpg->menu->status == ON_NEW_GM) // New game
+    // if (rpg->menu->status == ON_CONTINUE) // Continue game
+    // if (rpg->menu->status == ON_TUTO) // Tutoriel
+    if (rpg->menu->status == ON_OPTION) { // Options
         background(rpg);
         options(rpg);
     }

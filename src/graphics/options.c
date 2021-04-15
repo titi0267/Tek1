@@ -14,19 +14,19 @@ void clic_options(rpg_t *rpg)
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 460)))
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-        rpg->main_menu->options[GRAPH], NULL);
+        rpg->menu->stg->opt[GRAPH], NULL);
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 460.5)) &&
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 559.5)))
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-        rpg->main_menu->options[SOUND], NULL);
+        rpg->menu->stg->opt[SOUND], NULL);
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 559.5)) &&
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 658.5)))
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-        rpg->main_menu->options[GAME_OPTIONS], NULL);
+        rpg->menu->stg->opt[GAME_OPTIONS], NULL);
 }
 
 void clic_options1(rpg_t *rpg)
@@ -36,33 +36,33 @@ void clic_options1(rpg_t *rpg)
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 783.5)))
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-        rpg->main_menu->options[MAIN_MENU], NULL);
+        rpg->menu->stg->opt[MAIN_MENU], NULL);
     if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) {
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 255)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 684.5)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
         (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 783.5)))
-            rpg->status = 1;
+            rpg->menu->status = ON_PEGI;
     }
 }
 
 void show_menus(rpg_t *rpg)
 {
-    if (rpg->main_menu->opt_status == 0) {
+    if (rpg->menu->stg->stg_scene == GRAPH_SCN) {
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->main_menu->options[GRAPH_F], NULL);
+        ,rpg->menu->stg->opt[GRAPH_F], NULL);
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->main_menu->options[GRAPH], NULL);
+        ,rpg->menu->stg->opt[GRAPH], NULL);
         draw_square(rpg);
         select_fps(rpg);
         select_resolution(rpg);
         manage_window_size(rpg);
     }
-    if (rpg->main_menu->opt_status == 1) {
+    if (rpg->menu->stg->stg_scene == SOUND_SCN) {
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->main_menu->options[SOUND_F], NULL);
+        ,rpg->menu->stg->opt[SOUND_F], NULL);
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->main_menu->options[SOUND], NULL);
+        ,rpg->menu->stg->opt[SOUND], NULL);
         show_music_sound(rpg);
         manage_sound(rpg);
     }
@@ -70,11 +70,11 @@ void show_menus(rpg_t *rpg)
 
 void show_menus2(rpg_t *rpg)
 {
-    if (rpg->main_menu->opt_status == 2) {
+    if (rpg->menu->stg->stg_scene == KEYS_SCN) {
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->main_menu->options[GAME_OPTIONS_F], NULL);
+        ,rpg->menu->stg->opt[GAME_OPTIONS_F], NULL);
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->main_menu->options[GAME_OPTIONS], NULL);
+        ,rpg->menu->stg->opt[GAME_OPTIONS], NULL);
     }
 }
 
@@ -86,5 +86,5 @@ void options(rpg_t *rpg)
     clic_options(rpg);
     clic_options1(rpg);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-    ,rpg->main_menu->options[NO], NULL);
+    ,rpg->menu->stg->opt[NO], NULL);
 }

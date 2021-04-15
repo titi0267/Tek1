@@ -7,15 +7,15 @@
 
 #include "../include/func_name.h"
 
-int init_basic_value(basic_t *basic)
+int init_basic_value(rpg_t *rpg)
 {
-    basic->cnf->clk->clock = sfClock_create();
-    basic->cnf->scr_cnf->fps = 60;
-    basic->cnf->clk->time_total = 0;
-    basic->cnf->clk->time_loop = 0;
-    //rpg->main_menu->opt_status = 0;
-    //rpg->status = 0;
-    basic->cnf->scr_cnf->resolution = 0;
+    rpg->basic->cnf->clk->clock = sfClock_create();
+    rpg->basic->cnf->scr_cnf->fps = 60;
+    rpg->basic->cnf->clk->time_total = 0;
+    rpg->basic->cnf->clk->time_loop = 0;
+    rpg->menu->stg->stg_scene = GRAPH_SCN;
+    rpg->menu->status = ON_BASIL;
+    rpg->basic->cnf->scr_cnf->resolution = 0;
     return (0);
 }
 
@@ -40,7 +40,7 @@ int main(int ac, char **av)
     if (rpg == NULL)
         return (84);
     alloc_all(rpg);
-    init_basic_value(rpg->basic);
+    init_basic_value(rpg);
     init_function(rpg);
     open_window(rpg);
     return (0);

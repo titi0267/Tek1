@@ -9,15 +9,15 @@
 
 void init_controls(rpg_t *rpg)
 {
-    rpg->control->up = "z";
-    rpg->control->down = "s";
-    rpg->control->left = "q";
-    rpg->control->right = "d";
-    rpg->control->run = "r";
-    rpg->control->inventory = "i";
-    rpg->control->cellphone = "t";
-    rpg->control->car = "c";
-    rpg->control->quadcopter = "x";
+    rpg->menu->stg->key_bnd->control->up = "z";
+    rpg->menu->stg->key_bnd->control->down = "s";
+    rpg->menu->stg->key_bnd->control->left = "q";
+    rpg->menu->stg->key_bnd->control->right = "d";
+    rpg->menu->stg->key_bnd->control->run = "r";
+    rpg->menu->stg->key_bnd->control->inventory = "i";
+    rpg->menu->stg->key_bnd->control->cellphone = "t";
+    rpg->menu->stg->key_bnd->control->car = "c";
+    rpg->menu->stg->key_bnd->control->quadcopter = "x";
 }
 
 void init_menu_option2(rpg_t *rpg)
@@ -29,14 +29,14 @@ void init_menu_option2(rpg_t *rpg)
     sfTexture *none = sfTexture_createFromFile
     ("assets/menus/options/select_menu5.png", NULL);
 
-    rpg->main_menu->options[GAME_OPTIONS] = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->options[GAME_OPTIONS],
+    rpg->menu->stg->opt[GAME_OPTIONS] = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->stg->opt[GAME_OPTIONS],
     game_options, sfTrue);
-    rpg->main_menu->options[MAIN_MENU] = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->options[MAIN_MENU],
+    rpg->menu->stg->opt[MAIN_MENU] = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->stg->opt[MAIN_MENU],
     main_menu, sfTrue);
-    rpg->main_menu->options[NO] = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->options[NO],
+    rpg->menu->stg->opt[NO] = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->stg->opt[NO],
     none, sfTrue);
 }
 
@@ -48,14 +48,14 @@ void init_menu_option1(rpg_t *rpg)
     ("assets/menus/options/select_menu2.png", NULL);
     sfVector2f btn_pos = {255, 360.5};
 
-    rpg->main_menu->options[GRAPH] = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->options[GRAPH],
+    rpg->menu->stg->opt[GRAPH] = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->stg->opt[GRAPH],
     graph, sfTrue);
-    rpg->main_menu->options[SOUND] = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->options[SOUND],
+    rpg->menu->stg->opt[SOUND] = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->stg->opt[SOUND],
     sound, sfTrue);
     for (int i = 3; i != 8; i++) {
-        sfSprite_setPosition(rpg->main_menu->options[i], btn_pos);
+        sfSprite_setPosition(rpg->menu->stg->opt[i], btn_pos);
     }
 }
 
@@ -66,8 +66,8 @@ void init_option2(rpg_t *rpg)
 
     init_menu_option2(rpg);
     init_menu_option1(rpg);
-    rpg->main_menu->options[GAME_OPTIONS_F] = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->options[GAME_OPTIONS_F],
+    rpg->menu->stg->opt[GAME_OPTIONS_F] = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->stg->opt[GAME_OPTIONS_F],
     game_options, sfTrue);
 }
 
@@ -79,15 +79,15 @@ void init_option1(rpg_t *rpg)
     ("assets/menus/options/menus2.png", NULL);
     sfVector2f mns_pos = {0, -30};
 
-    rpg->main_menu->options = malloc(sizeof(sfSprite *) * 9);
+    rpg->menu->stg->opt = malloc(sizeof(sfSprite *) * 9);
     init_option2(rpg);
-    rpg->main_menu->options[GRAPH_F] = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->options[GRAPH_F],
+    rpg->menu->stg->opt[GRAPH_F] = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->stg->opt[GRAPH_F],
     graph, sfTrue);
-    rpg->main_menu->options[SOUND_F] = sfSprite_create();
-    sfSprite_setTexture(rpg->main_menu->options[SOUND_F],
+    rpg->menu->stg->opt[SOUND_F] = sfSprite_create();
+    sfSprite_setTexture(rpg->menu->stg->opt[SOUND_F],
     sound, sfTrue);
     for (int i = 0; i != 3; i++) {
-        sfSprite_setPosition(rpg->main_menu->options[i], mns_pos);
+        sfSprite_setPosition(rpg->menu->stg->opt[i], mns_pos);
     }
 }

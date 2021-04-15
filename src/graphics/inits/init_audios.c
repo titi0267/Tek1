@@ -13,9 +13,9 @@ void create_boom(menu_t *menu)
     sfSoundBuffer_createFromFile("assets/audios/start.ogg");
     menu->intro->intro_snd->start = sfSound_create();
     sfSound_setBuffer(menu->intro->intro_snd->start, menu->intro->intro_snd->create_start);
-    menu->menu_snd->create_a_menu =
+    menu->main_menu->menu_snd->create_a_menu =
     sfSoundBuffer_createFromFile("assets/audios/menu.ogg");
-    menu->menu_snd->a_menu = sfSound_create();
-    sfSound_setBuffer(menu->menu_snd->a_menu, menu->menu_snd->create_a_menu);
-    sfSound_setLoop(menu->menu_snd->a_menu, sfTrue);
+    menu->main_menu->menu_snd->a_menu = sfSound_create();
+    sfSound_setBuffer(menu->main_menu->menu_snd->a_menu, menu->main_menu->menu_snd->create_a_menu);
+    sfSound_setLoop(menu->main_menu->menu_snd->a_menu, sfTrue);
 }

@@ -9,17 +9,17 @@
 
 void manage_fill_fps(rpg_t *rpg)
 {
-    sfSprite_setTexture(rpg->main_menu->graphismes[FPS30],
-    rpg->main_menu->empty_square, sfTrue);
-    sfSprite_setTexture(rpg->main_menu->graphismes[FPS60],
-    rpg->main_menu->empty_square, sfTrue);
+    sfSprite_setTexture(rpg->menu->stg->graph->graph_btn->graphismes[FPS30],
+    rpg->menu->stg->graph->graph_btn->empty_square, sfTrue);
+    sfSprite_setTexture(rpg->menu->stg->graph->graph_btn->graphismes[FPS60],
+    rpg->menu->stg->graph->graph_btn->empty_square, sfTrue);
     if (rpg->basic->cnf->scr_cnf->fps == 30) {
-        sfSprite_setTexture(rpg->main_menu->graphismes[FPS30],
-        rpg->main_menu->fill_square, sfTrue);
+        sfSprite_setTexture(rpg->menu->stg->graph->graph_btn->graphismes[FPS30],
+        rpg->menu->stg->graph->graph_btn->fill_square, sfTrue);
     }
     if (rpg->basic->cnf->scr_cnf->fps == 60) {
-        sfSprite_setTexture(rpg->main_menu->graphismes[FPS60],
-        rpg->main_menu->fill_square, sfTrue);
+        sfSprite_setTexture(rpg->menu->stg->graph->graph_btn->graphismes[FPS60],
+        rpg->menu->stg->graph->graph_btn->fill_square, sfTrue);
     }
 }
 
@@ -29,13 +29,13 @@ void manage_fill_resolution(rpg_t *rpg)
     sfVector2u size3 = {1160, 630};
 
     if (rpg->basic->cnf->scr_cnf->resolution == 1) {
-        sfSprite_setTexture(rpg->main_menu->graphismes[RES12x20],
-        rpg->main_menu->fill_square, sfTrue);
+        sfSprite_setTexture(rpg->menu->stg->graph->graph_btn->graphismes[RES12x20],
+        rpg->menu->stg->graph->graph_btn->fill_square, sfTrue);
         sfRenderWindow_setSize(rpg->basic->wnd->my_wnd, size2);
     }
     if (rpg->basic->cnf->scr_cnf->resolution == 2) {
-        sfSprite_setTexture(rpg->main_menu->graphismes[RES11x30],
-        rpg->main_menu->fill_square, sfTrue);
+        sfSprite_setTexture(rpg->menu->stg->graph->graph_btn->graphismes[RES11x30],
+        rpg->menu->stg->graph->graph_btn->fill_square, sfTrue);
         sfRenderWindow_setSize(rpg->basic->wnd->my_wnd, size3);
     }
     manage_fill_fps(rpg);
@@ -44,24 +44,24 @@ void manage_fill_resolution(rpg_t *rpg)
 void show_music_sound(rpg_t *rpg)
 {
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-    ,rpg->main_menu->graphismes[CIRCLE_MUSIC], NULL);
+    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], NULL);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-    ,rpg->main_menu->graphismes[CIRCLE_DIAG], NULL);
+    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], NULL);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-    ,rpg->main_menu->graphismes[CIRCLE_AMBT], NULL);
+    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], NULL);
 }
 
 void manage_sound(rpg_t *rpg)
 {
     sfFloatRect music = sfSprite_getGlobalBounds
-    (rpg->main_menu->graphismes[CIRCLE_MUSIC]);
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC]);
     sfVector2f sp_center = {music.width / 2, music.height / 2};
     sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
     sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
     //sfBool hover = sfFloatRect_contains(
-    //&rpg->main_menu->graphismes[CIRCLE_MUSIC], mouse.x, mouse.y);
+    //&rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], mouse.x, mouse.y);
 
-    sfSprite_setOrigin(rpg->main_menu->graphismes[CIRCLE_MUSIC], sp_center);
+    sfSprite_setOrigin(rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], sp_center);
     mouse.y = 363;
     if (sfMouse_isButtonPressed(sfMouseLeft)) {
         // if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, music.left)) &&
@@ -71,7 +71,7 @@ void manage_sound(rpg_t *rpg)
         // (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1678.51) &&
         // (rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1452.608)))
         //if (hover == sfTrue)
-        //    sfSprite_setPosition(rpg->main_menu->graphismes[CIRCLE_MUSIC],
+        //    sfSprite_setPosition(rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC],
         //    mouse);
     }
 }

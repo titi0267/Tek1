@@ -8,6 +8,22 @@
 #ifndef enumeration
 #define enumeration
 
+typedef enum stg_status_s {
+    GRAPH_SCN,
+    SOUND_SCN,
+    KEYS_SCN
+} stg_status_t;
+
+typedef enum rpg_status_s {
+    ON_BASIL,
+    ON_PEGI,
+    ON_MENU,
+    ON_OPTION,
+    ON_NEW_GM,
+    ON_TUTO,
+    ON_CONTINUE
+} rpg_status_t;
+
 typedef enum spt_btn_s {
     NEW_GAME,
     CONTINUE,

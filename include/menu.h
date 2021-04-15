@@ -8,6 +8,10 @@
 #ifndef menu_scr
 #define menu_scr
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
 typedef struct intro_sound_s
 {
     sfSoundBuffer *create_start;
@@ -46,6 +50,19 @@ typedef struct menu_snd_s
     sfSound *a_menu;
 } menu_snd_t;
 
+typedef struct menu_spt_s
+{
+    sfSprite *main_menu;
+    sfTexture *create_main_menu;
+    sfSprite **menu;
+} menu_spt_t;
+
+typedef struct main_menu_s
+{
+    menu_snd_t *menu_snd;
+    menu_spt_t *menu_spt;
+} main_menu_t;
+
 typedef struct background_adn_s
 {
     sfSprite *background;
@@ -54,12 +71,5 @@ typedef struct background_adn_s
     int line_rect;
     int offset;
 } background_adn_t;
-
-typedef struct menu_s
-{
-    intro_t *intro;
-    menu_snd_t *menu_snd;
-    background_adn_t *bgd_adn;
-} menu_t;
 
 #endif /* !menu_scr */
