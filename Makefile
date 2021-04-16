@@ -13,6 +13,7 @@ SRC=		src/main.c		\
 		src/nbrline.c		\
 		src/store.c		\
 
+
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g
 
 NAME	=	mixword
