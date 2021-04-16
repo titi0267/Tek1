@@ -1,8 +1,8 @@
 ##
-## EPITECH PROJECT, 2020
-## My_Runner by Timothy CONIEL
-## File description:
+## EPITECH PROJECT, 2021
 ## Makefile
+## File description:
+## 
 ##
 
 CC		=	gcc	-o
@@ -15,7 +15,7 @@ SRC=		src/main.c		\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g
 
-NAME	=	crocus
+NAME	=	mixword
 
 all:
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
