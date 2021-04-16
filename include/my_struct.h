@@ -13,6 +13,7 @@ typedef struct duo_stp_s
     int line_nbr;
     int char_nbr;
     char *buffer;
+    int size;
     char **line;
     int buffer_size;
 } duo_stp_t;
