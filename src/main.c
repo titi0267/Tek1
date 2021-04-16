@@ -26,6 +26,7 @@ int main(int ac, char **av)
     for (int i = 0; duo->line[i] != NULL; i++) {
         for (int t = 0; duo->line[i][t] != '\0'; t++)
             printf("%c", duo->line[i][t]);
+        printf("\n");
     }
     free_func(duo);
     return (0);

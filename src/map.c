@@ -30,7 +30,7 @@ int read_map(duo_stp_t *map, char **av)
     map->buffer_size = read_ret;
     map->buffer[map->buffer_size] = '\0';
     close(fd);
-    map->line_nbr = nbr_line(duo->buffer);
-    map->char_nbr = nbr_char(duo->buffer);
+    map->line_nbr = nbr_line(map->buffer);
+    map->char_nbr = nbr_char(map->buffer);
     return (0);
 }
