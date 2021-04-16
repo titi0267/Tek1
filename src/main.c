@@ -30,11 +30,14 @@ int main(int ac, char **av)
 
     if (duo == NULL)
         return (84);
+    error_argnbr(ac, av);
+    error_next(ac, av, duo);
     if (read_map(duo, av) == 84)
         return (84);
     if (store_words(duo) == 84)
         return (84);
-    if (duo->size < duo->line_nbr)
+    arr_to_small(duo);
+    if (duo->line_nbr < duo->size)
         printf("%i/%i words inserted in the grid.\n", duo->line_nbr, duo->line_nbr);
     size(duo, av, ac);
     all_words(duo);
