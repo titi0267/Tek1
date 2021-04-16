@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** error_handling.c
 ** File description:
-** 
+** error_handling.c
 */
 
 #include "../include/my.h"

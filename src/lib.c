@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** lib.c
 ** File description:
-** 
+** lib.c
 */
 
 #include <unistd.h>

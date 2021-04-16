@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2020
+** EPITECH PROJECT, 2021
 ** Map by Timothy CONIEL & Tom NOMINE
 ** File description:
 ** map.c

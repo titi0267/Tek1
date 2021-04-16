@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** main.c
 ** File description:
-** 
+** main.c
 */
 
 #include "../include/my.h"
