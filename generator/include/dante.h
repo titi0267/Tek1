@@ -7,7 +7,8 @@
 
 #ifndef DANTE_H_
 #define DANTE_H_
-
+#include "struct.h"
+#include "../../include/my.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>

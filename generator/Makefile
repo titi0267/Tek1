@@ -7,13 +7,13 @@
 
 CC=	gcc	-o
 
-SRC	=	main.c	\
+SRC	=	generator.c	\
 		error.c	\
 		free.c	\
 
 NAME	=	generator
 
-CFLAGS=	-L../lib/my -lmy
+CFLAGS=	-L../lib/my -lmy -g
 
 all:
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
