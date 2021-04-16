@@ -24,6 +24,6 @@ int error_next(int ac, char **av);
 int error_string_two(int ac, char **av);
 int nbr_line(char *buffer);
 int nbr_char(char *buffer);
-char my_revstr(char *str);
+int my_revstr(char *str);
 
 #endif /* !MY_H_ */

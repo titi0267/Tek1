@@ -48,7 +48,7 @@ int my_strlen(char const *str)
     return (i);
 }
 
-char my_revstr(char *str)
+int my_revstr(char *str)
 {
     int i = 0;
     int len = my_strlen(str) -1;
@@ -61,5 +61,5 @@ char my_revstr(char *str)
         i++;
         len--;
     }
-    return (str);
+    return (i);
 }
