@@ -16,6 +16,7 @@
 
 int read_map(duo_stp_t *map, char **av);
 int store_words(duo_stp_t *duo);
+int all_words(duo_stp_t *duo);
 
 int my_getnbr(char *buffer);
 int error_argnbr(int ac, char **av);

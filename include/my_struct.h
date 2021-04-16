@@ -11,6 +11,7 @@
 typedef struct duo_stp_s
 {
     int line_nbr;
+    char *array;
     int char_nbr;
     char *buffer;
     int size;

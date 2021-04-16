@@ -34,14 +34,10 @@ int main(int ac, char **av)
         return (84);
     if (store_words(duo) == 84)
         return (84);
+    if (duo->size < duo->line_nbr)
+        printf("%i/%i words inserted in the grid.\n", duo->line_nbr, duo->line_nbr);
     size(duo, av, ac);
-    for (int i = 0; duo->line[i] != NULL; i++) {
-        printf("|");
-        for (int t = 0; duo->line[i][t] != '\0'; t++)
-            printf("%c", duo->line[i][t]);
-        printf("|");
-        printf("\n");
-    }
+    all_words(duo);
     size(duo, av, ac);
     free_func(duo);
     return (0);
