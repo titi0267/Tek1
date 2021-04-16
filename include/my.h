@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my.h
 ** File description:
-** 
+** my.h
 */
 
 #ifndef MY_H_
@@ -25,5 +25,6 @@ int error_next(int ac, char **av);
 int error_string_two(int ac, char **av);
 int nbr_line(char *buffer);
 int nbr_char(char *buffer);
+int my_revstr(char *str);
 
 #endif /* !MY_H_ */

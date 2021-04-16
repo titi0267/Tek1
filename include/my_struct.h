@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_struct.h
 ** File description:
-** 
+** my_struct.h
 */
 
 #ifndef MY_STRUCT_H_

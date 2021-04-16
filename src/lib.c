@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** lib.c
 ** File description:
-** 
+** lib.c
 */
 
 #include <unistd.h>
@@ -44,6 +44,22 @@ int my_strlen(char const *str)
 
     while (str[i] != '\0') {
         i+= 1;
+    }
+    return (i);
+}
+
+int my_revstr(char *str)
+{
+    int i = 0;
+    int len = my_strlen(str) -1;
+    char temp;
+
+    while (i <= len) {
+        temp = str[i];
+        str[i] = str[len];
+        str[len] = temp;
+        i++;
+        len--;
     }
     return (i);
 }
