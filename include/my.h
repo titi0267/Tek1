@@ -18,5 +18,7 @@ int error_argnbr(int ac, char **av);
 int error_arg_one(char **av);
 int error_next(int ac, char **av);
 int error_string_two(int ac, char **av);
+int nbr_line(char *buffer);
+int nbr_char(char *buffer);
 
 #endif /* !MY_H_ */
