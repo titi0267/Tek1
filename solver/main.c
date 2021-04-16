@@ -22,6 +22,9 @@ int main(int ac, char **av)
     replace_solve(slv->rd);
     for (int i = 0; slv->rd->line[i] != NULL; i++) {
         for (int d = 0; slv->rd->line[i][d] != '\0'; d++) {
+            if (i == slv->rd->line_nbr - 1 && slv->rd->line[i][d] == '\n')
+                break;
+            else
                 my_printf("%c", slv->rd->line[i][d]);
         }
     }
