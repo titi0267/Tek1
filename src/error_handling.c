@@ -54,10 +54,3 @@ int error_next(int ac, char **av)
     }
     return (0);
 }
-
-int error_lowercase(int ac, char **av)
-{
-    for (int i = 0; av[2][0] != '\0'; i++) {
-        if (av[][] 
-    }
-}

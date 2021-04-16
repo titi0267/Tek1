@@ -7,10 +7,6 @@
 
 #include "../include/my.h"
 
-<<<<<<< HEAD
-int main(int ac, char **av)
-{
-=======
 static void free_func(duo_stp_t *duo)
 {
     free(duo->buffer);
@@ -33,6 +29,5 @@ int main(int ac, char **av)
         printf("\n");
     }
     free_func(duo);
->>>>>>> 998b3b08fe8ad4047ae0371534014d3b5d2eace5
     return (0);
 }
