@@ -10,7 +10,6 @@ CC		=	gcc	-o
 SRC=		src/main.c		\
 		src/lib.c		\
 		src/map.c		\
-		src/error_handling.c	\
 		src/nbrline.c		\
 		src/store.c		\
 

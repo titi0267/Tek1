@@ -25,8 +25,7 @@ int store_words(duo_stp_t *map)
             c++;
             i++;
         }
-        map->line[d][c] = '\n';
-        map->line[d][c + 1] = '\0';
+        map->line[d][c] = '\0';
         i++;
         d++;
         c = 0;
