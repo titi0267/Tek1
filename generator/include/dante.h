@@ -10,6 +10,7 @@
 #include "struct.h"
 #include "../../include/my.h"
 #include <unistd.h>
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 
