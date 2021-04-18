@@ -6,7 +6,7 @@
 */
 
 #include "../include/my.h"
-#include "include/dante.h"
+#include "include/struct.h"
 
 void print_usage(void)
 {
@@ -16,16 +16,16 @@ void print_usage(void)
     my_printf("imperfect one.\n");
 }
 
-int check_numbers(char **av, data_t *data)
+int check_numbers(char **av, maze_t *maze)
 {
-    data->maze_width = my_getnbr(av[1]);
-    data->maze_heigth = my_getnbr(av[2]);
+    maze->height = my_getnbr(av[1]);
+    maze->width = my_getnbr(av[2]);
 
-    if (data->maze_width <= 0 || data->maze_heigth <= 0) return (84);
+    if (maze->width <= 0 || maze->height <= 0) return (84);
     return (0);
 }
 
-int error_handler(int ac, char **av, data_t *data)
+int error_handler(int ac, char **av, maze_t *maze)
 {
     if (ac == 2 && my_strcmp(av[1], "-h") == 0) {
         print_usage();
@@ -38,11 +38,11 @@ int error_handler(int ac, char **av, data_t *data)
                 return (84);
         }
     }
-    if (check_numbers(av, data) == 84) return (84);
-    data->is_perfect = 0;
+    if (check_numbers(av, maze) == 84) return (84);
+    maze->is_perfect = 0;
     if (ac == 4) {
         if (my_strcmp(av[3], "[perfect]") == 0)
-            data->is_perfect = 1;
+            maze->is_perfect = 1;
         else
             return (84);
     }

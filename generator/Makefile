@@ -9,7 +9,12 @@ CC=	gcc	-o
 
 SRC	=	generator.c	\
 		error.c	\
-		free.c	\
+		up.c	\
+		down.c	\
+		right.c	\
+		left.c	\
+		linked_list.c	\
+		create_maze.c
 
 NAME	=	generator
 
