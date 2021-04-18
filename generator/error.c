@@ -18,8 +18,8 @@ void print_usage(void)
 
 int check_numbers(char **av, maze_t *maze)
 {
-    maze->height = my_getnbr(av[1]);
-    maze->width = my_getnbr(av[2]);
+    maze->height = my_getnbr(av[2]);
+    maze->width = my_getnbr(av[1]);
 
     if (maze->width <= 0 || maze->height <= 0) return (84);
     return (0);
