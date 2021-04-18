@@ -11,6 +11,8 @@ SRC	=	main.c		\
 		init_end.c	\
 		number_map.c	\
 		print_path.c	\
+		check_one.c		\
+		check_two.c		\
 		read_file.c
 
 NAME	=	solver

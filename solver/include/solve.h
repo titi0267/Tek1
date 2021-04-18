@@ -19,6 +19,16 @@
 
 int malloc_struct(solve_t *slv);
 
+void checks_one_part_two(read_t *rd);
+void checks_one(read_t *rd);
+void checks_two(read_t *rd);
+void checks_three(read_t *rd);
+void checks_four(read_t *rd);
+void checks_five(read_t *rd);
+void checks_six(read_t *rd);
+void checks_seven(read_t *rd);
+void checks_eight(read_t *rd);
+
 int read_maze(read_t *rd, char **av);
 int replace_nbr(read_t *rd);
 void increment(read_t *rd);
