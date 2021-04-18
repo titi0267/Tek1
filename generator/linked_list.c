@@ -54,5 +54,5 @@ void print_list(pos_t **head)
     pos_t *node = (*head);
 
     for (; node != NULL; node = node->next)
-        printf("line = %d & car = %d\n", node->line, node->car);
+        my_printf("line = %d & car = %d\n", node->line, node->car);
 }
