@@ -17,13 +17,13 @@
 
 int error_handler(int, char **, maze_t *);
 void push(pos_t **, int, int, maze_t *);
-int pop(pos_t **, maze_t *);
+pos_t *pop(pos_t **, maze_t *);
 void print_list(pos_t **head);
 void empty_maze(char **av, maze_t *maze);
 void init_unvisit(maze_t *maze);
-void up_visit(maze_t *, int, int, pos_t *);
-void down_visit(maze_t *, int, int, pos_t *);
-void left_visit(maze_t *, int, int, pos_t *);
-void right_visit(maze_t *, int, int, pos_t *);
+pos_t *up_visit(maze_t *, int, int, pos_t *);
+pos_t *down_visit(maze_t *maze, int i, int d, pos_t *pos);
+pos_t *left_visit(maze_t *, int, int, pos_t *);
+pos_t *right_visit(maze_t *, int, int, pos_t *);
 
 #endif /* !DANTE_H_ */

@@ -7,15 +7,15 @@
 
 #include "include/dante.h"
 
-void left_special(maze_t *maze, int i, int d, pos_t *pos)
+pos_t *left_special(maze_t *maze, int i, int d, pos_t *pos)
 {
-    if (i != 0 && i != maze->height && maze->visit[i + 1][d] != visited
+    if (i != 0 && i != maze->height - 1 && maze->visit[i + 1][d] != visited
     && maze->visit[i - 1][d] != visited) {
         maze->visit[i][d] = visited;
         push(&pos, i, d, maze);
         maze->pos_x = i;
         maze->pos_y = d;
-    } else if (i == maze->height && maze->visit[i - 1][d] != visited) {
+    } else if (i == maze->height - 1 && maze->visit[i - 1][d] != visited) {
         maze->visit[i][d] = visited;
         push(&pos, i, d, maze);
         maze->pos_x = i;
@@ -26,9 +26,10 @@ void left_special(maze_t *maze, int i, int d, pos_t *pos)
         maze->pos_x = i;
         maze->pos_y = d;
     }
+    return (pos);
 }
 
-void left_special_zero(maze_t *maze, int i, int d, pos_t *pos)
+pos_t *left_special_zero(maze_t *maze, int i, int d, pos_t *pos)
 {
     if (d != 0 && maze->visit[i + 1][d] != visited &&
         maze->visit[i][d - 1] != visited) {
@@ -42,9 +43,10 @@ void left_special_zero(maze_t *maze, int i, int d, pos_t *pos)
         maze->pos_x = i;
         maze->pos_y = d;
     }
+    return (pos);
 }
 
-void left_special_end(maze_t *maze, int i, int d, pos_t *pos)
+pos_t *left_special_end(maze_t *maze, int i, int d, pos_t *pos)
 {
     if (d != 0 && maze->visit[i - 1][d] != visited &&
         maze->visit[i][d - 1] != visited) {
@@ -58,12 +60,12 @@ void left_special_end(maze_t *maze, int i, int d, pos_t *pos)
         maze->pos_x = i;
         maze->pos_y = d;
     }
-
+    return (pos);
 }
 
-void left_visit(maze_t *maze, int i, int d, pos_t *pos)
+pos_t *left_visit(maze_t *maze, int i, int d, pos_t *pos)
 {
-    if (d != 0 && i != 0 && i != maze->height) {
+    if (d != 0 && i != 0 && i != maze->height - 1) {
         if (maze->visit[i][d - 1] != visited
         && maze->visit[i + 1][d] != visited
         && maze->visit[i - 1][d] != visited) {
@@ -73,11 +75,11 @@ void left_visit(maze_t *maze, int i, int d, pos_t *pos)
             maze->pos_y = d;
         }
     } else if (d == 0)
-        left_special(maze, i, d, pos);
+        pos = left_special(maze, i, d, pos);
     else if (i == 0)
-        left_special_zero(maze, i, d, pos);
-    else if (i == maze->height)
-        left_special_end(maze, i, d, pos);
+        pos = left_special_zero(maze, i, d, pos);
+    else if (i == maze->height - 1)
+        pos = left_special_end(maze, i, d, pos);
     maze->left = 1;
-    maze->failed++;
+    return (pos);
 }

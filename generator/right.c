@@ -7,9 +7,9 @@
 
 #include "include/dante.h"
 
-void right_special(maze_t *maze, int i, int d, pos_t *pos)
+pos_t *right_special(maze_t *maze, int i, int d, pos_t *pos)
 {
-    if (i != 0 && i != maze->height && maze->visit[i + 1][d] != visited
+    if (i != 0 && i != maze->height -1 && maze->visit[i + 1][d] != visited
     && maze->visit[i - 1][d] != visited) {
         maze->visit[i][d] = visited;
         push(&pos, i, d, maze);
@@ -20,49 +20,52 @@ void right_special(maze_t *maze, int i, int d, pos_t *pos)
         push(&pos, i, d, maze);
         maze->pos_x = i;
         maze->pos_y = d;
-    } else if (i == maze->height && maze->visit[i - 1][d] != visited) {
+    } else if (i == maze->height - 1 && maze->visit[i - 1][d] != visited) {
         maze->visit[i][d] = visited;
         push(&pos, i, d, maze);
         maze->pos_x = i;
         maze->pos_y = d;
     }
+    return (pos);
 }
 
-void right_special_zero(maze_t *maze, int i, int d, pos_t *pos)
+pos_t *right_special_zero(maze_t *maze, int i, int d, pos_t *pos)
 {
-    if (d != maze->width && maze->visit[i + 1][d] != visited &&
+    if (d != maze->width - 1 && maze->visit[i + 1][d] != visited &&
         maze->visit[i][d + 1] != visited) {
         maze->visit[i][d] = visited;
         push(&pos, i, d, maze);
         maze->pos_x = i;
         maze->pos_y = d;
-    } else if (d == maze->width && maze->visit[i + 1][d] != visited) {
+    } else if (d == maze->width - 1 && maze->visit[i + 1][d] != visited) {
         maze->visit[i][d] = visited;
         push(&pos, i, d, maze);
         maze->pos_x = i;
         maze->pos_y = d;
     }
+    return (pos);
 }
 
-void right_special_end(maze_t *maze, int i, int d, pos_t *pos)
+pos_t *right_special_end(maze_t *maze, int i, int d, pos_t *pos)
 {
-    if (d != maze->width && maze->visit[i - 1][d] != visited &&
+    if (d != maze->width  - 1 && maze->visit[i - 1][d] != visited &&
         maze->visit[i][d + 1] != visited) {
         maze->visit[i][d] = visited;
         push(&pos, i, d, maze);
         maze->pos_x = i;
         maze->pos_y = d;
-    } else if (d == maze->width && maze->visit[i - 1][d] != visited) {
+    } else if (d == maze->width - 1 && maze->visit[i - 1][d] != visited) {
         maze->visit[i][d] = visited;
         push(&pos, i, d, maze);
         maze->pos_x = i;
         maze->pos_y = d;
     }
+    return (pos);
 }
 
-void right_visit(maze_t *maze, int i, int d, pos_t *pos)
+pos_t *right_visit(maze_t *maze, int i, int d, pos_t *pos)
 {
-    if (d != maze->width && i != 0 && i != maze->height) {
+    if (d != maze->width - 1 && i != 0 && i != maze->height - 1) {
         if (maze->visit[i][d + 1] != visited
         && maze->visit[i - 1][d] != visited
         && maze->visit[i + 1][d] != visited) {
@@ -71,14 +74,14 @@ void right_visit(maze_t *maze, int i, int d, pos_t *pos)
             maze->pos_x = i;
             maze->pos_y = d;
         }
-    } else if (d == maze->width)
-        right_special(maze, i, d, pos);
-    else if (i == 0)
-        right_special_zero(maze, i, d, pos);
-    else if (i == maze->height)
-        right_special_end(maze, i, d, pos);
+    } else if (d == maze->width - 1)
+        pos = right_special(maze, i, d, pos);
+    else if (i == 0) {
+        pos = right_special_zero(maze, i, d, pos);
+    } else if (i == maze->height - 1)
+        pos = right_special_end(maze, i, d, pos);
     maze->right = 1;
-    maze->failed++;
+    return (pos);
 }
 
 // i + 1

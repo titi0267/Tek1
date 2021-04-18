@@ -7,10 +7,11 @@
 
 #include "include/dante.h"
 
-void all_visited(maze_t *maze, pos_t *pos, int i, int d)
+pos_t *all_visited(maze_t *maze, pos_t *pos, int i, int d)
 {
-    if (maze->failed == 4 && maze->success != 1) {
-        pop(&pos, maze);
+    if ((maze->up + maze->down + maze->left + maze->right) == 4
+        && maze->success != 1) {
+        pos = pop(&pos, maze);
     } else if (maze->success == 1) {
         maze->failed = 0;
         maze->up = 0;
@@ -19,30 +20,27 @@ void all_visited(maze_t *maze, pos_t *pos, int i, int d)
         maze->right = 0;
         maze->success = 0;
     }
+    return (pos);
 }
 
 void check_impossible(maze_t *maze, int i, int d)
 {
     if (i == 0) {
-        maze->failed++;
         maze->up = 1;
     }
     if (i == maze->height) {
-        maze->failed++;
         maze->down = 1;
     }
     if (d == 0) {
-        maze->failed++;
         maze->left = 1;
     }
     if (d == maze->width) {
-        maze->failed++;
         maze->right = 1;
     }
     maze->check = 1;
 }
 
-void check_visit(maze_t *maze, pos_t *pos)
+pos_t *check_visit(maze_t *maze, pos_t *pos)
 {
     int r = rand() % 4;
     int i = maze->pos_x;
@@ -50,25 +48,43 @@ void check_visit(maze_t *maze, pos_t *pos)
 
     if (maze->check == 0)
         check_impossible(maze, i, d);
-    my_printf("random = %i, up = %i, down = %i, left = %i, right = %i\n", r, maze->up, maze->down, maze->left, maze->right);
-    my_printf("fail = %i\n", maze->failed);
-    if (r == 0 && maze->up != 1 && (i > 0 && i <= maze->height) && maze->visit[i - 1][d] != visited) {
-        my_printf("in UP\n");
-        up_visit(maze, i - 1, d, pos);
+    if (r == 0) {
+        if (maze->up != 1 && (i > 0 && i <= maze->height) && maze->visit[i - 1][d] != visited) {
+            pos = up_visit(maze, i - 1, d, pos);
+        } else {
+            maze->up = 1;
+        }
     }
-    if (r == 1 && maze->down != 1 && (i >= 0 && i < maze->height - 1) && maze->visit[i + 1][d] != visited) {
-        my_printf("Go down\n");
-        down_visit(maze, i + 1, d, pos);
+    if (r == 1) {
+        if (maze->down != 1 && (i >= 0 && i < maze->height - 1) && maze->visit[i + 1][d] != visited) {
+            pos = down_visit(maze, i + 1, d, pos);
+        } else {
+            maze->down = 1;
+        }
     }
-    if (r == 2 && maze->left != 1 && (d > 0 && d <= maze->width) && maze->visit[i][d - 1] != visited) {
-        my_printf("Go left\n");
-        left_visit(maze, i, d - 1, pos);
+    if (r == 2) {
+        if (maze->left != 1 && (d > 0 && d <= maze->width) && maze->visit[i][d - 1] != visited) {
+            pos = left_visit(maze, i, d - 1, pos);
+        } else {
+            maze->left = 1;
+        }
     }
-    if (r == 3 && maze->right != 1 && (d >= 0 && d < maze->width) && maze->visit[i][d + 1] != visited) {
-        my_printf("In Right\n");
-        right_visit(maze, i, d + 1, pos);
+    if (r == 3) {
+        if (maze->right != 1 && (d >= 0 && d < maze->width - 1) && maze->visit[i][d + 1] != visited) {
+            pos = right_visit(maze, i, d + 1, pos);
+        } else {
+            maze->right = 1;
+        }
     }
-    all_visited(maze, pos, i, d);
+    pos = all_visited(maze, pos, i, d);
+    return (pos);
+}
+
+int loop(pos_t **head)
+{
+    if ((*head) == NULL)
+        return (1);
+    return (0);
 }
 
 void forward_maze(maze_t *maze)
@@ -80,28 +96,34 @@ void forward_maze(maze_t *maze)
     push(&pos, maze->pos_x, maze->pos_y, maze);
     maze->success = 0;
     srand(time(NULL));
-    while (pos != NULL) {
-        check_visit(maze, pos);
-        my_printf("\n");
-        for (int i = 0; maze->visit[i] != NULL; i++) {
-            for (int d = 0; maze->visit[i][d] != -1; d++)
-                my_printf("%i", maze->visit[i][d]);
-            my_printf("\n");
-        }
+    while (1) {
+        pos = check_visit(maze, pos);
+        if (loop(&pos) == 1)
+            break;
     }
 }
 
-void linked_list(maze_t *maze)
+void put_in_tabchar(maze_t *maze)
 {
-    pos_t *pos = NULL;
+    int x = 0;
+    int y = 0;
+    int backline = 0;
 
-    push(&pos, 1, 2, maze);
-    push(&pos, 3, 4, maze);
-    push(&pos, 5, 6, maze);
-    push(&pos, 7, 8, maze);
-    print_list(&pos);
-    pop(&pos, maze);
-    print_list(&pos);
+    for (; maze->visit[x]; x++) {
+        for (y = 0; maze->visit[x][y] != -1; y++) {
+            if (maze->visit[x][y] == 0)
+                maze->maze[x][y] = 'X';
+            else if (maze->visit[x][y] == 1)
+                maze->maze[x][y] = '*';
+        }
+        maze->maze[x][y] = '\0';
+        if (backline != 0)
+            my_printf("\n%s", maze->maze[x]);
+        else
+            my_printf("%s", maze->maze[x]);
+        backline = 1;
+    }
+    maze->maze[x] = NULL;
 }
 
 int main(int ac, char **av)
@@ -115,17 +137,7 @@ int main(int ac, char **av)
     }
     empty_maze(av, maze);
     init_unvisit(maze);
-    /*for (int i = 0; maze->visit[i] != NULL; i++) {
-        for (int d = 0; maze->visit[i][d] != -1; d++)
-            my_printf("%i", maze->visit[i][d]);
-        my_printf("\n");
-    }*/
     forward_maze(maze);
-    /*for (int i = 0; maze->visit[i] != NULL; i++) {
-        for (int d = 0; maze->visit[i][d] != -1; d++)
-            my_printf("%i", maze->visit[i][d]);
-        my_printf("\n");
-    }*/
-    //linked_list(maze);
+    put_in_tabchar(maze);
     return (0);
 }
