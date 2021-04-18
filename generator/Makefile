@@ -14,6 +14,8 @@ SRC	=	generator.c	\
 		right.c	\
 		left.c	\
 		linked_list.c	\
+		checks.c	\
+		checks2.c	\
 		create_maze.c
 
 NAME	=	generator

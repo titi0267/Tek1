@@ -25,5 +25,11 @@ pos_t *up_visit(maze_t *, int, int, pos_t *);
 pos_t *down_visit(maze_t *maze, int i, int d, pos_t *pos);
 pos_t *left_visit(maze_t *, int, int, pos_t *);
 pos_t *right_visit(maze_t *, int, int, pos_t *);
+pos_t *check_up(maze_t *maze, int i, int d, pos_t *pos);
+pos_t *check_down(maze_t *maze, int i, int d, pos_t *pos);
+pos_t *check_left(maze_t *maze, int i, int d, pos_t *pos);
+pos_t *check_right(maze_t *maze, int i, int d, pos_t *pos);
+pos_t *check_visit(maze_t *maze, pos_t *pos);
+pos_t *all_visited(maze_t *maze, pos_t *pos, int i, int d);
 
 #endif /* !DANTE_H_ */

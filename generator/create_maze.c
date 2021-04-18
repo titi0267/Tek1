@@ -26,7 +26,8 @@ void empty_maze(char **av, maze_t *maze)
 
 void init_unvisit(maze_t *maze)
 {
-    if ((maze->visit = malloc(sizeof(int *) * (maze->height + 1))) == NULL) exit(84);
+    if ((maze->visit = malloc(sizeof(int *) * (maze->height + 1))) == NULL)
+        exit(84);
     for (int i = 0; i < maze->height; i++) {
         if ((maze->visit[i] = malloc(sizeof(int) * (maze->width + 1))) == NULL)
             exit(84);

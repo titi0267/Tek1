@@ -66,7 +66,6 @@ pos_t *up_special_end(maze_t *maze, int i, int d, pos_t *pos)
 pos_t *up_visit(maze_t *maze, int i, int d, pos_t *pos)
 {
     if (i != 0 && d != 0 && d != maze->width - 1) {
-        //my_printf("in up if\n");
         if (maze->visit[i][d - 1] != visited && maze->visit[i][d + 1] != visited
             && maze->visit[i + 1][d] != visited) {
             maze->visit[i][d] = visited;

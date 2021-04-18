@@ -32,6 +32,10 @@ typedef struct maze_s {
     int pos_x;
     int pos_y;
     int is_perfect;
+    int prev_rand;
+    int prevprev_rand;
+    int prevprevprev_rand;
+    int rand_nb;
 } maze_t;
 
 #endif /* !my_struct */
