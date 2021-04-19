@@ -5,7 +5,7 @@
 ** options_graph
 */
 
-#include "../../include/func_name.h"
+#include "../../../include/func_name.h"
 
 void clic_menu(rpg_t *rpg)
 {

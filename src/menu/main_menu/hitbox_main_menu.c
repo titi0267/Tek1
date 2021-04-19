@@ -5,7 +5,7 @@
 ** hitbox_main_menu
 */
 
-#include "../../include/func_name.h"
+#include "../../../include/func_name.h"
 
 void hitbox1(rpg_t *rpg)
 {
@@ -48,6 +48,11 @@ void hitbox2(rpg_t *rpg)
 void clic1(rpg_t *rpg)
 {
     if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) {
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 292)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 391)))
+            rpg->menu->status = ON_NEW_GM;
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 589.5)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&

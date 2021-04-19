@@ -7,22 +7,6 @@
 
 #include "../include/func_name.h"
 
-void sound(rpg_t *rpg, int status)
-{
-    static int sound1 = 0;
-    static int sound2 = 0;
-
-    if (sound1 == 0 && status == 1) {
-        sfSound_play(rpg->menu->intro->intro_snd->start);
-        sound1 = 1;
-    }
-    if ((sound2 == 0) && status == 2) {
-        sfSound_stop(rpg->menu->intro->intro_snd->start);
-        sfSound_play(rpg->menu->main_menu->menu_snd->a_menu);
-        sound2 = 1;
-    }
-}
-
 int parsing_menus(rpg_t *rpg)
 {
     static float nbr = 0;
@@ -36,10 +20,10 @@ int parsing_menus(rpg_t *rpg)
         if (nbr > 10.5 && nbr < 17.7)
             background_pegi(rpg);
         if (nbr > 17.7)
-            rpg->menu->status = ON_PEGI;
+            rpg->menu->status = ON_MENU;
         nbr += rpg->basic->cnf->clk->time_loop;
     }
-    if (rpg->menu->status == ON_PEGI) {
+    if (rpg->menu->status == ON_MENU) {
         sound(rpg, 2);
         background(rpg);
         main_menu(rpg);
@@ -48,13 +32,27 @@ int parsing_menus(rpg_t *rpg)
 
 void parsing_menu2(rpg_t *rpg)
 {
-    // if (rpg->menu->status == ON_NEW_GM) // New game
-    // if (rpg->menu->status == ON_CONTINUE) // Continue game
-    // if (rpg->menu->status == ON_TUTO) // Tutoriel
+    if (rpg->menu->status == ON_NEW_GM) {
+        background(rpg);
+        choose_perso(rpg);
+    }
+    if (rpg->menu->status == ON_CONTINUE) {
+
+    }
+    if (rpg->menu->status == ON_TUTO) {
+
+    }
     if (rpg->menu->status == ON_OPTION) {
         background(rpg);
         options(rpg);
+        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+            rpg->menu->status = ON_MENU;
     }
+}
+
+void parsing_menu3(rpg_t *rpg)
+{
+
 }
 
 int parsing(rpg_t *rpg)

@@ -27,14 +27,12 @@ typedef struct intro_pegi_s
     int wait_pegi;
 } intro_pegi_t;
 
-typedef struct intro_basil_s
-{
+typedef struct intro_basil_s {
     int line_logo;
     int offset_logo;
     sfIntRect rect_logo;
     sfSprite *basil_spt;
     int wait_basil;
-
 } intro_basil_t;
 
 typedef struct intro_s
@@ -57,10 +55,23 @@ typedef struct menu_spt_s
     sfSprite **menu;
 } menu_spt_t;
 
+typedef struct new_game_s {
+    sfSprite *background;
+    sfTexture *background_txt;
+    sfSprite **select;
+    sfTexture **select_txt;
+    sfSprite **characters;
+    sfTexture **characters_txt;
+    sfVector2f *pos_characters;
+    sfIntRect rect_characters;
+
+} new_game_t;
+
 typedef struct main_menu_s
 {
     menu_snd_t *menu_snd;
     menu_spt_t *menu_spt;
+    new_game_t *new_game;
 } main_menu_t;
 
 typedef struct background_adn_s

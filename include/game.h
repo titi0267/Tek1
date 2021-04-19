@@ -10,7 +10,7 @@
 
 typedef struct game_s
 {
-
+    int character_chosen;
 } game_t;
 
 #endif /* !gm */

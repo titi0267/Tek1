@@ -16,12 +16,12 @@ typedef enum stg_status_s {
 
 typedef enum rpg_status_s {
     ON_BASIL,
-    ON_PEGI,
     ON_MENU,
     ON_OPTION,
     ON_NEW_GM,
     ON_TUTO,
-    ON_CONTINUE
+    ON_CONTINUE,
+    ON_GAME
 } rpg_status_t;
 
 typedef enum spt_btn_s {
@@ -54,6 +54,14 @@ typedef enum graph_sound_s {
     FPS30,
     FPS60
 } graph_sound_t;
+
+typedef enum characters_selection_s {
+    MAXOU,
+    TIMO,
+    LUDO,
+    SYLVIE,
+    NO_CHARACTERS
+} characters_selection_t;
 
 typedef enum sound_gestion_s {
     ON_MUSIC,

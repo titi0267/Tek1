@@ -60,8 +60,10 @@ int menu_alloc(menu_t *menu)
     return (0);
 }
 
-void menu_alloc_next2(menu_t *menu)
+int menu_alloc_next2(menu_t *menu)
 {
+    int i = 0;
+
     if ((menu->stg->graph->graph_bgd =
     malloc(sizeof(bgd_graph_stg_t))) == NULL)
         return (MALLOC_ERROR);
@@ -72,7 +74,10 @@ void menu_alloc_next2(menu_t *menu)
     if ((menu->stg->key_bnd->control_bgd = malloc(sizeof(bgd_control_stg_t)))
         == NULL)
         return (MALLOC_ERROR);
-        return (0);
+    i++;
+    if ((menu->main_menu->new_game = malloc(sizeof(new_game_t))) == NULL)
+        return (MALLOC_ERROR);
+    return (0);
 }
 
 int menu_alloc_next(menu_t *menu)

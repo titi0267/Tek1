@@ -5,7 +5,7 @@
 ** options_sound
 */
 
-#include "../../include/func_name.h"
+#include "../../../include/func_name.h"
 
 void set_volume(rpg_t *rpg)
 {

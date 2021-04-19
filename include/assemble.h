@@ -37,5 +37,4 @@ typedef struct rpg_s {
     menu_t *menu;
 } rpg_t;
 
-#include "rpg.h"
 #endif /* !assemble */

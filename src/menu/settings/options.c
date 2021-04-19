@@ -5,7 +5,7 @@
 ** options
 */
 
-#include "../../include/func_name.h"
+#include "../../../include/func_name.h"
 
 void clic_options(rpg_t *rpg)
 {
@@ -42,7 +42,7 @@ void clic_options1(rpg_t *rpg)
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 684.5)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
         (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 783.5)))
-            rpg->menu->status = ON_PEGI;
+            rpg->menu->status = ON_MENU;
     }
 }
 

@@ -32,6 +32,8 @@ void init_function(rpg_t *rpg)
     create_size_square(rpg);
     sound_cirle(rpg);
     init_bt_opt(rpg);
+    init_new_game(rpg);
+    init_characters_sprites(rpg);
 }
 
 int main(int ac, char **av)
