@@ -19,12 +19,13 @@ SRCSFILES=	rpg.c							\
 			init_struct/alloc.c				\
 			graphics/inits/init_audios.c	\
 			graphics/main_menu.c			\
+			graphics/options_sound.c		\
 			graphics/background.c			\
 			graphics/inits/init_main_menu.c	\
 			graphics/hitbox_main_menu.c		\
 			graphics/start.c				\
 			graphics/options_graph.c		\
-			graphics/manage_options_fill.c	\
+			graphics/manage_graph.c			\
 			graphics/inits/init_btn_menu.c	\
 			graphics/inits/init_logo.c		\
 			graphics/inits/init_pegi.c		\

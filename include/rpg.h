@@ -36,11 +36,9 @@ void create_size_square(rpg_t *rpg);
 void select_fps(rpg_t *rpg);
 void select_resolution(rpg_t *rpg);
 int manage_window_size(rpg_t *rpg);
-void show_menus2(rpg_t *rpg);
 void clic_menu(rpg_t *rpg);
 void draw_square(rpg_t *rpg);
 void manage_fill_resolution(rpg_t *rpg);
-void show_music_sound(rpg_t *rpg);
 void manage_sound(rpg_t *rpg);
 
 #endif /* !RPG_H_ */

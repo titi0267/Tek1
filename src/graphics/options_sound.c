@@ -1,0 +1,107 @@
+/*
+** EPITECH PROJECT, 2021
+** B-MUL-200-STG-2-1-myrpg-timothe.coniel
+** File description:
+** options_sound
+*/
+
+#include "../../include/func_name.h"
+
+void set_volume(rpg_t *rpg)
+{
+    sfVector2f pos_music = sfSprite_getPosition
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC]);
+    float volume_music = pos_music.x - 1502.5;
+    sfVector2f pos_dial = sfSprite_getPosition
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG]);
+    float volume_dial = pos_dial.x - 1502.5;
+    sfVector2f pos_amb = sfSprite_getPosition
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT]);
+    float volume_amb = pos_amb.x - 1502.5;
+
+    sfSound_setVolume(rpg->menu->main_menu->menu_snd->a_menu, volume_music);
+}
+
+void manage_music(rpg_t *rpg, sfFloatRect music, sfVector2f mouse)
+{
+    sfVector2f sp_center = {music.width / 2, music.height / 2};
+
+    sfSprite_setOrigin
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], sp_center);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
+    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], NULL);
+    mouse.y = 363;
+    if (sfMouse_isButtonPressed(sfMouseLeft))
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, music.left - 67)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, music.top - 67)) &&
+        (rpg->basic->cnf->mouse.x <=
+        adapt_x(rpg, music.left + music.width + 67)) &&
+        (rpg->basic->cnf->mouse.y <=
+        adapt_y(rpg, music.top + music.height + 67)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1678.51) &&
+        (rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1452.608)))
+            sfSprite_setPosition
+            (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC],
+            mouse);
+}
+
+void manage_dial(rpg_t *rpg, sfFloatRect dial, sfVector2f mouse)
+{
+    sfVector2f sp_center = {dial.width / 2, dial.height / 2};
+
+    sfSprite_setOrigin
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], sp_center);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
+    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], NULL);
+    mouse.y = 657;
+    if (sfMouse_isButtonPressed(sfMouseLeft))
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, dial.left - 67)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, dial.top - 67)) &&
+        (rpg->basic->cnf->mouse.x <=
+        adapt_x(rpg, dial.left + dial.width + 67)) &&
+        (rpg->basic->cnf->mouse.y <=
+        adapt_y(rpg, dial.top + dial.height + 67)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1678.51) &&
+        (rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1452.608)))
+            sfSprite_setPosition
+            (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], mouse);
+}
+
+void manage_amb(rpg_t *rpg, sfFloatRect amb, sfVector2f mouse)
+{
+    sfVector2f sp_center = {amb.width / 2, amb.height / 2};
+
+    sfSprite_setOrigin
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], sp_center);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
+    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], NULL);
+    mouse.y = 510;
+    if (sfMouse_isButtonPressed(sfMouseLeft))
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, amb.left - 67)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, amb.top - 67)) &&
+        (rpg->basic->cnf->mouse.x <=
+        adapt_x(rpg, amb.left + amb.width + 67)) &&
+        (rpg->basic->cnf->mouse.y <=
+        adapt_y(rpg, amb.top + amb.height + 67)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1678.51) &&
+        (rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1452.608)))
+            sfSprite_setPosition
+            (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], mouse);
+}
+
+void manage_sound(rpg_t *rpg)
+{
+    sfFloatRect music = sfSprite_getGlobalBounds
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC]);
+    sfFloatRect dial = sfSprite_getGlobalBounds
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG]);
+    sfFloatRect amb = sfSprite_getGlobalBounds
+    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT]);
+    sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
+    sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
+
+    manage_music(rpg, music, mouse);
+    manage_dial(rpg, dial, mouse);
+    manage_amb(rpg, amb, mouse);
+    set_volume(rpg);
+}

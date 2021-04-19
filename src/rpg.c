@@ -16,6 +16,7 @@ int init_basic_value(rpg_t *rpg)
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->menu->status = ON_BASIL;
     rpg->basic->cnf->scr_cnf->resolution = 0;
+    rpg->menu->stg->stg_snd->status == -1;
     return (0);
 }
 

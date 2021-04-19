@@ -10,9 +10,11 @@
 void rect_pegi(rpg_t *rpg)
 {
     if (rpg->menu->intro->intro_pegi->offset_pegi <= 8) {
-            rpg->menu->intro->intro_pegi->rect_pegi.left = rpg->menu->intro->intro_pegi->offset_pegi *
+            rpg->menu->intro->intro_pegi->rect_pegi.left =
+            rpg->menu->intro->intro_pegi->offset_pegi *
             rpg->menu->intro->intro_pegi->rect_pegi.width;
-            rpg->menu->intro->intro_pegi->rect_pegi.top = rpg->menu->intro->intro_pegi->line_pegi *
+            rpg->menu->intro->intro_pegi->rect_pegi.top =
+            rpg->menu->intro->intro_pegi->line_pegi *
             rpg->menu->intro->intro_pegi->rect_pegi.height;
             rpg->menu->intro->intro_pegi->offset_pegi++;
     }
@@ -47,9 +49,11 @@ void background_pegi(rpg_t *rpg)
 void rect_basil(rpg_t *rpg)
 {
     if (rpg->menu->intro->intro_basil->offset_logo <= 8) {
-        rpg->menu->intro->intro_basil->rect_logo.left = rpg->menu->intro->intro_basil->offset_logo *
+        rpg->menu->intro->intro_basil->rect_logo.left =
+        rpg->menu->intro->intro_basil->offset_logo *
         rpg->menu->intro->intro_basil->rect_logo.width;
-        rpg->menu->intro->intro_basil->rect_logo.top = rpg->menu->intro->intro_basil->line_logo *
+        rpg->menu->intro->intro_basil->rect_logo.top =
+        rpg->menu->intro->intro_basil->line_logo *
         rpg->menu->intro->intro_basil->rect_logo.height;
         rpg->menu->intro->intro_basil->offset_logo++;
     }

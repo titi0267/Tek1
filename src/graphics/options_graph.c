@@ -90,7 +90,8 @@ int manage_window_size(rpg_t *rpg)
     sfSprite_setTexture(rpg->menu->stg->graph->graph_btn->graphismes[RES11x30],
     rpg->menu->stg->graph->graph_btn->empty_square, sfTrue);
     if (rpg->basic->cnf->scr_cnf->resolution == 0) {
-        sfSprite_setTexture(rpg->menu->stg->graph->graph_btn->graphismes[RES19x80],
+        sfSprite_setTexture
+        (rpg->menu->stg->graph->graph_btn->graphismes[RES19x80],
         rpg->menu->stg->graph->graph_btn->fill_square, sfTrue);
         sfRenderWindow_setSize(rpg->basic->wnd->my_wnd, size1);
     }

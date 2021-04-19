@@ -51,7 +51,7 @@ void parsing_menu2(rpg_t *rpg)
     // if (rpg->menu->status == ON_NEW_GM) // New game
     // if (rpg->menu->status == ON_CONTINUE) // Continue game
     // if (rpg->menu->status == ON_TUTO) // Tutoriel
-    if (rpg->menu->status == ON_OPTION) { // Options
+    if (rpg->menu->status == ON_OPTION) {
         background(rpg);
         options(rpg);
     }

@@ -60,20 +60,10 @@ int menu_alloc(menu_t *menu)
     return (0);
 }
 
-int menu_alloc_next(menu_t *menu)
+void menu_alloc_next2(menu_t *menu)
 {
-    int i = 0;
-
-    if ((menu->stg->stg_snd->bgd_stg = malloc(sizeof(bgd_sound_stg_t))) == NULL)
-        return (MALLOC_ERROR);
-    if ((menu->stg->stg_snd->snd_btn = malloc(sizeof(stg_sound_btn_t))) == NULL)
-        return (MALLOC_ERROR);
-    if ((menu->stg->graph = malloc(sizeof(graph_t))) == NULL)
-        return (MALLOC_ERROR);
-    if ((menu->stg->graph->graph_btn = malloc(sizeof(graph_btn_t))) == NULL)
-        return (MALLOC_ERROR);
-    i++;
-    if ((menu->stg->graph->graph_bgd = malloc(sizeof(bgd_graph_stg_t))) == NULL)
+    if ((menu->stg->graph->graph_bgd =
+    malloc(sizeof(bgd_graph_stg_t))) == NULL)
         return (MALLOC_ERROR);
     if ((menu->stg->key_bnd = malloc(sizeof(key_bind_t))) == NULL)
         return (MALLOC_ERROR);
@@ -83,4 +73,19 @@ int menu_alloc_next(menu_t *menu)
         == NULL)
         return (MALLOC_ERROR);
         return (0);
+}
+
+int menu_alloc_next(menu_t *menu)
+{
+    if ((menu->stg->stg_snd->bgd_stg =
+    malloc(sizeof(bgd_sound_stg_t))) == NULL)
+        return (MALLOC_ERROR);
+    if ((menu->stg->stg_snd->snd_btn =
+    malloc(sizeof(stg_sound_btn_t))) == NULL)
+        return (MALLOC_ERROR);
+    if ((menu->stg->graph = malloc(sizeof(graph_t))) == NULL)
+        return (MALLOC_ERROR);
+    if ((menu->stg->graph->graph_btn = malloc(sizeof(graph_btn_t))) == NULL)
+        return (MALLOC_ERROR);
+    menu_alloc_next2(menu);
 }

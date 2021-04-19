@@ -55,4 +55,10 @@ typedef enum graph_sound_s {
     FPS60
 } graph_sound_t;
 
+typedef enum sound_gestion_s {
+    ON_MUSIC,
+    ON_DIAL,
+    ON_AMBI
+} sound_gestion_t;
+
 #endif /* !enumeration */
