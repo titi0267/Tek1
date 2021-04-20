@@ -17,7 +17,7 @@ void init_rect_adn(rpg_t *rpg)
     rpg->menu->bgd_adn->offset = 0;
 }
 
-int init_main_menu(rpg_t *rpg)
+void init_main_menu(rpg_t *rpg)
 {
     rpg->menu->main_menu->menu_spt->create_main_menu = sfTexture_createFromFile
     ("assets/menus/main/menu.png", NULL);

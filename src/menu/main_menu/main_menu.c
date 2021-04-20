@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-int main_menu(rpg_t *rpg)
+void main_menu(rpg_t *rpg)
 {
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->main_menu->menu_spt->main_menu, NULL);

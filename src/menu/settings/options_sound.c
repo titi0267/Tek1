@@ -12,12 +12,12 @@ void set_volume(rpg_t *rpg)
     sfVector2f pos_music = sfSprite_getPosition
     (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC]);
     float volume_music = pos_music.x - 1502.5;
-    sfVector2f pos_dial = sfSprite_getPosition
-    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG]);
-    float volume_dial = pos_dial.x - 1502.5;
-    sfVector2f pos_amb = sfSprite_getPosition
-    (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT]);
-    float volume_amb = pos_amb.x - 1502.5;
+    // sfVector2f pos_dial = sfSprite_getPosition
+    // (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG]);
+    // float volume_dial = pos_dial.x - 1502.5;
+    // sfVector2f pos_amb = sfSprite_getPosition
+    // (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT]);
+    // float volume_amb = pos_amb.x - 1502.5;
 
     sfSound_setVolume(rpg->menu->main_menu->menu_snd->a_menu, volume_music);
 }
@@ -31,7 +31,7 @@ void manage_music(rpg_t *rpg, sfFloatRect music, sfVector2f mouse)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
     ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], NULL);
     mouse.y = 363;
-    if (sfMouse_isButtonPressed(sfMouseLeft))
+    if (_isButtonPressed(sfMouseLeft))
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, music.left - 67)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, music.top - 67)) &&
         (rpg->basic->cnf->mouse.x <=

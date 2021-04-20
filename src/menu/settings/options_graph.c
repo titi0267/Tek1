@@ -79,7 +79,7 @@ void draw_square(rpg_t *rpg)
     rpg->menu->stg->graph->graph_btn->graphismes[FPS30], NULL);
 }
 
-int manage_window_size(rpg_t *rpg)
+void manage_window_size(rpg_t *rpg)
 {
     sfVector2u size1 = {1920, 1080};
 

@@ -67,6 +67,7 @@ int show_menus(rpg_t *rpg)
         manage_sound(rpg);
         return (-1);
     }
+    return (0);
 }
 
 int show_menus2(rpg_t *rpg)
@@ -78,16 +79,15 @@ int show_menus2(rpg_t *rpg)
         ,rpg->menu->stg->opt[GAME_OPTIONS], NULL);
         return (-1);
     }
-
+    return (0);
 }
 
 void options(rpg_t *rpg)
 {
-    if (show_menus(rpg) == -1);
-    if (show_menus2(rpg) == -1);
-    else
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->menu->stg->opt[NO], NULL);
+    show_menus(rpg);
+    show_menus2(rpg);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
+    ,rpg->menu->stg->opt[NO], NULL);
     clic_menu(rpg);
     clic_options(rpg);
     clic_options1(rpg);

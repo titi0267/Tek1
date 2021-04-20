@@ -7,6 +7,8 @@
 
 #ifndef enumeration
 #define enumeration
+#define TRUE 1
+#define FALSE 0
 
 typedef enum stg_status_s {
     GRAPH_SCN,
@@ -21,7 +23,10 @@ typedef enum rpg_status_s {
     ON_NEW_GM,
     ON_TUTO,
     ON_CONTINUE,
-    ON_GAME
+    ON_GAME,
+    ON_INVENTORY,
+    ON_EXIT,
+    ON_OPTION_PAUSE
 } rpg_status_t;
 
 typedef enum spt_btn_s {
@@ -68,5 +73,26 @@ typedef enum sound_gestion_s {
     ON_DIAL,
     ON_AMBI
 } sound_gestion_t;
+
+typedef enum weapons_s {
+    SMG,
+    KNIFE,
+    GUN,
+    TAZER,
+    NO_WEAPON
+} weapons_t;
+
+typedef enum key_status_s {
+    INVENTORY_ON,
+    INVENTORY_OFF
+} key_status_t;
+
+typedef enum pause_place_s {
+    RESUME_PAUSE,
+    OPTION_PAUSE,
+    QUIT_PAUSE,
+    MENU_PAUSE,
+    NO_BUTTON_PAUSE
+} pause_place_t;
 
 #endif /* !enumeration */

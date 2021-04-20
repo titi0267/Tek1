@@ -7,7 +7,7 @@
 
 #include "../include/func_name.h"
 
-int parsing_menus(rpg_t *rpg)
+void parsing_menus(rpg_t *rpg)
 {
     static float nbr = 0;
 
@@ -52,11 +52,21 @@ void parsing_menu2(rpg_t *rpg)
 
 void parsing_menu3(rpg_t *rpg)
 {
-
+    if (rpg->menu->status == ON_GAME) {
+        key_event_game(rpg);
+    }
+    if (rpg->menu->status == ON_INVENTORY) {
+        display_inventory(rpg);
+        key_event_inventory(rpg);
+    }
+    if (rpg->menu->status == ON_EXIT) {
+        assemble_spt_pause(rpg);
+    }
 }
 
-int parsing(rpg_t *rpg)
+void parsing(rpg_t *rpg)
 {
     parsing_menus(rpg);
     parsing_menu2(rpg);
+    parsing_menu3(rpg);
 }

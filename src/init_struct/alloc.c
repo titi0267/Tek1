@@ -93,4 +93,5 @@ int menu_alloc_next(menu_t *menu)
     if ((menu->stg->graph->graph_btn = malloc(sizeof(graph_btn_t))) == NULL)
         return (MALLOC_ERROR);
     menu_alloc_next2(menu);
+    return (0);
 }

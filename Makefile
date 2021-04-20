@@ -18,6 +18,7 @@ SRCSFILES=	rpg.c							\
 			init_struct/alloc_all.c		\
 			init_struct/alloc.c			\
 			init_struct/base_alloc.c	\
+			init_struct/alloc_game.c	\
 			menu/inits/init_audios.c		\
 			menu/inits/init_btn_menu.c		\
 			menu/inits/init_logo.c			\
@@ -36,12 +37,17 @@ SRCSFILES=	rpg.c							\
 			menu/settings/options.c				\
 			menu/background.c			\
 			menu/start.c				\
+			game/shortcuts.c		\
+			game/menu/exit.c		\
+			game/inits/init_exit.c				\
+			game/inits/init_inventory.c			\
+			game/inventory/display_inventory.c	\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 
 NAME	=	my_rpg
 
-CFLAGS = -lm	-lcsfml-audio	-lcsfml-graphics	-lcsfml-window	-lcsfml-system	-g
+CFLAGS = -lm	-lcsfml-audio	-lcsfml-graphics	-lcsfml-window	-lcsfml-system	-g	-Wall -Wextra -Werror
 
 all:
 	$(CC)	$(NAME)	$(SRCS)	$(CFLAGS)

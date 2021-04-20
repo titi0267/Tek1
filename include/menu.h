@@ -12,14 +12,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-typedef struct intro_sound_s
-{
+typedef struct intro_sound_s {
     sfSoundBuffer *create_start;
     sfSound *start;
 } intro_sound_t;
 
-typedef struct intro_pegi_s
-{
+typedef struct intro_pegi_s {
     sfIntRect rect_pegi;
     int offset_pegi;
     int line_pegi;
@@ -35,21 +33,18 @@ typedef struct intro_basil_s {
     int wait_basil;
 } intro_basil_t;
 
-typedef struct intro_s
-{
+typedef struct intro_s {
     intro_sound_t *intro_snd;
     intro_basil_t *intro_basil;
     intro_pegi_t *intro_pegi;
 } intro_t;
 
-typedef struct menu_snd_s
-{
+typedef struct menu_snd_s {
     sfSoundBuffer *create_a_menu;
     sfSound *a_menu;
 } menu_snd_t;
 
-typedef struct menu_spt_s
-{
+typedef struct menu_spt_s {
     sfSprite *main_menu;
     sfTexture *create_main_menu;
     sfSprite **menu;
@@ -63,19 +58,18 @@ typedef struct new_game_s {
     sfSprite **characters;
     sfTexture **characters_txt;
     sfVector2f *pos_characters;
-    sfIntRect rect_characters;
-
+    sfIntRect *rect_characters;
+    int *offset_character;
+    int character_chosen;
 } new_game_t;
 
-typedef struct main_menu_s
-{
+typedef struct main_menu_s {
     menu_snd_t *menu_snd;
     menu_spt_t *menu_spt;
     new_game_t *new_game;
 } main_menu_t;
 
-typedef struct background_adn_s
-{
+typedef struct background_adn_s {
     sfSprite *background;
     sfTexture *create_background;
     sfIntRect rect_but;

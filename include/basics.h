@@ -27,6 +27,7 @@ typedef struct cloc_s
     sfClock *clock;
     float time_total;
     float time_loop;
+    float time_keyboard;
 } cloc_t;
 
 typedef struct screen_conf_s

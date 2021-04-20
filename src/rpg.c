@@ -16,7 +16,8 @@ int init_basic_value(rpg_t *rpg)
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->menu->status = ON_BASIL;
     rpg->basic->cnf->scr_cnf->resolution = 0;
-    rpg->menu->stg->stg_snd->status == -1;
+    rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
+    rpg->basic->cnf->clk->time_keyboard = 0;
     return (0);
 }
 
@@ -34,15 +35,18 @@ void init_function(rpg_t *rpg)
     init_bt_opt(rpg);
     init_new_game(rpg);
     init_characters_sprites(rpg);
+    init_inventory(rpg);
+    init_pause(rpg);
 }
 
-int main(int ac, char **av)
+int main(void)
 {
     rpg_t *rpg = malloc(sizeof(rpg_t));
 
     if (rpg == NULL)
-        return (84);
-    alloc_all(rpg);
+        return (MALLOC_ERROR);
+    if (alloc_all(rpg) == MALLOC_ERROR)
+        return (MALLOC_ERROR);
     init_basic_value(rpg);
     init_function(rpg);
     open_window(rpg);

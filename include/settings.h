@@ -23,7 +23,6 @@ typedef struct stg_sound_s
     stg_sound_btn_t *snd_btn;
     bgd_sound_stg_t *bgd_stg;
     main_menu_t *main_menu;
-    int status;
 } stg_sound_t;
 
 typedef struct bgd_graph_stg_t

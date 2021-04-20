@@ -14,6 +14,12 @@
 #include "game.h"
 #include "rpg_enum.h"
 
+typedef struct game_s
+{
+    start_t *start;
+    in_game_t *in_game;
+    end_t *end;
+} game_t;
 
 typedef struct basic_s
 {

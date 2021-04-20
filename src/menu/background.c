@@ -17,7 +17,7 @@ void rect_adn(rpg_t *rpg)
     }
 }
 
-int background(rpg_t *rpg)
+void background(rpg_t *rpg)
 {
     static float nbr = 0;
 
