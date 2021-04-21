@@ -27,6 +27,7 @@ void parsing_menus(rpg_t *rpg)
         sound(rpg, 2);
         background(rpg);
         main_menu(rpg);
+        rpg->basic->cnf->clk->time_menu = 0;
     }
 }
 
@@ -58,9 +59,15 @@ void parsing_menu3(rpg_t *rpg)
     if (rpg->menu->status == ON_INVENTORY) {
         display_inventory(rpg);
         key_event_inventory(rpg);
+        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+            rpg->menu->status = ON_GAME;
     }
     if (rpg->menu->status == ON_EXIT) {
         assemble_spt_pause(rpg);
+    }
+    if (rpg->menu->status == ON_OPTION_PAUSE) {
+        background(rpg);
+        options_exit(rpg);
     }
 }
 

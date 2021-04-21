@@ -76,6 +76,7 @@ typedef struct setting_s
     graph_t *graph;
     key_bind_t *key_bnd;
     sfSprite **opt;
+    sfSprite **opt_exit;
     int stg_scene;
 } setting_t;
 

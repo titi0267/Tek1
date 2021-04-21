@@ -112,7 +112,8 @@ void choose_perso(rpg_t *rpg)
     rpg->menu->main_menu->new_game->rect_characters[TIMO]);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->main_menu->new_game->background, NULL);
-    select_characters(rpg);
+    if (rpg->basic->cnf->clk->time_menu >= 0.2)
+        select_characters(rpg);
     hover_perso1(rpg);
     hover_perso2(rpg);
     if (sfKeyboard_isKeyPressed(sfKeyEscape))

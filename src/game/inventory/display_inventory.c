@@ -18,6 +18,7 @@
 void display_weapons(rpg_t *rpg)
 {
     sfVector2f *pos_wp = malloc(sizeof(sfVector2f) * 5);
+
     pos_wp[SMG] = put_in_vector2f(825.5, 421.5);
     pos_wp[KNIFE] = put_in_vector2f(916.5, 421.5);
     pos_wp[GUN] = put_in_vector2f(1007.5, 421.5);
@@ -52,6 +53,7 @@ void display_inventory(rpg_t *rpg)
 {
     sfVector2f inventory_pos = {461.5, 366.5};
     int charac = rpg->menu->main_menu->new_game->character_chosen;
+
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->inventory->inventory, NULL);
     sfSprite_setPosition(rpg->menu->main_menu->new_game->characters[charac],
@@ -60,5 +62,5 @@ void display_inventory(rpg_t *rpg)
     rpg->menu->main_menu->new_game->characters[charac], NULL);
     move_characters(rpg, charac);
     // display_weapons(rpg);
-    detect_stuff(rpg);
+    // detect_stuff(rpg);
 }

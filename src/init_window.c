@@ -19,6 +19,7 @@ void move_clock(cloc_t *clk)
     sfClock_restart(clk->clock).microseconds / 1000000.0;
     clk->time_total += clk->time_loop;
     clk->time_keyboard += clk->time_loop;
+    clk->time_menu += clk->time_loop;
 }
 
 void create_window(basic_t *basic)
@@ -29,6 +30,7 @@ void create_window(basic_t *basic)
 
     basic->wnd->my_wnd = sfRenderWindow_create(video_mode,
     "Grand Theft Covid", sfClose, NULL);
+    sfRenderWindow_setKeyRepeatEnabled(basic->wnd->my_wnd ,sfFalse);
     sfRenderWindow_setPosition(basic->wnd->my_wnd, position_window);
     sfRenderWindow_setFramerateLimit(basic->wnd->my_wnd,
     basic->cnf->scr_cnf->fps);

@@ -31,7 +31,7 @@ void manage_music(rpg_t *rpg, sfFloatRect music, sfVector2f mouse)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
     ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], NULL);
     mouse.y = 363;
-    if (_isButtonPressed(sfMouseLeft))
+    if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, music.left - 67)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, music.top - 67)) &&
         (rpg->basic->cnf->mouse.x <=
@@ -43,6 +43,7 @@ void manage_music(rpg_t *rpg, sfFloatRect music, sfVector2f mouse)
             sfSprite_setPosition
             (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC],
             mouse);
+    }
 }
 
 void manage_dial(rpg_t *rpg, sfFloatRect dial, sfVector2f mouse)
@@ -54,7 +55,7 @@ void manage_dial(rpg_t *rpg, sfFloatRect dial, sfVector2f mouse)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
     ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], NULL);
     mouse.y = 657;
-    if (sfMouse_isButtonPressed(sfMouseLeft))
+    if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, dial.left - 67)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, dial.top - 67)) &&
         (rpg->basic->cnf->mouse.x <=
@@ -65,6 +66,7 @@ void manage_dial(rpg_t *rpg, sfFloatRect dial, sfVector2f mouse)
         (rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1452.608)))
             sfSprite_setPosition
             (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], mouse);
+    }
 }
 
 void manage_amb(rpg_t *rpg, sfFloatRect amb, sfVector2f mouse)
@@ -76,7 +78,7 @@ void manage_amb(rpg_t *rpg, sfFloatRect amb, sfVector2f mouse)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
     ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], NULL);
     mouse.y = 510;
-    if (sfMouse_isButtonPressed(sfMouseLeft))
+    if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, amb.left - 67)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, amb.top - 67)) &&
         (rpg->basic->cnf->mouse.x <=
@@ -87,6 +89,7 @@ void manage_amb(rpg_t *rpg, sfFloatRect amb, sfVector2f mouse)
         (rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1452.608)))
             sfSprite_setPosition
             (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], mouse);
+    }
 }
 
 void manage_sound(rpg_t *rpg)

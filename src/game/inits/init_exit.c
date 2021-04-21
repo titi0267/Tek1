@@ -32,7 +32,7 @@ void init_pause(rpg_t *rpg)
     sfVector2f pos = {761.23, 389.809};
 
     rpg->game->in_game->ig_menus->pause_menu
-    = malloc(sizeof(sfSprite *) * 5);
+    = malloc(sizeof(sfSprite *) * 6);
     for (int i = RESUME_PAUSE; i != NO_BUTTON_PAUSE; i++)
         rpg->game->in_game->ig_menus->pause_menu[i] = sfSprite_create();
     init_exit(rpg);

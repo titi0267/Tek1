@@ -87,5 +87,12 @@ void click_on_quit(rpg_t *rpg);
 
 sfVector2f put_in_vector2f(float x, float y);
 void assemble_spt_pause(rpg_t *rpg);
+int show_menus(rpg_t *rpg);
+int show_menus2(rpg_t *rpg);
+void clic_options1(rpg_t *rpg);
+void clic_options(rpg_t *rpg);
+void init_exit_option1(rpg_t *rpg);
+void options_exit(rpg_t *rpg);
+void clic_menu(rpg_t *rpg);
 
 #endif /* !prototype */

@@ -29,11 +29,9 @@ void click_on_option(rpg_t *rpg)
     }
 }
 
-//void option_pause(rpg_t *rpg)
-
 void save_infos(rpg_t *rpg)
 {
-    rpg->menu->status = ON_EXIT;
+    rpg->menu->status = ON_EXIT; // A FAIRE
 }
 
 void click_on_quit(rpg_t *rpg)
@@ -46,4 +44,3 @@ void click_on_quit(rpg_t *rpg)
         rpg->menu->status = ON_EXIT;
     }
 }
-

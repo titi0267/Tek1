@@ -37,6 +37,7 @@ void init_function(rpg_t *rpg)
     init_characters_sprites(rpg);
     init_inventory(rpg);
     init_pause(rpg);
+    init_exit_option1(rpg);
 }
 
 int main(void)

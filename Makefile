@@ -39,8 +39,11 @@ SRCSFILES=	rpg.c							\
 			menu/start.c				\
 			game/shortcuts.c		\
 			game/menu/exit.c		\
+			game/menu/exit_action.c	\
+			game/menu/settings_exit.c			\
 			game/inits/init_exit.c				\
 			game/inits/init_inventory.c			\
+			game/inits/init_exit_settings.c			\
 			game/inventory/display_inventory.c	\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))

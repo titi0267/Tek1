@@ -28,6 +28,7 @@ typedef struct cloc_s
     float time_total;
     float time_loop;
     float time_keyboard;
+    float time_menu;
 } cloc_t;
 
 typedef struct screen_conf_s
