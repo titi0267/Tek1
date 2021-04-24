@@ -102,5 +102,10 @@ int malloc_text(menu_t *menu);
 void manage_key(rpg_t *rpg);
 void change_control(rpg_t *rpg);
 void reload_control(setting_t *stg);
+void tuto_map(rpg_t *rpg);
+void init_map_tuto(rpg_t *rpg);
+void init_cinematic1_audio(rpg_t *rpg);
+void init_radio_spt(rpg_t *rpg);
+void cinematic_1(rpg_t *rpg);
 
 #endif /* !prototype */

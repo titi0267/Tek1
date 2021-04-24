@@ -9,7 +9,6 @@
 
 void key_event_game(rpg_t *rpg)
 {
-    sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
     if (rpg->basic->evt->event.text.unicode == 'e'
     && rpg->basic->cnf->clk->time_keyboard >= 0.2) {
         if (rpg->game->in_game->inventory->shortcut_it == INVENTORY_OFF) {

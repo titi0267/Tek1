@@ -10,7 +10,13 @@
 
 typedef struct start_s
 {
-
+    sfSprite *radio;
+    sfIntRect radio_rect;
+    int radio_offset;
+    int radio_line;
+    int wait_radio;
+    sfSoundBuffer *cine1;
+    sfSound *cinematic_1;
 } start_t;
 
 typedef struct inventory_s {

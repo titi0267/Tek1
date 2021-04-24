@@ -70,6 +70,7 @@ void tuto2(rpg_t *rpg)
 
 void tuto1(rpg_t *rpg)
 {
+    tuto_map(rpg);
     if (rpg->tutorial->tutorial_stat == TUTO1) {
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->tutorial->instruct[TUTO1], NULL);

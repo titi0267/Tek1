@@ -9,6 +9,11 @@
 
 static void update_text(int nbr, rpg_t *rpg)
 {
+    for (int i = 0; i <= QUADCOPTER; i++) {
+        if (rpg->menu->stg->key_bnd->control[i]->text[0] ==
+        (char)rpg->basic->evt->event.text.unicode)
+            return;
+    }
     rpg->menu->stg->key_bnd->control[nbr]->text[0] =
     rpg->basic->evt->event.text.unicode;
     rpg->menu->stg->key_bnd->control[nbr]->text[1] = '\0';

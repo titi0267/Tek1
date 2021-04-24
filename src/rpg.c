@@ -20,7 +20,7 @@ int init_basic_value(rpg_t *rpg)
     rpg->menu->status = ON_BASIL;
     rpg->basic->cnf->scr_cnf->resolution = 0;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
-    rpg->tutorial->instruct = TUTO1;
+    rpg->tutorial->tutorial_stat = TUTO1;
     return (0);
 }
 
@@ -42,6 +42,9 @@ void init_function(rpg_t *rpg)
     init_pause(rpg);
     init_exit_option1(rpg);
     init_tuto(rpg);
+    init_map_tuto(rpg);
+    init_cinematic1_audio(rpg);
+    init_radio_spt(rpg);
 }
 
 int main(void)

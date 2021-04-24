@@ -58,14 +58,14 @@ void select_characters2(rpg_t *rpg)
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1231)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 709))) {
         rpg->menu->main_menu->new_game->character_chosen = LUDO;
-        rpg->menu->status = ON_GAME;
+        rpg->menu->status = ON_CINEMATIC1;
     }
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1275)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 362)) &&
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1524)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 709))) {
         rpg->menu->main_menu->new_game->character_chosen = SYLVIE;
-        rpg->menu->status = ON_GAME;
+        rpg->menu->status = ON_CINEMATIC1;
     }
 }
 
@@ -77,14 +77,14 @@ void select_characters(rpg_t *rpg)
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 645)) &&
         (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 709))) {
             rpg->menu->main_menu->new_game->character_chosen = MAXOU;
-            rpg->menu->status = ON_GAME;
+            rpg->menu->status = ON_CINEMATIC1;
         }
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 689)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 362)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 938)) &&
         (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 709))) {
             rpg->menu->main_menu->new_game->character_chosen = TIMO;
-            rpg->menu->status = ON_GAME;
+            rpg->menu->status = ON_CINEMATIC1;
         }
         select_characters2(rpg);
     }

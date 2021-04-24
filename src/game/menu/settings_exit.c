@@ -42,7 +42,7 @@ void clic_options_exit1(rpg_t *rpg)
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 684.5)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 789)) &&
         (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 783.5)))
-            rpg->menu->status = ON_GAME;
+            rpg->menu->status = ON_EXIT;
     }
 }
 

@@ -38,9 +38,10 @@ void parsing_menu2(rpg_t *rpg)
         choose_perso(rpg);
     }
     if (rpg->menu->status == ON_CONTINUE) {
-
+        sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
     }
     if (rpg->menu->status == ON_TUTO) {
+        sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
         tuto1(rpg);
     }
     if (rpg->menu->status == ON_OPTION) {
@@ -54,6 +55,7 @@ void parsing_menu2(rpg_t *rpg)
 void parsing_menu3(rpg_t *rpg)
 {
     if (rpg->menu->status == ON_GAME) {
+        sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
         key_event_game(rpg);
     }
     if (rpg->menu->status == ON_INVENTORY) {
@@ -63,6 +65,7 @@ void parsing_menu3(rpg_t *rpg)
             rpg->menu->status = ON_GAME;
     }
     if (rpg->menu->status == ON_EXIT) {
+        background(rpg);
         assemble_spt_pause(rpg);
     }
     if (rpg->menu->status == ON_OPTION_PAUSE) {
@@ -71,9 +74,20 @@ void parsing_menu3(rpg_t *rpg)
     }
 }
 
+void parsing_menu4(rpg_t *rpg)
+{
+    if (rpg->menu->status == ON_CINEMATIC1) {
+    sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
+    cinematic_1(rpg);
+    if (sfSound_getStatus(rpg->game->start->cinematic_1) != sfPlaying)
+        rpg->menu->status = ON_GAME;
+    }
+}
+
 void parsing(rpg_t *rpg)
 {
     parsing_menus(rpg);
     parsing_menu2(rpg);
     parsing_menu3(rpg);
+    parsing_menu4(rpg);
 }
