@@ -64,7 +64,7 @@ void checks_two(read_t *rd)
     rd->path[rd->ln + 1][rd->car] != -1)) {
         rd->line[rd->ln][rd->car - 1] = 'o';
         rd->car--;
-    } else 
+    } else
         checks_two_next(rd);
 }
 
