@@ -51,3 +51,14 @@ void print_list(pos_t **pos)
         i++;
     }
 }
+
+void replace_last_ln(maze_t *maze)
+{
+    for (int i = maze->width - 1; i != 0; i--)  {
+        if (maze->visit[maze->height - 2][i] == visited) {
+            maze->visit[maze->height - 1][i] = visited;
+            break;
+        } else
+            maze->visit[maze->height - 1][i] = visited;
+    }
+}

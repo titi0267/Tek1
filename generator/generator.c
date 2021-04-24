@@ -76,6 +76,7 @@ int main(int ac, char **av)
     empty_maze(av, maze);
     init_unvisit(maze);
     forward_maze(maze);
+    replace_last_ln(maze);
     put_in_tabchar(maze);
     my_freeing(maze);
     return (0);

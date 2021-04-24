@@ -27,4 +27,6 @@ pos_t *down(pos_t *pos, maze_t *maze);
 pos_t *up(pos_t *pos, maze_t *maze);
 pos_t *left(pos_t *pos, maze_t *maze);
 pos_t *right(pos_t *pos, maze_t *maze);
+void replace_last_ln(maze_t *maze);
+
 #endif /* !DANTE_H_ */

@@ -67,12 +67,13 @@ int read_maze(read_t *rd, char **av)
         return (my_puterr("Couldn't use stat\n"));
     rd->buffer = malloc(sizeof(char) * rd->buffer_size + 1);
     if ((read_ret = read(fd, rd->buffer, rd->buffer_size)) == -1)
-        return (my_puterr("Couldn't reads the file\n"));
+        return (my_puterr("Couldn't read the file\n"));
     rd->buffer_size = read_ret;
     rd->buffer[rd->buffer_size] = '\0';
     close(fd);
     counter(rd);
     store_maze(rd);
+    if (error_entry(rd) == ERROR)
+        return (ERROR);
     return (0);
 }
-

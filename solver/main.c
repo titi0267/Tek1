@@ -25,9 +25,9 @@ int main(int ac, char **av)
 
     if ((slv = malloc(sizeof(solve_t))) == NULL)
         return (ERROR);
-    malloc_struct(slv);
-    read_maze(slv->rd, av);
-    replace_nbr(slv->rd);
+    if (malloc_struct(slv) == ERROR || read_maze(slv->rd, av) == ERROR ||
+    replace_nbr(slv->rd) == ERROR)
+        return (ERROR);
     increment(slv->rd);
     slv->rd->ln = slv->rd->line_nbr - 1;
     slv->rd->car = slv->rd->char_nbr - 1;

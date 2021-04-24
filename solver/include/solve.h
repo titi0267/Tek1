@@ -39,4 +39,6 @@ void free_func(solve_t *slv);
 void checks_two_next(read_t *rd);
 void checks_three_next(read_t *rd);
 
+int error_entry(read_t *rd);
+
 #endif /* !SOLVE_H_ */

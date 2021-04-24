@@ -14,11 +14,12 @@ SRC	=	main.c		\
 		check_one.c		\
 		check_two.c		\
 		read_file.c		\
-		check_next.c
+		check_next.c	\
+		error_entry.c
 
 NAME	=	solver
 
-CFLAGS=	-L../lib/my -lmy
+CFLAGS=	-L../lib/my -lmy -g
 
 all:
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
