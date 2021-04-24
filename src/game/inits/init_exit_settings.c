@@ -35,7 +35,7 @@ void init_exit_option1(rpg_t *rpg)
     ("assets/menu_in_game/select_menu/select_menu2.png", NULL);
     sfVector2f btn_pos = {255, 360.5};
 
-    rpg->menu->stg->opt_exit = malloc(sizeof(sfSprite *) * 6);
+    rpg->menu->stg->opt_exit = malloc(sizeof(sfSprite *) * 8);
     rpg->menu->stg->opt_exit[GRAPH] = sfSprite_create();
     sfSprite_setTexture(rpg->menu->stg->opt_exit[GRAPH],
     graph, sfTrue);

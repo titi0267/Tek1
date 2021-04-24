@@ -13,11 +13,14 @@ int init_basic_value(rpg_t *rpg)
     rpg->basic->cnf->scr_cnf->fps = 60;
     rpg->basic->cnf->clk->time_total = 0;
     rpg->basic->cnf->clk->time_loop = 0;
+    rpg->basic->cnf->clk->time_keyboard = 0;
+    rpg->basic->cnf->clk->time_tutorial = 0;
+    rpg->basic->cnf->clk->time_shortcut = 0;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->menu->status = ON_BASIL;
     rpg->basic->cnf->scr_cnf->resolution = 0;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
-    rpg->basic->cnf->clk->time_keyboard = 0;
+    rpg->tutorial->instruct = TUTO1;
     return (0);
 }
 
@@ -38,6 +41,7 @@ void init_function(rpg_t *rpg)
     init_inventory(rpg);
     init_pause(rpg);
     init_exit_option1(rpg);
+    init_tuto(rpg);
 }
 
 int main(void)

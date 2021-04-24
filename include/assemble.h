@@ -14,6 +14,12 @@
 #include "game.h"
 #include "rpg_enum.h"
 
+typedef struct tutorial_s
+{
+    sfSprite **instruct;
+    int tutorial_stat;
+} tutorial_t;
+
 typedef struct game_s
 {
     start_t *start;
@@ -41,6 +47,7 @@ typedef struct rpg_s {
     basic_t *basic;
     game_t *game;
     menu_t *menu;
+    tutorial_t *tutorial;
 } rpg_t;
 
 #endif /* !assemble */

@@ -95,4 +95,24 @@ typedef enum pause_place_s {
     NO_BUTTON_PAUSE
 } pause_place_t;
 
+typedef enum tuto_s {
+    TUTO1,
+    TUTO2,
+    TUTO3,
+    TUTO4,
+    TUTO5
+} tuto_t;
+
+typedef enum controle_text_s {
+    UP,
+    DOWN,
+    RIGHT,
+    LEFT,
+    RUN,
+    INVENTORY,
+    CELLPHONE,
+    CAR,
+    QUADCOPTER
+} controle_text_t;
+
 #endif /* !enumeration */

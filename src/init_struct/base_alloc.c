@@ -15,5 +15,7 @@ int first_alloc(rpg_t *rpg)
         return (MALLOC_ERROR);
     if ((rpg->game = malloc(sizeof(game_t))) == NULL)
         return (MALLOC_ERROR);
+    if ((rpg->tutorial = malloc(sizeof(tutorial_t))) == NULL)
+        return (MALLOC_ERROR);
     return (0);
 }

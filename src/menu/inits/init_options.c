@@ -9,15 +9,19 @@
 
 void init_controls(rpg_t *rpg)
 {
-    rpg->menu->stg->key_bnd->control->up = "z";
-    rpg->menu->stg->key_bnd->control->down = "s";
-    rpg->menu->stg->key_bnd->control->left = "q";
-    rpg->menu->stg->key_bnd->control->right = "d";
-    rpg->menu->stg->key_bnd->control->run = "r";
-    rpg->menu->stg->key_bnd->control->inventory = "i";
-    rpg->menu->stg->key_bnd->control->cellphone = "t";
-    rpg->menu->stg->key_bnd->control->car = "c";
-    rpg->menu->stg->key_bnd->control->quadcopter = "x";
+    rpg->menu->stg->key_bnd->control[UP]->text[0] = 'z';
+    rpg->menu->stg->key_bnd->control[DOWN]->text[0] = 's';
+    rpg->menu->stg->key_bnd->control[LEFT]->text[0] = 'q';
+    rpg->menu->stg->key_bnd->control[RIGHT]->text[0] = 'd';
+    rpg->menu->stg->key_bnd->control[RUN]->text[0] = 'r';
+    rpg->menu->stg->key_bnd->control[INVENTORY]->text[0] = 'i';
+    rpg->menu->stg->key_bnd->control[CELLPHONE]->text[0] = 't';
+    rpg->menu->stg->key_bnd->control[CAR]->text[0] = 'c';
+    rpg->menu->stg->key_bnd->control[QUADCOPTER]->text[0] = 'x';
+    for (int i = 0; i <= QUADCOPTER; i++)
+        rpg->menu->stg->key_bnd->control[i]->text[1] = '\0';
+    rpg->menu->stg->key_bnd->box_clicked = -1;
+    init_text(rpg);
 }
 
 void init_menu_option2(rpg_t *rpg)

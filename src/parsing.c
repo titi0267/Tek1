@@ -41,7 +41,7 @@ void parsing_menu2(rpg_t *rpg)
 
     }
     if (rpg->menu->status == ON_TUTO) {
-
+        tuto1(rpg);
     }
     if (rpg->menu->status == ON_OPTION) {
         background(rpg);

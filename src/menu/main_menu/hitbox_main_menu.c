@@ -45,6 +45,20 @@ void hitbox2(rpg_t *rpg)
         rpg->menu->main_menu->menu_spt->menu[QUIT], NULL);
 }
 
+void clic2(rpg_t *rpg)
+{
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 589.5)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 688.5)))
+        rpg->menu->status = ON_OPTION;
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 688.5)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 787.5)))
+        exit(0);
+}
+
 void clic1(rpg_t *rpg)
 {
     if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) {
@@ -54,14 +68,15 @@ void clic1(rpg_t *rpg)
         (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 391)))
             rpg->menu->status = ON_NEW_GM;
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
-        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 589.5)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 391)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
-        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 688.5)))
-            rpg->menu->status = ON_OPTION;
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 490)))
+            rpg->menu->status = ON_CONTINUE;
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
-        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 688.5)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 490)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
-        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 787.5)))
-            exit(0);
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 589)))
+            rpg->menu->status = ON_TUTO;
+    clic2(rpg);
     }
 }

@@ -20,6 +20,8 @@ void move_clock(cloc_t *clk)
     clk->time_total += clk->time_loop;
     clk->time_keyboard += clk->time_loop;
     clk->time_menu += clk->time_loop;
+    clk->time_tutorial += clk->time_loop;
+    clk->time_shortcut += clk->time_loop;
 }
 
 void create_window(basic_t *basic)

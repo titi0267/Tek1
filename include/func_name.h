@@ -94,5 +94,13 @@ void clic_options(rpg_t *rpg);
 void init_exit_option1(rpg_t *rpg);
 void options_exit(rpg_t *rpg);
 void clic_menu(rpg_t *rpg);
+void init_tuto(rpg_t *rpg);
+void tuto1(rpg_t *rpg);
+
+void init_text(rpg_t *rpg);
+int malloc_text(menu_t *menu);
+void manage_key(rpg_t *rpg);
+void change_control(rpg_t *rpg);
+void reload_control(setting_t *stg);
 
 #endif /* !prototype */

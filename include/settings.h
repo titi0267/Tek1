@@ -51,24 +51,17 @@ typedef struct bgd_control_stg_s
 
 typedef struct control_s
 {
-    char *up;
-    char *down;
-    char *right;
-    char *left;
-    char *run;
-    char *inventory;
-    char *cellphone;
-    char *car;
-    char *quadcopter;
+    sfText *box;
+    char *text;
 } control_t;
 
 typedef struct key_bind_s
 {
     main_menu_t *main_menu;
     bgd_control_stg_t *control_bgd;
-    control_t *control;
+    control_t **control;
+    int box_clicked;
 } key_bind_t;
-
 
 typedef struct setting_s
 {

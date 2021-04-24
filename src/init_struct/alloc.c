@@ -69,7 +69,7 @@ int menu_alloc_next2(menu_t *menu)
         return (MALLOC_ERROR);
     if ((menu->stg->key_bnd = malloc(sizeof(key_bind_t))) == NULL)
         return (MALLOC_ERROR);
-    if ((menu->stg->key_bnd->control = malloc(sizeof(control_t))) == NULL)
+    if (malloc_text(menu) == MALLOC_ERROR)
         return (MALLOC_ERROR);
     if ((menu->stg->key_bnd->control_bgd = malloc(sizeof(bgd_control_stg_t)))
         == NULL)

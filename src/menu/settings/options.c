@@ -77,6 +77,7 @@ int show_menus2(rpg_t *rpg)
         ,rpg->menu->stg->opt[GAME_OPTIONS_F], NULL);
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
         ,rpg->menu->stg->opt[GAME_OPTIONS], NULL);
+        manage_key(rpg);
         return (-1);
     }
     return (0);
