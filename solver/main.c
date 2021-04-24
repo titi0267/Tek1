@@ -7,6 +7,18 @@
 
 #include "include/solve.h"
 
+void print_solved_maze(solve_t *slv)
+{
+    for (int i = 0; slv->rd->line[i] != NULL; i++) {
+        for (int d = 0; slv->rd->line[i][d] != '\0'; d++) {
+            if (i == slv->rd->line_nbr - 1 && slv->rd->line[i][d] == '\n')
+                break;
+            else
+                my_printf("%c", slv->rd->line[i][d]);
+        }
+    }
+}
+
 int main(int ac, char **av)
 {
     solve_t *slv;
@@ -20,14 +32,7 @@ int main(int ac, char **av)
     slv->rd->ln = slv->rd->line_nbr - 1;
     slv->rd->car = slv->rd->char_nbr - 1;
     replace_solve(slv->rd);
-    for (int i = 0; slv->rd->line[i] != NULL; i++) {
-        for (int d = 0; slv->rd->line[i][d] != '\0'; d++) {
-            if (i == slv->rd->line_nbr - 1 && slv->rd->line[i][d] == '\n')
-                break;
-            else
-                my_printf("%c", slv->rd->line[i][d]);
-        }
-    }
+    print_solved_maze(slv);
     free_func(slv);
     free(slv);
     return (0);
