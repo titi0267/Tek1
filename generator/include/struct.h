@@ -18,7 +18,6 @@ typedef struct pos_s {
 } pos_t;
 
 typedef struct maze_s {
-    int failed;
     int up;
     int down;
     int left;

@@ -39,7 +39,6 @@ void my_freeing(maze_t *maze)
     free(maze->maze);
     free(maze->visit);
     free(maze);
-
 }
 
 void put_in_tabchar(maze_t *maze)

@@ -49,6 +49,25 @@ void checks_seven(read_t *rd)
     }
 }
 
+void checks_eight_part_two(read_t *rd)
+{
+    if ((rd->path[rd->ln + 1][rd->car] <= rd->path[rd->ln][rd->car + 1]
+    && rd->path[rd->ln][rd->car + 1] != -1)
+    && (rd->path[rd->ln + 1][rd->car] <= rd->path[rd->ln - 1][rd->car]
+    && rd->path[rd->ln - 1][rd->car] != -1)) {
+        rd->line[rd->ln + 1][rd->car] = 'o';
+        rd->ln++;
+    } else {
+        if ((rd->path[rd->ln][rd->car + 1] <= rd->path[rd->ln + 1][rd->car]
+        && rd->path[rd->ln + 1][rd->car] != -1)
+        && (rd->path[rd->ln][rd->car + 1] <= rd->path[rd->ln - 1][rd->car]
+        && rd->path[rd->ln - 1][rd->car] != -1)) {
+            rd->line[rd->ln][rd->car + 1] = 'o';
+            rd->car++;
+        }
+    }
+}
+
 void checks_eight(read_t *rd)
 {
     if ((rd->path[rd->ln - 1][rd->car] <= rd->path[rd->ln][rd->car + 1]
@@ -57,19 +76,6 @@ void checks_eight(read_t *rd)
     && rd->path[rd->ln + 1][rd->car] != -1)) {
         rd->line[rd->ln - 1][rd->car] = 'o';
         rd->ln--;
-    }
-    else if ((rd->path[rd->ln + 1][rd->car] <= rd->path[rd->ln][rd->car + 1]
-    && rd->path[rd->ln][rd->car + 1] != -1)
-    && (rd->path[rd->ln + 1][rd->car] <= rd->path[rd->ln - 1][rd->car]
-    && rd->path[rd->ln - 1][rd->car] != -1)) {
-        rd->line[rd->ln + 1][rd->car] = 'o';
-        rd->ln++;
-    }
-    else if ((rd->path[rd->ln][rd->car + 1] <= rd->path[rd->ln + 1][rd->car]
-    && rd->path[rd->ln + 1][rd->car] != -1)
-    && (rd->path[rd->ln][rd->car + 1] <= rd->path[rd->ln - 1][rd->car]
-    && rd->path[rd->ln - 1][rd->car] != -1)) {
-        rd->line[rd->ln][rd->car + 1] = 'o';
-        rd->car++;
-    }
+    } else
+        checks_eight_part_two(rd);
 }

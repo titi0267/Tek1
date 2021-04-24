@@ -9,18 +9,14 @@ CC=	gcc	-o
 
 SRC	=	generator.c	\
 		error.c	\
-		up.c	\
-		down.c	\
-		right.c	\
-		left.c	\
 		linked_list.c	\
-		checks.c	\
 		checks2.c	\
-		create_maze.c
+		create_maze.c	\
+		directions.c
 
 NAME	=	generator
 
-CFLAGS=	-L../lib/my -lmy -g
+CFLAGS=	-L../lib/my -lmy
 
 all:
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)

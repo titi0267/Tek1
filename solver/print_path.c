@@ -40,8 +40,10 @@ void replace_solve_next(read_t *rd)
         checks_three(rd);
     else if (rd->ln == (rd->line_nbr - 1) && rd->car == 0)
         checks_six(rd);
-    else if (rd->ln == (rd->line_nbr - 1) && rd->car == (rd->char_nbr - 1))
-        checks_seven(rd);
+    else {
+        if (rd->ln == (rd->line_nbr - 1) && rd->car == (rd->char_nbr - 1))
+            checks_seven(rd);
+    }
     if (rd->car == 0 && rd->ln != 0 && rd->ln < (rd->line_nbr - 1))
         checks_eight(rd);
     if (rd->car == (rd->char_nbr - 1) && rd->ln != 0
@@ -60,8 +62,10 @@ void replace_solve(read_t *rd)
             checks_two(rd);
         else if (rd->ln == 0 && rd->car == 0)
             checks_four(rd);
-        else if (rd->ln == 0 && rd->car == (rd->char_nbr - 1))
-            checks_five(rd);
+        else {
+            if (rd->ln == 0 && rd->car == (rd->char_nbr - 1))
+                checks_five(rd);
+        }
         replace_solve_next(rd);
     }
 }

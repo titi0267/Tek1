@@ -15,15 +15,10 @@ void push(pos_t **head, int x, int y, maze_t *maze)
     maze->down = 0;
     maze->left = 0;
     maze->right = 0;
-    maze->failed = 0;
     maze->success = 1;
-    maze->check = 0;
     node->line = x;
     node->car = y;
     node->next = (*head);
-    /*node->prev = NULL;
-    if ((*head) != NULL)
-        (*head)->prev = node;*/
     (*head) = node;
 }
 
@@ -35,8 +30,6 @@ pos_t *pop(pos_t **pos, maze_t *maze)
     maze->down = 0;
     maze->left = 0;
     maze->right = 0;
-    maze->failed = 0;
-    maze->check = 0;
     if (rm == NULL)
         return (0);
     (*pos) = (*pos)->next;

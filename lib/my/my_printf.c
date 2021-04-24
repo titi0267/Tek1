@@ -29,7 +29,7 @@ int find_flag(char *tab_flags, char element)
     int index = 0;
     for (index = 0; tab_flags[index] != 0; index++) {
         if (tab_flags[index] == element)
-            return(index);
+            return (index);
     }
     return (-1);
 }
