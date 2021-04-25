@@ -21,7 +21,7 @@ void init_rect_logo(rpg_t *rpg)
 void init_logo_spt(rpg_t *rpg)
 {
     sfTexture *basil_tex = sfTexture_createFromFile
-    ("assets/start/basil.png", NULL);
+    ("assets/start/basil.jpg", NULL);
 
     rpg->menu->intro->intro_basil->basil_spt = sfSprite_create();
     sfSprite_setTexture(rpg->menu->intro->intro_basil->basil_spt,
