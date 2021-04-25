@@ -7,7 +7,7 @@
 
 #include "../include/func_name.h"
 
-void parsing_menus(rpg_t *rpg)
+int parsing_menus(rpg_t *rpg)
 {
     static float nbr = 0;
 
@@ -26,9 +26,11 @@ void parsing_menus(rpg_t *rpg)
     if (rpg->menu->status == ON_MENU) {
         sound(rpg, 2);
         background(rpg);
-        main_menu(rpg);
+        if (main_menu(rpg) == -1)
+            return (-1);
         rpg->basic->cnf->clk->time_menu = 0;
     }
+    return (0);
 }
 
 void parsing_menu2(rpg_t *rpg)
@@ -84,10 +86,12 @@ void parsing_menu4(rpg_t *rpg)
     }
 }
 
-void parsing(rpg_t *rpg)
+int parsing(rpg_t *rpg)
 {
-    parsing_menus(rpg);
+    if (parsing_menus(rpg) == -1)
+        return (-1);
     parsing_menu2(rpg);
     parsing_menu3(rpg);
     parsing_menu4(rpg);
+    return (0);
 }

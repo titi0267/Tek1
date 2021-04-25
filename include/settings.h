@@ -53,6 +53,7 @@ typedef struct control_s
 {
     sfText *box;
     char *text;
+    sfKeyCode *key_code;
 } control_t;
 
 typedef struct key_bind_s

@@ -20,7 +20,7 @@ void init_tuto2(rpg_t *rpg)
     tuto5, sfTrue);
 }
 
-void init_tuto(rpg_t *rpg)
+int init_tuto(rpg_t *rpg)
 {
     sfTexture *tuto1 = sfTexture_createFromFile
     ("assets/tutorial/tutoriel1.png", NULL);
@@ -28,9 +28,9 @@ void init_tuto(rpg_t *rpg)
     ("assets/tutorial/tutoriel2.png", NULL);
     sfTexture *tuto3 = sfTexture_createFromFile
     ("assets/tutorial/tutoriel3.png", NULL);
-    sfVector2f pos = {0, -30};
 
-    rpg->tutorial->instruct = malloc(sizeof(sfSprite *) * 5);
+    if ((rpg->tutorial->instruct = malloc(sizeof(sfSprite *) * 5)) == NULL)
+        return (MALLOC_ERROR);
     for (int i = TUTO1; i <= TUTO5; i++)
         rpg->tutorial->instruct[i] = sfSprite_create();
     init_tuto2(rpg);
@@ -40,6 +40,5 @@ void init_tuto(rpg_t *rpg)
     tuto2, sfTrue);
     sfSprite_setTexture(rpg->tutorial->instruct[TUTO3],
     tuto3, sfTrue);
-    for (int i = TUTO1; i != TUTO5; i++)
-        sfSprite_setPosition(rpg->tutorial->instruct[i], pos);
+    return (0);
 }

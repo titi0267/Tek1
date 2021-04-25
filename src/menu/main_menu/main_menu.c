@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void main_menu(rpg_t *rpg)
+int main_menu(rpg_t *rpg)
 {
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->main_menu->menu_spt->main_menu, NULL);
@@ -15,5 +15,7 @@ void main_menu(rpg_t *rpg)
     rpg->menu->main_menu->menu_spt->menu[NONE], NULL);
     hitbox1(rpg);
     hitbox2(rpg);
-    clic1(rpg);
+    if (clic1(rpg) == -1)
+        return (-1);
+    return (0);
 }

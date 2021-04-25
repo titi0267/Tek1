@@ -15,6 +15,8 @@ SRCSFILES=	rpg.c							\
 			tools.c							\
 			parsing.c						\
 			audios.c						\
+			destroy.c						\
+			free_all.c						\
 			init_struct/alloc_all.c		\
 			init_struct/alloc.c			\
 			init_struct/base_alloc.c	\
@@ -46,6 +48,7 @@ SRCSFILES=	rpg.c							\
 			game/menu/settings_exit.c			\
 			game/inits/init_exit.c				\
 			game/inits/init_inventory.c			\
+			game/inits/init_player_rect.c		\
 			game/inits/init_exit_settings.c		\
 			game/inits/init_tuto.c				\
 			game/inits/init_tuto_map.c			\
@@ -65,9 +68,10 @@ all:
 	$(CC)	$(NAME)	$(SRCS)	$(CFLAGS)
 
 clean:
-	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
-.PHONY:	all	clean	fclean	make	re
+re:	fclean	all
+
+.PHONY:	all	clean	fclean	re

@@ -24,7 +24,15 @@ int init_basic_value(rpg_t *rpg)
     return (0);
 }
 
-void init_function(rpg_t *rpg)
+void init_function2(rpg_t *rpg)
+{
+    init_map_tuto(rpg);
+    init_cinematic1_audio(rpg);
+    init_radio_spt(rpg);
+    rpg->menu->main_menu->new_game->character_chosen = rand() % 4;
+}
+
+int init_function(rpg_t *rpg)
 {
     init_controls(rpg);
     init_rect_adn(rpg);
@@ -41,10 +49,11 @@ void init_function(rpg_t *rpg)
     init_inventory(rpg);
     init_pause(rpg);
     init_exit_option1(rpg);
-    init_tuto(rpg);
-    init_map_tuto(rpg);
-    init_cinematic1_audio(rpg);
-    init_radio_spt(rpg);
+    if (init_pdown_up_rect(rpg) == MALLOC_ERROR || init_tuto(rpg) == 84 ||
+    realrandom() == 84)
+        return (MALLOC_ERROR);
+    init_function2(rpg);
+    return (0);
 }
 
 int main(void)
@@ -56,7 +65,11 @@ int main(void)
     if (alloc_all(rpg) == MALLOC_ERROR)
         return (MALLOC_ERROR);
     init_basic_value(rpg);
-    init_function(rpg);
+    if (init_function(rpg) == MALLOC_ERROR)
+        return (MALLOC_ERROR);
     open_window(rpg);
+    destroy_all(rpg);
+    free_all(rpg);
+    free(rpg);
     return (0);
 }

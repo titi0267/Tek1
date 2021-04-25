@@ -35,7 +35,7 @@ typedef struct ig_sound_s
 
 typedef struct objects_s
 {
-
+    sfSprite **players;
 } objects_t;
 
 typedef struct map_s

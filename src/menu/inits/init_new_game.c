@@ -7,11 +7,15 @@
 
 #include "../../../include/func_name.h"
 
-sfVector2f put_in_vector2f(float x, float y)
+void position_square(rpg_t *rpg)
 {
-    sfVector2f pos = {x, y};
-
-    return (pos);
+    for (int i = MAXOU; i < NO_CHARACTERS; i++) {
+        rpg->menu->main_menu->new_game->offset_character[i] = 0;
+        rpg->menu->main_menu->new_game->rect_characters[i].left = 0;
+        rpg->menu->main_menu->new_game->rect_characters[i].top = 0;
+        rpg->menu->main_menu->new_game->rect_characters[i].width = 259;
+        rpg->menu->main_menu->new_game->rect_characters[i].height = 357;
+    }
 }
 
 void set_square_position(rpg_t *rpg)
@@ -20,19 +24,14 @@ void set_square_position(rpg_t *rpg)
     sfVector2f *pos_characters = malloc(sizeof(sfVector2f) * 5);
 
     rpg->menu->main_menu->new_game->offset_character = malloc(sizeof(int) * 5);
-    rpg->menu->main_menu->new_game->rect_characters = malloc(sizeof(sfIntRect) * 5);
+    rpg->menu->main_menu->new_game->rect_characters =
+    malloc(sizeof(sfIntRect) * 5);
     sfSprite_setPosition(rpg->menu->main_menu->new_game->background, pos_bg);
     pos_characters[MAXOU] = put_in_vector2f((float)396, (float)362);
     pos_characters[TIMO] = put_in_vector2f((float)689, (float)362);
     pos_characters[LUDO] = put_in_vector2f((float)982, (float)362);
     pos_characters[SYLVIE] = put_in_vector2f((float)1275, (float)362);
-    for (int i = MAXOU; i < NO_CHARACTERS; i++) {
-        rpg->menu->main_menu->new_game->offset_character[i] = 0;
-        rpg->menu->main_menu->new_game->rect_characters[i].left = 0;
-        rpg->menu->main_menu->new_game->rect_characters[i].top = 0;
-        rpg->menu->main_menu->new_game->rect_characters[i].width = 259;
-        rpg->menu->main_menu->new_game->rect_characters[i].height = 357;
-    }
+    position_square(rpg);
     for (int i = MAXOU; i < NO_CHARACTERS; i++) {
         sfSprite_setPosition(rpg->menu->main_menu->new_game->select[i],
         pos_characters[i]);
@@ -43,7 +42,8 @@ void set_square_position(rpg_t *rpg)
 void init_new_game(rpg_t *rpg)
 {
     rpg->menu->main_menu->new_game->select = malloc(sizeof(sfSprite *) * 5);
-    rpg->menu->main_menu->new_game->select_txt = malloc(sizeof(sfTexture *) * 5);
+    rpg->menu->main_menu->new_game->select_txt =
+    malloc(sizeof(sfTexture *) * 5);
     rpg->menu->main_menu->new_game->background = sfSprite_create();
     rpg->menu->main_menu->new_game->background_txt = sfTexture_createFromFile
     ("assets/menus/new_game/charactere_choice.png", NULL);

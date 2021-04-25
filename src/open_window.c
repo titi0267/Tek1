@@ -38,6 +38,7 @@ void open_window(rpg_t *rpg)
         sfRenderWindow_display(rpg->basic->wnd->my_wnd);
         inside_open(rpg);
         event(rpg);
-        parsing(rpg);
+        if (parsing(rpg) == -1)
+            break;
     }
 }

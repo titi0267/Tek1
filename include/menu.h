@@ -61,6 +61,7 @@ typedef struct new_game_s {
     sfIntRect *rect_characters;
     int *offset_character;
     int character_chosen;
+    sfIntRect *char_in_game;
 } new_game_t;
 
 typedef struct main_menu_s {

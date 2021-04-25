@@ -47,7 +47,7 @@ void init_text(rpg_t *rpg)
     sfFont *font;
 
     font = sfFont_createFromFile("assets/fonts/aqua.ttf");
-    for (int i = 0; i  <= QUADCOPTER; i++) {
+    for (int i = 0; i <= QUADCOPTER; i++) {
         rpg->menu->stg->key_bnd->control[i]->box = sfText_create();
         sfText_setFont(rpg->menu->stg->key_bnd->control[i]->box, font);
         sfText_setCharacterSize(
