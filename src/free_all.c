@@ -49,7 +49,6 @@ void free_intro_menu(rpg_t *rpg)
     free(rpg->menu->stg->graph->graph_btn);
     free(rpg->menu->stg->graph);
     free(rpg->menu->stg);
-    free_intro(rpg);
 }
 
 void free_all(rpg_t *rpg)
