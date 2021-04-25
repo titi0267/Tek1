@@ -27,6 +27,7 @@ int init_basic_value(rpg_t *rpg)
 void init_function2(rpg_t *rpg)
 {
     init_map_tuto(rpg);
+
     init_cinematic1_audio(rpg);
     init_radio_spt(rpg);
     rpg->menu->main_menu->new_game->character_chosen = rand() % 4;
