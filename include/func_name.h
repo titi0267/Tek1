@@ -92,6 +92,10 @@ void move_side_map(rpg_t *rpg, int on_map);
 void print_player_move(rpg_t *rpg);
 void chose_map(rpg_t *rpg);
 void set_player_rect(rpg_t *rpg);
+int compare_equal_colors(sfColor c1, sfColor c2);
+int compare_collision(rpg_t *rpg, int on_map, int direction, int move);
+void move_left_map(rpg_t *rpg, int on_map);
+int collision(rpg_t *rpg, int on_map, int direction, int move);
 
 sfVector2f put_in_vector2f(float x, float y);
 void assemble_spt_pause(rpg_t *rpg);
@@ -118,5 +122,10 @@ void cinematic_1(rpg_t *rpg);
 void free_all(rpg_t *rpg);
 void destroy_all(rpg_t *rpg);
 int realrandom(void);
+char *my_strcat(char *begin, char *end);
+char *my_putnbr(int nb);
+int my_strlen(char *str);
+
+void save_map(rpg_t *rpg);
 
 #endif /* !prototype */

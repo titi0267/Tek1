@@ -7,6 +7,9 @@
 
 #ifndef gm
 #define gm
+#define COLLISION 1
+#define BEHIND 2
+
 
 typedef struct start_s
 {

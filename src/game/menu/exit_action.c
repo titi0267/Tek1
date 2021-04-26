@@ -29,18 +29,13 @@ void click_on_option(rpg_t *rpg)
     }
 }
 
-void save_infos(rpg_t *rpg)
-{
-    rpg->menu->status = ON_EXIT; // A FAIRE
-}
-
 void click_on_quit(rpg_t *rpg)
 {
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 761)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 614)) &&
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1170)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 689))) {
-        save_infos(rpg);
+        save_map(rpg);
         rpg->menu->status = ON_EXIT;
     }
 }

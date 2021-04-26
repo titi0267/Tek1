@@ -35,7 +35,7 @@ char *my_strcat(char *begin, char *end)
         i++;
     }
     for (int j = 0; end[j]; j++) {
-        final[i] = begin[j];
+        final[i] = end[j];
         i++;
     }
     final[i] = '\0';

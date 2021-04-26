@@ -13,6 +13,7 @@ SRCSFILES=	rpg.c							\
 			open_window.c					\
 			init_window.c					\
 			tools.c							\
+			tools2.c						\
 			parsing.c						\
 			audios.c						\
 			destroy.c						\
@@ -43,6 +44,7 @@ SRCSFILES=	rpg.c							\
 			menu/background.c			\
 			menu/start.c				\
 			game/shortcuts.c		\
+			game/save_game.c			\
 			game/menu/exit.c		\
 			game/menu/exit_action.c	\
 			game/menu/settings_exit.c			\
@@ -55,6 +57,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_cinematics.c		\
 			game/inits/init_police_maps.c		\
 			game/maps/general_player_mv.c	\
+			game/maps/directions.c	\
 			game/maps/map_status.c			\
 			game/inventory/display_inventory.c		\
 			game/tutorial/tuto.c		\
