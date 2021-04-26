@@ -105,6 +105,14 @@ void display_character_at_stop(rpg_t *rpg, int charac, int i)
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->menu->main_menu->new_game->characters[charac], NULL);
     } else if (i == 1) {
+        if (rpg->game->in_game->map->last_pos != -1) {
+            rpg->menu->main_menu->new_game->char_in_game
+            [rpg->game->in_game->map->last_pos].left = 100;
+            sfSprite_setTextureRect(rpg->game->in_game->objects->
+            players[rpg->menu->main_menu->new_game->character_chosen],
+            rpg->menu->main_menu->new_game->char_in_game
+            [rpg->game->in_game->map->last_pos]);
+        }
         for (int d = 0; d != 4; d++) {
             rpg->menu->main_menu->new_game->char_in_game[d].left = 100;
             rpg->menu->main_menu->new_game->offset_character[d] = 0;

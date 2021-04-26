@@ -54,6 +54,10 @@ void cinematic_1(rpg_t *rpg)
         sfSound_play(rpg->game->start->cinematic_1);
         set_voice = 1;
     }
-    if (sfSound_getStatus(rpg->game->start->cinematic_1) == sfPlaying)
+    if (sfSound_getStatus(rpg->game->start->cinematic_1) == sfPlaying) {
+        if (rpg->basic->evt->event.type == sfEvtKeyReleased &&
+        rpg->basic->evt->event.key.code == sfKeySpace)
+            sfSound_stop(rpg->game->start->cinematic_1);
         background_radio(rpg);
+    }
 }

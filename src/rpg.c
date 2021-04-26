@@ -20,6 +20,7 @@ int init_basic_value(rpg_t *rpg)
     rpg->menu->status = ON_BASIL;
     rpg->basic->cnf->scr_cnf->resolution = 0;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
+    rpg->game->in_game->map->last_pos = -1;
     rpg->tutorial->tutorial_stat = TUTO1;
     return (0);
 }

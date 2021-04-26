@@ -20,6 +20,28 @@ int realrandom(void)
     return (0);
 }
 
+char *my_strcat(char *begin, char *end)
+{
+    int begin_lenght = 0;
+    int end_lenght = 0;
+    int i = 0;
+    char *final;
+
+    for (; begin[begin_lenght]; begin_lenght++);
+    for (; end[end_lenght]; end_lenght++);
+    final = malloc(sizeof(char) * ((end_lenght + begin_lenght) + 2));
+    for (int j = 0; begin[j]; j++) {
+        final[i] = begin[j];
+        i++;
+    }
+    for (int j = 0; end[j]; j++) {
+        final[i] = begin[j];
+        i++;
+    }
+    final[i] = '\0';
+    return (final);
+}
+
 sfVector2f put_in_vector2f(float x, float y)
 {
     sfVector2f pos = {x, y};

@@ -41,8 +41,11 @@ typedef struct objects_s
 typedef struct map_s
 {
     sfSprite **maps;
-    sfSprite **collisions;
+    sfImage **collisions;
     sfVector2f *pos_map;
+    sfVector2u *tex_size_map;
+    int last_pos;
+    sfColor color;
     int status;
 } map_t;
 

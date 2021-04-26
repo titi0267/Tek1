@@ -25,7 +25,7 @@ void print_player_move(rpg_t *rpg)
 {
     sfVector2f pos = {960, 540};
 
-    //stopped_moving(rpg);
+    stopped_moving(rpg);
     sfSprite_setPosition(rpg->game->in_game->objects->players
     [rpg->menu->main_menu->new_game->character_chosen], pos);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
@@ -64,18 +64,20 @@ void move_up_down_map(rpg_t *rpg,int on_map)
         rpg->game->in_game->map->pos_map[on_map].y += 3;
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
-        sfSprite_setPosition(rpg->game->in_game->map->collisions[on_map],
-        rpg->game->in_game->map->pos_map[on_map]);
+        //sfSprite_setPosition(rpg->game->in_game->map->collisions[on_map],
+        //rpg->game->in_game->map->pos_map[on_map]);
         rect_move_player(rpg, UP);
+        rpg->game->in_game->map->last_pos = UP;
     }
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0]) {
         rpg->game->in_game->map->pos_map[on_map].y -= 3;
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
-        sfSprite_setPosition(rpg->game->in_game->map->collisions[on_map],
-        rpg->game->in_game->map->pos_map[on_map]);
+        //sfSprite_setPosition(rpg->game->in_game->map->collisions[on_map],
+        //rpg->game->in_game->map->pos_map[on_map]);
         rect_move_player(rpg, DOWN);
+        rpg->game->in_game->map->last_pos = DOWN;
     }
 }
 
@@ -86,18 +88,20 @@ void move_side_map(rpg_t *rpg, int on_map)
         rpg->game->in_game->map->pos_map[on_map].x += 3;
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
-        sfSprite_setPosition(rpg->game->in_game->map->collisions[on_map],
-        rpg->game->in_game->map->pos_map[on_map]);
+        //sfSprite_setPosition(rpg->game->in_game->map->collisions[on_map],
+        //rpg->game->in_game->map->pos_map[on_map]);
         rect_move_player(rpg, LEFT);
+        rpg->game->in_game->map->last_pos = LEFT;
     }
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0]) {
         rpg->game->in_game->map->pos_map[on_map].x -= 3;
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
-        sfSprite_setPosition(rpg->game->in_game->map->collisions[on_map],
-        rpg->game->in_game->map->pos_map[on_map]);
+        //sfSprite_setPosition(rpg->game->in_game->map->collisions[on_map],
+        //rpg->game->in_game->map->pos_map[on_map]);
         rect_move_player(rpg, RIGHT);
+        rpg->game->in_game->map->last_pos = RIGHT;
     }
     move_up_down_map(rpg, on_map);
 }

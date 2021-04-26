@@ -22,3 +22,9 @@ void chose_map(rpg_t *rpg)
         print_map(rpg, rpg->game->in_game->map->status);
     }
 }
+
+void collision(rpg_t *rpg, int map)
+{
+    rpg->game->in_game->map->color =
+    sfImage_getPixel(rpg->game->in_game->map->collisions[MAP_INSIDE_POLICE], 100, 100);
+}
