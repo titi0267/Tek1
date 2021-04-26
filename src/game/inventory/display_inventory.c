@@ -27,27 +27,34 @@ void display_weapons(rpg_t *rpg)
         rpg->game->in_game->inventory->pos_weapon[i] = pos_wp[i];
         sfSprite_setPosition(rpg->game->in_game->inventory->weapon[i],
         pos_wp[i]);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->game->in_game->inventory->weapon[i], NULL);
     }
 }
-
-void detect_weapon(rpg_t *rpg)
+/*
+void detect_weapon(rpg_t *rpg, sfVector2f mouse)
 {
-    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 396)) &&
-    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 362)) &&
-    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 645)) &&
-    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 709))) {
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-        rpg->menu->main_menu->new_game->select[MAXOU], NULL);
-        move_characters(rpg, MAXOU);
+    if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 825.5)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 421.5)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 901.5)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 497.5))) {
+            sfSprite_setPosition
+            (rpg->game->in_game->inventory->weapon[SMG], mouse);
+            if (mouse.x)
+        }
     }
 }
 
 void detect_stuff(rpg_t *rpg)
 {
-    detect_weapon(rpg);
+    sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
+    sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
+
+    //detect_weapon(rpg, mouse);
     //detect_ammo(rpg);
     //detect_bulletproofvest(rpg);
-}
+} */
 
 void display_inventory(rpg_t *rpg)
 {
@@ -61,6 +68,6 @@ void display_inventory(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->main_menu->new_game->characters[charac], NULL);
     move_characters(rpg, charac);
-    // display_weapons(rpg);
-    // detect_stuff(rpg);
+    display_weapons(rpg);
+    //detect_stuff(rpg);
 }

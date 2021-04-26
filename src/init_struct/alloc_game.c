@@ -35,5 +35,7 @@ int game_malloc2(rpg_t *rpg)
 {
     if ((rpg->game->in_game->ig_menus = malloc(sizeof(ig_menus_t))) == NULL)
         return (MALLOC_ERROR);
+    if ((rpg->game->in_game->map = malloc(sizeof(map_t))) == NULL)
+        return (MALLOC_ERROR);
     return (0);
 }

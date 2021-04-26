@@ -40,7 +40,10 @@ typedef struct objects_s
 
 typedef struct map_s
 {
-
+    sfSprite **maps;
+    sfSprite **collisions;
+    sfVector2f *pos_map;
+    int status;
 } map_t;
 
 typedef struct txt_s

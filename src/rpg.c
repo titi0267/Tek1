@@ -26,11 +26,12 @@ int init_basic_value(rpg_t *rpg)
 
 void init_function2(rpg_t *rpg)
 {
+    init_pause(rpg);
+    init_exit_option1(rpg);
     init_map_tuto(rpg);
-
     init_cinematic1_audio(rpg);
     init_radio_spt(rpg);
-    rpg->menu->main_menu->new_game->character_chosen = rand() % 4;
+    create_police_map(rpg);
 }
 
 int init_function(rpg_t *rpg)
@@ -48,10 +49,8 @@ int init_function(rpg_t *rpg)
     init_new_game(rpg);
     init_characters_sprites(rpg);
     init_inventory(rpg);
-    init_pause(rpg);
-    init_exit_option1(rpg);
-    if (init_pdown_up_rect(rpg) == MALLOC_ERROR || init_tuto(rpg) == 84 ||
-    realrandom() == 84)
+    if (init_tuto(rpg) == 84 || realrandom() == 84 ||
+        init_pdown_up_rect(rpg) == MALLOC_ERROR)
         return (MALLOC_ERROR);
     init_function2(rpg);
     return (0);

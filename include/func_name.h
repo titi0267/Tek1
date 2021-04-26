@@ -71,7 +71,7 @@ void choose_perso(rpg_t *rpg);
 void sound(rpg_t *rpg, int status);
 void move_characters(rpg_t *rpg, int character);
 void init_characters_sprites(rpg_t *rpg);
-void display_character_at_stop(rpg_t *rpg, int charac);
+void display_character_at_stop(rpg_t *rpg, int charac, int i);
 int game_malloc(rpg_t *rpg);
 
 void init_inventory(rpg_t *rpg);
@@ -86,6 +86,12 @@ void click_on_option(rpg_t *rpg);
 void click_on_quit(rpg_t *rpg);
 
 int init_pdown_up_rect(rpg_t *rpg);
+int create_police_map(rpg_t *rpg);
+void rect_move_player(rpg_t *rpg, int direction);
+void move_side_map(rpg_t *rpg, int on_map);
+void print_player_move(rpg_t *rpg);
+void chose_map(rpg_t *rpg);
+void set_player_rect(rpg_t *rpg);
 
 sfVector2f put_in_vector2f(float x, float y);
 void assemble_spt_pause(rpg_t *rpg);

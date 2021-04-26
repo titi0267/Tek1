@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void print_player_move(rpg_t *rpg)
+void print_player_move_tuto(rpg_t *rpg)
 {
     sfVector2f pos = {660, 540};
 
@@ -16,31 +16,6 @@ void print_player_move(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->objects->players
     [rpg->menu->main_menu->new_game->character_chosen], NULL);
-}
-
-void rect_move_player(rpg_t *rpg, int direction)
-{
-    static float nbr = 0;
-
-    if (nbr > 0.1) {
-        rpg->menu->main_menu->new_game->char_in_game[direction].left =
-        (rpg->menu->main_menu->new_game->offset_character
-        [rpg->menu->main_menu->new_game->character_chosen] *
-        (rpg->menu->main_menu->new_game->char_in_game[direction].width + 196)) +
-        100;
-        nbr = 0;
-        rpg->menu->main_menu->new_game->offset_character
-        [rpg->menu->main_menu->new_game->character_chosen]++;
-    }
-    if (rpg->menu->main_menu->new_game->offset_character[
-        rpg->menu->main_menu->new_game->character_chosen] > 3) {
-        rpg->menu->main_menu->new_game->offset_character[
-        rpg->menu->main_menu->new_game->character_chosen] = 0;
-    }
-    nbr += rpg->basic->cnf->clk->time_loop;
-    sfSprite_setTextureRect(rpg->game->in_game->objects->players
-    [rpg->menu->main_menu->new_game->character_chosen],
-    rpg->menu->main_menu->new_game->char_in_game[direction]);
 }
 
 void move_up_down_tuto_map(rpg_t *rpg)
@@ -79,7 +54,8 @@ void move_side_tuto_map(rpg_t *rpg)
 void tuto_map(rpg_t *rpg)
 {
     move_side_tuto_map(rpg);
+    sfSprite_setPosition(rpg->tutorial->map_tuto_col, rpg->tutorial->map_pos);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->tutorial->map_tuto, NULL);
-    print_player_move(rpg);
+    print_player_move_tuto(rpg);
 }

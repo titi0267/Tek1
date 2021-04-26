@@ -28,7 +28,8 @@ typedef enum rpg_status_s {
     ON_EXIT,
     ON_OPTION_PAUSE,
     ON_CINEMATIC1,
-    ON_CINEMATIC2
+    ON_CINEMATIC2,
+    
 } rpg_status_t;
 
 typedef enum spt_btn_s {
@@ -116,5 +117,11 @@ typedef enum controle_text_s {
     CAR,
     QUADCOPTER
 } controle_text_t;
+
+typedef enum map_enum_s {
+    MAP_INSIDE_POLICE,
+    MAP_OUTSIDE_POLICE,
+    NO_MAP
+} map_enum_t;
 
 #endif /* !enumeration */

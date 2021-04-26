@@ -17,7 +17,7 @@ void hover_perso1(rpg_t *rpg)
         rpg->menu->main_menu->new_game->select[MAXOU], NULL);
         move_characters(rpg, MAXOU);
     } else
-        display_character_at_stop(rpg, MAXOU);
+        display_character_at_stop(rpg, MAXOU, 0);
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 689)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 362)) &&
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 938)) &&
@@ -26,7 +26,7 @@ void hover_perso1(rpg_t *rpg)
         rpg->menu->main_menu->new_game->select[TIMO], NULL);
         move_characters(rpg, TIMO);
     } else
-        display_character_at_stop(rpg, TIMO);
+        display_character_at_stop(rpg, TIMO, 0);
 }
 
 void hover_perso2(rpg_t *rpg)
@@ -39,7 +39,7 @@ void hover_perso2(rpg_t *rpg)
         rpg->menu->main_menu->new_game->select[LUDO], NULL);
         move_characters(rpg, LUDO);
     } else
-        display_character_at_stop(rpg, LUDO);
+        display_character_at_stop(rpg, LUDO, 0);
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1275)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 362)) &&
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1524)) &&
@@ -48,7 +48,7 @@ void hover_perso2(rpg_t *rpg)
         rpg->menu->main_menu->new_game->select[SYLVIE], NULL);
         move_characters(rpg, SYLVIE);
     } else
-        display_character_at_stop(rpg, SYLVIE);
+        display_character_at_stop(rpg, SYLVIE, 0);
 }
 
 void select_characters2(rpg_t *rpg)
@@ -90,14 +90,22 @@ void select_characters(rpg_t *rpg)
     }
 }
 
-void display_character_at_stop(rpg_t *rpg, int charac)
+void display_character_at_stop(rpg_t *rpg, int charac, int i)
 {
-    rpg->menu->main_menu->new_game->rect_characters[charac].left = 0;
-    rpg->menu->main_menu->new_game->offset_character[charac] = 0;
-    sfSprite_setTextureRect(rpg->menu->main_menu->new_game->characters[charac],
-    rpg->menu->main_menu->new_game->rect_characters[charac]);
-    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-    rpg->menu->main_menu->new_game->characters[charac], NULL);
+    if (i == 0) {
+        rpg->menu->main_menu->new_game->rect_characters[charac].left = 0;
+        rpg->menu->main_menu->new_game->offset_character[charac] = 0;
+        sfSprite_setTextureRect
+        (rpg->menu->main_menu->new_game->characters[charac],
+        rpg->menu->main_menu->new_game->rect_characters[charac]);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->menu->main_menu->new_game->characters[charac], NULL);
+    } else if (i == 1) {
+        for (int d = 0; d != 4; d++) {
+            rpg->menu->main_menu->new_game->char_in_game[d].left = 100;
+            rpg->menu->main_menu->new_game->offset_character[d] = 0;
+        }
+    }
 }
 
 void choose_perso(rpg_t *rpg)

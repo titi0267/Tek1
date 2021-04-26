@@ -79,11 +79,12 @@ void parsing_menu3(rpg_t *rpg)
 void parsing_menu4(rpg_t *rpg)
 {
     if (rpg->menu->status == ON_CINEMATIC1) {
-    sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
-    cinematic_1(rpg);
-    if (sfSound_getStatus(rpg->game->start->cinematic_1) != sfPlaying)
-        rpg->menu->status = ON_GAME;
+        sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
+        cinematic_1(rpg);
+        if (sfSound_getStatus(rpg->game->start->cinematic_1) != sfPlaying)
+            rpg->menu->status = ON_GAME;
     }
+    chose_map(rpg);
 }
 
 int parsing(rpg_t *rpg)
