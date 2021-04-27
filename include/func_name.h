@@ -77,6 +77,7 @@ void player_stop(rpg_t *rpg);
 void hover_perso2(rpg_t *rpg);
 void hover_perso1(rpg_t *rpg);
 void stopped_moving(rpg_t *rpg);
+sfVector2u put_in_vector2u(unsigned int x, unsigned int y);
 int game_malloc(rpg_t *rpg);
 
 void init_inventory(rpg_t *rpg);

@@ -38,6 +38,11 @@ void give_police_pos_map(rpg_t *rpg)
     rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE]);
     sfSprite_setPosition(rpg->game->in_game->map->maps[MAP_OUTSIDE_POLICE],
     rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE]);
+    rpg->game->in_game->map->col_real[MAP_INSIDE_POLICE] =
+    put_in_vector2u(930, 485);
+    rpg->game->in_game->map->col_real[MAP_OUTSIDE_POLICE] =
+    put_in_vector2u(500, 500);
+    rpg->game->in_game->map->col_real[MAP_TUTO] = put_in_vector2u(660, 540);
 }
 
 int create_police_map(rpg_t *rpg)
@@ -48,8 +53,9 @@ int create_police_map(rpg_t *rpg)
     == NULL || (rpg->game->in_game->map->collisions = malloc(sizeof(sfImage *)
     * map_nbr)) == NULL || (rpg->game->in_game->map->pos_map =
     malloc(sizeof(sfVector2f) * map_nbr)) == NULL ||
-    (rpg->game->in_game->map->tex_size_map =
-    malloc(sizeof(sfVector2u) * map_nbr)) == NULL)
+    (rpg->game->in_game->map->tex_size_map = malloc(sizeof(sfVector2u) *
+    map_nbr)) == NULL || (rpg->game->in_game->map->col_real = malloc
+    (sizeof(sfVector2u) * map_nbr)) == NULL)
         return (MALLOC_ERROR);
     for (int i = MAP_INSIDE_POLICE; i != NO_MAP; i++)
         rpg->game->in_game->map->maps[i] = sfSprite_create();

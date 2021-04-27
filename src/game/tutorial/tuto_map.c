@@ -58,12 +58,8 @@ void move_side_tuto_map(rpg_t *rpg)
 
 void tuto_map(rpg_t *rpg)
 {
-    //move_side_tuto_map(rpg);
     int on_map = rpg->game->in_game->map->status;
-    //sfSprite_setPosition(rpg->tutorial->map_tuto_col, rpg->tutorial->map_pos);
-    //sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-    //rpg->tutorial->map_tuto, NULL);
-    printf("x = %i & y = %i\n", (int)rpg->game->in_game->map->pos_map[MAP_TUTO].x, (int)rpg->game->in_game->map->pos_map[MAP_TUTO].y);
+
     move_left_map(rpg, on_map);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->map->maps[on_map], NULL);

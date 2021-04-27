@@ -14,10 +14,6 @@ void free_game(rpg_t *rpg)
     free(rpg->game->in_game->ig_menus);
     free(rpg->game->in_game->objects);
     free(rpg->game->in_game->txt);
-    for (int i = MAP_INSIDE_POLICE; i != NO_MAP; i++) {
-        free(rpg->game->in_game->map->maps[i]);
-        free(rpg->game->in_game->map->collisions[i]);
-    }
     free(rpg->game->in_game->map->pos_map);
     free(rpg->game->in_game->map);
     free(rpg->game->in_game);

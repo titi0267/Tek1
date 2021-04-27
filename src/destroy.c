@@ -49,6 +49,11 @@ void destroy_game(rpg_t *rpg)
         sfSprite_destroy(rpg->game->in_game->inventory->weapon[i]);
     for (int i = TUTO1; i <= TUTO5; i++)
         sfSprite_destroy(rpg->tutorial->instruct[i]);
+    for (int i = MAP_INSIDE_POLICE; i != NO_MAP; i++) {
+        sfSprite_destroy(rpg->game->in_game->map->maps[i]);
+        sfImage_destroy(rpg->game->in_game->map->collisions[i]);
+    }
+
 }
 
 void destroy_all(rpg_t *rpg)

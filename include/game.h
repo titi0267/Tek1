@@ -47,6 +47,7 @@ typedef struct map_s
     sfImage **collisions;
     sfVector2f *pos_map;
     sfVector2u *tex_size_map;
+    sfVector2u *col_real;
     int last_pos;
     sfColor color;
     int status;
