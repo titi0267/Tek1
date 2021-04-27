@@ -47,7 +47,6 @@ void destroy_game(rpg_t *rpg)
         sfSprite_destroy(rpg->game->in_game->ig_menus->pause_menu[i]);
     for (int i = SMG; i < NO_WEAPON; i++)
         sfSprite_destroy(rpg->game->in_game->inventory->weapon[i]);
-    sfSprite_destroy(rpg->tutorial->map_tuto);
     for (int i = TUTO1; i <= TUTO5; i++)
         sfSprite_destroy(rpg->tutorial->instruct[i]);
 }

@@ -120,6 +120,7 @@ typedef enum controle_text_s {
 typedef enum map_enum_s {
     MAP_INSIDE_POLICE,
     MAP_OUTSIDE_POLICE,
+    MAP_TUTO,
     NO_MAP
 } map_enum_t;
 

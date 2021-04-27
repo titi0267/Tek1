@@ -53,7 +53,6 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_player_rect.c		\
 			game/inits/init_exit_settings.c		\
 			game/inits/init_tuto.c				\
-			game/inits/init_tuto_map.c			\
 			game/inits/init_cinematics.c		\
 			game/inits/init_police_maps.c		\
 			game/maps/general_player_mv.c	\

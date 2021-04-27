@@ -9,6 +9,7 @@
 
 sfColor *col_up(rpg_t *rpg, sfColor *color, int pos_x, int pos_y)
 {
+    printf("x = %i & y = %i\n", pos_x * -1 + 930, pos_y * -1 + 580);
     color[0] = sfImage_getPixel(rpg->game->in_game->map->collisions
     [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1) + 930),
     (unsigned int)(pos_y * -1) + 580);

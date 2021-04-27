@@ -42,7 +42,7 @@ void give_police_pos_map(rpg_t *rpg)
 
 int create_police_map(rpg_t *rpg)
 {
-    int map_nbr = 3;
+    int map_nbr = 4;
 
     if ((rpg->game->in_game->map->maps = malloc(sizeof(sfSprite *) * map_nbr))
     == NULL || (rpg->game->in_game->map->collisions = malloc(sizeof(sfImage *)
@@ -55,6 +55,7 @@ int create_police_map(rpg_t *rpg)
         rpg->game->in_game->map->maps[i] = sfSprite_create();
     police_texture_map(rpg);
     give_police_pos_map(rpg);
+    init_map_tuto(rpg);
     rpg->game->in_game->map->color = sfImage_getPixel(
     rpg->game->in_game->map->collisions[MAP_INSIDE_POLICE], 4999, 4999);
     return (0);

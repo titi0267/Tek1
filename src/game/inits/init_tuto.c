@@ -20,6 +20,28 @@ void init_tuto2(rpg_t *rpg)
     tuto5, sfTrue);
 }
 
+void init_map_tuto(rpg_t *rpg)
+{
+    sfTexture *map = sfTexture_createFromFile
+    ("assets/tutorial/maps/map_tuto.png", NULL);
+    rpg->game->in_game->map->collisions[MAP_TUTO] = sfImage_createFromFile
+    ("assets/tutorial/maps/col_tuto.png");
+    sfVector2f pos = {0, -30};
+    rpg->game->in_game->map->pos_map[MAP_TUTO] = put_in_vector2f(0, 0);
+
+    //rpg->game->in_game->map->pos_map[MAP_TUTO] = put_in_vector2f(-879, -542);
+    sfSprite_setTexture(rpg->game->in_game->map->maps[MAP_TUTO],
+    map, sfTrue);
+    sfSprite_setPosition(rpg->game->in_game->map->maps[MAP_TUTO],
+    rpg->game->in_game->map->pos_map[MAP_TUTO]);
+    for (int i = TUTO1; i != TUTO5; i++)
+        sfSprite_setPosition(rpg->tutorial->instruct[i], pos);
+    rpg->game->in_game->map->tex_size_map[MAP_TUTO] =
+    sfTexture_getSize(map);
+    //sfSprite_setOrigin(rpg->game->in_game->map->maps[MAP_TUTO], pos_origin);
+    printf("tex_x = %i & tex_y = %i\n", rpg->game->in_game->map->tex_size_map[MAP_TUTO].x, rpg->game->in_game->map->tex_size_map[MAP_TUTO].y);
+}
+
 int init_tuto(rpg_t *rpg)
 {
     sfTexture *tuto1 = sfTexture_createFromFile

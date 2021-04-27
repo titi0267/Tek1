@@ -29,7 +29,6 @@ void init_function2(rpg_t *rpg)
 {
     init_pause(rpg);
     init_exit_option1(rpg);
-    init_map_tuto(rpg);
     init_cinematic1_audio(rpg);
     init_radio_spt(rpg);
     create_police_map(rpg);
