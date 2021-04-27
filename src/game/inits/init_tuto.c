@@ -27,9 +27,9 @@ void init_map_tuto(rpg_t *rpg)
     rpg->game->in_game->map->collisions[MAP_TUTO] = sfImage_createFromFile
     ("assets/tutorial/maps/col_tuto.png");
     sfVector2f pos = {0, -30};
-    rpg->game->in_game->map->pos_map[MAP_TUTO] = put_in_vector2f(0, 0);
-
-    //rpg->game->in_game->map->pos_map[MAP_TUTO] = put_in_vector2f(-879, -542);
+    //rpg->game->in_game->map->pos_map[MAP_TUTO] = put_in_vector2f(660, 540);
+    // origine map : 660 540
+    rpg->game->in_game->map->pos_map[MAP_TUTO] = put_in_vector2f(-879, -542);
     sfSprite_setTexture(rpg->game->in_game->map->maps[MAP_TUTO],
     map, sfTrue);
     sfSprite_setPosition(rpg->game->in_game->map->maps[MAP_TUTO],
