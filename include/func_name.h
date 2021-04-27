@@ -133,5 +133,7 @@ char *my_putnbr(int nb);
 int my_strlen(char *str);
 
 void save_map(rpg_t *rpg);
+void load_save(rpg_t *rpg);
+int my_getnbr(char const *str);
 
 #endif /* !prototype */

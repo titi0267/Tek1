@@ -14,6 +14,7 @@ SRCSFILES=	rpg.c							\
 			init_window.c					\
 			tools.c							\
 			tools2.c						\
+			tools3.c						\
 			parsing.c						\
 			audios.c						\
 			destroy.c						\
@@ -43,8 +44,10 @@ SRCSFILES=	rpg.c							\
 			menu/settings/options_key.c			\
 			menu/background.c			\
 			menu/start.c				\
-			game/shortcuts.c		\
+			game/shortcuts.c			\
 			game/save_game.c			\
+			game/continue.c				\
+			game/cinematics.c			\
 			game/menu/exit.c		\
 			game/menu/exit_action.c	\
 			game/menu/settings_exit.c			\
@@ -62,7 +65,6 @@ SRCSFILES=	rpg.c							\
 			game/inventory/display_inventory.c		\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\
-			game/cinematics.c			\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 
