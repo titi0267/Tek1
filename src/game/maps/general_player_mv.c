@@ -17,8 +17,7 @@ void stopped_moving(rpg_t *rpg)
     (unsigned int)rpg->menu->stg->key_bnd->control[LEFT]->text[0]) &&
     (rpg->basic->evt->event.text.unicode !=
     (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0]))
-        display_character_at_stop(rpg,
-        rpg->menu->main_menu->new_game->character_chosen, 1);
+        player_stop(rpg);
 }
 
 void print_player_move(rpg_t *rpg)

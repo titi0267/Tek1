@@ -16,6 +16,7 @@ void print_player_move_tuto(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->objects->players
     [rpg->menu->main_menu->new_game->character_chosen], NULL);
+    stopped_moving(rpg);
 }
 
 void move_up_down_tuto_map(rpg_t *rpg)
@@ -25,12 +26,14 @@ void move_up_down_tuto_map(rpg_t *rpg)
         rpg->tutorial->map_pos.y += 3;
         sfSprite_setPosition(rpg->tutorial->map_tuto, rpg->tutorial->map_pos);
         rect_move_player(rpg, UP);
+        rpg->game->in_game->map->last_pos = UP;
     }
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0]) {
         rpg->tutorial->map_pos.y -= 3;
         sfSprite_setPosition(rpg->tutorial->map_tuto, rpg->tutorial->map_pos);
         rect_move_player(rpg, DOWN);
+        rpg->game->in_game->map->last_pos = DOWN;
     }
 }
 
@@ -41,12 +44,14 @@ void move_side_tuto_map(rpg_t *rpg)
         rpg->tutorial->map_pos.x += 3;
         sfSprite_setPosition(rpg->tutorial->map_tuto, rpg->tutorial->map_pos);
         rect_move_player(rpg, LEFT);
+        rpg->game->in_game->map->last_pos = LEFT;
     }
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0]) {
         rpg->tutorial->map_pos.x -= 3;
         sfSprite_setPosition(rpg->tutorial->map_tuto, rpg->tutorial->map_pos);
         rect_move_player(rpg, RIGHT);
+        rpg->game->in_game->map->last_pos = RIGHT;
     }
     move_up_down_tuto_map(rpg);
 }

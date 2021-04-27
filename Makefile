@@ -34,7 +34,7 @@ SRCSFILES=	rpg.c							\
 			menu/main_menu/hitbox_main_menu.c		\
 			menu/main_menu/main_menu.c				\
 			menu/new_game/choose_perso.c		\
-			menu/new_game/move_characters.c		\
+			menu/new_game/display_character.c	\
 			menu/settings/manage_graph.c		\
 			menu/settings/options_graph.c		\
 			menu/settings/options_sound.c		\
