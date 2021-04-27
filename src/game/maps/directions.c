@@ -14,7 +14,7 @@ void move_up_map(rpg_t *rpg, int on_map)
         rpg->game->in_game->map->pos_map[on_map].y += 3;
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
-        if (collision(rpg, on_map, UP, 3) == COLLISION) {
+        if (collision(rpg, UP) == COLLISION) {
             rpg->game->in_game->map->pos_map[on_map].y -= 3;
         }
         rect_move_player(rpg, UP);
@@ -28,7 +28,7 @@ void move_down_map(rpg_t *rpg,int on_map)
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0]) {
         rpg->game->in_game->map->pos_map[on_map].y -= 3;
-        if (collision(rpg, on_map, DOWN, 3) == COLLISION)
+        if (collision(rpg, DOWN) == COLLISION)
             rpg->game->in_game->map->pos_map[on_map].y += 3;
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
@@ -43,7 +43,7 @@ void move_right_map(rpg_t *rpg, int on_map)
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0]) {
         rpg->game->in_game->map->pos_map[on_map].x -= 3;
-        if (collision(rpg, on_map, RIGHT, 3) == COLLISION) {
+        if (collision(rpg, RIGHT) == COLLISION) {
             rpg->game->in_game->map->pos_map[on_map].x += 3;
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
@@ -59,7 +59,7 @@ void move_left_map(rpg_t *rpg, int on_map)
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[LEFT]->text[0]) {
         rpg->game->in_game->map->pos_map[on_map].x += 3;
-        if (collision(rpg, on_map, LEFT, 3) == COLLISION) {
+        if (collision(rpg, LEFT) == COLLISION) {
             rpg->game->in_game->map->pos_map[on_map].x -= 3;
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
