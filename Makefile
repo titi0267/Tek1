@@ -58,6 +58,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_tuto.c				\
 			game/inits/init_cinematics.c		\
 			game/inits/init_police_maps.c		\
+			game/inits/init_car.c				\
 			game/maps/general_player_mv.c	\
 			game/maps/directions.c			\
 			game/maps/collisions.c			\
@@ -65,6 +66,7 @@ SRCSFILES=	rpg.c							\
 			game/inventory/display_inventory.c		\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\
+			game/inventory/inventory_manager.c	\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

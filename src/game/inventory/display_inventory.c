@@ -15,6 +15,22 @@
 // - ((1007.5, 421.5) , (1083.5, 497.5))
 // - ((1098.5, 421.5) , (1174.5, 497.5))
 
+void drag_and_drop(rpg_t *rpg, int selected)
+{
+    sfVector2f ms_pos = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
+    sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
+
+    ms_pos.x -= sfSprite_getGlobalBounds(
+    rpg->game->in_game->inventory->weapon[selected]).width / 2;
+    ms_pos.y -= sfSprite_getGlobalBounds(
+    rpg->game->in_game->inventory->weapon[selected]).height / 2;
+    sfSprite_setPosition(
+    rpg->game->in_game->inventory->weapon[selected], ms_pos);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+    rpg->game->in_game->inventory->weapon[selected], NULL);
+    sfRenderWindow_setMouseCursorVisible(rpg->basic->wnd->my_wnd, FALSE);
+}
+
 void display_weapons(rpg_t *rpg)
 {
     sfVector2f *pos_wp = malloc(sizeof(sfVector2f) * 5);
@@ -31,30 +47,18 @@ void display_weapons(rpg_t *rpg)
         rpg->game->in_game->inventory->weapon[i], NULL);
     }
 }
-/*
-void detect_weapon(rpg_t *rpg, sfVector2f mouse)
-{
-    if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
-        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 825.5)) &&
-        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 421.5)) &&
-        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 901.5)) &&
-        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 497.5))) {
-            sfSprite_setPosition
-            (rpg->game->in_game->inventory->weapon[SMG], mouse);
-            if (mouse.x)
-        }
-    }
-}
+
+
 
 void detect_stuff(rpg_t *rpg)
 {
-    sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
-    sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
+    //sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
+    //sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
 
-    //detect_weapon(rpg, mouse);
+    detect_weapon(rpg);
     //detect_ammo(rpg);
     //detect_bulletproofvest(rpg);
-} */
+}
 
 void display_inventory(rpg_t *rpg)
 {
@@ -69,5 +73,5 @@ void display_inventory(rpg_t *rpg)
     rpg->menu->main_menu->new_game->characters[charac], NULL);
     move_characters(rpg, charac);
     display_weapons(rpg);
-    //detect_stuff(rpg);
+    detect_stuff(rpg);
 }

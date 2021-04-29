@@ -24,6 +24,7 @@ void move_up_down_tuto_map(rpg_t *rpg)
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[UP]->text[0]) {
         rpg->tutorial->map_pos.y += 3;
+        rpg->game->in_game->objects->car->car_pos.x += 3;
         sfSprite_setPosition(rpg->tutorial->map_tuto, rpg->tutorial->map_pos);
         rect_move_player(rpg, UP);
         rpg->game->in_game->map->last_pos = UP;
@@ -31,6 +32,7 @@ void move_up_down_tuto_map(rpg_t *rpg)
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0]) {
         rpg->tutorial->map_pos.y -= 3;
+        rpg->game->in_game->objects->car->car_pos.x -= 3;
         sfSprite_setPosition(rpg->tutorial->map_tuto, rpg->tutorial->map_pos);
         rect_move_player(rpg, DOWN);
         rpg->game->in_game->map->last_pos = DOWN;
@@ -42,6 +44,7 @@ void move_side_tuto_map(rpg_t *rpg)
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[LEFT]->text[0]) {
         rpg->tutorial->map_pos.x += 3;
+        rpg->game->in_game->objects->car->car_pos.x += 3;
         sfSprite_setPosition(rpg->tutorial->map_tuto, rpg->tutorial->map_pos);
         rect_move_player(rpg, LEFT);
         rpg->game->in_game->map->last_pos = LEFT;
@@ -49,6 +52,7 @@ void move_side_tuto_map(rpg_t *rpg)
     if (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0]) {
         rpg->tutorial->map_pos.x -= 3;
+        rpg->game->in_game->objects->car->car_pos.x -= 3;
         sfSprite_setPosition(rpg->tutorial->map_tuto, rpg->tutorial->map_pos);
         rect_move_player(rpg, RIGHT);
         rpg->game->in_game->map->last_pos = RIGHT;

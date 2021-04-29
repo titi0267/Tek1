@@ -37,5 +37,7 @@ int game_malloc2(rpg_t *rpg)
         return (MALLOC_ERROR);
     if ((rpg->game->in_game->map = malloc(sizeof(map_t))) == NULL)
         return (MALLOC_ERROR);
+    if ((rpg->game->in_game->objects->car = malloc(sizeof(car_t))) == NULL)
+        return (MALLOC_ERROR);
     return (0);
 }

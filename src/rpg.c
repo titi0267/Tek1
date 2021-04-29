@@ -32,6 +32,7 @@ void init_function2(rpg_t *rpg)
     init_cinematic1_audio(rpg);
     init_radio_spt(rpg);
     create_police_map(rpg);
+    init_car_spt(rpg);
 }
 
 int init_function(rpg_t *rpg)

@@ -83,5 +83,7 @@ void tuto1(rpg_t *rpg)
             rpg->basic->cnf->clk->time_tutorial = 0;
         }
     }
+    if (rpg->tutorial->tutorial_stat >= 1)
+        print_car(rpg);
     tuto2(rpg);
 }

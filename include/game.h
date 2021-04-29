@@ -36,9 +36,18 @@ typedef struct ig_sound_s
 
 } ig_sound_t;
 
+typedef struct car_s
+{
+    sfSprite *car;
+    sfIntRect rect_car;
+    sfVector2f car_pos;
+} car_t;
+
+
 typedef struct objects_s
 {
     sfSprite **players;
+    car_t *car;
 } objects_t;
 
 typedef struct map_s

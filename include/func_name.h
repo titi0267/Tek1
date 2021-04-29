@@ -135,5 +135,10 @@ int my_strlen(char *str);
 void save_map(rpg_t *rpg);
 void load_save(rpg_t *rpg);
 int my_getnbr(char const *str);
+void init_car_spt(rpg_t *rpg);
+void print_car(rpg_t *rpg);
+
+void detect_weapon(rpg_t *rpg);
+void drag_and_drop(rpg_t *rpg, int selected);
 
 #endif /* !prototype */
