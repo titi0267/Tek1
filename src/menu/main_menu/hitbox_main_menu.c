@@ -52,8 +52,7 @@ int clic2(rpg_t *rpg)
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 589))) {
         rpg->menu->status = ON_TUTO;
-        rpg->game->in_game->objects->car->car_pos.x = 360.0;
-        rpg->game->in_game->objects->car->car_pos.y = 180.0;
+        set_pos_car(rpg);
     }
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 589.5)) &&

@@ -124,4 +124,10 @@ typedef enum map_enum_s {
     NO_MAP
 } map_enum_t;
 
+typedef enum collisions_s {
+    COL,
+    MASK,
+    PASS
+} collision_t;
+
 #endif /* !enumeration */

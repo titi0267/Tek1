@@ -62,7 +62,16 @@ int create_police_map(rpg_t *rpg)
     police_texture_map(rpg);
     give_police_pos_map(rpg);
     init_map_tuto(rpg);
-    rpg->game->in_game->map->color = sfImage_getPixel(
-    rpg->game->in_game->map->collisions[MAP_INSIDE_POLICE], 4999, 4999);
+    return (set_key_color(rpg));
+}
+
+int set_key_color(rpg_t *rpg)
+{
+    if ((rpg->game->in_game->map->color = malloc(sizeof(sfColor) * 4)) == NULL)
+        return (MALLOC_ERROR);
+    rpg->game->in_game->map->color[COL] = sfImage_getPixel
+    (rpg->game->in_game->map->collisions[MAP_INSIDE_POLICE], 4999, 4999);
+    rpg->game->in_game->map->color[MASK] = sfImage_getPixel
+    (rpg->game->in_game->map->collisions[MAP_TUTO], 0, 0);
     return (0);
 }
