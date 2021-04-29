@@ -5,7 +5,7 @@
 ** tools
 */
 
-#include "../include/func_name.h"
+#include "../../include/func_name.h"
 
 int realrandom(void)
 {

@@ -5,6 +5,8 @@
 ** tools3
 */
 
+#include "../../include/func_name.h"
+
 int my_getnbr(char const *str)
 {
     int i = 0;

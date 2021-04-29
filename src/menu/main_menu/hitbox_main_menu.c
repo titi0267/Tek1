@@ -48,6 +48,14 @@ void hitbox2(rpg_t *rpg)
 int clic2(rpg_t *rpg)
 {
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 490)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 589))) {
+        rpg->menu->status = ON_TUTO;
+        rpg->game->in_game->objects->car->car_pos.x = 360.0;
+        rpg->game->in_game->objects->car->car_pos.y = 180.0;
+    }
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 589.5)) &&
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 688.5)))
@@ -74,13 +82,8 @@ int clic1(rpg_t *rpg)
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
         (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 490)))
             rpg->menu->status = ON_CONTINUE;
-        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
-        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 490)) &&
-        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
-        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 589)))
-            rpg->menu->status = ON_TUTO;
-    if (clic2(rpg) == -1)
-        return (-1);
+        if (clic2(rpg) == -1)
+            return (-1);
     }
     return (0);
 }

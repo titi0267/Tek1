@@ -12,9 +12,9 @@ SRCSPATH = src/
 SRCSFILES=	rpg.c							\
 			open_window.c					\
 			init_window.c					\
-			tools.c							\
-			tools2.c						\
-			tools3.c						\
+			tools/tools.c							\
+			tools/tools2.c						\
+			tools/tools3.c						\
 			parsing.c						\
 			audios.c						\
 			destroy.c						\

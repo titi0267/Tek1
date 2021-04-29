@@ -41,6 +41,7 @@ typedef struct car_s
     sfSprite *car;
     sfIntRect rect_car;
     sfVector2f car_pos;
+    int car_line;
 } car_t;
 
 
@@ -48,6 +49,7 @@ typedef struct objects_s
 {
     sfSprite **players;
     car_t *car;
+    int player_incar;
 } objects_t;
 
 typedef struct map_s
@@ -59,6 +61,7 @@ typedef struct map_s
     sfVector2u *col_real;
     int last_pos;
     sfColor color;
+    int color_stat;
     int status;
 } map_t;
 

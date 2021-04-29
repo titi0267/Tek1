@@ -23,9 +23,9 @@ void init_tuto2(rpg_t *rpg)
 void init_map_tuto(rpg_t *rpg)
 {
     sfTexture *map = sfTexture_createFromFile
-    ("assets/tutorial/maps/map_tuto.png", NULL);
+    ("assets/tutorial/maps/tutoriel.png", NULL);
     rpg->game->in_game->map->collisions[MAP_TUTO] = sfImage_createFromFile
-    ("assets/tutorial/maps/tuto_col.png");
+    ("assets/tutorial/maps/colisions.png");
     sfVector2f pos = {0, -30};
 
     rpg->game->in_game->map->pos_map[MAP_TUTO] = put_in_vector2f(-1809, -1027);

@@ -78,4 +78,3 @@ int init_pdown_up_rect(rpg_t *rpg)
     set_player_rect(rpg);
     return (0);
 }
-
