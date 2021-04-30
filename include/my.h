@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>
 
 typedef struct stumper_s
 {
@@ -19,6 +20,7 @@ typedef struct stumper_s
     int buffer_size;
     int line_nbr;
     int word;
+    int tries;
     int char_nbr;
     char **line;
     char *str;

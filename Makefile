@@ -13,6 +13,7 @@ SRC=		src/main.c		\
 		src/nbrline.c	\
 		src/lib.c	\
 		src/user_input.c	\
+		src/my_strcmp.c		\
 
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g

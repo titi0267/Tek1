@@ -13,10 +13,12 @@ static void choose_word(int ac, char **av,  stumper_t *stp)
 {
     if (ac == 4) {
         stp->word = my_getnbr(av[3]) - 1;
+        stp->tries = my_getnbr(av[2]);
         return;
     } else {
         srand(time(NULL));
         stp->word = rand() % stp->line_nbr;
+        stp->tries = 10;
     }
 }
 
@@ -30,6 +32,7 @@ int main(int ac, char **av)
     store_map(stp);
     choose_word(ac, av, stp);
     printf("%s", stp->line[stp->word]);
+    get_usr_line(stp);
 /*    for (int i = 0; stp->line[i] != NULL; i++) {
         for (int c = 0; stp->line[i][c] != '\0'; c++)
             printf("%c", stp->line[i][c]);
