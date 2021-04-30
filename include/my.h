@@ -34,5 +34,6 @@ void my_putchar(char c);
 int my_putstr(char const *buff);
 int get_usr_line(stumper_t *stp);
 void error_argnbr(int ac, char **av);
+int replace_star(stumper_t *stp, char **av);
 
 #endif /* !my */
