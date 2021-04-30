@@ -19,6 +19,7 @@ typedef struct stumper_s
     char *buffer;
     int buffer_size;
     int line_nbr;
+    char *star;
     int word;
     int tries;
     int char_nbr;
@@ -37,7 +38,7 @@ int my_putstr(char const *buff);
 int get_usr_line(stumper_t *stp);
 void error_argnbr(int ac, char **av);
 int replace_star(stumper_t *stp);
-int my_strlen(char const str);
+int my_strlen(char const *str);
 int my_strcmp(char const *s1, char const *s2);
 
 #endif /* !my */
