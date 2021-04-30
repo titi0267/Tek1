@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** user input by Timothy CONIEL
 ** File description:
-** recover user input
+** use user input
 */
 
 #include "../include/my.h"

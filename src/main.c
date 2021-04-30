@@ -5,7 +5,7 @@
 ** main
 */
 
-#include "my.h"
+#include "../include/my.h"
 #include <stdlib.h>
 #include <stddef.h>
 

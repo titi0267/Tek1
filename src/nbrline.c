@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** nbrline.c
 ** File description:
-** 
+** nbrline.c
 */
 
 #include "../include/my.h"
@@ -24,8 +24,7 @@ int char_line(char *buffer)
 {
     int i = 0;
 
-    while (buffer[i] != '\n') {
+    while (buffer[i] != '\n')
         i++;
-    }
     return (i + 1);
 }

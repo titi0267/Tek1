@@ -14,11 +14,13 @@ int my_getnbr(char *str)
     int j = 0;
     int n = 1;
 
-    for (; str[i] != '\0' && (str[i] == '+' || str[i] == '-'); i++) {
+    for (; str[i] != '\0' && (str[i] == '+' ||
+                              str[i] == '-'); i++) {
         if (str[i] == '-')
             n *= -1;
     }
-    for (; str[i] != '\0' && str[i] <= '9' && str[i] >= '0'; i++)
+    for (; str[i] != '\0' && str[i] <= '9' &&
+             str[i] >= '0'; i++)
         j = j * 10 + str[i] - 48;
     if (n == -1)
         return ((-1) * j);

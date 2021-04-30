@@ -16,7 +16,8 @@ static int error_argnbr(int ac)
     } else if (ac > 4) {
         write(2, "too much arguments\n", 20);
         return (84);
-    }
+    } else
+        return (0);
     return (0);
 }
 
