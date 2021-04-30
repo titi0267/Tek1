@@ -13,7 +13,7 @@ SRC=		src/main.c		\
 		src/nbrline.c		\
 		src/lib.c		\
 		src/user_input.c	\
-		src/my_strcmp.c		\
+		src/my_strlen.c		\
 		src/replace_star.c	\
 
 
