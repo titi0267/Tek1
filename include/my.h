@@ -27,7 +27,7 @@ typedef struct stumper_s
     char *str;
 } stumper_t;
 
-int error_core(int ac, char **av, stumper_t *stp);
+int error_core(int ac);
 int read_map(stumper_t *stp, char **av);
 int store_map(stumper_t *stp);
 int char_line(char *buff);
@@ -36,7 +36,6 @@ int my_getnbr(char *buff);
 void my_putchar(char c);
 int my_putstr(char const *buff);
 int get_usr_line(stumper_t *stp);
-void error_argnbr(int ac, char **av);
 int replace_star(stumper_t *stp);
 int my_strlen(char const *str);
 

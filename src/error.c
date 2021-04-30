@@ -8,20 +8,21 @@
 #include "../include/my.h"
 #include <stdlib.h>
 
-int error_core(int ac, char **av, stumper_t *stp)
+static int error_argnbr(int ac)
 {
-    error_argnbr(ac, av);
+    if (ac < 2) {
+        write(2, "missing arguments", 19);
+        return (84);
+    } else if (ac > 4) {
+        write(2, "too much arguments\n", 20);
+        return (84);
+    }
     return (0);
 }
 
-void error_argnbr(int ac, char **av)
+int error_core(int ac)
 {
-    if (ac < 2) {
-        write(2, "missing arguemnts\n", 19);
-        exit(84);
-    }
-    if (ac > 4) {
-        write(2, "too much arguments\n", 20);
-        exit(84);
-    }
+    if (error_argnbr(ac) == 84)
+        return (84);
+    return (0);
 }

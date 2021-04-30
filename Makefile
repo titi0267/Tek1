@@ -15,7 +15,7 @@ SRC=		src/main.c		\
 		src/user_input.c	\
 		src/my_strlen.c		\
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude
 
 NAME	=	hangman
 

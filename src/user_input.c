@@ -63,7 +63,7 @@ static int input_core(stumper_t *stp)
     return (0);
 }
 
-int in_getline(stumper_t *stp, size_t len)
+static int in_getline(stumper_t *stp, size_t len)
 {
     len = 0;
     stp->str = NULL;
@@ -73,6 +73,7 @@ int in_getline(stumper_t *stp, size_t len)
             return (1);
     } else
         return (2);
+    return (0);
 }
 
 int get_usr_line(stumper_t *stp)
@@ -82,6 +83,7 @@ int get_usr_line(stumper_t *stp)
 
     while (1) {
         d = in_getline(stp, len);
+        free(stp->str);
         if (d == 1)
             break;
         if (d == 2)
