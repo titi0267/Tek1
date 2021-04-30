@@ -11,6 +11,15 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+static int stat_size(stumper_t *stp, char **av)
+{
+    struct stat buff;
+
+    if (stat(av[1], &buff) == -1)
+        exit(84);
+    return (buff.st_size + 1);
+}
+
 int read_map(stumper_t *stp, char **av)
 {
     int read_ret;
@@ -20,7 +29,7 @@ int read_map(stumper_t *stp, char **av)
         write(2, "wrong file\n", 12);
         return (84);
     }
-    stp->buffer_size = 100000;
+    stp->buffer_size = stat_size(stp, av);
     stp->buffer = malloc(sizeof(char) * stp->buffer_size + 1);
     read_ret = read(fd, stp->buffer, stp->buffer_size);
     if (read_ret == -1) {
