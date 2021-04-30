@@ -5,7 +5,7 @@
 ** error
 */
 
-#include "my.h"
+#include "../include/my.h"
 
 int error_core(int ac, char **av, stumper_t *stp)
 {
