@@ -9,9 +9,10 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 
-static int stat_size(stumper_t *stp, char **av)
+static int stat_size(char **av)
 {
     struct stat buff;
 
@@ -29,7 +30,7 @@ int read_map(stumper_t *stp, char **av)
         write(2, "wrong file\n", 12);
         return (84);
     }
-    stp->buffer_size = stat_size(stp, av);
+    stp->buffer_size = stat_size(av);
     stp->buffer = malloc(sizeof(char) * stp->buffer_size + 1);
     read_ret = read(fd, stp->buffer, stp->buffer_size);
     if (read_ret == -1) {
@@ -40,7 +41,7 @@ int read_map(stumper_t *stp, char **av)
     stp->buffer[stp->buffer_size] = '\0';
     close(fd);
     stp->line_nbr = nbr_line(stp->buffer);
-    stp->char_nbr =  char_line(stp->buffer);
+    stp->char_nbr =  char_line(stp->buffer) + 10000;
     return (0);
 }
 
