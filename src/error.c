@@ -6,6 +6,7 @@
 */
 
 #include "../include/my.h"
+#include <stdlib.h>
 
 int error_core(int ac, char **av, stumper_t *stp)
 {
@@ -20,7 +21,7 @@ void error_argnbr(int ac, char **av)
         exit(84);
     }
     if (ac == 2) {
-        if (ac[1][0] > 97 || ac[1][0] < 122) {
+        if (av[1][0] > 97 || av[1][0] < 122) {
             write(2, "must be a text\n", 16);
             exit(84);
         }
