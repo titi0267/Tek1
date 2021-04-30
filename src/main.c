@@ -17,5 +17,9 @@ int main(int ac, char **av)
         return (84);
     read_map(stp, av);
     store_map(stp);
+    for (int i = 0; stp->line[i] != NULL; i++) {
+        for (int c = 0; stp->line[i][c] != '\0'; c++)
+            printf("%c", stp->line[i][c]);
+    }
     return (0);
 }
