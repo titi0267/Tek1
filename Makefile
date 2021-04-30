@@ -8,12 +8,13 @@
 CC		=	gcc	-o
 
 SRC=		src/main.c		\
-		src/error.c	\
-		src/map.c	\
-		src/nbrline.c	\
-		src/lib.c	\
+		src/error.c		\
+		src/map.c		\
+		src/nbrline.c		\
+		src/lib.c		\
 		src/user_input.c	\
 		src/my_strcmp.c		\
+		src/replace_star.c	\
 
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g
