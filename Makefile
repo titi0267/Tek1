@@ -16,7 +16,7 @@ SRC=		src/main.c		\
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g
 
-NAME	=	mixword
+NAME	=	hangman
 
 all:
 	$(CC)	$(NAME)	$(SRC)	$(CFLAGS)
