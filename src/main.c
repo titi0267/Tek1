@@ -33,7 +33,7 @@ static int word_in_star(stumper_t *stp)
     return (0);    
 }
 
-static int choose_word(int ac, char **av,  stumper_t *stp)
+static int choose_word(int ac, char **av, stumper_t *stp)
 {
     srand(time(NULL));
     if (ac == 4) {
