@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** B-CPE-210-STG-2-1-stumper5-tom.nomine
+** error.c
 ** File description:
 ** error
 */
