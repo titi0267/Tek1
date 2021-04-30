@@ -20,4 +20,8 @@ void error_argnbr(int ac, char **av)
         write(2, "missing arguemnts\n", 19);
         exit(84);
     }
+    if (ac > 4) {
+        write(2, "too much arguments\n", 20);
+        exit(84);
+    }
 }
