@@ -20,7 +20,7 @@ int read_map(stumper_t *stp, char **av)
         write(2, "wrong file\n", 12);
         return (84);
     }
-    stp->buffer_size = 1800;
+    stp->buffer_size = 100000;
     stp->buffer = malloc(sizeof(char) * stp->buffer_size + 1);
     read_ret = read(fd, stp->buffer, stp->buffer_size);
     if (read_ret == -1) {
