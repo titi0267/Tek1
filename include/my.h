@@ -7,6 +7,11 @@
 
 #ifndef my
 #define my
+#define _GNU_SOURCE
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 typedef struct stumper_s
 {
@@ -15,6 +20,7 @@ typedef struct stumper_s
     int line_nbr;
     int char_nbr;
     char **line;
+    char *str;
 } stumper_t;
 
 int error_core(int ac, char **av, stumper_t *stp);
@@ -25,5 +31,7 @@ int nbr_line(char *buff);
 int my_getnbr(char *buff);
 void my_putchar(char c);
 int my_putstr(char const *buff);
+int get_usr_line(stumper_t *stp);
+void error_argnbr(int ac, char **av);
 
 #endif /* !my */
