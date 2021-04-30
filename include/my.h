@@ -18,6 +18,7 @@ typedef struct stumper_s
     char *buffer;
     int buffer_size;
     int line_nbr;
+    int word;
     int char_nbr;
     char **line;
     char *str;
