@@ -9,6 +9,9 @@ CC		=	gcc	-o
 
 SRC=		src/main.c		\
 		src/error.c	\
+		src/map.c	\
+		src/nbrline.c	\
+		src/lib.c	\
 
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude -g

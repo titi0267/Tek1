@@ -6,11 +6,16 @@
 */
 
 #include "my.h"
+#include <stdlib.h>
+#include <stddef.h>
 
 int main(int ac, char **av)
 {
-    
-    if (error_core(ac, av) == 84)
+    stumper_t *stp = malloc(sizeof(stumper_t));
+
+    if (stp == NULL || error_core(ac, av, stp) == 84)
         return (84);
+    read_map(stp, av);
+    store_map(stp);
     return (0);
 }
