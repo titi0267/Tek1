@@ -39,7 +39,7 @@ int col_left(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 {
     color = sfImage_getPixel(rpg->game->in_game->map->collisions
     [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
-    + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x),
+    + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x - 5),
     (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
     [rpg->game->in_game->map->status].y + 95);
     return (check_color(rpg, color));
@@ -49,7 +49,8 @@ int col_right(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 {
     color = sfImage_getPixel(rpg->game->in_game->map->collisions
     [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
-    + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x + 60),
+    + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x
+    + 65),
     (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
     [rpg->game->in_game->map->status].y + 95);
     return (check_color(rpg, color));
