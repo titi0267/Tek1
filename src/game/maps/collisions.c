@@ -40,8 +40,8 @@ int col_left(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
     for (int z = pos_x; pos_x != z - 55; pos_x--) {
         color = sfImage_getPixel(rpg->game->in_game->map->collisions
         [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
-        + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x - 4),
-        (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
+        + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x
+        - 4), (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
         [rpg->game->in_game->map->status].y + 95);
         if (check_color(rpg, color) != 0)
             break;

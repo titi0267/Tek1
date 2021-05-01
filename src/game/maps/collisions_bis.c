@@ -16,10 +16,9 @@ int check_color(rpg_t *rpg, sfColor color)
         [MASK], color) == 1) {
         return (BEHIND);
     } else {
-        /*if (compare_equal_colors(rpg->game->in_game->map->color
+        if (compare_equal_colors(rpg->game->in_game->map->color
         [PASS], color) == 1)
-            return (BTW_MAP);*/
-        return (0);
+            return (BTW_MAP);
     }
     return (0);
 }
@@ -58,8 +57,8 @@ int check_collision(rpg_t *rpg, int direction)
         [rpg->menu->main_menu->new_game->character_chosen], color);
     }
     if (d == BTW_MAP) {
-        //change map;
-        return (0);
+        printf("Change map !\n");
+        change_map(rpg);
     }
     return (0);
 }

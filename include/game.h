@@ -64,7 +64,6 @@ typedef struct map_s
     sfVector2u *col_real;
     int last_pos;
     sfColor *color;
-    int mask_status;
     int color_stat;
     int status;
 } map_t;

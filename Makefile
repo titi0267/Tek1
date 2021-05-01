@@ -61,6 +61,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_car.c				\
 			game/maps/general_player_mv.c	\
 			game/maps/collisions_bis.c		\
+			game/maps/switch_map.c		\
 			game/maps/directions.c			\
 			game/maps/collisions.c			\
 			game/maps/map_status.c			\

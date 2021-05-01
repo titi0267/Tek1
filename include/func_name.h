@@ -105,6 +105,7 @@ void set_player_rect(rpg_t *rpg);
 int compare_equal_colors(sfColor c1, sfColor c2);
 void move_left_map(rpg_t *rpg, int on_map);
 void player_stop(rpg_t *rpg);
+void change_map(rpg_t *rpg);
 
 sfVector2f put_in_vector2f(float x, float y);
 void assemble_spt_pause(rpg_t *rpg);
