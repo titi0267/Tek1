@@ -47,6 +47,7 @@ SRCSFILES=	rpg.c							\
 			game/shortcuts.c			\
 			game/save_game.c			\
 			game/continue.c				\
+			game/car.c				\
 			game/cinematics.c			\
 			game/menu/exit.c		\
 			game/menu/exit_action.c	\
@@ -58,6 +59,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_tuto.c				\
 			game/inits/init_cinematics.c		\
 			game/inits/init_police_maps.c		\
+			game/inits/init_other_maps.c		\
 			game/inits/init_car.c				\
 			game/maps/general_player_mv.c	\
 			game/maps/collisions_bis.c		\
@@ -65,6 +67,7 @@ SRCSFILES=	rpg.c							\
 			game/maps/directions.c			\
 			game/maps/collisions.c			\
 			game/maps/map_status.c			\
+			game/maps/run.c			\
 			game/inventory/display_inventory.c		\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\

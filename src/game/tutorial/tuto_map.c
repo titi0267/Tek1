@@ -18,7 +18,7 @@ void print_player_move_tuto(rpg_t *rpg)
     [rpg->menu->main_menu->new_game->character_chosen], NULL);
     stopped_moving(rpg);
 }
-
+/*
 void move_up_down_tuto_map(rpg_t *rpg)
 {
     if (rpg->basic->evt->event.text.unicode ==
@@ -54,7 +54,7 @@ void move_side_tuto_map(rpg_t *rpg)
         rpg->game->in_game->map->last_pos = RIGHT;
     }
     move_up_down_tuto_map(rpg);
-}
+}*/
 
 void tuto_map(rpg_t *rpg)
 {
@@ -65,5 +65,6 @@ void tuto_map(rpg_t *rpg)
     rpg->game->in_game->map->maps[on_map], NULL);
     if (rpg->tutorial->tutorial_stat >= 1)
         print_car(rpg);
-    print_player_move_tuto(rpg);
+    if(rpg->game->in_game->objects->speed_status != CAR_SPEED)
+        print_player_move_tuto(rpg);
 }

@@ -52,7 +52,7 @@ typedef struct objects_s
     sfSprite **players;
     sfTexture **player_tex;
     car_t *car;
-    int player_incar;
+    int speed_status;
 } objects_t;
 
 typedef struct map_s
@@ -61,6 +61,7 @@ typedef struct map_s
     sfImage **collisions;
     sfVector2f *pos_map;
     sfVector2u *tex_size_map;
+    int *speed;
     sfVector2u *col_real;
     int last_pos;
     sfColor *color;

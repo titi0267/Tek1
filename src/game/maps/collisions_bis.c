@@ -57,7 +57,6 @@ int check_collision(rpg_t *rpg, int direction)
         [rpg->menu->main_menu->new_game->character_chosen], color);
     }
     if (d == BTW_MAP) {
-        printf("Change map !\n");
         change_map(rpg);
     }
     return (0);

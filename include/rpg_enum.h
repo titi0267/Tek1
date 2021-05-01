@@ -121,6 +121,8 @@ typedef enum map_enum_s {
     MAP_INSIDE_POLICE,
     MAP_OUTSIDE_POLICE,
     MAP_TUTO,
+    MAP_WARREN_BLOCK,
+    MAP_WARREN_NORMAL,
     NO_MAP
 } map_enum_t;
 
@@ -129,5 +131,11 @@ typedef enum collisions_s {
     MASK,
     PASS
 } collision_t;
+
+typedef enum speed_s {
+    WALK_SPEED,
+    RUN_SPEED,
+    CAR_SPEED
+} speed_t;
 
 #endif /* !enumeration */

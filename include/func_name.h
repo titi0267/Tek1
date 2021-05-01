@@ -13,6 +13,7 @@
 #include <SFML/Audio.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <unistd.h>
 
 #include "assemble.h"
@@ -83,6 +84,7 @@ int check_color(rpg_t *rpg, sfColor color);
 int check_collision(rpg_t *rpg, int direction);
 int set_key_color(rpg_t *rpg);
 int collision(rpg_t *rpg, int direction, int y);
+void init_warren_map(rpg_t *rpg);
 
 void init_inventory(rpg_t *rpg);
 void display_inventory(rpg_t *rpg);
@@ -145,5 +147,8 @@ void print_car(rpg_t *rpg);
 void detect_weapon(rpg_t *rpg);
 void drag_and_drop(rpg_t *rpg, int selected);
 void set_pos_car(rpg_t *rpg);
+void enterred_in_car(rpg_t *rpg);
+int point_distcance(sfVector2f mouse, sfVector2f map);
+void player_run(rpg_t *rpg);
 
 #endif /* !prototype */

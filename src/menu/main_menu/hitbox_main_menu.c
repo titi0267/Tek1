@@ -74,8 +74,10 @@ int clic1(rpg_t *rpg)
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 292)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
-        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 391)))
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 391))) {
             rpg->menu->status = ON_NEW_GM;
+            rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
+        }
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 391)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&

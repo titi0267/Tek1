@@ -17,9 +17,6 @@
 typedef struct tutorial_s
 {
     sfSprite **instruct;
-    sfSprite *map_tuto;
-    sfSprite *map_tuto_col;
-    sfVector2f map_pos;
     int tutorial_stat;
 } tutorial_t;
 

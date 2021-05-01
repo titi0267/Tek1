@@ -53,13 +53,18 @@ int create_player_bis(rpg_t *rpg)
 int create_player_rect(rpg_t *rpg)
 {
     if (create_player_bis(rpg) == 84 ||
-    (rpg->game->in_game->objects->players = malloc(sizeof(sfSprite *) * 5)) == NULL)
+    (rpg->game->in_game->objects->players = malloc(sizeof(sfSprite *) * 5))
+    == NULL || (rpg->game->in_game->map->speed = malloc(sizeof(int) * 4))
+    == NULL)
         return (MALLOC_ERROR);
     for (int i = MAXOU; i <= SYLVIE; i++) {
         rpg->game->in_game->objects->players[i] = sfSprite_create();
         sfSprite_setTexture(rpg->game->in_game->objects->players[i],
         rpg->game->in_game->objects->player_tex[i], sfTrue);
     }
+    rpg->game->in_game->map->speed[WALK_SPEED] = 3;
+    rpg->game->in_game->map->speed[RUN_SPEED] = 4;
+    rpg->game->in_game->map->speed[CAR_SPEED] = 5;
     return (0);
 }
 

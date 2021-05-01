@@ -10,8 +10,8 @@
 void set_pos_car(rpg_t *rpg)
 {
     if (rpg->game->in_game->objects->car->status != 0) {
-        rpg->game->in_game->objects->car->car_pos.x = 360.0;
-        rpg->game->in_game->objects->car->car_pos.y = 180.0;
+        rpg->game->in_game->objects->car->car_pos.x = 490.0;
+        rpg->game->in_game->objects->car->car_pos.y = 300.0;
         rpg->game->in_game->objects->car->status = 0;
     }
 }
@@ -22,7 +22,7 @@ void print_car(rpg_t *rpg)
     rpg->game->in_game->objects->car->car_line <= 1) {
         rpg->basic->cnf->clk->time_tutorial = 0;
         rpg->game->in_game->objects->car->rect_car.left =
-        rpg->game->in_game->objects->car->car_line * 365.7;
+        (rpg->game->in_game->objects->car->car_line == 1) ? 495 : 130.7;
         rpg->game->in_game->objects->car->car_line++;
     }
     rpg->game->in_game->objects->car->car_line =
@@ -38,10 +38,10 @@ void print_car(rpg_t *rpg)
 
 void init_rect_car(objects_t *obj)
 {
-    obj->car->rect_car.height = 365.7;
-    obj->car->rect_car.width = 365.7;
-    obj->car->rect_car.left = 0;
-    obj->car->rect_car.top = 0;
+    obj->car->rect_car.height = 128;
+    obj->car->rect_car.width = 103;
+    obj->car->rect_car.left = 130.7;
+    obj->car->rect_car.top = 118;
     obj->car->car_line = 0;
     obj->car->status = -1;
     sfSprite_setTextureRect(obj->car->car, obj->car->rect_car);
