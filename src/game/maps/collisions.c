@@ -14,7 +14,7 @@ int col_up(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
         [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
         + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x),
         (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
-        [rpg->game->in_game->map->status].y + 95);
+        [rpg->game->in_game->map->status].y + 92);
         if (check_color(rpg, color) != 0)
             break;
     }
@@ -37,26 +37,33 @@ int col_down(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 
 int col_left(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 {
-    color = sfImage_getPixel(rpg->game->in_game->map->collisions
-    [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
-    + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x - 5),
-    (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
-    [rpg->game->in_game->map->status].y + 95);
+    for (int z = pos_x; pos_x != z - 55; pos_x--) {
+        color = sfImage_getPixel(rpg->game->in_game->map->collisions
+        [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
+        + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x - 4),
+        (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
+        [rpg->game->in_game->map->status].y + 95);
+        if (check_color(rpg, color) != 0)
+            break;
+    }
     return (check_color(rpg, color));
 }
 
 int col_right(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 {
-    color = sfImage_getPixel(rpg->game->in_game->map->collisions
-    [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
-    + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x
-    + 65),
-    (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
-    [rpg->game->in_game->map->status].y + 95);
+    for (int z = pos_x; pos_x != (z - 65); pos_x--) {
+        color = sfImage_getPixel(rpg->game->in_game->map->collisions
+        [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
+        + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x),
+        (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
+        [rpg->game->in_game->map->status].y + 95);
+        if (check_color(rpg, color) != 0)
+            break;
+    }
     return (check_color(rpg, color));
 }
 
-int collision(rpg_t *rpg, int direction)
+int collision(rpg_t *rpg, int direction, int y)
 {
     int pos_x = rpg->game->in_game->map->pos_map
     [rpg->game->in_game->map->status].x;
@@ -65,9 +72,9 @@ int collision(rpg_t *rpg, int direction)
     sfColor color;
 
     if (direction == UP)
-        return (col_up(rpg, color, pos_x, pos_y));
+        return (col_up(rpg, color, pos_x, pos_y + y));
     if (direction == DOWN)
-        return (col_down(rpg, color, pos_x, pos_y));
+        return (col_down(rpg, color, pos_x, pos_y + y));
     if (direction == LEFT)
         return (col_left(rpg, color, pos_x, pos_y));
     if (direction == RIGHT)

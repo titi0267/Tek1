@@ -73,5 +73,6 @@ int set_key_color(rpg_t *rpg)
     (rpg->game->in_game->map->collisions[MAP_INSIDE_POLICE], 4999, 4999);
     rpg->game->in_game->map->color[MASK] = sfImage_getPixel
     (rpg->game->in_game->map->collisions[MAP_TUTO], 0, 0);
+    rpg->game->in_game->map->mask_status = FALSE;
     return (0);
 }

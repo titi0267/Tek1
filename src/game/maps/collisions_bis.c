@@ -26,27 +26,30 @@ int check_color(rpg_t *rpg, sfColor color)
 
 int check_collision(rpg_t *rpg, int direction)
 {
-    int d = collision(rpg, direction);
+    int d = collision(rpg, direction, 0);
     sfColor color;
-    /*sfColor color = sfSprite_getColor(rpg->game->in_game->objects->players
-    [rpg->menu->main_menu->new_game->character_chosen]);
-    printf("color = r %i g %i b %i\n", color.r, color.g, color.b);
-    if (color.r == 0 && color.g == 0 && color.b == 0 && d != BEHIND)
-        sfSprite_setTexture(rpg->game->in_game->objects->players
-        [rpg->menu->main_menu->new_game->character_chosen], rpg->game->in_game->objects->player_tex
-        [rpg->menu->main_menu->new_game->character_chosen], sfTrue);
-*/
-    if (d != BEHIND)
+    if (d != BEHIND && d != COLLISION) {
         sfSprite_setColor(rpg->game->in_game->objects->players
         [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
+    }
     if (d == COLLISION) {
-        return (COLLISION);
+        d = collision(rpg, direction, 4);
+        if (d == COLLISION) {
+        sfSprite_setColor(rpg->game->in_game->objects->players
+        [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
+            return (COLLISION);
+        }
+        else if (d == BEHIND) {
+            color.r = 0;
+            color.g = 0;
+            color.b = 0;
+            color.a = 128;
+            sfSprite_setColor(rpg->game->in_game->objects->players
+            [rpg->menu->main_menu->new_game->character_chosen], color);
+            return (COLLISION);
+        }
     }
     if (d == BEHIND) {
-        /*printf("mask : r = %i & g = %i & b = %i\n color : r = %i & g = %i & b = %i\n", rpg->game->in_game->map->color
-        [MASK].r, rpg->game->in_game->map->color
-        [MASK].b, rpg->game->in_game->map->color
-        [MASK].b, color.r, color.g, color.b);*/
         color.r = 0;
         color.g = 0;
         color.b = 0;

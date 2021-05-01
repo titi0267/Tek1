@@ -82,6 +82,7 @@ int game_malloc(rpg_t *rpg);
 int check_color(rpg_t *rpg, sfColor color);
 int check_collision(rpg_t *rpg, int direction);
 int set_key_color(rpg_t *rpg);
+int collision(rpg_t *rpg, int direction, int y);
 
 void init_inventory(rpg_t *rpg);
 void display_inventory(rpg_t *rpg);
@@ -103,7 +104,6 @@ void chose_map(rpg_t *rpg);
 void set_player_rect(rpg_t *rpg);
 int compare_equal_colors(sfColor c1, sfColor c2);
 void move_left_map(rpg_t *rpg, int on_map);
-int collision(rpg_t *rpg, int direction);
 void player_stop(rpg_t *rpg);
 
 sfVector2f put_in_vector2f(float x, float y);
