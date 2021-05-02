@@ -29,6 +29,10 @@ typedef struct inventory_s {
     sfTexture **weapon_txt;
     sfVector2f *pos_weapon;
     int shortcut_it;
+    int is_item_selected;
+    int *is_area_filled;
+    int selected_item;
+    sfVector2f *pos_storage;
 } inventory_t;
 
 typedef struct ig_sound_s

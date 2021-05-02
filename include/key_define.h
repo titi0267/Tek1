@@ -8,4 +8,7 @@
 #ifndef KEY_DEFINE_H_
 #define KEY_DEFINE_H_
 
+#define TRUE 1
+#define FALSE 0
+
 #endif /* !KEY_DEFINE_H_ */
