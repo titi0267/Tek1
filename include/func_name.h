@@ -153,5 +153,7 @@ void set_pos_car(rpg_t *rpg);
 void enterred_in_car(rpg_t *rpg);
 int point_distcance(sfVector2f mouse, sfVector2f map);
 void player_run(rpg_t *rpg);
+sfVector2f vect_diff(sfVector2f first, sfVector2f second);
+sfVector2f vect_add(sfVector2f first, sfVector2f second);
 
 #endif /* !prototype */

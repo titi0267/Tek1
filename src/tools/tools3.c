@@ -7,14 +7,6 @@
 
 #include "../../include/func_name.h"
 
-int point_distcance(sfVector2f mouse, sfVector2f map)
-{
-    int distancenew = sqrt(((map.x - mouse.x) * (map.x - mouse.x) / 2) +
-    (map.y - mouse.y) * (map.y - mouse.y));
-
-    return (distancenew);
-}
-
 int my_getnbr(char const *str)
 {
     int i = 0;

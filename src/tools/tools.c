@@ -42,13 +42,6 @@ char *my_strcat(char *begin, char *end)
     return (final);
 }
 
-sfVector2f put_in_vector2f(float x, float y)
-{
-    sfVector2f pos = {x, y};
-
-    return (pos);
-}
-
 float adapt_x(rpg_t *rpg, int hitbox_x)
 {
     sfVector2u window_size = sfRenderWindow_getSize(rpg->basic->wnd->my_wnd);

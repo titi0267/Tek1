@@ -53,10 +53,3 @@ int compare_equal_colors(sfColor c1, sfColor c2)
         return(COLLISION);
     return(0);
 }
-
-sfVector2u put_in_vector2u(unsigned int x, unsigned int y)
-{
-    sfVector2u pos = {x, y};
-
-    return (pos);
-}

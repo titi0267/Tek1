@@ -15,6 +15,7 @@ SRCSFILES=	rpg.c							\
 			tools/tools.c							\
 			tools/tools2.c						\
 			tools/tools3.c						\
+			tools/tool_vect.c						\
 			parsing.c						\
 			audios.c						\
 			destroy.c						\
