@@ -43,7 +43,9 @@ typedef struct inventory_s {
 
 typedef struct ig_sound_s
 {
-
+    sfSoundBuffer *amb_game;
+    sfSound *game;
+    int status;
 } ig_sound_t;
 
 typedef struct car_s
@@ -54,7 +56,6 @@ typedef struct car_s
     int car_line;
     int status;
 } car_t;
-
 
 typedef struct objects_s
 {

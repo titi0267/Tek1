@@ -150,10 +150,12 @@ void drag(rpg_t *rpg, int selected);
 void calc_vector(rpg_t *rpg, int slot_type, int weapon);
 void drag_and_drop(rpg_t *rpg, int selected);
 void set_pos_car(rpg_t *rpg);
-void enterred_in_car(rpg_t *rpg);
+void enter_car(rpg_t *rpg);
 int point_distcance(sfVector2f mouse, sfVector2f map);
 void player_run(rpg_t *rpg);
 sfVector2f vect_diff(sfVector2f first, sfVector2f second);
 sfVector2f vect_add(sfVector2f first, sfVector2f second);
+void init_amb_tuto_game(rpg_t *rpg);
+void ambiant_tuto(rpg_t *rpg);
 
 #endif /* !prototype */

@@ -26,6 +26,7 @@ int parsing_menus(rpg_t *rpg)
     if (rpg->menu->status == ON_MENU) {
         sound(rpg, 2);
         background(rpg);
+        sfSound_stop(rpg->tutorial->tuto);
         if (main_menu(rpg) == -1)
             return (-1);
         rpg->basic->cnf->clk->time_menu = 0;
@@ -46,15 +47,18 @@ void parsing_menu2(rpg_t *rpg)
     if (rpg->menu->status == ON_TUTO) {
         sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
         rpg->game->in_game->map->status = MAP_TUTO;
+        ambiant_tuto(rpg);
         tuto1(rpg);
         if (rpg->basic->evt->event.text.unicode == 'p')
             rpg->menu->status = ON_MENU;
+        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+            rpg->menu->status = ON_OPTION;
+    }
     if (rpg->menu->status == ON_OPTION) {
         background(rpg);
         options(rpg);
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             rpg->menu->status = ON_MENU;
-    }
     }
 }
 
@@ -66,13 +70,14 @@ void parsing_menu3(rpg_t *rpg)
         chose_map(rpg);
     }
     if (rpg->menu->status == ON_INVENTORY) {
+        chose_map(rpg);
         display_inventory(rpg);
         key_event_inventory(rpg);
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             rpg->menu->status = ON_GAME;
     }
     if (rpg->menu->status == ON_EXIT) {
-        background(rpg);
+        chose_map(rpg);
         assemble_spt_pause(rpg);
     }
     if (rpg->menu->status == ON_OPTION_PAUSE) {

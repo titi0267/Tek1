@@ -18,9 +18,9 @@ void set_pos_car(rpg_t *rpg)
 
 void print_car(rpg_t *rpg)
 {
-    if (rpg->basic->cnf->clk->time_tutorial >= 0.2 &&
+    if (rpg->basic->cnf->clk->time_car >= 0.2 &&
     rpg->game->in_game->objects->car->car_line <= 1) {
-        rpg->basic->cnf->clk->time_tutorial = 0;
+        rpg->basic->cnf->clk->time_car = 0;
         rpg->game->in_game->objects->car->rect_car.left =
         (rpg->game->in_game->objects->car->car_line == 1) ? 495 : 130.7;
         rpg->game->in_game->objects->car->car_line++;

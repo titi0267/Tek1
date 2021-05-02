@@ -18,26 +18,22 @@ void detect_weapon(rpg_t *rpg)
         sfSprite_getGlobalBounds(rpg->game->in_game->inventory->weapon[i]);
     }
     if (sfFloatRect_contains(&rpg->game->in_game->inventory->glob_pos[SMG],
-    mouse.x, mouse.y) == sfTrue &&
-    rpg->game->in_game->inventory->on_click == TRUE) {
+    mouse.x, mouse.y) == sfTrue) {
         rpg->game->in_game->inventory->selected_item = SMG;
         rpg->game->in_game->inventory->click_weapon = TRUE;
     }
     if (sfFloatRect_contains(&rpg->game->in_game->inventory->glob_pos[GUN],
-    mouse.x, mouse.y) == sfTrue &&
-    rpg->game->in_game->inventory->on_click == TRUE) {
+    mouse.x, mouse.y) == sfTrue) {
         rpg->game->in_game->inventory->selected_item = GUN;
         rpg->game->in_game->inventory->click_weapon = TRUE;
     }
     if (sfFloatRect_contains(&rpg->game->in_game->inventory->glob_pos[KNIFE],
-    mouse.x, mouse.y) == sfTrue &&
-    rpg->game->in_game->inventory->on_click == TRUE) {
+    mouse.x, mouse.y) == sfTrue) {
         rpg->game->in_game->inventory->selected_item = KNIFE;
         rpg->game->in_game->inventory->click_weapon = TRUE;
     }
     if (sfFloatRect_contains(&rpg->game->in_game->inventory->glob_pos[TAZER],
-    mouse.x, mouse.y) == sfTrue &&
-    rpg->game->in_game->inventory->on_click == TRUE) {
+    mouse.x, mouse.y) == sfTrue) {
         rpg->game->in_game->inventory->selected_item = TAZER;
         rpg->game->in_game->inventory->click_weapon = TRUE;
     }

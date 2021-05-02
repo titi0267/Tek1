@@ -13,9 +13,13 @@ void destroy_basic(rpg_t *rpg)
     sfSoundBuffer_destroy(rpg->menu->intro->intro_snd->create_start);
     sfSoundBuffer_destroy(rpg->menu->main_menu->menu_snd->create_a_menu);
     sfSoundBuffer_destroy(rpg->game->start->cine1);
+    sfSoundBuffer_destroy(rpg->tutorial->amb_tuto);
+    sfSoundBuffer_destroy(rpg->game->in_game->ig_sound->amb_game);
     sfSound_destroy(rpg->menu->intro->intro_snd->start);
     sfSound_destroy(rpg->menu->main_menu->menu_snd->a_menu);
     sfSound_destroy(rpg->game->start->cinematic_1);
+    sfSound_destroy(rpg->game->in_game->ig_sound->game);
+    sfSound_destroy(rpg->tutorial->tuto);
     sfRenderWindow_destroy(rpg->basic->wnd->my_wnd);
 }
 

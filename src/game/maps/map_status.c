@@ -9,8 +9,10 @@
 
 void print_map(rpg_t *rpg, int on_map)
 {
-    player_run(rpg);
-    move_left_map(rpg, on_map);
+    if (rpg->menu->status == ON_GAME) {
+        player_run(rpg);
+        move_left_map(rpg, on_map);
+    }
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->map->maps[on_map], NULL);
     print_player_move(rpg);
@@ -18,8 +20,6 @@ void print_map(rpg_t *rpg, int on_map)
 
 void chose_map(rpg_t *rpg)
 {
-    if (rpg->menu->status == ON_GAME) {
-        print_map(rpg, rpg->game->in_game->map->status);
-    }
+    print_map(rpg, rpg->game->in_game->map->status);
 }
 

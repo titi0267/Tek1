@@ -12,14 +12,14 @@ SRCSPATH = src/
 SRCSFILES=	rpg.c							\
 			open_window.c					\
 			init_window.c					\
-			tools/tools.c							\
-			tools/tools2.c						\
-			tools/tools3.c						\
-			tools/tool_vect.c						\
 			parsing.c						\
 			audios.c						\
 			destroy.c						\
 			free_all.c						\
+			tools/tools.c						\
+			tools/tools2.c						\
+			tools/tools3.c						\
+			tools/tool_vect.c					\
 			init_struct/alloc_all.c		\
 			init_struct/alloc.c			\
 			init_struct/base_alloc.c	\
@@ -48,11 +48,11 @@ SRCSFILES=	rpg.c							\
 			game/shortcuts.c			\
 			game/save_game.c			\
 			game/continue.c				\
-			game/car.c				\
-			game/cinematics.c			\
-			game/menu/exit.c		\
-			game/menu/exit_action.c	\
-			game/menu/settings_exit.c			\
+			game/car.c						\
+			game/cinematics.c				\
+			game/menu/exit.c			\
+			game/menu/exit_action.c		\
+			game/menu/settings_exit.c	\
 			game/inits/init_exit.c				\
 			game/inits/init_inventory.c			\
 			game/inits/init_player_rect.c		\
@@ -62,17 +62,18 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_police_maps.c		\
 			game/inits/init_other_maps.c		\
 			game/inits/init_car.c				\
+			game/inits/init_audios.c			\
 			game/maps/general_player_mv.c	\
 			game/maps/collisions_bis.c		\
-			game/maps/switch_map.c		\
+			game/maps/switch_map.c			\
 			game/maps/directions.c			\
 			game/maps/collisions.c			\
 			game/maps/map_status.c			\
-			game/maps/run.c			\
+			game/maps/run.c					\
 			game/inventory/display_inventory.c		\
+			game/inventory/inventory_manager.c		\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\
-			game/inventory/inventory_manager.c	\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

@@ -17,6 +17,8 @@
 typedef struct tutorial_s
 {
     sfSprite **instruct;
+    sfSoundBuffer *amb_tuto;
+    sfSound *tuto;
     int tutorial_stat;
 } tutorial_t;
 

@@ -15,6 +15,7 @@ int init_basic_value(rpg_t *rpg)
     rpg->basic->cnf->clk->time_loop = 0;
     rpg->basic->cnf->clk->time_keyboard = 0;
     rpg->basic->cnf->clk->time_tutorial = 0;
+    rpg->basic->cnf->clk->time_car = 0;
     rpg->basic->cnf->clk->time_shortcut = 0;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->menu->status = ON_BASIL;
@@ -34,6 +35,7 @@ void init_function2(rpg_t *rpg)
     init_radio_spt(rpg);
     create_police_map(rpg);
     init_car_spt(rpg);
+    init_amb_tuto_game(rpg);
 }
 
 int init_function(rpg_t *rpg)
