@@ -121,8 +121,9 @@ typedef enum map_enum_s {
     MAP_INSIDE_POLICE,
     MAP_OUTSIDE_POLICE,
     MAP_TUTO,
-    MAP_WARREN_BLOCK,
-    MAP_WARREN_NORMAL,
+    MAP_WARREN,
+    MAP_OUTSIDE_CDC,
+    MAP_OUTSIDE_DISCO,
     NO_MAP
 } map_enum_t;
 
