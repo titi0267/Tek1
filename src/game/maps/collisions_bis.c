@@ -27,6 +27,7 @@ int check_collision(rpg_t *rpg, int direction)
 {
     int d = collision(rpg, direction, 0);
     sfColor color;
+
     if (d != BEHIND && d != COLLISION) {
         sfSprite_setColor(rpg->game->in_game->objects->players
         [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
