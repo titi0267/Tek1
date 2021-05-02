@@ -127,6 +127,13 @@ typedef enum map_enum_s {
     NO_MAP
 } map_enum_t;
 
+typedef enum inventory_slots_s {
+    WEAPON,
+    AMMO,
+    VEST,
+    NO_SLOT
+} inventory_slots_t;
+
 typedef enum collisions_s {
     COL,
     MASK,

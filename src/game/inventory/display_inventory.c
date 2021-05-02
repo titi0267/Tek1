@@ -15,7 +15,7 @@
 // - ((1007.5, 421.5) , (1083.5, 497.5))
 // - ((1098.5, 421.5) , (1174.5, 497.5))
 
-void drag_and_drop(rpg_t *rpg, int selected)
+void drag(rpg_t *rpg, int selected)
 {
     sfVector2f ms_pos = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
     sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
@@ -29,33 +29,62 @@ void drag_and_drop(rpg_t *rpg, int selected)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->inventory->weapon[selected], NULL);
     sfRenderWindow_setMouseCursorVisible(rpg->basic->wnd->my_wnd, FALSE);
+    rpg->game->in_game->inventory->is_item_selected = TRUE;
+    rpg->game->in_game->inventory->selected_item = selected;
 }
 
 void display_weapons(rpg_t *rpg)
 {
-    sfVector2f *pos_wp = malloc(sizeof(sfVector2f) * 5);
-
-    pos_wp[SMG] = put_in_vector2f(825.5, 421.5);
-    pos_wp[KNIFE] = put_in_vector2f(916.5, 421.5);
-    pos_wp[GUN] = put_in_vector2f(1007.5, 421.5);
-    pos_wp[TAZER] = put_in_vector2f(1098.5, 421.5);
     for (int i = SMG; i < NO_WEAPON; i++) {
-        rpg->game->in_game->inventory->pos_weapon[i] = pos_wp[i];
         sfSprite_setPosition(rpg->game->in_game->inventory->weapon[i],
-        pos_wp[i]);
+        rpg->game->in_game->inventory->pos_weapon[i]);
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->game->in_game->inventory->weapon[i], NULL);
     }
 }
 
+void drop_weapon(rpg_t *rpg, int weapon)
+{
+    sfRenderWindow_setMouseCursorVisible(rpg->basic->wnd->my_wnd, TRUE);
+    sfSprite_setPosition(rpg->game->in_game->inventory->weapon[weapon],
+    rpg->game->in_game->inventory->pos_storage[WEAPON]);
+    rpg->game->in_game->inventory->is_area_filled[WEAPON] = weapon;
+    rpg->game->in_game->inventory->is_item_selected = FALSE;
+    rpg->game->in_game->inventory->selected_item = NO_WEAPON;
+}
 
+void drops_weapon(rpg_t *rpg)
+{
+    if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue &&
+    rpg->game->in_game->inventory->is_item_selected == TRUE) {
+        if (rpg->game->in_game->inventory->is_area_filled[WEAPON] == FALSE &&
+        ((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 370.5)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 366.5)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 446.5)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 442.5)))
+            drop_weapon(rpg, rpg->game->in_game->inventory->selected_item);
+        else {
+            sfSprite_setPosition(rpg->game->in_game->inventory->weapon
+            [rpg->game->in_game->inventory->selected_item],
+            rpg->game->in_game->inventory->pos_weapon
+            [rpg->game->in_game->inventory->selected_item]);
+            rpg->game->in_game->inventory->selected_item = NO_WEAPON;
+        }
+    }
+}
 
 void detect_stuff(rpg_t *rpg)
 {
-    //sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
-    //sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
+    // sfVector2f mouse = sfRenderWindow_mapPixelToCoords(rpg->basic->wnd->my_wnd,
+    // sfMouse_getPositionRenderWindow(rpg->basic->wnd->my_wnd), NULL);
 
-    detect_weapon(rpg);
+    if (rpg->game->in_game->inventory->is_item_selected == FALSE)
+        detect_weapon(rpg);
+    if (rpg->game->in_game->inventory->selected_item != NO_WEAPON) {
+        drag(rpg, rpg->game->in_game->inventory->selected_item);
+        drops_weapon(rpg);
+    }
+        //calc_vector(rpg, WEAPON, rpg->game->in_game->inventory->selected_item);
     //detect_ammo(rpg);
     //detect_bulletproofvest(rpg);
 }

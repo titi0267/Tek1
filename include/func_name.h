@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <unistd.h>
+#include <math.h>
 
 #include "assemble.h"
 
@@ -145,6 +146,8 @@ void init_car_spt(rpg_t *rpg);
 void print_car(rpg_t *rpg);
 
 void detect_weapon(rpg_t *rpg);
+void drag(rpg_t *rpg, int selected);
+void calc_vector(rpg_t *rpg, int slot_type, int weapon);
 void drag_and_drop(rpg_t *rpg, int selected);
 void set_pos_car(rpg_t *rpg);
 void enterred_in_car(rpg_t *rpg);

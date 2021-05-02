@@ -28,6 +28,7 @@ void init_map_tuto(rpg_t *rpg)
     ("assets/tutorial/maps/colisions.png");
     sfVector2f pos = {0, -30};
 
+    rpg->game->in_game->inventory->is_item_selected = FALSE;
     rpg->game->in_game->map->pos_map[MAP_TUTO] = put_in_vector2f(-1809, -1027);
     sfSprite_setTexture(rpg->game->in_game->map->maps[MAP_TUTO],
     map, sfTrue);
