@@ -9,6 +9,7 @@
 #define gm
 #define COLLISION 1
 #define BEHIND 2
+#define BTW_MAP 3
 
 
 typedef struct start_s
@@ -45,13 +46,17 @@ typedef struct car_s
     sfSprite *car;
     sfIntRect rect_car;
     sfVector2f car_pos;
+    int car_line;
+    int status;
 } car_t;
 
 
 typedef struct objects_s
 {
     sfSprite **players;
+    sfTexture **player_tex;
     car_t *car;
+    int speed_status;
 } objects_t;
 
 typedef struct map_s
@@ -60,9 +65,11 @@ typedef struct map_s
     sfImage **collisions;
     sfVector2f *pos_map;
     sfVector2u *tex_size_map;
+    int *speed;
     sfVector2u *col_real;
     int last_pos;
-    sfColor color;
+    sfColor *color;
+    int color_stat;
     int status;
 } map_t;
 

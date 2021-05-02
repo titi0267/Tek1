@@ -35,28 +35,37 @@ void set_player_rect(rpg_t *rpg)
     rpg->menu->main_menu->new_game->char_in_game[DOWN]);
 }
 
-void create_player_rect(rpg_t *rpg)
+int create_player_bis(rpg_t *rpg)
 {
-    sfTexture *maxou = sfTexture_createFromFile
+    if ((rpg->game->in_game->objects->player_tex = malloc(sizeof(sfTexture *) * 5)) == NULL)
+        return (MALLOC_ERROR);
+    rpg->game->in_game->objects->player_tex[MAXOU] = sfTexture_createFromFile
     ("assets/perso/policemen-maxime.png", NULL);
-    sfTexture *sylvie = sfTexture_createFromFile
+    rpg->game->in_game->objects->player_tex[SYLVIE] = sfTexture_createFromFile
     ("assets/perso/sylvie-policemen.png", NULL);
-    sfTexture *titi = sfTexture_createFromFile
+    rpg->game->in_game->objects->player_tex[TIMO] = sfTexture_createFromFile
     ("assets/perso/policemen-timo.png", NULL);
-    sfTexture *ludo = sfTexture_createFromFile
+    rpg->game->in_game->objects->player_tex[LUDO] = sfTexture_createFromFile
     ("assets/perso/ludo-police.png", NULL);
+    return (0);
+}
 
-    rpg->game->in_game->objects->players = malloc(sizeof(sfSprite *) * 5);
-    for (int i = MAXOU; i <= SYLVIE; i++)
+int create_player_rect(rpg_t *rpg)
+{
+    if (create_player_bis(rpg) == 84 ||
+    (rpg->game->in_game->objects->players = malloc(sizeof(sfSprite *) * 5))
+    == NULL || (rpg->game->in_game->map->speed = malloc(sizeof(int) * 4))
+    == NULL)
+        return (MALLOC_ERROR);
+    for (int i = MAXOU; i <= SYLVIE; i++) {
         rpg->game->in_game->objects->players[i] = sfSprite_create();
-    sfSprite_setTexture(rpg->game->in_game->objects->players[MAXOU],
-    maxou, sfTrue);
-    sfSprite_setTexture(rpg->game->in_game->objects->players[TIMO],
-    titi, sfTrue);
-    sfSprite_setTexture(rpg->game->in_game->objects->players[LUDO],
-    ludo, sfTrue);
-    sfSprite_setTexture(rpg->game->in_game->objects->players[SYLVIE],
-    sylvie, sfTrue);
+        sfSprite_setTexture(rpg->game->in_game->objects->players[i],
+        rpg->game->in_game->objects->player_tex[i], sfTrue);
+    }
+    rpg->game->in_game->map->speed[WALK_SPEED] = 3;
+    rpg->game->in_game->map->speed[RUN_SPEED] = 4;
+    rpg->game->in_game->map->speed[CAR_SPEED] = 5;
+    return (0);
 }
 
 int init_pdown_up_rect(rpg_t *rpg)
@@ -74,8 +83,8 @@ int init_pdown_up_rect(rpg_t *rpg)
     rpg->menu->main_menu->new_game->char_in_game[UP].width = 60;
     rpg->menu->main_menu->new_game->char_in_game[UP].height = 108;
     init_pleft_right_rect(rpg);
-    create_player_rect(rpg);
+    if (create_player_rect(rpg) == MALLOC_ERROR)
+        return (MALLOC_ERROR);
     set_player_rect(rpg);
     return (0);
 }
-

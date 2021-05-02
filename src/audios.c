@@ -22,3 +22,13 @@ void sound(rpg_t *rpg, int status)
         sound2 = 1;
     }
 }
+
+// void ambiant_tuto(rpg_t *rpg)
+// {
+//     static int amb_status = 0;
+
+//     if (amb_status == 0) {
+//         //sfSound_play(rpg->game->);
+//         amb_status = 1;
+//     }
+// }

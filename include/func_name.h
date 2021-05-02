@@ -13,6 +13,7 @@
 #include <SFML/Audio.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <unistd.h>
 #include <math.h>
 
@@ -80,6 +81,11 @@ void hover_perso1(rpg_t *rpg);
 void stopped_moving(rpg_t *rpg);
 sfVector2u put_in_vector2u(unsigned int x, unsigned int y);
 int game_malloc(rpg_t *rpg);
+int check_color(rpg_t *rpg, sfColor color);
+int check_collision(rpg_t *rpg, int direction);
+int set_key_color(rpg_t *rpg);
+int collision(rpg_t *rpg, int direction, int y);
+void init_warren_map(rpg_t *rpg);
 
 void init_inventory(rpg_t *rpg);
 void display_inventory(rpg_t *rpg);
@@ -101,8 +107,8 @@ void chose_map(rpg_t *rpg);
 void set_player_rect(rpg_t *rpg);
 int compare_equal_colors(sfColor c1, sfColor c2);
 void move_left_map(rpg_t *rpg, int on_map);
-int collision(rpg_t *rpg, int direction);
 void player_stop(rpg_t *rpg);
+void change_map(rpg_t *rpg);
 
 sfVector2f put_in_vector2f(float x, float y);
 void assemble_spt_pause(rpg_t *rpg);
@@ -142,5 +148,10 @@ void print_car(rpg_t *rpg);
 void detect_weapon(rpg_t *rpg);
 void drag(rpg_t *rpg, int selected);
 void calc_vector(rpg_t *rpg, int slot_type, int weapon);
+void drag_and_drop(rpg_t *rpg, int selected);
+void set_pos_car(rpg_t *rpg);
+void enterred_in_car(rpg_t *rpg);
+int point_distcance(sfVector2f mouse, sfVector2f map);
+void player_run(rpg_t *rpg);
 
 #endif /* !prototype */

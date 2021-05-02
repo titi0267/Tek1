@@ -48,6 +48,13 @@ void hitbox2(rpg_t *rpg)
 int clic2(rpg_t *rpg)
 {
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 490)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 589))) {
+        rpg->menu->status = ON_TUTO;
+        set_pos_car(rpg);
+    }
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 589.5)) &&
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 688.5)))
@@ -67,20 +74,17 @@ int clic1(rpg_t *rpg)
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 292)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
-        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 391)))
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 391))) {
             rpg->menu->status = ON_NEW_GM;
+            rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
+        }
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
         ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 391)) &&
         (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
         (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 490)))
             rpg->menu->status = ON_CONTINUE;
-        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
-        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 490)) &&
-        (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1776)) &&
-        (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 589)))
-            rpg->menu->status = ON_TUTO;
-    if (clic2(rpg) == -1)
-        return (-1);
+        if (clic2(rpg) == -1)
+            return (-1);
     }
     return (0);
 }

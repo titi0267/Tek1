@@ -5,7 +5,7 @@
 ** tools2.c
 */
 
-#include "../include/func_name.h"
+#include "../../include/func_name.h"
 
 int my_strlen(char *str)
 {

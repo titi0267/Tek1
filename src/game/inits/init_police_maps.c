@@ -26,6 +26,7 @@ void police_texture_map(rpg_t *rpg)
     sfTexture_getSize(in_police);
     rpg->game->in_game->map->tex_size_map[MAP_OUTSIDE_POLICE] =
     sfTexture_getSize(out_police);
+    init_warren_map(rpg);
 }
 
 void give_police_pos_map(rpg_t *rpg)
@@ -33,7 +34,7 @@ void give_police_pos_map(rpg_t *rpg)
     rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE] =
     put_in_vector2f(-1265, -959);
     rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE] =
-    put_in_vector2f(500, 500);
+    put_in_vector2f(-1850, -1800);
     sfSprite_setPosition(rpg->game->in_game->map->maps[MAP_INSIDE_POLICE],
     rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE]);
     sfSprite_setPosition(rpg->game->in_game->map->maps[MAP_OUTSIDE_POLICE],
@@ -41,13 +42,13 @@ void give_police_pos_map(rpg_t *rpg)
     rpg->game->in_game->map->col_real[MAP_INSIDE_POLICE] =
     put_in_vector2u(930, 485);
     rpg->game->in_game->map->col_real[MAP_OUTSIDE_POLICE] =
-    put_in_vector2u(500, 500);
+    put_in_vector2u(930, 487);
     rpg->game->in_game->map->col_real[MAP_TUTO] = put_in_vector2u(660, 540);
 }
 
 int create_police_map(rpg_t *rpg)
 {
-    int map_nbr = 4;
+    int map_nbr = 6;
 
     if ((rpg->game->in_game->map->maps = malloc(sizeof(sfSprite *) * map_nbr))
     == NULL || (rpg->game->in_game->map->collisions = malloc(sizeof(sfImage *)
@@ -62,7 +63,19 @@ int create_police_map(rpg_t *rpg)
     police_texture_map(rpg);
     give_police_pos_map(rpg);
     init_map_tuto(rpg);
-    rpg->game->in_game->map->color = sfImage_getPixel(
-    rpg->game->in_game->map->collisions[MAP_INSIDE_POLICE], 4999, 4999);
+    return (set_key_color(rpg));
+}
+
+int set_key_color(rpg_t *rpg)
+{
+    if ((rpg->game->in_game->map->color = malloc(sizeof(sfColor) * 4)) == NULL)
+        return (MALLOC_ERROR);
+    rpg->game->in_game->map->color[COL] = sfImage_getPixel
+    (rpg->game->in_game->map->collisions[MAP_INSIDE_POLICE], 4999, 4999);
+    rpg->game->in_game->map->color[MASK] = sfImage_getPixel
+    (rpg->game->in_game->map->collisions[MAP_TUTO], 0, 0);
+    rpg->game->in_game->map->color[PASS] = sfImage_getPixel
+    (rpg->game->in_game->map->collisions[MAP_OUTSIDE_POLICE], 0, 0);
+    rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
     return (0);
 }

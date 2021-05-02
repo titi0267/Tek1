@@ -46,25 +46,24 @@ void parsing_menu2(rpg_t *rpg)
     if (rpg->menu->status == ON_TUTO) {
         sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
         rpg->game->in_game->map->status = MAP_TUTO;
-        rpg->game->in_game->objects->car->car_pos.x = 300.0;
-        rpg->game->in_game->objects->car->car_pos.y = 300.0;
         tuto1(rpg);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+        if (rpg->basic->evt->event.text.unicode == 'p')
             rpg->menu->status = ON_MENU;
-    }
-}
-
-void parsing_menu3(rpg_t *rpg)
-{
     if (rpg->menu->status == ON_OPTION) {
         background(rpg);
         options(rpg);
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             rpg->menu->status = ON_MENU;
     }
+    }
+}
+
+void parsing_menu3(rpg_t *rpg)
+{
     if (rpg->menu->status == ON_GAME) {
         sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
         key_event_game(rpg);
+        chose_map(rpg);
     }
     if (rpg->menu->status == ON_INVENTORY) {
         display_inventory(rpg);
@@ -90,7 +89,6 @@ void parsing_menu4(rpg_t *rpg)
         if (sfSound_getStatus(rpg->game->start->cinematic_1) != sfPlaying)
             rpg->menu->status = ON_GAME;
     }
-    chose_map(rpg);
 }
 
 int parsing(rpg_t *rpg)

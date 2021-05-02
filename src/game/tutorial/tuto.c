@@ -71,6 +71,8 @@ void tuto2(rpg_t *rpg)
 void tuto1(rpg_t *rpg)
 {
     tuto_map(rpg);
+    enterred_in_car(rpg);
+    player_run(rpg);
     if (rpg->tutorial->tutorial_stat == TUTO1) {
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->tutorial->instruct[TUTO1], NULL);
@@ -83,7 +85,5 @@ void tuto1(rpg_t *rpg)
             rpg->basic->cnf->clk->time_tutorial = 0;
         }
     }
-    if (rpg->tutorial->tutorial_stat >= 1)
-        print_car(rpg);
     tuto2(rpg);
 }
