@@ -42,6 +42,7 @@ typedef struct intro_s {
 typedef struct menu_snd_s {
     sfSoundBuffer *create_a_menu;
     sfSound *a_menu;
+    int status_sound_menu;
 } menu_snd_t;
 
 typedef struct menu_spt_s {

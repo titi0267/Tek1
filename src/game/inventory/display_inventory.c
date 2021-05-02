@@ -35,19 +35,54 @@ void drag(rpg_t *rpg, int selected)
 void display_weapons(rpg_t *rpg)
 {
     for (int i = SMG; i < NO_WEAPON; i++) {
+        sfSprite_setPosition(rpg->game->in_game->inventory->weapon[i],
+        rpg->game->in_game->inventory->pos_weapon[i]);
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->game->in_game->inventory->weapon[i], NULL);
     }
 }
 
-void drop_weapon(rpg_t *rpg, int weapon)
+void drop_weapon(rpg_t *rpg)
 {
     sfRenderWindow_setMouseCursorVisible(rpg->basic->wnd->my_wnd, sfTrue);
-    sfSprite_setPosition(rpg->game->in_game->inventory->weapon[weapon],
-    rpg->game->in_game->inventory->pos_storage[WEAPON]);
-    rpg->game->in_game->inventory->is_area_filled[WEAPON] = TRUE;
+    /*sfSprite_setPosition(rpg->game->in_game->inventory->weapon[weapon],
+    rpg->game->in_game->inventory->pos_storage[WEAPON]);*/
     rpg->game->in_game->inventory->release_weapon = TRUE;
     rpg->game->in_game->inventory->selected_item = NO_WEAPON;
+}
+
+void drop_pos_weapon(rpg_t *rpg)
+{
+    if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 370)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 370)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 450)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 450)) &&
+    rpg->game->in_game->inventory->is_area_filled[WEAPON] == NO_WEAPON) {
+        rpg->game->in_game->inventory->is_area_filled[WEAPON] =
+        rpg->game->in_game->inventory->selected_item;
+        sfSprite_setPosition(rpg->game->in_game->inventory->weapon
+        [rpg->game->in_game->inventory->selected_item],
+        rpg->game->in_game->inventory->pos_storage[WEAPON]);
+    }
+    for (int i = 0; i <= 24; i++) {
+        if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg,
+        rpg->game->in_game->inventory->box_pos[i][0].x)) &&
+        ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg,
+        rpg->game->in_game->inventory->box_pos[i][0].y)) &&
+        (rpg->basic->cnf->mouse.x <= adapt_x(rpg,
+        rpg->game->in_game->inventory->box_pos[i][1].x)) &&
+        (rpg->basic->cnf->mouse.y <= adapt_y(rpg,
+        rpg->game->in_game->inventory->box_pos[i][1].y))) {
+            //printf("i = %i\n", i);
+            rpg->game->in_game->inventory->pos_weapon
+            [rpg->game->in_game->inventory->selected_item] = put_in_vector2f(
+            (float)rpg->game->in_game->inventory->box_pos[i][0].x,
+            (float)rpg->game->in_game->inventory->box_pos[i][0].y);
+        }
+    }
+    drop_weapon(rpg);
+    rpg->game->in_game->inventory->on_click = FALSE;
+    rpg->game->in_game->inventory->click_weapon = FALSE;
 }
 
 void drop3(rpg_t *rpg)
@@ -73,15 +108,7 @@ void drop3(rpg_t *rpg)
         //printf("clicked = %i & nbr = %f\n", rpg->game->in_game->inventory->on_click, nbr);
         if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed && nbr > 1) {
             //printf("mouse.x = %i & mouse.y = %i\n", rpg->basic->cnf->mouse.x, rpg->basic->cnf->mouse.y);
-            if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 370)) &&
-            ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 370)) &&
-            (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 450)) &&
-            (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 450)) &&
-            rpg->game->in_game->inventory->is_area_filled[WEAPON] == FALSE) {
-                drop_weapon(rpg, rpg->game->in_game->inventory->selected_item);
-                rpg->game->in_game->inventory->on_click = FALSE;
-                rpg->game->in_game->inventory->click_weapon = FALSE;
-            }
+            drop_pos_weapon(rpg);
         }
     }
     if (rpg->game->in_game->inventory->release_weapon == TRUE) {

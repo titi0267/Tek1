@@ -10,25 +10,31 @@
 void sound(rpg_t *rpg, int status)
 {
     static int sound1 = 0;
-    static int sound2 = 0;
 
     if (sound1 == 0 && status == 1) {
         sfSound_play(rpg->menu->intro->intro_snd->start);
         sound1 = 1;
     }
-    if ((sound2 == 0) && status == 2) {
+    if ((rpg->menu->main_menu->menu_snd->status_sound_menu == FALSE)
+    && status == 2) {
         sfSound_stop(rpg->menu->intro->intro_snd->start);
         sfSound_play(rpg->menu->main_menu->menu_snd->a_menu);
-        sound2 = 1;
+        rpg->menu->main_menu->menu_snd->status_sound_menu = TRUE;
     }
 }
 
 void ambiant_tuto(rpg_t *rpg)
 {
-    static int amb_status = 0;
-
-    if (amb_status == 0) {
+    if (rpg->tutorial->status_sound_tuto == FALSE) {
         sfSound_play(rpg->tutorial->tuto);
-        amb_status = 1;
+        rpg->tutorial->status_sound_tuto = TRUE;
+    }
+}
+
+void ambiant_game(rpg_t *rpg)
+{
+    if (rpg->game->in_game->ig_sound->status_sound_game == FALSE) {
+        sfSound_play(rpg->game->in_game->ig_sound->game);
+        rpg->game->in_game->ig_sound->status_sound_game = TRUE;
     }
 }

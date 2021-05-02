@@ -21,6 +21,35 @@ void set_inventory_sprites(rpg_t *rpg)
         rpg->game->in_game->inventory->is_area_filled[i] = FALSE;
 }
 
+void init_inventory_pos(inventory_t *ivt)
+{
+    ivt->box_pos = malloc(sizeof(sfVector2i *) * 24);
+    int x_over = 825;
+    int y_over = 421;
+    int x_under = 901;
+    int y_under = 497;
+
+    for (int i = 0; i <= 24; i++)
+        ivt->box_pos[i] = malloc(sizeof(sfVector2i) * 2);
+    for (int d = 0; d <= 21; d++) {
+        ivt->box_pos[d][0] = put_in_vector2i(x_over, y_over);
+        ivt->box_pos[d][1] = put_in_vector2i(x_under, y_under);
+        x_over += 91;
+        x_under += 91;
+        if (d == 7 || d == 14) {
+            y_over += 107;
+            x_over = 825;
+            y_under += 107;
+            x_under = 901;
+        }
+    }
+    /*for (int i = 0; i <= 24; i++) {
+        printf("i = %i\n", i);
+        printf("x_over = %i & y_over = %i\n", ivt->box_pos[i][0].x, ivt->box_pos[i][0].y);
+        printf("x_unde = %i & y_unde = %i\n", ivt->box_pos[i][1].x, ivt->box_pos[i][1].y);
+    }*/
+}
+
 void init_positions(rpg_t *rpg)
 {
     rpg->game->in_game->inventory->pos_storage[WEAPON] =
@@ -41,6 +70,7 @@ void init_positions(rpg_t *rpg)
     rpg->game->in_game->inventory->glob_pos = malloc(sizeof(sfFloatRect) * 4);
     rpg->game->in_game->inventory->release_weapon = FALSE;
     rpg->game->in_game->inventory->click_weapon = FALSE;
+    init_inventory_pos(rpg->game->in_game->inventory);
 }
 
 void init_inventory(rpg_t *rpg)

@@ -111,6 +111,7 @@ void player_stop(rpg_t *rpg);
 void change_map(rpg_t *rpg);
 
 sfVector2f put_in_vector2f(float x, float y);
+sfVector2i put_in_vector2i(int x, int y);
 void assemble_spt_pause(rpg_t *rpg);
 int show_menus(rpg_t *rpg);
 int show_menus2(rpg_t *rpg);
@@ -157,5 +158,6 @@ sfVector2f vect_diff(sfVector2f first, sfVector2f second);
 sfVector2f vect_add(sfVector2f first, sfVector2f second);
 void init_amb_tuto_game(rpg_t *rpg);
 void ambiant_tuto(rpg_t *rpg);
+void start_actions(rpg_t *rpg);
 
 #endif /* !prototype */

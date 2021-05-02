@@ -17,13 +17,16 @@ int init_basic_value(rpg_t *rpg)
     rpg->basic->cnf->clk->time_tutorial = 0;
     rpg->basic->cnf->clk->time_car = 0;
     rpg->basic->cnf->clk->time_shortcut = 0;
+    rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->menu->status = ON_BASIL;
     rpg->basic->cnf->scr_cnf->resolution = 0;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
     rpg->game->in_game->map->last_pos = -1;
     rpg->game->in_game->objects->speed_status = WALK_SPEED;
+    rpg->game->in_game->ig_sound->status_sound_game = FALSE;
     rpg->tutorial->tutorial_stat = TUTO1;
+    rpg->tutorial->status_sound_tuto = FALSE;
     return (0);
 }
 

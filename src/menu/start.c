@@ -84,3 +84,18 @@ void move_basil(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->intro->intro_basil->basil_spt, NULL);
 }
+
+void start_actions(rpg_t *rpg)
+{
+    static float nbr = 0;
+
+    if (nbr > 1 && nbr < 9.2)
+        move_basil(rpg);
+    if (nbr > 9.2 && nbr < 10.5)
+        sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
+    if (nbr > 10.5 && nbr < 17.7)
+        background_pegi(rpg);
+    if (nbr > 17.7)
+        rpg->menu->status = ON_MENU;
+    nbr += rpg->basic->cnf->clk->time_loop;
+}

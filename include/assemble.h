@@ -20,6 +20,7 @@ typedef struct tutorial_s
     sfSoundBuffer *amb_tuto;
     sfSound *tuto;
     int tutorial_stat;
+    int status_sound_tuto;
 } tutorial_t;
 
 typedef struct game_s

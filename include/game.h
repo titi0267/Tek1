@@ -11,7 +11,6 @@
 #define BEHIND 2
 #define BTW_MAP 3
 
-
 typedef struct start_s
 {
     sfSprite *radio;
@@ -39,13 +38,14 @@ typedef struct inventory_s {
     sfFloatRect *glob_pos;
     int click_weapon;
     int release_weapon;
+    sfVector2i **box_pos;
 } inventory_t;
 
 typedef struct ig_sound_s
 {
     sfSoundBuffer *amb_game;
     sfSound *game;
-    int status;
+    int status_sound_game;
 } ig_sound_t;
 
 typedef struct car_s

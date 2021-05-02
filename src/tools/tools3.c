@@ -28,3 +28,10 @@ int my_getnbr(char const *str)
         return (0);
     return ((int)nbr);
 }
+
+sfVector2i put_in_vector2i(int x, int y)
+{
+    sfVector2i pos = {x, y};
+
+    return (pos);
+}
