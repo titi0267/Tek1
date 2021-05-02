@@ -7,10 +7,6 @@
 
 #include "../../include/func_name.h"
 
-// point_distcance(put_in_vector2f(690, 584),
-//     put_in_vector2f(rpg->game->in_game->objects->car->car_pos.x,
-//     rpg->game->in_game->objects->car->car_pos.y + 10)) <= 5
-
 int car_dist(rpg_t *rpg)
 {
     sfVector2f check = vect_diff(put_in_vector2f(rpg->game->in_game->objects->car->car_pos.x, rpg->game->in_game->objects->car->car_pos.y + 10),

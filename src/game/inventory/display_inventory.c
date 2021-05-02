@@ -92,11 +92,13 @@ void drop3(rpg_t *rpg)
     if (rpg->game->in_game->inventory->click_weapon == TRUE) {
         if (rpg->basic->evt->event.type == sfEvtMouseButtonReleased)
             rpg->game->in_game->inventory->on_click = TRUE;
-        drag(rpg);
+        drag(rpg, rpg->game->in_game->inventory->selected_item);
     }
-        if (rpg->game->in_game->inventory->on_click == TRUE) {
-
+    if (rpg->game->in_game->inventory->on_click == TRUE) {
+        if (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) {
+            
         }
+    }
 }
 
 void drop2(rpg_t *rpg)
