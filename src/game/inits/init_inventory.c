@@ -13,6 +13,9 @@ void set_inventory_sprites(rpg_t *rpg)
         rpg->game->in_game->inventory->weapon[i] = sfSprite_create();
         sfSprite_setTexture(rpg->game->in_game->inventory->weapon[i],
         rpg->game->in_game->inventory->weapon_txt[i], sfTrue);
+        sfSprite_setPosition(rpg->game->in_game->inventory->weapon[i],
+        rpg->game->in_game->inventory->pos_weapon[i]);
+
     }
     for (int i = WEAPON; i < NO_SLOT; i++)
         rpg->game->in_game->inventory->is_area_filled[i] = FALSE;
@@ -34,6 +37,10 @@ void init_positions(rpg_t *rpg)
     put_in_vector2f(1007.5, 421.5);
     rpg->game->in_game->inventory->pos_weapon[TAZER] =
     put_in_vector2f(1098.5, 421.5);
+    rpg->game->in_game->inventory->on_click = FALSE;
+    rpg->game->in_game->inventory->glob_pos = malloc(sizeof(sfFloatRect) * 4);
+    rpg->game->in_game->inventory->release_weapon = FALSE;
+    rpg->game->in_game->inventory->click_weapon = FALSE;
 }
 
 void init_inventory(rpg_t *rpg)

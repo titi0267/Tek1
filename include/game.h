@@ -32,8 +32,13 @@ typedef struct inventory_s {
     int shortcut_it;
     int is_item_selected;
     int *is_area_filled;
+    int on_click;
+    int valid;
     int selected_item;
     sfVector2f *pos_storage;
+    sfFloatRect *glob_pos;
+    int click_weapon;
+    int release_weapon;
 } inventory_t;
 
 typedef struct ig_sound_s
