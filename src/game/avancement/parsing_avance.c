@@ -10,6 +10,7 @@
 void parsing_avance(rpg_t *rpg)
 {
     chose_map(rpg);
+    move_enemies(rpg);
     key_event_game(rpg);
     if (rpg->game->in_game->game_status == GM_BEGIN) {
         phone_main(rpg);

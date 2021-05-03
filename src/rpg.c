@@ -13,6 +13,7 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->phone->notif_bool = FALSE;
     rpg->game->in_game->phone->notif_index = 0;
     rpg->game->in_game->phone->notif_prev = 0;
+    *(rpg->game->in_game->nmi) = NULL;
 }
 
 void init_basic_value(rpg_t *rpg)

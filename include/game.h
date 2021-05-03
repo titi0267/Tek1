@@ -88,6 +88,7 @@ typedef struct enemy_s
     int last_pos;
     int *offset_nmi;
     struct enemy_s *next;
+    sfVector2f nmi_pos;
 } enemy_t;
 
 typedef struct ig_menus_s

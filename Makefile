@@ -80,6 +80,7 @@ SRCSFILES=	rpg.c							\
 			game/avancement/parsing_avance.c			\
 			game/avancement/phone.c						\
 			game/avancement/game_hitbox.c				\
+			game/enemies/move_enemy.c			\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

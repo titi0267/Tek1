@@ -170,5 +170,6 @@ void init_phone_sound(rpg_t *rpg);
 void desk_hitbox(rpg_t *rpg);
 int init_yellow_man(rpg_t *rpg);
 void init_pitch_riley(rpg_t *rpg);
+void move_enemies(rpg_t *rpg);
 
 #endif /* !prototype */
