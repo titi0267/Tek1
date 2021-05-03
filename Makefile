@@ -35,8 +35,8 @@ SRCSFILES=	rpg.c							\
 			menu/inits/init_text.c			\
 			menu/main_menu/hitbox_main_menu.c		\
 			menu/main_menu/main_menu.c				\
-			menu/new_game/choose_perso.c		\
-			menu/new_game/display_character.c	\
+			menu/new_game/choose_perso.c				\
+			menu/new_game/display_character.c			\
 			menu/settings/manage_graph.c		\
 			menu/settings/options_graph.c		\
 			menu/settings/options_sound.c		\
@@ -45,11 +45,11 @@ SRCSFILES=	rpg.c							\
 			menu/settings/options_key.c			\
 			menu/background.c			\
 			menu/start.c				\
-			game/shortcuts.c			\
-			game/save_game.c			\
-			game/continue.c				\
+			game/shortcuts.c				\
 			game/car.c						\
 			game/cinematics.c				\
+			game/continue/save_game.c			\
+			game/continue/continue.c			\
 			game/menu/exit.c			\
 			game/menu/exit_action.c		\
 			game/menu/settings_exit.c	\
@@ -59,10 +59,12 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_exit_settings.c		\
 			game/inits/init_tuto.c				\
 			game/inits/init_cinematics.c		\
+			game/inits/init_yellow_man.c		\
 			game/inits/init_police_maps.c		\
 			game/inits/init_other_maps.c		\
 			game/inits/init_car.c				\
 			game/inits/init_audios.c			\
+			game/inits/init_phone.c				\
 			game/maps/general_player_mv.c	\
 			game/maps/collisions_bis.c		\
 			game/maps/switch_map.c			\
@@ -72,8 +74,12 @@ SRCSFILES=	rpg.c							\
 			game/maps/run.c					\
 			game/inventory/display_inventory.c		\
 			game/inventory/inventory_manager.c		\
+			game/inventory/drop_type.c		\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\
+			game/avancement/parsing_avance.c			\
+			game/avancement/phone.c						\
+			game/avancement/game_hitbox.c				\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

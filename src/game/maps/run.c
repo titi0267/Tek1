@@ -19,6 +19,5 @@ void player_run(rpg_t *rpg)
         (rpg->game->in_game->objects->speed_status == WALK_SPEED) ?
         RUN_SPEED : WALK_SPEED;
         nbr = 0;
-        printf("je veux courir %d\n", rpg->game->in_game->objects->speed_status);
     }
 }

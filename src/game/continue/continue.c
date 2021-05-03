@@ -5,7 +5,7 @@
 ** continue
 */
 
-#include "../../include/func_name.h"
+#include "../../../include/func_name.h"
 
 char *my_open(FILE *fd)
 {

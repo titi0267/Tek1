@@ -81,7 +81,9 @@ typedef enum weapons_s {
     KNIFE,
     GUN,
     TAZER,
-    NO_WEAPON
+    NO_WEAPON,
+    BULLET_1,
+    NO_BULLET
 } weapons_t;
 
 typedef enum key_status_s {
@@ -145,5 +147,26 @@ typedef enum speed_s {
     RUN_SPEED,
     CAR_SPEED
 } speed_t;
+
+typedef enum game_avance_s {
+    GM_BEGIN,
+    GM_SPEECH,
+    GM_CALL
+} game_avance_t;
+
+typedef enum notifs_s {
+    NOTIF_MARTINEZ,
+    NOTIF1,
+    NOTIF2,
+    INCOMMING_CALL,
+    CALL,
+    NOTIF3,
+    NOTIF4,
+    NOTIF5,
+    NOTIF6,
+    NOTIF7,
+    NOTIF8,
+    NO_NOTIF
+} notifs_t;
 
 #endif /* !enumeration */

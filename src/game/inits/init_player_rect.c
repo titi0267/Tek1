@@ -37,7 +37,8 @@ void set_player_rect(rpg_t *rpg)
 
 int create_player_bis(rpg_t *rpg)
 {
-    if ((rpg->game->in_game->objects->player_tex = malloc(sizeof(sfTexture *) * 5)) == NULL)
+    if ((rpg->game->in_game->objects->player_tex = malloc(sizeof(sfTexture *)
+    * 5)) == NULL)
         return (MALLOC_ERROR);
     rpg->game->in_game->objects->player_tex[MAXOU] = sfTexture_createFromFile
     ("assets/perso/policemen-maxime.png", NULL);

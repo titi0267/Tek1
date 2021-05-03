@@ -39,6 +39,7 @@ typedef struct inventory_s {
     int click_weapon;
     int release_weapon;
     sfVector2i **box_pos;
+    int on_drag;
 } inventory_t;
 
 typedef struct ig_sound_s
@@ -46,6 +47,7 @@ typedef struct ig_sound_s
     sfSoundBuffer *amb_game;
     sfSound *game;
     int status_sound_game;
+    sfSound *riley;
 } ig_sound_t;
 
 typedef struct car_s
@@ -79,10 +81,11 @@ typedef struct map_s
     int status;
 } map_t;
 
-typedef struct txt_s
+typedef struct enemy_s
 {
-
-} txt_t;
+    sfSprite *yellow_man;
+    sfIntRect *nmi_rect;
+} enemy_t;
 
 typedef struct ig_menus_s
 {
@@ -90,14 +93,28 @@ typedef struct ig_menus_s
     sfSprite **pause_menu;
 } ig_menus_t;
 
+typedef struct phone_s
+{
+    sfSprite *phone_icone;
+    sfSprite *phone_notif;
+    sfSprite **phone;
+    sfSound *notif_sound;
+    sfSound *call_sound;
+    int phone_status;
+    int notif_index;
+    int notif_bool;
+} phone_t;
+
 typedef struct in_game_s
 {
     ig_sound_t *ig_sound;
     objects_t *objects;
     inventory_t *inventory;
     map_t *map;
-    txt_t *txt;
+    enemy_t *nmi;
     ig_menus_t *ig_menus;
+    phone_t *phone;
+    int game_status;
 } in_game_t;
 
 typedef struct end_s

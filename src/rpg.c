@@ -7,7 +7,14 @@
 
 #include "../include/func_name.h"
 
-int init_basic_value(rpg_t *rpg)
+void init_basic_value2(rpg_t *rpg)
+{
+    rpg->game->in_game->phone->phone_status = 1;
+    rpg->game->in_game->phone->notif_bool = FALSE;
+    rpg->game->in_game->phone->notif_index = 0;
+}
+
+void init_basic_value(rpg_t *rpg)
 {
     rpg->basic->cnf->clk->clock = sfClock_create();
     rpg->basic->cnf->scr_cnf->fps = 60;
@@ -27,7 +34,8 @@ int init_basic_value(rpg_t *rpg)
     rpg->game->in_game->ig_sound->status_sound_game = FALSE;
     rpg->tutorial->tutorial_stat = TUTO1;
     rpg->tutorial->status_sound_tuto = FALSE;
-    return (0);
+    rpg->game->in_game->game_status = -1;
+    init_basic_value2(rpg);
 }
 
 void init_function2(rpg_t *rpg)
@@ -39,6 +47,9 @@ void init_function2(rpg_t *rpg)
     create_police_map(rpg);
     init_car_spt(rpg);
     init_amb_tuto_game(rpg);
+    init_phone(rpg);
+    init_phone_sound(rpg);
+    init_pitch_riley(rpg);
 }
 
 int init_function(rpg_t *rpg)
@@ -57,7 +68,7 @@ int init_function(rpg_t *rpg)
     init_characters_sprites(rpg);
     init_inventory(rpg);
     if (init_tuto(rpg) == 84 || realrandom() == 84 ||
-        init_pdown_up_rect(rpg) == MALLOC_ERROR)
+        init_pdown_up_rect(rpg) == MALLOC_ERROR || init_yellow_man(rpg) == 84)
         return (MALLOC_ERROR);
     init_function2(rpg);
     return (0);

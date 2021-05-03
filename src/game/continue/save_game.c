@@ -5,7 +5,7 @@
 ** save_game
 */
 
-#include "../../include/func_name.h"
+#include "../../../include/func_name.h"
 
 char *save_char(new_game_t *newgame)
 {
@@ -49,7 +49,7 @@ void save_map(rpg_t *rpg)
     char *pos = save_pos(rpg->game->in_game->map);
     char *map = save_on_map(rpg->game->in_game->map);
     char *invent = save_invent();
-    char* advanc = "0";
+    char *advanc = "0";
 
     save = my_strcat(save, my_strcat(map, my_strcat(pos, my_strcat (invent,
     advanc))));

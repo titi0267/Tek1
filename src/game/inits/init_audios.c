@@ -24,3 +24,28 @@ void init_amb_tuto_game(rpg_t *rpg)
     sfSound_setVolume(rpg->game->in_game->ig_sound->game, 50);
     sfSound_setLoop(rpg->game->in_game->ig_sound->game, sfTrue);
 }
+
+void init_phone_sound(rpg_t *rpg)
+{
+    sfSoundBuffer *buffer;
+
+    buffer = sfSoundBuffer_createFromFile("assets/audios/sms.ogg");
+    rpg->game->in_game->phone->notif_sound = sfSound_create();
+    sfSound_setBuffer(rpg->game->in_game->phone->notif_sound, buffer);
+    sfSound_setVolume(rpg->game->in_game->phone->notif_sound, 50);
+    buffer = sfSoundBuffer_createFromFile
+    ("assets/audios/incoming_call.ogg");
+    rpg->game->in_game->phone->call_sound = sfSound_create();
+    sfSound_setBuffer(rpg->game->in_game->phone->call_sound, buffer);
+    sfSound_setVolume(rpg->game->in_game->phone->call_sound, 50);
+}
+
+void init_pitch_riley(rpg_t *rpg)
+{
+    sfSoundBuffer *buffer;
+
+    buffer = sfSoundBuffer_createFromFile("assets/audios/riley.ogg");
+    rpg->game->in_game->ig_sound->riley = sfSound_create();
+    sfSound_setBuffer(rpg->game->in_game->ig_sound->riley, buffer);
+    sfSound_setVolume(rpg->game->in_game->ig_sound->riley, 50);
+}

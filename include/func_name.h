@@ -25,8 +25,6 @@ int menu_alloc(menu_t *menu);
 int menu_alloc_next(menu_t *menu);
 int alloc_all(rpg_t *rpg);
 
-int init_basic_value(rpg_t *rpg);
-
 void create_window(basic_t *basic);
 void create_boom(menu_t *menu);
 
@@ -88,7 +86,10 @@ int collision(rpg_t *rpg, int direction, int y);
 void init_warren_map(rpg_t *rpg);
 
 void init_inventory(rpg_t *rpg);
+void drop_all_boxes(rpg_t *rpg);
+void detect_inventory_object(rpg_t *rpg);
 void display_inventory(rpg_t *rpg);
+void drag(rpg_t *rpg, int selected);
 int game_malloc(rpg_t *rpg);
 int game_malloc2(rpg_t *rpg);
 void init_exit(rpg_t *rpg);
@@ -97,6 +98,7 @@ void key_event_inventory(rpg_t *rpg);
 void click_on_resume(rpg_t *rpg);
 void click_on_option(rpg_t *rpg);
 void click_on_quit(rpg_t *rpg);
+void display_weapons(rpg_t *rpg);
 
 int init_pdown_up_rect(rpg_t *rpg);
 int create_police_map(rpg_t *rpg);
@@ -146,7 +148,6 @@ int my_getnbr(char const *str);
 void init_car_spt(rpg_t *rpg);
 void print_car(rpg_t *rpg);
 
-void detect_weapon(rpg_t *rpg);
 void drag(rpg_t *rpg, int selected);
 void calc_vector(rpg_t *rpg, int slot_type, int weapon);
 void drag_and_drop(rpg_t *rpg, int selected);
@@ -158,6 +159,16 @@ sfVector2f vect_diff(sfVector2f first, sfVector2f second);
 sfVector2f vect_add(sfVector2f first, sfVector2f second);
 void init_amb_tuto_game(rpg_t *rpg);
 void ambiant_tuto(rpg_t *rpg);
+void ambiant_game(rpg_t *rpg);
 void start_actions(rpg_t *rpg);
+void parsing_avance(rpg_t *rpg);
+void init_phone(rpg_t *rpg);
+void print_phone(rpg_t *rpg);
+void toggle_phone(rpg_t *rpg);
+void phone_main(rpg_t *rpg);
+void init_phone_sound(rpg_t *rpg);
+void desk_hitbox(rpg_t *rpg);
+int init_yellow_man(rpg_t *rpg);
+void init_pitch_riley(rpg_t *rpg);
 
 #endif /* !prototype */

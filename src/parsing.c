@@ -51,8 +51,9 @@ void parsing_menu3(rpg_t *rpg)
 {
     if (rpg->menu->status == ON_GAME) {
         sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
-        key_event_game(rpg);
-        chose_map(rpg);
+        if (rpg->game->in_game->map->status != MAP_INSIDE_POLICE)
+            ambiant_game(rpg);
+        parsing_avance(rpg);
         rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
     }
     if (rpg->menu->status == ON_INVENTORY) {
@@ -81,12 +82,15 @@ int parsing_menu4(rpg_t *rpg)
         rpg->basic->cnf->clk->time_menu = 0;
         rpg->tutorial->status_sound_tuto = FALSE;
         rpg->game->in_game->ig_sound->status_sound_game = FALSE;
+        rpg->game->in_game->ig_sound->status_sound_game = FALSE;
     }
     if (rpg->menu->status == ON_CINEMATIC1) {
         sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
         cinematic_1(rpg);
-        if (sfSound_getStatus(rpg->game->start->cinematic_1) != sfPlaying)
+        if (sfSound_getStatus(rpg->game->start->cinematic_1) != sfPlaying) {
             rpg->menu->status = ON_GAME;
+            rpg->game->in_game->game_status = GM_BEGIN;
+        }
     }
     return (0);
 }

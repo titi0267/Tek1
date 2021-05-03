@@ -15,39 +15,44 @@ void set_inventory_sprites(rpg_t *rpg)
         rpg->game->in_game->inventory->weapon_txt[i], sfTrue);
         sfSprite_setPosition(rpg->game->in_game->inventory->weapon[i],
         rpg->game->in_game->inventory->pos_weapon[i]);
-
     }
     for (int i = WEAPON; i < NO_SLOT; i++)
         rpg->game->in_game->inventory->is_area_filled[i] = FALSE;
+    rpg->game->in_game->inventory->on_drag = FALSE;
 }
 
 void init_inventory_pos(inventory_t *ivt)
 {
-    ivt->box_pos = malloc(sizeof(sfVector2i *) * 24);
     int x_over = 825;
     int y_over = 421;
-    int x_under = 901;
-    int y_under = 497;
+    int x_under = 915; //901
+    int y_under = 510; //497
 
-    for (int i = 0; i <= 24; i++)
+    ivt->box_pos = malloc(sizeof(sfVector2i *) * 27);
+    for (int i = 0; i <= 26; i++)
         ivt->box_pos[i] = malloc(sizeof(sfVector2i) * 2);
-    for (int d = 0; d <= 21; d++) {
+    for (int d = 0; d <= 23; d++) {
         ivt->box_pos[d][0] = put_in_vector2i(x_over, y_over);
         ivt->box_pos[d][1] = put_in_vector2i(x_under, y_under);
         x_over += 91;
         x_under += 91;
-        if (d == 7 || d == 14) {
+        if (d == 7 || d == 15) {
             y_over += 107;
             x_over = 825;
             y_under += 107;
-            x_under = 901;
+            x_under = 915;
         }
     }
-    /*for (int i = 0; i <= 24; i++) {
-        printf("i = %i\n", i);
-        printf("x_over = %i & y_over = %i\n", ivt->box_pos[i][0].x, ivt->box_pos[i][0].y);
-        printf("x_unde = %i & y_unde = %i\n", ivt->box_pos[i][1].x, ivt->box_pos[i][1].y);
-    }*/
+}
+
+void init_strat_pos(inventory_t *ivt)
+{
+    ivt->box_pos[24][0] = put_in_vector2i(371, 367);
+    ivt->box_pos[24][1] = put_in_vector2i(447, 443);
+    ivt->box_pos[25][0] = put_in_vector2i(370, 457);
+    ivt->box_pos[25][1] = put_in_vector2i(447, 533);
+    ivt->box_pos[26][0] = put_in_vector2i(371, 638);
+    ivt->box_pos[26][1] = put_in_vector2i(447, 714);
 }
 
 void init_positions(rpg_t *rpg)
@@ -71,6 +76,7 @@ void init_positions(rpg_t *rpg)
     rpg->game->in_game->inventory->release_weapon = FALSE;
     rpg->game->in_game->inventory->click_weapon = FALSE;
     init_inventory_pos(rpg->game->in_game->inventory);
+    init_strat_pos(rpg->game->in_game->inventory);
 }
 
 void init_inventory(rpg_t *rpg)

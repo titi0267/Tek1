@@ -21,8 +21,11 @@ void set_volume(rpg_t *rpg)
 
     sfSound_setVolume(rpg->menu->main_menu->menu_snd->a_menu, volume_music);
     sfSound_setVolume(rpg->game->start->cinematic_1, volume_dial);
+    sfSound_setVolume(rpg->game->in_game->ig_sound->riley, volume_dial);
     sfSound_setVolume(rpg->tutorial->tuto, volume_amb);
     sfSound_setVolume(rpg->game->in_game->ig_sound->game, volume_amb);
+    sfSound_setVolume(rpg->game->in_game->phone->notif_sound, volume_amb);
+    sfSound_setVolume(rpg->game->in_game->phone->call_sound, volume_amb);
 }
 
 void manage_music(rpg_t *rpg, sfFloatRect music, sfVector2f mouse)

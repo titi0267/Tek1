@@ -22,7 +22,7 @@ int game_malloc(rpg_t *rpg)
     i++;
     if ((rpg->game->in_game->objects = malloc(sizeof(objects_t))) == NULL)
         return (MALLOC_ERROR);
-    if ((rpg->game->in_game->txt = malloc(sizeof(txt_t))) == NULL)
+    if ((rpg->game->in_game->nmi = malloc(sizeof(enemy_t))) == NULL)
         return (MALLOC_ERROR);
     if ((rpg->game->end = malloc(sizeof(end_t))) == NULL)
         return (MALLOC_ERROR);
@@ -38,6 +38,8 @@ int game_malloc2(rpg_t *rpg)
     if ((rpg->game->in_game->map = malloc(sizeof(map_t))) == NULL)
         return (MALLOC_ERROR);
     if ((rpg->game->in_game->objects->car = malloc(sizeof(car_t))) == NULL)
+        return (MALLOC_ERROR);
+    if ((rpg->game->in_game->phone = malloc(sizeof(phone_t))) == NULL)
         return (MALLOC_ERROR);
     return (0);
 }

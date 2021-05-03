@@ -13,9 +13,10 @@ void free_game(rpg_t *rpg)
     free(rpg->game->in_game->inventory);
     free(rpg->game->in_game->ig_menus);
     free(rpg->game->in_game->objects);
-    free(rpg->game->in_game->txt);
+    free(rpg->game->in_game->nmi);
     free(rpg->game->in_game->map->pos_map);
     free(rpg->game->in_game->map);
+    free(rpg->game->in_game->phone);
     free(rpg->game->in_game);
     free(rpg->game->end);
     free(rpg->game->start);
