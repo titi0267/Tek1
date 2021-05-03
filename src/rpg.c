@@ -12,6 +12,7 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->phone->phone_status = 1;
     rpg->game->in_game->phone->notif_bool = FALSE;
     rpg->game->in_game->phone->notif_index = 0;
+    rpg->game->in_game->phone->notif_prev = 0;
 }
 
 void init_basic_value(rpg_t *rpg)
@@ -68,7 +69,7 @@ int init_function(rpg_t *rpg)
     init_characters_sprites(rpg);
     init_inventory(rpg);
     if (init_tuto(rpg) == 84 || realrandom() == 84 ||
-        init_pdown_up_rect(rpg) == MALLOC_ERROR || init_yellow_man(rpg) == 84)
+        init_pdown_up_rect(rpg) == MALLOC_ERROR)
         return (MALLOC_ERROR);
     init_function2(rpg);
     return (0);

@@ -19,6 +19,8 @@ void desk_hitbox(rpg_t *rpg)
     [rpg->game->in_game->map->status].y >= -730 &&
     rpg->game->in_game->phone->notif_index == 1) {
         rpg->game->in_game->game_status = GM_SPEECH;
+        rpg->game->in_game->phone->notif_prev =
+        rpg->game->in_game->phone->notif_index;
         sfSound_play(rpg->game->in_game->ig_sound->riley);
     }
 }

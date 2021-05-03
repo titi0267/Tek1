@@ -17,6 +17,9 @@ void parsing_avance(rpg_t *rpg)
     }
     if (rpg->game->in_game->game_status == GM_SPEECH) {
         if (sfSound_getStatus(rpg->game->in_game->ig_sound->riley) == sfStopped)
-            rpg->game->in_game->game_status = GM_CALL;
+            rpg->game->in_game->game_status = GM_NOTIF2;
+    }
+    if (rpg->game->in_game->game_status == GM_NOTIF2) {
+        phone_main(rpg);
     }
 }

@@ -85,6 +85,9 @@ typedef struct enemy_s
 {
     sfSprite *yellow_man;
     sfIntRect *nmi_rect;
+    int last_pos;
+    int *offset_nmi;
+    struct enemy_s *next;
 } enemy_t;
 
 typedef struct ig_menus_s
@@ -103,6 +106,7 @@ typedef struct phone_s
     int phone_status;
     int notif_index;
     int notif_bool;
+    int notif_prev;
 } phone_t;
 
 typedef struct in_game_s
@@ -111,7 +115,8 @@ typedef struct in_game_s
     objects_t *objects;
     inventory_t *inventory;
     map_t *map;
-    enemy_t *nmi;
+    enemy_t **nmi;
+    enemy_t *nmi_list;
     ig_menus_t *ig_menus;
     phone_t *phone;
     int game_status;

@@ -77,9 +77,6 @@ void toggle_phone(rpg_t *rpg)
         (rpg->game->in_game->phone->phone_status == 0 ||
         rpg->game->in_game->phone->phone_status == 1) ? 2 : 0;
         nbr = 0;
-        printf("%f || %f\n", rpg->game->in_game->map->pos_map
-    [rpg->game->in_game->map->status].x, rpg->game->in_game->map->pos_map
-    [rpg->game->in_game->map->status].y);
     }
     check_phone(rpg);
 }
@@ -88,7 +85,8 @@ void phone_main(rpg_t *rpg)
 {
     toggle_phone(rpg);
     print_phone(rpg);
-    if (rpg->game->in_game->phone->notif_index == 0)
+    if (rpg->game->in_game->phone->notif_index ==
+    rpg->game->in_game->phone->notif_prev)
         wait_notif(rpg);
     if (rpg->game->in_game->phone->notif_bool == FALSE) {
         sfSound_play(rpg->game->in_game->phone->notif_sound);
