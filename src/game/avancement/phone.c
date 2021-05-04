@@ -19,6 +19,7 @@ void wait_notif(rpg_t *rpg)
         rpg->game->in_game->phone->notif_index++;
         rpg->game->in_game->phone->phone_status = 1;
         rpg->game->in_game->phone->notif_bool = FALSE;
+        time = 0;
     }
 }
 

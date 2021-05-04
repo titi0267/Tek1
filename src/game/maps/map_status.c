@@ -10,13 +10,14 @@
 void print_map(rpg_t *rpg, int on_map)
 {
     if (rpg->menu->status == ON_GAME &&
-    rpg->game->in_game->game_status != GM_SPEECH) {
+    !on_cine(rpg)) {
         player_run(rpg);
         move_left_map(rpg, on_map);
     }
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->map->maps[on_map], NULL);
     print_player_move(rpg);
+    move_enemies(rpg);
 }
 
 void chose_map(rpg_t *rpg)

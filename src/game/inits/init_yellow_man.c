@@ -36,11 +36,12 @@ void init_nmi_up_down(rpg_t *rpg)
 
 int rect_nmi(rpg_t *rpg)
 {
-    if ((rpg->game->in_game->nmi_list->offset_nmi = malloc(sizeof(int) * 4)) == NULL)
+    if ((rpg->game->in_game->nmi_list->offset_nmi = malloc(sizeof(int) * 5)) == NULL)
         return (MALLOC_ERROR);
-    for (int i = UP; i <= RIGHT; i++)
+    for (int i = UP; i <= LEFT; i++)
         rpg->game->in_game->nmi_list->offset_nmi[i] = 0;
     rpg->game->in_game->nmi_list->last_pos = 0;
+    rpg->game->in_game->nmi_list->clock_rect = 0;
     return (0);
 }
 
@@ -54,10 +55,10 @@ int init_yellow_man(rpg_t *rpg)
     if ((rpg->game->in_game->nmi_list->nmi_rect =
     malloc(sizeof(sfIntRect) * 5)) == NULL)
         return (MALLOC_ERROR);
+    init_nmi_up_down(rpg);
     for (int i = UP; i <= LEFT; i++)
         sfSprite_setTextureRect(rpg->game->in_game->nmi_list->yellow_man,
         rpg->game->in_game->nmi_list->nmi_rect[i]);
-    init_nmi_up_down(rpg);
-    sfTexture_destroy(yellow);
+    rect_nmi(rpg);
     return (0);
 }

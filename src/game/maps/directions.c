@@ -18,6 +18,7 @@ void move_up_map(rpg_t *rpg, int on_map)
             rpg->game->in_game->objects->car->car_pos.y +=
             rpg->game->in_game->map->speed
             [rpg->game->in_game->objects->speed_status];
+            move_enemies_on_map(rpg, UP);
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
@@ -38,6 +39,7 @@ void move_down_map(rpg_t *rpg,int on_map)
             rpg->game->in_game->objects->car->car_pos.y -=
             rpg->game->in_game->map->speed
             [rpg->game->in_game->objects->speed_status];
+            move_enemies_on_map(rpg, DOWN);
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
@@ -58,6 +60,7 @@ void move_right_map(rpg_t *rpg, int on_map)
             rpg->game->in_game->objects->car->car_pos.x -=
             rpg->game->in_game->map->speed
             [rpg->game->in_game->objects->speed_status];
+            move_enemies_on_map(rpg, RIGHT);
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
@@ -78,6 +81,7 @@ void move_left_map(rpg_t *rpg, int on_map)
             rpg->game->in_game->objects->car->car_pos.x +=
             rpg->game->in_game->map->speed
             [rpg->game->in_game->objects->speed_status];
+            move_enemies_on_map(rpg, LEFT);
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);

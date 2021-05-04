@@ -151,7 +151,10 @@ typedef enum speed_s {
 typedef enum game_avance_s {
     GM_BEGIN,
     GM_SPEECH,
-    GM_NOTIF2
+    GM_NOTIF2,
+    GM_INCOMMING_CALL,
+    GM_CALL,
+    GM_NOTIF3
 } game_avance_t;
 
 typedef enum notifs_s {

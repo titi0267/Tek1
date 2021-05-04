@@ -7,6 +7,14 @@
 
 #include "../../include/func_name.h"
 
+int on_cine(rpg_t *rpg)
+{
+    if (rpg->game->in_game->game_status == GM_SPEECH ||
+    rpg->game->in_game->game_status == GM_CALL)
+        return (TRUE);
+    return (FALSE);
+}
+
 void radio_rect(rpg_t *rpg)
 {
     if (rpg->game->start->radio_offset <= 8) {

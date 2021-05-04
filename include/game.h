@@ -48,6 +48,7 @@ typedef struct ig_sound_s
     sfSound *game;
     int status_sound_game;
     sfSound *riley;
+    sfSound *riley_call;
 } ig_sound_t;
 
 typedef struct car_s
@@ -89,6 +90,7 @@ typedef struct enemy_s
     int *offset_nmi;
     struct enemy_s *next;
     sfVector2f nmi_pos;
+    float clock_rect;
 } enemy_t;
 
 typedef struct ig_menus_s

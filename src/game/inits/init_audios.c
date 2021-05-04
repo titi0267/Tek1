@@ -48,4 +48,9 @@ void init_pitch_riley(rpg_t *rpg)
     rpg->game->in_game->ig_sound->riley = sfSound_create();
     sfSound_setBuffer(rpg->game->in_game->ig_sound->riley, buffer);
     sfSound_setVolume(rpg->game->in_game->ig_sound->riley, 50);
+    buffer = sfSoundBuffer_createFromFile
+    ("assets/audios/call_riley_warren.ogg");
+    rpg->game->in_game->ig_sound->riley_call = sfSound_create();
+    sfSound_setBuffer(rpg->game->in_game->ig_sound->riley_call, buffer);
+    sfSound_setVolume(rpg->game->in_game->ig_sound->riley_call, 50);
 }

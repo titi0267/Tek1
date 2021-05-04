@@ -171,5 +171,11 @@ void desk_hitbox(rpg_t *rpg);
 int init_yellow_man(rpg_t *rpg);
 void init_pitch_riley(rpg_t *rpg);
 void move_enemies(rpg_t *rpg);
+int on_cine(rpg_t *rpg);
+void notif2_hitbox(rpg_t *rpg);
+void move_enemies_on_map(rpg_t *rpg, int direction);
+void call_hitbox(rpg_t *rpg);
+void init_pitch_riley(rpg_t *rpg);
+void incall_hitbox(rpg_t *rpg);
 
 #endif /* !prototype */
