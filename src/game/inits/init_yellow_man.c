@@ -16,7 +16,7 @@ void init_nmi_side(rpg_t *rpg)
     rpg->game->in_game->nmi_list->nmi_rect[LEFT].width = 58;
     rpg->game->in_game->nmi_list->nmi_rect[LEFT].height = 88;
     rpg->game->in_game->nmi_list->nmi_rect[RIGHT].left = 0;
-    rpg->game->in_game->nmi_list->nmi_rect[RIGHT].top = 88 * 3;
+    rpg->game->in_game->nmi_list->nmi_rect[RIGHT].top = 88 * 2;
     rpg->game->in_game->nmi_list->nmi_rect[RIGHT].width = 58;
     rpg->game->in_game->nmi_list->nmi_rect[RIGHT].height = 88;
 }
@@ -24,7 +24,7 @@ void init_nmi_side(rpg_t *rpg)
 void init_nmi_up_down(rpg_t *rpg)
 {
     rpg->game->in_game->nmi_list->nmi_rect[UP].left = 0;
-    rpg->game->in_game->nmi_list->nmi_rect[UP].top = 88 * 2;
+    rpg->game->in_game->nmi_list->nmi_rect[UP].top = 88 * 3;
     rpg->game->in_game->nmi_list->nmi_rect[UP].width = 58;
     rpg->game->in_game->nmi_list->nmi_rect[UP].height = 88;
     rpg->game->in_game->nmi_list->nmi_rect[DOWN].left = 0;
@@ -56,9 +56,9 @@ int init_yellow_man(rpg_t *rpg)
     malloc(sizeof(sfIntRect) * 5)) == NULL)
         return (MALLOC_ERROR);
     init_nmi_up_down(rpg);
-    for (int i = UP; i <= LEFT; i++)
+    /*for (int i = UP; i <= LEFT; i++)
         sfSprite_setTextureRect(rpg->game->in_game->nmi_list->yellow_man,
-        rpg->game->in_game->nmi_list->nmi_rect[i]);
+        rpg->game->in_game->nmi_list->nmi_rect[i]);*/
     rect_nmi(rpg);
     return (0);
 }

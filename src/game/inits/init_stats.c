@@ -21,9 +21,12 @@ void init_stats_value(rpg_t *rpg)
         sfText_setCharacterSize(rpg->game->in_game->player_stats[i]->txt, 20);
         sfText_setFont(rpg->game->in_game->player_stats[i]->txt, font);
     }
-    sfText_setPosition(rpg->game->in_game->player_stats[P_LIFE]->txt, put_in_vector2f(1432, 452));
-    sfText_setPosition(rpg->game->in_game->player_stats[P_DAMAGE]->txt, put_in_vector2f(1432, 558));
-    sfText_setPosition(rpg->game->in_game->player_stats[P_ARMOR]->txt, put_in_vector2f(1432, 665));
+    sfText_setPosition(rpg->game->in_game->player_stats[P_LIFE]->txt,
+    put_in_vector2f(1432, 452));
+    sfText_setPosition(rpg->game->in_game->player_stats[P_DAMAGE]->txt,
+    put_in_vector2f(1432, 558));
+    sfText_setPosition(rpg->game->in_game->player_stats[P_ARMOR]->txt,
+    put_in_vector2f(1432, 665));
 }
 
 int malloc_stat_player(rpg_t *rpg)

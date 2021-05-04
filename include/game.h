@@ -91,6 +91,7 @@ typedef struct enemy_s
     struct enemy_s *next;
     sfVector2f nmi_pos;
     float clock_rect;
+    sfVector2f diff;
 } enemy_t;
 
 typedef struct ig_menus_s
