@@ -57,7 +57,12 @@ void destroy_game(rpg_t *rpg)
         sfSprite_destroy(rpg->game->in_game->map->maps[i]);
         sfImage_destroy(rpg->game->in_game->map->collisions[i]);
     }
-
+    rpg->game->in_game->nmi_list = *(rpg->game->in_game->nmi);
+    for (int i = 0; rpg->game->in_game->nmi_list != NULL;
+    rpg->game->in_game->nmi_list = rpg->game->in_game->nmi_list->next, i++) {
+        sfSprite_destroy(rpg->game->in_game->nmi_list->yellow_man);
+        free(rpg->game->in_game->nmi_list->offset_nmi);
+    }
 }
 
 void destroy_all(rpg_t *rpg)

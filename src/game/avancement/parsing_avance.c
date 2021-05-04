@@ -12,6 +12,10 @@ void parsing_avance2(rpg_t *rpg)
     if (rpg->game->in_game->game_status == GM_INCOMMING_CALL) {
         phone_main(rpg);
         call_hitbox(rpg);
+        if (rpg->game->in_game->phone->call_status == FALSE) {
+            sfSound_play(rpg->game->in_game->phone->call_sound);
+            rpg->game->in_game->phone->call_status = TRUE;
+        }
     }
     if (rpg->game->in_game->game_status == GM_CALL) {
         rpg->game->in_game->phone->phone_status = 2;

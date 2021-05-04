@@ -49,12 +49,12 @@ void spawn_enemies(rpg_t *rpg)
             y = rand() % 5000;
             color = sfImage_getPixel(rpg->game->in_game->map->collisions
             [rpg->game->in_game->map->status], (unsigned int)x,
-            (unsigned int)y);
+            (unsigned int)y + 85);
             if (check_color(rpg, color) != COLLISION)
                 break;
         }
         x = (x) + rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x;
-        y = (y) + rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y;
+        y = (y) + rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y + 85;
         add_nmi(rpg, x, y);
    // }
 }
@@ -106,8 +106,12 @@ void detect_player(rpg_t *rpg)
         pos.x *= -1;
     if (pos.y < 0)
         pos.y *= -1;
-    if (pos.x < 300 && pos.y < 300)
-        printf("In range ! (%f, %f)\n", pos.x, pos.y);
+    if (pos.x < 300 && pos.y < 300) {
+        //printf("In range ! (%f, %f)\n", pos.x, pos.y);
+        rect_move_enemy(rpg, DOWN, rpg->game->in_game->nmi_list);
+    } else {
+        enemy_stop(rpg);
+    }
 }
 
 void move_enemies(rpg_t *rpg)
@@ -123,11 +127,10 @@ void move_enemies(rpg_t *rpg)
     }
     for (int i = 0; rpg->game->in_game->nmi_list != NULL; rpg->game->in_game->nmi_list
     = rpg->game->in_game->nmi_list->next, i++) {
-        rect_move_enemy(rpg, DOWN, rpg->game->in_game->nmi_list);
+        detect_player(rpg);
         sfSprite_setTextureRect(rpg->game->in_game->nmi_list->yellow_man,
         rpg->game->in_game->nmi_list->nmi_rect[DOWN]);
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->game->in_game->nmi_list->yellow_man, NULL);
-        detect_player(rpg);
     }
 }

@@ -28,15 +28,15 @@ void init_inventory_pos(inventory_t *ivt)
     int x_under = 915; //901
     int y_under = 510; //497
 
-    ivt->box_pos = malloc(sizeof(sfVector2i *) * 27);
-    for (int i = 0; i <= 26; i++)
+    ivt->box_pos = malloc(sizeof(sfVector2i *) * 21);
+    for (int i = 0; i <= 20; i++)
         ivt->box_pos[i] = malloc(sizeof(sfVector2i) * 2);
-    for (int d = 0; d <= 23; d++) {
+    for (int d = 0; d <= 17; d++) {
         ivt->box_pos[d][0] = put_in_vector2i(x_over, y_over);
         ivt->box_pos[d][1] = put_in_vector2i(x_under, y_under);
         x_over += 91;
         x_under += 91;
-        if (d == 7 || d == 15) {
+        if (d == 4 || d == 12) {
             y_over += 107;
             x_over = 825;
             y_under += 107;
@@ -47,12 +47,12 @@ void init_inventory_pos(inventory_t *ivt)
 
 void init_strat_pos(inventory_t *ivt)
 {
-    ivt->box_pos[24][0] = put_in_vector2i(371, 367);
-    ivt->box_pos[24][1] = put_in_vector2i(447, 443);
-    ivt->box_pos[25][0] = put_in_vector2i(370, 457);
-    ivt->box_pos[25][1] = put_in_vector2i(447, 533);
-    ivt->box_pos[26][0] = put_in_vector2i(371, 638);
-    ivt->box_pos[26][1] = put_in_vector2i(447, 714);
+    ivt->box_pos[18][0] = put_in_vector2i(371, 367);
+    ivt->box_pos[18][1] = put_in_vector2i(447, 443);
+    ivt->box_pos[19][0] = put_in_vector2i(370, 457);
+    ivt->box_pos[19][1] = put_in_vector2i(447, 533);
+    ivt->box_pos[20][0] = put_in_vector2i(371, 638);
+    ivt->box_pos[20][1] = put_in_vector2i(447, 714);
 }
 
 void init_positions(rpg_t *rpg)

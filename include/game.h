@@ -110,6 +110,7 @@ typedef struct phone_s
     int notif_index;
     int notif_bool;
     int notif_prev;
+    int call_status;
 } phone_t;
 
 typedef struct player_stats_s

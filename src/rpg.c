@@ -11,6 +11,7 @@ void init_basic_value2(rpg_t *rpg)
 {
     rpg->game->in_game->phone->phone_status = 1;
     rpg->game->in_game->phone->notif_bool = FALSE;
+    rpg->game->in_game->phone->call_status = FALSE;
     rpg->game->in_game->phone->notif_index = 0;
     rpg->game->in_game->phone->notif_prev = 0;
     *(rpg->game->in_game->nmi) = NULL;
@@ -52,6 +53,7 @@ void init_function2(rpg_t *rpg)
     init_phone(rpg);
     init_phone_sound(rpg);
     init_pitch_riley(rpg);
+    init_stats_value(rpg);
 }
 
 int init_function(rpg_t *rpg)
