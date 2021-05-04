@@ -179,5 +179,8 @@ void init_pitch_riley(rpg_t *rpg);
 void incall_hitbox(rpg_t *rpg);
 int malloc_stat_player(rpg_t *rpg);
 void init_stats_value(rpg_t *rpg);
+void print_stats(rpg_t *rpg);
+void init_life(rpg_t *rpg);
+void init_life_border(rpg_t *rpg);
 
 #endif /* !prototype */

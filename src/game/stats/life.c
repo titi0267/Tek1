@@ -5,4 +5,10 @@
 ** cinematics
 */
 
+
 #include "../../include/func_name.h"
+
+// void init_life(rpg_t *rpg)
+// {
+
+// }

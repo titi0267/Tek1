@@ -67,5 +67,6 @@ void display_inventory(rpg_t *rpg)
     rpg->menu->main_menu->new_game->characters[charac], NULL);
     move_characters(rpg, charac);
     display_weapons(rpg);
+    print_stats(rpg);
     drag_and_drop_main(rpg);
 }

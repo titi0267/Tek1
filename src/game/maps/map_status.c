@@ -17,7 +17,7 @@ void print_map(rpg_t *rpg, int on_map)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->map->maps[on_map], NULL);
     print_player_move(rpg);
-    move_enemies(rpg);
+    //move_enemies(rpg);
 }
 
 void chose_map(rpg_t *rpg)

@@ -119,6 +119,15 @@ typedef struct player_stats_s
     int value;
 } player_stats_t;
 
+typedef struct stat_s
+{
+    player_stats_t **player_stats;
+    int xp;
+    sfRectangleShape *life;
+    sfRectangleShape *life_border;
+    sfVector2f life_size;
+} stat_t;
+
 typedef struct in_game_s
 {
     ig_sound_t *ig_sound;
@@ -129,7 +138,7 @@ typedef struct in_game_s
     enemy_t *nmi_list;
     ig_menus_t *ig_menus;
     phone_t *phone;
-    player_stats_t **player_stats;
+    stat_t *stats;
     int game_status;
 } in_game_t;
 

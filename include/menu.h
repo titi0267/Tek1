@@ -73,8 +73,7 @@ typedef struct main_menu_s {
 
 typedef struct background_adn_s {
     sfSprite *background;
-    sfTexture *create_background;
-    sfIntRect rect_but;
+    sfIntRect rect_background;
     int line_rect;
     int offset;
 } background_adn_t;

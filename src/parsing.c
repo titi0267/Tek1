@@ -21,6 +21,12 @@ void parsing_menus(rpg_t *rpg)
         background(rpg);
         options_exit(rpg);
     }
+    if (rpg->menu->status == ON_OPTION) {
+        background(rpg);
+        options(rpg);
+        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+            rpg->menu->status = ON_MENU;
+    }
 }
 
 void parsing_menu2(rpg_t *rpg)
@@ -64,12 +70,6 @@ void parsing_menu3(rpg_t *rpg)
         key_event_inventory(rpg);
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             rpg->menu->status = ON_GAME;
-    }
-    if (rpg->menu->status == ON_OPTION) {
-        background(rpg);
-        options(rpg);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            rpg->menu->status = ON_MENU;
     }
 }
 

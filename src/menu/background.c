@@ -1,4 +1,4 @@
- /*
+/*
 ** EPITECH PROJECT, 2021
 ** B-MUL-200-STG-2-1-myrpg-timothe.coniel
 ** File description:
@@ -9,6 +9,15 @@
 
 void rect_adn(rpg_t *rpg)
 {
+    if (rpg->menu->bgd_adn->offset <= 8) {
+        rpg->menu->bgd_adn->rect_background.left =
+        rpg->menu->bgd_adn->offset *
+        rpg->menu->bgd_adn->rect_background.width;
+        rpg->menu->bgd_adn->rect_background.top =
+        rpg->menu->bgd_adn->line_rect *
+        rpg->menu->bgd_adn->rect_background.height;
+        rpg->menu->bgd_adn->offset++;
+    }
     if (rpg->menu->bgd_adn->offset == 8) {
         rpg->menu->bgd_adn->line_rect++;
         if (rpg->menu->bgd_adn->line_rect == 3)
@@ -20,21 +29,17 @@ void rect_adn(rpg_t *rpg)
 void background(rpg_t *rpg)
 {
     static float nbr = 0;
+    static int d = 0;
 
     if (nbr > 0.12) {
-        if (rpg->menu->bgd_adn->offset <= 8) {
-            rpg->menu->bgd_adn->rect_but.left = rpg->menu->bgd_adn->offset *
-            rpg->menu->bgd_adn->rect_but.width;
-            rpg->menu->bgd_adn->rect_but.top = rpg->menu->bgd_adn->line_rect *
-            rpg->menu->bgd_adn->rect_but.height;
-            rpg->menu->bgd_adn->offset++;
-        }
         rect_adn(rpg);
         nbr = 0;
     }
     sfSprite_setTextureRect(rpg->menu->bgd_adn->background,
-    rpg->menu->bgd_adn->rect_but);
+    rpg->menu->bgd_adn->rect_background);
     nbr += rpg->basic->cnf->clk->time_loop;
+    printf("je suis draw ta mere = %i\n", d);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->bgd_adn->background, NULL);
+    d++;
 }
