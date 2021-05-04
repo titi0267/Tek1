@@ -5,7 +5,6 @@
 ** init_phone
 */
 
-// 80 * 132
 #include "../../../include/func_name.h"
 
 void init_begin_notifs(rpg_t *rpg)

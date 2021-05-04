@@ -41,5 +41,7 @@ int game_malloc2(rpg_t *rpg)
         return (MALLOC_ERROR);
     if ((rpg->game->in_game->phone = malloc(sizeof(phone_t))) == NULL)
         return (MALLOC_ERROR);
+    if (malloc_stats(rpg) == MALLOC_ERROR)
+        return (MALLOC_ERROR);
     return (0);
 }

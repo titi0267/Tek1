@@ -172,4 +172,10 @@ typedef enum notifs_s {
     NO_NOTIF
 } notifs_t;
 
+typedef enum stats_s {
+    P_LIFE,
+    P_DAMAGE,
+    P_ARMOR
+} stats_t;
+
 #endif /* !enumeration */

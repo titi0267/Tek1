@@ -177,5 +177,6 @@ void move_enemies_on_map(rpg_t *rpg, int direction);
 void call_hitbox(rpg_t *rpg);
 void init_pitch_riley(rpg_t *rpg);
 void incall_hitbox(rpg_t *rpg);
+int malloc_stats(rpg_t *rpg);
 
 #endif /* !prototype */

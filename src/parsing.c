@@ -53,6 +53,8 @@ void parsing_menu3(rpg_t *rpg)
         sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
         if (rpg->game->in_game->map->status != MAP_INSIDE_POLICE)
             ambiant_game(rpg);
+        if (rpg->game->in_game->map->status == MAP_INSIDE_POLICE)
+            sfSound_stop(rpg->game->in_game->ig_sound->game);
         parsing_avance(rpg);
         rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
     }
