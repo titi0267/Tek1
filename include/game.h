@@ -20,6 +20,7 @@ typedef struct start_s
     int wait_radio;
     sfSoundBuffer *cine1;
     sfSound *cinematic_1;
+    int status_cinematic1;
 } start_t;
 
 typedef struct inventory_s {
@@ -124,6 +125,7 @@ typedef struct stat_s
 {
     player_stats_t **player_stats;
     int xp_value;
+    int level_up;
     sfRectangleShape *life;
     sfRectangleShape *life_border;
     sfRectangleShape *xp;

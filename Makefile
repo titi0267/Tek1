@@ -88,6 +88,7 @@ SRCSFILES=	rpg.c							\
 			game/enemies/enemy_rect.c			\
 			game/stats/player_stats.c				\
 			game/stats/life.c				\
+			game/particle/particle.c				\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

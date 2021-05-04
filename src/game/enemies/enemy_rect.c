@@ -41,23 +41,23 @@ void rect_move_enemy(rpg_t *rpg, int direction, enemy_t *nmi_list)
 
 void enemy_rect_move_to_player(rpg_t *rpg, enemy_t *nmi_list)
 {
-    if (nmi_list->diff.x > nmi_list->diff.y &&
-    nmi_list->nmi_pos.x >= 960) {
+    if ((nmi_list->diff.x >= nmi_list->diff.y &&
+    nmi_list->nmi_pos.x >= 960)) {
         rect_move_enemy(rpg, LEFT, nmi_list);
         nmi_list->nmi_pos.x -= 2;
     }
-    if (nmi_list->diff.x > nmi_list->diff.y &&
-    nmi_list->nmi_pos.x < 960) {
+    if ((nmi_list->diff.x >= nmi_list->diff.y &&
+    nmi_list->nmi_pos.x < 960)) {
         rect_move_enemy(rpg, RIGHT, nmi_list);
         nmi_list->nmi_pos.x += 2;
     }
-    if (nmi_list->diff.x < nmi_list->diff.y &&
-    nmi_list->nmi_pos.y < 535) {
+    if ((nmi_list->diff.x <= nmi_list->diff.y &&
+    nmi_list->nmi_pos.y < 535)) {
         rect_move_enemy(rpg, DOWN, nmi_list);
         nmi_list->nmi_pos.y += 2;
     }
-    if (nmi_list->diff.x < nmi_list->diff.y &&
-    nmi_list->nmi_pos.y >= 535) {
+    if ((nmi_list->diff.x <= nmi_list->diff.y &&
+    nmi_list->nmi_pos.y >= 535)) {
         rect_move_enemy(rpg, UP, nmi_list);
         nmi_list->nmi_pos.y -= 2;
     }
@@ -67,14 +67,16 @@ void detect_player(rpg_t *rpg)
 {
     rpg->game->in_game->nmi_list->diff
     = vect_diff(rpg->game->in_game->nmi_list->nmi_pos,
-    put_in_vector2f(930, 486));
+    put_in_vector2f(960, 535));
     if (rpg->game->in_game->nmi_list->diff.x < 0)
         rpg->game->in_game->nmi_list->diff.x *= -1;
     if (rpg->game->in_game->nmi_list->diff.y < 0)
         rpg->game->in_game->nmi_list->diff.y *= -1;
     if (rpg->game->in_game->nmi_list->diff.x < 300 &&
-    rpg->game->in_game->nmi_list->diff.y < 300)
+    rpg->game->in_game->nmi_list->diff.y < 300 &&
+    (rpg->game->in_game->nmi_list->diff.y > 2
+    || rpg->game->in_game->nmi_list->diff.x > 2)) {
         enemy_rect_move_to_player(rpg, rpg->game->in_game->nmi_list);
-    else
+    } else
         enemy_stop(rpg);
 }

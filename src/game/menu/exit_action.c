@@ -36,6 +36,7 @@ void reload_new_game2(rpg_t *rpg)
     rpg->game->in_game->game_status = -1;
     rpg->game->in_game->phone->phone_status = 1;
     rpg->game->in_game->phone->notif_bool = FALSE;
+    rpg->game->start->status_cinematic1 = FALSE;
     rpg->game->in_game->phone->notif_index = 0;
     rpg->game->in_game->phone->notif_prev = 0;
 }
@@ -49,12 +50,15 @@ void reload_new_game(rpg_t *rpg)
     pos_characters[LUDO] = put_in_vector2f((float)982, (float)362);
     pos_characters[SYLVIE] = put_in_vector2f((float)1275, (float)362);
     for (int i = MAXOU; i < NO_CHARACTERS; i++) {
-        sfSprite_setPosition(rpg->menu->main_menu->new_game->select[i],
+        sfSprite_setPosition(rpg->menu->main_menu->new_game->characters[i],
         pos_characters[i]);
     }
     rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
     rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE] =
     put_in_vector2f(-1265, -959);
+    sfSprite_setPosition(rpg->game->in_game->map->maps
+    [rpg->game->in_game->map->status],
+    rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE]);
     rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;

@@ -9,7 +9,7 @@
 
 void stopped_moving(rpg_t *rpg)
 {
-    if (rpg->basic->evt->event.type == sfEvtTextEntered) {
+    if (rpg->basic->evt->event.type != sfEvtTextEntered) {
         if ((rpg->basic->evt->event.text.unicode !=
         (unsigned int)rpg->menu->stg->key_bnd->control[UP]->text[0]) &&
         (rpg->basic->evt->event.text.unicode !=

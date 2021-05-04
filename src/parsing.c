@@ -80,11 +80,11 @@ int parsing_menu4(rpg_t *rpg)
         sound(rpg, 2);
         background(rpg);
         sfSound_stop(rpg->tutorial->tuto);
+        sfSound_stop(rpg->game->in_game->ig_sound->game);
         if (main_menu(rpg) == -1)
             return (-1);
         rpg->basic->cnf->clk->time_menu = 0;
         rpg->tutorial->status_sound_tuto = FALSE;
-        rpg->game->in_game->ig_sound->status_sound_game = FALSE;
         rpg->game->in_game->ig_sound->status_sound_game = FALSE;
     }
     if (rpg->menu->status == ON_CINEMATIC1) {

@@ -12,9 +12,11 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->phone->phone_status = 1;
     rpg->game->in_game->phone->notif_bool = FALSE;
     rpg->game->in_game->phone->call_status = FALSE;
+    rpg->game->start->status_cinematic1 = FALSE;
     rpg->game->in_game->phone->notif_index = 0;
     rpg->game->in_game->phone->notif_prev = 0;
     rpg->game->in_game->stats->xp_value = 0;
+    rpg->game->in_game->stats->level_up = 0;
     *(rpg->game->in_game->nmi) = NULL;
 }
 

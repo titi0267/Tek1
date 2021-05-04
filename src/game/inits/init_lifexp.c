@@ -14,7 +14,7 @@ void init_life(rpg_t *rpg)
     sfRectangleShape_setSize(rpg->game->in_game->stats->life,
     rpg->game->in_game->stats->life_size);
     sfRectangleShape_setFillColor(rpg->game->in_game->stats->life,
-    sfColor_fromRGB(160, 0, 0));
+    sfColor_fromRGB(180, 0, 0));
     sfRectangleShape_setPosition(rpg->game->in_game->stats->life,
     put_in_vector2f(100, 50));
 }
@@ -42,14 +42,14 @@ void init_xp(rpg_t *rpg)
     sfRectangleShape_setSize(rpg->game->in_game->stats->xp,
     rpg->game->in_game->stats->xp_size);
     sfRectangleShape_setFillColor(rpg->game->in_game->stats->xp,
-    sfColor_fromRGB(160, 0, 0));
+    sfColor_fromRGB(95, 249, 254));
     sfRectangleShape_setPosition(rpg->game->in_game->stats->xp,
-    put_in_vector2f(100, 50));
+    put_in_vector2f(100, 100));
 }
 
 void init_xp_border(rpg_t *rpg)
 {
-    sfVector2f size = put_in_vector2f(400, 20);
+    sfVector2f size = put_in_vector2f(300, 20);
 
     rpg->game->in_game->stats->xp_border = sfRectangleShape_create();
     sfRectangleShape_setSize(rpg->game->in_game->stats->xp_border, size);

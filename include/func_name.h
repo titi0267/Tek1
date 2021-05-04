@@ -187,6 +187,7 @@ int malloc_stat_player(rpg_t *rpg);
 void init_stats_value(rpg_t *rpg);
 void print_stats(rpg_t *rpg);
 void init_xplife(rpg_t *rpg);
-void print_life(rpg_t *rpg);
+void print_xp_life(rpg_t *rpg);
+void creat_level_up(rpg_t *rpg);
 
 #endif /* !prototype */

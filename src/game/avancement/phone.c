@@ -80,6 +80,7 @@ void toggle_phone(rpg_t *rpg)
         rpg->game->in_game->phone->phone_status == 1) ? 2 : 0;
         nbr = 0;
         rpg->game->in_game->stats->player_stats[P_LIFE]->value -= 20;
+        rpg->game->in_game->stats->xp_value += 20;
     }
     check_phone(rpg);
 }
