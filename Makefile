@@ -85,6 +85,7 @@ SRCSFILES=	rpg.c							\
 			game/avancement/game_hitbox.c				\
 			game/enemies/move_enemy.c			\
 			game/enemies/new_enemy.c			\
+			game/enemies/collisions_enemy.c			\
 			game/enemies/enemy_rect.c			\
 			game/stats/player_stats.c				\
 			game/stats/life.c				\
