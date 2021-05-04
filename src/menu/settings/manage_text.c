@@ -10,8 +10,9 @@
 static void update_text(int nbr, rpg_t *rpg)
 {
     for (int i = 0; i <= QUADCOPTER; i++) {
-        if (rpg->menu->stg->key_bnd->control[i]->text[0] ==
-        (char)rpg->basic->evt->event.text.unicode)
+        if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+        (rpg->menu->stg->key_bnd->control[i]->text[0] ==
+        (char)rpg->basic->evt->event.text.unicode))
             return;
     }
     rpg->menu->stg->key_bnd->control[nbr]->text[0] =
@@ -23,7 +24,8 @@ static void update_text(int nbr, rpg_t *rpg)
 void change_control(rpg_t *rpg)
 {
     if (rpg->basic->evt->event.type == sfEvtTextEntered) {
-        if ((rpg->basic->evt->event.text.unicode >= 97 &&
+        if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+        (rpg->basic->evt->event.text.unicode >= 97 &&
         rpg->basic->evt->event.text.unicode <= 122)
         && rpg->basic->cnf->clk->time_shortcut >= 0.15 &&
         rpg->menu->stg->key_bnd->box_clicked != -1) {

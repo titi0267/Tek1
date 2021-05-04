@@ -66,7 +66,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_audios.c			\
 			game/inits/init_phone.c				\
 			game/inits/init_stats.c				\
-			game/inits/init_life.c				\
+			game/inits/init_lifexp.c			\
 			game/maps/general_player_mv.c	\
 			game/maps/collisions_bis.c		\
 			game/maps/switch_map.c			\

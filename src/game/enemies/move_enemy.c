@@ -52,6 +52,8 @@ int move_enemies(rpg_t *rpg)
     for (; rpg->game->in_game->nmi_list != NULL;
     rpg->game->in_game->nmi_list = rpg->game->in_game->nmi_list->next) {
         detect_player(rpg);
+        sfSprite_setPosition(rpg->game->in_game->nmi_list->yellow_man,
+        rpg->game->in_game->nmi_list->nmi_pos);
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->game->in_game->nmi_list->yellow_man, NULL);
     }

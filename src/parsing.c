@@ -42,7 +42,8 @@ void parsing_menu2(rpg_t *rpg)
         rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
         ambiant_tuto(rpg);
         tuto1(rpg);
-        if (rpg->basic->evt->event.text.unicode == 'p')
+        if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+        (rpg->basic->evt->event.text.unicode == 'p'))
             rpg->menu->status = ON_MENU;
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             rpg->menu->status = ON_OPTION;

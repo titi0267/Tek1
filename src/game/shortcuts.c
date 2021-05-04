@@ -9,8 +9,9 @@
 
 void key_event_game(rpg_t *rpg)
 {
-    if (rpg->basic->evt->event.text.unicode == 'e'
-    && rpg->basic->cnf->clk->time_keyboard >= 0.2) {
+    if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+    (rpg->basic->evt->event.text.unicode == 'e'
+    && rpg->basic->cnf->clk->time_keyboard >= 0.2)) {
         if (rpg->game->in_game->inventory->shortcut_it == INVENTORY_OFF) {
             rpg->menu->status = ON_INVENTORY;
             rpg->game->in_game->inventory->shortcut_it = INVENTORY_ON;
@@ -24,8 +25,9 @@ void key_event_game(rpg_t *rpg)
 
 void key_event_inventory(rpg_t *rpg)
 {
-    if (rpg->basic->evt->event.text.unicode == 'e'
-    && rpg->basic->cnf->clk->time_keyboard >= 0.2) {
+    if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+    (rpg->basic->evt->event.text.unicode == 'e'
+    && rpg->basic->cnf->clk->time_keyboard >= 0.2)) {
         if (rpg->game->in_game->inventory->shortcut_it == INVENTORY_ON) {
             sfRenderWindow_setMouseCursorVisible(rpg->basic->wnd->my_wnd,
             sfTrue);

@@ -37,6 +37,7 @@ void init_phone_sound(rpg_t *rpg)
     ("assets/audios/incoming_call.ogg");
     rpg->game->in_game->phone->call_sound = sfSound_create();
     sfSound_setBuffer(rpg->game->in_game->phone->call_sound, buffer);
+    sfSound_setLoop(rpg->game->in_game->phone->call_sound, sfTrue);
     sfSound_setVolume(rpg->game->in_game->phone->call_sound, 50);
 }
 

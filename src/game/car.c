@@ -39,9 +39,10 @@ void enter_car(rpg_t *rpg)
     static float nbr = 0;
 
     nbr += rpg->basic->cnf->clk->time_loop;
-    if (rpg->basic->evt->event.text.unicode ==
+    if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+    (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[CAR]->text[0] &&
-    nbr >= 0.2 && car_dist(rpg)) {
+    nbr >= 0.2 && car_dist(rpg))) {
         rpg->game->in_game->objects->speed_status =
         (rpg->game->in_game->objects->speed_status != CAR_SPEED) ? CAR_SPEED :
         WALK_SPEED;

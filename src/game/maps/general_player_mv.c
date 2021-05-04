@@ -9,15 +9,17 @@
 
 void stopped_moving(rpg_t *rpg)
 {
-    if ((rpg->basic->evt->event.text.unicode !=
-    (unsigned int)rpg->menu->stg->key_bnd->control[UP]->text[0]) &&
-    (rpg->basic->evt->event.text.unicode !=
-    (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0]) &&
-    (rpg->basic->evt->event.text.unicode !=
-    (unsigned int)rpg->menu->stg->key_bnd->control[LEFT]->text[0]) &&
-    (rpg->basic->evt->event.text.unicode !=
-    (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0]))
-        player_stop(rpg);
+    if (rpg->basic->evt->event.type == sfEvtTextEntered) {
+        if ((rpg->basic->evt->event.text.unicode !=
+        (unsigned int)rpg->menu->stg->key_bnd->control[UP]->text[0]) &&
+        (rpg->basic->evt->event.text.unicode !=
+        (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0]) &&
+        (rpg->basic->evt->event.text.unicode !=
+        (unsigned int)rpg->menu->stg->key_bnd->control[LEFT]->text[0]) &&
+        (rpg->basic->evt->event.text.unicode !=
+        (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0]))
+            player_stop(rpg);
+    }
 }
 
 void print_player_move(rpg_t *rpg)

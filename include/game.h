@@ -123,10 +123,13 @@ typedef struct player_stats_s
 typedef struct stat_s
 {
     player_stats_t **player_stats;
-    int xp;
+    int xp_value;
     sfRectangleShape *life;
     sfRectangleShape *life_border;
+    sfRectangleShape *xp;
+    sfRectangleShape *xp_border;
     sfVector2f life_size;
+    sfVector2f xp_size;
 } stat_t;
 
 typedef struct in_game_s

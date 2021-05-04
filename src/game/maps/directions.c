@@ -9,8 +9,9 @@
 
 void move_up_map(rpg_t *rpg, int on_map)
 {
-    if (rpg->basic->evt->event.text.unicode ==
-    (unsigned int)rpg->menu->stg->key_bnd->control[UP]->text[0]) {
+    if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+    (rpg->basic->evt->event.text.unicode ==
+    (unsigned int)rpg->menu->stg->key_bnd->control[UP]->text[0])) {
         if (check_collision(rpg, UP) != COLLISION) {
             rpg->game->in_game->map->pos_map[on_map].y +=
             rpg->game->in_game->map->speed
@@ -30,8 +31,9 @@ void move_up_map(rpg_t *rpg, int on_map)
 void move_down_map(rpg_t *rpg,int on_map)
 {
     move_up_map(rpg, on_map);
-    if (rpg->basic->evt->event.text.unicode ==
-    (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0]) {
+    if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+    (rpg->basic->evt->event.text.unicode ==
+    (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0])) {
         if (check_collision(rpg, DOWN) != COLLISION) {
             rpg->game->in_game->map->pos_map[on_map].y -=
             rpg->game->in_game->map->speed
@@ -51,8 +53,9 @@ void move_down_map(rpg_t *rpg,int on_map)
 void move_right_map(rpg_t *rpg, int on_map)
 {
     move_down_map(rpg, on_map);
-    if (rpg->basic->evt->event.text.unicode ==
-    (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0]) {
+    if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+    (rpg->basic->evt->event.text.unicode ==
+    (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0])) {
         if (check_collision(rpg, RIGHT) != COLLISION) {
             rpg->game->in_game->map->pos_map[on_map].x -=
             rpg->game->in_game->map->speed
@@ -72,8 +75,9 @@ void move_right_map(rpg_t *rpg, int on_map)
 void move_left_map(rpg_t *rpg, int on_map)
 {
     move_right_map(rpg, on_map);
-    if (rpg->basic->evt->event.text.unicode ==
-    (unsigned int)rpg->menu->stg->key_bnd->control[LEFT]->text[0]) {
+    if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+    (rpg->basic->evt->event.text.unicode ==
+    (unsigned int)rpg->menu->stg->key_bnd->control[LEFT]->text[0])) {
         if (check_collision(rpg, LEFT) != COLLISION) {
             rpg->game->in_game->map->pos_map[on_map].x +=
             rpg->game->in_game->map->speed

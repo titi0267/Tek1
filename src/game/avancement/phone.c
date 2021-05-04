@@ -65,8 +65,9 @@ void toggle_phone(rpg_t *rpg)
     static float nbr = 0;
 
     nbr += rpg->basic->cnf->clk->time_loop;
-    if (((rpg->basic->evt->event.text.unicode ==
-    (unsigned int)rpg->menu->stg->key_bnd->control[CELLPHONE]->text[0])
+    if ((((rpg->basic->evt->event.type == sfEvtTextEntered) &&
+    (rpg->basic->evt->event.text.unicode ==
+    (unsigned int)rpg->menu->stg->key_bnd->control[CELLPHONE]->text[0]))
     || ((rpg->game->in_game->phone->phone_status == 0 ||
     rpg->game->in_game->phone->phone_status == 1) &&
     ((rpg->basic->evt->event.type == sfEvtMouseButtonPressed) &&
@@ -78,7 +79,7 @@ void toggle_phone(rpg_t *rpg)
         (rpg->game->in_game->phone->phone_status == 0 ||
         rpg->game->in_game->phone->phone_status == 1) ? 2 : 0;
         nbr = 0;
-        rpg->game->in_game->stats->life_size.x -= 40;
+        rpg->game->in_game->stats->player_stats[P_LIFE]->value -= 20;
     }
     check_phone(rpg);
 }
@@ -90,7 +91,9 @@ void phone_main(rpg_t *rpg)
     if (rpg->game->in_game->phone->notif_index ==
     rpg->game->in_game->phone->notif_prev)
         wait_notif(rpg);
-    if (rpg->game->in_game->phone->notif_bool == FALSE) {
+    if (rpg->game->in_game->phone->notif_bool == FALSE &&
+    rpg->game->in_game->game_status != GM_INCOMMING_CALL &&
+    rpg->game->in_game->game_status != GM_CALL) {
         sfSound_play(rpg->game->in_game->phone->notif_sound);
         rpg->game->in_game->phone->notif_bool = TRUE;
     }

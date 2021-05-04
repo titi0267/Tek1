@@ -24,7 +24,7 @@ void enemy_stop(rpg_t *rpg)
 
 void rect_move_enemy(rpg_t *rpg, int direction, enemy_t *nmi_list)
 {
-    if (rpg->game->in_game->nmi_list->clock_rect > 0.2) {
+    if (rpg->game->in_game->nmi_list->clock_rect > 0.1) {
         nmi_list->nmi_rect[direction].left =
         (nmi_list->offset_nmi[direction] *
         nmi_list->nmi_rect[direction].width);
@@ -42,17 +42,25 @@ void rect_move_enemy(rpg_t *rpg, int direction, enemy_t *nmi_list)
 void enemy_rect_move_to_player(rpg_t *rpg, enemy_t *nmi_list)
 {
     if (nmi_list->diff.x > nmi_list->diff.y &&
-    nmi_list->nmi_pos.x >= 960)
+    nmi_list->nmi_pos.x >= 960) {
         rect_move_enemy(rpg, LEFT, nmi_list);
+        nmi_list->nmi_pos.x -= 2;
+    }
     if (nmi_list->diff.x > nmi_list->diff.y &&
-    nmi_list->nmi_pos.x < 960)
+    nmi_list->nmi_pos.x < 960) {
         rect_move_enemy(rpg, RIGHT, nmi_list);
+        nmi_list->nmi_pos.x += 2;
+    }
     if (nmi_list->diff.x < nmi_list->diff.y &&
-    nmi_list->nmi_pos.y < 535)
+    nmi_list->nmi_pos.y < 535) {
         rect_move_enemy(rpg, DOWN, nmi_list);
+        nmi_list->nmi_pos.y += 2;
+    }
     if (nmi_list->diff.x < nmi_list->diff.y &&
-    nmi_list->nmi_pos.y >= 535)
+    nmi_list->nmi_pos.y >= 535) {
         rect_move_enemy(rpg, UP, nmi_list);
+        nmi_list->nmi_pos.y -= 2;
+    }
 }
 
 void detect_player(rpg_t *rpg)
