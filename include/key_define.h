@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** Visual Studio Live Share (Workspace)
+** B-MUL-200-STG-2-1-myrpg-timothe.coniel
 ** File description:
 ** key_define
 */

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** Visual Studio Live Share (Workspace)
+** B-MUL-200-STG-2-1-myrpg-timothe.coniel
 ** File description:
 ** drop_type
 */
@@ -47,7 +47,7 @@ void drop_bullets(rpg_t *rpg)
 
 void drop_bullet_proof(rpg_t *rpg)
 {
-    if ((rpg->game->in_game->inventory->selected_item >= BULLET_1 && //Change with bullet proof vest
+    if ((rpg->game->in_game->inventory->selected_item >= BULLET_1 &&
     rpg->game->in_game->inventory->selected_item < NO_BULLET) &&
     ((rpg->basic->cnf->mouse.x) >= adapt_x(rpg,
     rpg->game->in_game->inventory->box_pos[17][0].x)) &&
@@ -62,7 +62,6 @@ void drop_bullet_proof(rpg_t *rpg)
         (float)rpg->game->in_game->inventory->box_pos[17][0].x,
         (float)rpg->game->in_game->inventory->box_pos[17][0].y);
     }
-
 }
 
 void drop_all_boxes(rpg_t *rpg)

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Visual Studio Live Share (Workspace)
+** EPITECH PROJECT, 2021
+** B-MUL-200-STG-2-1-myrpg-timothe.coniel
 ** File description:
-** init_inventory.c
+** init_inventory
 */
 
 #include "../../../include/func_name.h"
@@ -25,8 +25,8 @@ void init_inventory_pos(inventory_t *ivt)
 {
     int x_over = 825;
     int y_over = 421;
-    int x_under = 915; //901
-    int y_under = 510; //497
+    int x_under = 915;
+    int y_under = 510;
 
     ivt->box_pos = malloc(sizeof(sfVector2i *) * 18);
     for (int i = 0; i <= 17; i++)

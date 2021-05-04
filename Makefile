@@ -71,6 +71,7 @@ SRCSFILES=	rpg.c							\
 			game/maps/collisions_bis.c		\
 			game/maps/switch_map.c			\
 			game/maps/directions.c			\
+			game/maps/switch_map_police.c	\
 			game/maps/collisions.c			\
 			game/maps/map_status.c			\
 			game/maps/run.c					\
@@ -83,7 +84,10 @@ SRCSFILES=	rpg.c							\
 			game/avancement/phone.c						\
 			game/avancement/game_hitbox.c				\
 			game/enemies/move_enemy.c			\
+			game/enemies/new_enemy.c			\
+			game/enemies/enemy_rect.c			\
 			game/stats/player_stats.c				\
+			game/stats/life.c				\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

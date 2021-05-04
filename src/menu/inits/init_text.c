@@ -15,7 +15,7 @@ int malloc_text(menu_t *menu)
     for (int i = 0; i <= QUADCOPTER; i++) {
         if ((menu->stg->key_bnd->control[i] =
         malloc(sizeof(control_t))) == NULL)
-            return(MALLOC_ERROR);
+            return (MALLOC_ERROR);
         menu->stg->key_bnd->control[i]->text = malloc(sizeof(char) * 10);
     }
     return (0);

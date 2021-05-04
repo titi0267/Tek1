@@ -78,6 +78,7 @@ void toggle_phone(rpg_t *rpg)
         (rpg->game->in_game->phone->phone_status == 0 ||
         rpg->game->in_game->phone->phone_status == 1) ? 2 : 0;
         nbr = 0;
+        rpg->game->in_game->stats->life_size.x -= 40;
     }
     check_phone(rpg);
 }

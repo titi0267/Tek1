@@ -7,9 +7,6 @@
 
 #include "../../../include/func_name.h"
 
-// -1754 -727
-// -1828 -754
-
 void desk_hitbox(rpg_t *rpg)
 {
     if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
@@ -62,15 +59,11 @@ void incall_hitbox(rpg_t *rpg)
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1686.5)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 774.5)))
         sfSound_stop(rpg->game->in_game->ig_sound->riley_call);
-    if (sfSound_getStatus(rpg->game->in_game->ig_sound->riley_call) == sfStopped) {
+    if (sfSound_getStatus(rpg->game->in_game->ig_sound->riley_call) ==
+    sfStopped) {
         rpg->game->in_game->game_status = GM_NOTIF3;
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
         rpg->game->in_game->phone->phone_status = 0;
     }
 }
-
-//176 262
-// 638 724
-
-//1424.5, 50.5

@@ -5,10 +5,14 @@
 ** cinematics
 */
 
+#include "../../../include/func_name.h"
 
-#include "../../include/func_name.h"
-
-// void init_life(rpg_t *rpg)
-// {
-
-// }
+void print_life(rpg_t *rpg)
+{
+    sfRectangleShape_setSize(rpg->game->in_game->stats->life,
+    rpg->game->in_game->stats->life_size);
+    sfRenderWindow_drawRectangleShape(rpg->basic->wnd->my_wnd,
+    rpg->game->in_game->stats->life, NULL);
+    sfRenderWindow_drawRectangleShape(rpg->basic->wnd->my_wnd,
+    rpg->game->in_game->stats->life_border, NULL);
+}

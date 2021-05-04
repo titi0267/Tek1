@@ -1,13 +1,11 @@
 /*
 ** EPITECH PROJECT, 2021
-** Visual Studio Live Share (Workspace)
+** B-MUL-200-STG-2-1-myrpg-timothe.coniel
 ** File description:
 ** init_yellow_man
 */
 
 #include "../../../include/func_name.h"
-//
-//58.6 x 88
 
 void init_nmi_side(rpg_t *rpg)
 {
@@ -36,7 +34,8 @@ void init_nmi_up_down(rpg_t *rpg)
 
 int rect_nmi(rpg_t *rpg)
 {
-    if ((rpg->game->in_game->nmi_list->offset_nmi = malloc(sizeof(int) * 5)) == NULL)
+    if ((rpg->game->in_game->nmi_list->offset_nmi =
+    malloc(sizeof(int) * 5)) == NULL)
         return (MALLOC_ERROR);
     for (int i = UP; i <= LEFT; i++)
         rpg->game->in_game->nmi_list->offset_nmi[i] = 0;
@@ -51,14 +50,12 @@ int init_yellow_man(rpg_t *rpg)
     NULL);
 
     rpg->game->in_game->nmi_list->yellow_man = sfSprite_create();
-    sfSprite_setTexture(rpg->game->in_game->nmi_list->yellow_man, yellow, sfTrue);
+    sfSprite_setTexture
+    (rpg->game->in_game->nmi_list->yellow_man, yellow, sfTrue);
     if ((rpg->game->in_game->nmi_list->nmi_rect =
     malloc(sizeof(sfIntRect) * 5)) == NULL)
         return (MALLOC_ERROR);
     init_nmi_up_down(rpg);
-    /*for (int i = UP; i <= LEFT; i++)
-        sfSprite_setTextureRect(rpg->game->in_game->nmi_list->yellow_man,
-        rpg->game->in_game->nmi_list->nmi_rect[i]);*/
     rect_nmi(rpg);
     return (0);
 }

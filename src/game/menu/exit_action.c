@@ -29,6 +29,17 @@ void click_on_option(rpg_t *rpg)
     }
 }
 
+void reload_new_game2(rpg_t *rpg)
+{
+    rpg->tutorial->tutorial_stat = TUTO1;
+    rpg->tutorial->status_sound_tuto = FALSE;
+    rpg->game->in_game->game_status = -1;
+    rpg->game->in_game->phone->phone_status = 1;
+    rpg->game->in_game->phone->notif_bool = FALSE;
+    rpg->game->in_game->phone->notif_index = 0;
+    rpg->game->in_game->phone->notif_prev = 0;
+}
+
 void reload_new_game(rpg_t *rpg)
 {
     sfVector2f *pos_characters = malloc(sizeof(sfVector2f) * 5);
@@ -40,7 +51,6 @@ void reload_new_game(rpg_t *rpg)
     for (int i = MAXOU; i < NO_CHARACTERS; i++) {
         sfSprite_setPosition(rpg->menu->main_menu->new_game->select[i],
         pos_characters[i]);
-        printf("change");
     }
     rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
     rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE] =
@@ -51,13 +61,7 @@ void reload_new_game(rpg_t *rpg)
     rpg->game->in_game->map->last_pos = -1;
     rpg->game->in_game->objects->speed_status = WALK_SPEED;
     rpg->game->in_game->ig_sound->status_sound_game = FALSE;
-    rpg->tutorial->tutorial_stat = TUTO1;
-    rpg->tutorial->status_sound_tuto = FALSE;
-    rpg->game->in_game->game_status = -1;
-    rpg->game->in_game->phone->phone_status = 1;
-    rpg->game->in_game->phone->notif_bool = FALSE;
-    rpg->game->in_game->phone->notif_index = 0;
-    rpg->game->in_game->phone->notif_prev = 0;
+    reload_new_game2(rpg);
 }
 
 void click_on_quit(rpg_t *rpg)

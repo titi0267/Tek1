@@ -29,7 +29,6 @@ void rect_adn(rpg_t *rpg)
 void background(rpg_t *rpg)
 {
     static float nbr = 0;
-    static int d = 0;
 
     if (nbr > 0.12) {
         rect_adn(rpg);
@@ -38,8 +37,6 @@ void background(rpg_t *rpg)
     sfSprite_setTextureRect(rpg->menu->bgd_adn->background,
     rpg->menu->bgd_adn->rect_background);
     nbr += rpg->basic->cnf->clk->time_loop;
-    printf("je suis draw ta mere = %i\n", d);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->bgd_adn->background, NULL);
-    d++;
 }

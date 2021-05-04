@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Visual Studio Live Share (Workspace)
+** EPITECH PROJECT, 2021
+** B-MUL-200-STG-2-1-myrpg-timothe.coniel
 ** File description:
-** display_inventory.c
+** display_inventory
 */
 
 #include "../../../include/func_name.h"

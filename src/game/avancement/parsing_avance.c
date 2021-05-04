@@ -30,10 +30,7 @@ void parsing_avance(rpg_t *rpg)
 {
     chose_map(rpg);
     key_event_game(rpg);
-    sfRenderWindow_drawRectangleShape(rpg->basic->wnd->my_wnd,
-    rpg->game->in_game->stats->life, NULL);
-    sfRenderWindow_drawRectangleShape(rpg->basic->wnd->my_wnd,
-    rpg->game->in_game->stats->life_border, NULL);
+    print_life(rpg);
     if (rpg->game->in_game->game_status == GM_BEGIN) {
         phone_main(rpg);
         desk_hitbox(rpg);

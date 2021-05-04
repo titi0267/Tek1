@@ -50,6 +50,6 @@ char *my_putnbr(int nb)
 int compare_equal_colors(sfColor c1, sfColor c2)
 {
     if (c1.r == c2.r && c1.g == c2.g && c1.b == c2.b)
-        return(COLLISION);
-    return(0);
+        return (COLLISION);
+    return (0);
 }

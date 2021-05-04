@@ -38,7 +38,7 @@ int malloc_stat_player(rpg_t *rpg)
     for (int i = 0; i <= P_ARMOR; i++) {
         if ((rpg->game->in_game->stats->player_stats[i] =
         malloc(sizeof(player_stats_t))) == NULL)
-            return(MALLOC_ERROR);
+            return (MALLOC_ERROR);
     }
     return (0);
 }

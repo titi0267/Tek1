@@ -7,52 +7,6 @@
 
 #include "../../../include/func_name.h"
 
-int place_outside_police(rpg_t *rpg)
-{
-    rpg->game->in_game->map->status = MAP_OUTSIDE_POLICE;
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE] =
-    put_in_vector2f(-1900, -1800);
-    return (1);
-}
-
-int choose_map_outside_police(rpg_t *rpg)
-{
-    if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x > 200 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y < -1500) {
-        rpg->game->in_game->map->status = MAP_WARREN;
-        rpg->game->in_game->map->pos_map[MAP_WARREN] =
-        put_in_vector2f(-2200, -1650);
-        return (1);
-    }
-    if ((rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x > -2000 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x < -1500) &&
-    (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y > -1800 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y < -1500) &&
-    rpg->game->in_game->map->status == MAP_OUTSIDE_POLICE) {
-        rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
-        rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE] =
-        put_in_vector2f(-1800, -1880);
-        return (1);
-    }
-    if ((rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x < -3500 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x > -3700) &&
-    (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y > -2700 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y < 2300)) {
-        rpg->game->in_game->map->status = MAP_OUTSIDE_CDC;
-        rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC] =
-        put_in_vector2f(-100, -1400);
-        return (1);
-    }
-    if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y < -2300 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y > -3000) {
-        rpg->game->in_game->map->status = MAP_OUTSIDE_DISCO;
-        rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO] =
-        put_in_vector2f(-1200, -1600);
-        return (1);
-    }
-    return (0);
-}
-
 int choose_map_warren(rpg_t *rpg)
 {
     if (rpg->game->in_game->map->pos_map[MAP_WARREN].y > -2000) {
@@ -84,7 +38,6 @@ int choose_map_outside_cdc(rpg_t *rpg)
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO] =
         put_in_vector2f(-2400, -2350);
         return (1);
-
     }
     return (0);
 }
@@ -114,14 +67,8 @@ int choose_map_outside_disco(rpg_t *rpg)
     return (0);
 }
 
-void change_map(rpg_t *rpg)
+void warp_map_next(rpg_t *rpg)
 {
-    if (rpg->game->in_game->map->status == MAP_TUTO) {
-        rpg->menu->status = ON_MENU;
-        rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
-    }
-    if (rpg->game->in_game->map->status == MAP_INSIDE_POLICE)
-        if (place_outside_police(rpg) == 1) return;
     if (rpg->game->in_game->map->status == MAP_OUTSIDE_POLICE)
         if (choose_map_outside_police(rpg) == 1) return;
     if (rpg->game->in_game->map->status == MAP_WARREN)
@@ -130,4 +77,15 @@ void change_map(rpg_t *rpg)
         if (choose_map_outside_cdc(rpg) == 1) return;
     if (rpg->game->in_game->map->status == MAP_OUTSIDE_DISCO)
         if (choose_map_outside_disco(rpg) == 1) return;
+}
+
+void change_map(rpg_t *rpg)
+{
+    if (rpg->game->in_game->map->status == MAP_TUTO) {
+        rpg->menu->status = ON_MENU;
+        rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
+    }
+    if (rpg->game->in_game->map->status == MAP_INSIDE_POLICE)
+        if (place_outside_police(rpg) == 1) return;
+    warp_map_next(rpg);
 }

@@ -11,13 +11,13 @@ void set_volume(rpg_t *rpg)
 {
     sfVector2f pos_music = sfSprite_getPosition
     (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC]);
-    float volume_music = pos_music.x - 1502.5;
+    float volume_music = (pos_music.x - 1452.5) * 100 / 225.902;
     sfVector2f pos_dial = sfSprite_getPosition
     (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG]);
-    float volume_dial = pos_dial.x - 1502.5;
+    float volume_dial = (pos_dial.x - 1452.5) * 100 / 225.902;
     sfVector2f pos_amb = sfSprite_getPosition
     (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT]);
-    float volume_amb = pos_amb.x - 1502.5;
+    float volume_amb = (pos_amb.x - 1452.5) * 100 / 225.902;
 
     sfSound_setVolume(rpg->menu->main_menu->menu_snd->a_menu, volume_music);
     sfSound_setVolume(rpg->game->start->cinematic_1, volume_dial);

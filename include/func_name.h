@@ -103,13 +103,19 @@ void display_weapons(rpg_t *rpg);
 int init_pdown_up_rect(rpg_t *rpg);
 int create_police_map(rpg_t *rpg);
 void rect_move_player(rpg_t *rpg, int direction);
+void rect_move_enemy(rpg_t *rpg, int direction, enemy_t *nmi_list);
+void enemy_stop(rpg_t *rpg);
+void detect_player(rpg_t *rpg);
 void move_side_map(rpg_t *rpg, int on_map);
 void print_player_move(rpg_t *rpg);
 void chose_map(rpg_t *rpg);
 void set_player_rect(rpg_t *rpg);
 int compare_equal_colors(sfColor c1, sfColor c2);
+int choose_map_outside_police(rpg_t *rpg);
+int place_outside_police(rpg_t *rpg);
 void move_left_map(rpg_t *rpg, int on_map);
 void player_stop(rpg_t *rpg);
+int spawn_enemies(rpg_t *rpg);
 void change_map(rpg_t *rpg);
 
 sfVector2f put_in_vector2f(float x, float y);
@@ -170,7 +176,7 @@ void init_phone_sound(rpg_t *rpg);
 void desk_hitbox(rpg_t *rpg);
 int init_yellow_man(rpg_t *rpg);
 void init_pitch_riley(rpg_t *rpg);
-void move_enemies(rpg_t *rpg);
+int move_enemies(rpg_t *rpg);
 int on_cine(rpg_t *rpg);
 void notif2_hitbox(rpg_t *rpg);
 void move_enemies_on_map(rpg_t *rpg, int direction);
@@ -182,5 +188,6 @@ void init_stats_value(rpg_t *rpg);
 void print_stats(rpg_t *rpg);
 void init_life(rpg_t *rpg);
 void init_life_border(rpg_t *rpg);
+void print_life(rpg_t *rpg);
 
 #endif /* !prototype */
