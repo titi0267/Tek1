@@ -49,6 +49,7 @@ void enemy_move_right_player(rpg_t *rpg, enemy_t *nmi_list)
             nmi_list->choose_dir = LEFT;
     }
 }
+
 void enemy_move_up_player(rpg_t *rpg, enemy_t *nmi_list)
 {
     if (nmi_list->choose_dir == UP &&

@@ -62,5 +62,6 @@ int init_yellow_man(rpg_t *rpg)
     rect_nmi(rpg);
     sfSprite_setTextureRect(rpg->game->in_game->nmi_list->yellow_man,
     rpg->game->in_game->nmi_list->nmi_rect[d]);
+    rpg->game->in_game->nmi_list->choose_dir = UP;
     return (0);
 }

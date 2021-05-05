@@ -35,23 +35,16 @@ char *save_on_map(map_t *map)
     return (on_map);
 }
 
-char *save_invent(void)
-{
-    char *invent = "0;";
-
-    return (invent);
-}
-
 void save_map(rpg_t *rpg)
 {
     FILE *fd = fopen("save/save.txt", "w");
     char *save = save_char(rpg->menu->main_menu->new_game);
     char *pos = save_pos(rpg->game->in_game->map);
     char *map = save_on_map(rpg->game->in_game->map);
-    char *invent = save_invent();
-    char *advanc = "0";
+    char *stats = save_stats(rpg);
+    char *advanc = save_avance(rpg);
 
-    save = my_strcat(save, my_strcat(map, my_strcat(pos, my_strcat (invent,
+    save = my_strcat(save, my_strcat(map, my_strcat(pos, my_strcat (stats,
     advanc))));
     fwrite(save, 1, my_strlen(save), fd);
     free(save);

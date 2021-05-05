@@ -18,6 +18,27 @@ char *my_open(FILE *fd)
     return (map);
 }
 
+void load_value2(char *map, rpg_t *rpg)
+{
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->stats->level = my_getnbr(map);
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->stats->xp_value = my_getnbr(map);
+    for (int i = 0; i <= P_ARMOR; i++) {
+        for (; map[0] != ';'; map++);
+        map++;
+        rpg->game->in_game->stats->player_stats[i]->value = my_getnbr(map);
+    }
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->phone->notif_index = my_getnbr(map);
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->game_status = my_getnbr(map);
+}
+
 void load_values(char *map, rpg_t *rpg)
 {
     rpg->menu->main_menu->new_game->character_chosen = my_getnbr(map);
@@ -32,12 +53,27 @@ void load_values(char *map, rpg_t *rpg)
     map++;
     rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y =
     my_getnbr(map);
+    load_value2(map, rpg);
+}
+
+void set_loaded_value(rpg_t *rpg)
+{
+    sfVector2f vect;
+
+    vect = put_in_vector2f(rpg->game->in_game->map->pos_map
+    [rpg->game->in_game->map->status].x, rpg->game->in_game->map->pos_map
+    [rpg->game->in_game->map->status].y);
+    sfSprite_setPosition(rpg->game->in_game->map->maps
+    [rpg->game->in_game->map->status], vect);
+    set_player_rect(rpg);
+    rpg->game->in_game->phone->notif_prev =
+    rpg->game->in_game->phone->notif_index;
+    rpg->menu->status = ON_GAME;
 }
 
 void load_save(rpg_t *rpg)
 {
     FILE *fd = fopen("save/save.txt", "r");
-    sfVector2f vect;
     char *map;
 
     if (fd == NULL) {
@@ -45,15 +81,10 @@ void load_save(rpg_t *rpg)
         return;
     }
     map = my_open(fd);
+    reload_new_game(rpg);
     load_values(map, rpg);
     sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
-    vect = put_in_vector2f(rpg->game->in_game->map->pos_map
-    [rpg->game->in_game->map->status].x, rpg->game->in_game->map->pos_map
-    [rpg->game->in_game->map->status].y);
-    sfSprite_setPosition(rpg->game->in_game->map->maps
-    [rpg->game->in_game->map->status], vect);
-    set_player_rect(rpg);
-    rpg->menu->status = ON_GAME;
+    set_loaded_value(rpg);
     free(map);
     fclose(fd);
 }

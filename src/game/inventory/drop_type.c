@@ -23,6 +23,8 @@ void drop_weapons(rpg_t *rpg)
         [rpg->game->in_game->inventory->selected_item] = put_in_vector2f(
         (float)rpg->game->in_game->inventory->box_pos[15][0].x,
         (float)rpg->game->in_game->inventory->box_pos[15][0].y);
+        rpg->game->in_game->inventory->area_contains[WEAPON] =
+        rpg->game->in_game->inventory->selected_item;
     }
 }
 
@@ -42,13 +44,15 @@ void drop_bullets(rpg_t *rpg)
         [rpg->game->in_game->inventory->selected_item] = put_in_vector2f(
         (float)rpg->game->in_game->inventory->box_pos[16][0].x,
         (float)rpg->game->in_game->inventory->box_pos[16][0].y);
+        rpg->game->in_game->inventory->area_contains[AMMO] =
+        rpg->game->in_game->inventory->selected_item;
     }
 }
 
 void drop_bullet_proof(rpg_t *rpg)
 {
-    if ((rpg->game->in_game->inventory->selected_item >= BULLET_1 &&
-    rpg->game->in_game->inventory->selected_item < NO_BULLET) &&
+    if ((rpg->game->in_game->inventory->selected_item >= BPVEST &&
+    rpg->game->in_game->inventory->selected_item < NO_VEST) &&
     ((rpg->basic->cnf->mouse.x) >= adapt_x(rpg,
     rpg->game->in_game->inventory->box_pos[17][0].x)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg,
@@ -61,6 +65,8 @@ void drop_bullet_proof(rpg_t *rpg)
         [rpg->game->in_game->inventory->selected_item] = put_in_vector2f(
         (float)rpg->game->in_game->inventory->box_pos[17][0].x,
         (float)rpg->game->in_game->inventory->box_pos[17][0].y);
+        rpg->game->in_game->inventory->area_contains[VEST] =
+        rpg->game->in_game->inventory->selected_item;
     }
 }
 

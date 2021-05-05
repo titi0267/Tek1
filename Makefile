@@ -51,6 +51,7 @@ SRCSFILES=	rpg.c							\
 			game/cinematics.c				\
 			game/continue/save_game.c			\
 			game/continue/continue.c			\
+			game/continue/sv_statavanc.c			\
 			game/menu/exit.c			\
 			game/menu/exit_action.c		\
 			game/menu/settings_exit.c	\

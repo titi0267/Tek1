@@ -10,9 +10,9 @@
 int choose_map_warren(rpg_t *rpg)
 {
     if (rpg->game->in_game->map->pos_map[MAP_WARREN].y > -2000) {
-        rpg->game->in_game->map->status = MAP_OUTSIDE_POLICE;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE] =
         put_in_vector2f(200, -1870);
+        rpg->game->in_game->map->status = MAP_OUTSIDE_POLICE;
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_WARREN].y < -2500) {
@@ -34,7 +34,7 @@ int choose_map_outside_cdc(rpg_t *rpg)
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y < -2000 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].x < -1500) {
+    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].x > -1500) {
         rpg->game->in_game->map->status = MAP_OUTSIDE_DISCO;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO] =
         put_in_vector2f(-2400, -2350);

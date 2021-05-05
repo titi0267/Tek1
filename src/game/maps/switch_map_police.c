@@ -38,7 +38,8 @@ int choose_outside_police_next(rpg_t *rpg)
 
 int choose_map_outside_police(rpg_t *rpg)
 {
-    choose_outside_police_next(rpg);
+    if (choose_outside_police_next(rpg) == 1)
+        return (1);
     if ((rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x < -3500 &&
     rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x > -3700) &&
     (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y > -2700 &&

@@ -32,16 +32,15 @@ void creat_rect(rpg_t *rpg, sfVector2f vect, float diff)
 
 void creat_square(rpg_t *rpg, sfVector2f vect)
 {
-    sfColor color = sfColor_fromRGB(209, 52, 51);
     sfVertexArray *vertex_array = sfVertexArray_create();
     sfVertex vertex1 = {.position = {vect.x, vect.y},
-    .color = color};
+    .color = rpg->game->in_game->particle->blood_color};
     sfVertex vertex2 = {.position = {vect.x + 10, vect.y},
-    .color = color};
+    .color = rpg->game->in_game->particle->blood_color};
     sfVertex vertex3 = {.position = {vect.x, vect.y + 10},
-    .color = color};
+    .color = rpg->game->in_game->particle->blood_color};
     sfVertex vertex4 = {.position = {vect.x + 10, vect.y + 10},
-    .color = color};
+    .color = rpg->game->in_game->particle->blood_color};
 
     sfVertexArray_append(vertex_array, vertex1);
     sfVertexArray_append(vertex_array, vertex2);
@@ -82,12 +81,21 @@ void creat_level_up(rpg_t *rpg)
 
 void move_blood(rpg_t *rpg)
 {
-    rpg->game->in_game->particle->blood[0].x -= 2;
-    rpg->game->in_game->particle->blood[0].y += 2;
-    rpg->game->in_game->particle->blood[1].y += 2;
-    rpg->game->in_game->particle->blood[2].y += 2;
-    rpg->game->in_game->particle->blood[3].x += 2;
-    rpg->game->in_game->particle->blood[3].y += 2;
+    rpg->game->in_game->particle->blood[0].x -= 3;
+    rpg->game->in_game->particle->blood[0].y += 5;
+    rpg->game->in_game->particle->blood[1].y += 5;
+    rpg->game->in_game->particle->blood[2].y += 5;
+    rpg->game->in_game->particle->blood[3].x += 3;
+    rpg->game->in_game->particle->blood[3].y += 5;
+    rpg->game->in_game->particle->blood_color.r = (rpg->game->in_game->
+    particle->blood_color.r - 4 < 0) ? 0 : rpg->game->in_game->
+    particle->blood_color.r - 4;
+    rpg->game->in_game->particle->blood_color.g = (rpg->game->in_game->
+    particle->blood_color.g - 4 < 0) ? 0 : rpg->game->in_game->
+    particle->blood_color.g - 4;
+    rpg->game->in_game->particle->blood_color.b = (rpg->game->in_game->
+    particle->blood_color.b - 4 < 0) ? 0 : rpg->game->in_game->
+    particle->blood_color.b - 4;
 }
 
 void creat_blood(rpg_t *rpg, sfVector2f pos)
@@ -100,12 +108,12 @@ void creat_blood(rpg_t *rpg, sfVector2f pos)
     time += rpg->basic->cnf->clk->time_loop;
     for (int i = 0; i <= 3; i++)
         creat_square(rpg, rpg->game->in_game->particle->blood[i]);
-    if (time >= 0.03) {
-        time = 0.01;
+    if (time >= 0.005) {
+        time = 0.001;
         move_blood(rpg);
         nbr++;
     }
-    if (nbr == 50) {
+    if (nbr == 30) {
         time = 0;
         nbr = 0;
     }

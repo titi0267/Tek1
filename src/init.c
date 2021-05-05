@@ -19,6 +19,10 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->stats->level_up = 0;
     rpg->game->in_game->particle->xp = malloc(sizeof(sfVector2f) * 7);
     rpg->game->in_game->particle->blood = malloc(sizeof(sfVector2f) * 5);
+    rpg->game->in_game->stats->level = 0;
+    rpg->game->in_game->stats->player_stats[P_LIFE]->value = 100;
+    rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 5;
+    rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 0;
     *(rpg->game->in_game->nmi) = NULL;
     rpg->basic->cnf->clk->direction_clk = 1;
 }
