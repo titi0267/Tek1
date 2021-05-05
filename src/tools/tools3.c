@@ -35,3 +35,14 @@ sfVector2i put_in_vector2i(int x, int y)
 
     return (pos);
 }
+
+float vol_checker(float x)
+{
+    float volume = (x - 1452.393) * 100 / 225.902;
+
+    if (volume < 0)
+        volume = 0;
+    if (volume > 100)
+        volume = 100;
+    return (volume);
+}

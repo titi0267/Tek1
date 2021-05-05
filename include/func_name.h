@@ -153,6 +153,7 @@ void load_save(rpg_t *rpg);
 int my_getnbr(char const *str);
 void init_car_spt(rpg_t *rpg);
 void print_car(rpg_t *rpg);
+float vol_checker(float x);
 
 void drag(rpg_t *rpg, int selected);
 void calc_vector(rpg_t *rpg, int slot_type, int weapon);
