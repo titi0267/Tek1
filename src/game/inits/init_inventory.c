@@ -9,6 +9,7 @@
 
 void set_inventory_sprites(rpg_t *rpg)
 {
+    rpg->game->in_game->inventory->area_contains = malloc(sizeof(int) * 3);
     for (int i = SMG; i < NO_WEAPON; i++) {
         rpg->game->in_game->inventory->weapon[i] = sfSprite_create();
         sfSprite_setTexture(rpg->game->in_game->inventory->weapon[i],
@@ -16,8 +17,12 @@ void set_inventory_sprites(rpg_t *rpg)
         sfSprite_setPosition(rpg->game->in_game->inventory->weapon[i],
         rpg->game->in_game->inventory->pos_weapon[i]);
     }
-    for (int i = WEAPON; i < NO_SLOT; i++)
+    for (int i = WEAPON; i < NO_SLOT; i++) {
         rpg->game->in_game->inventory->is_area_filled[i] = FALSE;
+    }
+    rpg->game->in_game->inventory->area_contains[WEAPON] = NO_WEAPON;
+    rpg->game->in_game->inventory->area_contains[AMMO] = NO_BULLET;
+    rpg->game->in_game->inventory->area_contains[VEST] = NO_VEST;
     rpg->game->in_game->inventory->on_drag = FALSE;
 }
 

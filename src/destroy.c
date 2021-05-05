@@ -61,6 +61,7 @@ void destroy_game(rpg_t *rpg)
     for (int i = 0; rpg->game->in_game->nmi_list != NULL;
     rpg->game->in_game->nmi_list = rpg->game->in_game->nmi_list->next, i++) {
         sfSprite_destroy(rpg->game->in_game->nmi_list->yellow_man);
+        free(rpg->game->in_game->nmi_list->nmi_rect);
         free(rpg->game->in_game->nmi_list->offset_nmi);
     }
 }

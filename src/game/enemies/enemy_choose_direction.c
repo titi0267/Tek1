@@ -13,18 +13,19 @@ void enemy_move_left_player(rpg_t *rpg, enemy_t *nmi_list)
     move_enemy_left(rpg, nmi_list, 10, 1) != COLLISION)
         move_enemy_left(rpg, nmi_list, 0, 0);
     else if (nmi_list->choose_dir == LEFT &&
-    move_enemy_left(rpg, nmi_list, 10, 1) == COLLISION
-    && move_enemy_up(rpg, nmi_list, 10, 1) != COLLISION)
+    move_enemy_left(rpg, nmi_list, 10, 1) == COLLISION && move_enemy_up
+    (rpg, nmi_list, 10, 1) != COLLISION && nmi_list->nmi_pos.y >= 535)
         nmi_list->choose_dir = UP;
     else {
         if (nmi_list->choose_dir == LEFT &&
-        move_enemy_left(rpg, nmi_list, 10, 1) == COLLISION
-        && move_enemy_down(rpg, nmi_list, 10, 1) != COLLISION)
+        move_enemy_left(rpg, nmi_list, 10, 1) == COLLISION && move_enemy_down
+        (rpg, nmi_list, 10, 1) != COLLISION && nmi_list->nmi_pos.y < 535)
             nmi_list->choose_dir = DOWN;
         else if (nmi_list->choose_dir == LEFT &&
         move_enemy_left(rpg, nmi_list, 10, 1) == COLLISION
-        && move_enemy_right(rpg, nmi_list, 10, 1) != COLLISION)
+        && move_enemy_right(rpg, nmi_list, 10, 1) != COLLISION) {
             nmi_list->choose_dir = RIGHT;
+        }
     }
 }
 
@@ -34,13 +35,13 @@ void enemy_move_right_player(rpg_t *rpg, enemy_t *nmi_list)
     move_enemy_right(rpg, nmi_list, 10, 1) != COLLISION)
         move_enemy_right(rpg, nmi_list, 0, 0);
     else if (nmi_list->choose_dir == RIGHT &&
-    move_enemy_right(rpg, nmi_list, 10, 1) == COLLISION
-    && move_enemy_up(rpg, nmi_list, 10, 1) != COLLISION)
+    move_enemy_right(rpg, nmi_list, 10, 1) == COLLISION && move_enemy_up
+    (rpg, nmi_list, 10, 1) != COLLISION && nmi_list->nmi_pos.y >= 535)
         nmi_list->choose_dir = UP;
     else {
         if (nmi_list->choose_dir == RIGHT &&
-        move_enemy_right(rpg, nmi_list, 10, 1) == COLLISION
-        && move_enemy_down(rpg, nmi_list, 10, 1) != COLLISION)
+        move_enemy_right(rpg, nmi_list, 10, 1) == COLLISION && move_enemy_down
+        (rpg, nmi_list, 10, 1) != COLLISION && nmi_list->nmi_pos.y < 535)
             nmi_list->choose_dir = DOWN;
         else if (nmi_list->choose_dir == RIGHT &&
         move_enemy_right(rpg, nmi_list, 10, 1) == COLLISION
@@ -54,13 +55,13 @@ void enemy_move_up_player(rpg_t *rpg, enemy_t *nmi_list)
     move_enemy_up(rpg, nmi_list, 10, 1) != COLLISION)
         move_enemy_up(rpg, nmi_list, 0, 0);
     else if (nmi_list->choose_dir == UP &&
-    move_enemy_up(rpg, nmi_list, 10, 1) == COLLISION
-    && move_enemy_left(rpg, nmi_list, 10, 1) != COLLISION)
+    move_enemy_up(rpg, nmi_list, 10, 1) == COLLISION && move_enemy_left
+    (rpg, nmi_list, 10, 1) != COLLISION && nmi_list->nmi_pos.x >= 960)
         nmi_list->choose_dir = LEFT;
     else {
         if (nmi_list->choose_dir == UP &&
-        move_enemy_up(rpg, nmi_list, 10, 1) == COLLISION
-        && move_enemy_right(rpg, nmi_list, 10, 1) != COLLISION)
+        move_enemy_up(rpg, nmi_list, 10, 1) == COLLISION && move_enemy_right
+        (rpg, nmi_list, 10, 1) != COLLISION && nmi_list->nmi_pos.x < 960)
             nmi_list->choose_dir = RIGHT;
         else if (nmi_list->choose_dir == UP &&
         move_enemy_up(rpg, nmi_list, 10, 1) == COLLISION
@@ -74,13 +75,13 @@ void enemy_move_down_player(rpg_t *rpg, enemy_t *nmi_list)
     move_enemy_down(rpg, nmi_list, 10, 1) != COLLISION)
         move_enemy_down(rpg, nmi_list, 0, 0);
     else if (nmi_list->choose_dir == DOWN &&
-    move_enemy_down(rpg, nmi_list, 10, 1) == COLLISION
-    && move_enemy_left(rpg, nmi_list, 10, 1) != COLLISION)
+    move_enemy_down(rpg, nmi_list, 10, 1) == COLLISION && move_enemy_left
+    (rpg, nmi_list, 10, 1) != COLLISION && nmi_list->nmi_pos.x >= 960)
         nmi_list->choose_dir = LEFT;
     else {
         if (nmi_list->choose_dir == DOWN &&
-        move_enemy_down(rpg, nmi_list, 10, 1) == COLLISION
-        && move_enemy_right(rpg, nmi_list, 10, 1) != COLLISION)
+        move_enemy_down(rpg, nmi_list, 10, 1) == COLLISION && move_enemy_right
+        (rpg, nmi_list, 10, 1) != COLLISION && nmi_list->nmi_pos.x < 960)
             nmi_list->choose_dir = RIGHT;
         else if (nmi_list->choose_dir == DOWN &&
         move_enemy_down(rpg, nmi_list, 10, 1) == COLLISION

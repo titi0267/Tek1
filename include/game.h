@@ -32,6 +32,7 @@ typedef struct inventory_s {
     int shortcut_it;
     int is_item_selected;
     int *is_area_filled;
+    int *area_contains;
     int on_click;
     int valid;
     int selected_item;

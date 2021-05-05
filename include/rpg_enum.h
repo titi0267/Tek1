@@ -83,7 +83,9 @@ typedef enum weapons_s {
     TAZER,
     NO_WEAPON,
     BULLET_1,
-    NO_BULLET
+    NO_BULLET,
+    BPVEST,
+    NO_VEST
 } weapons_t;
 
 typedef enum key_status_s {
