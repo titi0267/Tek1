@@ -7,6 +7,22 @@
 
 #include "../../../include/func_name.h"
 
+// -2006 x -1283
+
+void button_hitbox(rpg_t *rpg)
+{
+    if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
+    -1980 && rpg->game->in_game->map->pos_map[rpg->game->in_game->
+    map->status].x >= -2006 && rpg->game->in_game->map->pos_map[rpg->game->
+    in_game->map->status].y <= -1220 &&
+    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y >= -1283
+    && rpg->game->in_game->phone->phone_status == 0) {
+        rpg->game->in_game->phone->notif_prev =
+        rpg->game->in_game->phone->notif_index;
+        rpg->game->in_game->game_status = GM_NOTIF4;
+    }
+}
+
 void desk_hitbox(rpg_t *rpg)
 {
     if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
@@ -16,10 +32,10 @@ void desk_hitbox(rpg_t *rpg)
     [rpg->game->in_game->map->status].y >= -730 &&
     rpg->game->in_game->phone->notif_index == 1 &&
     rpg->game->in_game->phone->phone_status == 0) {
-        rpg->game->in_game->game_status = GM_SPEECH;
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
         sfSound_play(rpg->game->in_game->ig_sound->riley);
+        rpg->game->in_game->game_status = GM_SPEECH;
     }
 }
 

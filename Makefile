@@ -16,6 +16,7 @@ SRCSFILES=	rpg.c							\
 			audios.c						\
 			destroy.c						\
 			free_all.c						\
+			init.c							\
 			tools/tools.c						\
 			tools/tools2.c						\
 			tools/tools3.c						\
@@ -85,8 +86,10 @@ SRCSFILES=	rpg.c							\
 			game/avancement/phone.c						\
 			game/avancement/game_hitbox.c				\
 			game/enemies/move_enemy.c			\
+			game/enemies/enemy_translate.c			\
 			game/enemies/new_enemy.c			\
 			game/enemies/collisions_enemy.c			\
+			game/enemies/enemy_choose_direction.c			\
 			game/enemies/enemy_rect.c			\
 			game/stats/player_stats.c				\
 			game/stats/life.c				\

@@ -93,6 +93,7 @@ typedef struct enemy_s
     sfVector2f nmi_pos;
     float clock_rect;
     sfVector2f diff;
+    int choose_dir;
 } enemy_t;
 
 typedef struct ig_menus_s
@@ -108,11 +109,13 @@ typedef struct phone_s
     sfSprite **phone;
     sfSound *notif_sound;
     sfSound *call_sound;
+    sfSound *alarm;
     int phone_status;
     int notif_index;
     int notif_bool;
     int notif_prev;
     int call_status;
+    int alarm_status;
 } phone_t;
 
 typedef struct player_stats_s

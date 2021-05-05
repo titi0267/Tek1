@@ -10,8 +10,8 @@
 void skip_start(rpg_t *rpg)
 {
     if (rpg->basic->evt->event.type == sfEvtKeyReleased &&
-        rpg->basic->evt->event.key.code == sfKeySpace &&
-        rpg->menu->status == ON_BASIL)
+    rpg->basic->evt->event.key.code == sfKeySpace &&
+    rpg->menu->status == ON_BASIL && rpg->menu->intro->status != FALSE)
         rpg->menu->status = ON_MENU;
 }
 
@@ -33,7 +33,6 @@ void inside_open(rpg_t *rpg)
 
 void open_window(rpg_t *rpg)
 {
-    create_window(rpg->basic);
     while (sfRenderWindow_isOpen(rpg->basic->wnd->my_wnd)) {
         sfRenderWindow_display(rpg->basic->wnd->my_wnd);
         inside_open(rpg);

@@ -19,8 +19,8 @@ void init_particle(rpg_t *rpg)
 
 void init_particle_blood(rpg_t *rpg, sfVector2f pos)
 {
-    rpg->game->in_game->particle->blood[0] = pos;
-    rpg->game->in_game->particle->blood[1] = pos;
-    rpg->game->in_game->particle->blood[2] = pos;
-    rpg->game->in_game->particle->blood[3] = pos;
+    rpg->game->in_game->particle->blood[0] = put_in_vector2f(pos.x + 10, pos.y);
+    rpg->game->in_game->particle->blood[1] = put_in_vector2f(pos.x + 10, pos.y);
+    rpg->game->in_game->particle->blood[2] = put_in_vector2f(pos.x - 10, pos.y);
+    rpg->game->in_game->particle->blood[3] = put_in_vector2f(pos.x - 10, pos.y);
 }

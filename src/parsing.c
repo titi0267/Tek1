@@ -9,9 +9,15 @@
 
 void parsing_menus(rpg_t *rpg)
 {
+    static int nbr = 0;
+
     if (rpg->menu->status == ON_BASIL) {
-        sound(rpg, 1);
         start_actions(rpg);
+        nbr += rpg->basic->cnf->clk->time_total;
+        if (rpg->menu->intro->status == FALSE && nbr > 0.1) {
+            init_basic_value(rpg);
+            init_function(rpg);
+        }
     }
     if (rpg->menu->status == ON_NEW_GM) {
         background(rpg);
