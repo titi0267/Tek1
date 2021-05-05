@@ -10,9 +10,6 @@
 void init_stats_value(rpg_t *rpg)
 {
     sfFont *font = sfFont_createFromFile("assets/fonts/aqua.ttf");
-    rpg->game->in_game->stats->player_stats[P_LIFE]->value = 100;
-    rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 5;
-    rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 0;
 
     for (int i = 0; i <= P_ARMOR; i++) {
         rpg->game->in_game->stats->player_stats[i]->txt = sfText_create();

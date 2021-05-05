@@ -207,5 +207,8 @@ int move_enemy_right(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
 int move_enemy_left(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
 int move_enemy_down(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
 int move_enemy_up(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
+char *save_stats(rpg_t *rpg);
+char *save_avance(rpg_t *rpg);
+void reload_new_game(rpg_t *rpg);
 
 #endif /* !prototype */

@@ -48,7 +48,6 @@ void parsing_avance(rpg_t *rpg)
     key_event_game(rpg);
     print_xp_life(rpg);
     creat_level_up(rpg);
-    creat_blood(rpg, put_in_vector2f(900, 450));
     if (rpg->game->in_game->game_status == GM_BEGIN) {
         phone_main(rpg);
         desk_hitbox(rpg);

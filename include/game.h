@@ -129,6 +129,7 @@ typedef struct stat_s
     player_stats_t **player_stats;
     int xp_value;
     int level_up;
+    int level;
     sfRectangleShape *life;
     sfRectangleShape *life_border;
     sfRectangleShape *xp;
@@ -141,6 +142,7 @@ typedef struct particle_s
 {
     sfVector2f *xp;
     sfVector2f *blood;
+    sfColor blood_color;
 } particle_t;
 
 typedef struct in_game_s
