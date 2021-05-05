@@ -37,6 +37,8 @@ typedef struct intro_s {
     intro_sound_t *intro_snd;
     intro_basil_t *intro_basil;
     intro_pegi_t *intro_pegi;
+    int status;
+    int window_access;
 } intro_t;
 
 typedef struct menu_snd_s {

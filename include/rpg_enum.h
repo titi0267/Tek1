@@ -154,7 +154,8 @@ typedef enum game_avance_s {
     GM_NOTIF2,
     GM_INCOMMING_CALL,
     GM_CALL,
-    GM_NOTIF3
+    GM_NOTIF3,
+    GM_NOTIF4
 } game_avance_t;
 
 typedef enum notifs_s {

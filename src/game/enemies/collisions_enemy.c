@@ -44,7 +44,7 @@ int enemy_col_right(rpg_t *rpg, enemy_t *nmi_list, int pos_x, int pos_y)
 {
     sfColor color;
 
-    for (int z = pos_x; pos_x != (z - 50); pos_x--) {
+    for (int z = pos_x; pos_x != (z - 40); pos_x--) {
         color = sfImage_getPixel(rpg->game->in_game->map->collisions
         [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
         + nmi_list->nmi_pos.x
@@ -82,22 +82,20 @@ int enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
     if (direction == UP)
         return (enemy_col_up(rpg, nmi_list, pos_x, pos_y + sub));
     if (direction == DOWN)
-        return (enemy_col_down(rpg, nmi_list, pos_x, pos_y + sub));
+        return (enemy_col_down(rpg, nmi_list, pos_x, pos_y - sub));
     if (direction == RIGHT)
         return (enemy_col_right(rpg, nmi_list, pos_x - sub, pos_y));
     if (direction == LEFT)
         return (enemy_col_left(rpg, nmi_list, pos_x + sub, pos_y));
     return (0);
 }
-
 int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
 {
     int d = enemy_collision(rpg, direction, nmi_list, sub);
     sfColor color;
 
     if (d != BEHIND && d != COLLISION)
-        sfSprite_setColor(rpg->game->in_game->objects->players
-        [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
+        sfSprite_setColor(rpg->game->in_game->nmi_list->yellow_man, sfWhite);
     if (d == COLLISION)
             return (COLLISION);
     if (d == BEHIND) {

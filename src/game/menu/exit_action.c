@@ -39,6 +39,9 @@ void reload_new_game2(rpg_t *rpg)
     rpg->game->start->status_cinematic1 = FALSE;
     rpg->game->in_game->phone->notif_index = 0;
     rpg->game->in_game->phone->notif_prev = 0;
+    rpg->game->in_game->stats->player_stats[P_LIFE]->value = 100;
+    rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 5;
+    rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 0;
 }
 
 void reload_new_game(rpg_t *rpg)

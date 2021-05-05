@@ -10,16 +10,16 @@
 
 #include "../../../include/func_name.h"
 
-void creat_tile(rpg_t *rpg, sfVector2f vect)
+void creat_rect(rpg_t *rpg, sfVector2f vect, float diff)
 {
     sfVertexArray *vertex_array = sfVertexArray_create();
-    sfVertex vertex1 = {.position = vect,
+    sfVertex vertex1 = {.position = {vect.x, vect.y},
     .color = sfYellow};
     sfVertex vertex2 = {.position = {vect.x + 5, vect.y},
     .color = sfYellow};
-    sfVertex vertex3 = {.position = {vect.x, vect.y + 15},
+    sfVertex vertex3 = {.position = {vect.x, vect.y + 15 - diff},
     .color = sfRed};
-    sfVertex vertex4 = {.position = {vect.x + 5, vect.y + 15},
+    sfVertex vertex4 = {.position = {vect.x + 5, vect.y + 15 - diff},
     .color = sfRed};
 
     sfVertexArray_append(vertex_array, vertex1);
@@ -30,40 +30,84 @@ void creat_tile(rpg_t *rpg, sfVector2f vect)
     sfRenderWindow_drawVertexArray(rpg->basic->wnd->my_wnd, vertex_array, NULL);
 }
 
-void print_levelup(rpg_t *rpg)
+void creat_square(rpg_t *rpg, sfVector2f vect)
 {
-    for (int i = 0; i <= 5; i++) {
-        creat_tile(rpg, rpg->game->in_game->particle->xp[i]);
+    sfColor color = sfColor_fromRGB(209, 52, 51);
+    sfVertexArray *vertex_array = sfVertexArray_create();
+    sfVertex vertex1 = {.position = {vect.x, vect.y},
+    .color = color};
+    sfVertex vertex2 = {.position = {vect.x + 10, vect.y},
+    .color = color};
+    sfVertex vertex3 = {.position = {vect.x, vect.y + 10},
+    .color = color};
+    sfVertex vertex4 = {.position = {vect.x + 10, vect.y + 10},
+    .color = color};
+
+    sfVertexArray_append(vertex_array, vertex1);
+    sfVertexArray_append(vertex_array, vertex2);
+    sfVertexArray_append(vertex_array, vertex4);
+    sfVertexArray_append(vertex_array, vertex3);
+    sfVertexArray_setPrimitiveType(vertex_array, sfQuads);
+    sfRenderWindow_drawVertexArray(rpg->basic->wnd->my_wnd, vertex_array, NULL);
+}
+
+void move_xp(rpg_t *rpg)
+{
+    for (int i = 0; i <= 5; i++)
         rpg->game->in_game->particle->xp[i].y -= 2;
-    }
 }
 
 void creat_level_up(rpg_t *rpg)
 {
+    static float diff = 0;
     static float time = 0;
 
-    if (rpg->game->in_game->stats->level_up == 0) {
+    if (rpg->game->in_game->stats->level_up == 1) {
         time += rpg->basic->cnf->clk->time_loop;
-        if (time >= 0.5)
-            print_levelup(rpg);
-        if (rpg->game->in_game->particle->xp[4].y <= 476) {
+        for (int i = 0; i <= 5; i++)
+            creat_rect(rpg, rpg->game->in_game->particle->xp[i], diff);
+        if (time >= 0.02) {
+            move_xp(rpg);
+            time = 0;
+            diff += 1;
+        }
+        if (rpg->game->in_game->particle->xp[4].y <= 496) {
             rpg->game->in_game->stats->level_up = 0;
+            diff = 0;
+            time = 0;
             init_particle(rpg);
         }
     }
 }
 
-// void creat_blood(rpg_t *rpg, sfVector2f pos)
-// {
-//     static float time = 0;
+void move_blood(rpg_t *rpg)
+{
+    rpg->game->in_game->particle->blood[0].x -= 2;
+    rpg->game->in_game->particle->blood[0].y += 2;
+    rpg->game->in_game->particle->blood[1].y += 2;
+    rpg->game->in_game->particle->blood[2].y += 2;
+    rpg->game->in_game->particle->blood[3].x += 2;
+    rpg->game->in_game->particle->blood[3].y += 2;
+}
 
-//     if (rpg->game->in_game->stats->level_up == 0) {
-//         time += rpg->basic->cnf->clk->time_loop;
-//         if (time >= 0.5)
-//             print_levelup(rpg);
-//         if (rpg->game->in_game->particle->xp[2].y <= 400) {
-//             rpg->game->in_game->stats->level_up = 0;
-//             init_particle(rpg);
-//         }
-//     }
-// }
+void creat_blood(rpg_t *rpg, sfVector2f pos)
+{
+    static float time = 0;
+    static int nbr = 0;
+
+    if (time == 0)
+        init_particle_blood(rpg, pos);
+    time += rpg->basic->cnf->clk->time_loop;
+    for (int i = 0; i <= 3; i++)
+        creat_square(rpg, rpg->game->in_game->particle->blood[i]);
+    if (time >= 0.03) {
+        time = 0.01;
+        move_blood(rpg);
+        nbr++;
+    }
+    if (nbr == 50) {
+        time = 0;
+        nbr = 0;
+    }
+
+}

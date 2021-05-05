@@ -89,9 +89,11 @@ void start_actions(rpg_t *rpg)
 {
     static float nbr = 0;
 
-    if (nbr > 1 && nbr < 9.2)
+    if (nbr >= 0 && nbr < 8.2) {
         move_basil(rpg);
-    if (nbr > 9.2 && nbr < 10.5)
+        sound(rpg, 1);
+    }
+    if (nbr > 8.2 && nbr < 9.5)
         sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
     if (nbr > 10.5 && nbr < 17.7)
         background_pegi(rpg);

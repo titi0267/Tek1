@@ -153,6 +153,9 @@ void load_save(rpg_t *rpg);
 int my_getnbr(char const *str);
 void init_car_spt(rpg_t *rpg);
 void print_car(rpg_t *rpg);
+void init_function(rpg_t *rpg);
+void init_basic_value(rpg_t *rpg);
+int init_before_game(rpg_t *rpg);
 
 void drag(rpg_t *rpg, int selected);
 void calc_vector(rpg_t *rpg, int slot_type, int weapon);
@@ -195,6 +198,13 @@ int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list,
 int sub);
 void init_particle(rpg_t *rpg);
 void init_particle_blood(rpg_t *rpg, sfVector2f pos);
-
+void creat_blood(rpg_t *rpg, sfVector2f pos);
+void button_hitbox(rpg_t *rpg);
+void enemy_rect_move_to_player(rpg_t *rpg, enemy_t *nmi_list);
+void define_direction(rpg_t *rpg, enemy_t *nmi_list);
+int move_enemy_right(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
+int move_enemy_left(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
+int move_enemy_down(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
+int move_enemy_up(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
 
 #endif /* !prototype */

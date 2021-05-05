@@ -39,6 +39,11 @@ void init_phone_sound(rpg_t *rpg)
     sfSound_setBuffer(rpg->game->in_game->phone->call_sound, buffer);
     sfSound_setLoop(rpg->game->in_game->phone->call_sound, sfTrue);
     sfSound_setVolume(rpg->game->in_game->phone->call_sound, 50);
+    buffer = sfSoundBuffer_createFromFile
+    ("assets/audios/sirene.ogg");
+    rpg->game->in_game->phone->alarm = sfSound_create();
+    sfSound_setBuffer(rpg->game->in_game->phone->alarm, buffer);
+    sfSound_setVolume(rpg->game->in_game->phone->alarm, 50);
 }
 
 void init_pitch_riley(rpg_t *rpg)
