@@ -44,7 +44,7 @@ int move_enemies(rpg_t *rpg)
 
     rpg->game->in_game->nmi_list = *(rpg->game->in_game->nmi);
     nbr += rpg->basic->cnf->clk->time_loop;
-    if (nbr >= 1) {
+    if (nbr >= 10) {
         if (spawn_enemies(rpg) == MALLOC_ERROR)
             return (MALLOC_ERROR);
         nbr = 0;
