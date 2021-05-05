@@ -188,6 +188,13 @@ void init_stats_value(rpg_t *rpg);
 void print_stats(rpg_t *rpg);
 void init_xplife(rpg_t *rpg);
 void print_life(rpg_t *rpg);
-int enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list);
+int enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub);
+void print_xp_life(rpg_t *rpg);
+void creat_level_up(rpg_t *rpg);
+int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list,
+int sub);
+void init_particle(rpg_t *rpg);
+void init_particle_blood(rpg_t *rpg, sfVector2f pos);
+
 
 #endif /* !prototype */

@@ -45,5 +45,7 @@ int game_malloc2(rpg_t *rpg)
         return (MALLOC_ERROR);
     if (malloc_stat_player(rpg) == MALLOC_ERROR)
         return (MALLOC_ERROR);
+    if ((rpg->game->in_game->particle = malloc(sizeof(particle_t))) == NULL)
+        return (MALLOC_ERROR);
     return (0);
 }

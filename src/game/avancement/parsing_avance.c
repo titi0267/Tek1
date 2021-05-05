@@ -12,7 +12,8 @@ void parsing_avance2(rpg_t *rpg)
     if (rpg->game->in_game->game_status == GM_INCOMMING_CALL) {
         call_hitbox(rpg);
         phone_main(rpg);
-        if (rpg->game->in_game->phone->call_status == FALSE) {
+        if (rpg->game->in_game->phone->call_status == FALSE &&
+        rpg->game->in_game->phone->phone_status == 1) {
             sfSound_play(rpg->game->in_game->phone->call_sound);
             rpg->game->in_game->phone->call_status = TRUE;
         }
@@ -22,6 +23,7 @@ void parsing_avance2(rpg_t *rpg)
         sfSound_stop(rpg->game->in_game->phone->call_sound);
         print_phone(rpg);
         incall_hitbox(rpg);
+        rpg->game->in_game->phone->notif_bool = TRUE;
     }
     if (rpg->game->in_game->game_status == GM_NOTIF3)
         phone_main(rpg);
@@ -31,7 +33,8 @@ void parsing_avance(rpg_t *rpg)
 {
     chose_map(rpg);
     key_event_game(rpg);
-    print_life(rpg);
+    print_xp_life(rpg);
+    creat_level_up(rpg);
     if (rpg->game->in_game->game_status == GM_BEGIN) {
         phone_main(rpg);
         desk_hitbox(rpg);

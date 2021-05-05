@@ -20,6 +20,7 @@ typedef struct start_s
     int wait_radio;
     sfSoundBuffer *cine1;
     sfSound *cinematic_1;
+    int status_cinematic1;
 } start_t;
 
 typedef struct inventory_s {
@@ -124,6 +125,7 @@ typedef struct stat_s
 {
     player_stats_t **player_stats;
     int xp_value;
+    int level_up;
     sfRectangleShape *life;
     sfRectangleShape *life_border;
     sfRectangleShape *xp;
@@ -131,6 +133,12 @@ typedef struct stat_s
     sfVector2f life_size;
     sfVector2f xp_size;
 } stat_t;
+
+typedef struct particle_s
+{
+    sfVector2f *xp;
+    sfVector2f *blood;
+} particle_t;
 
 typedef struct in_game_s
 {
@@ -143,6 +151,7 @@ typedef struct in_game_s
     ig_menus_t *ig_menus;
     phone_t *phone;
     stat_t *stats;
+    particle_t *particle;
     int game_status;
 } in_game_t;
 

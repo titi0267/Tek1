@@ -6,55 +6,106 @@
 */
 
 #include "../../../include/func_name.h"
-/*
-int enemy_col_up(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
-{
-    return (0);
-}
 
-int enemy_col_down(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
+int enemy_col_up(rpg_t *rpg, enemy_t *nmi_list, int pos_x, int pos_y)
 {
-    return (0);
-}
+    sfColor color;
 
-int enemy_col_right(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
-{
-    for (int z = pos_x; pos_x != (z - 60); pos_x--) {
-    color = sfImage_getPixel(rpg->game->in_game->map->collisions
-    [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
-    + rpg->game->in_game->map->col_real[rpg->game->in_game->map->status].x
-    + 5),
-    (unsigned int)(pos_y * -1) + rpg->game->in_game->map->col_real
-    [rpg->game->in_game->map->status].y + 95);
-    if (check_color(rpg, color) != 0)
-        break;
+    for (int z = pos_x; pos_x != (z - 55); pos_x--) {
+        color = sfImage_getPixel(rpg->game->in_game->map->collisions
+        [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
+        + nmi_list->nmi_pos.x
+        + 4),
+        (unsigned int)(pos_y * -1) + nmi_list->nmi_pos.y + 80);
+        if (check_color(rpg, color) != 0)
+            break;
     }
     return (check_color(rpg, color));
-    return (0);
-}*/
 
-/*int enemy_col_left(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
+}
+
+int enemy_col_down(rpg_t *rpg, enemy_t *nmi_list, int pos_x, int pos_y)
 {
-    return (0);
-}*/
+    sfColor color;
 
-int enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list)
+    for (int z = pos_x; pos_x != (z - 55); pos_x--) {
+        color = sfImage_getPixel(rpg->game->in_game->map->collisions
+        [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
+        + nmi_list->nmi_pos.x
+        + 4),
+        (unsigned int)(pos_y * -1) + nmi_list->nmi_pos.y + 88);
+        if (check_color(rpg, color) != 0)
+            break;
+    }
+    return (check_color(rpg, color));
+}
+
+int enemy_col_right(rpg_t *rpg, enemy_t *nmi_list, int pos_x, int pos_y)
 {
-    //sfColor color;
-    int pos_x = nmi_list->nmi_pos.x;
-    int pos_y = rpg->game->in_game->nmi_list->nmi_pos.y;
+    sfColor color;
 
-    if (direction == 10)
-        return (1);
-    pos_y++;
-    pos_x++;
-    return (0);
-    /*if (direction == UP)
-        enemy_col_up(rpg, color, pos_x, pos_y);
+    for (int z = pos_x; pos_x != (z - 50); pos_x--) {
+        color = sfImage_getPixel(rpg->game->in_game->map->collisions
+        [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
+        + nmi_list->nmi_pos.x
+        + 5),
+        (unsigned int)(pos_y * -1) + nmi_list->nmi_pos.y + 80);
+        if (check_color(rpg, color) != 0)
+            break;
+    }
+    return (check_color(rpg, color));
+}
+
+int enemy_col_left(rpg_t *rpg, enemy_t *nmi_list, int pos_x, int pos_y)
+{
+    sfColor color;
+
+    for (int z = pos_x; pos_x != z - 50; pos_x--) {
+        color = sfImage_getPixel(rpg->game->in_game->map->collisions
+        [rpg->game->in_game->map->status], (unsigned int)((pos_x * -1)
+        + nmi_list->nmi_pos.x
+        - 5), (unsigned int)(pos_y * -1) + nmi_list->nmi_pos.y + 80);
+        if (check_color(rpg, color) != 0)
+            break;
+    }
+    return (check_color(rpg, color));
+
+}
+
+int enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
+{
+    int pos_x = rpg->game->in_game->map->pos_map
+    [rpg->game->in_game->map->status].x;
+    int pos_y = rpg->game->in_game->map->pos_map
+    [rpg->game->in_game->map->status].y;
+
+    if (direction == UP)
+        return (enemy_col_up(rpg, nmi_list, pos_x, pos_y + sub));
     if (direction == DOWN)
-        enemy_col_down(rpg, color, pos_x, pos_y);
+        return (enemy_col_down(rpg, nmi_list, pos_x, pos_y + sub));
     if (direction == RIGHT)
-        enemy_col_right(rpg, color, pos_x, pos_y);
+        return (enemy_col_right(rpg, nmi_list, pos_x - sub, pos_y));
     if (direction == LEFT)
-        enemy_col_left(rpg, color, pos_x, pos_y);*/
+        return (enemy_col_left(rpg, nmi_list, pos_x + sub, pos_y));
+    return (0);
+}
+
+int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
+{
+    int d = enemy_collision(rpg, direction, nmi_list, sub);
+    sfColor color;
+
+    if (d != BEHIND && d != COLLISION)
+        sfSprite_setColor(rpg->game->in_game->objects->players
+        [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
+    if (d == COLLISION)
+            return (COLLISION);
+    if (d == BEHIND) {
+        color.r = 0;
+        color.g = 0;
+        color.b = 0;
+        color.a = 128;
+        sfSprite_setColor(nmi_list->yellow_man, color);
+    }
+    return (0);
 }

@@ -39,33 +39,86 @@ void rect_move_enemy(rpg_t *rpg, int direction, enemy_t *nmi_list)
     rpg->game->in_game->nmi_list->nmi_rect[direction]);
 }
 
-void enemy_rect_move_to_player(rpg_t *rpg, enemy_t *nmi_list)
+int move_enemy_up(rpg_t *rpg, enemy_t *nmi_list, int sub)
 {
-    if ((nmi_list->diff.x >= nmi_list->diff.y &&
-    nmi_list->nmi_pos.x >= 960) && enemy_collision(rpg, LEFT,
-    rpg->game->in_game->nmi_list) != COLLISION) {
-        rect_move_enemy(rpg, LEFT, nmi_list);
-        nmi_list->nmi_pos.x -= 2;
-    }
-    if ((nmi_list->diff.x >= nmi_list->diff.y &&
-    nmi_list->nmi_pos.x < 960) && enemy_collision(rpg, RIGHT,
-    rpg->game->in_game->nmi_list) != COLLISION) {
-        rect_move_enemy(rpg, RIGHT, nmi_list);
-        nmi_list->nmi_pos.x += 2;
-    }
-    if ((nmi_list->diff.x <= nmi_list->diff.y &&
-    nmi_list->nmi_pos.y < 535) && enemy_collision(rpg, DOWN,
-    rpg->game->in_game->nmi_list) != COLLISION) {
-        rect_move_enemy(rpg, DOWN, nmi_list);
-        nmi_list->nmi_pos.y += 2;
-    }
-    if ((nmi_list->diff.x <= nmi_list->diff.y &&
-    nmi_list->nmi_pos.y >= 535) && enemy_collision(rpg, UP,
-    rpg->game->in_game->nmi_list) != COLLISION) {
+    if (check_enemy_collision(rpg, UP, rpg->game->in_game->nmi_list, sub)
+    != COLLISION) {
         rect_move_enemy(rpg, UP, nmi_list);
         nmi_list->nmi_pos.y -= 2;
+        return (0);
     }
-    printf("x = %f & y = %f\n", nmi_list->nmi_pos.x, nmi_list->nmi_pos.y);
+    return (1);
+}
+
+int move_enemy_down(rpg_t *rpg, enemy_t *nmi_list, int sub)
+{
+    if (check_enemy_collision(rpg, DOWN, rpg->game->in_game->nmi_list, sub)
+    != COLLISION) {
+        rect_move_enemy(rpg, DOWN, nmi_list);
+        nmi_list->nmi_pos.y += 2;
+        return (0);
+    }
+    return (1);
+}
+int move_enemy_left(rpg_t *rpg, enemy_t *nmi_list, int sub)
+{
+    if (check_enemy_collision(rpg, LEFT, rpg->game->in_game->nmi_list, sub)
+    != COLLISION) {
+        rect_move_enemy(rpg, LEFT, nmi_list);
+        nmi_list->nmi_pos.x -= 2;
+        return (0);
+    }
+    return (1);
+}
+
+int move_enemy_right(rpg_t *rpg, enemy_t *nmi_list, int sub)
+{
+    if (check_enemy_collision(rpg, RIGHT, rpg->game->in_game->nmi_list, sub)
+    != COLLISION) {
+        rect_move_enemy(rpg, RIGHT, nmi_list);
+        nmi_list->nmi_pos.x += 2;
+        return (0);
+    }
+    return (1);
+}
+
+void enemy_rect_move_to_player(rpg_t *rpg, enemy_t *nmi_list)
+{
+    int d = 0;
+
+    if ((nmi_list->diff.x >= nmi_list->diff.y &&
+    nmi_list->nmi_pos.x >= 960)) {
+        d = move_enemy_left(rpg, nmi_list, 0);
+        if (d == 1 && nmi_list->nmi_pos.y < 535) {
+            move_enemy_down(rpg, nmi_list, 3);
+        }
+        else if (d == 1 && nmi_list->nmi_pos.y >= 535)
+            move_enemy_up(rpg, nmi_list, 3);
+    }
+    if ((nmi_list->diff.x >= nmi_list->diff.y &&
+    nmi_list->nmi_pos.x < 960)) {
+        d = move_enemy_right(rpg, nmi_list, 0);
+        if (d == 1 && nmi_list->nmi_pos.y < 535)
+            move_enemy_down(rpg, nmi_list, 3);
+        else if (d == 1 && nmi_list->nmi_pos.y >= 535)
+            move_enemy_up(rpg, nmi_list, 3);
+    }
+    if ((nmi_list->diff.x <= nmi_list->diff.y &&
+    nmi_list->nmi_pos.y < 535)) {
+        d = move_enemy_down(rpg, nmi_list, 0);
+        if (d == 1 && nmi_list->nmi_pos.x < 960)
+            move_enemy_right(rpg, nmi_list, 3);
+        else if (d == 1 && nmi_list->nmi_pos.x >= 960)
+            move_enemy_left(rpg, nmi_list, 3);
+    }
+    if ((nmi_list->diff.x <= nmi_list->diff.y &&
+    nmi_list->nmi_pos.y >= 535)) {
+        d = move_enemy_up(rpg, nmi_list, 0);
+        if (d == 1 && nmi_list->nmi_pos.x < 960)
+            move_enemy_right(rpg, nmi_list, 3);
+        else if (d == 1 && nmi_list->nmi_pos.x >= 960)
+            move_enemy_left(rpg, nmi_list, 3);
+    }
 }
 
 void detect_player(rpg_t *rpg)

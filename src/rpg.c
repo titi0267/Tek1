@@ -12,9 +12,13 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->phone->phone_status = 1;
     rpg->game->in_game->phone->notif_bool = FALSE;
     rpg->game->in_game->phone->call_status = FALSE;
+    rpg->game->start->status_cinematic1 = FALSE;
     rpg->game->in_game->phone->notif_index = 0;
     rpg->game->in_game->phone->notif_prev = 0;
     rpg->game->in_game->stats->xp_value = 0;
+    rpg->game->in_game->stats->level_up = 0;
+    rpg->game->in_game->particle->xp = malloc(sizeof(sfVector2f) * 7);
+    rpg->game->in_game->particle->blood = malloc(sizeof(sfVector2f) * 4);
     *(rpg->game->in_game->nmi) = NULL;
 }
 
@@ -56,6 +60,7 @@ void init_function2(rpg_t *rpg)
     init_pitch_riley(rpg);
     init_stats_value(rpg);
     init_xplife(rpg);
+    init_particle(rpg);
 }
 
 int init_function(rpg_t *rpg)
