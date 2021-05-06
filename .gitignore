@@ -1,0 +1,10 @@
+**/*.o
+libmy.a
+test
+errors
+mysh
+tests/tests_epi/*
+vgcore*
+big_file
+mouli.sh
+todo

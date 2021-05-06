@@ -1,0 +1,3 @@
+ls / | cat | wc -c > test.out
+cat test.out
+rm test.out
