@@ -14,12 +14,15 @@
 
 typedef struct stumper_s
 {
-    char *arg1;
+    int occurence;
+    char *str;
+    char *new_str;
 } stumper_t;
 
 int my_getnbr(char *buff);
 void my_putchar(char c);
 int my_putstr(char const *buff);
+int my_strcmp(char c, char d);
 int my_strlen(char const *str);
 
 #endif /* !my */
