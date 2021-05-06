@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void detect_weapon(inventory_t *ivt, sfVector2f mouse)
+void detect_which_weapon_next(inventory_t *ivt, sfVector2f mouse)
 {
     if (sfFloatRect_contains(&ivt->glob_pos[KNIFE],
     mouse.x, mouse.y) == sfTrue) {
@@ -65,7 +65,7 @@ void detect_inventory_object(rpg_t *rpg)
         rpg->game->in_game->inventory->glob_pos[i] =
         sfSprite_getGlobalBounds(rpg->game->in_game->inventory->weapon[i]);
     }
-    detect_weapon(rpg, mouse);
+    detect_which_weapon(rpg->game->in_game->inventory, mouse);
 }
 
 void drag(rpg_t *rpg, int selected)
