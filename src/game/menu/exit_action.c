@@ -42,6 +42,9 @@ void reload_new_game2(rpg_t *rpg)
     rpg->game->in_game->stats->player_stats[P_LIFE]->value = 100;
     rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 5;
     rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 0;
+    rpg->game->in_game->map->last_pos = -1;
+    rpg->game->in_game->objects->speed_status = WALK_SPEED;
+    rpg->game->in_game->ig_sound->status_sound_game = FALSE;
 }
 
 void reload_new_game(rpg_t *rpg)
@@ -65,9 +68,6 @@ void reload_new_game(rpg_t *rpg)
     rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
-    rpg->game->in_game->map->last_pos = -1;
-    rpg->game->in_game->objects->speed_status = WALK_SPEED;
-    rpg->game->in_game->ig_sound->status_sound_game = FALSE;
     reload_new_game2(rpg);
 }
 

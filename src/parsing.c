@@ -68,7 +68,7 @@ void parsing_menu3(rpg_t *rpg)
             ambiant_game(rpg);
         if (rpg->game->in_game->map->status == MAP_INSIDE_POLICE)
             sfSound_stop(rpg->game->in_game->ig_sound->game);
-        parsing_avance(rpg);
+        parsing_story(rpg);
         rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
     }
     if (rpg->menu->status == ON_INVENTORY) {

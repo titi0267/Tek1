@@ -77,6 +77,9 @@ void init_function2(rpg_t *rpg)
     init_stats_value(rpg);
     init_xplife(rpg);
     init_particle(rpg);
+    init_policemen(rpg);
+    init_warren(rpg);
+    init_alerts(rpg);
 }
 
 void init_function(rpg_t *rpg)

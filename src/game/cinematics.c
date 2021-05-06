@@ -10,7 +10,8 @@
 int on_cine(rpg_t *rpg)
 {
     if (rpg->game->in_game->game_status == GM_SPEECH ||
-    rpg->game->in_game->game_status == GM_CALL)
+    rpg->game->in_game->game_status == GM_CALL ||
+    rpg->game->in_game->game_status == GM_RILEY_WARREN)
         return (TRUE);
     return (FALSE);
 }

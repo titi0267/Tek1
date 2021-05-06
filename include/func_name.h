@@ -210,5 +210,11 @@ int move_enemy_up(rpg_t *rpg, enemy_t *nmi_list, int sub, int yes);
 char *save_stats(rpg_t *rpg);
 char *save_avance(rpg_t *rpg);
 void reload_new_game(rpg_t *rpg);
+void init_policemen(rpg_t *rpg);
+void init_warren(rpg_t *rpg);
+void init_alerts(rpg_t *rpg);
+void car_hitbox(rpg_t *rpg);
+void warren_hitbox(rpg_t *rpg);
+void parsing_story(rpg_t *rpg);
 
 #endif /* !prototype */

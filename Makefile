@@ -51,7 +51,7 @@ SRCSFILES=	rpg.c							\
 			game/cinematics.c				\
 			game/continue/save_game.c			\
 			game/continue/continue.c			\
-			game/continue/sv_statavanc.c			\
+			game/continue/sv_statavanc.c		\
 			game/menu/exit.c			\
 			game/menu/exit_action.c		\
 			game/menu/settings_exit.c	\
@@ -70,6 +70,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_stats.c				\
 			game/inits/init_lifexp.c			\
 			game/inits/init_particle.c			\
+			game/inits/init_police_warren.c		\
 			game/maps/general_player_mv.c	\
 			game/maps/collisions_bis.c		\
 			game/maps/switch_map.c			\
@@ -80,19 +81,20 @@ SRCSFILES=	rpg.c							\
 			game/maps/run.c					\
 			game/inventory/display_inventory.c		\
 			game/inventory/inventory_manager.c		\
-			game/inventory/drop_type.c		\
+			game/inventory/drop_type.c				\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\
 			game/avancement/parsing_avance.c			\
 			game/avancement/phone.c						\
 			game/avancement/game_hitbox.c				\
-			game/enemies/move_enemy.c			\
+			game/avancement/game_hitbox_next.c			\
+			game/enemies/move_enemy.c				\
 			game/enemies/enemy_translate.c			\
-			game/enemies/new_enemy.c			\
+			game/enemies/new_enemy.c				\
 			game/enemies/collisions_enemy.c			\
-			game/enemies/enemy_choose_direction.c			\
-			game/enemies/enemy_rect.c			\
-			game/stats/player_stats.c				\
+			game/enemies/enemy_choose_direction.c	\
+			game/enemies/enemy_rect.c				\
+			game/stats/player_stats.c		\
 			game/stats/life.c				\
 			game/particle/particle.c				\
 

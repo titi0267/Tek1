@@ -11,8 +11,10 @@ void wait_notif(rpg_t *rpg)
 {
     static float time = 0;
 
-    if (rpg->game->in_game->phone->phone_status == 0)
-        time += rpg->basic->cnf->clk->time_loop;
+    if (sfSound_getStatus(rpg->game->in_game->phone->alarm)
+    == sfStopped)
+        if (rpg->game->in_game->phone->phone_status == 0)
+            time += rpg->basic->cnf->clk->time_loop;
     if (rpg->game->in_game->phone->phone_status == 2)
         time = 0;
     if (time >= 2) {

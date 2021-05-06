@@ -2,8 +2,9 @@
 ** EPITECH PROJECT, 2021
 ** B-MUL-200-STG-2-1-myrpg-timothe.coniel
 ** File description:
-** switch_map_next
+** switch_map_police
 */
+
 #include "../../../include/func_name.h"
 
 int place_outside_police(rpg_t *rpg)

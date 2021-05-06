@@ -51,6 +51,7 @@ typedef struct ig_sound_s
     int status_sound_game;
     sfSound *riley;
     sfSound *riley_call;
+    sfSound *riley_warren;
 } ig_sound_t;
 
 typedef struct car_s
@@ -60,6 +61,7 @@ typedef struct car_s
     sfVector2f car_pos;
     int car_line;
     int status;
+    sfSound *sirene;
 } car_t;
 
 typedef struct objects_s
@@ -68,6 +70,9 @@ typedef struct objects_s
     sfTexture **player_tex;
     car_t *car;
     int speed_status;
+    sfSprite *policemen;
+    sfSprite *warren;
+    sfIntRect rect_warren;
 } objects_t;
 
 typedef struct map_s

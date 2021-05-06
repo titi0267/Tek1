@@ -54,10 +54,10 @@ void call_hitbox(rpg_t *rpg)
 {
     if ((rpg->game->in_game->phone->phone_status == 2) &&
     (rpg->basic->evt->event.type == sfEvtMouseButtonPressed) &&
-    ((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1731)) &&
-    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 688.5)) &&
-    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1778.5)) &&
-    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 774.5))) {
+    ((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1698)) &&
+    ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 691)) &&
+    (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1780)) &&
+    (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 773))) {
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
         rpg->game->in_game->game_status = GM_CALL;

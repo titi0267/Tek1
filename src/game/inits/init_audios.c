@@ -39,11 +39,6 @@ void init_phone_sound(rpg_t *rpg)
     sfSound_setBuffer(rpg->game->in_game->phone->call_sound, buffer);
     sfSound_setLoop(rpg->game->in_game->phone->call_sound, sfTrue);
     sfSound_setVolume(rpg->game->in_game->phone->call_sound, 50);
-    buffer = sfSoundBuffer_createFromFile
-    ("assets/audios/sirene.ogg");
-    rpg->game->in_game->phone->alarm = sfSound_create();
-    sfSound_setBuffer(rpg->game->in_game->phone->alarm, buffer);
-    sfSound_setVolume(rpg->game->in_game->phone->alarm, 50);
 }
 
 void init_pitch_riley(rpg_t *rpg)
@@ -59,4 +54,25 @@ void init_pitch_riley(rpg_t *rpg)
     rpg->game->in_game->ig_sound->riley_call = sfSound_create();
     sfSound_setBuffer(rpg->game->in_game->ig_sound->riley_call, buffer);
     sfSound_setVolume(rpg->game->in_game->ig_sound->riley_call, 50);
+    buffer = sfSoundBuffer_createFromFile
+    ("assets/audios/riley_warren.ogg");
+    rpg->game->in_game->ig_sound->riley_warren = sfSound_create();
+    sfSound_setBuffer(rpg->game->in_game->ig_sound->riley_warren, buffer);
+    sfSound_setVolume(rpg->game->in_game->ig_sound->riley_warren, 50);
+}
+
+void init_alerts(rpg_t *rpg)
+{
+    sfSoundBuffer *buffer;
+
+    buffer = sfSoundBuffer_createFromFile
+    ("assets/audios/alarme.ogg");
+    rpg->game->in_game->phone->alarm = sfSound_create();
+    sfSound_setBuffer(rpg->game->in_game->phone->alarm, buffer);
+    sfSound_setVolume(rpg->game->in_game->phone->alarm, 50);
+    buffer = sfSoundBuffer_createFromFile
+    ("assets/audios/sirene.ogg");
+    rpg->game->in_game->objects->car->sirene = sfSound_create();
+    sfSound_setBuffer(rpg->game->in_game->objects->car->sirene, buffer);
+    sfSound_setVolume(rpg->game->in_game->objects->car->sirene, 50);
 }

@@ -10,6 +10,11 @@
 void destroy_basic(rpg_t *rpg)
 {
     sfClock_destroy(rpg->basic->cnf->clk->clock);
+    sfRenderWindow_destroy(rpg->basic->wnd->my_wnd);
+}
+
+void destroy_audio(rpg_t *rpg)
+{
     sfSoundBuffer_destroy(rpg->menu->intro->intro_snd->create_start);
     sfSoundBuffer_destroy(rpg->menu->main_menu->menu_snd->create_a_menu);
     sfSoundBuffer_destroy(rpg->game->start->cine1);
@@ -20,7 +25,13 @@ void destroy_basic(rpg_t *rpg)
     sfSound_destroy(rpg->game->start->cinematic_1);
     sfSound_destroy(rpg->game->in_game->ig_sound->game);
     sfSound_destroy(rpg->tutorial->tuto);
-    sfRenderWindow_destroy(rpg->basic->wnd->my_wnd);
+    sfSound_destroy(rpg->game->in_game->phone->notif_sound);
+    sfSound_destroy(rpg->game->in_game->phone->call_sound);
+    sfSound_destroy(rpg->game->in_game->phone->alarm);
+    sfSound_destroy(rpg->game->in_game->ig_sound->riley);
+    sfSound_destroy(rpg->game->in_game->ig_sound->riley_call);
+    sfSound_destroy(rpg->game->in_game->ig_sound->riley_warren);
+    sfSound_destroy(rpg->game->in_game->objects->car->sirene);
 }
 
 void destroy_menu(rpg_t *rpg)
@@ -71,5 +82,6 @@ void destroy_all(rpg_t *rpg)
 {
     destroy_game(rpg);
     destroy_menu(rpg);
+    destroy_audio(rpg);
     destroy_basic(rpg);
 }
