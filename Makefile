@@ -8,7 +8,8 @@
 CC		=	gcc	-o
 
 SRC=		src/main.c		\
-		src/my_strcmp.c		\
+		src/my_strlen.c		\
+		src/error_handling.c	\
 
 
 CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99 -Iinclude

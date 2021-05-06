@@ -16,7 +16,10 @@ typedef struct stumper_s
 {
     int occurence;
     char *str;
+    int arg;
+    int arg_first;
     char *new_str;
+    int stop;
 } stumper_t;
 
 int my_getnbr(char *buff);
