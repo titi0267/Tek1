@@ -58,6 +58,11 @@ void init_strat_pos(inventory_t *ivt)
     ivt->box_pos[16][1] = put_in_vector2i(447, 533);
     ivt->box_pos[17][0] = put_in_vector2i(371, 638);
     ivt->box_pos[17][1] = put_in_vector2i(447, 714);
+    ivt->is_area_filled = malloc(sizeof(int) * 18);
+    for (int i = 4; i != 18; i++)
+        ivt->is_area_filled[i] = FALSE;
+    for (int d = 0; d != 4; d++)
+        ivt->is_area_filled[d] = TRUE;
 }
 
 void init_positions(rpg_t *rpg)
@@ -93,7 +98,6 @@ void init_inventory(rpg_t *rpg)
     sfTexture_createFromFile("assets/inventory/inventaire.png", NULL);
     sfSprite_setTexture(rpg->game->in_game->inventory->inventory,
     rpg->game->in_game->inventory->inventory_txt, sfTrue);
-    rpg->game->in_game->inventory->is_area_filled = malloc(sizeof(int) * 3);
     rpg->game->in_game->inventory->weapon = malloc(sizeof(sfSprite *) * 4);
     rpg->game->in_game->inventory->weapon_txt = malloc(sizeof(sfTexture *) * 4);
     rpg->game->in_game->inventory->weapon_txt[SMG] =

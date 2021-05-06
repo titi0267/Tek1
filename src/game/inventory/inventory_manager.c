@@ -7,28 +7,53 @@
 
 #include "../../../include/func_name.h"
 
-void detect_weapon(rpg_t *rpg, sfVector2f mouse)
+void detect_weapon(inventory_t *ivt, sfVector2f mouse)
 {
-    if (sfFloatRect_contains(&rpg->game->in_game->inventory->glob_pos[SMG],
+    if (sfFloatRect_contains(&ivt->glob_pos[KNIFE],
     mouse.x, mouse.y) == sfTrue) {
-        rpg->game->in_game->inventory->selected_item = SMG;
-        rpg->game->in_game->inventory->click_weapon = TRUE;
+        ivt->selected_item = KNIFE;
+        ivt->click_weapon = TRUE;
+        for (int d = 0; d != 18; d++) {
+            if (ivt->box_pos[d][0].x < mouse.x && ivt->box_pos[d][0].y < mouse.y
+            && ivt->box_pos[d][1].x > mouse.x && ivt->box_pos[d][1].y > mouse.y)
+                ivt->is_area_filled[d] = FALSE;
+        }
     }
-    if (sfFloatRect_contains(&rpg->game->in_game->inventory->glob_pos[GUN],
+    if (sfFloatRect_contains(&ivt->glob_pos[TAZER],
     mouse.x, mouse.y) == sfTrue) {
-        rpg->game->in_game->inventory->selected_item = GUN;
-        rpg->game->in_game->inventory->click_weapon = TRUE;
+        ivt->selected_item = TAZER;
+        ivt->click_weapon = TRUE;
+        for (int d = 0; d != 18; d++) {
+            if (ivt->box_pos[d][0].x < mouse.x && ivt->box_pos[d][0].y < mouse.y
+            && ivt->box_pos[d][1].x > mouse.x && ivt->box_pos[d][1].y > mouse.y)
+                ivt->is_area_filled[d] = FALSE;
+        }
     }
-    if (sfFloatRect_contains(&rpg->game->in_game->inventory->glob_pos[KNIFE],
+}
+
+void detect_which_weapon(inventory_t *ivt, sfVector2f mouse)
+{
+    if (sfFloatRect_contains(&ivt->glob_pos[SMG],
     mouse.x, mouse.y) == sfTrue) {
-        rpg->game->in_game->inventory->selected_item = KNIFE;
-        rpg->game->in_game->inventory->click_weapon = TRUE;
+        ivt->selected_item = SMG;
+        ivt->click_weapon = TRUE;
+        for (int d = 0; d != 18; d++) {
+            if (ivt->box_pos[d][0].x < mouse.x && ivt->box_pos[d][0].y < mouse.y
+            && ivt->box_pos[d][1].x > mouse.x && ivt->box_pos[d][1].y > mouse.y)
+                ivt->is_area_filled[d] = FALSE;
+        }
     }
-    if (sfFloatRect_contains(&rpg->game->in_game->inventory->glob_pos[TAZER],
+    if (sfFloatRect_contains(&ivt->glob_pos[GUN],
     mouse.x, mouse.y) == sfTrue) {
-        rpg->game->in_game->inventory->selected_item = TAZER;
-        rpg->game->in_game->inventory->click_weapon = TRUE;
+        ivt->selected_item = GUN;
+        ivt->click_weapon = TRUE;
+        for (int d = 0; d != 18; d++) {
+            if (ivt->box_pos[d][0].x < mouse.x && ivt->box_pos[d][0].y < mouse.y
+            && ivt->box_pos[d][1].x > mouse.x && ivt->box_pos[d][1].y > mouse.y)
+                ivt->is_area_filled[d] = FALSE;
+        }
     }
+    detect_which_weapon_next(ivt, mouse);
 }
 
 void detect_inventory_object(rpg_t *rpg)
