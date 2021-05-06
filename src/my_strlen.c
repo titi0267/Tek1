@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** my_strcmp.c
+** EPITECH PROJECT, 2021
+** my_strlen.c
 ** File description:
-** my_strcmp
+** my_strlen.c
 */
 
 #include "../include/my.h"
