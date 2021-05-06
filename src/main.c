@@ -64,6 +64,7 @@ int main(int ac, char **av)
 {
     stumper_t *stp = malloc(sizeof(stumper_t));
 
+    find_str(ac, av, stp);
     stp->stop = my_strlen(av[1]);
     init_temp_values(stp, av);
     compare_strings(stp, av);

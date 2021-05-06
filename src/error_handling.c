@@ -26,9 +26,8 @@ void error_argnbr(int ac, char **av)
 void find_str(int ac, char **av, stumper_t *stp)
 {
     if (ac == 4) {
-        stp->size = 8;
-        if (av[2][0] != '-' && av[3][1] != 'r') {
-            write(2, "miss -r\n", 9);
+        if (av[1][0] != '-' && (av[1][1] != 'r' || av[1][1] != 't')) {
+            write(2, "missing flag\n", 13);
             exit(84);
         }
     }
@@ -56,7 +55,7 @@ void find_str_next(stumper_t *stp, char **av, int ac)
         stp->arg = 3;
         stp->arg_first = 3;
     } else if (ac == 4) {
-        stp->arg = 4;
-        stp->first_arg = 3;
+        stp->arg = 3;
+        stp->arg_first = 2;
     }
 }

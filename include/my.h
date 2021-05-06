@@ -29,5 +29,6 @@ int my_strcmp(char c, char d);
 int my_strlen(char const *str);
 void error_argnbr(int ac, char **av);
 void find_str(int ac, char **av, stumper_t *stp);
+void find_str_next(stumper_t *spt, char **av, int ac);
 
 #endif /* !my */
