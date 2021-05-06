@@ -21,5 +21,7 @@ int my_getnbr(char *buff);
 void my_putchar(char c);
 int my_putstr(char const *buff);
 int my_strlen(char const *str);
+void error_argnbr(int ac, char **av);
+void find_str(int ac, char **av, stumper_t *stp);
 
 #endif /* !my */
