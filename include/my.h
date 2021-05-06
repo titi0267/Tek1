@@ -14,7 +14,7 @@
 
 typedef struct stumper_s
 {
-    char *buffer;
+    char *arg1;
 } stumper_t;
 
 int my_getnbr(char *buff);
