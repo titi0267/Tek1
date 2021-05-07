@@ -18,13 +18,15 @@ void parsing_avance4(rpg_t *rpg)
         if (sfSound_getStatus(rpg->game->in_game->ig_sound->riley_warren)
         == sfStopped)
             rpg->game->in_game->game_status = GM_NOTIF7;
+        rpg->game->in_game->inventory->vaccine_status = TRUE;
     }
     if (rpg->game->in_game->game_status == GM_NOTIF7) {
         phone_main(rpg);
         cdc_hitbox(rpg);
     }
-    if (rpg->game->in_game->game_status == GM_END) {
+    if (rpg->game->in_game->game_status == GM_ELEVATOR) {
         phone_main(rpg);
+        elevator_hitbox(rpg);
     }
 }
 
@@ -103,7 +105,6 @@ void parsing_avance1(rpg_t *rpg)
     }
 }
 
-//printf("%f || %f\n", rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x, rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y);
 void parsing_story(rpg_t *rpg)
 {
     parsing_avance1(rpg);

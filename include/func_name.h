@@ -239,5 +239,7 @@ void collision_enemy_bullet(rpg_t *rpg);
 void init_credits(rpg_t *rpg);
 void pop_bullet(rpg_t *rpg, bullets_t *bullet_list);
 void credits(rpg_t *rpg);
+void vaccine_manager(rpg_t *rpg);
+void elevator_hitbox(rpg_t *rpg);
 
 #endif /* !prototype */

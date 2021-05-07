@@ -37,6 +37,7 @@ typedef struct inventory_s {
     int on_click;
     int valid;
     int selected_item;
+    int vaccine_status;
     sfVector2f *pos_storage;
     sfFloatRect *glob_pos;
     int click_weapon;

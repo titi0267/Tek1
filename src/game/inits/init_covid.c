@@ -15,4 +15,6 @@ void init_covid(rpg_t *rpg)
     rpg->game->in_game->inventory->vaccine = sfSprite_create();
     sfSprite_setTexture(rpg->game->in_game->inventory->vaccine, vaccine_txt,
     sfTrue);
+    sfSprite_setPosition(rpg->game->in_game->inventory->vaccine,
+    put_in_vector2f(370.5, 547.2));
 }

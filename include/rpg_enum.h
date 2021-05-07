@@ -163,7 +163,7 @@ typedef enum game_avance_s {
     GM_NOTIF6,
     GM_RILEY_WARREN,
     GM_NOTIF7,
-    GM_END
+    GM_ELEVATOR
 } game_avance_t;
 
 typedef enum notifs_s {

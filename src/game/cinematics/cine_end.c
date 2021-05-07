@@ -57,7 +57,6 @@ void cinematic_2(rpg_t *rpg)
         rpg->basic->evt->event.key.code == sfKeySpace)
             sfSound_stop(rpg->game->end->cinematic_2);
         background_road(rpg);
-        credits(rpg);
     }
 }
 
@@ -67,7 +66,7 @@ void credits(rpg_t *rpg)
 
     nbr += rpg->basic->cnf->clk->time_loop;
     if (nbr > 0.1) {
-        rpg->game->end->pos_credits.y -= 10;
+        rpg->game->end->pos_credits.y -= 6;
         nbr = 0;
     }
     sfSprite_setPosition(rpg->game->end->credits, rpg->game->end->pos_credits);

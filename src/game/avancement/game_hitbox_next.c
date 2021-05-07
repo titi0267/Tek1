@@ -46,6 +46,21 @@ void cdc_hitbox(rpg_t *rpg)
     && rpg->game->in_game->phone->phone_status == 0) {
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
-        rpg->game->in_game->game_status = GM_END;
+        rpg->game->in_game->game_status = GM_ELEVATOR;
+    }
+}
+
+void elevator_hitbox(rpg_t *rpg)
+{
+    if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
+    -1906 && rpg->game->in_game->map->pos_map[rpg->game->in_game->
+    map->status].x >= -2030 && rpg->game->in_game->map->pos_map[rpg->game->
+    in_game->map->status].y <= -3241 &&
+    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y >= -3366
+    && rpg->game->in_game->phone->phone_status == 0) {
+        rpg->game->in_game->phone->notif_prev =
+        rpg->game->in_game->phone->notif_index;
+        rpg->menu->status = ON_CINEMATIC2;
+        rpg->game->in_game->inventory->vaccine_status = FALSE;
     }
 }

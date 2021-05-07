@@ -99,4 +99,5 @@ void display_weapons(rpg_t *rpg)
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
         rpg->game->in_game->inventory->weapon[i], NULL);
     }
+    vaccine_manager(rpg);
 }
