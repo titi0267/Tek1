@@ -110,5 +110,6 @@ void init_inventory(rpg_t *rpg)
     sfTexture_createFromFile("assets/inventory/tazer.png", NULL);
     init_positions(rpg);
     set_inventory_sprites(rpg);
+    init_covid(rpg);
     rpg->game->in_game->inventory->selected_item = NO_WEAPON;
 }

@@ -85,7 +85,8 @@ typedef enum weapons_s {
     BULLET_1,
     NO_BULLET,
     BPVEST,
-    NO_VEST
+    NO_VEST,
+    VACCINE
 } weapons_t;
 
 typedef enum key_status_s {
@@ -161,7 +162,8 @@ typedef enum game_avance_s {
     GM_NOTIF5,
     GM_NOTIF6,
     GM_RILEY_WARREN,
-    GM_NOTIF7
+    GM_NOTIF7,
+    GM_END
 } game_avance_t;
 
 typedef enum notifs_s {

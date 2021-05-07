@@ -216,5 +216,14 @@ void init_alerts(rpg_t *rpg);
 void car_hitbox(rpg_t *rpg);
 void warren_hitbox(rpg_t *rpg);
 void parsing_story(rpg_t *rpg);
+void cdc_hitbox(rpg_t *rpg);
+void init_covid(rpg_t *rpg);
+void shoot_bullet(rpg_t *rpg);
+int init_bullet(rpg_t *rpg);
+void draw_bullet(rpg_t *rpg);
+void move_bullet_up(rpg_t *rpg, bullets_t *bullet_list);
+void move_bullet_left(rpg_t *rpg, bullets_t *bullet_list);
+void move_bullet_right(rpg_t *rpg, bullets_t *bullet_list);
+void move_bullet_down(rpg_t *rpg, bullets_t *bullet_list);
 
 #endif /* !prototype */

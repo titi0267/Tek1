@@ -27,6 +27,7 @@ typedef struct inventory_s {
     sfSprite *inventory;
     sfTexture *inventory_txt;
     sfSprite **weapon;
+    sfSprite *vaccine;
     sfTexture **weapon_txt;
     sfVector2f *pos_weapon;
     int shortcut_it;
@@ -49,6 +50,7 @@ typedef struct ig_sound_s
     sfSoundBuffer *amb_game;
     sfSound *game;
     int status_sound_game;
+    sfSoundBuffer *riley_buffer;
     sfSound *riley;
     sfSound *riley_call;
     sfSound *riley_warren;
@@ -61,8 +63,19 @@ typedef struct car_s
     sfVector2f car_pos;
     int car_line;
     int status;
+    sfSoundBuffer *car_buffer;
     sfSound *sirene;
 } car_t;
+
+typedef struct bullets_s
+{
+    struct bullets_s *next;
+    sfSprite *bullet;
+    int bullet_nbr;
+    sfVector2f bullet_pos;
+    int bullet_dir;
+    int nbr;
+} bullets_t;
 
 typedef struct objects_s
 {
@@ -87,6 +100,7 @@ typedef struct map_s
     sfColor *color;
     int color_stat;
     int status;
+    int dir;
 } map_t;
 
 typedef struct enemy_s
@@ -114,6 +128,7 @@ typedef struct phone_s
     sfSprite *phone_notif;
     sfSprite **phone;
     sfSound *notif_sound;
+    sfSoundBuffer *phone_buffer;
     sfSound *call_sound;
     sfSound *alarm;
     int phone_status;
@@ -163,6 +178,8 @@ typedef struct in_game_s
     phone_t *phone;
     stat_t *stats;
     particle_t *particle;
+    bullets_t *bullet_list;
+    bullets_t **bullet;
     int game_status;
 } in_game_t;
 

@@ -33,6 +33,8 @@ int game_malloc(rpg_t *rpg)
 
 int game_malloc2(rpg_t *rpg)
 {
+    int i = 0;
+
     if ((rpg->game->in_game->ig_menus = malloc(sizeof(ig_menus_t))) == NULL)
         return (MALLOC_ERROR);
     if ((rpg->game->in_game->map = malloc(sizeof(map_t))) == NULL)
@@ -41,11 +43,14 @@ int game_malloc2(rpg_t *rpg)
         return (MALLOC_ERROR);
     if ((rpg->game->in_game->phone = malloc(sizeof(phone_t))) == NULL)
         return (MALLOC_ERROR);
+    i++;
     if ((rpg->game->in_game->stats = malloc(sizeof(stat_t))) == NULL)
         return (MALLOC_ERROR);
     if (malloc_stat_player(rpg) == MALLOC_ERROR)
         return (MALLOC_ERROR);
     if ((rpg->game->in_game->particle = malloc(sizeof(particle_t))) == NULL)
+        return (MALLOC_ERROR);
+    if ((rpg->game->in_game->bullet = malloc(sizeof(bullets_t))) == NULL)
         return (MALLOC_ERROR);
     return (0);
 }

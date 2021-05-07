@@ -7,6 +7,16 @@
 
 #include "../../../include/func_name.h"
 
+void inventory_contains(rpg_t *rpg)
+{
+    if (rpg->game->in_game->inventory->is_area_filled[15] == FALSE)
+        rpg->game->in_game->inventory->area_contains[WEAPON] = NO_WEAPON;
+    if (rpg->game->in_game->inventory->is_area_filled[16] == FALSE)
+        rpg->game->in_game->inventory->area_contains[AMMO] = NO_BULLET;
+    if (rpg->game->in_game->inventory->is_area_filled[17] == FALSE)
+        rpg->game->in_game->inventory->area_contains[VEST] = NO_VEST;
+}
+
 void drop_weapons(rpg_t *rpg)
 {
     if ((rpg->game->in_game->inventory->selected_item >= SMG &&
@@ -98,4 +108,5 @@ void drop_all_boxes(rpg_t *rpg)
     drop_weapons(rpg);
     drop_bullets(rpg);
     drop_bullet_proof(rpg);
+    inventory_contains(rpg);
 }

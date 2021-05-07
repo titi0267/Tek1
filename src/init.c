@@ -24,7 +24,9 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 5;
     rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 0;
     *(rpg->game->in_game->nmi) = NULL;
+    *(rpg->game->in_game->bullet) = NULL;
     rpg->basic->cnf->clk->direction_clk = 1;
+    rpg->game->in_game->map->last_pos = DOWN;
 }
 
 void init_basic_value(rpg_t *rpg)

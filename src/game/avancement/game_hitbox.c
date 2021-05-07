@@ -7,8 +7,6 @@
 
 #include "../../../include/func_name.h"
 
-// -2006 x -1283
-
 void button_hitbox(rpg_t *rpg)
 {
     if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=

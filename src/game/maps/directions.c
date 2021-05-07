@@ -20,6 +20,7 @@ void move_up_map(rpg_t *rpg, int on_map)
             rpg->game->in_game->map->speed
             [rpg->game->in_game->objects->speed_status];
             move_enemies_on_map(rpg, UP);
+            rpg->game->in_game->map->dir = UP;
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
@@ -42,6 +43,7 @@ void move_down_map(rpg_t *rpg,int on_map)
             rpg->game->in_game->map->speed
             [rpg->game->in_game->objects->speed_status];
             move_enemies_on_map(rpg, DOWN);
+            rpg->game->in_game->map->dir = DOWN;
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
@@ -64,6 +66,7 @@ void move_right_map(rpg_t *rpg, int on_map)
             rpg->game->in_game->map->speed
             [rpg->game->in_game->objects->speed_status];
             move_enemies_on_map(rpg, RIGHT);
+            rpg->game->in_game->map->dir = RIGHT;
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
@@ -86,6 +89,7 @@ void move_left_map(rpg_t *rpg, int on_map)
             rpg->game->in_game->map->speed
             [rpg->game->in_game->objects->speed_status];
             move_enemies_on_map(rpg, LEFT);
+            rpg->game->in_game->map->dir = LEFT;
         }
         sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
         rpg->game->in_game->map->pos_map[on_map]);
@@ -99,6 +103,7 @@ void player_stop(rpg_t *rpg)
     if (rpg->game->in_game->map->last_pos != -1) {
         rpg->menu->main_menu->new_game->char_in_game
         [rpg->game->in_game->map->last_pos].left = 100;
+        rpg->game->in_game->map->dir = 5;
         sfSprite_setTextureRect(rpg->game->in_game->objects->players[rpg->
         menu->main_menu->new_game->character_chosen], rpg->menu->main_menu->
         new_game->char_in_game[rpg->game->in_game->map->last_pos]);

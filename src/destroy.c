@@ -20,6 +20,9 @@ void destroy_audio(rpg_t *rpg)
     sfSoundBuffer_destroy(rpg->game->start->cine1);
     sfSoundBuffer_destroy(rpg->tutorial->amb_tuto);
     sfSoundBuffer_destroy(rpg->game->in_game->ig_sound->amb_game);
+    sfSoundBuffer_destroy(rpg->game->in_game->phone->phone_buffer);
+    sfSoundBuffer_destroy(rpg->game->in_game->ig_sound->riley_buffer);
+    sfSoundBuffer_destroy(rpg->game->in_game->objects->car->car_buffer);
     sfSound_destroy(rpg->menu->intro->intro_snd->start);
     sfSound_destroy(rpg->menu->main_menu->menu_snd->a_menu);
     sfSound_destroy(rpg->game->start->cinematic_1);

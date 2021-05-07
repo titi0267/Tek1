@@ -71,6 +71,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_lifexp.c			\
 			game/inits/init_particle.c			\
 			game/inits/init_police_warren.c		\
+			game/inits/init_covid.c				\
 			game/maps/general_player_mv.c	\
 			game/maps/collisions_bis.c		\
 			game/maps/switch_map.c			\
@@ -81,6 +82,7 @@ SRCSFILES=	rpg.c							\
 			game/maps/run.c					\
 			game/inventory/display_inventory.c		\
 			game/inventory/inventory_manager.c		\
+			game/inventory/vaccine_manager.c		\
 			game/inventory/drop_type.c				\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\
@@ -97,6 +99,9 @@ SRCSFILES=	rpg.c							\
 			game/stats/player_stats.c		\
 			game/stats/life.c				\
 			game/particle/particle.c				\
+			game/attack/bullet_init.c			\
+			game/attack/shoot.c					\
+			game/attack/move_bullet.c					\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

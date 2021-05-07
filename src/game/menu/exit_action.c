@@ -45,6 +45,7 @@ void reload_new_game2(rpg_t *rpg)
     rpg->game->in_game->map->last_pos = -1;
     rpg->game->in_game->objects->speed_status = WALK_SPEED;
     rpg->game->in_game->ig_sound->status_sound_game = FALSE;
+    rpg->game->in_game->map->last_pos = DOWN;
 }
 
 void reload_new_game(rpg_t *rpg)
