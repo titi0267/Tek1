@@ -5,7 +5,6 @@
 ** knife
 */
 
-
 #include "../../../include/func_name.h"
 
 void draw_knife(rpg_t *rpg)

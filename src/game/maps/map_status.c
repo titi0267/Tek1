@@ -38,6 +38,7 @@ void print_map(rpg_t *rpg, int on_map)
     map_status != MAP_INSIDE_POLICE)
         destroy_enemies(rpg);
     print_player_move(rpg);
+    collision_enemy_bullet(rpg);
 }
 
 void chose_map(rpg_t *rpg)

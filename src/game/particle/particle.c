@@ -88,34 +88,36 @@ void move_blood(rpg_t *rpg)
     rpg->game->in_game->particle->blood[3].x += 3;
     rpg->game->in_game->particle->blood[3].y += 5;
     rpg->game->in_game->particle->blood_color.r = (rpg->game->in_game->
-    particle->blood_color.r - 4 < 0) ? 0 : rpg->game->in_game->
-    particle->blood_color.r - 4;
+    particle->blood_color.r - 7 < 0) ? 0 : rpg->game->in_game->
+    particle->blood_color.r - 7;
     rpg->game->in_game->particle->blood_color.g = (rpg->game->in_game->
-    particle->blood_color.g - 4 < 0) ? 0 : rpg->game->in_game->
-    particle->blood_color.g - 4;
+    particle->blood_color.g - 7 < 0) ? 0 : rpg->game->in_game->
+    particle->blood_color.g - 7;
     rpg->game->in_game->particle->blood_color.b = (rpg->game->in_game->
-    particle->blood_color.b - 4 < 0) ? 0 : rpg->game->in_game->
-    particle->blood_color.b - 4;
+    particle->blood_color.b - 7 < 0) ? 0 : rpg->game->in_game->
+    particle->blood_color.b - 7;
 }
 
-void creat_blood(rpg_t *rpg, sfVector2f pos)
+void creat_blood(rpg_t *rpg, enemy_t *nmi_list)
 {
     static float time = 0;
     static int nbr = 0;
 
-    if (time == 0)
-        init_particle_blood(rpg, pos);
-    time += rpg->basic->cnf->clk->time_loop;
-    for (int i = 0; i <= 3; i++)
-        creat_square(rpg, rpg->game->in_game->particle->blood[i]);
-    if (time >= 0.005) {
-        time = 0.001;
-        move_blood(rpg);
-        nbr++;
+    if (nmi_list->blooding == 1) {
+        if (time == 0)
+            init_particle_blood(rpg, nmi_list->nmi_pos);
+        time += rpg->basic->cnf->clk->time_loop;
+        for (int i = 0; i <= 3; i++)
+            creat_square(rpg, rpg->game->in_game->particle->blood[i]);
+        if (time >= 0.005) {
+            time = 0.001;
+            move_blood(rpg);
+            nbr++;
+        }
+        if (nbr == 20) {
+            time = 0;
+            nbr = 0;
+            nmi_list->blooding = 0;
+        }
     }
-    if (nbr == 30) {
-        time = 0;
-        nbr = 0;
-    }
-
 }

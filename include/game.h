@@ -115,6 +115,9 @@ typedef struct enemy_s
     float clock_rect;
     sfVector2f diff;
     int choose_dir;
+    int life;
+    int blooding;
+    int nbr;
 } enemy_t;
 
 typedef struct ig_menus_s
@@ -186,7 +189,16 @@ typedef struct in_game_s
 
 typedef struct end_s
 {
-
+    sfSprite *road;
+    sfIntRect road_rect;
+    int road_offset;
+    int road_line;
+    int wait_road;
+    sfSoundBuffer *cine2;
+    sfSound *cinematic_2;
+    int status_cinematic2;
+    sfSprite *credits;
+    sfVector2f pos_credits;
 } end_t;
 
 #endif /* !gm */

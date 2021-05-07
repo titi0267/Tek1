@@ -7,6 +7,18 @@
 
 #include "../include/func_name.h"
 
+int main_parsing(rpg_t *rpg)
+{
+    parsing_1(rpg);
+    parsing_2(rpg);
+    parsing_3(rpg);
+    if (parsing_4(rpg) == -1)
+        return (-1);
+    parsing_4(rpg);
+    parsing_5(rpg);
+    return (0);
+}
+
 int main(void)
 {
     rpg_t *rpg = malloc(sizeof(rpg_t));

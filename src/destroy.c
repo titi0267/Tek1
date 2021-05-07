@@ -35,6 +35,7 @@ void destroy_audio(rpg_t *rpg)
     sfSound_destroy(rpg->game->in_game->ig_sound->riley_call);
     sfSound_destroy(rpg->game->in_game->ig_sound->riley_warren);
     sfSound_destroy(rpg->game->in_game->objects->car->sirene);
+    sfSound_destroy(rpg->game->end->cinematic_2);
 }
 
 void destroy_menu(rpg_t *rpg)

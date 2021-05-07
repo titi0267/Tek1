@@ -44,6 +44,7 @@ void init_basic_value(rpg_t *rpg)
     rpg->tutorial->status_sound_tuto = FALSE;
     rpg->game->in_game->phone->alarm_status = FALSE;
     rpg->game->in_game->game_status = -1;
+    rpg->game->end->status_cinematic2 = FALSE;
     init_basic_value2(rpg);
 }
 
@@ -83,6 +84,7 @@ void init_function2(rpg_t *rpg)
     init_warren(rpg);
     init_alerts(rpg);
     init_knife(rpg);
+    init_credits(rpg);
 }
 
 void init_function(rpg_t *rpg)
@@ -101,6 +103,8 @@ void init_function(rpg_t *rpg)
     init_exit_option1(rpg);
     init_cinematic1_audio(rpg);
     init_radio_spt(rpg);
+    init_cinematic2_audio(rpg);
+    init_road_spt(rpg);
     init_function2(rpg);
     rpg->menu->intro->status = TRUE;
 }

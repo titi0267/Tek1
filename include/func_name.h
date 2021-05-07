@@ -36,7 +36,6 @@ void move_clock(cloc_t *clk);
 float adapt_x(rpg_t *rpg, int hitbox_x);
 float adapt_y(rpg_t *rpg, int hitbox_y);
 void init_menu_quit(rpg_t *rpg);
-int parsing(rpg_t *rpg);
 void background(rpg_t *rpg);
 int main_menu(rpg_t *rpg);
 
@@ -199,7 +198,7 @@ int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list,
 int sub);
 void init_particle(rpg_t *rpg);
 void init_particle_blood(rpg_t *rpg, sfVector2f pos);
-void creat_blood(rpg_t *rpg, sfVector2f pos);
+void creat_blood(rpg_t *rpg, enemy_t *nmi_list);
 void button_hitbox(rpg_t *rpg);
 void enemy_rect_move_to_player(rpg_t *rpg, enemy_t *nmi_list);
 void define_direction(rpg_t *rpg, enemy_t *nmi_list);
@@ -227,5 +226,18 @@ void move_bullet_right(rpg_t *rpg, bullets_t *bullet_list);
 void move_bullet_down(rpg_t *rpg, bullets_t *bullet_list);
 void init_knife(rpg_t *rpg);
 void draw_knife(rpg_t *rpg);
+int main_parsing(rpg_t *rpg);
+void parsing_1(rpg_t *rpg);
+void parsing_2(rpg_t *rpg);
+void parsing_3(rpg_t *rpg);
+int parsing_4(rpg_t *rpg);
+void init_road_spt(rpg_t *rpg);
+void init_cinematic2_audio(rpg_t *rpg);
+void cinematic_2(rpg_t *rpg);
+void parsing_5(rpg_t *rpg);
+void collision_enemy_bullet(rpg_t *rpg);
+void init_credits(rpg_t *rpg);
+void pop_bullet(rpg_t *rpg, bullets_t *bullet_list);
+void credits(rpg_t *rpg);
 
 #endif /* !prototype */

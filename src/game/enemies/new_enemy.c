@@ -9,6 +9,7 @@
 
 int add_nmi(rpg_t *rpg, int x, int y)
 {
+    static int i = 0;
     if ((rpg->game->in_game->nmi_list = malloc(sizeof
     (*rpg->game->in_game->nmi_list))) == NULL)
         return (MALLOC_ERROR);
@@ -18,6 +19,10 @@ int add_nmi(rpg_t *rpg, int x, int y)
     put_in_vector2f((float)x, (float)y);
     sfSprite_setPosition(rpg->game->in_game->nmi_list->yellow_man,
     rpg->game->in_game->nmi_list->nmi_pos);
+    rpg->game->in_game->nmi_list->life = 100;
+    rpg->game->in_game->nmi_list->nbr = i;
+    rpg->game->in_game->nmi_list->blooding = 0;
+    i++;
     rpg->game->in_game->nmi_list->next = *rpg->game->in_game->nmi;
     *rpg->game->in_game->nmi = rpg->game->in_game->nmi_list;
     return (0);

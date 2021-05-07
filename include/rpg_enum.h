@@ -28,7 +28,7 @@ typedef enum rpg_status_s {
     ON_EXIT,
     ON_OPTION_PAUSE,
     ON_CINEMATIC1,
-    ON_CINEMATIC2,
+    ON_CINEMATIC2
 } rpg_status_t;
 
 typedef enum spt_btn_s {

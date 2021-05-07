@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2021
-** B-MUL-200-STG-2-1-myrpg-timothe.coniel
+** Visual Studio Live Share (Workspace)
 ** File description:
-** init_cinematics
+** init_cinematic1
 */
 
 #include "../../../include/func_name.h"

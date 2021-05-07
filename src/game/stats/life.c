@@ -26,9 +26,11 @@ void print_life(rpg_t *rpg)
 void print_xp(rpg_t *rpg)
 {
     if (!on_cine(rpg)) {
-        if (rpg->game->in_game->stats->xp_value >= 100)
+        if (rpg->game->in_game->stats->xp_value >= 100) {
             rpg->game->in_game->stats->xp_value =
             rpg->game->in_game->stats->xp_value - 100;
+            rpg->game->in_game->stats->player_stats[P_LIFE]->value = 100;
+        }
         rpg->game->in_game->stats->xp_size.x =
         (rpg->game->in_game->stats->xp_value * 300) / 100;
         sfRectangleShape_setSize(rpg->game->in_game->stats->xp,

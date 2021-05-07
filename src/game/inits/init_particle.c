@@ -19,6 +19,8 @@ void init_particle(rpg_t *rpg)
 
 void init_particle_blood(rpg_t *rpg, sfVector2f pos)
 {
+    pos.x += 27;
+    pos.y += 44;
     rpg->game->in_game->particle->blood_color = sfColor_fromRGB(209, 52, 51);
     rpg->game->in_game->particle->blood[0] = put_in_vector2f(pos.x + 10, pos.y);
     rpg->game->in_game->particle->blood[1] = put_in_vector2f(pos.x + 10, pos.y);

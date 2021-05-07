@@ -1,11 +1,11 @@
 /*
 ** EPITECH PROJECT, 2021
-** B-MUL-200-STG-2-1-myrpg-timothe.coniel
+** Visual Studio Live Share (Workspace)
 ** File description:
-** cinematics
+** cine_start
 */
 
-#include "../../include/func_name.h"
+#include "../../../include/func_name.h"
 
 int on_cine(rpg_t *rpg)
 {

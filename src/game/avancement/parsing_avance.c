@@ -10,6 +10,8 @@
 void parsing_avance4(rpg_t *rpg)
 {
     if (rpg->game->in_game->game_status == GM_RILEY_WARREN) {
+        rect_move_player(rpg, UP);
+        rpg->game->in_game->map->last_pos = UP;
         if (rpg->basic->evt->event.type == sfEvtKeyReleased &&
         rpg->basic->evt->event.key.code == sfKeySpace)
             sfSound_stop(rpg->game->in_game->ig_sound->riley_warren);
@@ -87,6 +89,8 @@ void parsing_avance1(rpg_t *rpg)
         desk_hitbox(rpg);
     }
     if (rpg->game->in_game->game_status == GM_SPEECH) {
+        rect_move_player(rpg, DOWN);
+        rpg->game->in_game->map->last_pos = DOWN;
         if (rpg->basic->evt->event.type == sfEvtKeyReleased &&
         rpg->basic->evt->event.key.code == sfKeySpace)
             sfSound_stop(rpg->game->in_game->ig_sound->riley);

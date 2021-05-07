@@ -7,7 +7,7 @@
 
 #include "../include/func_name.h"
 
-void parsing_menus(rpg_t *rpg)
+void parsing_1(rpg_t *rpg)
 {
     static int nbr = 0;
 
@@ -18,10 +18,6 @@ void parsing_menus(rpg_t *rpg)
             init_basic_value(rpg);
             init_function(rpg);
         }
-    }
-    if (rpg->menu->status == ON_NEW_GM) {
-        background(rpg);
-        choose_perso(rpg);
     }
     if (rpg->menu->status == ON_OPTION_PAUSE) {
         background(rpg);
@@ -35,7 +31,7 @@ void parsing_menus(rpg_t *rpg)
     }
 }
 
-void parsing_menu2(rpg_t *rpg)
+void parsing_2(rpg_t *rpg)
 {
     if (rpg->menu->status == ON_CONTINUE) {
         sfSound_stop(rpg->menu->main_menu->menu_snd->a_menu);
@@ -60,7 +56,7 @@ void parsing_menu2(rpg_t *rpg)
     }
 }
 
-void parsing_menu3(rpg_t *rpg)
+void parsing_3(rpg_t *rpg)
 {
     if (rpg->menu->status == ON_GAME) {
         sfRenderWindow_clear(rpg->basic->wnd->my_wnd, sfBlack);
@@ -78,11 +74,16 @@ void parsing_menu3(rpg_t *rpg)
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             rpg->menu->status = ON_GAME;
     }
+    if (rpg->menu->status == ON_NEW_GM) {
+        background(rpg);
+        choose_perso(rpg);
+    }
 }
 
-int parsing_menu4(rpg_t *rpg)
+int parsing_4(rpg_t *rpg)
 {
     if (rpg->menu->status == ON_MENU) {
+        rpg->menu->status = ON_CINEMATIC2;
         sound(rpg, 2);
         background(rpg);
         sfSound_stop(rpg->tutorial->tuto);
@@ -104,12 +105,14 @@ int parsing_menu4(rpg_t *rpg)
     return (0);
 }
 
-int parsing(rpg_t *rpg)
+void parsing_5(rpg_t *rpg)
 {
-    parsing_menus(rpg);
-    parsing_menu2(rpg);
-    parsing_menu3(rpg);
-    if (parsing_menu4(rpg) == -1)
-        return (-1);
-    return (0);
+    if (rpg->menu->status == ON_CINEMATIC2) {
+        sfSound_stop(rpg->game->in_game->ig_sound->game);
+        cinematic_2(rpg);
+        if (sfSound_getStatus(rpg->game->end->cinematic_2) != sfPlaying) {
+            reload_new_game(rpg);
+            rpg->menu->status = ON_MENU;
+        }
+    }
 }

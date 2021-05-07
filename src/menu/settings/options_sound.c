@@ -20,6 +20,7 @@ void set_volume(rpg_t *rpg)
     float volume_amb = vol_checker(pos_amb.x);
 
     sfSound_setVolume(rpg->menu->main_menu->menu_snd->a_menu, volume_music);
+    sfSound_setVolume(rpg->game->end->cinematic_2, volume_dial);
     sfSound_setVolume(rpg->game->start->cinematic_1, volume_dial);
     sfSound_setVolume(rpg->game->in_game->ig_sound->riley, volume_dial);
     sfSound_setVolume(rpg->game->in_game->ig_sound->riley_call, volume_dial);

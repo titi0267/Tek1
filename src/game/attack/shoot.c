@@ -12,7 +12,7 @@ void shoot_bullet(rpg_t *rpg)
     static float time = 0;
 
     time += rpg->basic->cnf->clk->time_loop;
-    if (/*((*/(rpg->basic->evt->event.type == sfEvtMouseButtonPressed) &&
+    if (/*((*/(sfTrue == sfKeyboard_isKeyPressed(sfKeyEnter)) &&
     /*(rpg->basic->cnf->mouse.x) <= adapt_x(rpg, 1461)) &&
     ((rpg->basic->cnf->mouse.y) <= adapt_y(rpg, 131)) &&
     (rpg->basic->cnf->mouse.x >= adapt_x(rpg, 1478)) &&
@@ -23,7 +23,7 @@ void shoot_bullet(rpg_t *rpg)
         init_bullet(rpg);
         time = 0;
     }
-    if ((rpg->basic->evt->event.type == sfEvtMouseButtonPressed) &&
+    if ((sfTrue == sfKeyboard_isKeyPressed(sfKeyEnter)) &&
     rpg->game->in_game->inventory->area_contains[WEAPON] == KNIFE &&
     !on_cine(rpg) && time >= 0.5) {
         draw_knife(rpg);
