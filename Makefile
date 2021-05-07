@@ -72,6 +72,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_particle.c			\
 			game/inits/init_police_warren.c		\
 			game/inits/init_covid.c				\
+			game/inits/init_knife.c				\
 			game/maps/general_player_mv.c	\
 			game/maps/collisions_bis.c		\
 			game/maps/switch_map.c			\
@@ -102,6 +103,7 @@ SRCSFILES=	rpg.c							\
 			game/attack/bullet_init.c			\
 			game/attack/shoot.c					\
 			game/attack/move_bullet.c					\
+			game/attack/knife.c					\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

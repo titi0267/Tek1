@@ -225,5 +225,7 @@ void move_bullet_up(rpg_t *rpg, bullets_t *bullet_list);
 void move_bullet_left(rpg_t *rpg, bullets_t *bullet_list);
 void move_bullet_right(rpg_t *rpg, bullets_t *bullet_list);
 void move_bullet_down(rpg_t *rpg, bullets_t *bullet_list);
+void init_knife(rpg_t *rpg);
+void draw_knife(rpg_t *rpg);
 
 #endif /* !prototype */

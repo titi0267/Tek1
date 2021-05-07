@@ -86,6 +86,7 @@ typedef struct objects_s
     sfSprite *policemen;
     sfSprite *warren;
     sfIntRect rect_warren;
+    sfSprite *knife;
 } objects_t;
 
 typedef struct map_s

@@ -23,5 +23,11 @@ void shoot_bullet(rpg_t *rpg)
         init_bullet(rpg);
         time = 0;
     }
+    if ((rpg->basic->evt->event.type == sfEvtMouseButtonPressed) &&
+    rpg->game->in_game->inventory->area_contains[WEAPON] == KNIFE &&
+    !on_cine(rpg) && time >= 0.5) {
+        draw_knife(rpg);
+        time = 0;
+    }
     draw_bullet(rpg);
 }
