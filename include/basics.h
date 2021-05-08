@@ -31,7 +31,6 @@ typedef struct cloc_s
     float time_menu;
     float time_tutorial;
     float time_shortcut;
-    float time_car;
     float direction_clk;
 } cloc_t;
 

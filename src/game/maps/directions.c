@@ -7,94 +7,79 @@
 
 #include "../../../include/func_name.h"
 
-void move_up_map(rpg_t *rpg, int on_map)
+void move_up_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
 {
     if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
     (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[UP]->text[0])) {
         if (check_collision(rpg, UP) != COLLISION) {
-            rpg->game->in_game->map->pos_map[on_map].y +=
-            rpg->game->in_game->map->speed
-            [rpg->game->in_game->objects->speed_status];
-            rpg->game->in_game->objects->car->car_pos.y +=
-            rpg->game->in_game->map->speed
-            [rpg->game->in_game->objects->speed_status];
+            map->pos_map[on_map].y += map->speed[objects->speed_status];
+            if (map->speed[objects->speed_status] != 5)
+                objects->car->car_pos.y += map->speed[objects->speed_status];
             move_enemies_on_map(rpg, UP);
-            rpg->game->in_game->map->dir = UP;
+            map->dir = UP;
         }
-        sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
-        rpg->game->in_game->map->pos_map[on_map]);
+        sfSprite_setPosition(map->maps[on_map], map->pos_map[on_map]);
         rect_move_player(rpg, UP);
-        rpg->game->in_game->map->last_pos = UP;
+        map->last_pos = UP;
     }
 }
 
-void move_down_map(rpg_t *rpg,int on_map)
+void move_down_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
 {
-    move_up_map(rpg, on_map);
+    move_up_map(rpg, on_map, objects, map);
     if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
     (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[DOWN]->text[0])) {
         if (check_collision(rpg, DOWN) != COLLISION) {
-            rpg->game->in_game->map->pos_map[on_map].y -=
-            rpg->game->in_game->map->speed
-            [rpg->game->in_game->objects->speed_status];
-            rpg->game->in_game->objects->car->car_pos.y -=
-            rpg->game->in_game->map->speed
-            [rpg->game->in_game->objects->speed_status];
+            map->pos_map[on_map].y -= map->speed[objects->speed_status];
+            if (map->speed[objects->speed_status] != 5)
+                objects->car->car_pos.y -= map->speed[objects->speed_status];
             move_enemies_on_map(rpg, DOWN);
-            rpg->game->in_game->map->dir = DOWN;
+            map->dir = DOWN;
         }
-        sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
-        rpg->game->in_game->map->pos_map[on_map]);
+        sfSprite_setPosition(map->maps[on_map], map->pos_map[on_map]);
         rect_move_player(rpg, DOWN);
-        rpg->game->in_game->map->last_pos = DOWN;
+        map->last_pos = DOWN;
     }
 }
 
-void move_right_map(rpg_t *rpg, int on_map)
+void move_right_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
 {
-    move_down_map(rpg, on_map);
+    move_down_map(rpg, on_map, objects, map);
     if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
     (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[RIGHT]->text[0])) {
         if (check_collision(rpg, RIGHT) != COLLISION) {
-            rpg->game->in_game->map->pos_map[on_map].x -=
-            rpg->game->in_game->map->speed
-            [rpg->game->in_game->objects->speed_status];
-            rpg->game->in_game->objects->car->car_pos.x -=
-            rpg->game->in_game->map->speed
-            [rpg->game->in_game->objects->speed_status];
+            map->pos_map[on_map].x -= map->speed[objects->speed_status];
+            if (map->speed[objects->speed_status] != 5)
+                objects->car->car_pos.x -= map->speed[objects->speed_status];
             move_enemies_on_map(rpg, RIGHT);
-            rpg->game->in_game->map->dir = RIGHT;
+            map->dir = RIGHT;
         }
-        sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
-        rpg->game->in_game->map->pos_map[on_map]);
+        sfSprite_setPosition(map->maps[on_map], map->pos_map[on_map]);
         rect_move_player(rpg, RIGHT);
-        rpg->game->in_game->map->last_pos = RIGHT;
+        map->last_pos = RIGHT;
     }
 }
 
-void move_left_map(rpg_t *rpg, int on_map)
+void move_left_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
 {
-    move_right_map(rpg, on_map);
+    move_right_map(rpg, on_map, objects, map);
     if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
     (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[LEFT]->text[0])) {
         if (check_collision(rpg, LEFT) != COLLISION) {
-            rpg->game->in_game->map->pos_map[on_map].x +=
-            rpg->game->in_game->map->speed
-            [rpg->game->in_game->objects->speed_status];
-            rpg->game->in_game->objects->car->car_pos.x +=
-            rpg->game->in_game->map->speed
-            [rpg->game->in_game->objects->speed_status];
+            map->pos_map[on_map].x += map->speed[objects->speed_status];
+            if (map->speed[objects->speed_status] != 5)
+                objects->car->car_pos.x += map->speed[objects->speed_status];
             move_enemies_on_map(rpg, LEFT);
-            rpg->game->in_game->map->dir = LEFT;
+            map->dir = LEFT;
         }
-        sfSprite_setPosition(rpg->game->in_game->map->maps[on_map],
-        rpg->game->in_game->map->pos_map[on_map]);
+        sfSprite_setPosition(map->maps[on_map],
+        map->pos_map[on_map]);
         rect_move_player(rpg, LEFT);
-        rpg->game->in_game->map->last_pos = LEFT;
+        map->last_pos = LEFT;
     }
 }
 

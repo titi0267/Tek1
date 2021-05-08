@@ -32,6 +32,7 @@ void print_player_move(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->objects->players
     [rpg->menu->main_menu->new_game->character_chosen], NULL);
+
 }
 
 void rect_move_player(rpg_t *rpg, int direction)

@@ -23,11 +23,13 @@ void tuto_map(rpg_t *rpg)
 {
     int on_map = rpg->game->in_game->map->status;
 
-    move_left_map(rpg, on_map);
+    move_left_map(rpg, on_map, rpg->game->in_game->objects,
+    rpg->game->in_game->map);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->map->maps[on_map], NULL);
     if (rpg->tutorial->tutorial_stat >= 1)
-        print_car(rpg);
+        rect_move_car(rpg, rpg->game->in_game->objects,
+        rpg->game->in_game->map->dir);
     if(rpg->game->in_game->objects->speed_status != CAR_SPEED)
         print_player_move_tuto(rpg);
 }

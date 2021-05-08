@@ -30,7 +30,6 @@ void init_basic_value(rpg_t *rpg)
 {
     rpg->basic->cnf->clk->time_keyboard = 0;
     rpg->basic->cnf->clk->time_tutorial = 0;
-    rpg->basic->cnf->clk->time_car = 0;
     rpg->basic->cnf->clk->time_shortcut = 0;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;

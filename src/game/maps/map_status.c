@@ -27,7 +27,8 @@ void print_map(rpg_t *rpg, int on_map)
     if (rpg->menu->status == ON_GAME &&
     !on_cine(rpg)) {
         player_run(rpg);
-        move_left_map(rpg, on_map);
+        move_left_map(rpg, on_map, rpg->game->in_game->objects,
+        rpg->game->in_game->map);
     }
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->map->maps[on_map], NULL);
@@ -38,6 +39,9 @@ void print_map(rpg_t *rpg, int on_map)
     rpg->game->in_game->map->status != MAP_INSIDE_POLICE &&
     map_status != MAP_INSIDE_POLICE)
         destroy_enemies(rpg);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+    rpg->game->in_game->objects->car->car, NULL);
+    printf("Draw car\n");
     print_player_move(rpg);
     collision_enemy_bullet(rpg);
 }

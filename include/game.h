@@ -63,11 +63,13 @@ typedef struct ig_sound_s
 typedef struct car_s
 {
     sfSprite *car;
-    sfIntRect rect_car;
+    sfIntRect *rect_car;
     sfVector2f car_pos;
     int car_line;
     int status;
     sfSoundBuffer *car_buffer;
+    int last_dir;
+    int top_car;
     sfSound *sirene;
 } car_t;
 
