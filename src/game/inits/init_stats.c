@@ -7,6 +7,19 @@
 
 #include "../../../include/func_name.h"
 
+void init_stats_basic_value(rpg_t *rpg)
+{
+    rpg->game->in_game->stats->player_stats[P_LIFE]->value = 100;
+    rpg->game->in_game->stats->player_stats[P_LIFE]->base_value = 100;
+    rpg->game->in_game->stats->player_stats[P_LIFE]->total_value = 100;
+    rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 0;
+    rpg->game->in_game->stats->player_stats[P_DAMAGE]->base_value = 5;
+    rpg->game->in_game->stats->player_stats[P_DAMAGE]->total_value = 5;
+    rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 0;
+    rpg->game->in_game->stats->player_stats[P_ARMOR]->base_value = 0;
+    rpg->game->in_game->stats->player_stats[P_ARMOR]->total_value = 0;
+}
+
 void init_stats_value(rpg_t *rpg)
 {
     sfFont *font = sfFont_createFromFile("assets/fonts/aqua.ttf");

@@ -248,5 +248,6 @@ void init_levelup_stat(rpg_t *rpg);
 void print_level_up(rpg_t *rpg);
 void vaccine_manager(rpg_t *rpg);
 void elevator_hitbox(rpg_t *rpg);
+void init_stats_basic_value(rpg_t *rpg);
 
 #endif /* !prototype */

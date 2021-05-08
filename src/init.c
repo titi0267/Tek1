@@ -19,9 +19,6 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->stats->level_up = 0;
     rpg->game->in_game->stats->level = 0;
     rpg->game->in_game->stats->xp_anim = malloc(sizeof(sfVector2f) * 7);
-    rpg->game->in_game->stats->player_stats[P_LIFE]->value = 100;
-    rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 5;
-    rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 0;
     *(rpg->game->in_game->nmi) = NULL;
     *(rpg->game->in_game->bullet) = NULL;
     rpg->basic->cnf->clk->direction_clk = 1;
@@ -67,6 +64,7 @@ int init_before_game(rpg_t *rpg)
     rpg->menu->intro->status = FALSE;
     rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
     rpg->menu->intro->window_access = TRUE;
+    rpg->game->in_game->stats->xp_max_value = 100;
     return (0);
 }
 
@@ -87,6 +85,7 @@ void init_function2(rpg_t *rpg)
     init_knife(rpg);
     init_credits(rpg);
     init_levelup_stat(rpg);
+    init_stats_basic_value(rpg);
 }
 
 void init_function(rpg_t *rpg)

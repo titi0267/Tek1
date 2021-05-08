@@ -38,7 +38,7 @@ void is_touched(rpg_t *rpg, bullets_t *bullet_list, enemy_t *nmi_list)
     (nmi_list->nmi_pos.y) < bullet_list->bullet_pos.y &&
     (nmi_list->nmi_pos.y + 88) > bullet_list->bullet_pos.y) {
         nmi_list->life -=
-        rpg->game->in_game->stats->player_stats[P_DAMAGE]->value;
+        rpg->game->in_game->stats->player_stats[P_DAMAGE]->total_value;
         pop_bullet(rpg, bullet_list);
         nmi_list->blooding = 1;
     }

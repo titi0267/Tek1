@@ -80,7 +80,7 @@ void reset_key(rpg_t *rpg)
             rpg->menu->stg->key_bnd->control[LEFT]->text[0] = 'q';
             rpg->menu->stg->key_bnd->control[RIGHT]->text[0] = 'd';
             rpg->menu->stg->key_bnd->control[RUN]->text[0] = 'r';
-            rpg->menu->stg->key_bnd->control[INVENTORY]->text[0] = 'i';
+            rpg->menu->stg->key_bnd->control[INVENTORY]->text[0] = 'e';
             rpg->menu->stg->key_bnd->control[CELLPHONE]->text[0] = 't';
             rpg->menu->stg->key_bnd->control[CAR]->text[0] = 'c';
             rpg->menu->stg->key_bnd->control[QUADCOPTER]->text[0] = 'x';

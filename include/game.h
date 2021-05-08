@@ -153,6 +153,8 @@ typedef struct player_stats_s
 {
     sfText *txt;
     int value;
+    int base_value;
+    int total_value;
 } player_stats_t;
 
 typedef struct stat_s
@@ -161,6 +163,7 @@ typedef struct stat_s
     int xp_value;
     int level_up;
     int level;
+    int xp_max_value;
     sfRectangleShape *life;
     sfRectangleShape *life_border;
     sfRectangleShape *xp;

@@ -23,7 +23,7 @@ void update_damage(rpg_t *rpg)
             rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 35;
             break;
         default:
-            rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 5;
+            rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 0;
             break;
     }
 }
@@ -31,9 +31,15 @@ void update_damage(rpg_t *rpg)
 void update_invent_stats(rpg_t *rpg)
 {
     update_damage(rpg);
+    rpg->game->in_game->stats->player_stats[P_DAMAGE]->total_value =
+    rpg->game->in_game->stats->player_stats[P_DAMAGE]->value +
+    rpg->game->in_game->stats->player_stats[P_DAMAGE]->base_value;
+    rpg->game->in_game->stats->player_stats[P_ARMOR]->total_value =
+    rpg->game->in_game->stats->player_stats[P_ARMOR]->value +
+    rpg->game->in_game->stats->player_stats[P_ARMOR]->base_value;
     for (int i = 0; i <= P_ARMOR; i++) {
         sfText_setString(rpg->game->in_game->stats->player_stats[i]->txt,
-        my_putnbr(rpg->game->in_game->stats->player_stats[i]->value));
+        my_putnbr(rpg->game->in_game->stats->player_stats[i]->total_value));
     }
 }
 
