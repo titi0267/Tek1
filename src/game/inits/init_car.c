@@ -12,6 +12,8 @@ void set_pos_car(rpg_t *rpg)
     if (rpg->game->in_game->objects->car->status != 0) {
         rpg->game->in_game->objects->car->car_pos.x = 490.0;
         rpg->game->in_game->objects->car->car_pos.y = 300.0;
+        //rpg->game->in_game->objects->car->car_pos.x = ((rpg->game->in_game->map->pos_map[MAP_TUTO].x * -1));
+        //rpg->game->in_game->objects->car->car_pos.y = ((rpg->game->in_game->map->pos_map[MAP_TUTO].y  * -1));
         rpg->game->in_game->objects->car->status = 0;
     }
 }
