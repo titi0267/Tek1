@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void wait_notif(rpg_t *rpg)
+static void wait_notif(rpg_t *rpg)
 {
     static float time = 0;
 
@@ -46,7 +46,7 @@ void print_phone(rpg_t *rpg)
     }
 }
 
-void check_phone(rpg_t *rpg)
+static void check_phone(rpg_t *rpg)
 {
     static float nbr = 0;
 

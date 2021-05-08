@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_rect_logo(rpg_t *rpg)
+static void init_rect_logo(rpg_t *rpg)
 {
     rpg->menu->intro->intro_basil->rect_logo.left = 0;
     rpg->menu->intro->intro_basil->rect_logo.width = 1920;

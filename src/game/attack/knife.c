@@ -32,7 +32,7 @@ void draw_knife(rpg_t *rpg)
     sfSprite_setRotation(rpg->game->in_game->objects->knife, 0);
 }
 
-void attack_cut2(rpg_t *rpg, enemy_t *nmi_list)
+static void attack_cut2(rpg_t *rpg, enemy_t *nmi_list)
 {
     if (rpg->game->in_game->map->last_pos == UP &&
     ((nmi_list->nmi_pos.x > 930 && nmi_list->nmi_pos.x < 990) &&

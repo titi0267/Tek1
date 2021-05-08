@@ -54,3 +54,10 @@ int game_malloc2(rpg_t *rpg)
         return (MALLOC_ERROR);
     return (0);
 }
+
+int game_malloc3(rpg_t *rpg)
+{
+    if ((rpg->game->in_game->stuff = malloc(sizeof(stuff_t))) == NULL)
+        return (MALLOC_ERROR);
+    return (0);
+}

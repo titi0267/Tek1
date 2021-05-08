@@ -105,9 +105,11 @@ SRCSFILES=	rpg.c							\
 			game/particle/particle.c				\
 			game/attack/bullet_init.c			\
 			game/attack/shoot.c					\
-			game/attack/move_bullet.c					\
+			game/attack/move_bullet.c			\
 			game/attack/knife.c					\
 			game/attack/touched_enemy.c			\
+			game/loot/spawn.c				\
+			game/loot/hitbox_loot.c			\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

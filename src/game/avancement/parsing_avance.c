@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void parsing_avance4(rpg_t *rpg)
+static void parsing_avance4(rpg_t *rpg)
 {
     if (rpg->game->in_game->game_status == GM_RILEY_WARREN) {
         rect_move_player(rpg, UP);
@@ -29,7 +29,7 @@ void parsing_avance4(rpg_t *rpg)
     }
 }
 
-void parsing_avance3(rpg_t *rpg)
+static void parsing_avance3(rpg_t *rpg)
 {
     if (rpg->game->in_game->game_status == GM_NOTIF4) {
         phone_main(rpg);
@@ -54,7 +54,7 @@ void parsing_avance3(rpg_t *rpg)
     }
 }
 
-void parsing_avance2(rpg_t *rpg)
+static void parsing_avance2(rpg_t *rpg)
 {
     if (rpg->game->in_game->game_status == GM_INCOMMING_CALL) {
         call_hitbox(rpg);
@@ -78,7 +78,7 @@ void parsing_avance2(rpg_t *rpg)
     }
 }
 
-void parsing_avance1(rpg_t *rpg)
+static void parsing_avance1(rpg_t *rpg)
 {
     chose_map(rpg);
     key_event_game(rpg);

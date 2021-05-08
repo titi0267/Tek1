@@ -66,7 +66,7 @@ void display_inventory(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->main_menu->new_game->characters[charac], NULL);
     move_characters(rpg, charac);
-    display_weapons(rpg);
+    display_loots(rpg);
     print_stats(rpg);
     print_level_up(rpg);
     drag_and_drop_main(rpg);

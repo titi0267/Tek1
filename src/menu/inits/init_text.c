@@ -21,7 +21,7 @@ int malloc_text(menu_t *menu)
     return (0);
 }
 
-void set_text_pos(rpg_t *rpg)
+static void set_text_pos(rpg_t *rpg)
 {
     sfVector2f vect = {1542, 242};
     int i = 0;

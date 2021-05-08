@@ -76,6 +76,7 @@ void init_function2(rpg_t *rpg)
     init_phone(rpg);
     init_phone_sound(rpg);
     init_pitch_riley(rpg);
+    init_stats_basic_value(rpg);
     init_stats_value(rpg);
     init_xplife(rpg);
     init_particle(rpg);
@@ -85,7 +86,8 @@ void init_function2(rpg_t *rpg)
     init_knife(rpg);
     init_credits(rpg);
     init_levelup_stat(rpg);
-    init_stats_basic_value(rpg);
+    init_bullet_proof(rpg);
+    init_stuff(rpg);
 }
 
 void init_function(rpg_t *rpg)

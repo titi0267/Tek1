@@ -27,6 +27,8 @@ typedef struct inventory_s {
     sfSprite *inventory;
     sfTexture *inventory_txt;
     sfSprite **weapon;
+    sfSprite *b_proof;
+    sfSprite **bullet;
     sfSprite *vaccine;
     sfTexture **weapon_txt;
     sfVector2f *pos_weapon;
@@ -48,6 +50,11 @@ typedef struct inventory_s {
     sfVector2i **box_pos;
     int on_drag;
 } inventory_t;
+
+typedef struct stuff_s
+{
+    int *stuff_status;
+} stuff_t;
 
 typedef struct ig_sound_s
 {
@@ -196,6 +203,7 @@ typedef struct in_game_s
     particle_t **particle;
     bullets_t *bullet_list;
     bullets_t **bullet;
+    stuff_t *stuff;
     int game_status;
 } in_game_t;
 

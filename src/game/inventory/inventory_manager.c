@@ -85,7 +85,7 @@ void drag(rpg_t *rpg, int selected)
     rpg->game->in_game->inventory->selected_item = selected;
 }
 
-void display_weapons(rpg_t *rpg)
+void display_loots(rpg_t *rpg)
 {
     for (int i = SMG; i < NO_WEAPON; i++) {
         if (i == rpg->game->in_game->inventory->selected_item &&
@@ -94,10 +94,12 @@ void display_weapons(rpg_t *rpg)
         else if (i == rpg->game->in_game->inventory->selected_item &&
         i == (NO_WEAPON - 1))
             break;
-        sfSprite_setPosition(rpg->game->in_game->inventory->weapon[i],
-        rpg->game->in_game->inventory->pos_weapon[i]);
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-        rpg->game->in_game->inventory->weapon[i], NULL);
+        if (rpg->game->in_game->stuff->stuff_status[i] == TRUE) {
+            sfSprite_setPosition(rpg->game->in_game->inventory->weapon[i],
+            rpg->game->in_game->inventory->pos_weapon[i]);
+            sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+            rpg->game->in_game->inventory->weapon[i], NULL);
+        }
     }
     vaccine_manager(rpg);
 }

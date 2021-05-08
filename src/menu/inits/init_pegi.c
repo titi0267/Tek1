@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_rect_pegi(rpg_t *rpg)
+static void init_rect_pegi(rpg_t *rpg)
 {
     rpg->menu->intro->intro_pegi->rect_pegi.left = 0;
     rpg->menu->intro->intro_pegi->rect_pegi.width = 1920;
