@@ -25,7 +25,7 @@ int basic_malloc(basic_t *basic)
     return (0);
 }
 
-int intro_malloc(intro_t *intro)
+static int intro_malloc(intro_t *intro)
 {
     if ((intro->intro_basil = malloc(sizeof(intro_basil_t))) == NULL)
         return (MALLOC_ERROR);
@@ -60,7 +60,7 @@ int menu_alloc(menu_t *menu)
     return (0);
 }
 
-int menu_alloc_next2(menu_t *menu)
+static int menu_alloc_next2(menu_t *menu)
 {
     int i = 0;
 
@@ -92,6 +92,5 @@ int menu_alloc_next(menu_t *menu)
         return (MALLOC_ERROR);
     if ((menu->stg->graph->graph_btn = malloc(sizeof(graph_btn_t))) == NULL)
         return (MALLOC_ERROR);
-    menu_alloc_next2(menu);
-    return (0);
+    return (menu_alloc_next2(menu));
 }

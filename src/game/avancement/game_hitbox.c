@@ -9,11 +9,10 @@
 
 void button_hitbox(rpg_t *rpg)
 {
-    if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
-    -1980 && rpg->game->in_game->map->pos_map[rpg->game->in_game->
-    map->status].x >= -2006 && rpg->game->in_game->map->pos_map[rpg->game->
-    in_game->map->status].y <= -1220 &&
-    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y >= -1283
+    if (rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE].x <=
+    -1980 && rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE].x >= -2006
+    && rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE].y <= -1220 &&
+    rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE].y >= -1283
     && rpg->game->in_game->phone->phone_status == 0) {
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
@@ -23,11 +22,10 @@ void button_hitbox(rpg_t *rpg)
 
 void desk_hitbox(rpg_t *rpg)
 {
-    if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
-    -1770 && rpg->game->in_game->map->pos_map[rpg->game->in_game->
-    map->status].x >= -1810 && rpg->game->in_game->map->pos_map[rpg->game->
-    in_game->map->status].y <= -710 && rpg->game->in_game->map->pos_map
-    [rpg->game->in_game->map->status].y >= -730 &&
+    if (rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE].x <=
+    -1770 && rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE].x >= -1810
+    && rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE].y <= -710 &&
+    rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE].y >= -730 &&
     rpg->game->in_game->phone->notif_index == 1 &&
     rpg->game->in_game->phone->phone_status == 0) {
         rpg->game->in_game->phone->notif_prev =

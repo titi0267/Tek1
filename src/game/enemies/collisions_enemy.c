@@ -88,6 +88,7 @@ int enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
         return (enemy_col_left(rpg, nmi_list, pos_x + sub, pos_y));
     return (0);
 }
+
 int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
 {
     int d = enemy_collision(rpg, direction, nmi_list, sub);

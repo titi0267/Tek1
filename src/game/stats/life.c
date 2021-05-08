@@ -82,7 +82,7 @@ void print_level_up(rpg_t *rpg)
         rpg->game->in_game->inventory->add_armor, NULL);
         sfText_setString(rpg->game->in_game->inventory->level_up_text, my_strcat
         ("Vous avez ", my_strcat(my_putnbr(rpg->game->in_game->stats->level),
-        " competences a ameliorer")));
+        " competences à ameliorer")));
         sfRenderWindow_drawText(rpg->basic->wnd->my_wnd,
         rpg->game->in_game->inventory->level_up_text, NULL);
         hitbox_level_up(rpg);

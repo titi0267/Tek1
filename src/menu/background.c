@@ -30,7 +30,6 @@ void background(rpg_t *rpg)
 {
     static float nbr = 0;
 
-    printf("%f\n", nbr);
     if (nbr > 0.12) {
         rect_adn(rpg);
         nbr = 0;
