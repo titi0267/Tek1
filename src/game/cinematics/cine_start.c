@@ -16,7 +16,7 @@ int on_cine(rpg_t *rpg)
     return (FALSE);
 }
 
-void radio_rect(rpg_t *rpg)
+static void radio_rect(rpg_t *rpg)
 {
     if (rpg->game->start->radio_offset <= 8) {
             rpg->game->start->radio_rect.left =
@@ -35,7 +35,7 @@ void radio_rect(rpg_t *rpg)
     }
 }
 
-void background_radio(rpg_t *rpg)
+static void background_radio(rpg_t *rpg)
 {
     static float nbr = 0;
 

@@ -96,7 +96,7 @@ void key_event_inventory(rpg_t *rpg);
 void click_on_resume(rpg_t *rpg);
 void click_on_option(rpg_t *rpg);
 void click_on_quit(rpg_t *rpg);
-void display_weapons(rpg_t *rpg);
+void display_loots(rpg_t *rpg);
 
 int init_pdown_up_rect(rpg_t *rpg);
 int create_police_map(rpg_t *rpg);
@@ -250,5 +250,13 @@ void vaccine_manager(rpg_t *rpg);
 void elevator_hitbox(rpg_t *rpg);
 void init_stats_basic_value(rpg_t *rpg);
 int choose_map_cdc_in(rpg_t *rpg);
+void print_map_loot(rpg_t *rpg);
+void init_bullet_proof(rpg_t *rpg);
+void init_bullets(rpg_t *rpg);
+int game_malloc3(rpg_t *rpg);
+void init_stuff(rpg_t *rpg);
+void weapon_hitbox(rpg_t *rpg);
+void bullet_hitbox(rpg_t *rpg);
+void vest_hitbox(rpg_t *rpg);
 
 #endif /* !prototype */

@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void pop_enemy(rpg_t *rpg, enemy_t *nmi_list)
+static void pop_enemy(rpg_t *rpg, enemy_t *nmi_list)
 {
     int del_nbr = nmi_list->nbr;
     enemy_t *nmi_prev = NULL;
@@ -31,7 +31,7 @@ void pop_enemy(rpg_t *rpg, enemy_t *nmi_list)
     }
 }
 
-void is_touched(rpg_t *rpg, bullets_t *bullet_list, enemy_t *nmi_list)
+static void is_touched(rpg_t *rpg, bullets_t *bullet_list, enemy_t *nmi_list)
 {
     if ((nmi_list->nmi_pos.x) < bullet_list->bullet_pos.x &&
     (nmi_list->nmi_pos.x + 55) > bullet_list->bullet_pos.x &&
@@ -44,7 +44,7 @@ void is_touched(rpg_t *rpg, bullets_t *bullet_list, enemy_t *nmi_list)
     }
 }
 
-void collision_enemy_player(rpg_t *rpg, enemy_t *nmi_list)
+static void collision_enemy_player(rpg_t *rpg, enemy_t *nmi_list)
 {
     if (((nmi_list->nmi_pos.x > 930 && nmi_list->nmi_pos.x < 990) ||
     (nmi_list->nmi_pos.x + 55 > 930 && nmi_list->nmi_pos.x + 55 < 990)) &&
@@ -54,7 +54,7 @@ void collision_enemy_player(rpg_t *rpg, enemy_t *nmi_list)
     }
 }
 
-particle_t *pop_blood(rpg_t *rpg, particle_t *particle_list)
+static particle_t *pop_blood(rpg_t *rpg, particle_t *particle_list)
 {
     particle_t *before_last = *rpg->game->in_game->particle;
     particle_list = *rpg->game->in_game->particle;
@@ -72,7 +72,7 @@ particle_t *pop_blood(rpg_t *rpg, particle_t *particle_list)
     return (particle_list);
 }
 
-void print_blood(rpg_t *rpg, enemy_t *nmi_list)
+static void print_blood(rpg_t *rpg, enemy_t *nmi_list)
 {
     for (rpg->game->in_game->particle_list = *(rpg->game->in_game->particle);
     rpg->game->in_game->particle_list != NULL; rpg->game->in_game->particle_list

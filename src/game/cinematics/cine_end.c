@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void road_rect(rpg_t *rpg)
+static void road_rect(rpg_t *rpg)
 {
     if (rpg->game->end->road_offset <= 8) {
             rpg->game->end->road_rect.left =
@@ -26,7 +26,7 @@ void road_rect(rpg_t *rpg)
     }
 }
 
-void background_road(rpg_t *rpg)
+static void background_road(rpg_t *rpg)
 {
     static float nbr = 0;
 
@@ -35,7 +35,7 @@ void background_road(rpg_t *rpg)
         rpg->game->end->wait_road = 1;
         nbr = 0;
     }
-    if (nbr > 0.2 && rpg->game->end->wait_road == 1) {
+    if (nbr > 0.07 && rpg->game->end->wait_road == 1) {
         road_rect(rpg);
         nbr = 0;
     }
@@ -66,7 +66,7 @@ void credits(rpg_t *rpg)
 
     nbr += rpg->basic->cnf->clk->time_loop;
     if (nbr > 0.1) {
-        rpg->game->end->pos_credits.y -= 6;
+        rpg->game->end->pos_credits.y -= 7;
         nbr = 0;
     }
     sfSprite_setPosition(rpg->game->end->credits, rpg->game->end->pos_credits);

@@ -111,13 +111,15 @@ void parsing_5(rpg_t *rpg)
     if (rpg->menu->status == ON_CINEMATIC2) {
         cinematic_2(rpg);
         sfSound_stop(rpg->game->in_game->ig_sound->game);
-        if (sfSound_getStatus(rpg->game->end->cinematic_2) != sfPlaying &&
+        if (sfSound_getStatus(rpg->game->end->cinematic_2) != sfPlaying ||
         rpg->game->end->pos_credits.y <= -3240) {
             reload_new_game(rpg);
+            sfSound_stop(rpg->game->end->cinematic_2);
             rpg->menu->status = ON_MENU;
         }
         nbr += rpg->basic->cnf->clk->time_loop;
-        if (nbr > 17)
+        if (nbr > 17 &&
+        sfSound_getStatus(rpg->game->end->cinematic_2) == sfPlaying)
             credits(rpg);
     }
 }

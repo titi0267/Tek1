@@ -28,7 +28,7 @@ void create_size_square(rpg_t *rpg)
     sfSprite_copy(rpg->menu->stg->graph->graph_btn->graphismes[RES19x80]);
 }
 
-void init_bt_opt2(rpg_t *rpg)
+static void init_bt_opt2(rpg_t *rpg)
 {
     sfVector2f music = {1565.554, 363};
     sfVector2f ambiant = {1565.554, 510};

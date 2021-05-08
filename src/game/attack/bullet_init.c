@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void dispawn_bullet(rpg_t *rpg, bullets_t *bullet_list)
+static void dispawn_bullet(rpg_t *rpg, bullets_t *bullet_list)
 {
     if (rpg->game->in_game->map->last_pos == DOWN)
         bullet_list->finish_line = 300;
@@ -71,7 +71,7 @@ void pop_bullet(rpg_t *rpg, bullets_t *bullet_list)
     }
 }
 
-void bullet_direction(rpg_t *rpg, bullets_t *bullet_list)
+static void bullet_direction(rpg_t *rpg, bullets_t *bullet_list)
 {
     if (bullet_list->bullet_dir == UP) {
         if (rpg->game->in_game->bullet_list->finish_line <= 0)

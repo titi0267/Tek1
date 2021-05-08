@@ -24,7 +24,7 @@ void init_controls(rpg_t *rpg)
     init_text(rpg);
 }
 
-void init_menu_option2(rpg_t *rpg)
+static void init_menu_option2(rpg_t *rpg)
 {
     sfTexture *game_options = sfTexture_createFromFile
     ("assets/menus/options/select_menu3.png", NULL);
@@ -44,7 +44,7 @@ void init_menu_option2(rpg_t *rpg)
     none, sfTrue);
 }
 
-void init_menu_option1(rpg_t *rpg)
+static void init_menu_option1(rpg_t *rpg)
 {
     sfTexture *graph = sfTexture_createFromFile
     ("assets/menus/options/select_menu1.png", NULL);
@@ -63,7 +63,7 @@ void init_menu_option1(rpg_t *rpg)
     }
 }
 
-void init_option2(rpg_t *rpg)
+static void init_option2(rpg_t *rpg)
 {
     sfTexture *game_options = sfTexture_createFromFile
     ("assets/menus/options/menus3.png", NULL);

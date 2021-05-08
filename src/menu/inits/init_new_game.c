@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void position_square(rpg_t *rpg)
+static void position_square(rpg_t *rpg)
 {
     for (int i = MAXOU; i < NO_CHARACTERS; i++) {
         rpg->menu->main_menu->new_game->offset_character[i] = 0;
@@ -18,7 +18,7 @@ void position_square(rpg_t *rpg)
     }
 }
 
-void set_square_position(rpg_t *rpg)
+static void set_square_position(rpg_t *rpg)
 {
     sfVector2f pos_bg = {0, -30};
     sfVector2f *pos_characters = malloc(sizeof(sfVector2f) * 5);
@@ -60,7 +60,7 @@ void init_new_game(rpg_t *rpg)
     set_square_position(rpg);
 }
 
-void init_characters_textures(rpg_t *rpg)
+static void init_characters_textures(rpg_t *rpg)
 {
     rpg->menu->main_menu->new_game->characters_txt[MAXOU] =
     sfTexture_createFromFile("assets/menus/new_game/maxou_sprite.png", NULL);

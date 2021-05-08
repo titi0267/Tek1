@@ -23,5 +23,7 @@ int alloc_all(rpg_t *rpg)
         return (MALLOC_ERROR);
     if (game_malloc2(rpg) == MALLOC_ERROR)
         return (MALLOC_ERROR);
+    if (game_malloc3(rpg) == MALLOC_ERROR)
+        return (MALLOC_ERROR);
     return (0);
 }

@@ -82,11 +82,12 @@ typedef enum weapons_s {
     GUN,
     TAZER,
     NO_WEAPON,
-    BULLET_1,
-    NO_BULLET,
     BPVEST,
     NO_VEST,
-    VACCINE
+    VACCINE,
+    BULLET_1,
+    BULLET_2,
+    NO_BULLET
 } weapons_t;
 
 typedef enum key_status_s {
