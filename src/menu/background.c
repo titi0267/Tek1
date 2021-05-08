@@ -30,13 +30,17 @@ void background(rpg_t *rpg)
 {
     static float nbr = 0;
 
+    printf("%f\n", nbr);
     if (nbr > 0.12) {
         rect_adn(rpg);
         nbr = 0;
     }
     sfSprite_setTextureRect(rpg->menu->bgd_adn->background,
     rpg->menu->bgd_adn->rect_background);
-    nbr += rpg->basic->cnf->clk->time_loop;
+    if (rpg->menu->status == ON_MENU)
+        nbr += rpg->basic->cnf->clk->time_loop / 2;
+    else
+        nbr += rpg->basic->cnf->clk->time_loop;
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->menu->bgd_adn->background, NULL);
 }
