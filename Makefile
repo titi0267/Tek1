@@ -57,6 +57,7 @@ SRCSFILES=	rpg.c							\
 			game/menu/exit_action.c		\
 			game/menu/settings_exit.c	\
 			game/inits/init_exit.c				\
+			game/inits/init_levelup.c				\
 			game/inits/init_inventory.c			\
 			game/inits/init_player_rect.c		\
 			game/inits/init_exit_settings.c		\

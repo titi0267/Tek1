@@ -11,7 +11,7 @@ void update_damage(rpg_t *rpg)
 {
     switch (rpg->game->in_game->inventory->area_contains[WEAPON]) {
         case KNIFE:
-            rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 10;
+            rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 50;
             break;
         case SMG:
             rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 25;

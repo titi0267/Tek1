@@ -30,6 +30,9 @@ typedef struct inventory_s {
     sfSprite *vaccine;
     sfTexture **weapon_txt;
     sfVector2f *pos_weapon;
+    sfSprite *add_damage;
+    sfText *level_up_text;
+    sfSprite *add_armor;
     int shortcut_it;
     int is_item_selected;
     int *is_area_filled;
@@ -74,6 +77,7 @@ typedef struct bullets_s
     int bullet_nbr;
     sfVector2f bullet_pos;
     int bullet_dir;
+    int finish_line;
     int nbr;
 } bullets_t;
 
@@ -116,6 +120,7 @@ typedef struct enemy_s
     sfVector2f diff;
     int choose_dir;
     int life;
+    int blood;
     int blooding;
     int nbr;
 } enemy_t;
@@ -161,13 +166,15 @@ typedef struct stat_s
     sfRectangleShape *xp_border;
     sfVector2f life_size;
     sfVector2f xp_size;
+    sfVector2f *xp_anim;
 } stat_t;
 
 typedef struct particle_s
 {
-    sfVector2f *xp;
     sfVector2f *blood;
     sfColor blood_color;
+    struct particle_s *next;
+    float tm;int nbr;
 } particle_t;
 
 typedef struct in_game_s
@@ -181,7 +188,8 @@ typedef struct in_game_s
     ig_menus_t *ig_menus;
     phone_t *phone;
     stat_t *stats;
-    particle_t *particle;
+    particle_t *particle_list;
+    particle_t **particle;
     bullets_t *bullet_list;
     bullets_t **bullet;
     int game_status;

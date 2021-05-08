@@ -49,8 +49,51 @@ void collision_enemy_player(rpg_t *rpg, enemy_t *nmi_list)
     if (((nmi_list->nmi_pos.x > 930 && nmi_list->nmi_pos.x < 990) ||
     (nmi_list->nmi_pos.x + 55 > 930 && nmi_list->nmi_pos.x + 55 < 990)) &&
     ((nmi_list->nmi_pos.y > 485 && nmi_list->nmi_pos.y < 593) ||
-    (nmi_list->nmi_pos.y > 485 && nmi_list->nmi_pos.y < 593))) {
+    ((nmi_list->nmi_pos.y + 88) > 485 && (nmi_list->nmi_pos.y + 88) < 593))) {
         rpg->game->in_game->stats->player_stats[P_LIFE]->value -= 10;
+    }
+}
+
+particle_t *pop_blood(rpg_t *rpg, particle_t *particle_list)
+{
+    particle_t *before_last = *rpg->game->in_game->particle;
+    particle_list = *rpg->game->in_game->particle;
+    if (*rpg->game->in_game->particle == NULL)
+        return NULL;
+    while(particle_list->next != NULL) {
+        before_last = particle_list;
+        particle_list = particle_list->next;
+        }
+    if (particle_list == *rpg->game->in_game->particle)
+        *rpg->game->in_game->particle = NULL;
+    else
+        before_last->next = NULL;
+    free(particle_list);
+    return (particle_list);
+}
+
+void print_blood(rpg_t *rpg, enemy_t *nmi_list)
+{
+    for (rpg->game->in_game->particle_list = *(rpg->game->in_game->particle);
+    rpg->game->in_game->particle_list != NULL; rpg->game->in_game->particle_list
+    = rpg->game->in_game->particle_list->next) {
+            rpg->game->in_game->particle_list->tm
+            += rpg->basic->cnf->clk->time_loop;
+        for (int i = 0; i <= 3; i++)
+            creat_square(rpg, rpg->game->in_game->particle_list->blood[i],
+            rpg->game->in_game->particle_list);
+        if (rpg->game->in_game->particle_list->tm >= 0.05) {
+            rpg->game->in_game->particle_list->tm = 0;
+            move_blood(rpg->game->in_game->particle_list);
+            rpg->game->in_game->particle_list->nbr++;
+        }
+        if (rpg->game->in_game->particle_list->nbr >= 20) {
+            rpg->game->in_game->particle_list->tm = 0;
+            rpg->game->in_game->particle_list->nbr = 0;
+            nmi_list->blooding = 0;
+            rpg->game->in_game->particle_list =
+            pop_blood(rpg, rpg->game->in_game->particle_list);
+        }
     }
 }
 
@@ -58,9 +101,13 @@ void collision_enemy_bullet(rpg_t *rpg)
 {
     enemy_t *nmi_l_blood;
 
-        for (nmi_l_blood = *(rpg->game->in_game->nmi);
+    for (nmi_l_blood = *(rpg->game->in_game->nmi);
     nmi_l_blood != NULL; nmi_l_blood = nmi_l_blood->next) {
-            creat_blood(rpg, nmi_l_blood);
+            if (nmi_l_blood->blooding == 1) {
+                add_particle_list(rpg, nmi_l_blood);
+                nmi_l_blood->blooding = 0;
+            }
+        print_blood(rpg, nmi_l_blood);
     }
     for (rpg->game->in_game->nmi_list = *(rpg->game->in_game->nmi);
     rpg->game->in_game->nmi_list != NULL; rpg->game->in_game->nmi_list
@@ -69,7 +116,7 @@ void collision_enemy_bullet(rpg_t *rpg)
         if (rpg->game->in_game->nmi_list->life <= 0
         && rpg->game->in_game->nmi_list->blooding == 0) {
             pop_enemy(rpg, rpg->game->in_game->nmi_list);
-            rpg->game->in_game->stats->xp_value += 10;
+            rpg->game->in_game->stats->xp_value += 50;
         }
         for (rpg->game->in_game->bullet_list = *(rpg->game->in_game->bullet);
         rpg->game->in_game->bullet_list != NULL; rpg->game->in_game->bullet_list

@@ -7,6 +7,19 @@
 
 #include "../../../include/func_name.h"
 
+void dispawn_bullet(rpg_t *rpg, bullets_t *bullet_list)
+{
+    if (rpg->game->in_game->map->last_pos == DOWN)
+        bullet_list->finish_line = 300;
+    if (rpg->game->in_game->map->last_pos == UP)
+        bullet_list->finish_line = 300;
+    if (rpg->game->in_game->map->last_pos == LEFT)
+        bullet_list->finish_line = 300;
+    if (rpg->game->in_game->map->last_pos == RIGHT)
+        bullet_list->finish_line = 300;
+
+}
+
 int init_bullet(rpg_t *rpg)
 {
     sfTexture *bullet = sfTexture_createFromFile
@@ -26,7 +39,7 @@ int init_bullet(rpg_t *rpg)
     rpg->game->in_game->bullet_list->bullet_dir =
     rpg->game->in_game->map->last_pos;
     rpg->game->in_game->bullet_list->nbr = i;
-    //printf("bullet %i\n", )
+    dispawn_bullet(rpg, rpg->game->in_game->bullet_list);
     rpg->game->in_game->bullet_list->next = *(rpg->game->in_game->bullet);
     *(rpg->game->in_game->bullet) = rpg->game->in_game->bullet_list;
     i++;
@@ -61,22 +74,22 @@ void pop_bullet(rpg_t *rpg, bullets_t *bullet_list)
 void bullet_direction(rpg_t *rpg, bullets_t *bullet_list)
 {
     if (bullet_list->bullet_dir == UP) {
-        if (bullet_list->bullet_pos.y <= 200)
+        if (rpg->game->in_game->bullet_list->finish_line <= 0)
             pop_bullet(rpg, bullet_list);
         move_bullet_up(rpg, bullet_list);
     }
     if (bullet_list->bullet_dir == DOWN) {
-        if (bullet_list->bullet_pos.y >= 800)
+        if (rpg->game->in_game->bullet_list->finish_line <= 0)
             pop_bullet(rpg, bullet_list);
         move_bullet_down(rpg, bullet_list);
     }
     if (bullet_list->bullet_dir == LEFT) {
-        if (bullet_list->bullet_pos.x <= 200)
+        if (rpg->game->in_game->bullet_list->finish_line <= 0)
             pop_bullet(rpg, bullet_list);
         move_bullet_left(rpg, bullet_list);
     }
     if (bullet_list->bullet_dir == RIGHT) {
-        if (bullet_list->bullet_pos.x >= 1600)
+        if (rpg->game->in_game->bullet_list->finish_line <= 0)
             pop_bullet(rpg, bullet_list);
         move_bullet_right(rpg, bullet_list);
     }

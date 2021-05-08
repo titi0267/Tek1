@@ -156,6 +156,7 @@ float vol_checker(float x);
 void init_function(rpg_t *rpg);
 void init_basic_value(rpg_t *rpg);
 int init_before_game(rpg_t *rpg);
+sfVector2f vect_x_y(sfVector2f vect, int add_x, int add_y);
 
 void drag(rpg_t *rpg, int selected);
 void calc_vector(rpg_t *rpg, int slot_type, int weapon);
@@ -197,7 +198,7 @@ void creat_level_up(rpg_t *rpg);
 int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list,
 int sub);
 void init_particle(rpg_t *rpg);
-void init_particle_blood(rpg_t *rpg, sfVector2f pos);
+void init_particle_blood(sfVector2f pos, particle_t *particle_list);
 void creat_blood(rpg_t *rpg, enemy_t *nmi_list);
 void button_hitbox(rpg_t *rpg);
 void enemy_rect_move_to_player(rpg_t *rpg, enemy_t *nmi_list);
@@ -239,5 +240,11 @@ void collision_enemy_bullet(rpg_t *rpg);
 void init_credits(rpg_t *rpg);
 void pop_bullet(rpg_t *rpg, bullets_t *bullet_list);
 void credits(rpg_t *rpg);
+void attack_cut(rpg_t *rpg, enemy_t *nmi_list);
+int add_particle_list(rpg_t *rpg, enemy_t *nmi_list);
+void creat_square(rpg_t *rpg, sfVector2f vect, particle_t *particle_list);
+void move_blood(particle_t *particle_list);
+void init_levelup_stat(rpg_t *rpg);
+void print_level_up(rpg_t *rpg);
 
 #endif /* !prototype */

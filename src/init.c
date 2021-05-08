@@ -17,9 +17,8 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->phone->notif_prev = 0;
     rpg->game->in_game->stats->xp_value = 0;
     rpg->game->in_game->stats->level_up = 0;
-    rpg->game->in_game->particle->xp = malloc(sizeof(sfVector2f) * 7);
-    rpg->game->in_game->particle->blood = malloc(sizeof(sfVector2f) * 5);
     rpg->game->in_game->stats->level = 0;
+    rpg->game->in_game->stats->xp_anim = malloc(sizeof(sfVector2f) * 7);
     rpg->game->in_game->stats->player_stats[P_LIFE]->value = 100;
     rpg->game->in_game->stats->player_stats[P_DAMAGE]->value = 5;
     rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 0;
@@ -27,6 +26,7 @@ void init_basic_value2(rpg_t *rpg)
     *(rpg->game->in_game->bullet) = NULL;
     rpg->basic->cnf->clk->direction_clk = 1;
     rpg->game->in_game->map->last_pos = DOWN;
+    *(rpg->game->in_game->particle) = NULL;
 }
 
 void init_basic_value(rpg_t *rpg)
@@ -85,6 +85,7 @@ void init_function2(rpg_t *rpg)
     init_alerts(rpg);
     init_knife(rpg);
     init_credits(rpg);
+    init_levelup_stat(rpg);
 }
 
 void init_function(rpg_t *rpg)

@@ -68,5 +68,6 @@ void display_inventory(rpg_t *rpg)
     move_characters(rpg, charac);
     display_weapons(rpg);
     print_stats(rpg);
+    print_level_up(rpg);
     drag_and_drop_main(rpg);
 }

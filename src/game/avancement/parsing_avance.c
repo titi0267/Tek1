@@ -82,7 +82,6 @@ void parsing_avance1(rpg_t *rpg)
     chose_map(rpg);
     key_event_game(rpg);
     print_xp_life(rpg);
-    creat_level_up(rpg);
     shoot_bullet(rpg);
     if (rpg->game->in_game->game_status == GM_BEGIN) {
         phone_main(rpg);

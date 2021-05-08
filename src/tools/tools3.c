@@ -46,3 +46,10 @@ float vol_checker(float x)
         volume = 100;
     return (volume);
 }
+
+sfVector2f vect_x_y(sfVector2f vect, int add_x, int add_y)
+{
+    vect.x += add_x;
+    vect.y += add_y;
+    return (vect);
+}

@@ -22,6 +22,7 @@ int add_nmi(rpg_t *rpg, int x, int y)
     rpg->game->in_game->nmi_list->life = 100;
     rpg->game->in_game->nmi_list->nbr = i;
     rpg->game->in_game->nmi_list->blooding = 0;
+    rpg->game->in_game->nmi_list->blood = 0;
     i++;
     rpg->game->in_game->nmi_list->next = *rpg->game->in_game->nmi;
     *rpg->game->in_game->nmi = rpg->game->in_game->nmi_list;
