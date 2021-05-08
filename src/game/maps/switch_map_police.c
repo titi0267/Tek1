@@ -60,3 +60,22 @@ int choose_map_outside_police(rpg_t *rpg)
     return (0);
 }
 
+int choose_map_cdc_in(rpg_t *rpg)
+{
+    if (rpg->game->in_game->map->pos_map[MAP_INSIDE_CDC].y < -1500) {
+        rpg->game->in_game->map->status = MAP_OUTSIDE_CDC;
+        rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC] =
+        put_in_vector2f(-2060, -3350);
+        return (1);
+    }
+    if (rpg->game->in_game->map->pos_map[MAP_INSIDE_CDC].y > -1500 ) {
+        rpg->game->in_game->phone->notif_prev =
+        rpg->game->in_game->phone->notif_index;
+        rpg->menu->status = ON_CINEMATIC2;
+        rpg->game->in_game->inventory->vaccine_status = FALSE;
+        return (1);
+    }
+    return (0);
+}
+
+// && rpg->game->in_game->game_status == GM_ELEVATOR

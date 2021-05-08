@@ -45,7 +45,7 @@ void hitbox2(rpg_t *rpg)
         rpg->menu->main_menu->menu_spt->menu[QUIT], NULL);
 }
 
-int clic2(rpg_t *rpg)
+static int clic2(rpg_t *rpg)
 {
     if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, 1242)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg, 490)) &&

@@ -40,6 +40,13 @@ int choose_map_outside_cdc(rpg_t *rpg)
         put_in_vector2f(-2400, -2350);
         return (1);
     }
+    if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y < -2000 &&
+    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].x < -1500) {
+        rpg->game->in_game->map->status = MAP_INSIDE_CDC;
+        rpg->game->in_game->map->pos_map[MAP_INSIDE_CDC] =
+        put_in_vector2f(-1348, -2012);
+        return (1);
+    }
     return (0);
 }
 
@@ -88,5 +95,7 @@ void change_map(rpg_t *rpg)
     }
     if (rpg->game->in_game->map->status == MAP_INSIDE_POLICE)
         if (place_outside_police(rpg) == 1) return;
+    if (rpg->game->in_game->map->status == MAP_INSIDE_CDC)
+        if (choose_map_cdc_in(rpg) == 1) return;
     warp_map_next(rpg);
 }

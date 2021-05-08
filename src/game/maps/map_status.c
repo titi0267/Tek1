@@ -31,7 +31,8 @@ void print_map(rpg_t *rpg, int on_map)
     }
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->map->maps[on_map], NULL);
-    if (rpg->game->in_game->map->status != MAP_INSIDE_POLICE)
+    if (rpg->game->in_game->map->status != MAP_INSIDE_POLICE &&
+    rpg->game->in_game->map->status != MAP_INSIDE_CDC)
         move_enemies(rpg);
     if (map_status != rpg->game->in_game->map->status &&
     rpg->game->in_game->map->status != MAP_INSIDE_POLICE &&

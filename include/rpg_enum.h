@@ -129,6 +129,7 @@ typedef enum map_enum_s {
     MAP_WARREN,
     MAP_OUTSIDE_CDC,
     MAP_OUTSIDE_DISCO,
+    MAP_INSIDE_CDC,
     NO_MAP
 } map_enum_t;
 

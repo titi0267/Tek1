@@ -77,7 +77,6 @@ void hover_perso2(rpg_t *rpg);
 void hover_perso1(rpg_t *rpg);
 void stopped_moving(rpg_t *rpg);
 sfVector2u put_in_vector2u(unsigned int x, unsigned int y);
-int game_malloc(rpg_t *rpg);
 int check_color(rpg_t *rpg, sfColor color);
 int check_collision(rpg_t *rpg, int direction);
 int set_key_color(rpg_t *rpg);
@@ -249,5 +248,6 @@ void print_level_up(rpg_t *rpg);
 void vaccine_manager(rpg_t *rpg);
 void elevator_hitbox(rpg_t *rpg);
 void init_stats_basic_value(rpg_t *rpg);
+int choose_map_cdc_in(rpg_t *rpg);
 
 #endif /* !prototype */

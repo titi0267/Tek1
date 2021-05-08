@@ -30,7 +30,7 @@ void background_road(rpg_t *rpg)
 {
     static float nbr = 0;
 
-    if (nbr > 2.5 && rpg->game->end->wait_road == 0) {
+    if (rpg->game->end->wait_road == 0) {
         rpg->game->end->road_offset += 1;
         rpg->game->end->wait_road = 1;
         nbr = 0;

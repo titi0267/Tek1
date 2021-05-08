@@ -51,7 +51,7 @@ int create_player_bis(rpg_t *rpg)
     return (0);
 }
 
-int create_player_rect(rpg_t *rpg)
+static int create_player_rect(rpg_t *rpg)
 {
     if (create_player_bis(rpg) == 84 ||
     (rpg->game->in_game->objects->players = malloc(sizeof(sfSprite *) * 5))

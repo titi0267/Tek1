@@ -9,11 +9,10 @@
 
 void car_hitbox(rpg_t *rpg)
 {
-    if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
-    -2135 && rpg->game->in_game->map->pos_map[rpg->game->in_game->
-    map->status].x >= -2409 && rpg->game->in_game->map->pos_map[rpg->game->
-    in_game->map->status].y <= -1310 &&
-    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y >= -1761
+    if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x <=
+    -2135 && rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x >= -2409 &&
+    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y <= -1310 &&
+    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y >= -1761
     && rpg->game->in_game->phone->phone_status == 0) {
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
@@ -23,11 +22,10 @@ void car_hitbox(rpg_t *rpg)
 
 void warren_hitbox(rpg_t *rpg)
 {
-    if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
-    -363 && rpg->game->in_game->map->pos_map[rpg->game->in_game->
-    map->status].x >= -428 && rpg->game->in_game->map->pos_map[rpg->game->
-    in_game->map->status].y <= -2724 &&
-    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y >= -2831
+    if (rpg->game->in_game->map->pos_map[MAP_WARREN].x <=
+    -363 && rpg->game->in_game->map->pos_map[MAP_WARREN].x >= -428 &&
+    rpg->game->in_game->map->pos_map[MAP_WARREN].y <= -2724 &&
+    rpg->game->in_game->map->pos_map[MAP_WARREN].y >= -2831
     && rpg->game->in_game->phone->phone_status == 0) {
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
@@ -38,29 +36,13 @@ void warren_hitbox(rpg_t *rpg)
 
 void cdc_hitbox(rpg_t *rpg)
 {
-    if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
-    -1906 && rpg->game->in_game->map->pos_map[rpg->game->in_game->
-    map->status].x >= -2030 && rpg->game->in_game->map->pos_map[rpg->game->
-    in_game->map->status].y <= -3241 &&
-    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y >= -3366
+    if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].x <=
+    -1906 && rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].x >= -2030 &&
+    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y <= -3241 &&
+    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y >= -3366
     && rpg->game->in_game->phone->phone_status == 0) {
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
         rpg->game->in_game->game_status = GM_ELEVATOR;
-    }
-}
-
-void elevator_hitbox(rpg_t *rpg)
-{
-    if (rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x <=
-    -1906 && rpg->game->in_game->map->pos_map[rpg->game->in_game->
-    map->status].x >= -2030 && rpg->game->in_game->map->pos_map[rpg->game->
-    in_game->map->status].y <= -3241 &&
-    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y >= -3366
-    && rpg->game->in_game->phone->phone_status == 0) {
-        rpg->game->in_game->phone->notif_prev =
-        rpg->game->in_game->phone->notif_index;
-        rpg->menu->status = ON_CINEMATIC2;
-        rpg->game->in_game->inventory->vaccine_status = FALSE;
     }
 }

@@ -26,7 +26,6 @@ void parsing_avance4(rpg_t *rpg)
     }
     if (rpg->game->in_game->game_status == GM_ELEVATOR) {
         phone_main(rpg);
-        elevator_hitbox(rpg);
     }
 }
 

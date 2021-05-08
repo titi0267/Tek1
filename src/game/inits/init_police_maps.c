@@ -48,7 +48,7 @@ void give_police_pos_map(rpg_t *rpg)
 
 int create_police_map(rpg_t *rpg)
 {
-    int map_nbr = 7;
+    int map_nbr = 8;
 
     if ((rpg->game->in_game->map->maps = malloc(sizeof(sfSprite *) * map_nbr))
     == NULL || (rpg->game->in_game->map->collisions = malloc(sizeof(sfImage *)

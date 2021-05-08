@@ -29,7 +29,7 @@ int add_nmi(rpg_t *rpg, int x, int y)
     return (0);
 }
 
-int spawn_enemy_next(rpg_t *rpg, int x, int y)
+static int spawn_enemy_next(rpg_t *rpg, int x, int y)
 {
     sfColor color;
 

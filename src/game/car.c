@@ -27,9 +27,14 @@ int car_dist(rpg_t *rpg)
     sfVector2f check = vect_diff(put_in_vector2f(
     rpg->game->in_game->objects->car->car_pos.x + 5,
     rpg->game->in_game->objects->car->car_pos.y + 10),
-    put_in_vector2f(690, 560));
+    put_in_vector2f(960, 560));
 
-    if ((check.x <= 30 && check.x >= 0) && (check.y >= -20 && check.y <= 20))
+    if (check.x <= 0)
+        check.x *= -1;
+    if (check.y <= 0)
+        check.y *= -1;
+    printf("Pos.x = %f & pos.y = %f\n", check.x, check.y);
+    if (check.x < 50 && check.y < 50)
         return (TRUE);
     return (FALSE);
 }
@@ -42,11 +47,12 @@ void enter_car(rpg_t *rpg)
     if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
     (rpg->basic->evt->event.text.unicode ==
     (unsigned int)rpg->menu->stg->key_bnd->control[CAR]->text[0] &&
-    nbr >= 0.2 && car_dist(rpg))) {
+    nbr >= 0.2 && car_dist(rpg) == TRUE)) {
         rpg->game->in_game->objects->speed_status =
         (rpg->game->in_game->objects->speed_status != CAR_SPEED) ? CAR_SPEED :
         WALK_SPEED;
         nbr = 0;
+        printf("TRY TO ENTER\n");
         good_enter(rpg);
         sfSprite_setPosition(
         rpg->game->in_game->map->maps[rpg->game->in_game->map->status],
