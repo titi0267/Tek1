@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-int col_up(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
+static int col_up(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 {
     for (int z = pos_x; pos_x != (z - 50); pos_x--) {
         color = sfImage_getPixel(rpg->game->in_game->map->collisions
@@ -22,7 +22,7 @@ int col_up(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
     return (check_color(rpg, color));
 }
 
-int col_down(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
+static int col_down(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 {
     for (int z = pos_x; pos_x != (z - 50); pos_x--) {
         color = sfImage_getPixel(rpg->game->in_game->map->collisions
@@ -37,7 +37,7 @@ int col_down(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
     return (check_color(rpg, color));
 }
 
-int col_left(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
+static int col_left(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 {
     for (int z = pos_x; pos_x != z - 60; pos_x--) {
         color = sfImage_getPixel(rpg->game->in_game->map->collisions
@@ -51,7 +51,7 @@ int col_left(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
     return (check_color(rpg, color));
 }
 
-int col_right(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
+static int col_right(rpg_t *rpg, sfColor color, int pos_x, int pos_y)
 {
     for (int z = pos_x; pos_x != (z - 60); pos_x--) {
         color = sfImage_getPixel(rpg->game->in_game->map->collisions

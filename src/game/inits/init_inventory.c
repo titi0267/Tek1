@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void set_inventory_sprites(rpg_t *rpg)
+static void set_inventory_sprites(rpg_t *rpg)
 {
     rpg->game->in_game->inventory->area_contains = malloc(sizeof(int) * 3);
     for (int i = SMG; i < NO_WEAPON; i++) {
@@ -26,7 +26,7 @@ void set_inventory_sprites(rpg_t *rpg)
     rpg->game->in_game->inventory->on_drag = FALSE;
 }
 
-void init_inventory_pos(inventory_t *ivt)
+static void init_inventory_pos(inventory_t *ivt)
 {
     int x_over = 825;
     int y_over = 421;
@@ -50,7 +50,7 @@ void init_inventory_pos(inventory_t *ivt)
     }
 }
 
-void init_strat_pos(inventory_t *ivt)
+static void init_strat_pos(inventory_t *ivt)
 {
     ivt->box_pos[15][0] = put_in_vector2i(371, 367);
     ivt->box_pos[15][1] = put_in_vector2i(447, 443);

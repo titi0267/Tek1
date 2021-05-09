@@ -9,11 +9,8 @@
 
 void begin_nmi_spawn(rpg_t *rpg)
 {
-    //if (rpg->game->in_game->objects->spawn_status == 1) {
-        for (int i = 0; i < 10; i++)
-            spawn_enemies(rpg);
-        //rpg->game->in_game->objects->spawn_status = 0;
-        printf("SPAWN\n");
+    for (int i = 0; i < 10; i++)
+        spawn_enemies(rpg);
 }
 
 int add_nmi(rpg_t *rpg, int x, int y)

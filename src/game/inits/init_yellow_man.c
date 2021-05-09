@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_nmi_side(rpg_t *rpg)
+static void init_nmi_side(rpg_t *rpg)
 {
     rpg->game->in_game->nmi_list->nmi_rect[LEFT].left = 0;
     rpg->game->in_game->nmi_list->nmi_rect[LEFT].top = 88;
@@ -19,7 +19,7 @@ void init_nmi_side(rpg_t *rpg)
     rpg->game->in_game->nmi_list->nmi_rect[RIGHT].height = 88;
 }
 
-void init_nmi_up_down(rpg_t *rpg)
+static void init_nmi_up_down(rpg_t *rpg)
 {
     rpg->game->in_game->nmi_list->nmi_rect[UP].left = 0;
     rpg->game->in_game->nmi_list->nmi_rect[UP].top = 88 * 3;
@@ -32,7 +32,7 @@ void init_nmi_up_down(rpg_t *rpg)
     init_nmi_side(rpg);
 }
 
-int rect_nmi(rpg_t *rpg)
+static int rect_nmi(rpg_t *rpg)
 {
     int d = rand() % 4;
 

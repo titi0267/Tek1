@@ -39,7 +39,7 @@ void rect_move_enemy(rpg_t *rpg, int direction, enemy_t *nmi_list)
     rpg->game->in_game->nmi_list->nmi_rect[direction]);
 }
 
-void define_up_down(rpg_t *rpg, enemy_t *nmi_list)
+static void define_up_down(rpg_t *rpg, enemy_t *nmi_list)
 {
     if ((rpg->basic->cnf->clk->direction_clk
     >= 1 && nmi_list->diff.x <= nmi_list->diff.y

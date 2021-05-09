@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_tuto2(rpg_t *rpg)
+static void init_tuto2(rpg_t *rpg)
 {
     sfTexture *tuto4 = sfTexture_createFromFile
     ("assets/tutorial/tutoriel4.png", NULL);

@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_settings_option2(rpg_t *rpg)
+static void init_settings_option2(rpg_t *rpg)
 {
     sfTexture *game_options = sfTexture_createFromFile
     ("assets/menu_in_game/select_menu/select_menu3.png", NULL);

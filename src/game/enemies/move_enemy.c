@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void move_enemies_map_next(rpg_t *rpg, int direction)
+static void move_enemies_map_next(rpg_t *rpg, int direction)
 {
     if (direction == LEFT)
         rpg->game->in_game->nmi_list->nmi_pos.x +=

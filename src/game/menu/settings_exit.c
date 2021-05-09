@@ -49,10 +49,10 @@ void clic_options_exit1(rpg_t *rpg)
 int show_menus_exit(rpg_t *rpg)
 {
     if (rpg->menu->stg->stg_scene == GRAPH_SCN) {
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->menu->stg->opt[GRAPH_F], NULL);
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->menu->stg->opt_exit[GRAPH], NULL);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->menu->stg->opt[GRAPH_F], NULL);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->menu->stg->opt_exit[GRAPH], NULL);
         draw_square(rpg);
         select_fps(rpg);
         select_resolution(rpg);
@@ -60,10 +60,10 @@ int show_menus_exit(rpg_t *rpg)
         return (-1);
     }
     if (rpg->menu->stg->stg_scene == SOUND_SCN) {
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->menu->stg->opt[SOUND_F], NULL);
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->menu->stg->opt_exit[SOUND], NULL);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->menu->stg->opt[SOUND_F], NULL);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->menu->stg->opt_exit[SOUND], NULL);
         manage_sound(rpg);
         return (-1);
     }
@@ -73,10 +73,10 @@ int show_menus_exit(rpg_t *rpg)
 int show_menus_exit2(rpg_t *rpg)
 {
     if (rpg->menu->stg->stg_scene == KEYS_SCN) {
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->menu->stg->opt[GAME_OPTIONS_F], NULL);
-        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-        ,rpg->menu->stg->opt_exit[GAME_OPTIONS], NULL);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->menu->stg->opt[GAME_OPTIONS_F], NULL);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->menu->stg->opt_exit[GAME_OPTIONS], NULL);
         manage_key(rpg);
         return (-1);
     }
@@ -87,8 +87,8 @@ void options_exit(rpg_t *rpg)
 {
     show_menus_exit(rpg);
     show_menus_exit2(rpg);
-    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-    ,rpg->menu->stg->opt_exit[NO], NULL);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+    rpg->menu->stg->opt_exit[NO], NULL);
     clic_menu(rpg);
     clic_options_exit(rpg);
     clic_options_exit1(rpg);

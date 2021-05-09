@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_begin_notifs(rpg_t *rpg)
+static void init_begin_notifs(rpg_t *rpg)
 {
     sfTexture *text;
 
@@ -28,7 +28,7 @@ void init_begin_notifs(rpg_t *rpg)
     sfSprite_setTexture(rpg->game->in_game->phone->phone[4], text, sfTrue);
 }
 
-void init_phone_notifs(rpg_t *rpg)
+static void init_phone_notifs(rpg_t *rpg)
 {
     sfTexture *text;
     sfVector2f phone_pos = {1424.5, 50.5};

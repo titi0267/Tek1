@@ -18,7 +18,8 @@ void move_up_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
             == MAP_TUTO)
                 objects->car->car_pos_tuto.y +=
                 map->speed[objects->speed_status];
-            else if (map->speed[objects->speed_status] != 5 && map->status != MAP_TUTO)
+            else if (map->speed[objects->speed_status] != 5
+            && map->status != MAP_TUTO)
                 objects->car->car_pos.y +=
                 map->speed[objects->speed_status];
             move_enemies_on_map(rpg, UP);

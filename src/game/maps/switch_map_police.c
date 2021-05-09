@@ -23,7 +23,7 @@ int choose_outside_police_next(rpg_t *rpg)
         rpg->game->in_game->map->pos_map[MAP_WARREN] =
         put_in_vector2f(-2200, -1650);
         destroy_enemies(rpg);
-        begin_nmi_spawn(rpg);;
+        begin_nmi_spawn(rpg);
         return (1);
     }
     if ((rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x > -2000 &&
@@ -34,7 +34,6 @@ int choose_outside_police_next(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
         rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE] =
         put_in_vector2f(-1800, -1880);
-        
         return (1);
     }
     return (0);

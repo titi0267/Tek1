@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_pos_warren(rpg_t *rpg)
+static void init_pos_warren(rpg_t *rpg)
 {
     rpg->game->in_game->map->pos_map[MAP_WARREN] =
     put_in_vector2f(-1950, -1600);

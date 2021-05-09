@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_pleft_right_rect(rpg_t *rpg)
+static void init_pleft_right_rect(rpg_t *rpg)
 {
     rpg->menu->main_menu->new_game->char_in_game[LEFT].left = 100;
     rpg->menu->main_menu->new_game->char_in_game[LEFT].top = 326;
@@ -35,7 +35,7 @@ void set_player_rect(rpg_t *rpg)
     rpg->menu->main_menu->new_game->char_in_game[DOWN]);
 }
 
-int create_player_bis(rpg_t *rpg)
+static int create_player_bis(rpg_t *rpg)
 {
     if ((rpg->game->in_game->objects->player_tex = malloc(sizeof(sfTexture *)
     * 5)) == NULL)

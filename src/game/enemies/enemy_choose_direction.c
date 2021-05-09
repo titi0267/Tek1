@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void enemy_move_left_player(rpg_t *rpg, enemy_t *nmi_list)
+static void enemy_move_left_player(rpg_t *rpg, enemy_t *nmi_list)
 {
     if (nmi_list->choose_dir == LEFT &&
     move_enemy_left(rpg, nmi_list, 10, 1) != COLLISION)
@@ -29,7 +29,7 @@ void enemy_move_left_player(rpg_t *rpg, enemy_t *nmi_list)
     }
 }
 
-void enemy_move_right_player(rpg_t *rpg, enemy_t *nmi_list)
+static void enemy_move_right_player(rpg_t *rpg, enemy_t *nmi_list)
 {
     if (nmi_list->choose_dir == RIGHT &&
     move_enemy_right(rpg, nmi_list, 10, 1) != COLLISION)
@@ -50,7 +50,7 @@ void enemy_move_right_player(rpg_t *rpg, enemy_t *nmi_list)
     }
 }
 
-void enemy_move_up_player(rpg_t *rpg, enemy_t *nmi_list)
+static void enemy_move_up_player(rpg_t *rpg, enemy_t *nmi_list)
 {
     if (nmi_list->choose_dir == UP &&
     move_enemy_up(rpg, nmi_list, 10, 1) != COLLISION)
@@ -70,7 +70,7 @@ void enemy_move_up_player(rpg_t *rpg, enemy_t *nmi_list)
             nmi_list->choose_dir = DOWN;
     }
 }
-void enemy_move_down_player(rpg_t *rpg, enemy_t *nmi_list)
+static void enemy_move_down_player(rpg_t *rpg, enemy_t *nmi_list)
 {
     if (nmi_list->choose_dir == DOWN &&
     move_enemy_down(rpg, nmi_list, 10, 1) != COLLISION)

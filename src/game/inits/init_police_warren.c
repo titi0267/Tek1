@@ -17,7 +17,7 @@ void init_policemen(rpg_t *rpg)
     police_gang, sfTrue);
 }
 
-void init_rect_warren(rpg_t *rpg)
+static void init_rect_warren(rpg_t *rpg)
 {
     rpg->game->in_game->objects->rect_warren.left = 0;
     rpg->game->in_game->objects->rect_warren.width = 65;

@@ -63,7 +63,7 @@ void pop_bullet(rpg_t *rpg, bullets_t *bullet_list)
 
     if (*rpg->game->in_game->bullet == NULL)
         return;
-    while(bullet_list->nbr != del_nbr) {
+    while (bullet_list->nbr != del_nbr) {
         if (bullet_list->next == NULL)
             return;
         else {
@@ -76,7 +76,6 @@ void pop_bullet(rpg_t *rpg, bullets_t *bullet_list)
     else {
         bullet_prev->next = bullet_list->next;
         bullet_list->next = NULL;
-        //free(bullet_list);
     }
 }
 

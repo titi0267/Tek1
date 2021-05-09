@@ -32,7 +32,7 @@ void create_window(basic_t *basic)
 
     basic->wnd->my_wnd = sfRenderWindow_create(video_mode,
     "Grand Theft Covid", sfClose, NULL);
-    sfRenderWindow_setKeyRepeatEnabled(basic->wnd->my_wnd ,sfFalse);
+    sfRenderWindow_setKeyRepeatEnabled(basic->wnd->my_wnd, sfFalse);
     sfRenderWindow_setPosition(basic->wnd->my_wnd, position_window);
     sfRenderWindow_setFramerateLimit(basic->wnd->my_wnd,
     basic->cnf->scr_cnf->fps);

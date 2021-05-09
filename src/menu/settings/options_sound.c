@@ -38,8 +38,8 @@ void manage_music(rpg_t *rpg, sfFloatRect music, sfVector2f mouse)
 
     sfSprite_setOrigin
     (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], sp_center);
-    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], NULL);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+    rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_MUSIC], NULL);
     mouse.y = 363;
     if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, music.left - 67)) &&
@@ -62,8 +62,8 @@ void manage_dial(rpg_t *rpg, sfFloatRect dial, sfVector2f mouse)
 
     sfSprite_setOrigin
     (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], sp_center);
-    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], NULL);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+    rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_DIAG], NULL);
     mouse.y = 657;
     if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, dial.left - 67)) &&
@@ -85,8 +85,8 @@ void manage_amb(rpg_t *rpg, sfFloatRect amb, sfVector2f mouse)
 
     sfSprite_setOrigin
     (rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], sp_center);
-    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd
-    ,rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], NULL);
+    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+    rpg->menu->stg->graph->graph_btn->graphismes[CIRCLE_AMBT], NULL);
     mouse.y = 510;
     if (sfMouse_isButtonPressed(sfMouseLeft) == sfTrue) {
         if (((rpg->basic->cnf->mouse.x) >= adapt_x(rpg, amb.left - 67)) &&

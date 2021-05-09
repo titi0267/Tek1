@@ -30,6 +30,6 @@ void tuto_map(rpg_t *rpg)
     if (rpg->tutorial->tutorial_stat >= 1)
         rect_move_car(rpg, rpg->game->in_game->objects,
         rpg->game->in_game->map->dir);
-    if(rpg->game->in_game->objects->speed_status != CAR_SPEED)
+    if (rpg->game->in_game->objects->speed_status != CAR_SPEED)
         print_player_move_tuto(rpg);
 }

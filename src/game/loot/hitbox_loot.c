@@ -25,8 +25,6 @@ void weapon_hitbox2(rpg_t *rpg)
 
 void weapon_hitbox(rpg_t *rpg)
 {
-    // printf("%f || %f\n", rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x,
-    // rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y);
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x <=
     -784 && rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x >= -860
     && rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y <= -2844 &&

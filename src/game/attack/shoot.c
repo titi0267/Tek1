@@ -27,7 +27,7 @@ void shoot_bullet(rpg_t *rpg)
     rpg->game->in_game->objects->speed_status != CAR_SPEED) {
         draw_knife(rpg);
         for (rpg->game->in_game->nmi_list = *(rpg->game->in_game->nmi);
-        rpg->game->in_game->nmi_list!= NULL;
+        rpg->game->in_game->nmi_list != NULL;
         rpg->game->in_game->nmi_list = rpg->game->in_game->nmi_list->next)
             attack_cut(rpg, rpg->game->in_game->nmi_list);
         time = 0;

@@ -9,8 +9,8 @@
 
 char *save_avance(rpg_t *rpg)
 {
-    char *avance = my_strcat(my_putnbr(rpg->game->in_game->phone->notif_index)
-    , ";");
+    char *avance = my_strcat(my_putnbr(rpg->game->in_game->phone->notif_index),
+    ";");
     avance = my_strcat(avance, my_strcat(
     my_putnbr(rpg->game->in_game->game_status), ";"));
 

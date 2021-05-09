@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void police_texture_map(rpg_t *rpg)
+static void police_texture_map(rpg_t *rpg)
 {
     sfTexture *in_police = sfTexture_createFromFile
     ("assets/maps/real/police_int.png", NULL);
@@ -29,7 +29,7 @@ void police_texture_map(rpg_t *rpg)
     init_warren_map(rpg);
 }
 
-void give_police_pos_map(rpg_t *rpg)
+static void give_police_pos_map(rpg_t *rpg)
 {
     rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE] =
     put_in_vector2f(-1265, -959);

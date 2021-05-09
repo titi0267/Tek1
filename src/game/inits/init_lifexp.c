@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-void init_life(rpg_t *rpg)
+static void init_life(rpg_t *rpg)
 {
     rpg->game->in_game->stats->life_size = put_in_vector2f(400, 20);
     rpg->game->in_game->stats->life = sfRectangleShape_create();
@@ -19,7 +19,7 @@ void init_life(rpg_t *rpg)
     put_in_vector2f(100, 50));
 }
 
-void init_life_border(rpg_t *rpg)
+static void init_life_border(rpg_t *rpg)
 {
     sfVector2f size = put_in_vector2f(400, 20);
 
@@ -35,7 +35,7 @@ void init_life_border(rpg_t *rpg)
     put_in_vector2f(100, 50));
 }
 
-void init_xp(rpg_t *rpg)
+static void init_xp(rpg_t *rpg)
 {
     rpg->game->in_game->stats->xp_size = put_in_vector2f(0, 20);
     rpg->game->in_game->stats->xp = sfRectangleShape_create();
@@ -47,7 +47,7 @@ void init_xp(rpg_t *rpg)
     put_in_vector2f(100, 100));
 }
 
-void init_xp_border(rpg_t *rpg)
+static void init_xp_border(rpg_t *rpg)
 {
     sfVector2f size = put_in_vector2f(300, 20);
 

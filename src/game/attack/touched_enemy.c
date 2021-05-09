@@ -15,7 +15,7 @@ static void pop_enemy(rpg_t *rpg, enemy_t *nmi_list)
     nmi_list = *rpg->game->in_game->nmi;
     if (*rpg->game->in_game->nmi == NULL)
         return;
-    while(nmi_list->nbr != del_nbr) {
+    while (nmi_list->nbr != del_nbr) {
         if (nmi_list->next == NULL)
             return;
         else {
@@ -68,7 +68,7 @@ static particle_t *pop_blood(rpg_t *rpg, particle_t *particle_list)
     particle_list = *rpg->game->in_game->particle;
     if (*rpg->game->in_game->particle == NULL)
         return NULL;
-    while(particle_list->next != NULL) {
+    while (particle_list->next != NULL) {
         before_last = particle_list;
         particle_list = particle_list->next;
         }

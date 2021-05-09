@@ -22,19 +22,7 @@ void destroy_enemies(rpg_t *rpg)
 
 void print_map(rpg_t *rpg, int on_map)
 {
-    //rpg->map_status = rpg->game->in_game->map->status;
-
-    /*if (map_status != rpg->game->in_game->map->status &&
-    rpg->game->in_game->map->status != MAP_INSIDE_POLICE &&
-    map_status != MAP_INSIDE_CDC &&
-    rpg->game->in_game->objects->spawn_status == 0) {
-        destroy_enemies(rpg);
-        printf("DESTROY ta mere\n");
-        rpg->game->in_game->objects->spawn_status = 1;
-    }
-    */
-    if (rpg->menu->status == ON_GAME &&
-    !on_cine(rpg)) {
+    if (rpg->menu->status == ON_GAME && !on_cine(rpg)) {
         player_run(rpg);
         move_left_map(rpg, on_map, rpg->game->in_game->objects,
         rpg->game->in_game->map);
@@ -54,7 +42,7 @@ void print_map(rpg_t *rpg, int on_map)
         sfSprite_setPosition(rpg->game->in_game->objects->car->car,
         rpg->game->in_game->objects->car->car_pos);
     }
-    if(rpg->game->in_game->objects->speed_status != CAR_SPEED)
+    if (rpg->game->in_game->objects->speed_status != CAR_SPEED)
         print_player_move(rpg);
 }
 

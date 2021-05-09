@@ -16,7 +16,7 @@ void move_bullet_up(rpg_t *rpg, bullets_t *bullet_list)
         [rpg->game->in_game->objects->speed_status]);
     if (rpg->game->in_game->map->dir == DOWN)
         bullet_list->bullet_pos.y -= (5 + rpg->game->in_game->map->speed
-        [rpg->game->in_game->objects->speed_status]);;
+        [rpg->game->in_game->objects->speed_status]);
     if (rpg->game->in_game->map->dir == LEFT)
         bullet_list->bullet_pos = vect_x_y(bullet_list->bullet_pos,
         rpg->game->in_game->map->speed

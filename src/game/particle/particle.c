@@ -5,9 +5,6 @@
 ** particle
 */
 
-// 60; 108;
-// {930, 486}
-
 #include "../../../include/func_name.h"
 
 void creat_rect(rpg_t *rpg, sfVector2f vect, float diff)
@@ -112,27 +109,3 @@ void move_blood(particle_t *particle_list)
     particle_list->blood_color.b = (particle_list->blood_color.b - 7 < 0) ? 0 :
     particle_list->blood_color.b - 7;
 }
-/*
-void creat_blood(rpg_t *rpg, enemy_t *nmi_list)
-{
-    static float time = 0;
-    static int nbr = 0;
-
-    if (nmi_list->blooding == 1) {
-        if (time == 0)
-            init_particle_blood(rpg, nmi_list->nmi_pos);
-        time += rpg->basic->cnf->clk->time_loop;
-        for (int i = 0; i <= 3; i++)
-            creat_square(rpg, rpg->game->in_game->particle->blood[i]);
-        if (time >= 0.005) {
-            time = 0.001;
-            move_blood(rpg);
-            nbr++;
-        }
-        if (nbr == 20) {
-            time = 0;
-            nbr = 0;
-            nmi_list->blooding = 0;
-        }
-    }
-}*/
