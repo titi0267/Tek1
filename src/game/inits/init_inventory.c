@@ -98,7 +98,7 @@ void init_inventory(rpg_t *rpg)
     sfTexture_createFromFile("assets/inventory/inventaire.png", NULL);
     sfSprite_setTexture(rpg->game->in_game->inventory->inventory,
     rpg->game->in_game->inventory->inventory_txt, sfTrue);
-    rpg->game->in_game->inventory->weapon = malloc(sizeof(sfSprite *) * 5);
+    rpg->game->in_game->inventory->weapon = malloc(sizeof(sfSprite *) * 6);
     rpg->game->in_game->inventory->weapon_txt = malloc(sizeof(sfTexture *) * 5);
     rpg->game->in_game->inventory->weapon_txt[SMG] =
     sfTexture_createFromFile("assets/inventory/mitraillette.png", NULL);

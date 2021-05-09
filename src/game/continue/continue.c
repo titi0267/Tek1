@@ -18,7 +18,17 @@ char *my_open(FILE *fd)
     return (map);
 }
 
-void load_value2(char *map, rpg_t *rpg)
+static void load_inventory(char *map, rpg_t *rpg)
+{
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->inventory->area_contains[WEAPON] = my_getnbr(map);
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->inventory->area_contains[VEST] = my_getnbr(map);
+}
+
+static void load_value2(char *map, rpg_t *rpg)
 {
     for (; map[0] != ';'; map++);
     map++;
@@ -29,7 +39,7 @@ void load_value2(char *map, rpg_t *rpg)
     for (int i = 0; i <= P_ARMOR; i++) {
         for (; map[0] != ';'; map++);
         map++;
-        rpg->game->in_game->stats->player_stats[i]->value = my_getnbr(map);
+        rpg->game->in_game->stats->player_stats[i]->base_value = my_getnbr(map);
     }
     for (; map[0] != ';'; map++);
     map++;
@@ -37,6 +47,7 @@ void load_value2(char *map, rpg_t *rpg)
     for (; map[0] != ';'; map++);
     map++;
     rpg->game->in_game->game_status = my_getnbr(map);
+    load_inventory(map, rpg);
 }
 
 void load_values(char *map, rpg_t *rpg)

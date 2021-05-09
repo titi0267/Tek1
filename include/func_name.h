@@ -260,5 +260,6 @@ void bullet_hitbox(rpg_t *rpg);
 void vest_hitbox(rpg_t *rpg);
 void begin_nmi_spawn(rpg_t *rpg);
 void display_vest_in_inv(rpg_t *rpg);
+char *save_invent(rpg_t *rpg);
 
 #endif /* !prototype */

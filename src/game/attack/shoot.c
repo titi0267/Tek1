@@ -21,7 +21,8 @@ void shoot_bullet(rpg_t *rpg)
         time = 0;
     }
     if ((sfTrue == sfKeyboard_isKeyPressed(sfKeyEnter)) &&
-    rpg->game->in_game->inventory->area_contains[WEAPON] == KNIFE &&
+    (rpg->game->in_game->inventory->area_contains[WEAPON] == KNIFE ||
+    rpg->game->in_game->inventory->area_contains[WEAPON] == NO_WEAPON) &&
     !on_cine(rpg) && time >= 0.5) {
         draw_knife(rpg);
         for (rpg->game->in_game->nmi_list = *(rpg->game->in_game->nmi);

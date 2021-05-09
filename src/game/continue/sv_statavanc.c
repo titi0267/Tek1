@@ -24,7 +24,19 @@ char *save_stats(rpg_t *rpg)
     my_strcat(my_putnbr(rpg->game->in_game->stats->xp_value), ";"));
     for (int i = 0; i <= P_ARMOR; i++)
         stats = my_strcat(stats,
-        my_strcat(my_putnbr(rpg->game->in_game->stats->player_stats[i]->value),
+        my_strcat(my_putnbr(rpg->game->in_game->stats->player_stats[i]->
+        base_value),
         ";"));
     return (stats);
+}
+
+char *save_invent(rpg_t *rpg)
+{
+    char *invent = my_strcat(my_putnbr(rpg->game->in_game->inventory->
+    area_contains[WEAPON]), ";");
+    invent = my_strcat(invent,
+    my_strcat(my_putnbr(rpg->game->in_game->inventory->
+    area_contains[VEST]), ";"));
+
+    return (invent);
 }
