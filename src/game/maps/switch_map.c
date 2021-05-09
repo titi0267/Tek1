@@ -13,12 +13,14 @@ int choose_map_warren(rpg_t *rpg)
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE] =
         put_in_vector2f(200, -1870);
         rpg->game->in_game->map->status = MAP_OUTSIDE_POLICE;
+        begin_nmi_spawn(rpg);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_WARREN].y < -2500) {
         rpg->game->in_game->map->status = MAP_OUTSIDE_DISCO;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO] =
         put_in_vector2f(-200, -2380);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     return (0);
@@ -31,6 +33,7 @@ int choose_map_outside_cdc(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_OUTSIDE_POLICE;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE] =
         put_in_vector2f(-3500, -2470);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y < -2000 &&
@@ -38,6 +41,7 @@ int choose_map_outside_cdc(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_OUTSIDE_DISCO;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO] =
         put_in_vector2f(-2400, -2350);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y < -2000 &&
@@ -56,6 +60,7 @@ int choose_map_outside_disco(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_OUTSIDE_POLICE;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE] =
         put_in_vector2f(-1880, -2650);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO].y < -1800 &&
@@ -63,6 +68,7 @@ int choose_map_outside_disco(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_WARREN;
         rpg->game->in_game->map->pos_map[MAP_WARREN] =
         put_in_vector2f(-2500, -3345);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO].y < -1900 &&
@@ -70,6 +76,7 @@ int choose_map_outside_disco(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_OUTSIDE_CDC;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC] =
         put_in_vector2f(-500, -2800);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     return (0);

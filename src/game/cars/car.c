@@ -5,25 +5,27 @@
 ** tuto
 */
 
-#include "../../include/func_name.h"
+#include "../../../include/func_name.h"
 
 static void good_enter(rpg_t *rpg, sfFloatRect car, sfFloatRect player)
 {
-    //sfVector2f diff;
-
-    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x += (player.left - car.left);
-    rpg->game->in_game->objects->car->car_pos.x += (player.left - car.left);
-    rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y += (player.top - car.top);
-    rpg->game->in_game->objects->car->car_pos.y += (player.top - car.top);
-    /*diff = vect_diff(put_in_vector2f(rpg->game->in_game->objects->car->
-    car_pos.x, rpg->game->in_game->objects->car->car_pos.y),
-    put_in_vector2f(690, 560));
-    printf("%f ||%f\n", diff.x, diff.y);
-    diff.x -= 20.5;
-    diff.y = 0;*/
-    /*rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status] =
-    vect_add(rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status],
-    diff);*/
+    if (rpg->game->in_game->map->status == MAP_TUTO) {
+        rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x
+        += (player.left - car.left);
+        rpg->game->in_game->objects->car->car_pos_tuto.x +=
+        (player.left - car.left);
+        rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y +=
+        (player.top - car.top);
+        rpg->game->in_game->objects->car->car_pos_tuto.y +=
+        (player.top - car.top);
+    } else {
+        rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x
+        += (player.left - car.left);
+        rpg->game->in_game->objects->car->car_pos.x += (player.left - car.left);
+        rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y +=
+        (player.top - car.top);
+        rpg->game->in_game->objects->car->car_pos.y += (player.top - car.top);
+    }
 }
 
 int car_dist(sfFloatRect car, sfFloatRect player)
@@ -57,8 +59,12 @@ void enter_car(rpg_t *rpg)
         sfSprite_setPosition(
         rpg->game->in_game->map->maps[rpg->game->in_game->map->status],
         rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status]);
-        sfSprite_setPosition(
-        rpg->game->in_game->objects->car->car,
-        rpg->game->in_game->objects->car->car_pos);
+        if (rpg->game->in_game->map->status == MAP_TUTO)
+            sfSprite_setPosition(rpg->game->in_game->objects->car->car,
+            rpg->game->in_game->objects->car->car_pos_tuto);
+        else
+            sfSprite_setPosition(rpg->game->in_game->objects->car->car,
+            rpg->game->in_game->objects->car->car_pos);
+
     }
 }

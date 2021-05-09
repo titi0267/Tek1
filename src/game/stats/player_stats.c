@@ -37,6 +37,8 @@ void update_invent_stats(rpg_t *rpg)
     rpg->game->in_game->stats->player_stats[P_ARMOR]->total_value =
     rpg->game->in_game->stats->player_stats[P_ARMOR]->value +
     rpg->game->in_game->stats->player_stats[P_ARMOR]->base_value;
+    rpg->game->in_game->stats->player_stats[P_LIFE]->total_value =
+    rpg->game->in_game->stats->player_stats[P_LIFE]->value;
     for (int i = 0; i <= P_ARMOR; i++) {
         sfText_setString(rpg->game->in_game->stats->player_stats[i]->txt,
         my_putnbr(rpg->game->in_game->stats->player_stats[i]->total_value));

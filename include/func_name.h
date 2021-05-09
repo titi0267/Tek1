@@ -258,5 +258,7 @@ void init_stuff(rpg_t *rpg);
 void weapon_hitbox(rpg_t *rpg);
 void bullet_hitbox(rpg_t *rpg);
 void vest_hitbox(rpg_t *rpg);
+void begin_nmi_spawn(rpg_t *rpg);
+void display_vest_in_inv(rpg_t *rpg);
 
 #endif /* !prototype */

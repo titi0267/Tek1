@@ -47,7 +47,6 @@ SRCSFILES=	rpg.c							\
 			menu/background.c			\
 			menu/start.c				\
 			game/shortcuts.c				\
-			game/car.c						\
 			game/cinematics/cine_start.c			\
 			game/cinematics/cine_end.c				\
 			game/continue/save_game.c			\
@@ -67,7 +66,6 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_yellow_man.c		\
 			game/inits/init_police_maps.c		\
 			game/inits/init_other_maps.c		\
-			game/inits/init_car.c				\
 			game/inits/init_audios.c			\
 			game/inits/init_phone.c				\
 			game/inits/init_stats.c				\
@@ -110,6 +108,8 @@ SRCSFILES=	rpg.c							\
 			game/attack/touched_enemy.c			\
 			game/loot/spawn.c				\
 			game/loot/hitbox_loot.c			\
+			game/cars/init_car.c				\
+			game/cars/car.c						\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 

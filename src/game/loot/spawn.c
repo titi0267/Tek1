@@ -51,11 +51,11 @@ void spawn_vest(rpg_t *rpg)
 {
     if (rpg->game->in_game->map->status == MAP_WARREN &&
     rpg->game->in_game->stuff->stuff_status[BPVEST] == FALSE) {
-        sfSprite_setPosition(rpg->game->in_game->inventory->b_proof,
+        sfSprite_setPosition(rpg->game->in_game->inventory->weapon[BPVEST],
         put_in_vector2f(rpg->game->in_game->map->pos_map[MAP_WARREN].x
         + 2362, rpg->game->in_game->map->pos_map[MAP_WARREN].y + 2462));
         sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-        rpg->game->in_game->inventory->b_proof, NULL);
+        rpg->game->in_game->inventory->weapon[BPVEST], NULL);
     }
 }
 
@@ -65,4 +65,5 @@ void print_map_loot(rpg_t *rpg)
     spawn_weapon_2(rpg);
     spawn_vest(rpg);
     weapon_hitbox(rpg);
+    vest_hitbox(rpg);
 }

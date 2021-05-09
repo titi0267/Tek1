@@ -22,6 +22,7 @@ int choose_outside_police_next(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_WARREN;
         rpg->game->in_game->map->pos_map[MAP_WARREN] =
         put_in_vector2f(-2200, -1650);
+        begin_nmi_spawn(rpg);;
         return (1);
     }
     if ((rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x > -2000 &&
@@ -48,6 +49,7 @@ int choose_map_outside_police(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_OUTSIDE_CDC;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC] =
         put_in_vector2f(-100, -1400);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y < -2300 &&
@@ -55,6 +57,7 @@ int choose_map_outside_police(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_OUTSIDE_DISCO;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO] =
         put_in_vector2f(-1200, -1600);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     return (0);
@@ -66,6 +69,7 @@ int choose_map_cdc_in(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_OUTSIDE_CDC;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC] =
         put_in_vector2f(-2060, -3350);
+        begin_nmi_spawn(rpg);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_INSIDE_CDC].y > -1500 ) {

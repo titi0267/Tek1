@@ -65,8 +65,7 @@ void drop_bullets(rpg_t *rpg)
 
 void drop_bullet_proof(rpg_t *rpg)
 {
-    if ((rpg->game->in_game->inventory->selected_item >= BPVEST &&
-    rpg->game->in_game->inventory->selected_item < NO_VEST) &&
+    if ((rpg->game->in_game->inventory->selected_item == BPVEST) &&
     ((rpg->basic->cnf->mouse.x) >= adapt_x(rpg,
     rpg->game->in_game->inventory->box_pos[17][0].x)) &&
     ((rpg->basic->cnf->mouse.y) >= adapt_y(rpg,

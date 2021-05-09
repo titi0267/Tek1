@@ -27,7 +27,6 @@ typedef struct inventory_s {
     sfSprite *inventory;
     sfTexture *inventory_txt;
     sfSprite **weapon;
-    sfSprite *b_proof;
     sfSprite **bullet;
     sfSprite *vaccine;
     sfTexture **weapon_txt;
@@ -71,6 +70,7 @@ typedef struct car_s
 {
     sfSprite *car;
     sfIntRect *rect_car;
+    sfVector2f car_pos_tuto;
     sfVector2f car_pos;
     int car_line;
     int status;
@@ -187,7 +187,8 @@ typedef struct particle_s
     sfVector2f *blood;
     sfColor blood_color;
     struct particle_s *next;
-    float tm;int nbr;
+    float tm;
+    int nbr;
 } particle_t;
 
 typedef struct in_game_s

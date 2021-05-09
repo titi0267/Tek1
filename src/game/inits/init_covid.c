@@ -24,11 +24,15 @@ void init_bullet_proof(rpg_t *rpg)
     sfTexture *b_proof_txt = sfTexture_createFromFile
     ("assets/inventory/bullet_proof.png", NULL);
 
-    rpg->game->in_game->inventory->b_proof = sfSprite_create();
-    sfSprite_setTexture(rpg->game->in_game->inventory->b_proof, b_proof_txt,
+    rpg->game->in_game->inventory->weapon[BPVEST] = sfSprite_create();
+    sfSprite_setTexture(rpg->game->in_game->inventory->weapon[BPVEST], b_proof_txt,
     sfTrue);
-    sfSprite_setPosition(rpg->game->in_game->inventory->b_proof,
-    put_in_vector2f(370.5, 547.2));
+    /*sfSprite_setPosition(rpg->game->in_game->inventory->b_proof,
+    put_in_vector2f(370.5, 547.2));*/
+    sfSprite_setPosition(rpg->game->in_game->inventory->weapon[BPVEST],
+    put_in_vector2f(rpg->game->in_game->map->pos_map[MAP_WARREN].x
+    + 2362, rpg->game->in_game->map->pos_map[MAP_WARREN].y + 2462));
+
 }
 
 void positions_items(rpg_t *rpg)
@@ -36,7 +40,7 @@ void positions_items(rpg_t *rpg)
     sfSprite_setPosition(rpg->game->in_game->inventory->weapon[GUN],
     put_in_vector2f(rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].x
     + 1752, rpg->game->in_game->map->pos_map[MAP_OUTSIDE_POLICE].y + 3384));
-    sfSprite_setPosition(rpg->game->in_game->inventory->b_proof,
+    sfSprite_setPosition(rpg->game->in_game->inventory->weapon[BPVEST],
     put_in_vector2f(rpg->game->in_game->map->pos_map[MAP_WARREN].x
     + 2362, rpg->game->in_game->map->pos_map[MAP_WARREN].y + 2462));
 }

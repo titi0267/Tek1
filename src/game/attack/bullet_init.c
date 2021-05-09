@@ -17,27 +17,36 @@ static void dispawn_bullet(rpg_t *rpg, bullets_t *bullet_list)
         bullet_list->finish_line = 300;
     if (rpg->game->in_game->map->last_pos == RIGHT)
         bullet_list->finish_line = 300;
+}
 
+void set_bullet_value(rpg_t *rpg, bullets_t *bullet_list)
+{
+    sfTexture *bullet = sfTexture_createFromFile
+    ("assets/inventory/bullet_in_gm.png", NULL);
+    sfTexture *bullet_blue = sfTexture_createFromFile
+    ("assets/inventory/bullet_taz", NULL);
+
+    bullet_list->bullet = sfSprite_create();
+    if (rpg->game->in_game->inventory->area_contains[WEAPON] == TAZER)
+        sfSprite_setTexture(bullet_list->bullet, bullet_blue, sfTrue);
+    else
+        sfSprite_setTexture(bullet_list->bullet, bullet, sfTrue);
+    bullet_list->bullet_pos = put_in_vector2f(950, 532);
+    sfSprite_setPosition(bullet_list->bullet,
+    bullet_list->bullet_pos);
+    bullet_list->bullet_dir =
+    rpg->game->in_game->map->last_pos;
 }
 
 int init_bullet(rpg_t *rpg)
 {
-    sfTexture *bullet = sfTexture_createFromFile
-    ("assets/inventory/bullet_in_gm.png", NULL);
     static int i = 0;
 
     rpg->game->in_game->bullet_list = *(rpg->game->in_game->bullet);
     if ((rpg->game->in_game->bullet_list = malloc(sizeof
     (*rpg->game->in_game->bullet_list))) == NULL)
         return (MALLOC_ERROR);
-    rpg->game->in_game->bullet_list->bullet = sfSprite_create();
-    sfSprite_setTexture(rpg->game->in_game->bullet_list->bullet,
-    bullet, sfTrue);
-    rpg->game->in_game->bullet_list->bullet_pos = put_in_vector2f(950, 532);
-    sfSprite_setPosition(rpg->game->in_game->bullet_list->bullet,
-    rpg->game->in_game->bullet_list->bullet_pos);
-    rpg->game->in_game->bullet_list->bullet_dir =
-    rpg->game->in_game->map->last_pos;
+    set_bullet_value(rpg, rpg->game->in_game->bullet_list);
     rpg->game->in_game->bullet_list->nbr = i;
     dispawn_bullet(rpg, rpg->game->in_game->bullet_list);
     rpg->game->in_game->bullet_list->next = *(rpg->game->in_game->bullet);

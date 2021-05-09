@@ -7,6 +7,12 @@
 
 #include "../../../include/func_name.h"
 
+void begin_nmi_spawn(rpg_t *rpg)
+{
+    for (int i = 0; i < 100; i++)
+        spawn_enemies(rpg);
+}
+
 int add_nmi(rpg_t *rpg, int x, int y)
 {
     static int i = 0;

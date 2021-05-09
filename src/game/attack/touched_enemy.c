@@ -46,11 +46,19 @@ static void is_touched(rpg_t *rpg, bullets_t *bullet_list, enemy_t *nmi_list)
 
 static void collision_enemy_player(rpg_t *rpg, enemy_t *nmi_list)
 {
+    static float time = 0;
+
+    time += rpg->basic->cnf->clk->time_loop;
     if (((nmi_list->nmi_pos.x > 930 && nmi_list->nmi_pos.x < 990) ||
     (nmi_list->nmi_pos.x + 55 > 930 && nmi_list->nmi_pos.x + 55 < 990)) &&
     ((nmi_list->nmi_pos.y > 485 && nmi_list->nmi_pos.y < 593) ||
-    ((nmi_list->nmi_pos.y + 88) > 485 && (nmi_list->nmi_pos.y + 88) < 593))) {
-        rpg->game->in_game->stats->player_stats[P_LIFE]->value -= 10;
+    ((nmi_list->nmi_pos.y + 88) > 485 && (nmi_list->nmi_pos.y + 88) < 593)) &&
+    time >= 5) {
+        rpg->game->in_game->stats->player_stats[P_LIFE]->value -=
+        ((20 - rpg->game->in_game->stats->player_stats[P_ARMOR]->total_value)
+        > 0) ? (20 -  rpg->game->in_game->stats->player_stats[P_ARMOR]->
+        total_value) : 0;
+        time = 0;
     }
 }
 
@@ -116,7 +124,7 @@ void collision_enemy_bullet(rpg_t *rpg)
         if (rpg->game->in_game->nmi_list->life <= 0
         && rpg->game->in_game->nmi_list->blooding == 0) {
             pop_enemy(rpg, rpg->game->in_game->nmi_list);
-            rpg->game->in_game->stats->xp_value += 50;
+            rpg->game->in_game->stats->xp_value += 20;
         }
         for (rpg->game->in_game->bullet_list = *(rpg->game->in_game->bullet);
         rpg->game->in_game->bullet_list != NULL; rpg->game->in_game->bullet_list

@@ -76,6 +76,7 @@ void parsing_3(rpg_t *rpg)
     }
     if (rpg->menu->status == ON_NEW_GM) {
         background(rpg);
+        set_pos_car(rpg);
         choose_perso(rpg);
     }
 }

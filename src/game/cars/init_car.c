@@ -10,8 +10,14 @@
 void set_pos_car(rpg_t *rpg)
 {
     if (rpg->game->in_game->objects->car->status != 0) {
-        rpg->game->in_game->objects->car->car_pos.x = 490.0;
-        rpg->game->in_game->objects->car->car_pos.y = 300.0;
+        rpg->game->in_game->objects->car->car_pos_tuto.x = 490.0;
+        rpg->game->in_game->objects->car->car_pos_tuto.y = 300.0;
+        rpg->game->in_game->objects->car->car_pos.x = 1750;
+        rpg->game->in_game->objects->car->car_pos.y = 1125;
+        if (rpg->game->in_game->map->status != MAP_TUTO) {
+            rpg->game->in_game->objects->car->last_dir = 1;
+            rpg->game->in_game->objects->car->top_car = 494;
+        }
         rpg->game->in_game->objects->car->status = 0;
     }
 }
@@ -46,8 +52,12 @@ void print_car(rpg_t *rpg, int direction)
     }
     sfSprite_setTextureRect(rpg->game->in_game->objects->car->car,
     rpg->game->in_game->objects->car->rect_car[direction]);
-    sfSprite_setPosition(rpg->game->in_game->objects->car->car,
-    rpg->game->in_game->objects->car->car_pos);
+    if (rpg->game->in_game->map->status == MAP_TUTO)
+        sfSprite_setPosition(rpg->game->in_game->objects->car->car,
+        rpg->game->in_game->objects->car->car_pos_tuto);
+    else
+        sfSprite_setPosition(rpg->game->in_game->objects->car->car,
+        rpg->game->in_game->objects->car->car_pos);
     sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->objects->car->car, NULL);
 }

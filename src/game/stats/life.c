@@ -68,7 +68,7 @@ void hitbox_level_up(rpg_t *rpg)
     (rpg->basic->cnf->mouse.x <= adapt_x(rpg, 1562.1)) &&
     (rpg->basic->cnf->mouse.y <= adapt_y(rpg, 690)) && nbr >= 0.2) {
         rpg->game->in_game->stats->level--;
-        rpg->game->in_game->stats->player_stats[P_ARMOR]->base_value += 5;
+        rpg->game->in_game->stats->player_stats[P_ARMOR]->base_value += 3;
         nbr = 0;
     }
 }

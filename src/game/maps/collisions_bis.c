@@ -35,10 +35,10 @@ int check_collision_again(rpg_t *rpg, int direction)
         return (COLLISION);
     }
     else if (d == BEHIND) {
-        color.r = 0;
-        color.g = 0;
-        color.b = 0;
-        color.a = 128;
+        color.r = 128;
+        color.g = 128;
+        color.b = 128;
+        color.a = 80;
         sfSprite_setColor(rpg->game->in_game->objects->players
         [rpg->menu->main_menu->new_game->character_chosen], color);
         return (COLLISION);
@@ -59,10 +59,10 @@ int check_collision(rpg_t *rpg, int direction)
         if ((f = check_collision_again(rpg, direction)) != -1)
             return (d);
     if (d == BEHIND) {
-        color.r = 0;
-        color.g = 0;
-        color.b = 0;
-        color.a = 128;
+        color.r = 128;
+        color.g = 128;
+        color.b = 128;
+        color.a = 80;
         sfSprite_setColor(rpg->game->in_game->objects->players
         [rpg->menu->main_menu->new_game->character_chosen], color);
     }

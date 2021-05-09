@@ -42,8 +42,16 @@ void print_map(rpg_t *rpg, int on_map)
     /*sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
     rpg->game->in_game->objects->car->car, NULL);*/
     print_map_loot(rpg);
-    print_player_move(rpg);
     collision_enemy_bullet(rpg);
+    if (rpg->game->in_game->map->status != MAP_INSIDE_POLICE) {
+        enter_car(rpg);
+        rect_move_car(rpg, rpg->game->in_game->objects,
+        rpg->game->in_game->map->dir);
+        sfSprite_setPosition(rpg->game->in_game->objects->car->car,
+        rpg->game->in_game->objects->car->car_pos);
+    }
+    if(rpg->game->in_game->objects->speed_status != CAR_SPEED)
+        print_player_move(rpg);
 }
 
 void chose_map(rpg_t *rpg)

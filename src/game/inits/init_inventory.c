@@ -91,15 +91,15 @@ void init_positions(rpg_t *rpg)
 
 void init_inventory(rpg_t *rpg)
 {
-    rpg->game->in_game->inventory->pos_weapon = malloc(sizeof(sfVector2f) * 4);
+    rpg->game->in_game->inventory->pos_weapon = malloc(sizeof(sfVector2f) * 5);
     rpg->game->in_game->inventory->pos_storage = malloc(sizeof(sfVector2f) * 3);
     rpg->game->in_game->inventory->inventory = sfSprite_create();
     rpg->game->in_game->inventory->inventory_txt =
     sfTexture_createFromFile("assets/inventory/inventaire.png", NULL);
     sfSprite_setTexture(rpg->game->in_game->inventory->inventory,
     rpg->game->in_game->inventory->inventory_txt, sfTrue);
-    rpg->game->in_game->inventory->weapon = malloc(sizeof(sfSprite *) * 4);
-    rpg->game->in_game->inventory->weapon_txt = malloc(sizeof(sfTexture *) * 4);
+    rpg->game->in_game->inventory->weapon = malloc(sizeof(sfSprite *) * 5);
+    rpg->game->in_game->inventory->weapon_txt = malloc(sizeof(sfTexture *) * 5);
     rpg->game->in_game->inventory->weapon_txt[SMG] =
     sfTexture_createFromFile("assets/inventory/mitraillette.png", NULL);
     rpg->game->in_game->inventory->weapon_txt[KNIFE] =

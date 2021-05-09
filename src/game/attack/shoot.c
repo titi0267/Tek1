@@ -14,7 +14,8 @@ void shoot_bullet(rpg_t *rpg)
     time += rpg->basic->cnf->clk->time_loop;
     if ((sfTrue == sfKeyboard_isKeyPressed(sfKeyEnter)) &&
     (rpg->game->in_game->inventory->area_contains[WEAPON] == SMG ||
-    rpg->game->in_game->inventory->area_contains[WEAPON] == GUN) &&
+    rpg->game->in_game->inventory->area_contains[WEAPON] == GUN ||
+    rpg->game->in_game->inventory->area_contains[WEAPON] == TAZER) &&
     !on_cine(rpg) && time >= 0.2) {
         init_bullet(rpg);
         time = 0;
