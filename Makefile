@@ -89,6 +89,7 @@ SRCSFILES=	rpg.c							\
 			game/inventory/inventory_manager.c		\
 			game/inventory/vaccine_manager.c		\
 			game/inventory/drop_type.c				\
+			game/inventory/reset_inventory.c	\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\
 			game/avancement/parsing_avance.c			\

@@ -50,7 +50,7 @@ void print_map(rpg_t *rpg, int on_map)
 void chose_map(rpg_t *rpg)
 {
     if (rpg->game->in_game->map->status == MAP_WARREN &&
-    rpg->game->in_game->game_status == GM_RILEY_WARREN) {
+    rpg->game->in_game->game_status == GM_NOTIF6) {
         sfSprite_setPosition(rpg->game->in_game->objects->warren,
         put_in_vector2f(rpg->game->in_game->map->pos_map[MAP_WARREN].x
         + 1315, rpg->game->in_game->map->pos_map[MAP_WARREN].y + 3210));
