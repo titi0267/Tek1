@@ -78,7 +78,6 @@ typedef struct car_s
     int last_dir;
     int top_car;
     sfSound *sirene;
-    int draw;
 } car_t;
 
 typedef struct bullets_s
@@ -119,8 +118,10 @@ typedef struct map_s
     int last_pos;
     sfColor *color;
     int color_stat;
+    int draw_car;
     int status;
     int dir;
+    int car_map;
 } map_t;
 
 typedef struct enemy_s

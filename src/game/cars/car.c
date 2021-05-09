@@ -46,7 +46,6 @@ void enter_car(rpg_t *rpg)
     sfFloatRect player = sfSprite_getGlobalBounds(rpg->game->in_game->objects
     ->players[rpg->menu->main_menu->new_game->character_chosen]);
 
-    printf("car.x = %f & car.y = %f\n", rpg->game->in_game->objects->car->car_pos.x, rpg->game->in_game->objects->car->car_pos.y);
     nbr += rpg->basic->cnf->clk->time_loop;
     if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
     (rpg->basic->evt->event.text.unicode ==
@@ -55,6 +54,8 @@ void enter_car(rpg_t *rpg)
         rpg->game->in_game->objects->speed_status =
         (rpg->game->in_game->objects->speed_status != CAR_SPEED) ? CAR_SPEED :
         WALK_SPEED;
+        if (rpg->game->in_game->objects->speed_status == WALK_SPEED)
+            rpg->game->in_game->map->car_map = rpg->game->in_game->map->status;
         nbr = 0;
         good_enter(rpg, car, player);
         sfSprite_setPosition(
@@ -69,9 +70,20 @@ void enter_car(rpg_t *rpg)
     }
 }
 
-void stop_car(objects_t *obj, float x, float y)
+void stop_car(rpg_t *rpg, int possible)
 {
-    obj->speed_status = WALK_SPEED;
-    obj->car->car_pos = put_in_vector2f(x, y);
-    obj->car->draw = FALSE;
+    if (possible == TRUE) {
+        if (rpg->game->in_game->objects->speed_status == CAR_SPEED)
+            rpg->game->in_game->map->car_map = rpg->game->in_game->map->status;
+        if (rpg->game->in_game->map->car_map == rpg->game->in_game->map->status)
+            rpg->game->in_game->map->draw_car = TRUE;
+        else
+            rpg->game->in_game->map->draw_car = FALSE;
+    }
+    if (possible == FALSE) {
+        rpg->game->in_game->map->draw_car = FALSE;
+        rpg->game->in_game->objects->speed_status =
+        (rpg->game->in_game->objects->speed_status != RUN_SPEED) ? RUN_SPEED :
+        WALK_SPEED;
+    }
 }

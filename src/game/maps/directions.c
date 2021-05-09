@@ -19,9 +19,10 @@ void move_up_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
                 objects->car->car_pos_tuto.y +=
                 map->speed[objects->speed_status];
             else if (map->speed[objects->speed_status] != 5
-            && map->status != MAP_TUTO)
+            && map->status != MAP_TUTO && map->draw_car != FALSE) {
                 objects->car->car_pos.y +=
                 map->speed[objects->speed_status];
+            }
             move_enemies_on_map(rpg, UP);
             map->dir = UP;
         }
@@ -44,8 +45,9 @@ void move_down_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
                 objects->car->car_pos_tuto.y -=
                 map->speed[objects->speed_status];
             else if (map->speed[objects->speed_status] != 5
-            && map->status != MAP_TUTO)
+            && map->status != MAP_TUTO && map->draw_car != FALSE) {
                 objects->car->car_pos.y -= map->speed[objects->speed_status];
+            }
             move_enemies_on_map(rpg, DOWN);
             map->dir = DOWN;
         }
@@ -68,7 +70,7 @@ void move_right_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
                 objects->car->car_pos_tuto.x -=
                 map->speed[objects->speed_status];
             else if (map->speed[objects->speed_status] != 5 &&
-            map->status != MAP_TUTO)
+            map->status != MAP_TUTO && map->draw_car != FALSE)
                 objects->car->car_pos.x -= map->speed[objects->speed_status];
             move_enemies_on_map(rpg, RIGHT);
             map->dir = RIGHT;
@@ -92,7 +94,7 @@ void move_left_map(rpg_t *rpg, int on_map, objects_t *objects, map_t *map)
                 objects->car->car_pos_tuto.x +=
                 map->speed[objects->speed_status];
             else if (map->speed[objects->speed_status] != 5 &&
-            map->status != MAP_TUTO)
+            map->status != MAP_TUTO && map->draw_car != FALSE)
                 objects->car->car_pos.x += map->speed[objects->speed_status];
             move_enemies_on_map(rpg, LEFT);
             map->dir = LEFT;

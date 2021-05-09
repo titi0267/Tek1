@@ -12,8 +12,8 @@ void set_pos_car(rpg_t *rpg)
     if (rpg->game->in_game->objects->car->status != 0) {
         rpg->game->in_game->objects->car->car_pos_tuto.x = 490.0;
         rpg->game->in_game->objects->car->car_pos_tuto.y = 300.0;
-        rpg->game->in_game->objects->car->car_pos.x = 1750;
-        rpg->game->in_game->objects->car->car_pos.y = 1125;
+        rpg->game->in_game->objects->car->car_pos.x = 1300;
+        rpg->game->in_game->objects->car->car_pos.y = 200;
         if (rpg->game->in_game->map->status != MAP_TUTO) {
             rpg->game->in_game->objects->car->last_dir = 1;
             rpg->game->in_game->objects->car->top_car = 494;
@@ -58,8 +58,9 @@ void print_car(rpg_t *rpg, int direction)
     else
         sfSprite_setPosition(rpg->game->in_game->objects->car->car,
         rpg->game->in_game->objects->car->car_pos);
-    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-    rpg->game->in_game->objects->car->car, NULL);
+    if (rpg->game->in_game->map->draw_car == TRUE || rpg->game->in_game->map->status == rpg->game->in_game->map->car_map)
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->game->in_game->objects->car->car, NULL);
 }
 
 void rect_move_car(rpg_t *rpg, objects_t *obj, int direction)

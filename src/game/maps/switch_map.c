@@ -15,6 +15,7 @@ int choose_map_warren(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_OUTSIDE_POLICE;
         destroy_enemies(rpg);
         begin_nmi_spawn(rpg);
+        stop_car(rpg, TRUE);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_WARREN].y < -2500) {
@@ -23,6 +24,7 @@ int choose_map_warren(rpg_t *rpg)
         put_in_vector2f(-200, -2380);
         destroy_enemies(rpg);
         begin_nmi_spawn(rpg);
+        stop_car(rpg, FALSE);
         return (1);
     }
     return (0);
@@ -37,6 +39,7 @@ int choose_map_outside_cdc(rpg_t *rpg)
         put_in_vector2f(-3500, -2470);
         destroy_enemies(rpg);
         begin_nmi_spawn(rpg);
+        stop_car(rpg, TRUE);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y < -2000 &&
@@ -46,6 +49,7 @@ int choose_map_outside_cdc(rpg_t *rpg)
         put_in_vector2f(-2400, -2350);
         destroy_enemies(rpg);
         begin_nmi_spawn(rpg);
+        stop_car(rpg, FALSE);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y < -2000 &&
@@ -67,6 +71,7 @@ int choose_map_outside_disco(rpg_t *rpg)
         put_in_vector2f(-1880, -2650);
         destroy_enemies(rpg);
         begin_nmi_spawn(rpg);
+        stop_car(rpg, TRUE);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO].y < -1800 &&
@@ -76,6 +81,7 @@ int choose_map_outside_disco(rpg_t *rpg)
         put_in_vector2f(-2500, -3345);
         destroy_enemies(rpg);
         begin_nmi_spawn(rpg);
+        stop_car(rpg, TRUE);
         return (1);
     }
     if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_DISCO].y < -1900 &&

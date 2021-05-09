@@ -26,6 +26,7 @@ void init_basic_value2(rpg_t *rpg)
     *(rpg->game->in_game->particle) = NULL;
     rpg->game->in_game->objects->spawn_status = 1;
     rpg->basic->cnf->clk->time_damage = 0;
+    rpg->game->in_game->map->car_map = MAP_OUTSIDE_POLICE;
 }
 
 void init_basic_value(rpg_t *rpg)
@@ -44,7 +45,7 @@ void init_basic_value(rpg_t *rpg)
     rpg->game->in_game->game_status = -1;
     rpg->game->end->status_cinematic2 = FALSE;
     rpg->game->in_game->inventory->vaccine_status = FALSE;
-    rpg->game->in_game->objects->car->draw = FALSE;
+    rpg->game->in_game->map->draw_car = FALSE;
     init_basic_value2(rpg);
 }
 

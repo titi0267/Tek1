@@ -47,6 +47,7 @@ void reload_new_game2(rpg_t *rpg)
     rpg->game->in_game->stats->xp_max_value = 100;
     rpg->game->in_game->stats->xp_value = 0;
     rpg->game->in_game->objects->car->status = 1;
+    rpg->game->in_game->map->car_map = MAP_OUTSIDE_POLICE;
     init_stuff(rpg);
 }
 
