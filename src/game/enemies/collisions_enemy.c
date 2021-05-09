@@ -99,10 +99,10 @@ int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
     if (d == COLLISION)
             return (COLLISION);
     if (d == BEHIND) {
-        color.r = 0;
-        color.g = 0;
-        color.b = 0;
-        color.a = 128;
+        color.r = 128;
+        color.g = 128;
+        color.b = 128;
+        color.a = 80;
         sfSprite_setColor(nmi_list->yellow_man, color);
     }
     return (0);

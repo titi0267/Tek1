@@ -31,13 +31,19 @@ void inside_open(rpg_t *rpg)
     get_mouse_pos(rpg->basic);
 }
 
-void open_window(rpg_t *rpg)
+int open_window(rpg_t *rpg)
 {
+    int d = 0;
+
     while (sfRenderWindow_isOpen(rpg->basic->wnd->my_wnd)) {
         sfRenderWindow_display(rpg->basic->wnd->my_wnd);
         inside_open(rpg);
         event(rpg);
-        if (main_parsing(rpg) == -1)
+        d = main_parsing(rpg);
+        if (d == -1)
             break;
+        else if (d == MALLOC_ERROR)
+            return (MALLOC_ERROR);
     }
+    return (0);
 }

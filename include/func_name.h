@@ -28,7 +28,7 @@ int alloc_all(rpg_t *rpg);
 void create_window(basic_t *basic);
 void create_boom(menu_t *menu);
 
-void open_window(rpg_t *rpg);
+int open_window(rpg_t *rpg);
 void inside_open(rpg_t *rpg);
 void event(rpg_t *rpg);
 void get_mouse_pos(basic_t *basic);
@@ -153,7 +153,7 @@ int my_getnbr(char const *str);
 void init_car_spt(rpg_t *rpg);
 void print_car(rpg_t *rpg, int direction);
 float vol_checker(float x);
-void init_function(rpg_t *rpg);
+int init_function(rpg_t *rpg);
 void init_basic_value(rpg_t *rpg);
 int init_before_game(rpg_t *rpg);
 sfVector2f vect_x_y(sfVector2f vect, int add_x, int add_y);
@@ -228,7 +228,7 @@ void move_bullet_down(rpg_t *rpg, bullets_t *bullet_list);
 void init_knife(rpg_t *rpg);
 void draw_knife(rpg_t *rpg);
 int main_parsing(rpg_t *rpg);
-void parsing_1(rpg_t *rpg);
+int parsing_1(rpg_t *rpg);
 void parsing_2(rpg_t *rpg);
 void parsing_3(rpg_t *rpg);
 int parsing_4(rpg_t *rpg);
@@ -261,5 +261,10 @@ void vest_hitbox(rpg_t *rpg);
 void begin_nmi_spawn(rpg_t *rpg);
 void display_vest_in_inv(rpg_t *rpg);
 char *save_invent(rpg_t *rpg);
+void weapon_hitbox2(rpg_t *rpg);
+void init_lose_text(rpg_t *rpg);
+void lose_game(rpg_t *rpg);
+int create_player_vest(rpg_t *rpg);
+void destroy_enemies(rpg_t *rpg);
 
 #endif /* !prototype */

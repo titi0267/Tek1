@@ -9,13 +9,18 @@
 
 void begin_nmi_spawn(rpg_t *rpg)
 {
-    for (int i = 0; i < 100; i++)
-        spawn_enemies(rpg);
+    //if (rpg->game->in_game->objects->spawn_status == 1) {
+        for (int i = 0; i < 10; i++)
+            spawn_enemies(rpg);
+        //rpg->game->in_game->objects->spawn_status = 0;
+        printf("SPAWN\n");
 }
 
 int add_nmi(rpg_t *rpg, int x, int y)
 {
     static int i = 0;
+    sfColor color;
+
     if ((rpg->game->in_game->nmi_list = malloc(sizeof
     (*rpg->game->in_game->nmi_list))) == NULL)
         return (MALLOC_ERROR);
@@ -25,10 +30,21 @@ int add_nmi(rpg_t *rpg, int x, int y)
     put_in_vector2f((float)x, (float)y);
     sfSprite_setPosition(rpg->game->in_game->nmi_list->yellow_man,
     rpg->game->in_game->nmi_list->nmi_pos);
-    rpg->game->in_game->nmi_list->life = 100;
+    if (rpg->game->in_game->game_status >= GM_NOTIF7)
+        rpg->game->in_game->nmi_list->life = 150;
+    else
+        rpg->game->in_game->nmi_list->life = 100;
     rpg->game->in_game->nmi_list->nbr = i;
     rpg->game->in_game->nmi_list->blooding = 0;
     rpg->game->in_game->nmi_list->blood = 0;
+    sfSprite_setColor(rpg->game->in_game->nmi_list->yellow_man, sfWhite);
+    if (rpg->game->in_game->objects->color_a == 1) {
+        color.r = 128;
+        color.g = 128;
+        color.b = 128;
+        color.a = 80;
+        sfSprite_setColor(rpg->game->in_game->nmi_list->yellow_man, color);
+    }
     i++;
     rpg->game->in_game->nmi_list->next = *rpg->game->in_game->nmi;
     *rpg->game->in_game->nmi = rpg->game->in_game->nmi_list;
@@ -46,8 +62,13 @@ static int spawn_enemy_next(rpg_t *rpg, int x, int y)
         (unsigned int)y);
         if (check_color(rpg, color) == COLLISION)
             break;
-        if (x >= z + 59)
+        if (x >= z + 59) {
+            if (check_color(rpg, color) == BEHIND)
+                rpg->game->in_game->objects->color_a = 1;
+            else
+                rpg->game->in_game->objects->color_a = 0;
             return (1);
+        }
     }
     return (0);
 }

@@ -80,10 +80,6 @@ static void parsing_avance2(rpg_t *rpg)
 
 static void parsing_avance1(rpg_t *rpg)
 {
-    chose_map(rpg);
-    key_event_game(rpg);
-    print_xp_life(rpg);
-    shoot_bullet(rpg);
     if (rpg->game->in_game->game_status == GM_BEGIN) {
         phone_main(rpg);
         desk_hitbox(rpg);
@@ -105,6 +101,11 @@ static void parsing_avance1(rpg_t *rpg)
 
 void parsing_story(rpg_t *rpg)
 {
+    chose_map(rpg);
+    key_event_game(rpg);
+    print_xp_life(rpg);
+    shoot_bullet(rpg);
+    lose_game(rpg);
     parsing_avance1(rpg);
     parsing_avance2(rpg);
     parsing_avance3(rpg);

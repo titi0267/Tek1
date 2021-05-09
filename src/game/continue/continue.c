@@ -26,6 +26,17 @@ static void load_inventory(char *map, rpg_t *rpg)
     for (; map[0] != ';'; map++);
     map++;
     rpg->game->in_game->inventory->area_contains[VEST] = my_getnbr(map);
+    for (int i = 0; i <= TAZER; i++) {
+        for (; map[0] != ';'; map++);
+        map++;
+        rpg->game->in_game->stuff->stuff_status[i] = my_getnbr(map);
+    }
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->stuff->stuff_status[BPVEST] = my_getnbr(map);
+    if ( rpg->game->in_game->stuff->stuff_status[BPVEST] == TRUE)
+        rpg->game->in_game->inventory->area_contains[VEST] = TRUE;
+
 }
 
 static void load_value2(char *map, rpg_t *rpg)

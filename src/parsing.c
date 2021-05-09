@@ -7,7 +7,7 @@
 
 #include "../include/func_name.h"
 
-void parsing_1(rpg_t *rpg)
+int parsing_1(rpg_t *rpg)
 {
     static int nbr = 0;
 
@@ -16,7 +16,8 @@ void parsing_1(rpg_t *rpg)
         nbr += rpg->basic->cnf->clk->time_total;
         if (rpg->menu->intro->status == FALSE && nbr > 0.1) {
             init_basic_value(rpg);
-            init_function(rpg);
+            if (init_function(rpg) == MALLOC_ERROR)
+                return (MALLOC_ERROR);
         }
     }
     if (rpg->menu->status == ON_OPTION_PAUSE) {
@@ -29,6 +30,7 @@ void parsing_1(rpg_t *rpg)
         if (sfKeyboard_isKeyPressed(sfKeyEscape))
             rpg->menu->status = ON_MENU;
     }
+    return (0);
 }
 
 void parsing_2(rpg_t *rpg)

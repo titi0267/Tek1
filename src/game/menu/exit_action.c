@@ -45,6 +45,7 @@ void reload_new_game2(rpg_t *rpg)
     rpg->game->in_game->ig_sound->status_sound_game = FALSE;
     rpg->game->in_game->map->last_pos = DOWN;
     rpg->game->in_game->stats->xp_max_value = 100;
+    init_stuff(rpg);
 }
 
 void reload_new_game(rpg_t *rpg)

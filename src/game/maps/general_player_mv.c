@@ -27,11 +27,19 @@ void print_player_move(rpg_t *rpg)
     sfVector2f pos = {930, 486};
 
     stopped_moving(rpg);
-    sfSprite_setPosition(rpg->game->in_game->objects->players
-    [rpg->menu->main_menu->new_game->character_chosen], pos);
-    sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
-    rpg->game->in_game->objects->players
-    [rpg->menu->main_menu->new_game->character_chosen], NULL);
+    if (rpg->game->in_game->stuff->stuff_status[BPVEST] == FALSE) {
+        sfSprite_setPosition(rpg->game->in_game->objects->players
+        [rpg->menu->main_menu->new_game->character_chosen], pos);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->game->in_game->objects->players
+        [rpg->menu->main_menu->new_game->character_chosen], NULL);
+    } else {
+        sfSprite_setPosition(rpg->game->in_game->objects->player_vest
+        [rpg->menu->main_menu->new_game->character_chosen], pos);
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->game->in_game->objects->player_vest
+        [rpg->menu->main_menu->new_game->character_chosen], NULL);
+    }
 
 }
 
@@ -55,6 +63,9 @@ void rect_move_player(rpg_t *rpg, int direction)
         rpg->menu->main_menu->new_game->character_chosen] = 0;
     nbr += rpg->basic->cnf->clk->time_loop;
     sfSprite_setTextureRect(rpg->game->in_game->objects->players
+    [rpg->menu->main_menu->new_game->character_chosen],
+    rpg->menu->main_menu->new_game->char_in_game[direction]);
+    sfSprite_setTextureRect(rpg->game->in_game->objects->player_vest
     [rpg->menu->main_menu->new_game->character_chosen],
     rpg->menu->main_menu->new_game->char_in_game[direction]);
 }

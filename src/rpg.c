@@ -9,7 +9,8 @@
 
 int main_parsing(rpg_t *rpg)
 {
-    parsing_1(rpg);
+    if (parsing_1(rpg) == MALLOC_ERROR)
+        return (MALLOC_ERROR);
     parsing_2(rpg);
     parsing_3(rpg);
     if (parsing_4(rpg) == -1)
@@ -30,7 +31,8 @@ int main(void)
     if (init_before_game(rpg) == MALLOC_ERROR)
         return (MALLOC_ERROR);
     if (rpg->menu->intro->window_access == TRUE)
-        open_window(rpg);
+        if (open_window(rpg) == MALLOC_ERROR)
+            return (MALLOC_ERROR);
     destroy_all(rpg);
     free_all(rpg);
     free(rpg);

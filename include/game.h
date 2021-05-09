@@ -95,12 +95,16 @@ typedef struct objects_s
 {
     sfSprite **players;
     sfTexture **player_tex;
+    sfTexture **player_vest_tex;
+    sfSprite **player_vest;
     car_t *car;
     int speed_status;
     sfSprite *policemen;
     sfSprite *warren;
     sfIntRect rect_warren;
     sfSprite *knife;
+    int spawn_status;
+    int color_a;
 } objects_t;
 
 typedef struct map_s
@@ -173,6 +177,8 @@ typedef struct stat_s
     int level_up;
     int level;
     int xp_max_value;
+    int losing;
+    sfText *lose_txt;
     sfRectangleShape *life;
     sfRectangleShape *life_border;
     sfRectangleShape *xp;

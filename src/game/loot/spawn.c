@@ -65,5 +65,6 @@ void print_map_loot(rpg_t *rpg)
     spawn_weapon_2(rpg);
     spawn_vest(rpg);
     weapon_hitbox(rpg);
+    weapon_hitbox2(rpg);
     vest_hitbox(rpg);
 }

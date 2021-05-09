@@ -51,6 +51,7 @@ SRCSFILES=	rpg.c							\
 			game/cinematics/cine_end.c				\
 			game/continue/save_game.c			\
 			game/continue/continue.c			\
+			game/continue/lose_game.c			\
 			game/continue/sv_statavanc.c		\
 			game/menu/exit.c			\
 			game/menu/exit_action.c		\
@@ -59,6 +60,7 @@ SRCSFILES=	rpg.c							\
 			game/inits/init_levelup.c				\
 			game/inits/init_inventory.c			\
 			game/inits/init_player_rect.c		\
+			game/inits/init_player_vest.c		\
 			game/inits/init_exit_settings.c		\
 			game/inits/init_tuto.c				\
 			game/inits/init_cinematic1.c		\

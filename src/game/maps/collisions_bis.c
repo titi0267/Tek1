@@ -32,6 +32,8 @@ int check_collision_again(rpg_t *rpg, int direction)
     if (d == COLLISION) {
     sfSprite_setColor(rpg->game->in_game->objects->players
     [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
+    sfSprite_setColor(rpg->game->in_game->objects->player_vest
+    [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
         return (COLLISION);
     }
     else if (d == BEHIND) {
@@ -41,6 +43,10 @@ int check_collision_again(rpg_t *rpg, int direction)
         color.a = 80;
         sfSprite_setColor(rpg->game->in_game->objects->players
         [rpg->menu->main_menu->new_game->character_chosen], color);
+        sfSprite_setColor(rpg->game->in_game->objects->player_vest
+        [rpg->menu->main_menu->new_game->character_chosen], color);
+        if (rpg->game->in_game->objects->speed_status == CAR_SPEED)
+            sfSprite_setColor(rpg->game->in_game->objects->car->car, color);
         return (COLLISION);
     }
     return (-1);
@@ -52,9 +58,12 @@ int check_collision(rpg_t *rpg, int direction)
     int f = 0;
     sfColor color;
 
-    if (d != BEHIND && d != COLLISION)
+    if (d != BEHIND && d != COLLISION) {
         sfSprite_setColor(rpg->game->in_game->objects->players
         [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
+        sfSprite_setColor(rpg->game->in_game->objects->player_vest
+        [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
+    }
     if (d == COLLISION)
         if ((f = check_collision_again(rpg, direction)) != -1)
             return (d);
@@ -65,6 +74,10 @@ int check_collision(rpg_t *rpg, int direction)
         color.a = 80;
         sfSprite_setColor(rpg->game->in_game->objects->players
         [rpg->menu->main_menu->new_game->character_chosen], color);
+        sfSprite_setColor(rpg->game->in_game->objects->player_vest
+        [rpg->menu->main_menu->new_game->character_chosen], color);
+        if (rpg->game->in_game->objects->speed_status == CAR_SPEED)
+            sfSprite_setColor(rpg->game->in_game->objects->car->car, color);
     }
     if (d == BTW_MAP)
         change_map(rpg);

@@ -109,9 +109,15 @@ void player_stop(rpg_t *rpg)
         rpg->menu->main_menu->new_game->char_in_game
         [rpg->game->in_game->map->last_pos].left = 100;
         rpg->game->in_game->map->dir = 5;
-        sfSprite_setTextureRect(rpg->game->in_game->objects->players[rpg->
-        menu->main_menu->new_game->character_chosen], rpg->menu->main_menu->
-        new_game->char_in_game[rpg->game->in_game->map->last_pos]);
+        if (rpg->game->in_game->stuff->stuff_status[BPVEST] == FALSE)
+            sfSprite_setTextureRect(rpg->game->in_game->objects->players[rpg->
+            menu->main_menu->new_game->character_chosen], rpg->menu->main_menu->
+            new_game->char_in_game[rpg->game->in_game->map->last_pos]);
+        else
+            sfSprite_setTextureRect(rpg->game->in_game->objects->player_vest
+            [rpg->menu->main_menu->new_game->character_chosen],
+            rpg->menu->main_menu->new_game->char_in_game
+            [rpg->game->in_game->map->last_pos]);
     }
     for (int d = 0; d != 4; d++) {
         rpg->menu->main_menu->new_game->char_in_game[d].left = 100;

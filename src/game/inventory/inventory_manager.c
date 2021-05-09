@@ -101,5 +101,8 @@ void display_loots(rpg_t *rpg)
             rpg->game->in_game->inventory->weapon[i], NULL);
         }
     }
+    if (rpg->game->in_game->stuff->stuff_status[BPVEST] == TRUE)
+        sfRenderWindow_drawSprite(rpg->basic->wnd->my_wnd,
+        rpg->game->in_game->inventory->weapon[BPVEST], NULL);
     vaccine_manager(rpg);
 }

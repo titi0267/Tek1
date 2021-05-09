@@ -37,6 +37,10 @@ char *save_invent(rpg_t *rpg)
     invent = my_strcat(invent,
     my_strcat(my_putnbr(rpg->game->in_game->inventory->
     area_contains[VEST]), ";"));
-
+    for (int i = 0; i <= TAZER; i++)
+        invent = my_strcat(invent,
+        my_strcat(my_putnbr(rpg->game->in_game->stuff->stuff_status[i]), ";"));
+    invent = my_strcat(invent,
+    my_strcat(my_putnbr(rpg->game->in_game->stuff->stuff_status[BPVEST]), ";"));
     return (invent);
 }

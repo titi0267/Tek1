@@ -24,6 +24,7 @@ void init_basic_value2(rpg_t *rpg)
     rpg->basic->cnf->clk->direction_clk = 1;
     rpg->game->in_game->map->last_pos = DOWN;
     *(rpg->game->in_game->particle) = NULL;
+    rpg->game->in_game->objects->spawn_status = 1;
 }
 
 void init_basic_value(rpg_t *rpg)
@@ -67,7 +68,7 @@ int init_before_game(rpg_t *rpg)
     return (0);
 }
 
-void init_function2(rpg_t *rpg)
+int init_function2(rpg_t *rpg)
 {
     create_police_map(rpg);
     init_car_spt(rpg);
@@ -87,9 +88,11 @@ void init_function2(rpg_t *rpg)
     init_levelup_stat(rpg);
     init_bullet_proof(rpg);
     init_stuff(rpg);
+    init_lose_text(rpg);
+    return (create_player_vest(rpg));
 }
 
-void init_function(rpg_t *rpg)
+int init_function(rpg_t *rpg)
 {
     init_main_menu(rpg);
     init_rect_adn(rpg);
@@ -107,6 +110,8 @@ void init_function(rpg_t *rpg)
     init_radio_spt(rpg);
     init_cinematic2_audio(rpg);
     init_road_spt(rpg);
-    init_function2(rpg);
+    if (init_function2(rpg) == MALLOC_ERROR)
+        return (MALLOC_ERROR);
     rpg->menu->intro->status = TRUE;
+    return (0);
 }

@@ -24,7 +24,7 @@ void set_bullet_value(rpg_t *rpg, bullets_t *bullet_list)
     sfTexture *bullet = sfTexture_createFromFile
     ("assets/inventory/bullet_in_gm.png", NULL);
     sfTexture *bullet_blue = sfTexture_createFromFile
-    ("assets/inventory/bullet_taz", NULL);
+    ("assets/inventory/bullet_taz.png", NULL);
 
     bullet_list->bullet = sfSprite_create();
     if (rpg->game->in_game->inventory->area_contains[WEAPON] == TAZER)
