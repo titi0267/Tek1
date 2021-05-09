@@ -63,6 +63,8 @@ int check_collision(rpg_t *rpg, int direction)
         [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
         sfSprite_setColor(rpg->game->in_game->objects->player_vest
         [rpg->menu->main_menu->new_game->character_chosen], sfWhite);
+        if (rpg->game->in_game->objects->speed_status == CAR_SPEED)
+            sfSprite_setColor(rpg->game->in_game->objects->car->car, sfWhite);
     }
     if (d == COLLISION)
         if ((f = check_collision_again(rpg, direction)) != -1)

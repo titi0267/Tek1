@@ -67,3 +67,10 @@ void enter_car(rpg_t *rpg)
             rpg->game->in_game->objects->car->car_pos);
     }
 }
+
+void stop_car(objects_t *obj, float x, float y)
+{
+    obj->speed_status = WALK_SPEED;
+    obj->car->car_pos = put_in_vector2f(x, y);
+    obj->car->draw = FALSE;
+}

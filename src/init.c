@@ -44,6 +44,7 @@ void init_basic_value(rpg_t *rpg)
     rpg->game->in_game->game_status = -1;
     rpg->game->end->status_cinematic2 = FALSE;
     rpg->game->in_game->inventory->vaccine_status = FALSE;
+    rpg->game->in_game->objects->car->draw = FALSE;
     init_basic_value2(rpg);
 }
 
