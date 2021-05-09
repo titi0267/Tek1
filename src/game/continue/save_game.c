@@ -22,6 +22,9 @@ char *save_pos(map_t *map)
     pos = my_strcat(pos, my_strcat(my_strcat(
     my_putnbr(map->pos_map[map->status].x), ";"),
     my_strcat(my_putnbr(map->pos_map[map->status].y), ";")));
+    pos = my_strcat(pos, my_strcat(my_putnbr((int)rpg->game->in_game->
+    objects->car->car_pos.x), my_strcat(my_putnbr(
+    (int)rpg->game->in_game->objects->car->car_pos.y), ";")));
 
     return (pos);
 }

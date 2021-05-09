@@ -30,5 +30,5 @@ void init_levelup_stat(rpg_t *rpg)
     sfFont_createFromFile("assets/fonts/aqua.ttf"));
     sfText_setCharacterSize(rpg->game->in_game->inventory->level_up_text, 20);
     sfText_setPosition(rpg->game->in_game->inventory->level_up_text,
-    put_in_vector2f(1127.1, 750));
+    put_in_vector2f(1127.1, 700));
 }

@@ -75,6 +75,12 @@ void load_values(char *map, rpg_t *rpg)
     map++;
     rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y =
     my_getnbr(map);
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->objects->car->car_pos.x = my_getnbr(map);
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->objects->car->car_pos.y = my_getnbr(map);
     load_value2(map, rpg);
 }
 

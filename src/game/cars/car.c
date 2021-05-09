@@ -65,6 +65,5 @@ void enter_car(rpg_t *rpg)
         else
             sfSprite_setPosition(rpg->game->in_game->objects->car->car,
             rpg->game->in_game->objects->car->car_pos);
-
     }
 }

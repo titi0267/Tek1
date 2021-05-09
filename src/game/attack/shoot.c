@@ -24,7 +24,7 @@ void shoot_bullet(rpg_t *rpg)
     (rpg->game->in_game->inventory->area_contains[WEAPON] == KNIFE ||
     rpg->game->in_game->inventory->area_contains[WEAPON] == NO_WEAPON) &&
     !on_cine(rpg) && time >= 0.5 &&
-    rpg->game->in_game->objects->speed_status == CAR_SPEED) {
+    rpg->game->in_game->objects->speed_status != CAR_SPEED) {
         draw_knife(rpg);
         for (rpg->game->in_game->nmi_list = *(rpg->game->in_game->nmi);
         rpg->game->in_game->nmi_list!= NULL;
