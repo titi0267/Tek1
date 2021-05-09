@@ -271,5 +271,8 @@ void stop_car(rpg_t *rpg, int possible);
 void bullet_direction(rpg_t *rpg, bullets_t *bullet_list);
 void init_rect_car(objects_t *obj);
 void move_xp(rpg_t *rpg);
+void reset_inventory(rpg_t *rpg);
+void init_positions(rpg_t *rpg);
+void print_warren(rpg_t *rpg);
 
 #endif /* !prototype */

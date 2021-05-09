@@ -9,7 +9,7 @@
 
 void begin_nmi_spawn(rpg_t *rpg)
 {
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 6; i++)
         spawn_enemies(rpg);
 }
 

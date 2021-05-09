@@ -68,7 +68,3 @@ void attack_cut(rpg_t *rpg, enemy_t *nmi_list)
     }
     attack_cut2(rpg, nmi_list);
 }
-
-// 930, 486
-
-// 60 108

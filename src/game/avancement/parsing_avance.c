@@ -102,6 +102,7 @@ static void parsing_avance1(rpg_t *rpg)
 void parsing_story(rpg_t *rpg)
 {
     chose_map(rpg);
+    print_warren(rpg);
     key_event_game(rpg);
     print_xp_life(rpg);
     shoot_bullet(rpg);

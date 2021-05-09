@@ -85,10 +85,12 @@ SRCSFILES=	rpg.c							\
 			game/maps/collisions.c			\
 			game/maps/map_status.c			\
 			game/maps/run.c					\
+			game/maps/print_warren.c		\
 			game/inventory/display_inventory.c		\
 			game/inventory/inventory_manager.c		\
 			game/inventory/vaccine_manager.c		\
 			game/inventory/drop_type.c				\
+			game/inventory/reset_inventory.c	\
 			game/tutorial/tuto.c		\
 			game/tutorial/tuto_map.c	\
 			game/avancement/parsing_avance.c			\
@@ -115,7 +117,7 @@ SRCSFILES=	rpg.c							\
 			game/loot/spawn.c				\
 			game/loot/hitbox_loot.c			\
 			game/cars/init_car.c				\
-			game/cars/init_car2.c						\
+			game/cars/init_car2.c				\
 			game/cars/car.c						\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))

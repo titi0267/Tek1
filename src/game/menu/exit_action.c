@@ -43,12 +43,14 @@ void reload_new_game2(rpg_t *rpg)
     rpg->game->in_game->map->last_pos = -1;
     rpg->game->in_game->objects->speed_status = WALK_SPEED;
     rpg->game->in_game->ig_sound->status_sound_game = FALSE;
+    rpg->game->in_game->phone->call_status = FALSE;
     rpg->game->in_game->map->last_pos = DOWN;
     rpg->game->in_game->stats->xp_max_value = 100;
     rpg->game->in_game->stats->xp_value = 0;
     rpg->game->in_game->objects->car->status = 1;
     rpg->game->in_game->map->car_map = MAP_OUTSIDE_POLICE;
-    init_stuff(rpg);
+    reset_inventory(rpg);
+    init_positions(rpg);
 }
 
 void reload_new_game(rpg_t *rpg)
@@ -70,6 +72,7 @@ void reload_new_game(rpg_t *rpg)
     [rpg->game->in_game->map->status],
     rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE]);
     rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
+        rpg->game->in_game->phone->alarm_status = FALSE;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
     rpg->game->in_game->objects->car->status = -1;

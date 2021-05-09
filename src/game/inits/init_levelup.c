@@ -5,10 +5,6 @@
 ** cinematics
 */
 
-// 1527.1 548.5
-
-// 1527.5 655
-
 #include "../../../include/func_name.h"
 
 void init_levelup_stat(rpg_t *rpg)
