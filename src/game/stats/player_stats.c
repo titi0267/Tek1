@@ -31,6 +31,8 @@ void update_damage(rpg_t *rpg)
 void update_invent_stats(rpg_t *rpg)
 {
     update_damage(rpg);
+    if (rpg->game->in_game->inventory->area_contains[VEST] == TRUE)
+        rpg->game->in_game->stats->player_stats[P_ARMOR]->value = 8;
     rpg->game->in_game->stats->player_stats[P_DAMAGE]->total_value =
     rpg->game->in_game->stats->player_stats[P_DAMAGE]->value +
     rpg->game->in_game->stats->player_stats[P_DAMAGE]->base_value;
