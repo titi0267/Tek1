@@ -25,6 +25,7 @@ void init_basic_value2(rpg_t *rpg)
     rpg->game->in_game->map->last_pos = DOWN;
     *(rpg->game->in_game->particle) = NULL;
     rpg->game->in_game->objects->spawn_status = 1;
+    rpg->basic->cnf->clk->time_damage = 0;
 }
 
 void init_basic_value(rpg_t *rpg)

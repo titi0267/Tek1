@@ -9,6 +9,7 @@
 
 void destroy_enemies(rpg_t *rpg)
 {
+    if (*(rpg->game->in_game->nmi) == NULL) return;
     rpg->game->in_game->nmi_list = *(rpg->game->in_game->nmi);
     for (; rpg->game->in_game->nmi_list != NULL;
     rpg->game->in_game->nmi_list = rpg->game->in_game->nmi_list->next) {

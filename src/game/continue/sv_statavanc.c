@@ -22,11 +22,13 @@ char *save_stats(rpg_t *rpg)
     char *stats = my_strcat(my_putnbr(rpg->game->in_game->stats->level), ";");
     stats = my_strcat(stats,
     my_strcat(my_putnbr(rpg->game->in_game->stats->xp_value), ";"));
-    for (int i = 0; i <= P_ARMOR; i++)
+    stats = my_strcat(stats,
+        my_strcat(my_putnbr(rpg->game->in_game->stats->player_stats[P_LIFE]->
+        value), ";"));
+    for (int i = 1; i <= P_ARMOR; i++)
         stats = my_strcat(stats,
         my_strcat(my_putnbr(rpg->game->in_game->stats->player_stats[i]->
-        base_value),
-        ";"));
+        base_value), ";"));
     return (stats);
 }
 

@@ -16,15 +16,21 @@ char *save_char(new_game_t *newgame)
     return (character);
 }
 
-char *save_pos(map_t *map)
+char *save_pos(rpg_t *rpg)
 {
     char *pos = "";
     pos = my_strcat(pos, my_strcat(my_strcat(
-    my_putnbr(map->pos_map[map->status].x), ";"),
-    my_strcat(my_putnbr(map->pos_map[map->status].y), ";")));
+    my_putnbr(rpg->game->in_game->map->pos_map
+    [rpg->game->in_game->map->status].x), ";"),
+    my_strcat(my_putnbr(rpg->game->in_game->map->pos_map
+    [rpg->game->in_game->map->status].y), ";")));
     pos = my_strcat(pos, my_strcat(my_putnbr((int)rpg->game->in_game->
-    objects->car->car_pos.x), my_strcat(my_putnbr(
-    (int)rpg->game->in_game->objects->car->car_pos.y), ";")));
+    objects->car->car_pos.x), my_strcat(my_strcat(";", my_putnbr(
+    (int)rpg->game->in_game->objects->car->car_pos.y)), ";")));
+    pos = my_strcat(pos, my_strcat(my_putnbr
+    (rpg->game->in_game->objects->car->last_dir), ";"));
+    pos = my_strcat(pos, my_strcat(my_putnbr
+    (rpg->game->in_game->objects->car->top_car), ";"));
 
     return (pos);
 }
@@ -42,7 +48,7 @@ void save_map(rpg_t *rpg)
 {
     FILE *fd = fopen("save/save.txt", "w");
     char *save = save_char(rpg->menu->main_menu->new_game);
-    char *pos = save_pos(rpg->game->in_game->map);
+    char *pos = save_pos(rpg);
     char *map = save_on_map(rpg->game->in_game->map);
     char *stats = save_stats(rpg);
     char *advanc = save_avance(rpg);
