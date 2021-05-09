@@ -78,6 +78,7 @@ typedef struct car_s
     int last_dir;
     int top_car;
     sfSound *sirene;
+    int draw;
 } car_t;
 
 typedef struct bullets_s

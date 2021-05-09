@@ -18,47 +18,21 @@ char *my_open(FILE *fd)
     return (map);
 }
 
-static void load_inventory(char *map, rpg_t *rpg)
+void load_car_values(char *map, rpg_t *rpg)
 {
     for (; map[0] != ';'; map++);
     map++;
-    rpg->game->in_game->inventory->area_contains[WEAPON] = my_getnbr(map);
+    rpg->game->in_game->objects->car->car_pos.x = my_getnbr(map);
     for (; map[0] != ';'; map++);
     map++;
-    rpg->game->in_game->inventory->area_contains[VEST] = my_getnbr(map);
-    for (int i = 0; i <= TAZER; i++) {
-        for (; map[0] != ';'; map++);
-        map++;
-        rpg->game->in_game->stuff->stuff_status[i] = my_getnbr(map);
-    }
+    rpg->game->in_game->objects->car->car_pos.y = my_getnbr(map);
     for (; map[0] != ';'; map++);
     map++;
-    rpg->game->in_game->stuff->stuff_status[BPVEST] = my_getnbr(map);
-    if ( rpg->game->in_game->stuff->stuff_status[BPVEST] == TRUE)
-        rpg->game->in_game->inventory->area_contains[VEST] = TRUE;
-
-}
-
-static void load_value2(char *map, rpg_t *rpg)
-{
+    rpg->game->in_game->objects->car->last_dir = my_getnbr(map);
     for (; map[0] != ';'; map++);
     map++;
-    rpg->game->in_game->stats->level = my_getnbr(map);
-    for (; map[0] != ';'; map++);
-    map++;
-    rpg->game->in_game->stats->xp_value = my_getnbr(map);
-    for (int i = 0; i <= P_ARMOR; i++) {
-        for (; map[0] != ';'; map++);
-        map++;
-        rpg->game->in_game->stats->player_stats[i]->base_value = my_getnbr(map);
-    }
-    for (; map[0] != ';'; map++);
-    map++;
-    rpg->game->in_game->phone->notif_index = my_getnbr(map);
-    for (; map[0] != ';'; map++);
-    map++;
-    rpg->game->in_game->game_status = my_getnbr(map);
-    load_inventory(map, rpg);
+    rpg->game->in_game->objects->car->top_car = my_getnbr(map);
+    load_value2(map, rpg);
 }
 
 void load_values(char *map, rpg_t *rpg)
@@ -75,13 +49,7 @@ void load_values(char *map, rpg_t *rpg)
     map++;
     rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].y =
     my_getnbr(map);
-    for (; map[0] != ';'; map++);
-    map++;
-    rpg->game->in_game->objects->car->car_pos.x = my_getnbr(map);
-    for (; map[0] != ';'; map++);
-    map++;
-    rpg->game->in_game->objects->car->car_pos.y = my_getnbr(map);
-    load_value2(map, rpg);
+    load_car_values(map, rpg);
 }
 
 void set_loaded_value(rpg_t *rpg)

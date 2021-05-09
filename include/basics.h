@@ -32,6 +32,7 @@ typedef struct cloc_s
     float time_tutorial;
     float time_shortcut;
     float direction_clk;
+    float time_damage;
 } cloc_t;
 
 typedef struct screen_conf_s

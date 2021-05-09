@@ -53,6 +53,7 @@ int choose_map_outside_cdc(rpg_t *rpg)
         rpg->game->in_game->map->status = MAP_INSIDE_CDC;
         rpg->game->in_game->map->pos_map[MAP_INSIDE_CDC] =
         put_in_vector2f(-1348, -2012);
+        destroy_enemies(rpg);
         return (1);
     }
     return (0);

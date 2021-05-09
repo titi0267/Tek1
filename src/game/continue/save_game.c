@@ -26,8 +26,13 @@ static char *save_pos(rpg_t *rpg)
     my_strcat(my_putnbr(rpg->game->in_game->map->pos_map
     [rpg->game->in_game->map->status].y), ";")));
     pos = my_strcat(pos, my_strcat(my_putnbr((int)rpg->game->in_game->
-    objects->car->car_pos.x), my_strcat(my_putnbr(
-    (int)rpg->game->in_game->objects->car->car_pos.y), ";")));
+    objects->car->car_pos.x), my_strcat(my_strcat(";", my_putnbr(
+    (int)rpg->game->in_game->objects->car->car_pos.y)), ";")));
+    pos = my_strcat(pos, my_strcat(my_putnbr
+    (rpg->game->in_game->objects->car->last_dir), ";"));
+    pos = my_strcat(pos, my_strcat(my_putnbr
+    (rpg->game->in_game->objects->car->top_car), ";"));
+
     return (pos);
 }
 

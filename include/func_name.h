@@ -266,5 +266,6 @@ void init_lose_text(rpg_t *rpg);
 void lose_game(rpg_t *rpg);
 int create_player_vest(rpg_t *rpg);
 void destroy_enemies(rpg_t *rpg);
+void load_value2(char *map, rpg_t *rpg);
 
 #endif /* !prototype */
