@@ -7,13 +7,13 @@
 
 #include "../include/func_name.h"
 
-void destroy_basic(rpg_t *rpg)
+static void destroy_basic(rpg_t *rpg)
 {
     sfClock_destroy(rpg->basic->cnf->clk->clock);
     sfRenderWindow_destroy(rpg->basic->wnd->my_wnd);
 }
 
-void destroy_audio(rpg_t *rpg)
+static void destroy_audio(rpg_t *rpg)
 {
     sfSoundBuffer_destroy(rpg->menu->intro->intro_snd->create_start);
     sfSoundBuffer_destroy(rpg->menu->main_menu->menu_snd->create_a_menu);
@@ -38,7 +38,7 @@ void destroy_audio(rpg_t *rpg)
     sfSound_destroy(rpg->game->end->cinematic_2);
 }
 
-void destroy_menu(rpg_t *rpg)
+static void destroy_menu(rpg_t *rpg)
 {
     for (int i = NEW_GAME; i < NONE; i++)
         sfSprite_destroy(rpg->menu->main_menu->menu_spt->menu[i]);
@@ -57,7 +57,7 @@ void destroy_menu(rpg_t *rpg)
         sfText_destroy(rpg->menu->stg->key_bnd->control[i]->box);
 }
 
-void destroy_game(rpg_t *rpg)
+static void destroy_game(rpg_t *rpg)
 {
     sfSprite_destroy(rpg->game->start->radio);
     for (int i = GRAPH; i < NO; i++)

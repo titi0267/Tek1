@@ -7,7 +7,7 @@
 
 #include "../../../include/func_name.h"
 
-char *save_char(new_game_t *newgame)
+static char *save_char(new_game_t *newgame)
 {
     char *character = "";
     character = my_strcat(my_strcat(character,
@@ -16,7 +16,7 @@ char *save_char(new_game_t *newgame)
     return (character);
 }
 
-char *save_pos(rpg_t *rpg)
+static char *save_pos(rpg_t *rpg)
 {
     char *pos = "";
     pos = my_strcat(pos, my_strcat(my_strcat(
@@ -35,7 +35,7 @@ char *save_pos(rpg_t *rpg)
     return (pos);
 }
 
-char *save_on_map(map_t *map)
+static char *save_on_map(map_t *map)
 {
     char *on_map = "";
     on_map = my_strcat(on_map, my_strcat(
