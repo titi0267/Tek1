@@ -46,6 +46,7 @@ void enter_car(rpg_t *rpg)
     sfFloatRect player = sfSprite_getGlobalBounds(rpg->game->in_game->objects
     ->players[rpg->menu->main_menu->new_game->character_chosen]);
 
+    printf("car.x = %f & car.y = %f\n", rpg->game->in_game->objects->car->car_pos.x, rpg->game->in_game->objects->car->car_pos.y);
     nbr += rpg->basic->cnf->clk->time_loop;
     if ((rpg->basic->evt->event.type == sfEvtTextEntered) &&
     (rpg->basic->evt->event.text.unicode ==

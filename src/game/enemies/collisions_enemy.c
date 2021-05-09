@@ -88,22 +88,3 @@ int enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
         return (enemy_col_left(rpg, nmi_list, pos_x + sub, pos_y));
     return (0);
 }
-
-int check_enemy_collision(rpg_t *rpg, int direction, enemy_t *nmi_list, int sub)
-{
-    int d = enemy_collision(rpg, direction, nmi_list, sub);
-    sfColor color;
-
-    if (d != BEHIND && d != COLLISION)
-        sfSprite_setColor(rpg->game->in_game->nmi_list->yellow_man, sfWhite);
-    if (d == COLLISION)
-            return (COLLISION);
-    if (d == BEHIND) {
-        color.r = 128;
-        color.g = 128;
-        color.b = 128;
-        color.a = 80;
-        sfSprite_setColor(nmi_list->yellow_man, color);
-    }
-    return (0);
-}

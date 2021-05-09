@@ -99,6 +99,7 @@ SRCSFILES=	rpg.c							\
 			game/enemies/enemy_translate.c			\
 			game/enemies/new_enemy.c				\
 			game/enemies/collisions_enemy.c			\
+			game/enemies/collisions_enemy2.c			\
 			game/enemies/enemy_choose_direction.c	\
 			game/enemies/enemy_rect.c				\
 			game/stats/player_stats.c		\
