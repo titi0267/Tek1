@@ -30,6 +30,7 @@ void lose_game(rpg_t *rpg)
         rpg->game->in_game->stats->losing = 1;
         reload_new_game(rpg);
         rpg->menu->status = ON_GAME;
+        rpg->game->in_game->game_status = GM_BEGIN;
     }
     if (rpg->game->in_game->stats->losing == 1) {
         time += rpg->basic->cnf->clk->time_loop;

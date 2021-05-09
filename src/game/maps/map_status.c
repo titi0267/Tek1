@@ -16,7 +16,6 @@ void destroy_enemies(rpg_t *rpg)
         sfSprite_destroy(rpg->game->in_game->nmi_list->yellow_man);
         free(rpg->game->in_game->nmi_list->nmi_rect);
         free(rpg->game->in_game->nmi_list->offset_nmi);
-        free(rpg->game->in_game->nmi_list);
     }
     *(rpg->game->in_game->nmi) = NULL;
 }

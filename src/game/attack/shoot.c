@@ -16,7 +16,8 @@ void shoot_bullet(rpg_t *rpg)
     (rpg->game->in_game->inventory->area_contains[WEAPON] == SMG ||
     rpg->game->in_game->inventory->area_contains[WEAPON] == GUN ||
     rpg->game->in_game->inventory->area_contains[WEAPON] == TAZER) &&
-    !on_cine(rpg) && time >= 0.2) {
+    !on_cine(rpg) && time >= 0.2 &&
+    rpg->game->in_game->objects->speed_status != CAR_SPEED) {
         init_bullet(rpg);
         time = 0;
     }

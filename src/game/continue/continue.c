@@ -32,6 +32,9 @@ void load_car_values(char *map, rpg_t *rpg)
     for (; map[0] != ';'; map++);
     map++;
     rpg->game->in_game->objects->car->top_car = my_getnbr(map);
+    for (; map[0] != ';'; map++);
+    map++;
+    rpg->game->in_game->map->car_map = my_getnbr(map);
     load_value2(map, rpg);
 }
 
@@ -65,6 +68,10 @@ void set_loaded_value(rpg_t *rpg)
     rpg->game->in_game->phone->notif_prev =
     rpg->game->in_game->phone->notif_index;
     rpg->menu->status = ON_GAME;
+    if (rpg->game->in_game->map->status == rpg->game->in_game->map->car_map)
+        rpg->game->in_game->map->draw_car = TRUE;
+    else
+        rpg->game->in_game->map->draw_car = FALSE;
 }
 
 void load_save(rpg_t *rpg)

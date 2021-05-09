@@ -105,7 +105,9 @@ SRCSFILES=	rpg.c							\
 			game/stats/player_stats.c		\
 			game/stats/life.c				\
 			game/particle/particle.c				\
+			game/particle/particle2.c				\
 			game/attack/bullet_init.c			\
+			game/attack/draw_bullet.c			\
 			game/attack/shoot.c					\
 			game/attack/move_bullet.c			\
 			game/attack/knife.c					\
@@ -113,6 +115,7 @@ SRCSFILES=	rpg.c							\
 			game/loot/spawn.c				\
 			game/loot/hitbox_loot.c			\
 			game/cars/init_car.c				\
+			game/cars/init_car2.c						\
 			game/cars/car.c						\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))

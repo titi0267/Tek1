@@ -46,15 +46,35 @@ static int rect_nmi(rpg_t *rpg)
     return (0);
 }
 
+sfTexture *rand_nmi(void)
+{
+    int d = rand() % 5;
+    sfTexture *yellow;
+
+    if (d == 0)
+        yellow = sfTexture_createFromFile("assets/perso/yellow_man.png", NULL);
+    if (d == 1)
+        yellow = sfTexture_createFromFile
+        ("assets/perso/gilets_jaunes.png", NULL);
+    if (d == 2)
+        yellow = sfTexture_createFromFile
+    ("assets/perso/gilets_jaunes2.png", NULL);
+    if (d == 3)
+        yellow = sfTexture_createFromFile
+        ("assets/perso/gilets_jaunes3.png", NULL);
+    if (d == 4)
+        yellow = sfTexture_createFromFile
+        ("assets/perso/gilets_jaunes4.png", NULL);
+    return (yellow);
+}
+
 int init_yellow_man(rpg_t *rpg)
 {
-    sfTexture *yellow = sfTexture_createFromFile("assets/perso/yellow_man.png",
-    NULL);
     int d = rand() % 4;
 
     rpg->game->in_game->nmi_list->yellow_man = sfSprite_create();
     sfSprite_setTexture
-    (rpg->game->in_game->nmi_list->yellow_man, yellow, sfTrue);
+    (rpg->game->in_game->nmi_list->yellow_man, rand_nmi(), sfTrue);
     if ((rpg->game->in_game->nmi_list->nmi_rect =
     malloc(sizeof(sfIntRect) * 5)) == NULL)
         return (MALLOC_ERROR);

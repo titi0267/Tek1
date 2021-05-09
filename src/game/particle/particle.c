@@ -47,12 +47,6 @@ void creat_square(rpg_t *rpg, sfVector2f vect, particle_t *particle_list)
     sfRenderWindow_drawVertexArray(rpg->basic->wnd->my_wnd, vertex_array, NULL);
 }
 
-void move_xp(rpg_t *rpg)
-{
-    for (int i = 0; i <= 5; i++)
-        rpg->game->in_game->stats->xp_anim[i].y -= 1;
-}
-
 void creat_level_up(rpg_t *rpg)
 {
     static float diff = 0;

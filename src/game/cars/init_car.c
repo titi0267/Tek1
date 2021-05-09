@@ -14,6 +14,7 @@ void set_pos_car(rpg_t *rpg)
         rpg->game->in_game->objects->car->car_pos_tuto.y = 300.0;
         rpg->game->in_game->objects->car->car_pos.x = 1300;
         rpg->game->in_game->objects->car->car_pos.y = 200;
+        rpg->game->in_game->map->draw_car = FALSE;
         if (rpg->game->in_game->map->status != MAP_TUTO) {
             rpg->game->in_game->objects->car->last_dir = 1;
             rpg->game->in_game->objects->car->top_car = 494;
@@ -103,15 +104,4 @@ void init_rect_car(objects_t *obj)
     obj->car->top_car = 119;
     sfSprite_setTextureRect(obj->car->car, obj->car->rect_car[1]);
     sfSprite_setTextureRect(obj->car->car, obj->car->rect_car[0]);
-}
-
-void init_car_spt(rpg_t *rpg)
-{
-    sfTexture *car_tex = sfTexture_createFromFile
-    ("assets/perso/policecar.png", NULL);
-
-    rpg->game->in_game->objects->car->car = sfSprite_create();
-    sfSprite_setTexture(rpg->game->in_game->objects->car->car,
-    car_tex, sfTrue);
-    init_rect_car(rpg->game->in_game->objects);
 }

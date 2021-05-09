@@ -50,7 +50,7 @@ static void collision_enemy_player(rpg_t *rpg, enemy_t *nmi_list)
     (nmi_list->nmi_pos.x + 55 > 930 && nmi_list->nmi_pos.x + 55 < 990)) &&
     ((nmi_list->nmi_pos.y > 485 && nmi_list->nmi_pos.y < 593) ||
     ((nmi_list->nmi_pos.y + 88) > 485 && (nmi_list->nmi_pos.y + 88) < 593)) &&
-    rpg->basic->cnf->clk->time_damage >= 1.5) {
+    rpg->basic->cnf->clk->time_damage >= 1.5 && !on_cine(rpg)) {
         rpg->game->in_game->stats->player_stats[P_LIFE]->value -=
         ((20 - rpg->game->in_game->stats->player_stats[P_ARMOR]->total_value)
         > 0) ? (20 -  rpg->game->in_game->stats->player_stats[P_ARMOR]->
@@ -79,6 +79,7 @@ static particle_t *pop_blood(rpg_t *rpg, particle_t *particle_list)
 
 static void print_blood(rpg_t *rpg, enemy_t *nmi_list)
 {
+    if (*(rpg->game->in_game->particle) == NULL) return;
     for (rpg->game->in_game->particle_list = *(rpg->game->in_game->particle);
     rpg->game->in_game->particle_list != NULL; rpg->game->in_game->particle_list
     = rpg->game->in_game->particle_list->next) {

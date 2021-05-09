@@ -72,6 +72,7 @@ void reload_new_game(rpg_t *rpg)
     rpg->menu->main_menu->menu_snd->status_sound_menu = FALSE;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
+    rpg->game->in_game->objects->car->status = -1;
     set_pos_car(rpg);
     reload_new_game2(rpg);
 }
