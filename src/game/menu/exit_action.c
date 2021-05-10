@@ -51,6 +51,7 @@ void reload_new_game2(rpg_t *rpg)
     rpg->game->in_game->map->car_map = MAP_OUTSIDE_POLICE;
     reset_inventory(rpg);
     init_positions(rpg);
+    rpg->game->in_game->objects->car->status = -1;
 }
 
 void reload_new_game(rpg_t *rpg)
@@ -61,10 +62,9 @@ void reload_new_game(rpg_t *rpg)
     pos_characters[TIMO] = put_in_vector2f((float)689, (float)362);
     pos_characters[LUDO] = put_in_vector2f((float)982, (float)362);
     pos_characters[SYLVIE] = put_in_vector2f((float)1275, (float)362);
-    for (int i = MAXOU; i < NO_CHARACTERS; i++) {
+    for (int i = MAXOU; i < NO_CHARACTERS; i++)
         sfSprite_setPosition(rpg->menu->main_menu->new_game->characters[i],
         pos_characters[i]);
-    }
     rpg->game->in_game->map->status = MAP_INSIDE_POLICE;
     rpg->game->in_game->map->pos_map[MAP_INSIDE_POLICE] =
     put_in_vector2f(-1265, -959);
@@ -75,7 +75,6 @@ void reload_new_game(rpg_t *rpg)
         rpg->game->in_game->phone->alarm_status = FALSE;
     rpg->menu->stg->stg_scene = GRAPH_SCN;
     rpg->game->in_game->inventory->shortcut_it = INVENTORY_OFF;
-    rpg->game->in_game->objects->car->status = -1;
     set_pos_car(rpg);
     reload_new_game2(rpg);
 }

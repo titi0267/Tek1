@@ -79,7 +79,7 @@ int choose_map_cdc_in(rpg_t *rpg)
     if (rpg->game->in_game->map->pos_map[MAP_INSIDE_CDC].y < -1500) {
         rpg->game->in_game->map->status = MAP_OUTSIDE_CDC;
         rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC] =
-        put_in_vector2f(-2060, -3350);
+        put_in_vector2f(-2060, -3300);
         destroy_enemies(rpg);
         begin_nmi_spawn(rpg);
         return (1);

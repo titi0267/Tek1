@@ -20,4 +20,5 @@ void reset_inventory(rpg_t *rpg)
     rpg->game->in_game->inventory->area_contains[VEST] = NO_VEST;
     rpg->game->in_game->inventory->vaccine_status = FALSE;
     init_stuff(rpg);
+    rpg->game->end->status_cinematic2 = FALSE;
 }

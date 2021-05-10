@@ -36,10 +36,7 @@ void warren_hitbox(rpg_t *rpg)
 
 void cdc_hitbox(rpg_t *rpg)
 {
-    if (rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].x <=
-    -1906 && rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].x >= -2030 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y <= -3241 &&
-    rpg->game->in_game->map->pos_map[MAP_OUTSIDE_CDC].y >= -3366
+    if (rpg->game->in_game->map->status == MAP_INSIDE_CDC
     && rpg->game->in_game->phone->phone_status == 0) {
         rpg->game->in_game->phone->notif_prev =
         rpg->game->in_game->phone->notif_index;
