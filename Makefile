@@ -29,7 +29,7 @@ CFLAGS	=	-W -Wall -I$(INC_DIR)
 
 OBJ		=	$(SRC:.c=.o)
 
-NAME	=	mysh
+NAME	=	42sh
 
 all:	$(NAME)
 
