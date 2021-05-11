@@ -19,6 +19,13 @@ static void good_enter(rpg_t *rpg, sfFloatRect car, sfFloatRect player)
         rpg->game->in_game->objects->car->car_pos_tuto.y +=
         (player.top - car.top);
     } else {
+        for (rpg->game->in_game->nmi_list = *(rpg->game->in_game->nmi);
+        rpg->game->in_game->nmi_list != NULL;
+        rpg->game->in_game->nmi_list = rpg->game->in_game->nmi_list->next) {
+            rpg->game->in_game->nmi_list->nmi_pos = put_in_vector2f((rpg->game->
+            in_game->nmi_list->nmi_pos.x + (player.left - car.left)),
+            (rpg->game->in_game->nmi_list->nmi_pos.y + (player.top - car.top)));
+        }
         rpg->game->in_game->map->pos_map[rpg->game->in_game->map->status].x
         += (player.left - car.left);
         rpg->game->in_game->objects->car->car_pos.x += (player.left - car.left);
