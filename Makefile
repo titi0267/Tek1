@@ -5,9 +5,10 @@
 ## Makefile
 ##
 
-SRC = 	src/error_handling.c	\
-		src/ai.c			\
-		src/main.c			\
+SRC = 	src/info_getter.c		\
+		src/error_handling.c	\
+		src/ai.c				\
+		src/main.c				\
 
 CC		=	gcc -o -lm
 

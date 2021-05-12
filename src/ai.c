@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include "../include/my.h"
 
-void get_instructions(char *str)
+void get_instructions(char *str, size_t size_t)
 {
     printf("Start_simulation\n");
     printf("GET_INFO_LIDAR\n");
@@ -23,16 +23,12 @@ void get_instructions(char *str)
     printf("GET_INFO_LIDAR\n");
     printf("Cycle_wait:10\n");
     printf("GET_INFO_LIDAR\n");
+    //coordinates(str, size_t);
     printf("Cycle_wait:10\n");
-    printf("GET_INFO_LIDAR\n");
-    printf("Cycle_wait:10\n");
-    printf("GET_INFO_LIDAR\n");
-    printf("Cycle_wait:10\n");
-    printf("GET_INFO_LIDAR\n");
     //wait(NULL);
 }
 
-void ai(char *str)
+void ai(char *str, size_t size_t)
 {
-    get_instructions(str);
+    get_instructions(str, size_t);
 }

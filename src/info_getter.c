@@ -5,3 +5,12 @@
 ** info_getter
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include "../include/my.h"
+
+void coordinates(char *str, size_t size_t)
+{
+    getline(&str, &size_t, stdout);
+    my_puterr(str);
+}
