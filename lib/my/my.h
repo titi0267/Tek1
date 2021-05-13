@@ -45,7 +45,8 @@ void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
 int check_error(int ac);
-void ai(char *str);
-void get_instructions(char *str);
+void ai(char *str, size_t size_t);
+void get_instructions(char *str, size_t size_t);
+void coordinates(char *str, size_t size_t);
 
 #endif /* !MY_H_ */
