@@ -23,7 +23,7 @@ int my_printf_core(char *src, va_list *my_list, infin_number_t *info)
 {
     int index = 0;
     void (*tabFunction[13]) (va_list *, infin_number_t *) = {pchar, pint, pint,
-     pstr, poct, phex, phex, phun, pbin, pn, perc, pp, pbs};
+    pstr, poct, phex, phex, phun, pbin, pn, perc, pp, pbs};
     char tab_index[14] = {'c', 'd', 'i', 's', 'o', 'x', 'X', 'u', 'b', 'n', '%'
     , 'p', 'S', 0};
 

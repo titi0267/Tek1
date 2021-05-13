@@ -9,31 +9,47 @@
 #include <stdio.h>
 #include "../include/my.h"
 
-int stop_car(char **my_tab)
+void break_car(nfors_t *nfs)
 {
-    if (my_strcmp(my_tab[3], "Track Cleared") == 0)
-        return (0);
-    return (1);
-}
-
-void break_car(char **my_tab)
-{
-    static int stop = 0;
-
-    if (stop_car(my_tab) == 0)
-        stop++;
-    if (stop >= 1) {
-        //dprintf(1, "Car_backwards:1\n");
-        dprintf(1, "Car_forward:0.0\n");
-        order_line();
-        //dprintf(1, "Cycle_wait:10\n");
-        dprintf(2, "STOOOOP\n");
-    } else if (stop == 0) {
-        dprintf(1, "Car_forward:1\n");
-        order_line();
-        dprintf(1, "Cycle_wait:10\n");
+    // if (nfs->stop == 1) {
+    //     //dprintf(1, "Car_backwards:1\n");
+    //     dprintf(1, "Car_forward:0.0\n");
+    //     order_line(nfs);
+    //     dprintf(2, "STOOOOP\n");
+    //     //dprintf(1, "Cycle_wait:10\n");
+    // }
+    if (nfs->stop == 0) {
+        dprintf(1, "Car_forward:0.3\n");
+        order_line(nfs);
         dprintf(2, "FORWARD\n");
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
     }
+    dprintf(2, "right = %i et left = %i", nfs->average_left, nfs->average_right);
+    if (nfs->average_right < 400) {
+        dprintf(1, "WHEELS_DIR:0.4");
+        order_line(nfs);
+        nfs->wheel = 1;
+    } else if (nfs->wheel == 1) {
+        dprintf(1, "WHEELS_DIR:0");
+        order_line(nfs);
+        nfs->wheel = 0;
+    }
+    if (nfs->average_left < 400) {
+        dprintf(1, "WHEELS_DIR:-0.4");
+        order_line(nfs);
+        nfs->wheel = 1;
+    } else if (nfs->wheel == 1) {
+        dprintf(1, "WHEELS_DIR:0");
+        order_line(nfs);
+        nfs->wheel = 0;
+    }
+    dprintf(2, "right = %i et left = %i", nfs->average_left, nfs->average_right);
+    // if (nfs->average_left > nfs->average_right && nfs->wheel == 1) {
+    //     dprintf(1, "WHEELS_DIR:0");
+    //     order_line(nfs);
+    //     nfs->wheel = 0;
+    // }
     /*dprintf(2, "SPEED = %i\n", my_tab[4]);
     if (atoi(my_tab[3]) > 30)
         dprintf(1, "CAR_FORWARD:0\n");*/
@@ -51,19 +67,19 @@ char **malloc_double(char *str, int space)
     return (my_tab);
 }
 
-char **my_str_to_word_array(char *str)
+char **my_str_to_word_array(char *str, nfors_t *nfs)
 {
     char **my_tab = malloc(sizeof(char *) * 7);
-    int space = 1;
+    nfs->tab_len = 1;
     int x = 0;
     int y = 0;
 
     //dprintf(2, "C'EST LE PRINTF = %s\n", str);
     for (int z = 0; str[z]; z++)
         if (str[z] == ':')
-            space++;
-    my_tab = malloc_double(str, space);
-    for (int i = 0; x <= (space - 1); x++) {
+            nfs->tab_len++;
+    my_tab = malloc_double(str, nfs->tab_len);
+    for (int i = 0; x <= (nfs->tab_len - 1); x++) {
         for (; str[i] != ':' && str[i] != '\n'; i++) {
             my_tab[x][y] = str[i];
             dprintf(2, "%c", my_tab[x][y]);
@@ -75,6 +91,5 @@ char **my_str_to_word_array(char *str)
         y = 0;
     }
     dprintf(2, "\n");
-    break_car(my_tab);
     return (my_tab);
 }

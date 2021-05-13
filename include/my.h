@@ -14,6 +14,15 @@
 #ifndef MY_H_
 #define MY_H_
 
+typedef struct nfors_s {
+    char **my_tab;
+    int tab_len;
+    int average_left;
+    int average_right;
+    int stop;
+    int wheel;
+} nfors_t;
+
 void my_putchar(char, infin_number_t *info);
 int my_putchari(char);
 void my_putcerr(char);
@@ -45,9 +54,11 @@ void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
 int check_error(int ac);
-void ai(void);
-void get_instructions(void);
+void ai(nfors_t *nfs);
+void get_instructions(nfors_t *nfs);
 void coordinates(void);
-char **my_str_to_word_array(char *str);
+char **my_str_to_word_array(char *str, nfors_t *nfs);
+void break_car(nfors_t *nfs);
+void order_line(nfors_t *nfs);
 
 #endif /* !MY_H_ */

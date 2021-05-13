@@ -42,7 +42,7 @@ static bool finish_conversion(const char *converted_number_ptr,
     return (true);
 }
 
-int my_putnbr_base_width(int number, const char *base, size_t width, 
+int my_putnbr_base_width(int number, const char *base, size_t width,
 infin_number_t *info)
 {
     char buffer[WORK_BUFFER_SIZE];

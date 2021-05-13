@@ -11,13 +11,16 @@
 #include <unistd.h>
 #include "../include/my.h"
 
-void get_instructions(void)
+void get_instructions(nfors_t *nfs)
 {
     //coordinates();
     dprintf(1, "Start_simulation\n");
     while (1) {
         dprintf(1, "GET_INFO_LIDAR\n");
-        order_line();
+        order_line(nfs);
+        stop_car(nfs);
+        break_car(nfs);
+        //order_line(nfs);
         //dprintf(1, "GET_CURRENT_SPEED\n");
         //printf("Cycle_wait:10\n");
     }
@@ -30,7 +33,7 @@ void get_instructions(void)
     //wait(NULL);
 }
 
-void ai(void)
+void ai(nfors_t *nfs)
 {
-    get_instructions();
+    get_instructions(nfs);
 }

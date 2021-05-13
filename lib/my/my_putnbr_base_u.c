@@ -10,7 +10,7 @@
 #include "../../include/my_struct.h"
 #include <string.h>
 
-int my_putnbr_base_u(unsigned int number, const char *base, infin_number_t 
+int my_putnbr_base_u(unsigned int number, const char *base, infin_number_t
 *info)
 {
     return (my_putnbr_base_width_u(number, base, 0, info));
