@@ -11,11 +11,8 @@
 
 int main(int ac, char **av)
 {
-    char *str = NULL;
-    size_t size_t;
-
     if (check_error(ac) != 0)
         return (84);
-    ai(str, size_t);
+    ai();
     return (0);
 }

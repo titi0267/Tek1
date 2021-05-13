@@ -9,6 +9,7 @@ SRC = 	src/info_getter.c		\
 		src/error_handling.c	\
 		src/ai.c				\
 		src/main.c				\
+		src/my_str_to_word_array.c		\
 
 CC		=	gcc -o -lm
 

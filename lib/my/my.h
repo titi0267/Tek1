@@ -45,8 +45,10 @@ void perc(va_list *my_list, infin_number_t *info);
 void pp(va_list *my_list, infin_number_t *info);
 void pbs(va_list *my_list, infin_number_t *info);
 int check_error(int ac);
-void ai(char *str, size_t size_t);
-void get_instructions(char *str, size_t size_t);
-void coordinates(char *str, size_t size_t);
+void ai(void);
+void get_instructions(void);
+void coordinates(void);
+char **my_str_to_word_array(char *str);
+void order_line(void);
 
 #endif /* !MY_H_ */

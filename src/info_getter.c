@@ -4,13 +4,30 @@
 ** File description:
 ** info_getter
 */
-
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/my.h"
 
-void coordinates(char *str, size_t size_t)
+void order_line(void)
 {
-    getline(&str, &size_t, stdout);
-    my_puterr(str);
+    size_t len = 4096;
+    char *str = NULL;
+
+    getline(&str, &len, stdin);
+    my_str_to_word_array(str);
+}
+
+void coordinates(void)
+{
+    size_t buffsize = 4096;
+    char *str = malloc(buffsize * sizeof(char));
+    static int first = 0;
+
+    getline(&str, &buffsize, stdin);
+    if (first >= 1)
+        my_str_to_word_array(str);
+    first++;
+    //dprintf(2, "LA SORTIE = %s\n", str);
+    //my_puterr(str);
 }

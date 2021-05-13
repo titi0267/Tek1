@@ -14,11 +14,11 @@
 
 bool my_putnbr(int number);
 int my_putnbr_base(int number, const char *base, infin_number_t *info);
-int my_putnbr_base_u(unsigned int number, const char *base, infin_number_t 
+int my_putnbr_base_u(unsigned int number, const char *base, infin_number_t
 *info);
-int my_putnbr_base_width(int number, const char *base, size_t width, 
+int my_putnbr_base_width(int number, const char *base, size_t width,
 infin_number_t *info);
-int my_putnbr_base_width_u(unsigned int number, const char *base, size_t width, 
+int my_putnbr_base_width_u(unsigned int number, const char *base, size_t width,
 infin_number_t *info);
 char *my_nbr_to_string(int number) MY_ATTR_WARN_UNUSED_RESULT;
 char *my_nbr_to_string_base(int number,
@@ -45,4 +45,3 @@ int my_str_isprintable(const char *string) MY_ATTR_WARN_UNUSED_RESULT
 size_t my_count_byte_occurences(const char *first, const char *last,
     char character) MY_ATTR_WARN_UNUSED_RESULT MY_ATTR_PURE;
 bool my_show_word_array(char *const *table) MY_ATTR_WARN_UNUSED_RESULT;
-char **my_str_to_word_array(const char *string) MY_ATTR_WARN_UNUSED_RESULT;
