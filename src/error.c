@@ -20,14 +20,13 @@ static int error_argnbr(int ac)
     return (0);
 }
 
-static int error_size_word(stumper_t *stp)
+int error_word_nbr(stumper_t *stp)
 {
     int i = 0;
 
-    while (stp->buffer[i] != '\0') {
+    for (int i = 0; stp->buffer[i] != '\0'; i++) {
         if (stp->buffer[i] == ' ')
             return (84);
-        i++;
     }
 }
 

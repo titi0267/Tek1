@@ -52,7 +52,7 @@ void print_first_letter(stumper_t *stp)
         else if (i != 0)
             printf("%c",stp->star[i]);
     }
-    printf("\n");
+    printf("\n\n");
 }
 
 int main(int ac, char **av)
@@ -63,13 +63,12 @@ int main(int ac, char **av)
         return (84);
     if (read_map(stp, av) == 84)
         return (84);
-    if (store_map(stp) == 84)
+    if (error_word_nbr(stp) == 84 || store_map(stp) == 84)
         return (84);
     choose_word(stp);
     if (word_in_star(stp) == 84)
         return (84);
     print_first_letter(stp);
-    printf("\n");
     get_usr_line(stp);
     free_all(stp);
     free(stp);

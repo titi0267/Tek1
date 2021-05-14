@@ -42,5 +42,6 @@ int my_strlen(char const *str);
 void rm_question_mark(stumper_t *stp);
 void print_first_letter(stumper_t *stp);
 int len_error(stumper_t *stp);
+int error_word_nbr(stumper_t *stp);
 
 #endif /* !my */

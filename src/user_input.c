@@ -11,7 +11,7 @@ static int check_win_lose(stumper_t *stp)
 {
     int i = 0;
 
-    for (; stp->star[i] != '\n'; i++)
+    for (; stp->star[i] != '\0'; i++)
     {
         if (stp->star[i] == '*' && stp->line[stp->word][i] != '*')
             break;
@@ -27,8 +27,8 @@ static void compare_letter(stumper_t *stp)
 {
     int i = 0;
 
-    for (; stp->line[stp->word][i]; i++) {
-        for (int d = 0; stp->str[d]; d++) {
+    for (; stp->line[stp->word][i] != '\n'; i++) {
+        for (int d = 0; stp->str[d] != '\n'; d++) {
             if (stp->line[stp->word][i] == stp->str[d] && i == d) {
                 stp->star[i] = stp->str[d];
             }

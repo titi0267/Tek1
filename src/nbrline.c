@@ -35,7 +35,6 @@ void rm_question_mark(stumper_t *stp)
     for (int i = 0; stp->star[i] != '\0'; i++) {
         if (stp->star[i] != '*' && i != 0)
             stp->star[i] = '*';
-        printf("%c & %i\n", stp->star[i], i);
     }
 }
 
