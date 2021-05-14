@@ -54,3 +54,12 @@ int len_error(stumper_t *stp)
     }
     return (0);
 }
+
+void compare_letter_next(stumper_t *stp, int i, int d)
+{
+    if (stp->line[stp->word][i] == stp->str[d] && i == d)
+        stp->star[i] = stp->str[d];
+    else if (stp->line[stp->word][i] == stp->str[d] && i != d
+        && stp->star[d] == '*' && stp->star[i] == '*')
+        stp->star[d] = '?';
+}
