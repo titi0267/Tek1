@@ -59,7 +59,12 @@ void compare_letter_next(stumper_t *stp, int i, int d)
 {
     if (stp->line[stp->word][i] == stp->str[d] && i == d)
         stp->star[i] = stp->str[d];
-    else if (stp->line[stp->word][i] == stp->str[d] && i != d
+    for (int e = 0; stp->star[e] != '\0'; e++) {
+        if (stp->line[stp->word][i] == stp->str[d] && i != d
+            && stp->star[e] == '*')
+            stp->star[d] = '?';
+    }
+/*    if (stp->line[stp->word][i] == stp->str[d] && i != d
         && stp->star[d] == '*' && stp->star[i] == '*')
-        stp->star[d] = '?';
+        stp->star[d] = '?';*/
 }

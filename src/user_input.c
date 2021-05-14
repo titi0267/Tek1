@@ -12,8 +12,7 @@ static int check_win_lose(stumper_t *stp)
     int i = 0;
 
     for (; stp->star[i] != '\0'; i++) {
-        if (stp->star[i] == '*' &&
-        stp->line[stp->word][i] != '*')
+        if (stp->star[i] == '*' || stp->star[i] == '?')
             break;
     }
     if (stp->line[stp->word][i] == '\n')
