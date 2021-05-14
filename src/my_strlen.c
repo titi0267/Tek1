@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** my_strcmp.c
+** EPITECH PROJECT, 2021
+** my_strlen.c
 ** File description:
-** my_strcmp
+** my_strlen
 */
 
 #include "../include/my.h"
@@ -12,7 +12,7 @@ int my_strlen(char const *str)
     int i = 0;
 
     while (str[i] != '\0') {
-        i = i + 1;
+        i++;
     }
     return (i);
 }
