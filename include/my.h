@@ -41,5 +41,6 @@ int replace_star(stumper_t *stp);
 int my_strlen(char const *str);
 void rm_question_mark(stumper_t *stp);
 void print_first_letter(stumper_t *stp);
+int len_error(stumper_t *stp);
 
 #endif /* !my */

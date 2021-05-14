@@ -23,7 +23,7 @@ static int word_in_star(stumper_t *stp)
     int i = my_strlen(stp->line[stp->word]);
     int d = 0;
 
-    if ((stp->star = malloc(sizeof(char) * i)) == NULL)
+    if ((stp->star = malloc(sizeof(char) * i + 1)) == NULL)
         return (84);
     for (; stp->line[stp->word][d] != '\n'; d++) {
         stp->star[d] = '*';
@@ -52,7 +52,7 @@ void print_first_letter(stumper_t *stp)
         else if (i != 0)
             printf("%c",stp->star[i]);
     }
-    printf("\n\n");
+    printf("\n");
 }
 
 int main(int ac, char **av)
@@ -69,6 +69,7 @@ int main(int ac, char **av)
     if (word_in_star(stp) == 84)
         return (84);
     print_first_letter(stp);
+    printf("\n");
     get_usr_line(stp);
     free_all(stp);
     free(stp);

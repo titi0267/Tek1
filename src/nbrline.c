@@ -35,5 +35,23 @@ void rm_question_mark(stumper_t *stp)
     for (int i = 0; stp->star[i] != '\0'; i++) {
         if (stp->star[i] != '*' && i != 0)
             stp->star[i] = '*';
+        printf("%c & %i\n", stp->star[i], i);
     }
+}
+
+int len_error(stumper_t *stp)
+{
+    int i = 0;
+    int x = 0;
+
+    for (; stp->str[i] != '\n'; i++);
+    for (; stp->line[stp->word][x] != '\n'; x++);
+    if (x > i) {
+        printf("Word too short. Retry.\n");
+        return (-1);
+    } else if (x < i) {
+        printf("Word too long. Retry.\n");
+        return (-1);
+    }
+    return (0);
 }

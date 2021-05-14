@@ -11,12 +11,12 @@ static int check_win_lose(stumper_t *stp)
 {
     int i = 0;
 
-    for (; stp->line[stp->word][i] != '\0'; i++) {
-        if (stp->line[stp->word][i] != stp->star[i] &&
-            stp->line[stp->word][i] != '\n')
+    for (; stp->star[i] != '\n'; i++)
+    {
+        if (stp->star[i] == '*' && stp->line[stp->word][i] != '*')
             break;
     }
-    if (stp->line[stp->word][i] == '\0')
+    if (stp->line[stp->word][i] == '\n')
         return (1);
     if (stp->tries == 1)
         return (2);
@@ -29,10 +29,11 @@ static void compare_letter(stumper_t *stp)
 
     for (; stp->line[stp->word][i]; i++) {
         for (int d = 0; stp->str[d]; d++) {
-            if (stp->line[stp->word][i] == stp->str[d] && i == d)
+            if (stp->line[stp->word][i] == stp->str[d] && i == d) {
                 stp->star[i] = stp->str[d];
+            }
             else if (stp->line[stp->word][i] == stp->str[d] && i != d
-                     && stp->star[i] == '*')
+                     && stp->star[d] == '*' && stp->star[i] == '*')
                 stp->star[d] = '?';
         }
     }
@@ -45,8 +46,8 @@ static int input_core(stumper_t *stp)
 
     compare_letter(stp);
     print_first_letter(stp);
-    rm_question_mark(stp);
     d = check_win_lose(stp);
+    rm_question_mark(stp);
     if (d == 1) {
         printf("You won!\n");
         return (1);
@@ -60,10 +61,20 @@ static int input_core(stumper_t *stp)
 
 static int in_getline(stumper_t *stp, size_t len)
 {
+    static int error = 0;
+
     len = 0;
     stp->str = NULL;
-    printf("Round %i\n>", stp->rounds);
+    if (error == 0)
+        printf("Round %i\n>", stp->rounds);
+    else
+        printf(">");
     if (getline(&stp->str, &len, stdin) != -1) {
+        if (len_error(stp) != 0) {
+            error = 1;
+            return (0);
+        }
+        error = 0;
         stp->rounds++;
         if (input_core(stp) == 1)
             return (1);
