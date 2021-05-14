@@ -61,7 +61,8 @@ int main(int ac, char **av)
 
     if (stp == NULL || error_core(ac) == 84)
         return (84);
-    if (read_map(stp, av) == 84)
+    if (read_map(stp, av) == 84 || (stp->line =
+    malloc(sizeof(char *) * (stp->line_nbr + 1))) == NULL)
         return (84);
     if (error_word_nbr(stp) == 84 || store_map(stp) == 84)
         return (84);
