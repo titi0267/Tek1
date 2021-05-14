@@ -33,7 +33,7 @@ int char_line(char *buffer)
 void rm_question_mark(stumper_t *stp)
 {
     for (int i = 0; stp->star[i] != '\0'; i++) {
-        if (stp->star[i] == '?' && stp->line[stp->word][i] != '?')
+        if (stp->star[i] != '*' && i != 0)
             stp->star[i] = '*';
     }
 }

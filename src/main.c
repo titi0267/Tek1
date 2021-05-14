@@ -29,7 +29,6 @@ static int word_in_star(stumper_t *stp)
         stp->star[d] = '*';
     }
     stp->star[d] = '\0';
-    printf("%s\nTries: %i\n\n", stp->star, stp->tries);
     return (0);    
 }
 
@@ -45,7 +44,7 @@ static void choose_word(stumper_t *stp)
     printf("Will you find the secret word?\n");
 }
 
-static void print_first_letter(stumper_t *stp)
+void print_first_letter(stumper_t *stp)
 {
     for (int i = 0; stp->star[i] != '\0'; i++) {
         if (i == 0)
@@ -53,6 +52,7 @@ static void print_first_letter(stumper_t *stp)
         else if (i != 0)
             printf("%c",stp->star[i]);
     }
+    printf("\n\n");
 }
 
 int main(int ac, char **av)

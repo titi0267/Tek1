@@ -33,7 +33,7 @@ static void compare_letter(stumper_t *stp)
                 stp->star[i] = stp->str[d];
             else if (stp->line[stp->word][i] == stp->str[d] && i != d
                      && stp->star[i] == '*')
-                stp->star[i] = '?';
+                stp->star[d] = '?';
         }
     }
     stp->tries--;
@@ -44,7 +44,7 @@ static int input_core(stumper_t *stp)
     int d = 0;
 
     compare_letter(stp);
-    printf("%s\n\n", stp->star);
+    print_first_letter(stp);
     rm_question_mark(stp);
     d = check_win_lose(stp);
     if (d == 1) {
