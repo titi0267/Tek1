@@ -11,16 +11,16 @@
 static int error_argnbr(int ac)
 {
     if (ac < 2) {
-        write(2, "missing arguments", 19);
+        write(2, "missing arguments\n", 19);
         return (84);
-    } else if (ac > 3) {
+    } else if (ac > 2) {
         write(2, "too much arguments\n", 20);
         return (84);
     }
     return (0);
 }
 
-static int error_size_word(int ac)
+static int error_size_word(stumper_t *stp)
 {
     int i = 0;
 

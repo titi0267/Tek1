@@ -39,6 +39,20 @@ static void choose_word(stumper_t *stp)
     stp->word = rand() % stp->line_nbr;
     stp->tries = my_strlen(stp->line[stp->word]);
     stp->rounds = 1;
+
+    printf("*: invalid letter\n");
+    printf("?: incorrectly placed letter\n");
+    printf("Will you find the secret word?\n");
+}
+
+static void print_first_letter(stumper_t *stp)
+{
+    for (int i = 0; stp->star[i] != '\0'; i++) {
+        if (i == 0)
+            printf("%c",stp->line[stp->word][0]);
+        else if (i != 0)
+            printf("%c",stp->star[i]);
+    }
 }
 
 int main(int ac, char **av)
@@ -54,6 +68,7 @@ int main(int ac, char **av)
     choose_word(stp);
     if (word_in_star(stp) == 84)
         return (84);
+    print_first_letter(stp);
     get_usr_line(stp);
     free_all(stp);
     free(stp);
