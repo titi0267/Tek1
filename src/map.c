@@ -51,9 +51,11 @@ int store_map(stumper_t *stp)
     int d = 0;
     int c = 0;
 
-    stp->line = malloc(sizeof(char *) * (stp->line_nbr + 1));
+    if ((stp->line = malloc(sizeof(char *) * (stp->line_nbr + 1))) == NULL)
+        return (84);
     while (d != stp->line_nbr) {
-        stp->line[d] = malloc(sizeof(char) * (stp->char_nbr + 1));
+        if ((stp->line[d] = malloc(sizeof(char) * (stp->char_nbr + 1))) == NULL)
+            return (84);
         while (stp->buffer[i] != '\n') {
             stp->line[d][c] = stp->buffer[i];
             c++;

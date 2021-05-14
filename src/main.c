@@ -33,26 +33,12 @@ static int word_in_star(stumper_t *stp)
     return (0);    
 }
 
-static int choose_word(int ac, char **av, stumper_t *stp)
+static void choose_word(stumper_t *stp)
 {
     srand(time(NULL));
-    if (ac == 4) {
-        if (my_getnbr(av[3]) > stp->line_nbr ||
-            my_getnbr(av[3]) <= 0) {
-            write(2, "no word match\n", 14);
-            return (84);
-            }
-        stp->word = my_getnbr(av[3]) - 1;
-        stp->tries = my_getnbr(av[2]);
-        return (0);
-    } else if (ac == 3) {
-        stp->tries = my_getnbr(av[2]);
-        stp->word = rand() % stp->line_nbr;
-    } else {
-        stp->word = rand() % stp->line_nbr;
-        stp->tries = 10;
-    }
-    return (0);
+    stp->word = rand() % stp->line_nbr;
+    stp->tries = my_strlen(stp->line[stp->word]);
+    stp->rounds = 1;
 }
 
 int main(int ac, char **av)
@@ -63,8 +49,9 @@ int main(int ac, char **av)
         return (84);
     if (read_map(stp, av) == 84)
         return (84);
-    if (store_map(stp) == 84 || choose_word(ac, av, stp) == 84)
+    if (store_map(stp) == 84)
         return (84);
+    choose_word(stp);
     if (word_in_star(stp) == 84)
         return (84);
     get_usr_line(stp);

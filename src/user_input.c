@@ -67,8 +67,9 @@ static int in_getline(stumper_t *stp, size_t len)
 {
     len = 0;
     stp->str = NULL;
-    printf("Your letter: ");
+    printf("Round %i\n>", stp->rounds);
     if (getline(&stp->str, &len, stdin) != -1) {
+        stp->rounds++;
         if (input_core(stp) == 1)
             return (1);
     } else
