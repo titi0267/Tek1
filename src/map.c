@@ -18,6 +18,10 @@ static int stat_size(char **av)
 
     if (stat(av[1], &buff) == -1)
         exit(84);
+    if (buff.st_size == 0) {
+        write(2, "Incorrect file\n", 15);
+        exit(84);
+    }
     return (buff.st_size + 1);
 }
 
