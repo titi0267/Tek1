@@ -18,30 +18,25 @@ static int check_win_lose(stumper_t *stp)
     }
     if (stp->line[stp->word][i] == '\0')
         return (1);
-    if (stp->tries == 0)
+    if (stp->tries == 1)
         return (2);
     return (0);
 }
 
 static void compare_letter(stumper_t *stp)
 {
-    int counter = 0;
     int i = 0;
 
-    for (; stp->line[stp->word][i] != '\0'; i++) {
-        if (stp->line[stp->word][i] == stp->str[0] &&
-            stp->star[i] == '*') {
-            stp->star[i] = stp->str[0];
-            counter = -1;
-            break;
-        } else {
-            counter++;
+    for (; stp->line[stp->word][i]; i++) {
+        for (int d = 0; stp->str[d]; d++) {
+            if (stp->line[stp->word][i] == stp->str[d] && i == d)
+                stp->star[i] = stp->str[d];
+            else if (stp->line[stp->word][i] == stp->str[d] && i != d
+                     && stp->star[i] == '*')
+                stp->star[i] = '?';
         }
     }
-    if (i == counter) {
-        printf("%c: is not in this word\n", stp->str[0]);
-        stp->tries--;
-    }
+    stp->tries--;
 }
 
 static int input_core(stumper_t *stp)
@@ -49,8 +44,8 @@ static int input_core(stumper_t *stp)
     int d = 0;
 
     compare_letter(stp);
-    printf("%s\n", stp->star);
-    printf("Tries: %i\n\n", stp->tries);
+    printf("%s\n\n", stp->star);
+    rm_question_mark(stp);
     d = check_win_lose(stp);
     if (d == 1) {
         printf("You won!\n");
