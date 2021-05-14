@@ -53,7 +53,7 @@ static int input_core(stumper_t *stp)
     printf("Tries: %i\n\n", stp->tries);
     d = check_win_lose(stp);
     if (d == 1) {
-        printf("Congratulations!\n");
+        printf("You won!\n");
         return (1);
     } else if (d == 2) {
         printf("You lost!\n");
