@@ -19,6 +19,8 @@ typedef struct nfors_s {
     int tab_len;
     int average_left;
     int average_right;
+    int average_lastleft;
+    int average_lastright;
     int stop;
     int wheel;
 } nfors_t;

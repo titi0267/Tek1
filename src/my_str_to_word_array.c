@@ -26,21 +26,24 @@ void break_car(nfors_t *nfs)
         order_line(nfs);
     }
     dprintf(2, "right = %i et left = %i", nfs->average_left, nfs->average_right);
-    if (nfs->average_right < 400) {
+    if (nfs->average_right < 400 && nfs->average_lastright >= nfs->average_right) {
         dprintf(1, "WHEELS_DIR:0.4");
         order_line(nfs);
+        nfs->average_lastright = nfs->average_right;
         nfs->wheel = 1;
     } else if (nfs->wheel == 1) {
         dprintf(1, "WHEELS_DIR:0");
+        dprintf(2, "WHEELS_DIR:0\n");
         order_line(nfs);
         nfs->wheel = 0;
     }
-    if (nfs->average_left < 400) {
+    if (nfs->average_left < 400 && nfs->average_lastleft >= nfs->average_left) {
         dprintf(1, "WHEELS_DIR:-0.4");
         order_line(nfs);
         nfs->wheel = 1;
     } else if (nfs->wheel == 1) {
         dprintf(1, "WHEELS_DIR:0");
+        dprintf(2, "WHEELS_DIR:0\n");
         order_line(nfs);
         nfs->wheel = 0;
     }
