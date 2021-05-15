@@ -9,30 +9,67 @@
 #include <stdio.h>
 #include "../include/my.h"
 
+void turn_car(int wall, nfors_t *nfs)
+{
+    if (wall > 1000) {
+        dprintf(1, "WHEELS_DIR:1\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (wall > 500) {
+        dprintf(1, "WHEELS_DIR:0.3\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (wall > 250) {
+        dprintf(1, "WHEELS_DIR:0.2\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (wall > 0) {
+        dprintf(1, "WHEELS_DIR:0\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    }
+    if (wall < -1000) {
+        dprintf(1, "WHEELS_DIR:-1\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (wall < -500) {
+        dprintf(1, "WHEELS_DIR:-0.5\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (wall < 0) {
+        dprintf(1, "WHEELS_DIR:-0.1\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    }
+    /*if (wall > -300 && wall < 300) {
+        dprintf(1, "WHEELS_DIR:0.0\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    }*/
+}
+
 void break_car(nfors_t *nfs)
 {
+    int i = 0;
+
     dprintf(1, "Car_forward:0.3\n");
     order_line(nfs);
     //dprintf(2, "FORWARD\n");
     dprintf(1, "Cycle_wait:1\n");
     order_line(nfs);
-    if (atoi(nfs->my_tab[3]) < 400) {
-        dprintf(1, "WHEELS_DIR:0.4\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atoi(nfs->my_tab[33]) < 400) {
-        dprintf(1, "WHEELS_DIR:-0.4\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else {
-        dprintf(1, "WHEELS_DIR:0.0\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    }
+    i = atof(nfs->my_tab[3]) - atof(nfs->my_tab[33]);
+    dprintf(2, "i = %i\n", i);
+    turn_car(i, nfs);
 }
+
 
 /*void break_car(nfors_t *nfs)
 {

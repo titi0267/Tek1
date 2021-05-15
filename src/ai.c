@@ -18,8 +18,8 @@ void get_instructions(nfors_t *nfs)
     while (1) {
         dprintf(1, "GET_INFO_LIDAR\n");
         order_line(nfs);
-        stop_car(nfs);
         break_car(nfs);
+        //stop_car(nfs);
         //order_line(nfs);
         //dprintf(1, "GET_CURRENT_SPEED\n");
         //printf("Cycle_wait:10\n");

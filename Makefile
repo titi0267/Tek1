@@ -33,4 +33,4 @@ fclean: clean
 	rm -f ${EXEC}
 	make -C lib/my fclean
 
-re:	fclean
+re:	fclean all
