@@ -59,7 +59,7 @@ int check_error(int ac);
 void ai(nfors_t *nfs);
 void get_instructions(nfors_t *nfs);
 void coordinates(void);
-char **my_str_to_word_array(char *str, nfors_t *nfs);
+void my_str_to_word_array(char *str, nfors_t *nfs);
 void break_car(nfors_t *nfs);
 void order_line(nfors_t *nfs);
 
