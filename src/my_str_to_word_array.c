@@ -65,10 +65,46 @@ void break_car(nfors_t *nfs)
     //dprintf(2, "FORWARD\n");
     dprintf(1, "Cycle_wait:1\n");
     order_line(nfs);
-    i = atof(nfs->my_tab[3]) - atof(nfs->my_tab[33]);
+    //i = atof(nfs->my_tab[3]) - atof(nfs->my_tab[33]);
     dprintf(2, "i = %i\n", i);
-    turn_car(i, nfs);
+    if (atof(nfs->my_tab[3]) > 450) {
+        dprintf(1, "WHEELS_DIR:0.1\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[3]) > 300) {
+        dprintf(1, "WHEELS_DIR:0.2\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[3]) > 100) {
+        dprintf(1, "WHEELS_DIR:0.5\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    }
+    if (atof(nfs->my_tab[33]) > 450) {
+        dprintf(1, "WHEELS_DIR:-0.1\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[33]) > 100) {
+        dprintf(1, "WHEELS_DIR:-0.2\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[33]) > 100) {
+        dprintf(1, "WHEELS_DIR:-0.5\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    }
 }
+
+/*void function(stumper_t *stp)
+{
+    for (int stp->star[i] = 0; i != '\0'; i++)
+}*/
 
 
 /*void break_car(nfors_t *nfs)
