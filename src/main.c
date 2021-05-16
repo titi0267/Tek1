@@ -23,6 +23,7 @@ int main(int ac, char **av)
     nfs->avoid_mul = 0;
     nfs->stop = 0;
     nfs->wheel = 0;
+    nfs->end_car = 0;
     ai(nfs);
     return (0);
 }

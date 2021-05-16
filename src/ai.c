@@ -80,6 +80,14 @@ void break_car(nfors_t *nfs)
     break_car_right(nfs);
 }
 
+void stop_car(nfors_t *nfs)
+{
+    dprintf(1, "car_forward:0.0\n");
+    order_line(nfs);
+    dprintf(1, "Stop_simulation\n");
+    order_line(nfs);
+}
+
 void get_instructions(nfors_t *nfs)
 {
     dprintf(1, "Start_simulation\n");
@@ -88,6 +96,8 @@ void get_instructions(nfors_t *nfs)
         order_line(nfs);
         if (nfs->tab_len >= 33)
             break_car(nfs);
+        if (nfs->end_car == 1)
+            stop_car(nfs);
     }
 }
 
