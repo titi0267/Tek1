@@ -19,6 +19,8 @@ int main(int ac, char **av)
     nfs->average_left = 0;
     nfs->average_lastright = 400;
     nfs->average_lastleft = 400;
+    nfs->avoiding = 0;
+    nfs->avoid_mul = 0;
     nfs->stop = 0;
     nfs->wheel = 0;
     ai(nfs);

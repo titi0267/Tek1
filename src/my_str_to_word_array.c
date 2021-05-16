@@ -11,38 +11,50 @@
 
 void turn_car(int wall, nfors_t *nfs)
 {
-    if (wall > 1000) {
+    if (wall > 1000)
+    {
         dprintf(1, "WHEELS_DIR:1\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } else if (wall > 500) {
+    }
+    else if (wall > 500)
+    {
         dprintf(1, "WHEELS_DIR:0.3\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } else if (wall > 250) {
+    }
+    else if (wall > 250)
+    {
         dprintf(1, "WHEELS_DIR:0.2\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } else if (wall > 0) {
+    }
+    else if (wall > 0)
+    {
         dprintf(1, "WHEELS_DIR:0\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
     }
-    if (wall < -1000) {
+    if (wall < -1000)
+    {
         dprintf(1, "WHEELS_DIR:-1\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } else if (wall < -500) {
+    }
+    else if (wall < -500)
+    {
         dprintf(1, "WHEELS_DIR:-0.5\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } else if (wall < 0) {
+    }
+    else if (wall < 0)
+    {
         dprintf(1, "WHEELS_DIR:-0.1\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
@@ -58,258 +70,173 @@ void turn_car(int wall, nfors_t *nfs)
 
 void break_car(nfors_t *nfs)
 {
-    int i = 0;
-
     dprintf(1, "Car_forward:0.3\n");
     order_line(nfs);
-    //dprintf(2, "FORWARD\n");
     dprintf(1, "Cycle_wait:1\n");
     order_line(nfs);
-    //i = atof(nfs->my_tab[3]) - atof(nfs->my_tab[33]);
-    dprintf(2, "i = %i\n", i);
-    if (atof(nfs->my_tab[3]) < 500 && atof(nfs->my_tab[3]) >= 475) {
-        dprintf(1, "WHEELS_DIR:-0.005\n");
+
+    /*if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 250) && (abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) < 300)) {
+        dprintf(1, "WHEELS_DIR:");
+        if (dir < 0)
+            dprintf(1, '-');
+        dprintf(1, "0.05\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 475 && atof(nfs->my_tab[3]) >= 450) {
-        dprintf(1, "WHEELS_DIR:-0.015\n");
+    } else if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 350) && (abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) < 400)) {
+        dprintf(1, "WHEELS_DIR:");
+        if (dir < 0)
+            dprintf(1, '-');
+        dprintf(1, "0.1\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } 
-    else if (atof(nfs->my_tab[3]) < 450 && atof(nfs->my_tab[3]) >= 425) {
-        dprintf(1, "WHEELS_DIR:-0.08\n");
+    } else if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 400) && (abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33] < 450)))) {
+        dprintf(1, "WHEELS_DIR:");
+        if (dir < 0)
+            dprintf(1, '-');
+        dprintf(1, "0.2\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } 
-    else if (atof(nfs->my_tab[3]) < 425 && atof(nfs->my_tab[3]) >= 400) {
-        dprintf(1, "WHEELS_DIR:-0.1\n");
+    } else if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 450) && (abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33] < 500)))) {
+        dprintf(1, "WHEELS_DIR:");
+        if (dir < 0)
+            dprintf(1, '-');
+        dprintf(1, "0.3\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    } 
-    else if (atof(nfs->my_tab[3]) < 400 && atof(nfs->my_tab[3]) >= 375) {
-        dprintf(1, "WHEELS_DIR:-0.15\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 375 && atof(nfs->my_tab[3]) >= 350) {
-        dprintf(1, "WHEELS_DIR:-0.25\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 350 && atof(nfs->my_tab[3]) >= 325) {
-        dprintf(1, "WHEELS_DIR:-0.35\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 325 && atof(nfs->my_tab[3]) >= 300) {
-        dprintf(1, "WHEELS_DIR:-0.36\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 300 && atof(nfs->my_tab[3]) >= 275) {
-        dprintf(1, "WHEELS_DIR:-0.37\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 275 && atof(nfs->my_tab[3]) >= 250) {
-        dprintf(1, "WHEELS_DIR:-0.38\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    }else if (atof(nfs->my_tab[3]) < 250 && atof(nfs->my_tab[3]) >= 225) {
-        dprintf(1, "WHEELS_DIR:-0.39\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 225 && atof(nfs->my_tab[3]) >= 200) {
-        dprintf(1, "WHEELS_DIR:-0.41\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    }
-    else if (atof(nfs->my_tab[3]) < 200 && atof(nfs->my_tab[3]) >= 175) {
-        dprintf(1, "WHEELS_DIR:-0.43\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 175 && atof(nfs->my_tab[3]) >= 150) {
-        dprintf(1, "WHEELS_DIR:-0.45\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 150 && atof(nfs->my_tab[3]) >= 125) {
-        dprintf(1, "WHEELS_DIR:-0.47\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 125 && atof(nfs->my_tab[3]) >= 100) {
-        dprintf(1, "WHEELS_DIR:-0.49\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 100 && atof(nfs->my_tab[3]) >= 75) {
-        dprintf(1, "WHEELS_DIR:-0.51\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 75 && atof(nfs->my_tab[3]) >= 50) {
-        dprintf(1, "WHEELS_DIR:-0.53\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 50 && atof(nfs->my_tab[3]) >= 25) {
-        dprintf(1, "WHEELS_DIR:-0.55\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[3]) < 25) {
-        dprintf(1, "WHEELS_DIR:-0.61\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    }
-    if (atof(nfs->my_tab[33]) < 500 && atof(nfs->my_tab[33]) >= 475) {
-        dprintf(1, "WHEELS_DIR:0.005\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 475 && atof(nfs->my_tab[33]) >= 450) {
-        dprintf(1, "WHEELS_DIR:0.015\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } 
-    else if (atof(nfs->my_tab[33]) < 450 && atof(nfs->my_tab[33]) >= 425) {
-        dprintf(1, "WHEELS_DIR:0.08\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } 
-    else if (atof(nfs->my_tab[33]) < 425 && atof(nfs->my_tab[33]) >= 400) {
-        dprintf(1, "WHEELS_DIR:0.1\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } 
-    else if (atof(nfs->my_tab[33]) < 400 && atof(nfs->my_tab[33]) >= 375) {
-        dprintf(1, "WHEELS_DIR:0.15\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 375 && atof(nfs->my_tab[33]) >= 350) {
-        dprintf(1, "WHEELS_DIR:0.25\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 350 && atof(nfs->my_tab[33]) >= 325) {
-        dprintf(1, "WHEELS_DIR:0.35\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 325 && atof(nfs->my_tab[33]) >= 300) {
-        dprintf(1, "WHEELS_DIR:0.36\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 300 && atof(nfs->my_tab[33]) >= 275) {
-        dprintf(1, "WHEELS_DIR:0.37\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 275 && atof(nfs->my_tab[33]) >= 250) {
-        dprintf(1, "WHEELS_DIR:0.38\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    }else if (atof(nfs->my_tab[33]) < 250 && atof(nfs->my_tab[33]) >= 225) {
-        dprintf(1, "WHEELS_DIR:0.39\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 225 && atof(nfs->my_tab[33]) >= 200) {
-        dprintf(1, "WHEELS_DIR:0.41\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 200 && atof(nfs->my_tab[33]) >= 175) {
-        dprintf(1, "WHEELS_DIR:0.43\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 175 && atof(nfs->my_tab[33]) >= 150) {
-        dprintf(1, "WHEELS_DIR:0.45\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 150 && atof(nfs->my_tab[33]) >= 125) {
-        dprintf(1, "WHEELS_DIR:0.47\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 125 && atof(nfs->my_tab[33]) >= 100) {
-        dprintf(1, "WHEELS_DIR:0.49\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 100 && atof(nfs->my_tab[33]) >= 75) {
-        dprintf(1, "WHEELS_DIR:0.51\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 75 && atof(nfs->my_tab[33]) >= 50) {
-        dprintf(1, "WHEELS_DIR:0.53\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 50 && atof(nfs->my_tab[33]) >= 25) {
-        dprintf(1, "WHEELS_DIR:0.55\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 25) {
-        dprintf(1, "WHEELS_DIR:0.61\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    }
-    /*
-    if (atof(nfs->my_tab[33]) < 450 && atof(nfs->my_tab[33]) >= 350) {
-        dprintf(1, "WHEELS_DIR:0.05\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 350 && atof(nfs->my_tab[33]) >= 200) {
-        dprintf(1, "WHEELS_DIR:0.35\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 200 && atof(nfs->my_tab[33]) >= 100) {
-        dprintf(1, "WHEELS_DIR:0.45\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 200 && atof(nfs->my_tab[33]) >= 50) {
-        dprintf(1, "WHEELS_DIR:0.55\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if (atof(nfs->my_tab[33]) < 50) {
-        dprintf(1, "WHEELS_DIR:0.6\n");
+    } else if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 600)) {
+        dprintf(1, "WHEELS_DIR:");
+        if (dir < 0)
+            dprintf(1, '-');
+        dprintf(1, "0.5\n");
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
     }*/
+    float angle = 0;
+    nfs->avoiding = 0;
+    nfs->avoid_mul = 0;
+
+    //right front radar
+    if (atof(nfs->my_tab[19]) < 100)
+    {
+        nfs->avoiding = 1;
+        nfs->avoid_mul -= 0.6;
+    }
+    //right mid radar
+    else if (atof(nfs->my_tab[11]) < 350 && atof(nfs->my_tab[19]) < 200)
+    {
+        nfs->avoiding = 1;
+        nfs->avoid_mul -= 0.27;
+    }
+    else if (atof(nfs->my_tab[6]) < 385 && atof(nfs->my_tab[19]) < 450)
+    {
+        nfs->avoiding = 1;
+        nfs->avoid_mul -= 0.23;
+    }
+    //right side radar
+    else if (atof(nfs->my_tab[3]) < 425)
+    {
+        nfs->avoiding = 1;
+        nfs->avoid_mul -= 0.2;
+    }
+
+    //left front radar
+    else if (atof(nfs->my_tab[20]) < 100)
+    {
+        nfs->avoiding = 1;
+        nfs->avoid_mul += 0.6;
+    }
+    //left mid radar
+    else if (atof(nfs->my_tab[27]) < 350 && atof(nfs->my_tab[20]) < 300)
+    {
+        nfs->avoiding = 1;
+        nfs->avoid_mul += 0.27;
+    }
+    else if (atof(nfs->my_tab[31]) < 385 && atof(nfs->my_tab[20]) < 450)
+    {
+        nfs->avoiding = 1;
+        nfs->avoid_mul += 0.23;
+    }
+    // left side radar
+    else if (atof(nfs->my_tab[34]) < 425)
+    {
+        nfs->avoiding = 1;
+        nfs->avoid_mul += 0.2;
+    }
+
+    if (nfs->avoiding == 1)
+    {
+        angle = 1 * nfs->avoid_mul;
+        dprintf(1, "WHEELS_DIR:%f\n", angle);
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+        dprintf(2, "WHEELS_DIR%f\n", angle);
+    }
+
+    /*
+    if (atof(nfs->my_tab[33]) < 450 && atof(nfs->my_tab[33]) >= 350) {
+        dprintf(1, "WHEELS_DIR:0.1\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[33]) < 350 && atof(nfs->my_tab[33]) >= 200) {
+        dprintf(1, "WHEELS_DIR:0.3\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[33]) < 200 && atof(nfs->my_tab[33]) >= 100) {
+        dprintf(1, "WHEELS_DIR:0.35\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if ((atof(nfs->my_tab[33]) < 100) && (atof(nfs->my_tab[33]) >= 50)) {
+        dprintf(1, "WHEELS_DIR:0.4\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[33]) < 50) {
+        dprintf(1, "WHEELS_DIR:0.45\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    }
+    if (atof(nfs->my_tab[3]) < 450 && atof(nfs->my_tab[3]) >= 350) {
+        dprintf(1, "WHEELS_DIR:-0.1\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[3]) < 350 && atof(nfs->my_tab[3]) >= 200) {
+        dprintf(1, "WHEELS_DIR:-0.3\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[3]) < 200 && atof(nfs->my_tab[3]) >= 100) {
+        dprintf(1, "WHEELS_DIR:-0.35\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if ((atof(nfs->my_tab[3]) < 100) && (atof(nfs->my_tab[3]) >= 50)) {
+        dprintf(1, "WHEELS_DIR:-0.4\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } else if (atof(nfs->my_tab[3]) < 50) {
+        dprintf(1, "WHEELS_DIR:-0.45\n");
+        order_line(nfs);
+        dprintf(1, "Cycle_wait:1\n");
+        order_line(nfs);
+    } */
 }
 
 /*void function(stumper_t *stp)
 {
     for (int stp->star[i] = 0; i != '\0'; i++)
 }*/
-
 
 /*void break_car(nfors_t *nfs)
 {
@@ -389,10 +316,13 @@ void my_str_to_word_array(char *str, nfors_t *nfs)
     for (int z = 0; str[z]; z++)
         if (str[z] == ':')
             nfs->tab_len++;
-    if (nfs->tab_len > 15) {
+    if (nfs->tab_len > 15)
+    {
         nfs->my_tab = malloc_double(str, nfs->tab_len);
-        for (int i = 0; x <= (nfs->tab_len - 1); x++) {
-            for (; str[i] != ':' && str[i] != '\n'; i++) {
+        for (int i = 0; x <= (nfs->tab_len - 1); x++)
+        {
+            for (; str[i] != ':' && str[i] != '\n'; i++)
+            {
                 nfs->my_tab[x][y] = str[i];
                 dprintf(2, "%c", nfs->my_tab[x][y]);
                 y++;

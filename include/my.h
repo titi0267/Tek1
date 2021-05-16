@@ -21,6 +21,8 @@ typedef struct nfors_s {
     int average_right;
     int average_lastleft;
     int average_lastright;
+    int avoiding;
+    float avoid_mul;
     int stop;
     int wheel;
 } nfors_t;
