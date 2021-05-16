@@ -21,7 +21,7 @@ char **malloc_double(char *str, int space)
     return (my_tab);
 }
 
-void compare_clear(char *str, nfors_t *nfs, int tab_len)
+void compare_clear(char *str, nfors_t *nfs)
 {
     char *string = malloc(sizeof(char) * 15);
     int count = 0;
@@ -49,7 +49,7 @@ void my_str_to_word_array(char *str, nfors_t *nfs)
     for (int z = 0; str[z]; z++)
         if (str[z] == ':')
             nfs->tab_len++;
-    compare_clear(str, nfs, nfs->tab_len);
+    compare_clear(str, nfs);
     if (nfs->tab_len > 15) {
         nfs->my_tab = malloc_double(str, nfs->tab_len);
         for (int i = 0; x <= (nfs->tab_len - 1); x++) {
