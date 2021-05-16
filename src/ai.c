@@ -15,38 +15,39 @@ void break_car_right(nfors_t *nfs)
 {
     float wall_right = atof(nfs->my_tab[33]);
     float wall_left = atof(nfs->my_tab[3]);
+    float wall_fr = atof(nfs->my_tab[19]);
 
-    if (wall_right >= 600 && wall_left >= 600) {
-        dprintf(1, "Car_forward:0.5\n");
+    if (wall_right >= 800 && wall_left >= 800 && wall_fr >= 1250) {
+        dprintf(1, "Car_forward:0.6\n");
         order_line(nfs);
         //dprintf(1, "Cycle_wait:1\n");
         //order_line(nfs);
         dprintf(2, "Tout droit (droite)\n");
         dprintf(1, "WHEELS_DIR:0.0\n");
         order_line(nfs);
-    } else if (wall_right >= 300 && wall_left >= 300) {
-        dprintf(1, "Car_forward:0.3\n");
+    } else if (wall_right >= 450 && wall_left >= 450) {
+        dprintf(1, "Car_forward:0.2\n");
         order_line(nfs);
         dprintf(1, "WHEELS_DIR:0.0\n");
         order_line(nfs);
-    } else if (wall_right >= 150 && wall_right < wall_left) {
-        dprintf(1, "Car_forward:0.2\n");
+    } else if (wall_right >= 250 && wall_right < wall_left) {
+        dprintf(1, "Car_forward:0.15\n");
         order_line(nfs);
         //dprintf(1, "Cycle_wait:1\n");
         //order_line(nfs);
         dprintf(2, "droite est > 200 et > 400\n");
-        dprintf(1, "WHEELS_DIR:0.1\n");
+        dprintf(1, "WHEELS_DIR:0.2\n");
         order_line(nfs);
-    } else if (wall_right >= 50 && wall_right < wall_left) {
+    } else if (wall_right >= 75 && wall_right < wall_left) {
         dprintf(1, "Car_forward:0.1\n");
         order_line(nfs);
         //dprintf(1, "Cycle_wait:1\n");
         //order_line(nfs);
         dprintf(2, "droite est > 100 et > 200\n");
-        dprintf(1, "WHEELS_DIR:0.3\n");
+        dprintf(1, "WHEELS_DIR:0.5\n");
         order_line(nfs);
     } else if (wall_right >= 0 && wall_right < wall_left) {
-        dprintf(1, "Car_forward:0.1\n");
+        dprintf(1, "Car_forward:0.05\n");
         order_line(nfs);
         //dprintf(1, "Cycle_wait:1\n");
         //order_line(nfs);
@@ -59,29 +60,30 @@ void break_car(nfors_t *nfs)
 {
     float wall_left = atof(nfs->my_tab[3]);
     float wall_right = atof(nfs->my_tab[33]);
+    float wall_fr = atof(nfs->my_tab[19]);
 
-    if (wall_left >= 600 && wall_left >= 600) {
-        dprintf(1, "Car_forward:0.4\n");
+    if (wall_left >= 800 && wall_left >= 800 && wall_fr >= 1250) {
+        dprintf(1, "Car_forward:0.6\n");
         order_line(nfs);
         //dprintf(1, "Cycle_wait:1\n");
         //order_line(nfs);
         dprintf(2, "Tout droit (gauche)\n");
         dprintf(1, "WHEELS_DIR:0.0\n");
         order_line(nfs);
-    } else if (wall_right >= 300 && wall_left >= 300) {
-        dprintf(1, "Car_forward:0.3\n");
+    } else if (wall_right >= 450 && wall_left >= 450) {
+        dprintf(1, "Car_forward:0.2\n");
         order_line(nfs);
         dprintf(1, "WHEELS_DIR:0.0\n");
         order_line(nfs);
-    } else if (wall_left >= 150 && wall_right > wall_left) {
-        dprintf(1, "Car_forward:0.2\n");
+    } else if (wall_left >= 250 && wall_right > wall_left) {
+        dprintf(1, "Car_forward:0.15\n");
         order_line(nfs);
         //dprintf(1, "Cycle_wait:1\n");
         dprintf(2, "gauche est > 200 et > 400\n");
         //order_line(nfs);
-        dprintf(1, "WHEELS_DIR:-0.1\n");
+        dprintf(1, "WHEELS_DIR:-0.2\n");
         order_line(nfs);
-    } else if (wall_left >= 50 && wall_right > wall_left) {
+    } else if (wall_left >= 75 && wall_right > wall_left) {
         dprintf(1, "Car_forward:0.1\n");
         order_line(nfs);
         //dprintf(1, "Cycle_wait:1\n");
@@ -90,7 +92,7 @@ void break_car(nfors_t *nfs)
         dprintf(1, "WHEELS_DIR:-0.5\n");
         order_line(nfs);
     } else if (wall_left >= 0 && wall_right > wall_left) {
-        dprintf(1, "Car_forward:0.1\n");
+        dprintf(1, "Car_forward:0.05\n");
         order_line(nfs);
         //dprintf(1, "Cycle_wait:1\n");
         //order_line(nfs);
