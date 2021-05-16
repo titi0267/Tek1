@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "../include/my.h"
 
-void turn_car(int wall, nfors_t *nfs)
+/*void turn_car(int wall, nfors_t *nfs)
 {
     if (wall > 1000)
     {
@@ -65,57 +65,16 @@ void turn_car(int wall, nfors_t *nfs)
         order_line(nfs);
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
-    }*/
-}
+    }
+}*/
 
-void break_car(nfors_t *nfs)
+/*void break_car(nfors_t *nfs)
 {
     dprintf(1, "Car_forward:0.3\n");
     order_line(nfs);
     dprintf(1, "Cycle_wait:1\n");
-    order_line(nfs);
-
-    /*if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 250) && (abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) < 300)) {
-        dprintf(1, "WHEELS_DIR:");
-        if (dir < 0)
-            dprintf(1, '-');
-        dprintf(1, "0.05\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 350) && (abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) < 400)) {
-        dprintf(1, "WHEELS_DIR:");
-        if (dir < 0)
-            dprintf(1, '-');
-        dprintf(1, "0.1\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 400) && (abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33] < 450)))) {
-        dprintf(1, "WHEELS_DIR:");
-        if (dir < 0)
-            dprintf(1, '-');
-        dprintf(1, "0.2\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 450) && (abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33] < 500)))) {
-        dprintf(1, "WHEELS_DIR:");
-        if (dir < 0)
-            dprintf(1, '-');
-        dprintf(1, "0.3\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    } else if ((abs(atof(nfs->my_tab[3])) - abs(atof(nfs->my_tab[33])) >= 600)) {
-        dprintf(1, "WHEELS_DIR:");
-        if (dir < 0)
-            dprintf(1, '-');
-        dprintf(1, "0.5\n");
-        order_line(nfs);
-        dprintf(1, "Cycle_wait:1\n");
-        order_line(nfs);
-    }*/
+    order_line(nfs);*/
+/*
     float angle = 0;
     nfs->avoiding = 0;
     nfs->avoid_mul = 0;
@@ -177,7 +136,7 @@ void break_car(nfors_t *nfs)
         order_line(nfs);
         dprintf(2, "WHEELS_DIR%f\n", angle);
     }
-
+*/
     /*
     if (atof(nfs->my_tab[33]) < 450 && atof(nfs->my_tab[33]) >= 350) {
         dprintf(1, "WHEELS_DIR:0.1\n");
@@ -231,7 +190,7 @@ void break_car(nfors_t *nfs)
         dprintf(1, "Cycle_wait:1\n");
         order_line(nfs);
     } */
-}
+//}
 
 /*void function(stumper_t *stp)
 {
