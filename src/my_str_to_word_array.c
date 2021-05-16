@@ -30,7 +30,7 @@ void compare_clear(char *str, nfors_t *nfs, int tab_len)
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == 'T' && str[i + 1] == 'r' && str[i + 2] == 'a')
             count = 1;
-        if (count == 1) {
+        if (count == 1 && str[i] != ':') {
             string[x] = str[i];
             x++;
         }
