@@ -20,6 +20,10 @@ char *read_input(char *prefix, int prefix_len)
     return (input);
 }
 
+/*
+get the input of the user
+prints the prefix $> if necessary
+*/
 char *get_input(char *prefix, int prefix_len)
 {
     char *str = NULL;

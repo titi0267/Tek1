@@ -12,6 +12,9 @@
 #include "my.h"
 #include "mysh.h"
 
+/*
+** connects stdin or stdout to the redirection target
+*/
 int setup_file_redirection(char *filename,
 int fds[3], int file_red, shell_t *shell)
 {

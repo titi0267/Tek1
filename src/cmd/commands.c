@@ -14,6 +14,8 @@
 
 /*
 ** Execute commands separated by ';'
+** sub_cmds separated by |
+** args separated by (space) and \t
 */
 void execute_commands(char **cmds, shell_t *shell)
 {
@@ -57,6 +59,9 @@ void execute_subcommands(char **sub_cmds, shell_t *shell)
     }
 }
 
+/*
+** the heart of the shell
+*/
 int execute_command(char **args, char next, shell_t *shell)
 {
     char *bin = NULL;

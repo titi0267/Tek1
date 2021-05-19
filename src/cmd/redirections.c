@@ -13,6 +13,11 @@
 #include <string.h>
 #include "mysh.h"
 
+/*
+** functions which setups stdin and stdout output
+** setup all file_redirection() for > >> << < and
+** check_redirections() for |
+*/
 int setup_redirections(char **args, int fds[3], char next, shell_t *shell)
 {
     int redirections = 0;
@@ -28,6 +33,10 @@ int setup_redirections(char **args, int fds[3], char next, shell_t *shell)
     return (0);
 }
 
+/*
+** sets input output and next_in as appropriate (check other funcs desc)
+** returns a byte-shift ex 10 means file in was set while file_out wasn't
+*/
 int setup_all_file_redirection(char **args, int fds[3], shell_t *shell)
 {
     int file_red = 0;
@@ -47,6 +56,9 @@ int setup_all_file_redirection(char **args, int fds[3], shell_t *shell)
     return ((file_in << 1) | file_out);
 }
 
+/*
+** Get the type of the redirection wether it is '<' '<<' '>' '>>' or error
+*/
 int get_file_redirection(char ***args)
 {
     int value = 0;
@@ -69,6 +81,13 @@ int get_file_redirection(char ***args)
     return (0);
 }
 
+/*
+** checks for cases like echo 'hello' < yo < les_mecs 2 stdin redirections
+** or echo 'hello' > yo > les_mecs 2 stdout redirections
+** still case like wc < yo > les_mecs should be successful
+** the rule of thumb is there should be max one stdout redirection
+** and one stdin
+*/
 int check_multiple_file_redirect(int file_red, char *file_in, char *file_out)
 {
     if (file_red == READ_FILE_REDIRECT || file_red == HEREDOC_REDIRECT) {
@@ -87,6 +106,11 @@ int check_multiple_file_redirect(int file_red, char *file_in, char *file_out)
     return (0);
 }
 
+/*
+** checks if a redirection is adapted to the current pipe context
+** for example echo hello > yo | wc will fail because stdout is redirected
+** to yo and wc
+*/
 int check_redirections(int redirections, char next, int fds[3], shell_t *shell)
 {
     char file_in = redirections & 2;

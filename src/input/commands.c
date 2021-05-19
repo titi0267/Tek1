@@ -9,6 +9,8 @@
 #include "my.h"
 #include "mysh.h"
 
+/*splits commands by ;
+*/
 char **split_commands(char *str)
 {
     int nb_cmds = count_char(str, ';') + 1;
@@ -16,7 +18,7 @@ char **split_commands(char *str)
 
     if (!cmds)
         return (NULL);
-    cmds[nb_cmds] = 0;
+    cmds[nb_cmds] = NULL;
     if (read_commands(str, cmds))
         return (NULL);
     return (cmds);
@@ -48,7 +50,7 @@ int add_command(char **cmds, int cmd, char *start, int len)
     if (!str)
         return (1);
     my_strncpy(str, start, len);
-    str[len] = 0;
+    str[len] = '\0';
     cmds[cmd] = str;
     return (0);
 }

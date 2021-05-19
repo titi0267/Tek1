@@ -13,6 +13,11 @@
 #include <string.h>
 #include "mysh.h"
 
+/*
+** setups pipes if the check succeded
+** restores the default stdout if
+** next (no more future pipes) is set
+*/
 int setup_pipes(int fds[3], char next, shell_t *shell)
 {
     int pipefd[2];

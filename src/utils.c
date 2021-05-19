@@ -12,6 +12,10 @@
 #include "my.h"
 #include "mysh.h"
 
+/*
+**allocates one more memory and appends a char at the end of a char*
+**!danger you are responsible for putting a
+*/
 void add_char(char **str, int len, char c)
 {
     char *new_str = malloc(sizeof(char) * (len + 1));

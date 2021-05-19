@@ -25,6 +25,8 @@ static char **add_elem(char *elem, char **elems, int *nb)
     return (new_elems);
 }
 
+/* split by pipes
+*/
 char **split_command_into_subcmds(char *str)
 {
     char **cmds = NULL;
@@ -41,6 +43,9 @@ char **split_command_into_subcmds(char *str)
     return (cmds);
 }
 
+/*
+split char* by (space) and \t
+*/
 char **split_command_into_args(char *input)
 {
     char **args = NULL;
