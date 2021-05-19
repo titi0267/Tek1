@@ -16,7 +16,7 @@
 #include "signal_errors.h"
 
 /*
-** execve in the child process
+** execve in the (non-human) child process
 ** in my point of view it should be rewritten so that
 ** instead of forcing the parent shell to constantly to call dup2 in order
 ** for the children to inherit its fds it is prefferred that the children
@@ -39,7 +39,7 @@ int run_file(char *bin, char **args, char next, shell_t *shell)
 }
 
 /*
-** danger not all children are waited
+** Oo danger not all (non-human) children are waited :( oO
 */
 int wait_child(pid_t pid, char next, shell_t *shell)
 {

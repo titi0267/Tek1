@@ -60,7 +60,7 @@ void execute_subcommands(char **sub_cmds, shell_t *shell)
 }
 
 /*
-** the heart of the shell
+** The ~HEART~ of this terrific, magnificent & Amazing shell <3
 */
 int execute_command(char **args, char next, shell_t *shell)
 {
