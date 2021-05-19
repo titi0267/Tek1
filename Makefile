@@ -25,7 +25,7 @@ SRC		=	src/main.c					\
 INC_DIR	=	./include
 LIB_DIR	=	./mylib
 
-CFLAGS	=	-W -Wall -I$(INC_DIR)
+CFLAGS	=	-W -Wall -I$(INC_DIR) -g
 
 OBJ		=	$(SRC:.c=.o)
 

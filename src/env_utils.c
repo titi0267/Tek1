@@ -54,5 +54,6 @@ char **copy_env(char **env)
         }
         new_env[i] = str_cpy;
     }
+    new_env[nb] = NULL;
     return (new_env);
 }
