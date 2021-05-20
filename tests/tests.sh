@@ -6,8 +6,8 @@ fail=0
 
 function run_file() {
     local file=$1
-    mysh="$(cat $file | ../../mysh 2>/dev/null)"
-    mysh_err="$(cat $file | ../../mysh 2>&1)"
+    mysh="$(cat $file | ../../42sh 2>/dev/null)"
+    mysh_err="$(cat $file | ../../42sh 2>&1)"
     mysh_ret=$(echo $?)
 
     tcsh="$(cat $file | tcsh 2>/dev/null)"

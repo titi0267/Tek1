@@ -29,7 +29,9 @@ void execute_commands(char **cmds, shell_t *shell)
             return;
         shell->ret = 0;
         shell->prev_pid = -1;
+        shell->subcmd_len = subcmd_len(sub_cmds);
         execute_subcommands(sub_cmds, shell);
+        wait_all_children(shell);
         dup2(shell->stdin, 0);
         dup2(shell->stdout, 1);
     }
@@ -53,7 +55,6 @@ void execute_subcommands(char **sub_cmds, shell_t *shell)
         setup_redirections(args, fds, sub_cmds[i + 1] != 0, shell))
             break;
         tmp = execute_command(args, sub_cmds[i + 1] != 0, shell);
-        shell->ret  = tmp > -1 ? tmp : shell->ret;
         close(fds[0]);
         fds[0] = fds[2];
     }
@@ -72,7 +73,7 @@ int execute_command(char **args, char next, shell_t *shell)
     } else if ((bin = search_binary(args, shell)) != NULL) {
         status = run_file(bin, args, next, shell);
         free(bin);
-        return (analyse_status_value(status));
+        return (0);
     } else {
         if (errno && errno != 2)
             print_err(args[0]);

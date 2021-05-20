@@ -14,7 +14,7 @@
 int main(int ac, char **av, char **default_env)
 {
     shell_t shell = {copy_env(default_env),
-    my_strdup(""), dup(0), dup(1), 0, 1, 0, -1};
+    my_strdup(""), dup(0), dup(1), 0, 1, 0, -1, 0};
     char *input = NULL;
     char **cmds = NULL;
 

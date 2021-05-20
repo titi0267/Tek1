@@ -20,7 +20,8 @@ SRC		=	src/main.c					\
 			src/cmd/heredoc.c			\
 			src/cmd/execute.c			\
 			src/cmd/binary.c			\
-			src/cmd/utils.c
+			src/cmd/utils.c				\
+			src/cmd/utils_2.c
 
 INC_DIR	=	./include
 LIB_DIR	=	./mylib

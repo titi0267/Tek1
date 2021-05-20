@@ -8,3 +8,6 @@ vgcore*
 big_file
 mouli.sh
 todo
+hack.c
+abort.c
+float.c
