@@ -57,3 +57,19 @@ char **copy_env(char **env)
     new_env[nb] = NULL;
     return (new_env);
 }
+
+void set_default_path(char ***env)
+{
+    char *path = get_env_value("PATH", *env);
+    char **new_env;
+    int size = 0;
+
+    if (!path) {
+        new_env = clone_env(*env, &size, 1);
+        new_env[size] = create_variable("PATH",
+        "/usr/sbin:/usr/bin:/sbin:/bin");
+        new_env[size + 1] = NULL;
+        free(*env);
+        *env = new_env;
+    }
+}

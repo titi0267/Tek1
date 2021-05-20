@@ -38,6 +38,7 @@ char **remove_env_variable(char **args, char **env);
 
 int check_valid_env_name(char *name);
 int get_env_name_length(char *line);
+void set_default_path(char ***env);
 
 void add_char(char **str, int len, char c);
 int count_char(char *str, char c);

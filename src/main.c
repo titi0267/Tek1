@@ -20,6 +20,7 @@ int main(int ac, char **av, char **default_env)
 
     if (!shell.env || shell.stdin == -1 || shell.stdout == -1)
         return (84);
+    set_default_path(&(shell.env));
     while (1) {
         input = read_input("$> ", 3);
         if (!input)
