@@ -20,6 +20,7 @@
 void execute_commands(char **cmds, shell_t *shell)
 {
     char **sub_cmds = NULL;
+    int tmp;
 
     if (!cmds)
         return;
@@ -31,7 +32,8 @@ void execute_commands(char **cmds, shell_t *shell)
         shell->prev_pid = -1;
         shell->subcmd_len = subcmd_len(sub_cmds);
         execute_subcommands(sub_cmds, shell);
-        wait_all_children(shell);
+        tmp = wait_all_children(shell);
+        shell->ret = shell->ret ? shell->ret : tmp;
         dup2(shell->stdin, 0);
         dup2(shell->stdout, 1);
     }
@@ -55,6 +57,7 @@ void execute_subcommands(char **sub_cmds, shell_t *shell)
         setup_redirections(args, fds, sub_cmds[i + 1] != 0, shell))
             break;
         tmp = execute_command(args, sub_cmds[i + 1] != 0, shell);
+        shell->ret  = tmp > -1 ? tmp : shell->ret;
         close(fds[0]);
         fds[0] = fds[2];
     }

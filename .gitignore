@@ -3,6 +3,7 @@ libmy.a
 test
 errors
 mysh
+42sh
 tests/tests_epi/*
 vgcore*
 big_file

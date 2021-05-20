@@ -46,7 +46,7 @@ int wait_all_children(shell_t *shell)
             saved_status = status;
         }
     }
-    analyse_status_value(saved_status);
+    return (analyse_status_value(saved_status));
 }
 /*
 ** core dumped printed here
@@ -54,13 +54,13 @@ int wait_all_children(shell_t *shell)
 */
 int analyse_status_value(int status)
 {
-    int signal_val;
-
-    if (!WIFSIGNALED(status))
-        return (0);
-    signal_val = WTERMSIG(status);
-    print_sig_error(status, signal_val);
-    return (1);
+    if (WIFEXITED(status))
+        return (WEXITSTATUS(status));
+    else if (WIFSIGNALED(status)) {
+        print_sig_error(status, WTERMSIG(status));
+        return (SIGNAL_QUIT_VALUE + WTERMSIG(status));
+    }
+    return (-1);
 }
 
 void print_sig_error(int status, int sig)
