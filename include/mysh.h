@@ -24,7 +24,7 @@ typedef struct shell_s {
     int out_fd;
     unsigned char ret;
     int prev_pid;
-    int subcmd_len;
+    int child_sh_close;
 } shell_t;
 
 void exit_program(int ret);
@@ -86,7 +86,7 @@ void check_pipe_fd_validity(int pipefd[2]);
 void heredoc(char *eof, int out_fd);
 
 int run_file(char *bin, char **args, char next, shell_t *shell);
-int analyse_status_value(int status);
+int analyse_status_value(int status, int print_err);
 void print_sig_error(int status, int sig);
 
 char *search_binary(char **args, shell_t *shell);
@@ -101,5 +101,7 @@ int change_dir(char *dir, shell_t *shell);
 void read_line(int fd, char **str, int *len);
 int subcmd_len(char **subcmd);
 int wait_all_children(shell_t *shell);
+
+void my_perror(char *prefix, char *error_msg);
 
 #endif /* !MYSH_H_ */

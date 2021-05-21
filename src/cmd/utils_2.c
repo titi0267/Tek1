@@ -15,3 +15,11 @@ int subcmd_len(char **subcmd)
     for (; subcmd[i]; i++);
     return (i);
 }
+
+void my_perror(char *prefix, char *error_msg)
+{
+    write(2, prefix, my_strlen(prefix));
+    write(2, ":", 1);
+    write(2, error_msg, my_strlen(error_msg));
+    write(2, "\n", 1);
+}

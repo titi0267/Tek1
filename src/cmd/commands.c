@@ -30,7 +30,6 @@ void execute_commands(char **cmds, shell_t *shell)
             return;
         shell->ret = 0;
         shell->prev_pid = -1;
-        shell->subcmd_len = subcmd_len(sub_cmds);
         execute_subcommands(sub_cmds, shell);
         tmp = wait_all_children(shell);
         shell->ret = shell->ret ? shell->ret : tmp;
