@@ -7,6 +7,7 @@
 
 #include "my.h"
 #include "mysh.h"
+#include <unistd.h>
 
 int subcmd_len(char **subcmd)
 {
