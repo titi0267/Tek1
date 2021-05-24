@@ -77,4 +77,3 @@ char **my_str_to_word_array(char *str)
     tab = my_str_to_word_array2(str, tab);
     return (tab);
 }
-
