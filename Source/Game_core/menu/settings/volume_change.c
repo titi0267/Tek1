@@ -7,7 +7,7 @@
 
 #include "../../../../include/defender.h"
 
- void change_vol_up(menu_t *menu)
+void change_vol_up(menu_t *menu)
 {
     if (menu->button->enable_click == FALSE &&
         menu->stg->vol->click_up == TRUE) {
@@ -36,4 +36,3 @@ void change_vol_down(menu_t *menu)
         menu->stg->vol->click_down = FALSE;
     }
 }
-

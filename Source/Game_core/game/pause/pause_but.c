@@ -9,7 +9,8 @@
 
 void pause_but(pause_t *pause)
 {
-    pause->pause_tex = sfTexture_createFromFile("Ressources/button/menu/setting/settings.png", NULL);
+    pause->pause_tex = sfTexture_createFromFile
+    ("Ressources/button/menu/setting/settings.png", NULL);
     pause->pause_spt = sfSprite_create();
     sfVector2f scale = {0.5, 0.5};
     sfVector2f pause_pos = {1690, 10};
@@ -26,7 +27,8 @@ void draw_pause(pause_t *pause, window_t *wnd, core_t *core)
     sfRenderWindow_drawSprite(wnd->window, core->menu->stg->vol->vol_spt, NULL);
     sfSprite_setTextureRect(core->menu->stg->vol->vol_nbr_spt,
                             core->menu->stg->vol->vol_nbr);
-    sfRenderWindow_drawSprite(wnd->window, core->menu->stg->vol->vol_nbr_spt, NULL);
+    sfRenderWindow_drawSprite
+    (wnd->window, core->menu->stg->vol->vol_nbr_spt, NULL);
     print_fullscr(core->menu->stg, wnd, core->menu);
     print_medscr(core->menu->stg, wnd, core->menu);
     print_up_vol(core->menu, wnd);
@@ -36,11 +38,11 @@ void draw_pause(pause_t *pause, window_t *wnd, core_t *core)
     draw_leave_pause(pause, core->menu, wnd);
 }
 
-void pause_on(pause_t *pause, window_t *wnd, core_t *core)
+void pause_on(menu_t *menu)
 {
-    if (core->menu->button->enable_click == TRUE) {
-        core->menu->pause_on = TRUE;
-        core->menu->go_to_stg = TRUE;
+    if (menu->button->enable_click == TRUE) {
+        menu->pause_on = TRUE;
+        menu->go_to_stg = TRUE;
     }
 }
 
@@ -53,7 +55,7 @@ void pause_click(pause_t *pause, window_t *wnd, core_t *core)
         (box_size_x(wnd, pause_pos.left) + box_size_x(wnd, pause_pos.width)))
         && (mouse_pos.y >= box_size_y(wnd, pause_pos.top) && mouse_pos.y <=
         (box_size_y(wnd, pause_pos.top) + box_size_y(wnd, pause_pos.height)))) {
-            pause_on(pause, wnd, core);
+        pause_on(core->menu);
     } else
         sfRenderWindow_drawSprite(wnd->window,
                                 pause->pause_spt, NULL);

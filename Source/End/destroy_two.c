@@ -41,7 +41,6 @@ void destroy_stg_bg_tex(menu_t *menu)
     sfTexture_destroy(menu->name_tex);
     sfTexture_destroy(menu->stg->return_tex);
     sfTexture_destroy(menu->stg->hover_return_tex);
-    //sfTexture_destroy(menu->stg->click_return_tex);
 }
 
 void destroy_stg_bg_spt(menu_t *menu)
@@ -50,5 +49,4 @@ void destroy_stg_bg_spt(menu_t *menu)
     sfSprite_destroy(menu->name_spt);
     sfSprite_destroy(menu->stg->return_spt);
     sfSprite_destroy(menu->stg->hover_return_spt);
-    //sfSprite_destroy(menu->stg->click_return_spt);
 }

@@ -51,7 +51,7 @@ void mv_stg_six(menu_t *menu, sfVector2f pos)
     sfSprite_setPosition(menu->name_spt, pos);
 }
 
-sfVector2f mv_to_stg_all_bis(sfVector2f pos, pause_t *pause)
+sfVector2f mv_to_stg_six(sfVector2f pos, pause_t *pause)
 {
     pos.x = sfSprite_getGlobalBounds(pause->play_spt).left;
     pos.y = sfSprite_getGlobalBounds(pause->play_spt).top;
@@ -72,6 +72,12 @@ sfVector2f mv_to_stg_all_bis(sfVector2f pos, pause_t *pause)
     pos.x = sfSprite_getGlobalBounds(pause->leave_hover_spt).left;
     pos.y = sfSprite_getGlobalBounds(pause->leave_hover_spt).top;
     pos.x -= 20;
+    return (pos);
+}
+
+sfVector2f mv_to_stg_all_bis(sfVector2f pos, pause_t *pause)
+{
+    pos = mv_to_stg_six(pos, pause);
     sfSprite_setPosition(pause->leave_hover_spt, pos);
     pos.x = sfSprite_getGlobalBounds(pause->play_hover_spt).left;
     pos.y = sfSprite_getGlobalBounds(pause->play_hover_spt).top;

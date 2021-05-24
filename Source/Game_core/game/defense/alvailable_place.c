@@ -21,7 +21,8 @@ void fill_alrd_build(game_t *game)
 void calc_vector_bis(game_t *game, menu_t *menu, int i)
 {
     if (game->tower->tower_release == TRUE &&
-        menu->button->enable_click == TRUE && game->tower->wich_defense != 3 && i != 9) {
+        menu->button->enable_click == TRUE &&
+        game->tower->wich_defense != 3 && i != 9) {
         game->tower->area[i] = TRUE;
         game->tower->transmit_pos.x = game->tower->good_pos[i].x;
         game->tower->transmit_pos.y = game->tower->good_pos[i].y;

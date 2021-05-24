@@ -50,7 +50,13 @@ typedef struct eco_center_s
     int cool_down;
 } eco_center_t;
 
-typedef enum def_spt_s {ice_tower = 0, arrow_tower = 1, wiz_tower = 2, eco_center = 3, poor = 4} def_spt_t;
+typedef enum def_spt_s {
+    ice_tower,
+    arrow_tower,
+    wiz_tower,
+    eco_center,
+    poor
+} def_spt_t;
 
 typedef struct tower_s
 {
@@ -165,7 +171,14 @@ typedef struct window_s
     sfVector2f pos;
 } window_t;
 
-typedef enum scenes_s {scene_menu = 1, scene_settings = 2, scene_game = 3, scene_shop = 4, scene_pause = 5, no_scene = 6} scenes_t;
+typedef enum scenes_s {
+    scene_menu = 1,
+    scene_settings = 2,
+    scene_game = 3,
+    scene_shop = 4,
+    scene_pause = 5,
+    no_scene = 6
+} scenes_t;
 
 typedef struct button_s
 {

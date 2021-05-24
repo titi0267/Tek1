@@ -75,7 +75,7 @@ void draw_shop_bis(core_t *core, window_t *wnd)
     }
 }
 
-int draw_shop(core_t *core, window_t *wnd)
+void draw_shop(core_t *core, window_t *wnd)
 {
     manage_price_all(core);
     if (core->game->tower->tower_click == FALSE) {
@@ -90,7 +90,7 @@ int draw_shop(core_t *core, window_t *wnd)
         if (core->game->tower->wich_defense == poor ||
             core->game->accpet == FALSE) {
             core->game->tower->tower_click = FALSE;
-            return (0);
+            return;
         }
         draw_shop_bis(core, wnd);
     }

@@ -10,8 +10,7 @@
 void volume_spt(volume_t *vol)
 {
     vol->vol_tex = sfTexture_createFromFile(
-                        "Ressources/button/settings/volume/sound_spt.png",
-                        NULL);
+    "Ressources/button/settings/volume/sound_spt.png", NULL);
     vol->vol_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
     sfVector2f vol_pos = {2020, 513};
@@ -24,8 +23,7 @@ void volume_spt(volume_t *vol)
 void vol_nbr_spt(volume_t *vol)
 {
     vol->vol_nbr_tex = sfTexture_createFromFile(
-                        "Ressources/Text/Number.png",
-                        NULL);
+                        "Ressources/Text/Number.png", NULL);
     vol->vol_nbr_spt = sfSprite_create();
     sfVector2f scale = {1, 1};
     sfVector2f vol_nbr_pos = {2240, 540};
@@ -40,4 +38,3 @@ void vol_nbr_spt(volume_t *vol)
     vol->offset = 4;
     vol->width_backup = vol->vol_nbr.width;
 }
-

@@ -30,7 +30,7 @@ void draw_menu(menu_t *menu, window_t *wnd);
 void draw_settings(menu_t *menu, window_t *wnd);
 void draw_game(game_t *game, window_t *wnd, core_t *core);
 void draw_shop_bis(core_t *core, window_t *wnd);
-int draw_shop(core_t *core, window_t *wnd);
+void draw_shop(core_t *core, window_t *wnd);
 void print_scene(menu_t *menu, window_t *wnd, game_t *game, core_t *core);
 
 void resize_wnd_med(menu_t *menu, window_t *wnd);

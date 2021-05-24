@@ -7,7 +7,7 @@
 
 #include "../../../../include/defender.h"
 
-void switch_next(menu_t *menu, pause_t *pause)
+void switch_next(menu_t *menu)
 {
     if (sfSprite_getGlobalBounds(menu->bgd_spt).left >= 0 &&
         menu->pause_on == FALSE && menu->game_bgd == FALSE) {
@@ -37,5 +37,5 @@ void switch_bg(menu_t *menu, pause_t *pause)
     } else if (menu->menu_bg == FALSE && menu->return_to_menu == TRUE) {
         mv_menu_all(menu, pause);
     }
-    switch_next(menu, pause);
+    switch_next(menu);
 }
