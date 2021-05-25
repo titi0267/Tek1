@@ -7,11 +7,11 @@ fail=0
 function run_file() {
     local file=$1
     mysh="$(cat $file | ../../42sh 2>/dev/null)"
-    mysh_err="$(cat $file | ../../42sh 2>&1)"
+    mysh_err="$(cat $file | ../../42sh 2>&1 >/dev/null)"
     mysh_ret=$(echo $?)
 
     tcsh="$(cat $file | tcsh 2>/dev/null)"
-    tcsh_err="$(cat $file | tcsh 2>&1)"
+    tcsh_err="$(cat $file | tcsh 2>&1 >/dev/null)"
     tcsh_ret=$(echo $?)
 
     if [ "$mysh" = "$tcsh" ] && [ "$mysh_err" = "$tcsh_err" ] && [ $mysh_ret -eq $tcsh_ret ]; then
