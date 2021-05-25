@@ -35,9 +35,9 @@ void execute_commands(char **cmds, shell_t *shell)
             execute_subcommands(sub_cmds, shell);
             tmp = wait_all_children(shell);
             shell->ret = shell->ret ? shell->ret : tmp;
+            dup2(shell->stdin, 0);
+            dup2(shell->stdout, 1);
         }
-        dup2(shell->stdin, 0);
-        dup2(shell->stdout, 1);
     }
 }
 
