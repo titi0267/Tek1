@@ -11,6 +11,7 @@
 #include <signal.h>
 
 #define NB_ERRORS 10
+#define EXECVE_FAIL " Exec format error. Wrong Architecture."
 
 const int SIG_ERRORS[] = {SIGBUS,
                         SIGFPE,

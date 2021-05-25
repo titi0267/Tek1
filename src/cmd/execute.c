@@ -28,8 +28,11 @@ int run_file(char *bin, char **args, char next, shell_t *shell)
     if ((shell->prev_pid = fork()) == -1) {
         return (-1);
     } else if (shell->prev_pid == 0) {
+        if (shell->child_sh_close != -1)
+            close(shell->child_sh_close);
         execve(bin, args, shell->env);
-        exit(0);
+        my_perror(args[0], EXECVE_FAIL);
+        return (1);
     } else {
         return (0);
     }
@@ -46,18 +49,20 @@ int wait_all_children(shell_t *shell)
             saved_status = status;
         }
     }
-    return (analyse_status_value(saved_status));
+    analyse_status_value(saved_status, 1);
+    return (analyse_status_value(status, 0));
 }
 /*
 ** core dumped printed here
 ** important checks shall be done before
 */
-int analyse_status_value(int status)
+int analyse_status_value(int status, int print_err)
 {
     if (WIFEXITED(status))
         return (WEXITSTATUS(status));
     else if (WIFSIGNALED(status)) {
-        print_sig_error(status, WTERMSIG(status));
+        if (print_err)
+            print_sig_error(status, WTERMSIG(status));
         return (SIGNAL_QUIT_VALUE + WTERMSIG(status));
     }
     return (-1);
