@@ -23,7 +23,7 @@ int setup_pipes(int fds[3], char next, shell_t *shell)
     int pipefd[2];
 
     if (next) {
-        pipe(pipefd);
+        pipe2(pipefd, O_NONBLOCK);
         if (fds[1] != 1)
             close(fds[1]);
         check_pipe_fd_validity(pipefd);
