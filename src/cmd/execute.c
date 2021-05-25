@@ -63,7 +63,7 @@ int analyse_status_value(int status, int print_err)
     else if (WIFSIGNALED(status)) {
         if (print_err)
             print_sig_error(status, WTERMSIG(status));
-        return (SIGNAL_QUIT_VALUE + WTERMSIG(status));
+        return (0);
     }
     return (-1);
 }
