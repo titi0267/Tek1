@@ -67,6 +67,9 @@ int execute_command(char **args, char next, shell_t *shell);
 int builtin_cmd(char **args, shell_t *shell);
 int check_null_cmd(char **args, shell_t *shell);
 
+int separators(char **cmd, char ***sub_cmds, shell_t *shell);
+int execute_separator(char **cmd, char ***sub_cmds, shell_t *shell);
+
 int setup_redirections(char **args, int fds[3], char next, shell_t *shell);
 int setup_all_file_redirection(char **args, int fds[3], shell_t *shell);
 int get_file_redirection(char ***args);

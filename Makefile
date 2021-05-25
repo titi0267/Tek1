@@ -14,6 +14,7 @@ SRC		=	src/main.c					\
 			src/cmd/args.c				\
 			src/cmd/builtins.c			\
 			src/cmd/commands.c			\
+			src/cmd/separators.c		\
 			src/cmd/redirections.c		\
 			src/cmd/file_redirections.c	\
 			src/cmd/pipe_redirections.c	\

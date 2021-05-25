@@ -16,24 +16,27 @@
 ** Execute commands separated by ';'
 ** sub_cmds separated by |
 ** args separated by (space) and \t
+** NOTE: sub_cmds should be reset every cmd separated by ';'
 */
 void execute_commands(char **cmds, shell_t *shell)
 {
+    char *actual_cmd;
     char **sub_cmds = NULL;
     int tmp;
 
     if (!cmds)
         return;
     for (char **cmd = cmds; *cmd != 0; cmd++) {
-        sub_cmds = split_command_into_subcmds(*cmd);
-        if (!sub_cmds)
-            return;
+        actual_cmd = *cmd;
+        sub_cmds = NULL;
         shell->ret = 0;
-        shell->prev_pid = -1;
-        shell->subcmd_len = subcmd_len(sub_cmds);
-        execute_subcommands(sub_cmds, shell);
-        tmp = wait_all_children(shell);
-        shell->ret = shell->ret ? shell->ret : tmp;
+        while (separators(&actual_cmd, &sub_cmds, shell) && sub_cmds) {
+            shell->prev_pid = -1;
+            shell->subcmd_len = subcmd_len(sub_cmds);
+            execute_subcommands(sub_cmds, shell);
+            tmp = wait_all_children(shell);
+            shell->ret = shell->ret ? shell->ret : tmp;
+        }
         dup2(shell->stdin, 0);
         dup2(shell->stdout, 1);
     }
