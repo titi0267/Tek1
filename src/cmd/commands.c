@@ -30,10 +30,11 @@ void execute_commands(char **cmds, shell_t *shell)
         actual_cmd = *cmd;
         sub_cmds = NULL;
         shell->ret = 0;
+        if (check_null_cmd(actual_cmd, NULL, shell))
+            continue;
         while (separators(&actual_cmd, &sub_cmds, shell) && sub_cmds) {
             shell->prev_pid = -1;
-            execute_subcommands(sub_cmds, shell);
-            tmp = wait_all_children(shell);
+            tmp = execute_subcommands(sub_cmds, shell);
             shell->ret = shell->ret ? shell->ret : tmp;
             dup2(shell->stdin, 0);
             dup2(shell->stdout, 1);
@@ -45,7 +46,7 @@ void execute_commands(char **cmds, shell_t *shell)
 ** Execute sub-commands separated by '|'
 ** fds[3] = {in, out, next_in}
 */
-void execute_subcommands(char **sub_cmds, shell_t *shell)
+int execute_subcommands(char **sub_cmds, shell_t *shell)
 {
     int fds[3] = {0, 1, 0};
     char *cmd = NULL;
@@ -55,7 +56,7 @@ void execute_subcommands(char **sub_cmds, shell_t *shell)
     for (int i = 0; sub_cmds[i]; i++) {
         cmd = sub_cmds[i];
         args = split_command_into_args(cmd);
-        if (check_null_cmd(args, shell) || shell->ret ||
+        if (check_null_cmd(NULL, args, shell) || shell->ret ||
         setup_redirections(args, fds, sub_cmds[i + 1] != 0, shell))
             break;
         tmp = execute_command(args, sub_cmds[i + 1] != 0, shell);
@@ -63,6 +64,7 @@ void execute_subcommands(char **sub_cmds, shell_t *shell)
         close(fds[0]);
         fds[0] = fds[2];
     }
+    return (wait_all_children(shell));
 }
 
 /*
@@ -101,9 +103,21 @@ int builtin_cmd(char **args, shell_t *shell)
     return (-1);
 }
 
-int check_null_cmd(char **args, shell_t *shell)
+/*
+** Check null command (= only a pipe)
+** Check cmd or args
+*/
+int check_null_cmd(char *cmd, char **args, shell_t *shell)
 {
-    if (!args) {
+    if (cmd) {
+        for (; *cmd == ' '; cmd++);
+        if (cmd[0] == '|') {
+            write(2, "Invalid null command.\n", 22);
+            shell->ret = 1;
+            return (1);
+        } else
+            return (0);
+    } else if (!args) {
         if (shell->in_fd != 0 || shell->out_fd != 1) {
             write(2, "Invalid null command.\n", 22);
             shell->ret = 1;

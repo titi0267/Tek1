@@ -62,10 +62,10 @@ char **split_command_into_subcmds(char *str);
 char **split_command_into_args(char *cmd);
 
 void execute_commands(char **cmds, shell_t *shell);
-void execute_subcommands(char **sub_cmds, shell_t *shell);
+int execute_subcommands(char **sub_cmds, shell_t *shell);
 int execute_command(char **args, char next, shell_t *shell);
 int builtin_cmd(char **args, shell_t *shell);
-int check_null_cmd(char **args, shell_t *shell);
+int check_null_cmd(char *cmd, char **args, shell_t *shell);
 
 int separators(char **cmd, char ***sub_cmds, shell_t *shell);
 int execute_separator(char **cmd, char ***sub_cmds, shell_t *shell);

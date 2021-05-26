@@ -1,1 +1,1 @@
-ls / | ../errors | cat
+ls / | ../errors 1 | cat
