@@ -33,6 +33,7 @@ void execute_commands(char **cmds, shell_t *shell)
         if (check_null_cmd(actual_cmd, NULL, shell))
             continue;
         while (separators(&actual_cmd, &sub_cmds, shell) && sub_cmds) {
+            shell->ret = 0;
             shell->prev_pid = -1;
             tmp = execute_subcommands(sub_cmds, shell);
             shell->ret = shell->ret ? shell->ret : tmp;
@@ -63,6 +64,7 @@ int execute_subcommands(char **sub_cmds, shell_t *shell)
         shell->ret  = tmp > 0 ? tmp : shell->ret;
         fds[0] = fds[2];
     }
+    close(fds[2]);
     close(0);
     close(1);
     return (wait_all_children(shell));

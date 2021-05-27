@@ -1,1 +1,1 @@
-echo test | ../errors 1 || echo test2
+echo test | ../test 1 || echo test2

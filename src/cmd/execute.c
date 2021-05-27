@@ -43,13 +43,15 @@ int wait_all_children(shell_t *shell)
 {
     int status = 0;
     int saved_status = 0;
+    int ret = 0;
 
     while (wait(&status) > 0) {
-        if (saved_status == 0 && WIFSIGNALED(status)) {
+        ret = ret > 0 ? ret : analyse_status_value(status, 0);
+        if (WIFSIGNALED(status))
             saved_status = status;
-        }
     }
-    return (analyse_status_value(status, 1));
+    analyse_status_value(saved_status, 1);
+    return (ret);
 }
 /*
 ** core dumped printed here
@@ -80,7 +82,7 @@ void print_sig_error(int status, int sig)
     if (i == NB_ERRORS)
         return;
     if (WCOREDUMP(status))
-        write(2, " (core dumped)\n", 15);
+        write(2, " (core dumped) \n", 16);
     else
-        write(2, "\n", 1);
+        write(2, " \n", 2);
 }

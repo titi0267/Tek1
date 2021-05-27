@@ -1,1 +1,1 @@
-cat ../big_file | cat -e
+cat ../big_file | grep
