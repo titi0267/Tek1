@@ -24,7 +24,6 @@ typedef struct shell_s {
     int out_fd;
     unsigned char ret;
     int prev_pid;
-    int child_sh_close;
 } shell_t;
 
 void exit_program(int ret);

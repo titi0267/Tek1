@@ -23,21 +23,14 @@ int setup_pipes(int fds[3], char next, shell_t *shell)
     int pipefd[2];
 
     if (next) {
-        pipe2(pipefd, O_NONBLOCK);
-        if (fds[1] != 1)
-            close(fds[1]);
+        pipe(pipefd);
         check_pipe_fd_validity(pipefd);
         if (pipefd[0] == -1 || pipefd[1] == -1)
             return (1);
         fds[2] = pipefd[0];
         fds[1] = pipefd[1];
-        shell->child_sh_close = pipefd[0];
-    } else if (fds[1] != 1) {
-        close(fds[1]);
-        fds[1] = shell->stdout;
-    }
-    if (!next)
-        shell->child_sh_close = -1;
+    } else if (fds[1] != 1)
+        fds[1] = dup(shell->stdout);
     return (0);
 }
 

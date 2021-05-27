@@ -28,8 +28,16 @@ int setup_redirections(char **args, int fds[3], char next, shell_t *shell)
         return (1);
     shell->in_fd = fds[0];
     shell->out_fd = fds[1];
-    dup2(fds[0], 0);
-    dup2(fds[1], 1);
+    if (fds[0] != 0) {
+        close(0);
+        dup2(fds[0], 0);
+        close(fds[0]);
+    }
+    if (fds[1] != 1) {
+        close(1);
+        dup2(fds[1], 1);
+        close(fds[1]);
+    }
     return (0);
 }
 

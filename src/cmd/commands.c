@@ -51,7 +51,7 @@ int execute_subcommands(char **sub_cmds, shell_t *shell)
     int fds[3] = {0, 1, 0};
     char *cmd = NULL;
     char **args = NULL;
-    int tmp = 0;
+    int tmp = -1;
 
     for (int i = 0; sub_cmds[i]; i++) {
         cmd = sub_cmds[i];
@@ -60,10 +60,11 @@ int execute_subcommands(char **sub_cmds, shell_t *shell)
         setup_redirections(args, fds, sub_cmds[i + 1] != 0, shell))
             break;
         tmp = execute_command(args, sub_cmds[i + 1] != 0, shell);
-        shell->ret  = tmp > -1 ? tmp : shell->ret;
-        close(fds[0]);
+        shell->ret  = tmp > 0 ? tmp : shell->ret;
         fds[0] = fds[2];
     }
+    close(0);
+    close(1);
     return (wait_all_children(shell));
 }
 

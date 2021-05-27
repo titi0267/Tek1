@@ -28,8 +28,8 @@ int run_file(char *bin, char **args, char next, shell_t *shell)
     if ((shell->prev_pid = fork()) == -1) {
         return (-1);
     } else if (shell->prev_pid == 0) {
-        if (shell->child_sh_close != -1)
-            close(shell->child_sh_close);
+        for (int i = 3; i < 16; i++)
+            close(i);
         execve(bin, args, shell->env);
         my_perror(args[0], EXECVE_FAIL);
         return (1);
@@ -41,7 +41,7 @@ int run_file(char *bin, char **args, char next, shell_t *shell)
 
 int wait_all_children(shell_t *shell)
 {
-    int status;
+    int status = 0;
     int saved_status = 0;
 
     while (wait(&status) > 0) {
@@ -49,8 +49,7 @@ int wait_all_children(shell_t *shell)
             saved_status = status;
         }
     }
-    analyse_status_value(saved_status, 1);
-    return (analyse_status_value(status, 0));
+    return (analyse_status_value(status, 1));
 }
 /*
 ** core dumped printed here
