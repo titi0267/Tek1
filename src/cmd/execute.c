@@ -82,7 +82,7 @@ void print_sig_error(int status, int sig)
     if (i == NB_ERRORS)
         return;
     if (WCOREDUMP(status))
-        write(2, " (core dumped) \n", 16);
+        write(2, " (core dumped)\n", 15);
     else
         write(2, " \n", 2);
 }
