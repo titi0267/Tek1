@@ -15,10 +15,6 @@ int main(int ac, char **av)
 
     if (check_error(ac) != 0)
         return (84);
-    nfs->average_right = 0;
-    nfs->average_left = 0;
-    nfs->average_lastright = 400;
-    nfs->average_lastleft = 400;
     nfs->avoiding = 0;
     nfs->avoid_mul = 0;
     nfs->stop = 0;
