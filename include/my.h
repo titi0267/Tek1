@@ -25,6 +25,7 @@ typedef struct nfors_s {
     float avoid_mul;
     int stop;
     int wheel;
+    int end_car;
 } nfors_t;
 
 void my_putchar(char, infin_number_t *info);

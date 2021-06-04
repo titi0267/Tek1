@@ -23,21 +23,13 @@ char **malloc_double(char *str, int space)
 
 void compare_clear(char *str, nfors_t *nfs, int tab_len)
 {
-    char *string = malloc(sizeof(char) * 15);
-    int count = 0;
     int x = 0;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == 'T' && str[i + 1] == 'r' && str[i + 2] == 'a')
-            count = 1;
-        if (count == 1 && str[i] != ':') {
-            string[x] = str[i];
-            x++;
+        if (str[i] == 'T' && str[i + 1] == 'r' && str[i + 2] == 'a') {
+            nfs->end_car = 1;
         }
     }
-    if (my_strcmp(string, "Track Cleared") == 0)
-        nfs->end_car = 1;
-    free(string);
 }
 
 void my_str_to_word_array(char *str, nfors_t *nfs)

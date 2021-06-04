@@ -23,17 +23,17 @@ void break_car_right(nfors_t *nfs)
         dprintf(1, "WHEELS_DIR:0.0\n");
         order_line(nfs);
     } else if (wall_right >= 450 && wall_left >= 450) {
-        dprintf(1, "Car_forward:0.2\n");
+        dprintf(1, "Car_forward:0.3\n");
         order_line(nfs);
         dprintf(1, "WHEELS_DIR:0.0\n");
         order_line(nfs);
     } else if (wall_right >= 250 && wall_right < wall_left) {
-        dprintf(1, "Car_forward:0.15\n");
+        dprintf(1, "Car_forward:0.2\n");
         order_line(nfs);
         dprintf(1, "WHEELS_DIR:0.2\n");
         order_line(nfs);
     } else if (wall_right >= 75 && wall_right < wall_left) {
-        dprintf(1, "Car_forward:0.1\n");
+        dprintf(1, "Car_forward:0.13\n");
         order_line(nfs);
         dprintf(1, "WHEELS_DIR:0.5\n");
         order_line(nfs);
@@ -57,17 +57,17 @@ void break_car(nfors_t *nfs)
         dprintf(1, "WHEELS_DIR:0.0\n");
         order_line(nfs);
     } else if (wall_right >= 450 && wall_left >= 450) {
-        dprintf(1, "Car_forward:0.2\n");
+        dprintf(1, "Car_forward:0.3\n");
         order_line(nfs);
         dprintf(1, "WHEELS_DIR:0.0\n");
         order_line(nfs);
     } else if (wall_left >= 250 && wall_right > wall_left) {
-        dprintf(1, "Car_forward:0.15\n");
+        dprintf(1, "Car_forward:0.2\n"); //0.15
         order_line(nfs);
         dprintf(1, "WHEELS_DIR:-0.2\n");
         order_line(nfs);
     } else if (wall_left >= 75 && wall_right > wall_left) {
-        dprintf(1, "Car_forward:0.1\n");
+        dprintf(1, "Car_forward:0.13\n");
         order_line(nfs);
         dprintf(1, "WHEELS_DIR:-0.5\n");
         order_line(nfs);
