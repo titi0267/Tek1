@@ -1,0 +1,1 @@
+echo test1 | cat -e && echo test2 | cat -e
