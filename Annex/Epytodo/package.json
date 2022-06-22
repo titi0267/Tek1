@@ -1,0 +1,28 @@
+{
+  "name": "b-web-200-stg-2-1-epytodo-timothe.coniel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EpitechIT2020/B-WEB-200-STG-2-1-epytodo-timothe.coniel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EpitechIT2020/B-WEB-200-STG-2-1-epytodo-timothe.coniel/issues"
+  },
+  "homepage": "https://github.com/EpitechIT2020/B-WEB-200-STG-2-1-epytodo-timothe.coniel#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5"
+  }
+}
