@@ -1,0 +1,14 @@
+**/*.o
+libmy.a
+test
+errors
+mysh
+42sh
+tests/tests_epi/*
+vgcore*
+big_file
+mouli.sh
+todo
+hack.c
+abort.c
+float.c

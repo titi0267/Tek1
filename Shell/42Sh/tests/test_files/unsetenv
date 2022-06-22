@@ -1,0 +1,4 @@
+setenv LANG fr_FR.UTF-8
+ls --help
+unsetenv LANG
+ls --help
