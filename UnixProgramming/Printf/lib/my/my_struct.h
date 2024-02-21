@@ -5,11 +5,11 @@
 ** my_struct
 */
 
-#ifndef MY_STRUCT_H_
-#define MY_STRUCT_H_
+// #ifndef MY_STRUCT_H_
+// #define MY_STRUCT_H_
 
-typedef struct str_len {
-    int buf_size;
-} str_len_t;
+// typedef struct str_len_s {
+//     int buf_size;
+// } str_len_t;
 
-#endif /* !MY_STRUCT_H_ */
+// #endif /* !MY_STRUCT_H_ */

@@ -24,7 +24,7 @@ SRC=		my_putchar.c		\
 			my_strcpy.c			\
 			disp_char.c
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-Llib/my	-lmy	-Iinclude	-g
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-Llib/my	-lmy	-g
 
 SRCSPATH	=	lib/my/
 

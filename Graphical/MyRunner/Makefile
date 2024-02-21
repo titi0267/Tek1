@@ -40,7 +40,7 @@ SRC=	src/game_core/main.c		\
 		src/update_pos/move_start_text.c				\
 		src/update_pos/update_enemy_pos.c
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include	-l csfml-audio -l csfml-graphics -l csfml-window -l csfml-system -g
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-I./include -I./../../../../Downloads/CSFML-2.6.0/include	-l csfml-audio -l csfml-graphics -l csfml-window -l csfml-system -g
 
 NAME	=	my_runner
 

@@ -69,7 +69,7 @@ SRCSFILES	=	main.c 			\
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 
-CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-lm	-I./include	-l csfml-audio -l csfml-graphics -l csfml-window -l csfml-system -g
+CFLAGS	=	-Wall	-Wextra	-pedantic	--std=c99	-L./lib/my	-lmy	-lm	-I./include -I./../../../../Downloads/CSFML-2.6.0/include	-l csfml-audio -l csfml-graphics -l csfml-window -l csfml-system -g
 
 NAME	=		my_defender
 

@@ -30,6 +30,7 @@ unsigned int my_put_uint(int, str_len_t *);
 void disp_oct(va_list *, str_len_t *);
 void disp_hexa(va_list *, str_len_t *);
 void disp_hex(va_list *, str_len_t *);
+void disp_heX(va_list *argu_list, str_len_t *info); 
 void my_vprintf(char *, str_len_t *, va_list *);
 int convert_minus(int, str_len_t *);
 void convert_base(unsigned int, int, str_len_t *);

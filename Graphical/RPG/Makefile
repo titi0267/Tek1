@@ -124,7 +124,7 @@ SRCS = $(addprefix $(SRCSPATH), $(SRCSFILES))
 
 NAME	=	my_rpg
 
-CFLAGS = -lm	-lcsfml-audio	-lcsfml-graphics	-lcsfml-window	-lcsfml-system	-g	-Wall -Wextra -Werror
+CFLAGS = -lm	-I./include -I./../../../../Downloads/CSFML-2.6.0/include	-lcsfml-audio	-lcsfml-graphics	-lcsfml-window	-lcsfml-system	-g	-Wall -Wextra
 
 all:
 	$(CC)	$(NAME)	$(SRCS)	$(CFLAGS)

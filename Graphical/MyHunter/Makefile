@@ -15,7 +15,7 @@ NAME=	hunter
 all:	$(NAME)
 
 $(NAME):
-	gcc		$(SRC)	-o	$(NAME)	-l csfml-window -l csfml-graphics -l csfml-system
+	gcc		$(SRC)	-o	$(NAME)	-I./include -I./../../../../Downloads/CSFML-2.6.0/include	-l csfml-window -l csfml-graphics -l csfml-system
 
 clean:
 
