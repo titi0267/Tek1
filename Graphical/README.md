@@ -10,7 +10,7 @@ See more details about [Grand theft covid](https://github.com/titi0267/Grand-The
 
 ### Demo
 
-[![Watch the video](https://i3.ytimg.com/vi/iOeUsD-QKlw/maxresdefault.jpg)](https://youtu.be/iOeUsD-QKlw)
+[![Watch the video](http://i3.ytimg.com/vi/iOeUsD-QKlw/hqdefault.jpg)](https://youtu.be/iOeUsD-QKlw)
 
 ### Description
 
